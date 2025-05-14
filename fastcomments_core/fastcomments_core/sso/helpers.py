@@ -3,7 +3,6 @@ import hashlib
 
 class CreateHashError(Exception):
     """Error occurred during hash creation."""
-    pass
 
 def create_verification_hash(api_key: str, timestamp: int, user_data_json_base64: str):
     try:

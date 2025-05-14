@@ -4,7 +4,6 @@ from fastcomments_core.sso.simple_sso_user_data import SimpleSSOUserData
 
 
 def main():
-    api_key = "your-api-key"
     # This should be done server side for security
     user_data = SimpleSSOUserData(
         "user-123",
