@@ -43,17 +43,6 @@ fi
 
 echo "Generated Python client in ./client"
 
-# Generate API documentation (optional)
-rm -rvf ./docs/api
-
-npx @openapitools/openapi-generator-cli generate \
-    -i "$SPEC_FILE" \
-    -g markdown \
-    -o ./docs/api \
-    -c openapi-config.json
-
-echo "Generated API documentation in ./docs/api"
-
 # Clean up old build artifacts
 echo "Cleaning old build artifacts..."
 rm -rf ./dist ./build ./*.egg-info
