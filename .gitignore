@@ -155,11 +155,6 @@ cython_debug/
 ehthumbs.db
 Thumbs.db
 
-# Project specific
-# Downloaded OpenAPI spec
-openapi.json
-openapi.yaml
-
 # API documentation
 docs/api/
 
