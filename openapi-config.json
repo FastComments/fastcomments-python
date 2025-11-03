@@ -1,0 +1,9 @@
+{
+  "packageName": "client",
+  "projectName": "fastcomments-python",
+  "packageVersion": "0.0.1",
+  "packageUrl": "https://github.com/fastcomments/fastcomments-python",
+  "authorName": "FastComments",
+  "authorEmail": "support@fastcomments.com",
+  "licenseName": "MIT"
+}

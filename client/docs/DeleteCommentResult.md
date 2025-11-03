@@ -1,0 +1,30 @@
+# DeleteCommentResult
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**action** | [**DeleteCommentAction**](DeleteCommentAction.md) |  | 
+**status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+
+## Example
+
+```python
+from generated.models.delete_comment_result import DeleteCommentResult
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of DeleteCommentResult from a JSON string
+delete_comment_result_instance = DeleteCommentResult.from_json(json)
+# print the JSON string representation of the object
+print(DeleteCommentResult.to_json())
+
+# convert the object into a dict
+delete_comment_result_dict = delete_comment_result_instance.to_dict()
+# create an instance of DeleteCommentResult from a dict
+delete_comment_result_from_dict = DeleteCommentResult.from_dict(delete_comment_result_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
