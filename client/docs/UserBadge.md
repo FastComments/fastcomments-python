@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.user_badge import UserBadge
+from client.models.user_badge import UserBadge
 
 # TODO update the JSON string below
 json = "{}"

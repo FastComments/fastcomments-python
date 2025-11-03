@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.checked_comments_for_blocked200_response import CheckedCommentsForBlocked200Response
+from client.models.checked_comments_for_blocked200_response import CheckedCommentsForBlocked200Response
 
 class TestCheckedCommentsForBlocked200Response(unittest.TestCase):
     """CheckedCommentsForBlocked200Response unit test stubs"""
@@ -45,7 +45,7 @@ class TestCheckedCommentsForBlocked200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -110,7 +110,7 @@ class TestCheckedCommentsForBlocked200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 

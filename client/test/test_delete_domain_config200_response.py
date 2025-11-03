@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.delete_domain_config200_response import DeleteDomainConfig200Response
+from client.models.delete_domain_config200_response import DeleteDomainConfig200Response
 
 class TestDeleteDomainConfig200Response(unittest.TestCase):
     """DeleteDomainConfig200Response unit test stubs"""

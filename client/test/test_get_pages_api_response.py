@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_pages_api_response import GetPagesAPIResponse
+from client.models.get_pages_api_response import GetPagesAPIResponse
 
 class TestGetPagesAPIResponse(unittest.TestCase):
     """GetPagesAPIResponse unit test stubs"""
@@ -38,7 +38,7 @@ class TestGetPagesAPIResponse(unittest.TestCase):
                 reason = '',
                 code = '',
                 pages = [
-                    generated.models.api_page.APIPage(
+                    client.models.api_page.APIPage(
                         is_closed = True, 
                         accessible_by_group_ids = [
                             ''

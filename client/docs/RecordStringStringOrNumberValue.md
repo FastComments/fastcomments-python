@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.record_string_string_or_number_value import RecordStringStringOrNumberValue
+from client.models.record_string_string_or_number_value import RecordStringStringOrNumberValue
 
 # TODO update the JSON string below
 json = "{}"

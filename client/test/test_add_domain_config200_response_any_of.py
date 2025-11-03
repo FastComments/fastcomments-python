@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.add_domain_config200_response_any_of import AddDomainConfig200ResponseAnyOf
+from client.models.add_domain_config200_response_any_of import AddDomainConfig200ResponseAnyOf
 
 class TestAddDomainConfig200ResponseAnyOf(unittest.TestCase):
     """AddDomainConfig200ResponseAnyOf unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.aggregate_question_results_response import AggregateQuestionResultsResponse
+from client.models.aggregate_question_results_response import AggregateQuestionResultsResponse
 
 class TestAggregateQuestionResultsResponse(unittest.TestCase):
     """AggregateQuestionResultsResponse unit test stubs"""
@@ -36,16 +36,16 @@ class TestAggregateQuestionResultsResponse(unittest.TestCase):
         if include_optional:
             return AggregateQuestionResultsResponse(
                 status = 'success',
-                data = generated.models.question_result_aggregation_overall.QuestionResultAggregationOverall(
+                data = client.models.question_result_aggregation_overall.QuestionResultAggregationOverall(
                     data_by_date_bucket = {
-                        'key' : generated.models.question_datum.QuestionDatum(
+                        'key' : client.models.question_datum.QuestionDatum(
                             v = {
                                 'key' : 1.337
                                 }, 
                             total = 56, )
                         }, 
                     data_by_url_id = {
-                        'key' : generated.models.question_datum.QuestionDatum(
+                        'key' : client.models.question_datum.QuestionDatum(
                             v = {
                                 'key' : 1.337
                                 }, 
@@ -61,16 +61,16 @@ class TestAggregateQuestionResultsResponse(unittest.TestCase):
         else:
             return AggregateQuestionResultsResponse(
                 status = 'success',
-                data = generated.models.question_result_aggregation_overall.QuestionResultAggregationOverall(
+                data = client.models.question_result_aggregation_overall.QuestionResultAggregationOverall(
                     data_by_date_bucket = {
-                        'key' : generated.models.question_datum.QuestionDatum(
+                        'key' : client.models.question_datum.QuestionDatum(
                             v = {
                                 'key' : 1.337
                                 }, 
                             total = 56, )
                         }, 
                     data_by_url_id = {
-                        'key' : generated.models.question_datum.QuestionDatum(
+                        'key' : client.models.question_datum.QuestionDatum(
                             v = {
                                 'key' : 1.337
                                 }, 

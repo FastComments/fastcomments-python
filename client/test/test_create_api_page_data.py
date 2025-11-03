@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.create_api_page_data import CreateAPIPageData
+from client.models.create_api_page_data import CreateAPIPageData
 
 class TestCreateAPIPageData(unittest.TestCase):
     """CreateAPIPageData unit test stubs"""

@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.pick_f_comment_public_comment_fields_keys import PickFCommentPublicCommentFieldsKeys
+from client.models.pick_f_comment_public_comment_fields_keys import PickFCommentPublicCommentFieldsKeys
 
 # TODO update the JSON string below
 json = "{}"

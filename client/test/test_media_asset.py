@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.media_asset import MediaAsset
+from client.models.media_asset import MediaAsset
 
 class TestMediaAsset(unittest.TestCase):
     """MediaAsset unit test stubs"""

@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.api_error import APIError
+from client.models.api_error import APIError
 
 # TODO update the JSON string below
 json = "{}"

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.get_sso_users200_response import GetSSOUsers200Response
+from client.models.get_sso_users200_response import GetSSOUsers200Response
 
 # TODO update the JSON string below
 json = "{}"

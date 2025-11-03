@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.notification_and_count import NotificationAndCount
+from client.models.notification_and_count import NotificationAndCount
 
 class TestNotificationAndCount(unittest.TestCase):
     """NotificationAndCount unit test stubs"""

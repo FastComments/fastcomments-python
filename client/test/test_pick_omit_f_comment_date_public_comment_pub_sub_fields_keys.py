@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.pick_omit_f_comment_date_public_comment_pub_sub_fields_keys import PickOmitFCommentDatePublicCommentPubSubFieldsKeys
+from client.models.pick_omit_f_comment_date_public_comment_pub_sub_fields_keys import PickOmitFCommentDatePublicCommentPubSubFieldsKeys
 
 class TestPickOmitFCommentDatePublicCommentPubSubFieldsKeys(unittest.TestCase):
     """PickOmitFCommentDatePublicCommentPubSubFieldsKeys unit test stubs"""
@@ -72,7 +72,7 @@ class TestPickOmitFCommentDatePublicCommentPubSubFieldsKeys(unittest.TestCase):
                 rating = 1.337,
                 display_label = '',
                 badges = [
-                    generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                    client.models.comment_user_badge_info.CommentUserBadgeInfo(
                         id = '', 
                         type = 56, 
                         description = '', 

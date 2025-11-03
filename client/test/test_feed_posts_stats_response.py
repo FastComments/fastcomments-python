@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.feed_posts_stats_response import FeedPostsStatsResponse
+from client.models.feed_posts_stats_response import FeedPostsStatsResponse
 
 class TestFeedPostsStatsResponse(unittest.TestCase):
     """FeedPostsStatsResponse unit test stubs"""
@@ -37,7 +37,7 @@ class TestFeedPostsStatsResponse(unittest.TestCase):
             return FeedPostsStatsResponse(
                 status = 'success',
                 stats = {
-                    'key' : generated.models.feed_post_stats.FeedPostStats(
+                    'key' : client.models.feed_post_stats.FeedPostStats(
                         reacts = {
                             'key' : 56
                             }, 
@@ -48,7 +48,7 @@ class TestFeedPostsStatsResponse(unittest.TestCase):
             return FeedPostsStatsResponse(
                 status = 'success',
                 stats = {
-                    'key' : generated.models.feed_post_stats.FeedPostStats(
+                    'key' : client.models.feed_post_stats.FeedPostStats(
                         reacts = {
                             'key' : 56
                             }, 

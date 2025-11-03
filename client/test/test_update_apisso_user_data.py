@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.update_apisso_user_data import UpdateAPISSOUserData
+from client.models.update_apisso_user_data import UpdateAPISSOUserData
 
 class TestUpdateAPISSOUserData(unittest.TestCase):
     """UpdateAPISSOUserData unit test stubs"""

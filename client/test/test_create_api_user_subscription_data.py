@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.create_api_user_subscription_data import CreateAPIUserSubscriptionData
+from client.models.create_api_user_subscription_data import CreateAPIUserSubscriptionData
 
 class TestCreateAPIUserSubscriptionData(unittest.TestCase):
     """CreateAPIUserSubscriptionData unit test stubs"""

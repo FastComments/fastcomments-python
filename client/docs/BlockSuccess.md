@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.block_success import BlockSuccess
+from client.models.block_success import BlockSuccess
 
 # TODO update the JSON string below
 json = "{}"

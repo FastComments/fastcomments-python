@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_comment_vote_user_names_success_response import GetCommentVoteUserNamesSuccessResponse
+from client.models.get_comment_vote_user_names_success_response import GetCommentVoteUserNamesSuccessResponse
 
 class TestGetCommentVoteUserNamesSuccessResponse(unittest.TestCase):
     """GetCommentVoteUserNamesSuccessResponse unit test stubs"""

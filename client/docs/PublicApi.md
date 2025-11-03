@@ -1,4 +1,4 @@
-# generated.PublicApi
+# client.PublicApi
 
 All URIs are relative to *https://fastcomments.com*
 
@@ -50,26 +50,26 @@ Method | HTTP request | Description
 
 
 ```python
-import generated
-from generated.models.block_from_comment_public200_response import BlockFromCommentPublic200Response
-from generated.models.public_block_from_comment_params import PublicBlockFromCommentParams
-from generated.rest import ApiException
+import client
+from client.models.block_from_comment_public200_response import BlockFromCommentPublic200Response
+from client.models.public_block_from_comment_params import PublicBlockFromCommentParams
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     comment_id = 'comment_id_example' # str | 
-    public_block_from_comment_params = generated.PublicBlockFromCommentParams() # PublicBlockFromCommentParams | 
+    public_block_from_comment_params = client.PublicBlockFromCommentParams() # PublicBlockFromCommentParams | 
     sso = 'sso_example' # str |  (optional)
 
     try:
@@ -122,22 +122,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.checked_comments_for_blocked200_response import CheckedCommentsForBlocked200Response
-from generated.rest import ApiException
+import client
+from client.models.checked_comments_for_blocked200_response import CheckedCommentsForBlocked200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     comment_ids = 'comment_ids_example' # str | A comma separated list of comment ids.
     sso = 'sso_example' # str |  (optional)
@@ -191,27 +191,27 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.comment_data import CommentData
-from generated.models.create_comment_public200_response import CreateCommentPublic200Response
-from generated.rest import ApiException
+import client
+from client.models.comment_data import CommentData
+from client.models.create_comment_public200_response import CreateCommentPublic200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     url_id = 'url_id_example' # str | 
     broadcast_id = 'broadcast_id_example' # str | 
-    comment_data = generated.CommentData() # CommentData | 
+    comment_data = client.CommentData() # CommentData | 
     session_id = 'session_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
@@ -267,25 +267,25 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.create_feed_post_params import CreateFeedPostParams
-from generated.models.create_feed_post_public200_response import CreateFeedPostPublic200Response
-from generated.rest import ApiException
+import client
+from client.models.create_feed_post_params import CreateFeedPostParams
+from client.models.create_feed_post_public200_response import CreateFeedPostPublic200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    create_feed_post_params = generated.CreateFeedPostParams() # CreateFeedPostParams | 
+    create_feed_post_params = client.CreateFeedPostParams() # CreateFeedPostParams | 
     broadcast_id = 'broadcast_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
@@ -339,22 +339,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.delete_comment_public200_response import DeleteCommentPublic200Response
-from generated.rest import ApiException
+import client
+from client.models.delete_comment_public200_response import DeleteCommentPublic200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     comment_id = 'comment_id_example' # str | 
     broadcast_id = 'broadcast_id_example' # str | 
@@ -412,22 +412,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.delete_comment_vote200_response import DeleteCommentVote200Response
-from generated.rest import ApiException
+import client
+from client.models.delete_comment_vote200_response import DeleteCommentVote200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     comment_id = 'comment_id_example' # str | 
     vote_id = 'vote_id_example' # str | 
@@ -489,22 +489,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.delete_feed_post_public200_response import DeleteFeedPostPublic200Response
-from generated.rest import ApiException
+import client
+from client.models.delete_feed_post_public200_response import DeleteFeedPostPublic200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     post_id = 'post_id_example' # str | 
     broadcast_id = 'broadcast_id_example' # str |  (optional)
@@ -560,22 +560,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.flag_comment_public200_response import FlagCommentPublic200Response
-from generated.rest import ApiException
+import client
+from client.models.flag_comment_public200_response import FlagCommentPublic200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     comment_id = 'comment_id_example' # str | 
     is_flagged = True # bool | 
@@ -631,22 +631,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.get_comment_text200_response import GetCommentText200Response
-from generated.rest import ApiException
+import client
+from client.models.get_comment_text200_response import GetCommentText200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     comment_id = 'comment_id_example' # str | 
     edit_key = 'edit_key_example' # str |  (optional)
@@ -702,22 +702,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.get_comment_vote_user_names200_response import GetCommentVoteUserNames200Response
-from generated.rest import ApiException
+import client
+from client.models.get_comment_vote_user_names200_response import GetCommentVoteUserNames200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     comment_id = 'comment_id_example' # str | 
     dir = 56 # int | 
@@ -775,27 +775,27 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.get_comments_public200_response import GetCommentsPublic200Response
-from generated.models.sort_directions import SortDirections
-from generated.rest import ApiException
+import client
+from client.models.get_comments_public200_response import GetCommentsPublic200Response
+from client.models.sort_directions import SortDirections
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     url_id = 'url_id_example' # str | 
     page = 56 # int |  (optional)
-    direction = generated.SortDirections() # SortDirections |  (optional)
+    direction = client.SortDirections() # SortDirections |  (optional)
     sso = 'sso_example' # str |  (optional)
     skip = 56 # int |  (optional)
     skip_children = 56 # int |  (optional)
@@ -897,22 +897,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.get_event_log200_response import GetEventLog200Response
-from generated.rest import ApiException
+import client
+from client.models.get_event_log200_response import GetEventLog200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     url_id = 'url_id_example' # str | 
     user_id_ws = 'user_id_ws_example' # str | 
@@ -972,22 +972,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.get_feed_posts_public200_response import GetFeedPostsPublic200Response
-from generated.rest import ApiException
+import client
+from client.models.get_feed_posts_public200_response import GetFeedPostsPublic200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     after_id = 'after_id_example' # str |  (optional)
     limit = 56 # int |  (optional)
@@ -1049,22 +1049,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.get_feed_posts_stats200_response import GetFeedPostsStats200Response
-from generated.rest import ApiException
+import client
+from client.models.get_feed_posts_stats200_response import GetFeedPostsStats200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     post_ids = ['post_ids_example'] # List[str] | 
     sso = 'sso_example' # str |  (optional)
@@ -1120,22 +1120,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.get_event_log200_response import GetEventLog200Response
-from generated.rest import ApiException
+import client
+from client.models.get_event_log200_response import GetEventLog200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     url_id = 'url_id_example' # str | 
     user_id_ws = 'user_id_ws_example' # str | 
@@ -1193,22 +1193,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.get_user_notification_count200_response import GetUserNotificationCount200Response
-from generated.rest import ApiException
+import client
+from client.models.get_user_notification_count200_response import GetUserNotificationCount200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     sso = 'sso_example' # str |  (optional)
 
@@ -1260,22 +1260,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.get_user_notifications200_response import GetUserNotifications200Response
-from generated.rest import ApiException
+import client
+from client.models.get_user_notifications200_response import GetUserNotifications200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     page_size = 56 # int |  (optional)
     after_id = 'after_id_example' # str |  (optional)
@@ -1343,22 +1343,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.get_user_presence_statuses200_response import GetUserPresenceStatuses200Response
-from generated.rest import ApiException
+import client
+from client.models.get_user_presence_statuses200_response import GetUserPresenceStatuses200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     url_id_ws = 'url_id_ws_example' # str | 
     user_ids = 'user_ids_example' # str | 
@@ -1413,22 +1413,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.get_user_reacts_public200_response import GetUserReactsPublic200Response
-from generated.rest import ApiException
+import client
+from client.models.get_user_reacts_public200_response import GetUserReactsPublic200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     post_ids = ['post_ids_example'] # List[str] |  (optional)
     sso = 'sso_example' # str |  (optional)
@@ -1482,22 +1482,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.lock_comment200_response import LockComment200Response
-from generated.rest import ApiException
+import client
+from client.models.lock_comment200_response import LockComment200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     comment_id = 'comment_id_example' # str | 
     broadcast_id = 'broadcast_id_example' # str | 
@@ -1553,22 +1553,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.pin_comment200_response import PinComment200Response
-from generated.rest import ApiException
+import client
+from client.models.pin_comment200_response import PinComment200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     comment_id = 'comment_id_example' # str | 
     broadcast_id = 'broadcast_id_example' # str | 
@@ -1624,26 +1624,26 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.react_body_params import ReactBodyParams
-from generated.models.react_feed_post_public200_response import ReactFeedPostPublic200Response
-from generated.rest import ApiException
+import client
+from client.models.react_body_params import ReactBodyParams
+from client.models.react_feed_post_public200_response import ReactFeedPostPublic200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     post_id = 'post_id_example' # str | 
-    react_body_params = generated.ReactBodyParams() # ReactBodyParams | 
+    react_body_params = client.ReactBodyParams() # ReactBodyParams | 
     is_undo = True # bool |  (optional)
     broadcast_id = 'broadcast_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
@@ -1700,22 +1700,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.reset_user_notifications200_response import ResetUserNotifications200Response
-from generated.rest import ApiException
+import client
+from client.models.reset_user_notifications200_response import ResetUserNotifications200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     sso = 'sso_example' # str |  (optional)
 
@@ -1767,22 +1767,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.reset_user_notifications200_response import ResetUserNotifications200Response
-from generated.rest import ApiException
+import client
+from client.models.reset_user_notifications200_response import ResetUserNotifications200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     after_id = 'after_id_example' # str |  (optional)
     after_created_at = 56 # int |  (optional)
@@ -1844,22 +1844,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.search_users200_response import SearchUsers200Response
-from generated.rest import ApiException
+import client
+from client.models.search_users200_response import SearchUsers200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     url_id = 'url_id_example' # str | 
     username_starts_with = 'username_starts_with_example' # str | 
@@ -1917,27 +1917,27 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.comment_text_update_request import CommentTextUpdateRequest
-from generated.models.set_comment_text200_response import SetCommentText200Response
-from generated.rest import ApiException
+import client
+from client.models.comment_text_update_request import CommentTextUpdateRequest
+from client.models.set_comment_text200_response import SetCommentText200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     comment_id = 'comment_id_example' # str | 
     broadcast_id = 'broadcast_id_example' # str | 
-    comment_text_update_request = generated.CommentTextUpdateRequest() # CommentTextUpdateRequest | 
+    comment_text_update_request = client.CommentTextUpdateRequest() # CommentTextUpdateRequest | 
     edit_key = 'edit_key_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
@@ -1993,26 +1993,26 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.public_block_from_comment_params import PublicBlockFromCommentParams
-from generated.models.un_block_comment_public200_response import UnBlockCommentPublic200Response
-from generated.rest import ApiException
+import client
+from client.models.public_block_from_comment_params import PublicBlockFromCommentParams
+from client.models.un_block_comment_public200_response import UnBlockCommentPublic200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     comment_id = 'comment_id_example' # str | 
-    public_block_from_comment_params = generated.PublicBlockFromCommentParams() # PublicBlockFromCommentParams | 
+    public_block_from_comment_params = client.PublicBlockFromCommentParams() # PublicBlockFromCommentParams | 
     sso = 'sso_example' # str |  (optional)
 
     try:
@@ -2065,22 +2065,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.lock_comment200_response import LockComment200Response
-from generated.rest import ApiException
+import client
+from client.models.lock_comment200_response import LockComment200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     comment_id = 'comment_id_example' # str | 
     broadcast_id = 'broadcast_id_example' # str | 
@@ -2136,22 +2136,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.pin_comment200_response import PinComment200Response
-from generated.rest import ApiException
+import client
+from client.models.pin_comment200_response import PinComment200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     comment_id = 'comment_id_example' # str | 
     broadcast_id = 'broadcast_id_example' # str | 
@@ -2207,26 +2207,26 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.create_feed_post_public200_response import CreateFeedPostPublic200Response
-from generated.models.update_feed_post_params import UpdateFeedPostParams
-from generated.rest import ApiException
+import client
+from client.models.create_feed_post_public200_response import CreateFeedPostPublic200Response
+from client.models.update_feed_post_params import UpdateFeedPostParams
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     post_id = 'post_id_example' # str | 
-    update_feed_post_params = generated.UpdateFeedPostParams() # UpdateFeedPostParams | 
+    update_feed_post_params = client.UpdateFeedPostParams() # UpdateFeedPostParams | 
     broadcast_id = 'broadcast_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
@@ -2283,22 +2283,22 @@ Enable or disable notifications for a specific comment.
 
 
 ```python
-import generated
-from generated.models.update_user_notification_status200_response import UpdateUserNotificationStatus200Response
-from generated.rest import ApiException
+import client
+from client.models.update_user_notification_status200_response import UpdateUserNotificationStatus200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     notification_id = 'notification_id_example' # str | 
     opted_in_or_out = 'opted_in_or_out_example' # str | 
@@ -2358,22 +2358,22 @@ Enable or disable notifications for a page. When users are subscribed to a page,
 
 
 ```python
-import generated
-from generated.models.update_user_notification_status200_response import UpdateUserNotificationStatus200Response
-from generated.rest import ApiException
+import client
+from client.models.update_user_notification_status200_response import UpdateUserNotificationStatus200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     url_id = 'url_id_example' # str | 
     url = 'url_example' # str | 
@@ -2433,22 +2433,22 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.update_user_notification_status200_response import UpdateUserNotificationStatus200Response
-from generated.rest import ApiException
+import client
+from client.models.update_user_notification_status200_response import UpdateUserNotificationStatus200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     notification_id = 'notification_id_example' # str | 
     new_status = 'new_status_example' # str | 
@@ -2506,26 +2506,26 @@ Upload and resize an image
 
 
 ```python
-import generated
-from generated.models.size_preset import SizePreset
-from generated.models.upload_image_response import UploadImageResponse
-from generated.rest import ApiException
+import client
+from client.models.size_preset import SizePreset
+from client.models.upload_image_response import UploadImageResponse
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     file = None # bytearray | 
-    size_preset = generated.SizePreset() # SizePreset | Size preset: \"Default\" (1000x1000px) or \"CrossPlatform\" (creates sizes for popular devices) (optional)
+    size_preset = client.SizePreset() # SizePreset | Size preset: \"Default\" (1000x1000px) or \"CrossPlatform\" (creates sizes for popular devices) (optional)
     url_id = 'url_id_example' # str | Page id that upload is happening from, to configure (optional)
 
     try:
@@ -2578,28 +2578,28 @@ No authorization required
 
 
 ```python
-import generated
-from generated.models.vote_body_params import VoteBodyParams
-from generated.models.vote_comment200_response import VoteComment200Response
-from generated.rest import ApiException
+import client
+from client.models.vote_body_params import VoteBodyParams
+from client.models.vote_comment200_response import VoteComment200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.PublicApi(api_client)
+    api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     comment_id = 'comment_id_example' # str | 
     url_id = 'url_id_example' # str | 
     broadcast_id = 'broadcast_id_example' # str | 
-    vote_body_params = generated.VoteBodyParams() # VoteBodyParams | 
+    vote_body_params = client.VoteBodyParams() # VoteBodyParams | 
     session_id = 'session_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 

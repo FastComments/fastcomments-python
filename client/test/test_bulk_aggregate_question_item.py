@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.bulk_aggregate_question_item import BulkAggregateQuestionItem
+from client.models.bulk_aggregate_question_item import BulkAggregateQuestionItem
 
 class TestBulkAggregateQuestionItem(unittest.TestCase):
     """BulkAggregateQuestionItem unit test stubs"""

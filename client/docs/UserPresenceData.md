@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.user_presence_data import UserPresenceData
+from client.models.user_presence_data import UserPresenceData
 
 # TODO update the JSON string below
 json = "{}"

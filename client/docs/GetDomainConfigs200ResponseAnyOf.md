@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.get_domain_configs200_response_any_of import GetDomainConfigs200ResponseAnyOf
+from client.models.get_domain_configs200_response_any_of import GetDomainConfigs200ResponseAnyOf
 
 # TODO update the JSON string below
 json = "{}"

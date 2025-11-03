@@ -1,4 +1,4 @@
-# generated.DefaultApi
+# client.DefaultApi
 
 All URIs are relative to *https://fastcomments.com*
 
@@ -63,15 +63,15 @@ Method | HTTP request | Description
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.add_domain_config200_response import AddDomainConfig200Response
-from generated.models.add_domain_config_params import AddDomainConfigParams
-from generated.rest import ApiException
+import client
+from client.models.add_domain_config200_response import AddDomainConfig200Response
+from client.models.add_domain_config_params import AddDomainConfigParams
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -87,11 +87,11 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    add_domain_config_params = generated.AddDomainConfigParams() # AddDomainConfigParams | 
+    add_domain_config_params = client.AddDomainConfigParams() # AddDomainConfigParams | 
 
     try:
         api_response = api_instance.add_domain_config(tenant_id, add_domain_config_params)
@@ -142,15 +142,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.add_page_api_response import AddPageAPIResponse
-from generated.models.create_api_page_data import CreateAPIPageData
-from generated.rest import ApiException
+import client
+from client.models.add_page_api_response import AddPageAPIResponse
+from client.models.create_api_page_data import CreateAPIPageData
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -166,11 +166,11 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    create_api_page_data = generated.CreateAPIPageData() # CreateAPIPageData | 
+    create_api_page_data = client.CreateAPIPageData() # CreateAPIPageData | 
 
     try:
         api_response = api_instance.add_page(tenant_id, create_api_page_data)
@@ -221,15 +221,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.add_sso_user_api_response import AddSSOUserAPIResponse
-from generated.models.create_apisso_user_data import CreateAPISSOUserData
-from generated.rest import ApiException
+import client
+from client.models.add_sso_user_api_response import AddSSOUserAPIResponse
+from client.models.create_apisso_user_data import CreateAPISSOUserData
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -245,11 +245,11 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    create_apisso_user_data = generated.CreateAPISSOUserData() # CreateAPISSOUserData | 
+    create_apisso_user_data = client.CreateAPISSOUserData() # CreateAPISSOUserData | 
 
     try:
         api_response = api_instance.add_sso_user(tenant_id, create_apisso_user_data)
@@ -302,15 +302,15 @@ Aggregates documents by grouping them (if groupBy is provided) and applying mult
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.aggregation_request import AggregationRequest
-from generated.models.aggregation_response import AggregationResponse
-from generated.rest import ApiException
+import client
+from client.models.aggregation_request import AggregationRequest
+from client.models.aggregation_response import AggregationResponse
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -326,11 +326,11 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    aggregation_request = generated.AggregationRequest() # AggregationRequest | 
+    aggregation_request = client.AggregationRequest() # AggregationRequest | 
     parent_tenant_id = 'parent_tenant_id_example' # str |  (optional)
     include_stats = True # bool |  (optional)
 
@@ -385,15 +385,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.aggregate_question_results200_response import AggregateQuestionResults200Response
-from generated.models.aggregate_time_bucket import AggregateTimeBucket
-from generated.rest import ApiException
+import client
+from client.models.aggregate_question_results200_response import AggregateQuestionResults200Response
+from client.models.aggregate_time_bucket import AggregateTimeBucket
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -409,14 +409,14 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     question_id = 'question_id_example' # str |  (optional)
     question_ids = ['question_ids_example'] # List[str] |  (optional)
     url_id = 'url_id_example' # str |  (optional)
-    time_bucket = generated.AggregateTimeBucket() # AggregateTimeBucket |  (optional)
+    time_bucket = client.AggregateTimeBucket() # AggregateTimeBucket |  (optional)
     start_date = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     force_recalculate = True # bool |  (optional)
 
@@ -474,15 +474,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.block_from_comment_params import BlockFromCommentParams
-from generated.models.block_from_comment_public200_response import BlockFromCommentPublic200Response
-from generated.rest import ApiException
+import client
+from client.models.block_from_comment_params import BlockFromCommentParams
+from client.models.block_from_comment_public200_response import BlockFromCommentPublic200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -498,12 +498,12 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
-    block_from_comment_params = generated.BlockFromCommentParams() # BlockFromCommentParams | 
+    block_from_comment_params = client.BlockFromCommentParams() # BlockFromCommentParams | 
     user_id = 'user_id_example' # str |  (optional)
     anon_user_id = 'anon_user_id_example' # str |  (optional)
 
@@ -559,15 +559,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.bulk_aggregate_question_results200_response import BulkAggregateQuestionResults200Response
-from generated.models.bulk_aggregate_question_results_request import BulkAggregateQuestionResultsRequest
-from generated.rest import ApiException
+import client
+from client.models.bulk_aggregate_question_results200_response import BulkAggregateQuestionResults200Response
+from client.models.bulk_aggregate_question_results_request import BulkAggregateQuestionResultsRequest
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -583,11 +583,11 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    bulk_aggregate_question_results_request = generated.BulkAggregateQuestionResultsRequest() # BulkAggregateQuestionResultsRequest | 
+    bulk_aggregate_question_results_request = client.BulkAggregateQuestionResultsRequest() # BulkAggregateQuestionResultsRequest | 
     force_recalculate = True # bool |  (optional)
 
     try:
@@ -640,14 +640,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.combine_comments_with_question_results200_response import CombineCommentsWithQuestionResults200Response
-from generated.rest import ApiException
+import client
+from client.models.combine_comments_with_question_results200_response import CombineCommentsWithQuestionResults200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -663,9 +663,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     question_id = 'question_id_example' # str |  (optional)
     question_ids = ['question_ids_example'] # List[str] |  (optional)
@@ -732,15 +732,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.create_feed_post200_response import CreateFeedPost200Response
-from generated.models.create_feed_post_params import CreateFeedPostParams
-from generated.rest import ApiException
+import client
+from client.models.create_feed_post200_response import CreateFeedPost200Response
+from client.models.create_feed_post_params import CreateFeedPostParams
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -756,11 +756,11 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    create_feed_post_params = generated.CreateFeedPostParams() # CreateFeedPostParams | 
+    create_feed_post_params = client.CreateFeedPostParams() # CreateFeedPostParams | 
     broadcast_id = 'broadcast_id_example' # str |  (optional)
     is_live = True # bool |  (optional)
     do_spam_check = True # bool |  (optional)
@@ -819,15 +819,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.create_api_user_subscription_data import CreateAPIUserSubscriptionData
-from generated.models.create_subscription_api_response import CreateSubscriptionAPIResponse
-from generated.rest import ApiException
+import client
+from client.models.create_api_user_subscription_data import CreateAPIUserSubscriptionData
+from client.models.create_subscription_api_response import CreateSubscriptionAPIResponse
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -843,11 +843,11 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    create_api_user_subscription_data = generated.CreateAPIUserSubscriptionData() # CreateAPIUserSubscriptionData | 
+    create_api_user_subscription_data = client.CreateAPIUserSubscriptionData() # CreateAPIUserSubscriptionData | 
 
     try:
         api_response = api_instance.create_subscription(tenant_id, create_api_user_subscription_data)
@@ -898,15 +898,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.create_user_badge200_response import CreateUserBadge200Response
-from generated.models.create_user_badge_params import CreateUserBadgeParams
-from generated.rest import ApiException
+import client
+from client.models.create_user_badge200_response import CreateUserBadge200Response
+from client.models.create_user_badge_params import CreateUserBadgeParams
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -922,11 +922,11 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    create_user_badge_params = generated.CreateUserBadgeParams() # CreateUserBadgeParams | 
+    create_user_badge_params = client.CreateUserBadgeParams() # CreateUserBadgeParams | 
 
     try:
         api_response = api_instance.create_user_badge(tenant_id, create_user_badge_params)
@@ -977,14 +977,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.delete_comment200_response import DeleteComment200Response
-from generated.rest import ApiException
+import client
+from client.models.delete_comment200_response import DeleteComment200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -1000,9 +1000,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
     context_user_id = 'context_user_id_example' # str |  (optional)
@@ -1059,14 +1059,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.delete_domain_config200_response import DeleteDomainConfig200Response
-from generated.rest import ApiException
+import client
+from client.models.delete_domain_config200_response import DeleteDomainConfig200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -1082,9 +1082,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     domain = 'domain_example' # str | 
 
@@ -1137,14 +1137,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.delete_page_api_response import DeletePageAPIResponse
-from generated.rest import ApiException
+import client
+from client.models.delete_page_api_response import DeletePageAPIResponse
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -1160,9 +1160,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
 
@@ -1215,14 +1215,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.delete_sso_user_api_response import DeleteSSOUserAPIResponse
-from generated.rest import ApiException
+import client
+from client.models.delete_sso_user_api_response import DeleteSSOUserAPIResponse
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -1238,9 +1238,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
     delete_comments = True # bool |  (optional)
@@ -1297,14 +1297,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.delete_subscription_api_response import DeleteSubscriptionAPIResponse
-from generated.rest import ApiException
+import client
+from client.models.delete_subscription_api_response import DeleteSubscriptionAPIResponse
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -1320,9 +1320,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
     user_id = 'user_id_example' # str |  (optional)
@@ -1377,14 +1377,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.update_user_badge200_response import UpdateUserBadge200Response
-from generated.rest import ApiException
+import client
+from client.models.update_user_badge200_response import UpdateUserBadge200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -1400,9 +1400,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
 
@@ -1455,14 +1455,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.flag_comment200_response import FlagComment200Response
-from generated.rest import ApiException
+import client
+from client.models.flag_comment200_response import FlagComment200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -1478,9 +1478,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
     user_id = 'user_id_example' # str |  (optional)
@@ -1537,15 +1537,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_audit_logs200_response import GetAuditLogs200Response
-from generated.models.sortdir import SORTDIR
-from generated.rest import ApiException
+import client
+from client.models.get_audit_logs200_response import GetAuditLogs200Response
+from client.models.sortdir import SORTDIR
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -1561,13 +1561,13 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     limit = 3.4 # float |  (optional)
     skip = 3.4 # float |  (optional)
-    order = generated.SORTDIR() # SORTDIR |  (optional)
+    order = client.SORTDIR() # SORTDIR |  (optional)
     after = 3.4 # float |  (optional)
     before = 3.4 # float |  (optional)
 
@@ -1624,14 +1624,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_comment200_response import GetComment200Response
-from generated.rest import ApiException
+import client
+from client.models.get_comment200_response import GetComment200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -1647,9 +1647,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
 
@@ -1702,15 +1702,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_comments200_response import GetComments200Response
-from generated.models.sort_directions import SortDirections
-from generated.rest import ApiException
+import client
+from client.models.get_comments200_response import GetComments200Response
+from client.models.sort_directions import SortDirections
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -1726,9 +1726,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     page = 56 # int |  (optional)
     limit = 56 # int |  (optional)
@@ -1743,7 +1743,7 @@ with generated.ApiClient(configuration) as api_client:
     context_user_id = 'context_user_id_example' # str |  (optional)
     hash_tag = 'hash_tag_example' # str |  (optional)
     parent_id = 'parent_id_example' # str |  (optional)
-    direction = generated.SortDirections() # SortDirections |  (optional)
+    direction = client.SortDirections() # SortDirections |  (optional)
 
     try:
         api_response = api_instance.get_comments(tenant_id, page=page, limit=limit, skip=skip, as_tree=as_tree, skip_children=skip_children, limit_children=limit_children, max_tree_depth=max_tree_depth, url_id=url_id, user_id=user_id, anon_user_id=anon_user_id, context_user_id=context_user_id, hash_tag=hash_tag, parent_id=parent_id, direction=direction)
@@ -1807,14 +1807,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_domain_config200_response import GetDomainConfig200Response
-from generated.rest import ApiException
+import client
+from client.models.get_domain_config200_response import GetDomainConfig200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -1830,9 +1830,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     domain = 'domain_example' # str | 
 
@@ -1885,14 +1885,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_domain_configs200_response import GetDomainConfigs200Response
-from generated.rest import ApiException
+import client
+from client.models.get_domain_configs200_response import GetDomainConfigs200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -1908,9 +1908,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
 
     try:
@@ -1963,14 +1963,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_feed_posts200_response import GetFeedPosts200Response
-from generated.rest import ApiException
+import client
+from client.models.get_feed_posts200_response import GetFeedPosts200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -1986,9 +1986,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     after_id = 'after_id_example' # str |  (optional)
     limit = 56 # int |  (optional)
@@ -2045,14 +2045,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_page_by_urlid_api_response import GetPageByURLIdAPIResponse
-from generated.rest import ApiException
+import client
+from client.models.get_page_by_urlid_api_response import GetPageByURLIdAPIResponse
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -2068,9 +2068,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     url_id = 'url_id_example' # str | 
 
@@ -2123,14 +2123,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_pages_api_response import GetPagesAPIResponse
-from generated.rest import ApiException
+import client
+from client.models.get_pages_api_response import GetPagesAPIResponse
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -2146,9 +2146,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
 
     try:
@@ -2199,14 +2199,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_sso_user_by_email_api_response import GetSSOUserByEmailAPIResponse
-from generated.rest import ApiException
+import client
+from client.models.get_sso_user_by_email_api_response import GetSSOUserByEmailAPIResponse
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -2222,9 +2222,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     email = 'email_example' # str | 
 
@@ -2277,14 +2277,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_sso_user_by_id_api_response import GetSSOUserByIdAPIResponse
-from generated.rest import ApiException
+import client
+from client.models.get_sso_user_by_id_api_response import GetSSOUserByIdAPIResponse
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -2300,9 +2300,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
 
@@ -2355,14 +2355,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_sso_users200_response import GetSSOUsers200Response
-from generated.rest import ApiException
+import client
+from client.models.get_sso_users200_response import GetSSOUsers200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -2378,9 +2378,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     skip = 56 # int |  (optional)
 
@@ -2433,14 +2433,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_subscriptions_api_response import GetSubscriptionsAPIResponse
-from generated.rest import ApiException
+import client
+from client.models.get_subscriptions_api_response import GetSubscriptionsAPIResponse
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -2456,9 +2456,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     user_id = 'user_id_example' # str |  (optional)
 
@@ -2511,14 +2511,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_user_badge200_response import GetUserBadge200Response
-from generated.rest import ApiException
+import client
+from client.models.get_user_badge200_response import GetUserBadge200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -2534,9 +2534,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
 
@@ -2589,14 +2589,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_user_badge_progress_by_id200_response import GetUserBadgeProgressById200Response
-from generated.rest import ApiException
+import client
+from client.models.get_user_badge_progress_by_id200_response import GetUserBadgeProgressById200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -2612,9 +2612,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
 
@@ -2667,14 +2667,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_user_badge_progress_by_id200_response import GetUserBadgeProgressById200Response
-from generated.rest import ApiException
+import client
+from client.models.get_user_badge_progress_by_id200_response import GetUserBadgeProgressById200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -2690,9 +2690,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     user_id = 'user_id_example' # str | 
 
@@ -2745,14 +2745,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_user_badge_progress_list200_response import GetUserBadgeProgressList200Response
-from generated.rest import ApiException
+import client
+from client.models.get_user_badge_progress_list200_response import GetUserBadgeProgressList200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -2768,9 +2768,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     user_id = 'user_id_example' # str |  (optional)
     limit = 3.4 # float |  (optional)
@@ -2827,14 +2827,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_user_badges200_response import GetUserBadges200Response
-from generated.rest import ApiException
+import client
+from client.models.get_user_badges200_response import GetUserBadges200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -2850,9 +2850,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     user_id = 'user_id_example' # str |  (optional)
     badge_id = 'badge_id_example' # str |  (optional)
@@ -2915,15 +2915,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_domain_config200_response import GetDomainConfig200Response
-from generated.models.patch_domain_config_params import PatchDomainConfigParams
-from generated.rest import ApiException
+import client
+from client.models.get_domain_config200_response import GetDomainConfig200Response
+from client.models.patch_domain_config_params import PatchDomainConfigParams
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -2939,12 +2939,12 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     domain_to_update = 'domain_to_update_example' # str | 
-    patch_domain_config_params = generated.PatchDomainConfigParams() # PatchDomainConfigParams | 
+    patch_domain_config_params = client.PatchDomainConfigParams() # PatchDomainConfigParams | 
 
     try:
         api_response = api_instance.patch_domain_config(tenant_id, domain_to_update, patch_domain_config_params)
@@ -2996,15 +2996,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.patch_page_api_response import PatchPageAPIResponse
-from generated.models.update_api_page_data import UpdateAPIPageData
-from generated.rest import ApiException
+import client
+from client.models.patch_page_api_response import PatchPageAPIResponse
+from client.models.update_api_page_data import UpdateAPIPageData
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -3020,12 +3020,12 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
-    update_api_page_data = generated.UpdateAPIPageData() # UpdateAPIPageData | 
+    update_api_page_data = client.UpdateAPIPageData() # UpdateAPIPageData | 
 
     try:
         api_response = api_instance.patch_page(tenant_id, id, update_api_page_data)
@@ -3077,15 +3077,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.patch_sso_user_api_response import PatchSSOUserAPIResponse
-from generated.models.update_apisso_user_data import UpdateAPISSOUserData
-from generated.rest import ApiException
+import client
+from client.models.patch_sso_user_api_response import PatchSSOUserAPIResponse
+from client.models.update_apisso_user_data import UpdateAPISSOUserData
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -3101,12 +3101,12 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
-    update_apisso_user_data = generated.UpdateAPISSOUserData() # UpdateAPISSOUserData | 
+    update_apisso_user_data = client.UpdateAPISSOUserData() # UpdateAPISSOUserData | 
     update_comments = True # bool |  (optional)
 
     try:
@@ -3160,15 +3160,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.get_domain_config200_response import GetDomainConfig200Response
-from generated.models.update_domain_config_params import UpdateDomainConfigParams
-from generated.rest import ApiException
+import client
+from client.models.get_domain_config200_response import GetDomainConfig200Response
+from client.models.update_domain_config_params import UpdateDomainConfigParams
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -3184,12 +3184,12 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     domain_to_update = 'domain_to_update_example' # str | 
-    update_domain_config_params = generated.UpdateDomainConfigParams() # UpdateDomainConfigParams | 
+    update_domain_config_params = client.UpdateDomainConfigParams() # UpdateDomainConfigParams | 
 
     try:
         api_response = api_instance.put_domain_config(tenant_id, domain_to_update, update_domain_config_params)
@@ -3241,15 +3241,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.put_sso_user_api_response import PutSSOUserAPIResponse
-from generated.models.update_apisso_user_data import UpdateAPISSOUserData
-from generated.rest import ApiException
+import client
+from client.models.put_sso_user_api_response import PutSSOUserAPIResponse
+from client.models.update_apisso_user_data import UpdateAPISSOUserData
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -3265,12 +3265,12 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
-    update_apisso_user_data = generated.UpdateAPISSOUserData() # UpdateAPISSOUserData | 
+    update_apisso_user_data = client.UpdateAPISSOUserData() # UpdateAPISSOUserData | 
     update_comments = True # bool |  (optional)
 
     try:
@@ -3324,15 +3324,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.create_comment_params import CreateCommentParams
-from generated.models.save_comment200_response import SaveComment200Response
-from generated.rest import ApiException
+import client
+from client.models.create_comment_params import CreateCommentParams
+from client.models.save_comment200_response import SaveComment200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -3348,11 +3348,11 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    create_comment_params = generated.CreateCommentParams() # CreateCommentParams | 
+    create_comment_params = client.CreateCommentParams() # CreateCommentParams | 
     is_live = True # bool |  (optional)
     do_spam_check = True # bool |  (optional)
     send_emails = True # bool |  (optional)
@@ -3411,15 +3411,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.create_comment_params import CreateCommentParams
-from generated.models.save_comment200_response import SaveComment200Response
-from generated.rest import ApiException
+import client
+from client.models.create_comment_params import CreateCommentParams
+from client.models.save_comment200_response import SaveComment200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -3435,11 +3435,11 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    create_comment_params = [generated.CreateCommentParams()] # List[CreateCommentParams] | 
+    create_comment_params = [client.CreateCommentParams()] # List[CreateCommentParams] | 
     is_live = True # bool |  (optional)
     do_spam_check = True # bool |  (optional)
     send_emails = True # bool |  (optional)
@@ -3498,15 +3498,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.un_block_comment_public200_response import UnBlockCommentPublic200Response
-from generated.models.un_block_from_comment_params import UnBlockFromCommentParams
-from generated.rest import ApiException
+import client
+from client.models.un_block_comment_public200_response import UnBlockCommentPublic200Response
+from client.models.un_block_from_comment_params import UnBlockFromCommentParams
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -3522,12 +3522,12 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
-    un_block_from_comment_params = generated.UnBlockFromCommentParams() # UnBlockFromCommentParams | 
+    un_block_from_comment_params = client.UnBlockFromCommentParams() # UnBlockFromCommentParams | 
     user_id = 'user_id_example' # str |  (optional)
     anon_user_id = 'anon_user_id_example' # str |  (optional)
 
@@ -3583,14 +3583,14 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.flag_comment200_response import FlagComment200Response
-from generated.rest import ApiException
+import client
+from client.models.flag_comment200_response import FlagComment200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -3606,9 +3606,9 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
     user_id = 'user_id_example' # str |  (optional)
@@ -3665,15 +3665,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.flag_comment_public200_response import FlagCommentPublic200Response
-from generated.models.pick_api_comment_updatable_comment_fields import PickAPICommentUpdatableCommentFields
-from generated.rest import ApiException
+import client
+from client.models.flag_comment_public200_response import FlagCommentPublic200Response
+from client.models.pick_api_comment_updatable_comment_fields import PickAPICommentUpdatableCommentFields
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -3689,12 +3689,12 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
-    body = generated.PickAPICommentUpdatableCommentFields() # PickAPICommentUpdatableCommentFields | 
+    body = client.PickAPICommentUpdatableCommentFields() # PickAPICommentUpdatableCommentFields | 
     context_user_id = 'context_user_id_example' # str |  (optional)
     do_spam_check = True # bool |  (optional)
     is_live = True # bool |  (optional)
@@ -3752,15 +3752,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.feed_post import FeedPost
-from generated.models.flag_comment_public200_response import FlagCommentPublic200Response
-from generated.rest import ApiException
+import client
+from client.models.feed_post import FeedPost
+from client.models.flag_comment_public200_response import FlagCommentPublic200Response
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -3776,12 +3776,12 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
-    feed_post = generated.FeedPost() # FeedPost | 
+    feed_post = client.FeedPost() # FeedPost | 
 
     try:
         api_response = api_instance.update_feed_post(tenant_id, id, feed_post)
@@ -3833,15 +3833,15 @@ Name | Type | Description  | Notes
 * Api Key Authentication (api_key):
 
 ```python
-import generated
-from generated.models.update_user_badge200_response import UpdateUserBadge200Response
-from generated.models.update_user_badge_params import UpdateUserBadgeParams
-from generated.rest import ApiException
+import client
+from client.models.update_user_badge200_response import UpdateUserBadge200Response
+from client.models.update_user_badge_params import UpdateUserBadgeParams
+from client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://fastcomments.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = generated.Configuration(
+configuration = client.Configuration(
     host = "https://fastcomments.com"
 )
 
@@ -3857,12 +3857,12 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with generated.ApiClient(configuration) as api_client:
+with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = generated.DefaultApi(api_client)
+    api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
-    update_user_badge_params = generated.UpdateUserBadgeParams() # UpdateUserBadgeParams | 
+    update_user_badge_params = client.UpdateUserBadgeParams() # UpdateUserBadgeParams | 
 
     try:
         api_response = api_instance.update_user_badge(tenant_id, id, update_user_badge_params)

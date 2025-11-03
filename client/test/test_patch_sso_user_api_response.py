@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.patch_sso_user_api_response import PatchSSOUserAPIResponse
+from client.models.patch_sso_user_api_response import PatchSSOUserAPIResponse
 
 class TestPatchSSOUserAPIResponse(unittest.TestCase):
     """PatchSSOUserAPIResponse unit test stubs"""
@@ -37,7 +37,7 @@ class TestPatchSSOUserAPIResponse(unittest.TestCase):
             return PatchSSOUserAPIResponse(
                 reason = '',
                 code = '',
-                user = generated.models.apisso_user.APISSOUser(
+                user = client.models.apisso_user.APISSOUser(
                     id = '', 
                     username = '', 
                     website_url = '', 

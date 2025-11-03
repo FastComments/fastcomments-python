@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.apisso_user import APISSOUser
+from client.models.apisso_user import APISSOUser
 
 class TestAPISSOUser(unittest.TestCase):
     """APISSOUser unit test stubs"""

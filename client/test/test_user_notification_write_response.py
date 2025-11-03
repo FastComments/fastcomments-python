@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.user_notification_write_response import UserNotificationWriteResponse
+from client.models.user_notification_write_response import UserNotificationWriteResponse
 
 class TestUserNotificationWriteResponse(unittest.TestCase):
     """UserNotificationWriteResponse unit test stubs"""

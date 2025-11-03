@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.combine_question_results_with_comments_response import CombineQuestionResultsWithCommentsResponse
+from client.models.combine_question_results_with_comments_response import CombineQuestionResultsWithCommentsResponse
 
 class TestCombineQuestionResultsWithCommentsResponse(unittest.TestCase):
     """CombineQuestionResultsWithCommentsResponse unit test stubs"""
@@ -36,11 +36,11 @@ class TestCombineQuestionResultsWithCommentsResponse(unittest.TestCase):
         if include_optional:
             return CombineQuestionResultsWithCommentsResponse(
                 status = 'success',
-                data = generated.models.find_comments_by_range_response.FindCommentsByRangeResponse(
+                data = client.models.find_comments_by_range_response.FindCommentsByRangeResponse(
                     results = [
-                        generated.models.find_comments_by_range_item.FindCommentsByRangeItem(
+                        client.models.find_comments_by_range_item.FindCommentsByRangeItem(
                             comment = null, 
-                            result = generated.models.question_result.QuestionResult(
+                            result = client.models.question_result.QuestionResult(
                                 _id = '', 
                                 tenant_id = '', 
                                 url_id = '', 
@@ -51,7 +51,7 @@ class TestCombineQuestionResultsWithCommentsResponse(unittest.TestCase):
                                 comment_id = '', 
                                 question_id = '', 
                                 meta = [
-                                    generated.models.meta_item.MetaItem(
+                                    client.models.meta_item.MetaItem(
                                         name = '', 
                                         values = [
                                             ''
@@ -64,11 +64,11 @@ class TestCombineQuestionResultsWithCommentsResponse(unittest.TestCase):
         else:
             return CombineQuestionResultsWithCommentsResponse(
                 status = 'success',
-                data = generated.models.find_comments_by_range_response.FindCommentsByRangeResponse(
+                data = client.models.find_comments_by_range_response.FindCommentsByRangeResponse(
                     results = [
-                        generated.models.find_comments_by_range_item.FindCommentsByRangeItem(
+                        client.models.find_comments_by_range_item.FindCommentsByRangeItem(
                             comment = null, 
-                            result = generated.models.question_result.QuestionResult(
+                            result = client.models.question_result.QuestionResult(
                                 _id = '', 
                                 tenant_id = '', 
                                 url_id = '', 
@@ -79,7 +79,7 @@ class TestCombineQuestionResultsWithCommentsResponse(unittest.TestCase):
                                 comment_id = '', 
                                 question_id = '', 
                                 meta = [
-                                    generated.models.meta_item.MetaItem(
+                                    client.models.meta_item.MetaItem(
                                         name = '', 
                                         values = [
                                             ''

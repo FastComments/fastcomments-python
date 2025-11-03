@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.pick_f_comment_public_comment_fields_keys import PickFCommentPublicCommentFieldsKeys
+from client.models.pick_f_comment_public_comment_fields_keys import PickFCommentPublicCommentFieldsKeys
 
 class TestPickFCommentPublicCommentFieldsKeys(unittest.TestCase):
     """PickFCommentPublicCommentFieldsKeys unit test stubs"""
@@ -59,7 +59,7 @@ class TestPickFCommentPublicCommentFieldsKeys(unittest.TestCase):
                 rating = 1.337,
                 display_label = '',
                 badges = [
-                    generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                    client.models.comment_user_badge_info.CommentUserBadgeInfo(
                         id = '', 
                         type = 56, 
                         description = '', 

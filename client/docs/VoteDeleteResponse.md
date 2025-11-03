@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.vote_delete_response import VoteDeleteResponse
+from client.models.vote_delete_response import VoteDeleteResponse
 
 # TODO update the JSON string below
 json = "{}"

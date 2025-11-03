@@ -51,7 +51,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.pick_omit_f_comment_date_public_comment_pub_sub_fields_keys import PickOmitFCommentDatePublicCommentPubSubFieldsKeys
+from client.models.pick_omit_f_comment_date_public_comment_pub_sub_fields_keys import PickOmitFCommentDatePublicCommentPubSubFieldsKeys
 
 # TODO update the JSON string below
 json = "{}"

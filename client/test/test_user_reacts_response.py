@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.user_reacts_response import UserReactsResponse
+from client.models.user_reacts_response import UserReactsResponse
 
 class TestUserReactsResponse(unittest.TestCase):
     """UserReactsResponse unit test stubs"""

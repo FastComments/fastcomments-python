@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.upload_image_response import UploadImageResponse
+from client.models.upload_image_response import UploadImageResponse
 
 class TestUploadImageResponse(unittest.TestCase):
     """UploadImageResponse unit test stubs"""
@@ -38,7 +38,7 @@ class TestUploadImageResponse(unittest.TestCase):
                 status = 'success',
                 url = '',
                 media = [
-                    generated.models.media_asset.MediaAsset(
+                    client.models.media_asset.MediaAsset(
                         w = 56, 
                         h = 56, 
                         src = '', )

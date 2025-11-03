@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.react_feed_post_response import ReactFeedPostResponse
+from client.models.react_feed_post_response import ReactFeedPostResponse
 
 class TestReactFeedPostResponse(unittest.TestCase):
     """ReactFeedPostResponse unit test stubs"""

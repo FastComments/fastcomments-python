@@ -80,7 +80,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.f_comment import FComment
+from client.models.f_comment import FComment
 
 # TODO update the JSON string below
 json = "{}"

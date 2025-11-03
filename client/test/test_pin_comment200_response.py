@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.pin_comment200_response import PinComment200Response
+from client.models.pin_comment200_response import PinComment200Response
 
 class TestPinComment200Response(unittest.TestCase):
     """PinComment200Response unit test stubs"""
@@ -36,7 +36,7 @@ class TestPinComment200Response(unittest.TestCase):
         if include_optional:
             return PinComment200Response(
                 comment_positions = {
-                    'key' : generated.models.record_string__before_string_or_null__after_string_or_null___value.Record_string__before_string_or_null__after_string_or_null___value(
+                    'key' : client.models.record_string__before_string_or_null__after_string_or_null___value.Record_string__before_string_or_null__after_string_or_null___value(
                         after = '', 
                         before = '', )
                     },
@@ -47,7 +47,7 @@ class TestPinComment200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -112,7 +112,7 @@ class TestPinComment200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 
@@ -134,7 +134,7 @@ class TestPinComment200Response(unittest.TestCase):
         else:
             return PinComment200Response(
                 comment_positions = {
-                    'key' : generated.models.record_string__before_string_or_null__after_string_or_null___value.Record_string__before_string_or_null__after_string_or_null___value(
+                    'key' : client.models.record_string__before_string_or_null__after_string_or_null___value.Record_string__before_string_or_null__after_string_or_null___value(
                         after = '', 
                         before = '', )
                     },

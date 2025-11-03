@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.aggregation_item import AggregationItem
+from client.models.aggregation_item import AggregationItem
 
 class TestAggregationItem(unittest.TestCase):
     """AggregationItem unit test stubs"""

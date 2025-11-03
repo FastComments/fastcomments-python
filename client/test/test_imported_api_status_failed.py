@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.imported_api_status_failed import ImportedAPIStatusFAILED
+from client.models.imported_api_status_failed import ImportedAPIStatusFAILED
 
 class TestImportedAPIStatusFAILED(unittest.TestCase):
     """ImportedAPIStatusFAILED unit test stubs"""

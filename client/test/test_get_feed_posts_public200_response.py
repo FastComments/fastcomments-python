@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_feed_posts_public200_response import GetFeedPostsPublic200Response
+from client.models.get_feed_posts_public200_response import GetFeedPostsPublic200Response
 
 class TestGetFeedPostsPublic200Response(unittest.TestCase):
     """GetFeedPostsPublic200Response unit test stubs"""
@@ -42,7 +42,7 @@ class TestGetFeedPostsPublic200Response(unittest.TestCase):
                     },
                 status = 'failed',
                 feed_posts = [
-                    generated.models.feed_post.FeedPost(
+                    client.models.feed_post.FeedPost(
                         _id = '', 
                         tenant_id = '', 
                         title = '', 
@@ -59,18 +59,18 @@ class TestGetFeedPostsPublic200Response(unittest.TestCase):
                             }, 
                         content_html = '', 
                         media = [
-                            generated.models.feed_post_media_item.FeedPostMediaItem(
+                            client.models.feed_post_media_item.FeedPostMediaItem(
                                 title = '', 
                                 link_url = '', 
                                 sizes = [
-                                    generated.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
+                                    client.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
                                         w = 56, 
                                         h = 56, 
                                         src = '', )
                                     ], )
                             ], 
                         links = [
-                            generated.models.feed_post_link.FeedPostLink(
+                            client.models.feed_post_link.FeedPostLink(
                                 text = '', 
                                 title = '', 
                                 description = '', 
@@ -82,12 +82,12 @@ class TestGetFeedPostsPublic200Response(unittest.TestCase):
                             }, 
                         comment_count = 56, )
                     ],
-                user = generated.models.user_session_info.UserSessionInfo(
+                user = client.models.user_session_info.UserSessionInfo(
                     id = '', 
                     authorized = True, 
                     avatar_src = '', 
                     badges = [
-                        generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                        client.models.comment_user_badge_info.CommentUserBadgeInfo(
                             id = '', 
                             type = 56, 
                             description = '', 
@@ -118,7 +118,7 @@ class TestGetFeedPostsPublic200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -183,7 +183,7 @@ class TestGetFeedPostsPublic200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 
@@ -206,7 +206,7 @@ class TestGetFeedPostsPublic200Response(unittest.TestCase):
             return GetFeedPostsPublic200Response(
                 status = 'failed',
                 feed_posts = [
-                    generated.models.feed_post.FeedPost(
+                    client.models.feed_post.FeedPost(
                         _id = '', 
                         tenant_id = '', 
                         title = '', 
@@ -223,18 +223,18 @@ class TestGetFeedPostsPublic200Response(unittest.TestCase):
                             }, 
                         content_html = '', 
                         media = [
-                            generated.models.feed_post_media_item.FeedPostMediaItem(
+                            client.models.feed_post_media_item.FeedPostMediaItem(
                                 title = '', 
                                 link_url = '', 
                                 sizes = [
-                                    generated.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
+                                    client.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
                                         w = 56, 
                                         h = 56, 
                                         src = '', )
                                     ], )
                             ], 
                         links = [
-                            generated.models.feed_post_link.FeedPostLink(
+                            client.models.feed_post_link.FeedPostLink(
                                 text = '', 
                                 title = '', 
                                 description = '', 

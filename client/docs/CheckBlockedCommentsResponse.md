@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.check_blocked_comments_response import CheckBlockedCommentsResponse
+from client.models.check_blocked_comments_response import CheckBlockedCommentsResponse
 
 # TODO update the JSON string below
 json = "{}"

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.pick_f_comment_approved_or_comment_html import PickFCommentApprovedOrCommentHTML
+from client.models.pick_f_comment_approved_or_comment_html import PickFCommentApprovedOrCommentHTML
 
 # TODO update the JSON string below
 json = "{}"

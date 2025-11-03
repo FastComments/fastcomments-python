@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.api_page import APIPage
+from client.models.api_page import APIPage
 
 class TestAPIPage(unittest.TestCase):
     """APIPage unit test stubs"""

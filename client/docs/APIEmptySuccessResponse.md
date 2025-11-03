@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.api_empty_success_response import APIEmptySuccessResponse
+from client.models.api_empty_success_response import APIEmptySuccessResponse
 
 # TODO update the JSON string below
 json = "{}"

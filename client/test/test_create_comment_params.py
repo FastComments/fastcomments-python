@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.create_comment_params import CreateCommentParams
+from client.models.create_comment_params import CreateCommentParams
 
 class TestCreateCommentParams(unittest.TestCase):
     """CreateCommentParams unit test stubs"""
@@ -47,7 +47,7 @@ class TestCreateCommentParams(unittest.TestCase):
                 avatar_src = '',
                 parent_id = '',
                 mentions = [
-                    generated.models.comment_user_mention_info.CommentUserMentionInfo(
+                    client.models.comment_user_mention_info.CommentUserMentionInfo(
                         id = '', 
                         tag = '', 
                         raw_tag = '', 
@@ -55,7 +55,7 @@ class TestCreateCommentParams(unittest.TestCase):
                         sent = True, )
                     ],
                 hash_tags = [
-                    generated.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
+                    client.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
                         id = '', 
                         tag = '', 
                         url = '', 

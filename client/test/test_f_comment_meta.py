@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.f_comment_meta import FCommentMeta
+from client.models.f_comment_meta import FCommentMeta
 
 class TestFCommentMeta(unittest.TestCase):
     """FCommentMeta unit test stubs"""

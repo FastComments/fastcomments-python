@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.flag_comment_response import FlagCommentResponse
+from client.models.flag_comment_response import FlagCommentResponse
 
 # TODO update the JSON string below
 json = "{}"

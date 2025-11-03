@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.get_user_notification_count200_response import GetUserNotificationCount200Response
+from client.models.get_user_notification_count200_response import GetUserNotificationCount200Response
 
 # TODO update the JSON string below
 json = "{}"

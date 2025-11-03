@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.check_blocked_comments_response import CheckBlockedCommentsResponse
+from client.models.check_blocked_comments_response import CheckBlockedCommentsResponse
 
 class TestCheckBlockedCommentsResponse(unittest.TestCase):
     """CheckBlockedCommentsResponse unit test stubs"""

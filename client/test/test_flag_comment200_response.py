@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.flag_comment200_response import FlagComment200Response
+from client.models.flag_comment200_response import FlagComment200Response
 
 class TestFlagComment200Response(unittest.TestCase):
     """FlagComment200Response unit test stubs"""
@@ -44,7 +44,7 @@ class TestFlagComment200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -109,7 +109,7 @@ class TestFlagComment200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 

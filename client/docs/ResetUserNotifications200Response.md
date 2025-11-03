@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.reset_user_notifications200_response import ResetUserNotifications200Response
+from client.models.reset_user_notifications200_response import ResetUserNotifications200Response
 
 # TODO update the JSON string below
 json = "{}"

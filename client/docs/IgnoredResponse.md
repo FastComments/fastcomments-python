@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.ignored_response import IgnoredResponse
+from client.models.ignored_response import IgnoredResponse
 
 # TODO update the JSON string below
 json = "{}"

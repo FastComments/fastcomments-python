@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.pub_sub_vote import PubSubVote
+from client.models.pub_sub_vote import PubSubVote
 
 # TODO update the JSON string below
 json = "{}"

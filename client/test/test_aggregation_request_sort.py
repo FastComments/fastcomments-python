@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.aggregation_request_sort import AggregationRequestSort
+from client.models.aggregation_request_sort import AggregationRequestSort
 
 class TestAggregationRequestSort(unittest.TestCase):
     """AggregationRequestSort unit test stubs"""

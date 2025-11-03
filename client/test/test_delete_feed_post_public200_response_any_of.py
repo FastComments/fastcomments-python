@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.delete_feed_post_public200_response_any_of import DeleteFeedPostPublic200ResponseAnyOf
+from client.models.delete_feed_post_public200_response_any_of import DeleteFeedPostPublic200ResponseAnyOf
 
 class TestDeleteFeedPostPublic200ResponseAnyOf(unittest.TestCase):
     """DeleteFeedPostPublic200ResponseAnyOf unit test stubs"""

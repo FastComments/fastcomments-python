@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.meta_item import MetaItem
+from client.models.meta_item import MetaItem
 
 class TestMetaItem(unittest.TestCase):
     """MetaItem unit test stubs"""

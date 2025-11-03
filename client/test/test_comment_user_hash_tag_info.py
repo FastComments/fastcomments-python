@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.comment_user_hash_tag_info import CommentUserHashTagInfo
+from client.models.comment_user_hash_tag_info import CommentUserHashTagInfo
 
 class TestCommentUserHashTagInfo(unittest.TestCase):
     """CommentUserHashTagInfo unit test stubs"""

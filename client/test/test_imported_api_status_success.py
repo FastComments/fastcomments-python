@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.imported_api_status_success import ImportedAPIStatusSUCCESS
+from client.models.imported_api_status_success import ImportedAPIStatusSUCCESS
 
 class TestImportedAPIStatusSUCCESS(unittest.TestCase):
     """ImportedAPIStatusSUCCESS unit test stubs"""

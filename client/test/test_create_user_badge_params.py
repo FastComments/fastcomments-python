@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.create_user_badge_params import CreateUserBadgeParams
+from client.models.create_user_badge_params import CreateUserBadgeParams
 
 class TestCreateUserBadgeParams(unittest.TestCase):
     """CreateUserBadgeParams unit test stubs"""

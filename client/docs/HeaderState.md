@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.header_state import HeaderState
+from client.models.header_state import HeaderState
 
 # TODO update the JSON string below
 json = "{}"

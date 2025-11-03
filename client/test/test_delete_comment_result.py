@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.delete_comment_result import DeleteCommentResult
+from client.models.delete_comment_result import DeleteCommentResult
 
 class TestDeleteCommentResult(unittest.TestCase):
     """DeleteCommentResult unit test stubs"""

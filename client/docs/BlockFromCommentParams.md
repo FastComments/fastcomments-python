@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.block_from_comment_params import BlockFromCommentParams
+from client.models.block_from_comment_params import BlockFromCommentParams
 
 # TODO update the JSON string below
 json = "{}"

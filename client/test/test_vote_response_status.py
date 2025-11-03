@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.vote_response_status import VoteResponseStatus
+from client.models.vote_response_status import VoteResponseStatus
 
 class TestVoteResponseStatus(unittest.TestCase):
     """VoteResponseStatus unit test stubs"""

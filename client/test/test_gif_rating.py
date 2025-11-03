@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.gif_rating import GifRating
+from client.models.gif_rating import GifRating
 
 class TestGifRating(unittest.TestCase):
     """GifRating unit test stubs"""

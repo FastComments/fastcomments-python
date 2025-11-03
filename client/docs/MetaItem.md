@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.meta_item import MetaItem
+from client.models.meta_item import MetaItem
 
 # TODO update the JSON string below
 json = "{}"

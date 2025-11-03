@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.api_empty_response import APIEmptyResponse
+from client.models.api_empty_response import APIEmptyResponse
 
 class TestAPIEmptyResponse(unittest.TestCase):
     """APIEmptyResponse unit test stubs"""

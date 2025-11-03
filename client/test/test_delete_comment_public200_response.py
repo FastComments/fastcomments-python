@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.delete_comment_public200_response import DeleteCommentPublic200Response
+from client.models.delete_comment_public200_response import DeleteCommentPublic200Response
 
 class TestDeleteCommentPublic200Response(unittest.TestCase):
     """DeleteCommentPublic200Response unit test stubs"""
@@ -35,7 +35,7 @@ class TestDeleteCommentPublic200Response(unittest.TestCase):
         model = DeleteCommentPublic200Response()
         if include_optional:
             return DeleteCommentPublic200Response(
-                comment = generated.models.pick_f_comment/is_deleted_or_comment_html_or_commenter_name_or_user_id_.Pick_FComment.isDeleted-or-commentHTML-or-commenterName-or-userId_(
+                comment = client.models.pick_f_comment/is_deleted_or_comment_html_or_commenter_name_or_user_id_.Pick_FComment.isDeleted-or-commentHTML-or-commenterName-or-userId_(
                     user_id = '', 
                     commenter_name = '', 
                     comment_html = '', 
@@ -48,7 +48,7 @@ class TestDeleteCommentPublic200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -113,7 +113,7 @@ class TestDeleteCommentPublic200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 

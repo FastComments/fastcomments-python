@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_user_reacts_public200_response import GetUserReactsPublic200Response
+from client.models.get_user_reacts_public200_response import GetUserReactsPublic200Response
 
 class TestGetUserReactsPublic200Response(unittest.TestCase):
     """GetUserReactsPublic200Response unit test stubs"""
@@ -47,7 +47,7 @@ class TestGetUserReactsPublic200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -112,7 +112,7 @@ class TestGetUserReactsPublic200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 

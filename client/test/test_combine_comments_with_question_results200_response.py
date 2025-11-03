@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.combine_comments_with_question_results200_response import CombineCommentsWithQuestionResults200Response
+from client.models.combine_comments_with_question_results200_response import CombineCommentsWithQuestionResults200Response
 
 class TestCombineCommentsWithQuestionResults200Response(unittest.TestCase):
     """CombineCommentsWithQuestionResults200Response unit test stubs"""
@@ -36,11 +36,11 @@ class TestCombineCommentsWithQuestionResults200Response(unittest.TestCase):
         if include_optional:
             return CombineCommentsWithQuestionResults200Response(
                 status = 'failed',
-                data = generated.models.find_comments_by_range_response.FindCommentsByRangeResponse(
+                data = client.models.find_comments_by_range_response.FindCommentsByRangeResponse(
                     results = [
-                        generated.models.find_comments_by_range_item.FindCommentsByRangeItem(
+                        client.models.find_comments_by_range_item.FindCommentsByRangeItem(
                             comment = null, 
-                            result = generated.models.question_result.QuestionResult(
+                            result = client.models.question_result.QuestionResult(
                                 _id = '', 
                                 tenant_id = '', 
                                 url_id = '', 
@@ -51,7 +51,7 @@ class TestCombineCommentsWithQuestionResults200Response(unittest.TestCase):
                                 comment_id = '', 
                                 question_id = '', 
                                 meta = [
-                                    generated.models.meta_item.MetaItem(
+                                    client.models.meta_item.MetaItem(
                                         name = '', 
                                         values = [
                                             ''
@@ -66,7 +66,7 @@ class TestCombineCommentsWithQuestionResults200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -131,7 +131,7 @@ class TestCombineCommentsWithQuestionResults200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 
@@ -153,11 +153,11 @@ class TestCombineCommentsWithQuestionResults200Response(unittest.TestCase):
         else:
             return CombineCommentsWithQuestionResults200Response(
                 status = 'failed',
-                data = generated.models.find_comments_by_range_response.FindCommentsByRangeResponse(
+                data = client.models.find_comments_by_range_response.FindCommentsByRangeResponse(
                     results = [
-                        generated.models.find_comments_by_range_item.FindCommentsByRangeItem(
+                        client.models.find_comments_by_range_item.FindCommentsByRangeItem(
                             comment = null, 
-                            result = generated.models.question_result.QuestionResult(
+                            result = client.models.question_result.QuestionResult(
                                 _id = '', 
                                 tenant_id = '', 
                                 url_id = '', 
@@ -168,7 +168,7 @@ class TestCombineCommentsWithQuestionResults200Response(unittest.TestCase):
                                 comment_id = '', 
                                 question_id = '', 
                                 meta = [
-                                    generated.models.meta_item.MetaItem(
+                                    client.models.meta_item.MetaItem(
                                         name = '', 
                                         values = [
                                             ''

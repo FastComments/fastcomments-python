@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.update_api_page_data import UpdateAPIPageData
+from client.models.update_api_page_data import UpdateAPIPageData
 
 class TestUpdateAPIPageData(unittest.TestCase):
     """UpdateAPIPageData unit test stubs"""

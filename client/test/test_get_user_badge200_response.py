@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_user_badge200_response import GetUserBadge200Response
+from client.models.get_user_badge200_response import GetUserBadge200Response
 
 class TestGetUserBadge200Response(unittest.TestCase):
     """GetUserBadge200Response unit test stubs"""
@@ -36,7 +36,7 @@ class TestGetUserBadge200Response(unittest.TestCase):
         if include_optional:
             return GetUserBadge200Response(
                 status = 'failed',
-                user_badge = generated.models.user_badge.UserBadge(
+                user_badge = client.models.user_badge.UserBadge(
                     _id = '', 
                     user_id = '', 
                     badge_id = '', 
@@ -61,7 +61,7 @@ class TestGetUserBadge200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -126,7 +126,7 @@ class TestGetUserBadge200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 
@@ -148,7 +148,7 @@ class TestGetUserBadge200Response(unittest.TestCase):
         else:
             return GetUserBadge200Response(
                 status = 'failed',
-                user_badge = generated.models.user_badge.UserBadge(
+                user_badge = client.models.user_badge.UserBadge(
                     _id = '', 
                     user_id = '', 
                     badge_id = '', 

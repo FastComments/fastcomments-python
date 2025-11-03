@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.vote_style import VoteStyle
+from client.models.vote_style import VoteStyle
 
 class TestVoteStyle(unittest.TestCase):
     """VoteStyle unit test stubs"""

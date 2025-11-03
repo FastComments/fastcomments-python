@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.search_users_response import SearchUsersResponse
+from client.models.search_users_response import SearchUsersResponse
 
 class TestSearchUsersResponse(unittest.TestCase):
     """SearchUsersResponse unit test stubs"""
@@ -37,7 +37,7 @@ class TestSearchUsersResponse(unittest.TestCase):
             return SearchUsersResponse(
                 status = 'success',
                 users = [
-                    generated.models.user_search_result.UserSearchResult(
+                    client.models.user_search_result.UserSearchResult(
                         id = '', 
                         name = '', 
                         display_name = '', 
@@ -49,7 +49,7 @@ class TestSearchUsersResponse(unittest.TestCase):
             return SearchUsersResponse(
                 status = 'success',
                 users = [
-                    generated.models.user_search_result.UserSearchResult(
+                    client.models.user_search_result.UserSearchResult(
                         id = '', 
                         name = '', 
                         display_name = '', 

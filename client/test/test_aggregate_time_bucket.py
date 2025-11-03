@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.aggregate_time_bucket import AggregateTimeBucket
+from client.models.aggregate_time_bucket import AggregateTimeBucket
 
 class TestAggregateTimeBucket(unittest.TestCase):
     """AggregateTimeBucket unit test stubs"""

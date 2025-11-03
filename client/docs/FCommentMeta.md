@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.f_comment_meta import FCommentMeta
+from client.models.f_comment_meta import FCommentMeta
 
 # TODO update the JSON string below
 json = "{}"

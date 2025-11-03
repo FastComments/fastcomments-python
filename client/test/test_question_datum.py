@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.question_datum import QuestionDatum
+from client.models.question_datum import QuestionDatum
 
 class TestQuestionDatum(unittest.TestCase):
     """QuestionDatum unit test stubs"""

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.get_user_reacts_public200_response import GetUserReactsPublic200Response
+from client.models.get_user_reacts_public200_response import GetUserReactsPublic200Response
 
 # TODO update the JSON string below
 json = "{}"

@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.pick_tenant_audit_log_tenant_audit_log_keys import PickTenantAuditLogTenantAuditLogKeys
+from client.models.pick_tenant_audit_log_tenant_audit_log_keys import PickTenantAuditLogTenantAuditLogKeys
 
 class TestPickTenantAuditLogTenantAuditLogKeys(unittest.TestCase):
     """PickTenantAuditLogTenantAuditLogKeys unit test stubs"""

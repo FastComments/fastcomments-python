@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.create_feed_post200_response import CreateFeedPost200Response
+from client.models.create_feed_post200_response import CreateFeedPost200Response
 
 class TestCreateFeedPost200Response(unittest.TestCase):
     """CreateFeedPost200Response unit test stubs"""
@@ -36,7 +36,7 @@ class TestCreateFeedPost200Response(unittest.TestCase):
         if include_optional:
             return CreateFeedPost200Response(
                 status = 'failed',
-                feed_post = generated.models.feed_post.FeedPost(
+                feed_post = client.models.feed_post.FeedPost(
                     _id = '', 
                     tenant_id = '', 
                     title = '', 
@@ -53,18 +53,18 @@ class TestCreateFeedPost200Response(unittest.TestCase):
                         }, 
                     content_html = '', 
                     media = [
-                        generated.models.feed_post_media_item.FeedPostMediaItem(
+                        client.models.feed_post_media_item.FeedPostMediaItem(
                             title = '', 
                             link_url = '', 
                             sizes = [
-                                generated.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
+                                client.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
                                     w = 56, 
                                     h = 56, 
                                     src = '', )
                                 ], )
                         ], 
                     links = [
-                        generated.models.feed_post_link.FeedPostLink(
+                        client.models.feed_post_link.FeedPostLink(
                             text = '', 
                             title = '', 
                             description = '', 
@@ -81,7 +81,7 @@ class TestCreateFeedPost200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -146,7 +146,7 @@ class TestCreateFeedPost200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 
@@ -168,7 +168,7 @@ class TestCreateFeedPost200Response(unittest.TestCase):
         else:
             return CreateFeedPost200Response(
                 status = 'failed',
-                feed_post = generated.models.feed_post.FeedPost(
+                feed_post = client.models.feed_post.FeedPost(
                     _id = '', 
                     tenant_id = '', 
                     title = '', 
@@ -185,18 +185,18 @@ class TestCreateFeedPost200Response(unittest.TestCase):
                         }, 
                     content_html = '', 
                     media = [
-                        generated.models.feed_post_media_item.FeedPostMediaItem(
+                        client.models.feed_post_media_item.FeedPostMediaItem(
                             title = '', 
                             link_url = '', 
                             sizes = [
-                                generated.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
+                                client.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
                                     w = 56, 
                                     h = 56, 
                                     src = '', )
                                 ], )
                         ], 
                     links = [
-                        generated.models.feed_post_link.FeedPostLink(
+                        client.models.feed_post_link.FeedPostLink(
                             text = '', 
                             title = '', 
                             description = '', 

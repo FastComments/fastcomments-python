@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.user_search_result import UserSearchResult
+from client.models.user_search_result import UserSearchResult
 
 class TestUserSearchResult(unittest.TestCase):
     """UserSearchResult unit test stubs"""

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.get_domain_configs200_response_any_of1 import GetDomainConfigs200ResponseAnyOf1
+from client.models.get_domain_configs200_response_any_of1 import GetDomainConfigs200ResponseAnyOf1
 
 # TODO update the JSON string below
 json = "{}"

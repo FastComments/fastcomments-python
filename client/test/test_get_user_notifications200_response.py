@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_user_notifications200_response import GetUserNotifications200Response
+from client.models.get_user_notifications200_response import GetUserNotifications200Response
 
 class TestGetUserNotifications200Response(unittest.TestCase):
     """GetUserNotifications200Response unit test stubs"""
@@ -41,7 +41,7 @@ class TestGetUserNotifications200Response(unittest.TestCase):
                 is_subscribed = True,
                 has_more = True,
                 notifications = [
-                    generated.models.renderable_user_notification.RenderableUserNotification(
+                    client.models.renderable_user_notification.RenderableUserNotification(
                         conversation_id = '', 
                         context_html = '', 
                         from_user_names = [
@@ -77,7 +77,7 @@ class TestGetUserNotifications200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -142,7 +142,7 @@ class TestGetUserNotifications200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 
@@ -166,7 +166,7 @@ class TestGetUserNotifications200Response(unittest.TestCase):
                 is_subscribed = True,
                 has_more = True,
                 notifications = [
-                    generated.models.renderable_user_notification.RenderableUserNotification(
+                    client.models.renderable_user_notification.RenderableUserNotification(
                         conversation_id = '', 
                         context_html = '', 
                         from_user_names = [

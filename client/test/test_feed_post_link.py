@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.feed_post_link import FeedPostLink
+from client.models.feed_post_link import FeedPostLink
 
 class TestFeedPostLink(unittest.TestCase):
     """FeedPostLink unit test stubs"""

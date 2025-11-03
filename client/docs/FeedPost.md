@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.feed_post import FeedPost
+from client.models.feed_post import FeedPost
 
 # TODO update the JSON string below
 json = "{}"

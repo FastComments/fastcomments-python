@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.combine_question_results_with_comments_response import CombineQuestionResultsWithCommentsResponse
+from client.models.combine_question_results_with_comments_response import CombineQuestionResultsWithCommentsResponse
 
 # TODO update the JSON string below
 json = "{}"

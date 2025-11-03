@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.unblock_success import UnblockSuccess
+from client.models.unblock_success import UnblockSuccess
 
 class TestUnblockSuccess(unittest.TestCase):
     """UnblockSuccess unit test stubs"""

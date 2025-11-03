@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.question_rendering_type import QuestionRenderingType
+from client.models.question_rendering_type import QuestionRenderingType
 
 class TestQuestionRenderingType(unittest.TestCase):
     """QuestionRenderingType unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.user_badge import UserBadge
+from client.models.user_badge import UserBadge
 
 class TestUserBadge(unittest.TestCase):
     """UserBadge unit test stubs"""

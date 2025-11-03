@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.patch_page_api_response import PatchPageAPIResponse
+from client.models.patch_page_api_response import PatchPageAPIResponse
 
 # TODO update the JSON string below
 json = "{}"

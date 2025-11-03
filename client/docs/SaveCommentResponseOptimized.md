@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.save_comment_response_optimized import SaveCommentResponseOptimized
+from client.models.save_comment_response_optimized import SaveCommentResponseOptimized
 
 # TODO update the JSON string below
 json = "{}"

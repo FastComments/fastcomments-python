@@ -49,7 +49,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.pick_api_comment_updatable_comment_fields import PickAPICommentUpdatableCommentFields
+from client.models.pick_api_comment_updatable_comment_fields import PickAPICommentUpdatableCommentFields
 
 # TODO update the JSON string below
 json = "{}"

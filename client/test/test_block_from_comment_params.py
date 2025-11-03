@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.block_from_comment_params import BlockFromCommentParams
+from client.models.block_from_comment_params import BlockFromCommentParams
 
 class TestBlockFromCommentParams(unittest.TestCase):
     """BlockFromCommentParams unit test stubs"""

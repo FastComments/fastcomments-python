@@ -52,7 +52,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.pub_sub_comment import PubSubComment
+from client.models.pub_sub_comment import PubSubComment
 
 # TODO update the JSON string below
 json = "{}"

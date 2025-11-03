@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.find_comments_by_range_item import FindCommentsByRangeItem
+from client.models.find_comments_by_range_item import FindCommentsByRangeItem
 
 # TODO update the JSON string below
 json = "{}"

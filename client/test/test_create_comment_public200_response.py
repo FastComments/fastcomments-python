@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.create_comment_public200_response import CreateCommentPublic200Response
+from client.models.create_comment_public200_response import CreateCommentPublic200Response
 
 class TestCreateCommentPublic200Response(unittest.TestCase):
     """CreateCommentPublic200Response unit test stubs"""
@@ -37,12 +37,12 @@ class TestCreateCommentPublic200Response(unittest.TestCase):
             return CreateCommentPublic200Response(
                 status = 'failed',
                 comment = None,
-                user = generated.models.user_session_info.UserSessionInfo(
+                user = client.models.user_session_info.UserSessionInfo(
                     id = '', 
                     authorized = True, 
                     avatar_src = '', 
                     badges = [
-                        generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                        client.models.comment_user_badge_info.CommentUserBadgeInfo(
                             id = '', 
                             type = 56, 
                             description = '', 
@@ -74,7 +74,7 @@ class TestCreateCommentPublic200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -139,7 +139,7 @@ class TestCreateCommentPublic200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 
@@ -162,12 +162,12 @@ class TestCreateCommentPublic200Response(unittest.TestCase):
             return CreateCommentPublic200Response(
                 status = 'failed',
                 comment = None,
-                user = generated.models.user_session_info.UserSessionInfo(
+                user = client.models.user_session_info.UserSessionInfo(
                     id = '', 
                     authorized = True, 
                     avatar_src = '', 
                     badges = [
-                        generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                        client.models.comment_user_badge_info.CommentUserBadgeInfo(
                             id = '', 
                             type = 56, 
                             description = '', 

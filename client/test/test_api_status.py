@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.api_status import APIStatus
+from client.models.api_status import APIStatus
 
 class TestAPIStatus(unittest.TestCase):
     """APIStatus unit test stubs"""

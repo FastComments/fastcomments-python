@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.aggregation_response_stats import AggregationResponseStats
+from client.models.aggregation_response_stats import AggregationResponseStats
 
 class TestAggregationResponseStats(unittest.TestCase):
     """AggregationResponseStats unit test stubs"""

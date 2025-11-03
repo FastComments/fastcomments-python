@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.vote_body_params import VoteBodyParams
+from client.models.vote_body_params import VoteBodyParams
 
 class TestVoteBodyParams(unittest.TestCase):
     """VoteBodyParams unit test stubs"""

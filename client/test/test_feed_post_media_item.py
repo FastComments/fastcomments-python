@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.feed_post_media_item import FeedPostMediaItem
+from client.models.feed_post_media_item import FeedPostMediaItem
 
 class TestFeedPostMediaItem(unittest.TestCase):
     """FeedPostMediaItem unit test stubs"""
@@ -38,7 +38,7 @@ class TestFeedPostMediaItem(unittest.TestCase):
                 title = '',
                 link_url = '',
                 sizes = [
-                    generated.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
+                    client.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
                         w = 56, 
                         h = 56, 
                         src = '', )
@@ -47,7 +47,7 @@ class TestFeedPostMediaItem(unittest.TestCase):
         else:
             return FeedPostMediaItem(
                 sizes = [
-                    generated.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
+                    client.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
                         w = 56, 
                         h = 56, 
                         src = '', )

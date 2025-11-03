@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.public_feed_posts_response import PublicFeedPostsResponse
+from client.models.public_feed_posts_response import PublicFeedPostsResponse
 
 # TODO update the JSON string below
 json = "{}"

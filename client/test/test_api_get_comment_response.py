@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.api_get_comment_response import APIGetCommentResponse
+from client.models.api_get_comment_response import APIGetCommentResponse
 
 class TestAPIGetCommentResponse(unittest.TestCase):
     """APIGetCommentResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestAPIGetCommentResponse(unittest.TestCase):
         if include_optional:
             return APIGetCommentResponse(
                 status = 'success',
-                comment = generated.models.pick_f_comment/api_comment_fields_keys_.Pick_FComment.APICommentFieldsKeys_(
+                comment = client.models.pick_f_comment/api_comment_fields_keys_.Pick_FComment.APICommentFieldsKeys_(
                     date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     _id = '', 
                     tenant_id = '', 
@@ -87,7 +87,7 @@ class TestAPIGetCommentResponse(unittest.TestCase):
                         'key' : null
                         }, 
                     mentions = [
-                        generated.models.comment_user_mention_info.CommentUserMentionInfo(
+                        client.models.comment_user_mention_info.CommentUserMentionInfo(
                             id = '', 
                             tag = '', 
                             raw_tag = '', 
@@ -95,14 +95,14 @@ class TestAPIGetCommentResponse(unittest.TestCase):
                             sent = True, )
                         ], 
                     hash_tags = [
-                        generated.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
+                        client.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
                             id = '', 
                             tag = '', 
                             url = '', 
                             retain = True, )
                         ], 
                     badges = [
-                        generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                        client.models.comment_user_badge_info.CommentUserBadgeInfo(
                             id = '', 
                             type = 56, 
                             description = '', 
@@ -124,7 +124,7 @@ class TestAPIGetCommentResponse(unittest.TestCase):
         else:
             return APIGetCommentResponse(
                 status = 'success',
-                comment = generated.models.pick_f_comment/api_comment_fields_keys_.Pick_FComment.APICommentFieldsKeys_(
+                comment = client.models.pick_f_comment/api_comment_fields_keys_.Pick_FComment.APICommentFieldsKeys_(
                     date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     _id = '', 
                     tenant_id = '', 
@@ -175,7 +175,7 @@ class TestAPIGetCommentResponse(unittest.TestCase):
                         'key' : null
                         }, 
                     mentions = [
-                        generated.models.comment_user_mention_info.CommentUserMentionInfo(
+                        client.models.comment_user_mention_info.CommentUserMentionInfo(
                             id = '', 
                             tag = '', 
                             raw_tag = '', 
@@ -183,14 +183,14 @@ class TestAPIGetCommentResponse(unittest.TestCase):
                             sent = True, )
                         ], 
                     hash_tags = [
-                        generated.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
+                        client.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
                             id = '', 
                             tag = '', 
                             url = '', 
                             retain = True, )
                         ], 
                     badges = [
-                        generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                        client.models.comment_user_badge_info.CommentUserBadgeInfo(
                             id = '', 
                             type = 56, 
                             description = '', 

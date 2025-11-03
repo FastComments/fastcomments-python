@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_sso_users200_response import GetSSOUsers200Response
+from client.models.get_sso_users200_response import GetSSOUsers200Response
 
 class TestGetSSOUsers200Response(unittest.TestCase):
     """GetSSOUsers200Response unit test stubs"""
@@ -36,7 +36,7 @@ class TestGetSSOUsers200Response(unittest.TestCase):
         if include_optional:
             return GetSSOUsers200Response(
                 users = [
-                    generated.models.apisso_user.APISSOUser(
+                    client.models.apisso_user.APISSOUser(
                         id = '', 
                         username = '', 
                         website_url = '', 
@@ -65,7 +65,7 @@ class TestGetSSOUsers200Response(unittest.TestCase):
         else:
             return GetSSOUsers200Response(
                 users = [
-                    generated.models.apisso_user.APISSOUser(
+                    client.models.apisso_user.APISSOUser(
                         id = '', 
                         username = '', 
                         website_url = '', 

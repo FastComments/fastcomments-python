@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.react_body_params import ReactBodyParams
+from client.models.react_body_params import ReactBodyParams
 
 class TestReactBodyParams(unittest.TestCase):
     """ReactBodyParams unit test stubs"""

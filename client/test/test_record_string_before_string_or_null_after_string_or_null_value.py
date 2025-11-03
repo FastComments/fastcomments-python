@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.record_string_before_string_or_null_after_string_or_null_value import RecordStringBeforeStringOrNullAfterStringOrNullValue
+from client.models.record_string_before_string_or_null_after_string_or_null_value import RecordStringBeforeStringOrNullAfterStringOrNullValue
 
 class TestRecordStringBeforeStringOrNullAfterStringOrNullValue(unittest.TestCase):
     """RecordStringBeforeStringOrNullAfterStringOrNullValue unit test stubs"""

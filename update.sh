@@ -60,7 +60,7 @@ rm -rf ./dist ./build ./*.egg-info
 
 # Rebuild the package
 echo "Building package..."
-python -m build
+python3 -m build
 
 if [ $? -eq 0 ]; then
     echo "✓ Package built successfully!"

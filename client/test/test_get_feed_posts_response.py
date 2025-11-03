@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_feed_posts_response import GetFeedPostsResponse
+from client.models.get_feed_posts_response import GetFeedPostsResponse
 
 class TestGetFeedPostsResponse(unittest.TestCase):
     """GetFeedPostsResponse unit test stubs"""
@@ -37,7 +37,7 @@ class TestGetFeedPostsResponse(unittest.TestCase):
             return GetFeedPostsResponse(
                 status = 'success',
                 feed_posts = [
-                    generated.models.feed_post.FeedPost(
+                    client.models.feed_post.FeedPost(
                         _id = '', 
                         tenant_id = '', 
                         title = '', 
@@ -54,18 +54,18 @@ class TestGetFeedPostsResponse(unittest.TestCase):
                             }, 
                         content_html = '', 
                         media = [
-                            generated.models.feed_post_media_item.FeedPostMediaItem(
+                            client.models.feed_post_media_item.FeedPostMediaItem(
                                 title = '', 
                                 link_url = '', 
                                 sizes = [
-                                    generated.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
+                                    client.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
                                         w = 56, 
                                         h = 56, 
                                         src = '', )
                                     ], )
                             ], 
                         links = [
-                            generated.models.feed_post_link.FeedPostLink(
+                            client.models.feed_post_link.FeedPostLink(
                                 text = '', 
                                 title = '', 
                                 description = '', 
@@ -82,7 +82,7 @@ class TestGetFeedPostsResponse(unittest.TestCase):
             return GetFeedPostsResponse(
                 status = 'success',
                 feed_posts = [
-                    generated.models.feed_post.FeedPost(
+                    client.models.feed_post.FeedPost(
                         _id = '', 
                         tenant_id = '', 
                         title = '', 
@@ -99,18 +99,18 @@ class TestGetFeedPostsResponse(unittest.TestCase):
                             }, 
                         content_html = '', 
                         media = [
-                            generated.models.feed_post_media_item.FeedPostMediaItem(
+                            client.models.feed_post_media_item.FeedPostMediaItem(
                                 title = '', 
                                 link_url = '', 
                                 sizes = [
-                                    generated.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
+                                    client.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
                                         w = 56, 
                                         h = 56, 
                                         src = '', )
                                     ], )
                             ], 
                         links = [
-                            generated.models.feed_post_link.FeedPostLink(
+                            client.models.feed_post_link.FeedPostLink(
                                 text = '', 
                                 title = '', 
                                 description = '', 

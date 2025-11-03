@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.save_comment_response import SaveCommentResponse
+from client.models.save_comment_response import SaveCommentResponse
 
 class TestSaveCommentResponse(unittest.TestCase):
     """SaveCommentResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestSaveCommentResponse(unittest.TestCase):
         if include_optional:
             return SaveCommentResponse(
                 status = 'success',
-                comment = generated.models.f_comment.FComment(
+                comment = client.models.f_comment.FComment(
                     _id = '', 
                     tenant_id = '', 
                     url_id = '', 
@@ -95,7 +95,7 @@ class TestSaveCommentResponse(unittest.TestCase):
                         }, 
                     ip_hash = '', 
                     mentions = [
-                        generated.models.comment_user_mention_info.CommentUserMentionInfo(
+                        client.models.comment_user_mention_info.CommentUserMentionInfo(
                             id = '', 
                             tag = '', 
                             raw_tag = '', 
@@ -103,14 +103,14 @@ class TestSaveCommentResponse(unittest.TestCase):
                             sent = True, )
                         ], 
                     hash_tags = [
-                        generated.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
+                        client.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
                             id = '', 
                             tag = '', 
                             url = '', 
                             retain = True, )
                         ], 
                     badges = [
-                        generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                        client.models.comment_user_badge_info.CommentUserBadgeInfo(
                             id = '', 
                             type = 56, 
                             description = '', 
@@ -144,12 +144,12 @@ class TestSaveCommentResponse(unittest.TestCase):
                     view_count = 56, 
                     requires_verification = True, 
                     edit_key = '', ),
-                user = generated.models.user_session_info.UserSessionInfo(
+                user = client.models.user_session_info.UserSessionInfo(
                     id = '', 
                     authorized = True, 
                     avatar_src = '', 
                     badges = [
-                        generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                        client.models.comment_user_badge_info.CommentUserBadgeInfo(
                             id = '', 
                             type = 56, 
                             description = '', 
@@ -178,7 +178,7 @@ class TestSaveCommentResponse(unittest.TestCase):
         else:
             return SaveCommentResponse(
                 status = 'success',
-                comment = generated.models.f_comment.FComment(
+                comment = client.models.f_comment.FComment(
                     _id = '', 
                     tenant_id = '', 
                     url_id = '', 
@@ -237,7 +237,7 @@ class TestSaveCommentResponse(unittest.TestCase):
                         }, 
                     ip_hash = '', 
                     mentions = [
-                        generated.models.comment_user_mention_info.CommentUserMentionInfo(
+                        client.models.comment_user_mention_info.CommentUserMentionInfo(
                             id = '', 
                             tag = '', 
                             raw_tag = '', 
@@ -245,14 +245,14 @@ class TestSaveCommentResponse(unittest.TestCase):
                             sent = True, )
                         ], 
                     hash_tags = [
-                        generated.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
+                        client.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
                             id = '', 
                             tag = '', 
                             url = '', 
                             retain = True, )
                         ], 
                     badges = [
-                        generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                        client.models.comment_user_badge_info.CommentUserBadgeInfo(
                             id = '', 
                             type = 56, 
                             description = '', 
@@ -286,12 +286,12 @@ class TestSaveCommentResponse(unittest.TestCase):
                     view_count = 56, 
                     requires_verification = True, 
                     edit_key = '', ),
-                user = generated.models.user_session_info.UserSessionInfo(
+                user = client.models.user_session_info.UserSessionInfo(
                     id = '', 
                     authorized = True, 
                     avatar_src = '', 
                     badges = [
-                        generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                        client.models.comment_user_badge_info.CommentUserBadgeInfo(
                             id = '', 
                             type = 56, 
                             description = '', 

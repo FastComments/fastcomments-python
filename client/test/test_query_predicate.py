@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.query_predicate import QueryPredicate
+from client.models.query_predicate import QueryPredicate
 
 class TestQueryPredicate(unittest.TestCase):
     """QueryPredicate unit test stubs"""

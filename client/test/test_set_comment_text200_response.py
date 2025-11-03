@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.set_comment_text200_response import SetCommentText200Response
+from client.models.set_comment_text200_response import SetCommentText200Response
 
 class TestSetCommentText200Response(unittest.TestCase):
     """SetCommentText200Response unit test stubs"""
@@ -35,7 +35,7 @@ class TestSetCommentText200Response(unittest.TestCase):
         model = SetCommentText200Response()
         if include_optional:
             return SetCommentText200Response(
-                comment = generated.models.pick_f_comment/approved_or_comment_html_.Pick_FComment.approved-or-commentHTML_(
+                comment = client.models.pick_f_comment/approved_or_comment_html_.Pick_FComment.approved-or-commentHTML_(
                     comment_html = '', 
                     approved = True, ),
                 status = 'failed',
@@ -45,7 +45,7 @@ class TestSetCommentText200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -110,7 +110,7 @@ class TestSetCommentText200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 
@@ -131,7 +131,7 @@ class TestSetCommentText200Response(unittest.TestCase):
             )
         else:
             return SetCommentText200Response(
-                comment = generated.models.pick_f_comment/approved_or_comment_html_.Pick_FComment.approved-or-commentHTML_(
+                comment = client.models.pick_f_comment/approved_or_comment_html_.Pick_FComment.approved-or-commentHTML_(
                     comment_html = '', 
                     approved = True, ),
                 status = 'failed',

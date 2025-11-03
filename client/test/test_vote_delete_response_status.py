@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.vote_delete_response_status import VoteDeleteResponseStatus
+from client.models.vote_delete_response_status import VoteDeleteResponseStatus
 
 class TestVoteDeleteResponseStatus(unittest.TestCase):
     """VoteDeleteResponseStatus unit test stubs"""

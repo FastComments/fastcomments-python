@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.bulk_aggregate_question_results_response import BulkAggregateQuestionResultsResponse
+from client.models.bulk_aggregate_question_results_response import BulkAggregateQuestionResultsResponse
 
 class TestBulkAggregateQuestionResultsResponse(unittest.TestCase):
     """BulkAggregateQuestionResultsResponse unit test stubs"""
@@ -37,16 +37,16 @@ class TestBulkAggregateQuestionResultsResponse(unittest.TestCase):
             return BulkAggregateQuestionResultsResponse(
                 status = 'success',
                 data = {
-                    'key' : generated.models.question_result_aggregation_overall.QuestionResultAggregationOverall(
+                    'key' : client.models.question_result_aggregation_overall.QuestionResultAggregationOverall(
                         data_by_date_bucket = {
-                            'key' : generated.models.question_datum.QuestionDatum(
+                            'key' : client.models.question_datum.QuestionDatum(
                                 v = {
                                     'key' : 1.337
                                     }, 
                                 total = 56, )
                             }, 
                         data_by_url_id = {
-                            'key' : generated.models.question_datum.QuestionDatum(
+                            'key' : client.models.question_datum.QuestionDatum(
                                 v = {
                                     'key' : 1.337
                                     }, 
@@ -64,16 +64,16 @@ class TestBulkAggregateQuestionResultsResponse(unittest.TestCase):
             return BulkAggregateQuestionResultsResponse(
                 status = 'success',
                 data = {
-                    'key' : generated.models.question_result_aggregation_overall.QuestionResultAggregationOverall(
+                    'key' : client.models.question_result_aggregation_overall.QuestionResultAggregationOverall(
                         data_by_date_bucket = {
-                            'key' : generated.models.question_datum.QuestionDatum(
+                            'key' : client.models.question_datum.QuestionDatum(
                                 v = {
                                     'key' : 1.337
                                     }, 
                                 total = 56, )
                             }, 
                         data_by_url_id = {
-                            'key' : generated.models.question_datum.QuestionDatum(
+                            'key' : client.models.question_datum.QuestionDatum(
                                 v = {
                                     'key' : 1.337
                                     }, 

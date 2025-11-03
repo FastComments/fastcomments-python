@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.question_when_save import QuestionWhenSave
+from client.models.question_when_save import QuestionWhenSave
 
 class TestQuestionWhenSave(unittest.TestCase):
     """QuestionWhenSave unit test stubs"""

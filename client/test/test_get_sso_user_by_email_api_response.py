@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_sso_user_by_email_api_response import GetSSOUserByEmailAPIResponse
+from client.models.get_sso_user_by_email_api_response import GetSSOUserByEmailAPIResponse
 
 class TestGetSSOUserByEmailAPIResponse(unittest.TestCase):
     """GetSSOUserByEmailAPIResponse unit test stubs"""
@@ -37,7 +37,7 @@ class TestGetSSOUserByEmailAPIResponse(unittest.TestCase):
             return GetSSOUserByEmailAPIResponse(
                 reason = '',
                 code = '',
-                user = generated.models.apisso_user.APISSOUser(
+                user = client.models.apisso_user.APISSOUser(
                     id = '', 
                     username = '', 
                     website_url = '', 

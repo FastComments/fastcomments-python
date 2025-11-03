@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.sso_security_level import SSOSecurityLevel
+from client.models.sso_security_level import SSOSecurityLevel
 
 class TestSSOSecurityLevel(unittest.TestCase):
     """SSOSecurityLevel unit test stubs"""

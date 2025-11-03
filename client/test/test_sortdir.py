@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.sortdir import SORTDIR
+from client.models.sortdir import SORTDIR
 
 class TestSORTDIR(unittest.TestCase):
     """SORTDIR unit test stubs"""

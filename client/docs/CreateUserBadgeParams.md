@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.create_user_badge_params import CreateUserBadgeParams
+from client.models.create_user_badge_params import CreateUserBadgeParams
 
 # TODO update the JSON string below
 json = "{}"

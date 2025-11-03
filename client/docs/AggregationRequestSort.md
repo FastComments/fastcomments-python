@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.aggregation_request_sort import AggregationRequestSort
+from client.models.aggregation_request_sort import AggregationRequestSort
 
 # TODO update the JSON string below
 json = "{}"

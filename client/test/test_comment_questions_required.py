@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.comment_questions_required import CommentQuestionsRequired
+from client.models.comment_questions_required import CommentQuestionsRequired
 
 class TestCommentQuestionsRequired(unittest.TestCase):
     """CommentQuestionsRequired unit test stubs"""

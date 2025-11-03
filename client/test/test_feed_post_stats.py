@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.feed_post_stats import FeedPostStats
+from client.models.feed_post_stats import FeedPostStats
 
 class TestFeedPostStats(unittest.TestCase):
     """FeedPostStats unit test stubs"""

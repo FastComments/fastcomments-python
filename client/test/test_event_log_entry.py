@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.event_log_entry import EventLogEntry
+from client.models.event_log_entry import EventLogEntry
 
 class TestEventLogEntry(unittest.TestCase):
     """EventLogEntry unit test stubs"""

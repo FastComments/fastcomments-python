@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.aggregation_operation import AggregationOperation
+from client.models.aggregation_operation import AggregationOperation
 
 class TestAggregationOperation(unittest.TestCase):
     """AggregationOperation unit test stubs"""

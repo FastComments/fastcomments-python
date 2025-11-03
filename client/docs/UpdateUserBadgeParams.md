@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.update_user_badge_params import UpdateUserBadgeParams
+from client.models.update_user_badge_params import UpdateUserBadgeParams
 
 # TODO update the JSON string below
 json = "{}"

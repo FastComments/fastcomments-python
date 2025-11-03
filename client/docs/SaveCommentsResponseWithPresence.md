@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.save_comments_response_with_presence import SaveCommentsResponseWithPresence
+from client.models.save_comments_response_with_presence import SaveCommentsResponseWithPresence
 
 # TODO update the JSON string below
 json = "{}"

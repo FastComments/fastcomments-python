@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.aggregation_response import AggregationResponse
+from client.models.aggregation_response import AggregationResponse
 
 class TestAggregationResponse(unittest.TestCase):
     """AggregationResponse unit test stubs"""
@@ -39,7 +39,7 @@ class TestAggregationResponse(unittest.TestCase):
                 data = [
                     null
                     ],
-                stats = generated.models.aggregation_response_stats.AggregationResponse_stats(
+                stats = client.models.aggregation_response_stats.AggregationResponse_stats(
                     time_ms = 56, 
                     scanned = 56, )
             )

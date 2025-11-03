@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.user_notification_write_response import UserNotificationWriteResponse
+from client.models.user_notification_write_response import UserNotificationWriteResponse
 
 # TODO update the JSON string below
 json = "{}"

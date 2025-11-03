@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.delete_sso_user_api_response import DeleteSSOUserAPIResponse
+from client.models.delete_sso_user_api_response import DeleteSSOUserAPIResponse
 
 class TestDeleteSSOUserAPIResponse(unittest.TestCase):
     """DeleteSSOUserAPIResponse unit test stubs"""
@@ -37,7 +37,7 @@ class TestDeleteSSOUserAPIResponse(unittest.TestCase):
             return DeleteSSOUserAPIResponse(
                 reason = '',
                 code = '',
-                user = generated.models.apisso_user.APISSOUser(
+                user = client.models.apisso_user.APISSOUser(
                     id = '', 
                     username = '', 
                     website_url = '', 

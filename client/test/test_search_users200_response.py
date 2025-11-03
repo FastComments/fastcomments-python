@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.search_users200_response import SearchUsers200Response
+from client.models.search_users200_response import SearchUsers200Response
 
 class TestSearchUsers200Response(unittest.TestCase):
     """SearchUsers200Response unit test stubs"""
@@ -37,7 +37,7 @@ class TestSearchUsers200Response(unittest.TestCase):
             return SearchUsers200Response(
                 status = 'failed',
                 users = [
-                    generated.models.user_search_result.UserSearchResult(
+                    client.models.user_search_result.UserSearchResult(
                         id = '', 
                         name = '', 
                         display_name = '', 
@@ -50,7 +50,7 @@ class TestSearchUsers200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -115,7 +115,7 @@ class TestSearchUsers200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 
@@ -138,7 +138,7 @@ class TestSearchUsers200Response(unittest.TestCase):
             return SearchUsers200Response(
                 status = 'failed',
                 users = [
-                    generated.models.user_search_result.UserSearchResult(
+                    client.models.user_search_result.UserSearchResult(
                         id = '', 
                         name = '', 
                         display_name = '', 

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.aggregation_response import AggregationResponse
+from client.models.aggregation_response import AggregationResponse
 
 # TODO update the JSON string below
 json = "{}"

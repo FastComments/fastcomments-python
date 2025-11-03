@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.find_comments_by_range_response import FindCommentsByRangeResponse
+from client.models.find_comments_by_range_response import FindCommentsByRangeResponse
 
 class TestFindCommentsByRangeResponse(unittest.TestCase):
     """FindCommentsByRangeResponse unit test stubs"""
@@ -36,9 +36,9 @@ class TestFindCommentsByRangeResponse(unittest.TestCase):
         if include_optional:
             return FindCommentsByRangeResponse(
                 results = [
-                    generated.models.find_comments_by_range_item.FindCommentsByRangeItem(
+                    client.models.find_comments_by_range_item.FindCommentsByRangeItem(
                         comment = null, 
-                        result = generated.models.question_result.QuestionResult(
+                        result = client.models.question_result.QuestionResult(
                             _id = '', 
                             tenant_id = '', 
                             url_id = '', 
@@ -49,7 +49,7 @@ class TestFindCommentsByRangeResponse(unittest.TestCase):
                             comment_id = '', 
                             question_id = '', 
                             meta = [
-                                generated.models.meta_item.MetaItem(
+                                client.models.meta_item.MetaItem(
                                     name = '', 
                                     values = [
                                         ''
@@ -62,9 +62,9 @@ class TestFindCommentsByRangeResponse(unittest.TestCase):
         else:
             return FindCommentsByRangeResponse(
                 results = [
-                    generated.models.find_comments_by_range_item.FindCommentsByRangeItem(
+                    client.models.find_comments_by_range_item.FindCommentsByRangeItem(
                         comment = null, 
-                        result = generated.models.question_result.QuestionResult(
+                        result = client.models.question_result.QuestionResult(
                             _id = '', 
                             tenant_id = '', 
                             url_id = '', 
@@ -75,7 +75,7 @@ class TestFindCommentsByRangeResponse(unittest.TestCase):
                             comment_id = '', 
                             question_id = '', 
                             meta = [
-                                generated.models.meta_item.MetaItem(
+                                client.models.meta_item.MetaItem(
                                     name = '', 
                                     values = [
                                         ''

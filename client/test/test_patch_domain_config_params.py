@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.patch_domain_config_params import PatchDomainConfigParams
+from client.models.patch_domain_config_params import PatchDomainConfigParams
 
 class TestPatchDomainConfigParams(unittest.TestCase):
     """PatchDomainConfigParams unit test stubs"""

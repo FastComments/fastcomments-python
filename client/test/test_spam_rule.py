@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.spam_rule import SpamRule
+from client.models.spam_rule import SpamRule
 
 class TestSpamRule(unittest.TestCase):
     """SpamRule unit test stubs"""

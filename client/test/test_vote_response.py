@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.vote_response import VoteResponse
+from client.models.vote_response import VoteResponse
 
 class TestVoteResponse(unittest.TestCase):
     """VoteResponse unit test stubs"""
@@ -38,7 +38,7 @@ class TestVoteResponse(unittest.TestCase):
                 status = None,
                 vote_id = '',
                 is_verified = True,
-                user = generated.models.vote_response_user.VoteResponseUser(
+                user = client.models.vote_response_user.VoteResponseUser(
                     session_id = '', ),
                 edit_key = ''
             )

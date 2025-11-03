@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.feed_post_media_item import FeedPostMediaItem
+from client.models.feed_post_media_item import FeedPostMediaItem
 
 # TODO update the JSON string below
 json = "{}"

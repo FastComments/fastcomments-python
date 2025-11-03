@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.live_event_extra_info import LiveEventExtraInfo
+from client.models.live_event_extra_info import LiveEventExtraInfo
 
 class TestLiveEventExtraInfo(unittest.TestCase):
     """LiveEventExtraInfo unit test stubs"""
@@ -36,7 +36,7 @@ class TestLiveEventExtraInfo(unittest.TestCase):
         if include_optional:
             return LiveEventExtraInfo(
                 comment_positions = {
-                    'key' : generated.models.record_string__before_string_or_null__after_string_or_null___value.Record_string__before_string_or_null__after_string_or_null___value(
+                    'key' : client.models.record_string__before_string_or_null__after_string_or_null___value.Record_string__before_string_or_null__after_string_or_null___value(
                         after = '', 
                         before = '', )
                     }

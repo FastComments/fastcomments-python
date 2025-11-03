@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.api_page import APIPage
+from client.models.api_page import APIPage
 
 # TODO update the JSON string below
 json = "{}"

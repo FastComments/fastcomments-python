@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.comment_question_results_rendering_type import CommentQuestionResultsRenderingType
+from client.models.comment_question_results_rendering_type import CommentQuestionResultsRenderingType
 
 class TestCommentQuestionResultsRenderingType(unittest.TestCase):
     """CommentQuestionResultsRenderingType unit test stubs"""

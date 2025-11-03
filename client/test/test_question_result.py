@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.question_result import QuestionResult
+from client.models.question_result import QuestionResult
 
 class TestQuestionResult(unittest.TestCase):
     """QuestionResult unit test stubs"""
@@ -45,7 +45,7 @@ class TestQuestionResult(unittest.TestCase):
                 comment_id = '',
                 question_id = '',
                 meta = [
-                    generated.models.meta_item.MetaItem(
+                    client.models.meta_item.MetaItem(
                         name = '', 
                         values = [
                             ''

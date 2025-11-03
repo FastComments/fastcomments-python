@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.un_block_from_comment_params import UnBlockFromCommentParams
+from client.models.un_block_from_comment_params import UnBlockFromCommentParams
 
 class TestUnBlockFromCommentParams(unittest.TestCase):
     """UnBlockFromCommentParams unit test stubs"""

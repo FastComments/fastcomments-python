@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_subscriptions_api_response import GetSubscriptionsAPIResponse
+from client.models.get_subscriptions_api_response import GetSubscriptionsAPIResponse
 
 class TestGetSubscriptionsAPIResponse(unittest.TestCase):
     """GetSubscriptionsAPIResponse unit test stubs"""
@@ -38,7 +38,7 @@ class TestGetSubscriptionsAPIResponse(unittest.TestCase):
                 reason = '',
                 code = '',
                 subscriptions = [
-                    generated.models.api_user_subscription.APIUserSubscription(
+                    client.models.api_user_subscription.APIUserSubscription(
                         created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         page_title = '', 
                         url = '', 

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.public_api_set_comment_text_response import PublicAPISetCommentTextResponse
+from client.models.public_api_set_comment_text_response import PublicAPISetCommentTextResponse
 
 # TODO update the JSON string below
 json = "{}"

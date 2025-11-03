@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_user_presence_statuses_response import GetUserPresenceStatusesResponse
+from client.models.get_user_presence_statuses_response import GetUserPresenceStatusesResponse
 
 class TestGetUserPresenceStatusesResponse(unittest.TestCase):
     """GetUserPresenceStatusesResponse unit test stubs"""

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.aggregation_response_stats import AggregationResponseStats
+from client.models.aggregation_response_stats import AggregationResponseStats
 
 # TODO update the JSON string below
 json = "{}"

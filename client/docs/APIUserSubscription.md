@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.api_user_subscription import APIUserSubscription
+from client.models.api_user_subscription import APIUserSubscription
 
 # TODO update the JSON string below
 json = "{}"

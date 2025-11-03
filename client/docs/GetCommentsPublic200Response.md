@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.get_comments_public200_response import GetCommentsPublic200Response
+from client.models.get_comments_public200_response import GetCommentsPublic200Response
 
 # TODO update the JSON string below
 json = "{}"

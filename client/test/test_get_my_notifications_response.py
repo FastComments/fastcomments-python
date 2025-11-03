@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_my_notifications_response import GetMyNotificationsResponse
+from client.models.get_my_notifications_response import GetMyNotificationsResponse
 
 class TestGetMyNotificationsResponse(unittest.TestCase):
     """GetMyNotificationsResponse unit test stubs"""
@@ -41,7 +41,7 @@ class TestGetMyNotificationsResponse(unittest.TestCase):
                 is_subscribed = True,
                 has_more = True,
                 notifications = [
-                    generated.models.renderable_user_notification.RenderableUserNotification(
+                    client.models.renderable_user_notification.RenderableUserNotification(
                         conversation_id = '', 
                         context_html = '', 
                         from_user_names = [
@@ -77,7 +77,7 @@ class TestGetMyNotificationsResponse(unittest.TestCase):
                 is_subscribed = True,
                 has_more = True,
                 notifications = [
-                    generated.models.renderable_user_notification.RenderableUserNotification(
+                    client.models.renderable_user_notification.RenderableUserNotification(
                         conversation_id = '', 
                         context_html = '', 
                         from_user_names = [

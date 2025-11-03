@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.delete_sso_user_api_response import DeleteSSOUserAPIResponse
+from client.models.delete_sso_user_api_response import DeleteSSOUserAPIResponse
 
 # TODO update the JSON string below
 json = "{}"

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.delete_feed_post_public200_response_any_of import DeleteFeedPostPublic200ResponseAnyOf
+from client.models.delete_feed_post_public200_response_any_of import DeleteFeedPostPublic200ResponseAnyOf
 
 # TODO update the JSON string below
 json = "{}"

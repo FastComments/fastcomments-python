@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.record_string_string_or_number_value import RecordStringStringOrNumberValue
+from client.models.record_string_string_or_number_value import RecordStringStringOrNumberValue
 
 class TestRecordStringStringOrNumberValue(unittest.TestCase):
     """RecordStringStringOrNumberValue unit test stubs"""

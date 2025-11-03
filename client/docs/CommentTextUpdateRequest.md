@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.comment_text_update_request import CommentTextUpdateRequest
+from client.models.comment_text_update_request import CommentTextUpdateRequest
 
 # TODO update the JSON string below
 json = "{}"

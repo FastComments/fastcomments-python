@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_feed_posts_stats200_response import GetFeedPostsStats200Response
+from client.models.get_feed_posts_stats200_response import GetFeedPostsStats200Response
 
 class TestGetFeedPostsStats200Response(unittest.TestCase):
     """GetFeedPostsStats200Response unit test stubs"""
@@ -37,7 +37,7 @@ class TestGetFeedPostsStats200Response(unittest.TestCase):
             return GetFeedPostsStats200Response(
                 status = 'failed',
                 stats = {
-                    'key' : generated.models.feed_post_stats.FeedPostStats(
+                    'key' : client.models.feed_post_stats.FeedPostStats(
                         reacts = {
                             'key' : 56
                             }, 
@@ -49,7 +49,7 @@ class TestGetFeedPostsStats200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -114,7 +114,7 @@ class TestGetFeedPostsStats200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 
@@ -137,7 +137,7 @@ class TestGetFeedPostsStats200Response(unittest.TestCase):
             return GetFeedPostsStats200Response(
                 status = 'failed',
                 stats = {
-                    'key' : generated.models.feed_post_stats.FeedPostStats(
+                    'key' : client.models.feed_post_stats.FeedPostStats(
                         reacts = {
                             'key' : 56
                             }, 

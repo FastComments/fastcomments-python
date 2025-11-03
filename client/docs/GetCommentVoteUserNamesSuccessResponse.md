@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.get_comment_vote_user_names_success_response import GetCommentVoteUserNamesSuccessResponse
+from client.models.get_comment_vote_user_names_success_response import GetCommentVoteUserNamesSuccessResponse
 
 # TODO update the JSON string below
 json = "{}"

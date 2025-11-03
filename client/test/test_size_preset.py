@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.size_preset import SizePreset
+from client.models.size_preset import SizePreset
 
 class TestSizePreset(unittest.TestCase):
     """SizePreset unit test stubs"""

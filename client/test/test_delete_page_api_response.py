@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.delete_page_api_response import DeletePageAPIResponse
+from client.models.delete_page_api_response import DeletePageAPIResponse
 
 class TestDeletePageAPIResponse(unittest.TestCase):
     """DeletePageAPIResponse unit test stubs"""

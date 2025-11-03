@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.patch_domain_config_params import PatchDomainConfigParams
+from client.models.patch_domain_config_params import PatchDomainConfigParams
 
 # TODO update the JSON string below
 json = "{}"

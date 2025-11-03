@@ -43,7 +43,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.create_comment_params import CreateCommentParams
+from client.models.create_comment_params import CreateCommentParams
 
 # TODO update the JSON string below
 json = "{}"

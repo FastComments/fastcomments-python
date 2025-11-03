@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.create_apisso_user_data import CreateAPISSOUserData
+from client.models.create_apisso_user_data import CreateAPISSOUserData
 
 class TestCreateAPISSOUserData(unittest.TestCase):
     """CreateAPISSOUserData unit test stubs"""

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.upload_image_response import UploadImageResponse
+from client.models.upload_image_response import UploadImageResponse
 
 # TODO update the JSON string below
 json = "{}"

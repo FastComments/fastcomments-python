@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.pick_f_comment_approved_or_comment_html import PickFCommentApprovedOrCommentHTML
+from client.models.pick_f_comment_approved_or_comment_html import PickFCommentApprovedOrCommentHTML
 
 class TestPickFCommentApprovedOrCommentHTML(unittest.TestCase):
     """PickFCommentApprovedOrCommentHTML unit test stubs"""

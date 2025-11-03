@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.pick_f_comment_is_deleted_or_comment_htmlor_commenter_name_or_user_id import PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId
+from client.models.pick_f_comment_is_deleted_or_comment_htmlor_commenter_name_or_user_id import PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId
 
 # TODO update the JSON string below
 json = "{}"

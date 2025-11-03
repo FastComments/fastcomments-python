@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.pick_f_comment_api_comment_fields_keys import PickFCommentAPICommentFieldsKeys
+from client.models.pick_f_comment_api_comment_fields_keys import PickFCommentAPICommentFieldsKeys
 
 class TestPickFCommentAPICommentFieldsKeys(unittest.TestCase):
     """PickFCommentAPICommentFieldsKeys unit test stubs"""
@@ -85,7 +85,7 @@ class TestPickFCommentAPICommentFieldsKeys(unittest.TestCase):
                     'key' : null
                     },
                 mentions = [
-                    generated.models.comment_user_mention_info.CommentUserMentionInfo(
+                    client.models.comment_user_mention_info.CommentUserMentionInfo(
                         id = '', 
                         tag = '', 
                         raw_tag = '', 
@@ -93,14 +93,14 @@ class TestPickFCommentAPICommentFieldsKeys(unittest.TestCase):
                         sent = True, )
                     ],
                 hash_tags = [
-                    generated.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
+                    client.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
                         id = '', 
                         tag = '', 
                         url = '', 
                         retain = True, )
                     ],
                 badges = [
-                    generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                    client.models.comment_user_badge_info.CommentUserBadgeInfo(
                         id = '', 
                         type = 56, 
                         description = '', 

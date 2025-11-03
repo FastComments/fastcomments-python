@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.comment_data import CommentData
+from client.models.comment_data import CommentData
 
 # TODO update the JSON string below
 json = "{}"

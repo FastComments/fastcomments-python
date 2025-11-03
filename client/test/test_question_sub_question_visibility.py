@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.question_sub_question_visibility import QuestionSubQuestionVisibility
+from client.models.question_sub_question_visibility import QuestionSubQuestionVisibility
 
 class TestQuestionSubQuestionVisibility(unittest.TestCase):
     """QuestionSubQuestionVisibility unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_event_log200_response import GetEventLog200Response
+from client.models.get_event_log200_response import GetEventLog200Response
 
 class TestGetEventLog200Response(unittest.TestCase):
     """GetEventLog200Response unit test stubs"""
@@ -36,7 +36,7 @@ class TestGetEventLog200Response(unittest.TestCase):
         if include_optional:
             return GetEventLog200Response(
                 events = [
-                    generated.models.event_log_entry.EventLogEntry(
+                    client.models.event_log_entry.EventLogEntry(
                         _id = '', 
                         created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         tenant_id = '', 
@@ -51,7 +51,7 @@ class TestGetEventLog200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -116,7 +116,7 @@ class TestGetEventLog200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 
@@ -138,7 +138,7 @@ class TestGetEventLog200Response(unittest.TestCase):
         else:
             return GetEventLog200Response(
                 events = [
-                    generated.models.event_log_entry.EventLogEntry(
+                    client.models.event_log_entry.EventLogEntry(
                         _id = '', 
                         created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         tenant_id = '', 

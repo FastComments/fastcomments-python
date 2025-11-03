@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.custom_config_parameters import CustomConfigParameters
+from client.models.custom_config_parameters import CustomConfigParameters
 
 class TestCustomConfigParameters(unittest.TestCase):
     """CustomConfigParameters unit test stubs"""
@@ -99,7 +99,7 @@ class TestCustomConfigParameters(unittest.TestCase):
                 show_live_right_away = True,
                 show_question = True,
                 spam_rules = [
-                    generated.models.spam_rule.SpamRule(
+                    client.models.spam_rule.SpamRule(
                         actions = [
                             'spam'
                             ], 

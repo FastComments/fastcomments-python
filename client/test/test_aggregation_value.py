@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.aggregation_value import AggregationValue
+from client.models.aggregation_value import AggregationValue
 
 class TestAggregationValue(unittest.TestCase):
     """AggregationValue unit test stubs"""

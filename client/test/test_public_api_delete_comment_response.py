@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.public_api_delete_comment_response import PublicAPIDeleteCommentResponse
+from client.models.public_api_delete_comment_response import PublicAPIDeleteCommentResponse
 
 class TestPublicAPIDeleteCommentResponse(unittest.TestCase):
     """PublicAPIDeleteCommentResponse unit test stubs"""
@@ -35,7 +35,7 @@ class TestPublicAPIDeleteCommentResponse(unittest.TestCase):
         model = PublicAPIDeleteCommentResponse()
         if include_optional:
             return PublicAPIDeleteCommentResponse(
-                comment = generated.models.pick_f_comment/is_deleted_or_comment_html_or_commenter_name_or_user_id_.Pick_FComment.isDeleted-or-commentHTML-or-commenterName-or-userId_(
+                comment = client.models.pick_f_comment/is_deleted_or_comment_html_or_commenter_name_or_user_id_.Pick_FComment.isDeleted-or-commentHTML-or-commenterName-or-userId_(
                     user_id = '', 
                     commenter_name = '', 
                     comment_html = '', 

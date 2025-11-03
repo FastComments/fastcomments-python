@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_audit_logs_response import GetAuditLogsResponse
+from client.models.get_audit_logs_response import GetAuditLogsResponse
 
 class TestGetAuditLogsResponse(unittest.TestCase):
     """GetAuditLogsResponse unit test stubs"""
@@ -37,7 +37,7 @@ class TestGetAuditLogsResponse(unittest.TestCase):
             return GetAuditLogsResponse(
                 status = 'success',
                 audit_logs = [
-                    generated.models.pick_tenant_audit_log/tenant_audit_log_keys_.Pick_TenantAuditLog.TenantAuditLogKeys_(
+                    client.models.pick_tenant_audit_log/tenant_audit_log_keys_.Pick_TenantAuditLog.TenantAuditLogKeys_(
                         _id = '', 
                         url = '', 
                         user_id = '', 
@@ -58,7 +58,7 @@ class TestGetAuditLogsResponse(unittest.TestCase):
             return GetAuditLogsResponse(
                 status = 'success',
                 audit_logs = [
-                    generated.models.pick_tenant_audit_log/tenant_audit_log_keys_.Pick_TenantAuditLog.TenantAuditLogKeys_(
+                    client.models.pick_tenant_audit_log/tenant_audit_log_keys_.Pick_TenantAuditLog.TenantAuditLogKeys_(
                         _id = '', 
                         url = '', 
                         user_id = '', 

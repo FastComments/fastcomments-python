@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.api_user_subscription import APIUserSubscription
+from client.models.api_user_subscription import APIUserSubscription
 
 class TestAPIUserSubscription(unittest.TestCase):
     """APIUserSubscription unit test stubs"""

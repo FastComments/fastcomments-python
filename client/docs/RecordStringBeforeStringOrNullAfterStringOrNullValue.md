@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.record_string_before_string_or_null_after_string_or_null_value import RecordStringBeforeStringOrNullAfterStringOrNullValue
+from client.models.record_string_before_string_or_null_after_string_or_null_value import RecordStringBeforeStringOrNullAfterStringOrNullValue
 
 # TODO update the JSON string below
 json = "{}"

@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.bulk_aggregate_question_results_request import BulkAggregateQuestionResultsRequest
+from client.models.bulk_aggregate_question_results_request import BulkAggregateQuestionResultsRequest
 
 class TestBulkAggregateQuestionResultsRequest(unittest.TestCase):
     """BulkAggregateQuestionResultsRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestBulkAggregateQuestionResultsRequest(unittest.TestCase):
         if include_optional:
             return BulkAggregateQuestionResultsRequest(
                 aggregations = [
-                    generated.models.bulk_aggregate_question_item.BulkAggregateQuestionItem(
+                    client.models.bulk_aggregate_question_item.BulkAggregateQuestionItem(
                         agg_id = '', 
                         question_id = '', 
                         question_ids = [
@@ -50,7 +50,7 @@ class TestBulkAggregateQuestionResultsRequest(unittest.TestCase):
         else:
             return BulkAggregateQuestionResultsRequest(
                 aggregations = [
-                    generated.models.bulk_aggregate_question_item.BulkAggregateQuestionItem(
+                    client.models.bulk_aggregate_question_item.BulkAggregateQuestionItem(
                         agg_id = '', 
                         question_id = '', 
                         question_ids = [

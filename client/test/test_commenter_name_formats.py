@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.commenter_name_formats import CommenterNameFormats
+from client.models.commenter_name_formats import CommenterNameFormats
 
 class TestCommenterNameFormats(unittest.TestCase):
     """CommenterNameFormats unit test stubs"""

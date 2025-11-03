@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.live_event import LiveEvent
+from client.models.live_event import LiveEvent
 
 class TestLiveEvent(unittest.TestCase):
     """LiveEvent unit test stubs"""
@@ -41,7 +41,7 @@ class TestLiveEvent(unittest.TestCase):
                 broadcast_id = '',
                 user_id = '',
                 badges = [
-                    generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                    client.models.comment_user_badge_info.CommentUserBadgeInfo(
                         id = '', 
                         type = 56, 
                         description = '', 
@@ -52,7 +52,7 @@ class TestLiveEvent(unittest.TestCase):
                         text_color = '', 
                         css_class = '', )
                     ],
-                notification = generated.models.user_notification.UserNotification(
+                notification = client.models.user_notification.UserNotification(
                     _id = '', 
                     tenant_id = '', 
                     user_id = '', 
@@ -83,7 +83,7 @@ class TestLiveEvent(unittest.TestCase):
                     from_user_names = [
                         ''
                         ], ),
-                vote = generated.models.pub_sub_vote.PubSubVote(
+                vote = client.models.pub_sub_vote.PubSubVote(
                     _id = '', 
                     tenant_id = '', 
                     url_id = '', 
@@ -94,7 +94,7 @@ class TestLiveEvent(unittest.TestCase):
                     created_at = 56, 
                     verification_id = '', ),
                 comment = None,
-                feed_post = generated.models.feed_post.FeedPost(
+                feed_post = client.models.feed_post.FeedPost(
                     _id = '', 
                     tenant_id = '', 
                     title = '', 
@@ -111,18 +111,18 @@ class TestLiveEvent(unittest.TestCase):
                         }, 
                     content_html = '', 
                     media = [
-                        generated.models.feed_post_media_item.FeedPostMediaItem(
+                        client.models.feed_post_media_item.FeedPostMediaItem(
                             title = '', 
                             link_url = '', 
                             sizes = [
-                                generated.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
+                                client.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
                                     w = 56, 
                                     h = 56, 
                                     src = '', )
                                 ], )
                         ], 
                     links = [
-                        generated.models.feed_post_link.FeedPostLink(
+                        client.models.feed_post_link.FeedPostLink(
                             text = '', 
                             title = '', 
                             description = '', 
@@ -133,9 +133,9 @@ class TestLiveEvent(unittest.TestCase):
                         'key' : 56
                         }, 
                     comment_count = 56, ),
-                extra_info = generated.models.live_event_extra_info.LiveEvent_extraInfo(
+                extra_info = client.models.live_event_extra_info.LiveEvent_extraInfo(
                     comment_positions = {
-                        'key' : generated.models.record_string__before_string_or_null__after_string_or_null___value.Record_string__before_string_or_null__after_string_or_null___value(
+                        'key' : client.models.record_string__before_string_or_null__after_string_or_null___value.Record_string__before_string_or_null__after_string_or_null___value(
                             after = '', 
                             before = '', )
                         }, ),

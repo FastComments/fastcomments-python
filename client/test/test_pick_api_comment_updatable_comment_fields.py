@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.pick_api_comment_updatable_comment_fields import PickAPICommentUpdatableCommentFields
+from client.models.pick_api_comment_updatable_comment_fields import PickAPICommentUpdatableCommentFields
 
 class TestPickAPICommentUpdatableCommentFields(unittest.TestCase):
     """PickAPICommentUpdatableCommentFields unit test stubs"""

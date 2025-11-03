@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.user_presence_data import UserPresenceData
+from client.models.user_presence_data import UserPresenceData
 
 class TestUserPresenceData(unittest.TestCase):
     """UserPresenceData unit test stubs"""

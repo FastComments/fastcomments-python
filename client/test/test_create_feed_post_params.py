@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.create_feed_post_params import CreateFeedPostParams
+from client.models.create_feed_post_params import CreateFeedPostParams
 
 class TestCreateFeedPostParams(unittest.TestCase):
     """CreateFeedPostParams unit test stubs"""
@@ -38,18 +38,18 @@ class TestCreateFeedPostParams(unittest.TestCase):
                 title = '',
                 content_html = '',
                 media = [
-                    generated.models.feed_post_media_item.FeedPostMediaItem(
+                    client.models.feed_post_media_item.FeedPostMediaItem(
                         title = '', 
                         link_url = '', 
                         sizes = [
-                            generated.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
+                            client.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
                                 w = 56, 
                                 h = 56, 
                                 src = '', )
                             ], )
                     ],
                 links = [
-                    generated.models.feed_post_link.FeedPostLink(
+                    client.models.feed_post_link.FeedPostLink(
                         text = '', 
                         title = '', 
                         description = '', 

@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.get_comments_response_public_comment import GetCommentsResponsePublicComment
+from client.models.get_comments_response_public_comment import GetCommentsResponsePublicComment
 
 # TODO update the JSON string below
 json = "{}"

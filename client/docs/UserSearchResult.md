@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.user_search_result import UserSearchResult
+from client.models.user_search_result import UserSearchResult
 
 # TODO update the JSON string below
 json = "{}"

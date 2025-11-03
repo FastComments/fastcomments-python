@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.save_comment_response_optimized import SaveCommentResponseOptimized
+from client.models.save_comment_response_optimized import SaveCommentResponseOptimized
 
 class TestSaveCommentResponseOptimized(unittest.TestCase):
     """SaveCommentResponseOptimized unit test stubs"""
@@ -37,12 +37,12 @@ class TestSaveCommentResponseOptimized(unittest.TestCase):
             return SaveCommentResponseOptimized(
                 status = 'success',
                 comment = None,
-                user = generated.models.user_session_info.UserSessionInfo(
+                user = client.models.user_session_info.UserSessionInfo(
                     id = '', 
                     authorized = True, 
                     avatar_src = '', 
                     badges = [
-                        generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                        client.models.comment_user_badge_info.CommentUserBadgeInfo(
                             id = '', 
                             type = 56, 
                             description = '', 
@@ -72,12 +72,12 @@ class TestSaveCommentResponseOptimized(unittest.TestCase):
             return SaveCommentResponseOptimized(
                 status = 'success',
                 comment = None,
-                user = generated.models.user_session_info.UserSessionInfo(
+                user = client.models.user_session_info.UserSessionInfo(
                     id = '', 
                     authorized = True, 
                     avatar_src = '', 
                     badges = [
-                        generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                        client.models.comment_user_badge_info.CommentUserBadgeInfo(
                             id = '', 
                             type = 56, 
                             description = '', 

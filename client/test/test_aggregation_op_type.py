@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.aggregation_op_type import AggregationOpType
+from client.models.aggregation_op_type import AggregationOpType
 
 class TestAggregationOpType(unittest.TestCase):
     """AggregationOpType unit test stubs"""

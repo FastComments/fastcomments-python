@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_event_log_response import GetEventLogResponse
+from client.models.get_event_log_response import GetEventLogResponse
 
 class TestGetEventLogResponse(unittest.TestCase):
     """GetEventLogResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestGetEventLogResponse(unittest.TestCase):
         if include_optional:
             return GetEventLogResponse(
                 events = [
-                    generated.models.event_log_entry.EventLogEntry(
+                    client.models.event_log_entry.EventLogEntry(
                         _id = '', 
                         created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         tenant_id = '', 
@@ -49,7 +49,7 @@ class TestGetEventLogResponse(unittest.TestCase):
         else:
             return GetEventLogResponse(
                 events = [
-                    generated.models.event_log_entry.EventLogEntry(
+                    client.models.event_log_entry.EventLogEntry(
                         _id = '', 
                         created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         tenant_id = '', 

@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.block_success import BlockSuccess
+from client.models.block_success import BlockSuccess
 
 class TestBlockSuccess(unittest.TestCase):
     """BlockSuccess unit test stubs"""

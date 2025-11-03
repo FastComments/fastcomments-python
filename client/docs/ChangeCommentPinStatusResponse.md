@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.change_comment_pin_status_response import ChangeCommentPinStatusResponse
+from client.models.change_comment_pin_status_response import ChangeCommentPinStatusResponse
 
 # TODO update the JSON string below
 json = "{}"

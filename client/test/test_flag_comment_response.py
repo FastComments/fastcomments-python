@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.flag_comment_response import FlagCommentResponse
+from client.models.flag_comment_response import FlagCommentResponse
 
 class TestFlagCommentResponse(unittest.TestCase):
     """FlagCommentResponse unit test stubs"""

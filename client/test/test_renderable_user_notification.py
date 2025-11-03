@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.renderable_user_notification import RenderableUserNotification
+from client.models.renderable_user_notification import RenderableUserNotification
 
 class TestRenderableUserNotification(unittest.TestCase):
     """RenderableUserNotification unit test stubs"""

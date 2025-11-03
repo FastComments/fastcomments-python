@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_comments200_response import GetComments200Response
+from client.models.get_comments200_response import GetComments200Response
 
 class TestGetComments200Response(unittest.TestCase):
     """GetComments200Response unit test stubs"""
@@ -37,7 +37,7 @@ class TestGetComments200Response(unittest.TestCase):
             return GetComments200Response(
                 status = 'failed',
                 comments = [
-                    generated.models.pick_f_comment/api_comment_fields_keys_.Pick_FComment.APICommentFieldsKeys_(
+                    client.models.pick_f_comment/api_comment_fields_keys_.Pick_FComment.APICommentFieldsKeys_(
                         date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         _id = '', 
                         tenant_id = '', 
@@ -88,7 +88,7 @@ class TestGetComments200Response(unittest.TestCase):
                             'key' : null
                             }, 
                         mentions = [
-                            generated.models.comment_user_mention_info.CommentUserMentionInfo(
+                            client.models.comment_user_mention_info.CommentUserMentionInfo(
                                 id = '', 
                                 tag = '', 
                                 raw_tag = '', 
@@ -96,14 +96,14 @@ class TestGetComments200Response(unittest.TestCase):
                                 sent = True, )
                             ], 
                         hash_tags = [
-                            generated.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
+                            client.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
                                 id = '', 
                                 tag = '', 
                                 url = '', 
                                 retain = True, )
                             ], 
                         badges = [
-                            generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                            client.models.comment_user_badge_info.CommentUserBadgeInfo(
                                 id = '', 
                                 type = 56, 
                                 description = '', 
@@ -128,7 +128,7 @@ class TestGetComments200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -193,7 +193,7 @@ class TestGetComments200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 
@@ -216,7 +216,7 @@ class TestGetComments200Response(unittest.TestCase):
             return GetComments200Response(
                 status = 'failed',
                 comments = [
-                    generated.models.pick_f_comment/api_comment_fields_keys_.Pick_FComment.APICommentFieldsKeys_(
+                    client.models.pick_f_comment/api_comment_fields_keys_.Pick_FComment.APICommentFieldsKeys_(
                         date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         _id = '', 
                         tenant_id = '', 
@@ -267,7 +267,7 @@ class TestGetComments200Response(unittest.TestCase):
                             'key' : null
                             }, 
                         mentions = [
-                            generated.models.comment_user_mention_info.CommentUserMentionInfo(
+                            client.models.comment_user_mention_info.CommentUserMentionInfo(
                                 id = '', 
                                 tag = '', 
                                 raw_tag = '', 
@@ -275,14 +275,14 @@ class TestGetComments200Response(unittest.TestCase):
                                 sent = True, )
                             ], 
                         hash_tags = [
-                            generated.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
+                            client.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
                                 id = '', 
                                 tag = '', 
                                 url = '', 
                                 retain = True, )
                             ], 
                         badges = [
-                            generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                            client.models.comment_user_badge_info.CommentUserBadgeInfo(
                                 id = '', 
                                 type = 56, 
                                 description = '', 

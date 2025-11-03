@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.image_content_profanity_level import ImageContentProfanityLevel
+from client.models.image_content_profanity_level import ImageContentProfanityLevel
 
 class TestImageContentProfanityLevel(unittest.TestCase):
     """ImageContentProfanityLevel unit test stubs"""

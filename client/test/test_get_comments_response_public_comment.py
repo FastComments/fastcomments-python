@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_comments_response_public_comment import GetCommentsResponsePublicComment
+from client.models.get_comments_response_public_comment import GetCommentsResponsePublicComment
 
 class TestGetCommentsResponsePublicComment(unittest.TestCase):
     """GetCommentsResponsePublicComment unit test stubs"""
@@ -43,12 +43,12 @@ class TestGetCommentsResponsePublicComment(unittest.TestCase):
                 comments = [
                     null
                     ],
-                user = generated.models.user_session_info.UserSessionInfo(
+                user = client.models.user_session_info.UserSessionInfo(
                     id = '', 
                     authorized = True, 
                     avatar_src = '', 
                     badges = [
-                        generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                        client.models.comment_user_badge_info.CommentUserBadgeInfo(
                             id = '', 
                             type = 56, 
                             description = '', 
@@ -88,7 +88,7 @@ class TestGetCommentsResponsePublicComment(unittest.TestCase):
                 has_more = True,
                 is_closed = True,
                 presence_poll_state = 56,
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -153,7 +153,7 @@ class TestGetCommentsResponsePublicComment(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 
@@ -178,12 +178,12 @@ class TestGetCommentsResponsePublicComment(unittest.TestCase):
                 comments = [
                     null
                     ],
-                user = generated.models.user_session_info.UserSessionInfo(
+                user = client.models.user_session_info.UserSessionInfo(
                     id = '', 
                     authorized = True, 
                     avatar_src = '', 
                     badges = [
-                        generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                        client.models.comment_user_badge_info.CommentUserBadgeInfo(
                             id = '', 
                             type = 56, 
                             description = '', 

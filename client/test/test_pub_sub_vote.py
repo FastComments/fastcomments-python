@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.pub_sub_vote import PubSubVote
+from client.models.pub_sub_vote import PubSubVote
 
 class TestPubSubVote(unittest.TestCase):
     """PubSubVote unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.pub_sub_comment import PubSubComment
+from client.models.pub_sub_comment import PubSubComment
 
 class TestPubSubComment(unittest.TestCase):
     """PubSubComment unit test stubs"""
@@ -72,7 +72,7 @@ class TestPubSubComment(unittest.TestCase):
                 rating = 1.337,
                 display_label = '',
                 badges = [
-                    generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                    client.models.comment_user_badge_info.CommentUserBadgeInfo(
                         id = '', 
                         type = 56, 
                         description = '', 

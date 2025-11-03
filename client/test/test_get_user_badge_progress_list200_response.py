@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_user_badge_progress_list200_response import GetUserBadgeProgressList200Response
+from client.models.get_user_badge_progress_list200_response import GetUserBadgeProgressList200Response
 
 class TestGetUserBadgeProgressList200Response(unittest.TestCase):
     """GetUserBadgeProgressList200Response unit test stubs"""
@@ -37,7 +37,7 @@ class TestGetUserBadgeProgressList200Response(unittest.TestCase):
             return GetUserBadgeProgressList200Response(
                 status = 'failed',
                 user_badge_progresses = [
-                    generated.models.user_badge_progress.UserBadgeProgress(
+                    client.models.user_badge_progress.UserBadgeProgress(
                         _id = '', 
                         tenant_id = '', 
                         user_id = '', 
@@ -55,7 +55,7 @@ class TestGetUserBadgeProgressList200Response(unittest.TestCase):
                 banned_until = 56,
                 max_character_length = 56,
                 translated_error = '',
-                custom_config = generated.models.custom_config_parameters.CustomConfigParameters(
+                custom_config = client.models.custom_config_parameters.CustomConfigParameters(
                     absolute_and_relative_dates = True, 
                     absolute_dates = True, 
                     allow_anon = True, 
@@ -120,7 +120,7 @@ class TestGetUserBadgeProgressList200Response(unittest.TestCase):
                     show_live_right_away = True, 
                     show_question = True, 
                     spam_rules = [
-                        generated.models.spam_rule.SpamRule(
+                        client.models.spam_rule.SpamRule(
                             actions = [
                                 'spam'
                                 ], 
@@ -143,7 +143,7 @@ class TestGetUserBadgeProgressList200Response(unittest.TestCase):
             return GetUserBadgeProgressList200Response(
                 status = 'failed',
                 user_badge_progresses = [
-                    generated.models.user_badge_progress.UserBadgeProgress(
+                    client.models.user_badge_progress.UserBadgeProgress(
                         _id = '', 
                         tenant_id = '', 
                         user_id = '', 

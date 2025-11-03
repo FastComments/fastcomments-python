@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.pick_tenant_audit_log_tenant_audit_log_keys import PickTenantAuditLogTenantAuditLogKeys
+from client.models.pick_tenant_audit_log_tenant_audit_log_keys import PickTenantAuditLogTenantAuditLogKeys
 
 # TODO update the JSON string below
 json = "{}"

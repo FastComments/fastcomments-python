@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.header_state import HeaderState
+from client.models.header_state import HeaderState
 
 class TestHeaderState(unittest.TestCase):
     """HeaderState unit test stubs"""
@@ -40,7 +40,7 @@ class TestHeaderState(unittest.TestCase):
                 user_id = '',
                 user_id_ws = '',
                 notification_counts = [
-                    generated.models.notification_and_count.NotificationAndCount(
+                    client.models.notification_and_count.NotificationAndCount(
                         type = 0, 
                         count = 56, )
                     ]
@@ -52,7 +52,7 @@ class TestHeaderState(unittest.TestCase):
                 user_id = '',
                 user_id_ws = '',
                 notification_counts = [
-                    generated.models.notification_and_count.NotificationAndCount(
+                    client.models.notification_and_count.NotificationAndCount(
                         type = 0, 
                         count = 56, )
                     ],

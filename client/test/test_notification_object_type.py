@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.notification_object_type import NotificationObjectType
+from client.models.notification_object_type import NotificationObjectType
 
 class TestNotificationObjectType(unittest.TestCase):
     """NotificationObjectType unit test stubs"""

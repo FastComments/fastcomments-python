@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.vote_delete_response_status import VoteDeleteResponseStatus
+from client.models.vote_delete_response_status import VoteDeleteResponseStatus
 
 # TODO update the JSON string below
 json = "{}"

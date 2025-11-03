@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.get_comment200_response import GetComment200Response
+from client.models.get_comment200_response import GetComment200Response
 
 # TODO update the JSON string below
 json = "{}"

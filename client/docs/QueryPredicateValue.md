@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.query_predicate_value import QueryPredicateValue
+from client.models.query_predicate_value import QueryPredicateValue
 
 # TODO update the JSON string below
 json = "{}"

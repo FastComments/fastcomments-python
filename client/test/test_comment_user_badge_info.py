@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.comment_user_badge_info import CommentUserBadgeInfo
+from client.models.comment_user_badge_info import CommentUserBadgeInfo
 
 class TestCommentUserBadgeInfo(unittest.TestCase):
     """CommentUserBadgeInfo unit test stubs"""

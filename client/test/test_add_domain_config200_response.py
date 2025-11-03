@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.add_domain_config200_response import AddDomainConfig200Response
+from client.models.add_domain_config200_response import AddDomainConfig200Response
 
 class TestAddDomainConfig200Response(unittest.TestCase):
     """AddDomainConfig200Response unit test stubs"""
@@ -37,15 +37,15 @@ class TestAddDomainConfig200Response(unittest.TestCase):
             return AddDomainConfig200Response(
                 reason = '',
                 code = '',
-                status = generated.models.status.status(),
-                configuration = generated.models.configuration.configuration()
+                status = client.models.status.status(),
+                configuration = client.models.configuration.configuration()
             )
         else:
             return AddDomainConfig200Response(
                 reason = '',
                 code = '',
-                status = generated.models.status.status(),
-                configuration = generated.models.configuration.configuration(),
+                status = client.models.status.status(),
+                configuration = client.models.configuration.configuration(),
         )
         """
 

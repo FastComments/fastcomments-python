@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.block_from_comment_public200_response import BlockFromCommentPublic200Response
+from client.models.block_from_comment_public200_response import BlockFromCommentPublic200Response
 
 # TODO update the JSON string below
 json = "{}"

@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.sort_directions import SortDirections
+from client.models.sort_directions import SortDirections
 
 class TestSortDirections(unittest.TestCase):
     """SortDirections unit test stubs"""

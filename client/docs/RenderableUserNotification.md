@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.renderable_user_notification import RenderableUserNotification
+from client.models.renderable_user_notification import RenderableUserNotification
 
 # TODO update the JSON string below
 json = "{}"

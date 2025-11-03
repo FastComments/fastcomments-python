@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.comment_text_update_request import CommentTextUpdateRequest
+from client.models.comment_text_update_request import CommentTextUpdateRequest
 
 class TestCommentTextUpdateRequest(unittest.TestCase):
     """CommentTextUpdateRequest unit test stubs"""
@@ -37,7 +37,7 @@ class TestCommentTextUpdateRequest(unittest.TestCase):
             return CommentTextUpdateRequest(
                 comment = '',
                 mentions = [
-                    generated.models.comment_user_mention_info.CommentUserMentionInfo(
+                    client.models.comment_user_mention_info.CommentUserMentionInfo(
                         id = '', 
                         tag = '', 
                         raw_tag = '', 
@@ -45,7 +45,7 @@ class TestCommentTextUpdateRequest(unittest.TestCase):
                         sent = True, )
                     ],
                 hash_tags = [
-                    generated.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
+                    client.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
                         id = '', 
                         tag = '', 
                         url = '', 

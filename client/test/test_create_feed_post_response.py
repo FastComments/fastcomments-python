@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.create_feed_post_response import CreateFeedPostResponse
+from client.models.create_feed_post_response import CreateFeedPostResponse
 
 class TestCreateFeedPostResponse(unittest.TestCase):
     """CreateFeedPostResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestCreateFeedPostResponse(unittest.TestCase):
         if include_optional:
             return CreateFeedPostResponse(
                 status = 'success',
-                feed_post = generated.models.feed_post.FeedPost(
+                feed_post = client.models.feed_post.FeedPost(
                     _id = '', 
                     tenant_id = '', 
                     title = '', 
@@ -53,18 +53,18 @@ class TestCreateFeedPostResponse(unittest.TestCase):
                         }, 
                     content_html = '', 
                     media = [
-                        generated.models.feed_post_media_item.FeedPostMediaItem(
+                        client.models.feed_post_media_item.FeedPostMediaItem(
                             title = '', 
                             link_url = '', 
                             sizes = [
-                                generated.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
+                                client.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
                                     w = 56, 
                                     h = 56, 
                                     src = '', )
                                 ], )
                         ], 
                     links = [
-                        generated.models.feed_post_link.FeedPostLink(
+                        client.models.feed_post_link.FeedPostLink(
                             text = '', 
                             title = '', 
                             description = '', 
@@ -79,7 +79,7 @@ class TestCreateFeedPostResponse(unittest.TestCase):
         else:
             return CreateFeedPostResponse(
                 status = 'success',
-                feed_post = generated.models.feed_post.FeedPost(
+                feed_post = client.models.feed_post.FeedPost(
                     _id = '', 
                     tenant_id = '', 
                     title = '', 
@@ -96,18 +96,18 @@ class TestCreateFeedPostResponse(unittest.TestCase):
                         }, 
                     content_html = '', 
                     media = [
-                        generated.models.feed_post_media_item.FeedPostMediaItem(
+                        client.models.feed_post_media_item.FeedPostMediaItem(
                             title = '', 
                             link_url = '', 
                             sizes = [
-                                generated.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
+                                client.models.feed_post_media_item_asset.FeedPostMediaItemAsset(
                                     w = 56, 
                                     h = 56, 
                                     src = '', )
                                 ], )
                         ], 
                     links = [
-                        generated.models.feed_post_link.FeedPostLink(
+                        client.models.feed_post_link.FeedPostLink(
                             text = '', 
                             title = '', 
                             description = '', 

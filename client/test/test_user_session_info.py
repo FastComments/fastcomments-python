@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.user_session_info import UserSessionInfo
+from client.models.user_session_info import UserSessionInfo
 
 class TestUserSessionInfo(unittest.TestCase):
     """UserSessionInfo unit test stubs"""
@@ -39,7 +39,7 @@ class TestUserSessionInfo(unittest.TestCase):
                 authorized = True,
                 avatar_src = '',
                 badges = [
-                    generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                    client.models.comment_user_badge_info.CommentUserBadgeInfo(
                         id = '', 
                         type = 56, 
                         description = '', 

@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.create_apisso_user_data import CreateAPISSOUserData
+from client.models.create_apisso_user_data import CreateAPISSOUserData
 
 # TODO update the JSON string below
 json = "{}"

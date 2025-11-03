@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.public_api_get_comment_text_response import PublicAPIGetCommentTextResponse
+from client.models.public_api_get_comment_text_response import PublicAPIGetCommentTextResponse
 
 # TODO update the JSON string below
 json = "{}"

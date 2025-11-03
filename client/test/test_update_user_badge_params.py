@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.update_user_badge_params import UpdateUserBadgeParams
+from client.models.update_user_badge_params import UpdateUserBadgeParams
 
 class TestUpdateUserBadgeParams(unittest.TestCase):
     """UpdateUserBadgeParams unit test stubs"""

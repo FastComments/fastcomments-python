@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.f_comment import FComment
+from client.models.f_comment import FComment
 
 class TestFComment(unittest.TestCase):
     """FComment unit test stubs"""
@@ -93,7 +93,7 @@ class TestFComment(unittest.TestCase):
                     },
                 ip_hash = '',
                 mentions = [
-                    generated.models.comment_user_mention_info.CommentUserMentionInfo(
+                    client.models.comment_user_mention_info.CommentUserMentionInfo(
                         id = '', 
                         tag = '', 
                         raw_tag = '', 
@@ -101,14 +101,14 @@ class TestFComment(unittest.TestCase):
                         sent = True, )
                     ],
                 hash_tags = [
-                    generated.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
+                    client.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
                         id = '', 
                         tag = '', 
                         url = '', 
                         retain = True, )
                     ],
                 badges = [
-                    generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                    client.models.comment_user_badge_info.CommentUserBadgeInfo(
                         id = '', 
                         type = 56, 
                         description = '', 

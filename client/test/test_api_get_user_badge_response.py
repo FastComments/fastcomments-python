@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.api_get_user_badge_response import APIGetUserBadgeResponse
+from client.models.api_get_user_badge_response import APIGetUserBadgeResponse
 
 class TestAPIGetUserBadgeResponse(unittest.TestCase):
     """APIGetUserBadgeResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestAPIGetUserBadgeResponse(unittest.TestCase):
         if include_optional:
             return APIGetUserBadgeResponse(
                 status = 'success',
-                user_badge = generated.models.user_badge.UserBadge(
+                user_badge = client.models.user_badge.UserBadge(
                     _id = '', 
                     user_id = '', 
                     badge_id = '', 
@@ -59,7 +59,7 @@ class TestAPIGetUserBadgeResponse(unittest.TestCase):
         else:
             return APIGetUserBadgeResponse(
                 status = 'success',
-                user_badge = generated.models.user_badge.UserBadge(
+                user_badge = client.models.user_badge.UserBadge(
                     _id = '', 
                     user_id = '', 
                     badge_id = '', 

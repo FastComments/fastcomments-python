@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.public_api_get_comment_text_response import PublicAPIGetCommentTextResponse
+from client.models.public_api_get_comment_text_response import PublicAPIGetCommentTextResponse
 
 class TestPublicAPIGetCommentTextResponse(unittest.TestCase):
     """PublicAPIGetCommentTextResponse unit test stubs"""

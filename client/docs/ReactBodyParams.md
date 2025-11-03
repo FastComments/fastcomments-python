@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.react_body_params import ReactBodyParams
+from client.models.react_body_params import ReactBodyParams
 
 # TODO update the JSON string below
 json = "{}"

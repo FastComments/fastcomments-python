@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.public_api_set_comment_text_response import PublicAPISetCommentTextResponse
+from client.models.public_api_set_comment_text_response import PublicAPISetCommentTextResponse
 
 class TestPublicAPISetCommentTextResponse(unittest.TestCase):
     """PublicAPISetCommentTextResponse unit test stubs"""
@@ -35,14 +35,14 @@ class TestPublicAPISetCommentTextResponse(unittest.TestCase):
         model = PublicAPISetCommentTextResponse()
         if include_optional:
             return PublicAPISetCommentTextResponse(
-                comment = generated.models.pick_f_comment/approved_or_comment_html_.Pick_FComment.approved-or-commentHTML_(
+                comment = client.models.pick_f_comment/approved_or_comment_html_.Pick_FComment.approved-or-commentHTML_(
                     comment_html = '', 
                     approved = True, ),
                 status = 'success'
             )
         else:
             return PublicAPISetCommentTextResponse(
-                comment = generated.models.pick_f_comment/approved_or_comment_html_.Pick_FComment.approved-or-commentHTML_(
+                comment = client.models.pick_f_comment/approved_or_comment_html_.Pick_FComment.approved-or-commentHTML_(
                     comment_html = '', 
                     approved = True, ),
                 status = 'success',

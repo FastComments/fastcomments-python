@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.user_session_info import UserSessionInfo
+from client.models.user_session_info import UserSessionInfo
 
 # TODO update the JSON string below
 json = "{}"

@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.find_comments_by_range_item import FindCommentsByRangeItem
+from client.models.find_comments_by_range_item import FindCommentsByRangeItem
 
 class TestFindCommentsByRangeItem(unittest.TestCase):
     """FindCommentsByRangeItem unit test stubs"""
@@ -35,7 +35,7 @@ class TestFindCommentsByRangeItem(unittest.TestCase):
         model = FindCommentsByRangeItem()
         if include_optional:
             return FindCommentsByRangeItem(
-                comment = generated.models.f_comment.FComment(
+                comment = client.models.f_comment.FComment(
                     _id = '', 
                     tenant_id = '', 
                     url_id = '', 
@@ -94,7 +94,7 @@ class TestFindCommentsByRangeItem(unittest.TestCase):
                         }, 
                     ip_hash = '', 
                     mentions = [
-                        generated.models.comment_user_mention_info.CommentUserMentionInfo(
+                        client.models.comment_user_mention_info.CommentUserMentionInfo(
                             id = '', 
                             tag = '', 
                             raw_tag = '', 
@@ -102,14 +102,14 @@ class TestFindCommentsByRangeItem(unittest.TestCase):
                             sent = True, )
                         ], 
                     hash_tags = [
-                        generated.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
+                        client.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
                             id = '', 
                             tag = '', 
                             url = '', 
                             retain = True, )
                         ], 
                     badges = [
-                        generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                        client.models.comment_user_badge_info.CommentUserBadgeInfo(
                             id = '', 
                             type = 56, 
                             description = '', 
@@ -143,7 +143,7 @@ class TestFindCommentsByRangeItem(unittest.TestCase):
                     view_count = 56, 
                     requires_verification = True, 
                     edit_key = '', ),
-                result = generated.models.question_result.QuestionResult(
+                result = client.models.question_result.QuestionResult(
                     _id = '', 
                     tenant_id = '', 
                     url_id = '', 
@@ -154,7 +154,7 @@ class TestFindCommentsByRangeItem(unittest.TestCase):
                     comment_id = '', 
                     question_id = '', 
                     meta = [
-                        generated.models.meta_item.MetaItem(
+                        client.models.meta_item.MetaItem(
                             name = '', 
                             values = [
                                 ''
@@ -164,7 +164,7 @@ class TestFindCommentsByRangeItem(unittest.TestCase):
             )
         else:
             return FindCommentsByRangeItem(
-                comment = generated.models.f_comment.FComment(
+                comment = client.models.f_comment.FComment(
                     _id = '', 
                     tenant_id = '', 
                     url_id = '', 
@@ -223,7 +223,7 @@ class TestFindCommentsByRangeItem(unittest.TestCase):
                         }, 
                     ip_hash = '', 
                     mentions = [
-                        generated.models.comment_user_mention_info.CommentUserMentionInfo(
+                        client.models.comment_user_mention_info.CommentUserMentionInfo(
                             id = '', 
                             tag = '', 
                             raw_tag = '', 
@@ -231,14 +231,14 @@ class TestFindCommentsByRangeItem(unittest.TestCase):
                             sent = True, )
                         ], 
                     hash_tags = [
-                        generated.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
+                        client.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
                             id = '', 
                             tag = '', 
                             url = '', 
                             retain = True, )
                         ], 
                     badges = [
-                        generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                        client.models.comment_user_badge_info.CommentUserBadgeInfo(
                             id = '', 
                             type = 56, 
                             description = '', 
@@ -272,7 +272,7 @@ class TestFindCommentsByRangeItem(unittest.TestCase):
                     view_count = 56, 
                     requires_verification = True, 
                     edit_key = '', ),
-                result = generated.models.question_result.QuestionResult(
+                result = client.models.question_result.QuestionResult(
                     _id = '', 
                     tenant_id = '', 
                     url_id = '', 
@@ -283,7 +283,7 @@ class TestFindCommentsByRangeItem(unittest.TestCase):
                     comment_id = '', 
                     question_id = '', 
                     meta = [
-                        generated.models.meta_item.MetaItem(
+                        client.models.meta_item.MetaItem(
                             name = '', 
                             values = [
                                 ''

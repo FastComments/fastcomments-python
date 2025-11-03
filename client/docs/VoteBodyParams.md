@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.vote_body_params import VoteBodyParams
+from client.models.vote_body_params import VoteBodyParams
 
 # TODO update the JSON string below
 json = "{}"

@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.comment_html_rendering_mode import CommentHTMLRenderingMode
+from client.models.comment_html_rendering_mode import CommentHTMLRenderingMode
 
 class TestCommentHTMLRenderingMode(unittest.TestCase):
     """CommentHTMLRenderingMode unit test stubs"""

@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.api.default_api import DefaultApi
+from client.api.default_api import DefaultApi
 
 
 class TestDefaultApi(unittest.TestCase):

@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.comment_thread_deletion_mode import CommentThreadDeletionMode
+from client.models.comment_thread_deletion_mode import CommentThreadDeletionMode
 
 class TestCommentThreadDeletionMode(unittest.TestCase):
     """CommentThreadDeletionMode unit test stubs"""

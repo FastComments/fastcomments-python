@@ -81,7 +81,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.custom_config_parameters import CustomConfigParameters
+from client.models.custom_config_parameters import CustomConfigParameters
 
 # TODO update the JSON string below
 json = "{}"

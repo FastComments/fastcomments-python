@@ -47,7 +47,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.public_comment import PublicComment
+from client.models.public_comment import PublicComment
 
 # TODO update the JSON string below
 json = "{}"

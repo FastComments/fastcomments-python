@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.api_get_comments_response import APIGetCommentsResponse
+from client.models.api_get_comments_response import APIGetCommentsResponse
 
 class TestAPIGetCommentsResponse(unittest.TestCase):
     """APIGetCommentsResponse unit test stubs"""
@@ -37,7 +37,7 @@ class TestAPIGetCommentsResponse(unittest.TestCase):
             return APIGetCommentsResponse(
                 status = 'success',
                 comments = [
-                    generated.models.pick_f_comment/api_comment_fields_keys_.Pick_FComment.APICommentFieldsKeys_(
+                    client.models.pick_f_comment/api_comment_fields_keys_.Pick_FComment.APICommentFieldsKeys_(
                         date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         _id = '', 
                         tenant_id = '', 
@@ -88,7 +88,7 @@ class TestAPIGetCommentsResponse(unittest.TestCase):
                             'key' : null
                             }, 
                         mentions = [
-                            generated.models.comment_user_mention_info.CommentUserMentionInfo(
+                            client.models.comment_user_mention_info.CommentUserMentionInfo(
                                 id = '', 
                                 tag = '', 
                                 raw_tag = '', 
@@ -96,14 +96,14 @@ class TestAPIGetCommentsResponse(unittest.TestCase):
                                 sent = True, )
                             ], 
                         hash_tags = [
-                            generated.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
+                            client.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
                                 id = '', 
                                 tag = '', 
                                 url = '', 
                                 retain = True, )
                             ], 
                         badges = [
-                            generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                            client.models.comment_user_badge_info.CommentUserBadgeInfo(
                                 id = '', 
                                 type = 56, 
                                 description = '', 
@@ -127,7 +127,7 @@ class TestAPIGetCommentsResponse(unittest.TestCase):
             return APIGetCommentsResponse(
                 status = 'success',
                 comments = [
-                    generated.models.pick_f_comment/api_comment_fields_keys_.Pick_FComment.APICommentFieldsKeys_(
+                    client.models.pick_f_comment/api_comment_fields_keys_.Pick_FComment.APICommentFieldsKeys_(
                         date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         _id = '', 
                         tenant_id = '', 
@@ -178,7 +178,7 @@ class TestAPIGetCommentsResponse(unittest.TestCase):
                             'key' : null
                             }, 
                         mentions = [
-                            generated.models.comment_user_mention_info.CommentUserMentionInfo(
+                            client.models.comment_user_mention_info.CommentUserMentionInfo(
                                 id = '', 
                                 tag = '', 
                                 raw_tag = '', 
@@ -186,14 +186,14 @@ class TestAPIGetCommentsResponse(unittest.TestCase):
                                 sent = True, )
                             ], 
                         hash_tags = [
-                            generated.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
+                            client.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
                                 id = '', 
                                 tag = '', 
                                 url = '', 
                                 retain = True, )
                             ], 
                         badges = [
-                            generated.models.comment_user_badge_info.CommentUserBadgeInfo(
+                            client.models.comment_user_badge_info.CommentUserBadgeInfo(
                                 id = '', 
                                 type = 56, 
                                 description = '', 

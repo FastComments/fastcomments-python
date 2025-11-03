@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.change_comment_pin_status_response import ChangeCommentPinStatusResponse
+from client.models.change_comment_pin_status_response import ChangeCommentPinStatusResponse
 
 class TestChangeCommentPinStatusResponse(unittest.TestCase):
     """ChangeCommentPinStatusResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestChangeCommentPinStatusResponse(unittest.TestCase):
         if include_optional:
             return ChangeCommentPinStatusResponse(
                 comment_positions = {
-                    'key' : generated.models.record_string__before_string_or_null__after_string_or_null___value.Record_string__before_string_or_null__after_string_or_null___value(
+                    'key' : client.models.record_string__before_string_or_null__after_string_or_null___value.Record_string__before_string_or_null__after_string_or_null___value(
                         after = '', 
                         before = '', )
                     },
@@ -45,7 +45,7 @@ class TestChangeCommentPinStatusResponse(unittest.TestCase):
         else:
             return ChangeCommentPinStatusResponse(
                 comment_positions = {
-                    'key' : generated.models.record_string__before_string_or_null__after_string_or_null___value.Record_string__before_string_or_null__after_string_or_null___value(
+                    'key' : client.models.record_string__before_string_or_null__after_string_or_null___value.Record_string__before_string_or_null__after_string_or_null___value(
                         after = '', 
                         before = '', )
                     },

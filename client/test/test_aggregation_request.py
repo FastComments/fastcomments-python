@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.aggregation_request import AggregationRequest
+from client.models.aggregation_request import AggregationRequest
 
 class TestAggregationRequest(unittest.TestCase):
     """AggregationRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestAggregationRequest(unittest.TestCase):
         if include_optional:
             return AggregationRequest(
                 query = [
-                    generated.models.query_predicate.QueryPredicate(
+                    client.models.query_predicate.QueryPredicate(
                         key = '', 
                         value = null, 
                         operator = 'eq', )
@@ -46,13 +46,13 @@ class TestAggregationRequest(unittest.TestCase):
                     ''
                     ],
                 operations = [
-                    generated.models.aggregation_operation.AggregationOperation(
+                    client.models.aggregation_operation.AggregationOperation(
                         field = '', 
                         op = 'sum', 
                         alias = '', 
                         expand_array = True, )
                     ],
-                sort = generated.models.aggregation_request_sort.AggregationRequest_sort(
+                sort = client.models.aggregation_request_sort.AggregationRequest_sort(
                     dir = 'asc', 
                     field = '', )
             )
@@ -60,7 +60,7 @@ class TestAggregationRequest(unittest.TestCase):
             return AggregationRequest(
                 resource_name = '',
                 operations = [
-                    generated.models.aggregation_operation.AggregationOperation(
+                    client.models.aggregation_operation.AggregationOperation(
                         field = '', 
                         op = 'sum', 
                         alias = '', 

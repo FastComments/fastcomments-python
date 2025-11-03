@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.react_feed_post_response import ReactFeedPostResponse
+from client.models.react_feed_post_response import ReactFeedPostResponse
 
 # TODO update the JSON string below
 json = "{}"

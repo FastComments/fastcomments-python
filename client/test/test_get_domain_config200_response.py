@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_domain_config200_response import GetDomainConfig200Response
+from client.models.get_domain_config200_response import GetDomainConfig200Response
 
 class TestGetDomainConfig200Response(unittest.TestCase):
     """GetDomainConfig200Response unit test stubs"""
@@ -35,15 +35,15 @@ class TestGetDomainConfig200Response(unittest.TestCase):
         model = GetDomainConfig200Response()
         if include_optional:
             return GetDomainConfig200Response(
-                configuration = generated.models.configuration.configuration(),
-                status = generated.models.status.status(),
+                configuration = client.models.configuration.configuration(),
+                status = client.models.status.status(),
                 reason = '',
                 code = ''
             )
         else:
             return GetDomainConfig200Response(
-                configuration = generated.models.configuration.configuration(),
-                status = generated.models.status.status(),
+                configuration = client.models.configuration.configuration(),
+                status = client.models.status.status(),
                 reason = '',
                 code = '',
         )

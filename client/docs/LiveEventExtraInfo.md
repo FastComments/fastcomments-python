@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.live_event_extra_info import LiveEventExtraInfo
+from client.models.live_event_extra_info import LiveEventExtraInfo
 
 # TODO update the JSON string below
 json = "{}"

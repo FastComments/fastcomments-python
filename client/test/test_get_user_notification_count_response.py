@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_user_notification_count_response import GetUserNotificationCountResponse
+from client.models.get_user_notification_count_response import GetUserNotificationCountResponse
 
 class TestGetUserNotificationCountResponse(unittest.TestCase):
     """GetUserNotificationCountResponse unit test stubs"""

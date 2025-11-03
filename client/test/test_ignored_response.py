@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.ignored_response import IgnoredResponse
+from client.models.ignored_response import IgnoredResponse
 
 class TestIgnoredResponse(unittest.TestCase):
     """IgnoredResponse unit test stubs"""

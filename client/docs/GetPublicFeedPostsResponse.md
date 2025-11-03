@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.get_public_feed_posts_response import GetPublicFeedPostsResponse
+from client.models.get_public_feed_posts_response import GetPublicFeedPostsResponse
 
 # TODO update the JSON string below
 json = "{}"

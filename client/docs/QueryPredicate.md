@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.query_predicate import QueryPredicate
+from client.models.query_predicate import QueryPredicate
 
 # TODO update the JSON string below
 json = "{}"

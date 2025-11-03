@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.add_domain_config_params import AddDomainConfigParams
+from client.models.add_domain_config_params import AddDomainConfigParams
 
 # TODO update the JSON string below
 json = "{}"

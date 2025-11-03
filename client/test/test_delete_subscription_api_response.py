@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.delete_subscription_api_response import DeleteSubscriptionAPIResponse
+from client.models.delete_subscription_api_response import DeleteSubscriptionAPIResponse
 
 class TestDeleteSubscriptionAPIResponse(unittest.TestCase):
     """DeleteSubscriptionAPIResponse unit test stubs"""

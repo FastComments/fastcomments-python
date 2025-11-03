@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.comment_user_mention_info import CommentUserMentionInfo
+from client.models.comment_user_mention_info import CommentUserMentionInfo
 
 class TestCommentUserMentionInfo(unittest.TestCase):
     """CommentUserMentionInfo unit test stubs"""

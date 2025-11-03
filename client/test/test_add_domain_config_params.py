@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.add_domain_config_params import AddDomainConfigParams
+from client.models.add_domain_config_params import AddDomainConfigParams
 
 class TestAddDomainConfigParams(unittest.TestCase):
     """AddDomainConfigParams unit test stubs"""

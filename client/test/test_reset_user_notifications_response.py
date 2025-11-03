@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.reset_user_notifications_response import ResetUserNotificationsResponse
+from client.models.reset_user_notifications_response import ResetUserNotificationsResponse
 
 class TestResetUserNotificationsResponse(unittest.TestCase):
     """ResetUserNotificationsResponse unit test stubs"""

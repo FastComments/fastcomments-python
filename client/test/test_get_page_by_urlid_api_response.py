@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.get_page_by_urlid_api_response import GetPageByURLIdAPIResponse
+from client.models.get_page_by_urlid_api_response import GetPageByURLIdAPIResponse
 
 class TestGetPageByURLIdAPIResponse(unittest.TestCase):
     """GetPageByURLIdAPIResponse unit test stubs"""
@@ -37,7 +37,7 @@ class TestGetPageByURLIdAPIResponse(unittest.TestCase):
             return GetPageByURLIdAPIResponse(
                 reason = '',
                 code = '',
-                page = generated.models.api_page.APIPage(
+                page = client.models.api_page.APIPage(
                     is_closed = True, 
                     accessible_by_group_ids = [
                         ''

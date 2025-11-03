@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from generated.models.spam_rule import SpamRule
+from client.models.spam_rule import SpamRule
 
 # TODO update the JSON string below
 json = "{}"

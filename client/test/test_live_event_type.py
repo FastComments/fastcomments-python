@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.live_event_type import LiveEventType
+from client.models.live_event_type import LiveEventType
 
 class TestLiveEventType(unittest.TestCase):
     """LiveEventType unit test stubs"""

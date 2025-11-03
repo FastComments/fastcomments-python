@@ -14,7 +14,7 @@
 
 import unittest
 
-from generated.models.user_badge_progress import UserBadgeProgress
+from client.models.user_badge_progress import UserBadgeProgress
 
 class TestUserBadgeProgress(unittest.TestCase):
     """UserBadgeProgress unit test stubs"""
