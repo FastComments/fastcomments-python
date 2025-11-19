@@ -1,4 +1,4 @@
-# fastcomments-python
+# fastcomments
 The FastComments Python SDK. You can use this to build secure and scalable backend applications that interact with FastComments, or build reactive client applications.
 
 ## Installation
@@ -6,7 +6,7 @@ The FastComments Python SDK. You can use this to build secure and scalable backe
 ### PyPI
 
 ```bash
-pip install fastcomments-python
+pip install fastcomments
 ```
 
 ### Library Contents

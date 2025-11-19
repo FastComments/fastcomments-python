@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "fastcomments-python"
+name = "fastcomments"
 version = "0.0.1"
 description = "FastComments Python SDK - A SDK for interacting with the FastComments API"
 readme = "README.md"
