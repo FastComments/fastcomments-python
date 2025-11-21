@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from client.models.api_status import APIStatus
 from client.models.user_badge import UserBadge
 from typing import Optional, Set
@@ -30,7 +30,8 @@ class APICreateUserBadgeResponse(BaseModel):
     """ # noqa: E501
     status: APIStatus
     user_badge: UserBadge = Field(alias="userBadge")
-    __properties: ClassVar[List[str]] = ["status", "userBadge"]
+    notes: Optional[List[StrictStr]] = None
+    __properties: ClassVar[List[str]] = ["status", "userBadge", "notes"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,7 +88,8 @@ class APICreateUserBadgeResponse(BaseModel):
 
         _obj = cls.model_validate({
             "status": obj.get("status"),
-            "userBadge": UserBadge.from_dict(obj["userBadge"]) if obj.get("userBadge") is not None else None
+            "userBadge": UserBadge.from_dict(obj["userBadge"]) if obj.get("userBadge") is not None else None,
+            "notes": obj.get("notes")
         })
         return _obj
 

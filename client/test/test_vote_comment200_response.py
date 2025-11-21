@@ -35,7 +35,7 @@ class TestVoteComment200Response(unittest.TestCase):
         model = VoteComment200Response()
         if include_optional:
             return VoteComment200Response(
-                status = 'failed',
+                status = 'success',
                 vote_id = '',
                 is_verified = True,
                 user = client.models.vote_response_user.VoteResponseUser(
@@ -102,6 +102,7 @@ class TestVoteComment200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -133,7 +134,7 @@ class TestVoteComment200Response(unittest.TestCase):
             )
         else:
             return VoteComment200Response(
-                status = 'failed',
+                status = 'success',
                 reason = '',
                 code = '',
         )

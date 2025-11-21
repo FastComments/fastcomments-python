@@ -35,7 +35,7 @@ class TestGetUserBadgeProgressList200Response(unittest.TestCase):
         model = GetUserBadgeProgressList200Response()
         if include_optional:
             return GetUserBadgeProgressList200Response(
-                status = 'failed',
+                status = 'success',
                 user_badge_progresses = [
                     client.models.user_badge_progress.UserBadgeProgress(
                         _id = '', 
@@ -110,6 +110,7 @@ class TestGetUserBadgeProgressList200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -141,7 +142,7 @@ class TestGetUserBadgeProgressList200Response(unittest.TestCase):
             )
         else:
             return GetUserBadgeProgressList200Response(
-                status = 'failed',
+                status = 'success',
                 user_badge_progresses = [
                     client.models.user_badge_progress.UserBadgeProgress(
                         _id = '', 

@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
+from client.models.api_status import APIStatus
 from client.models.delete_comment_action import DeleteCommentAction
-from client.models.imported_api_status_success import ImportedAPIStatusSUCCESS
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class DeleteCommentResult(BaseModel):
     DeleteCommentResult
     """ # noqa: E501
     action: DeleteCommentAction
-    status: ImportedAPIStatusSUCCESS
+    status: APIStatus
     __properties: ClassVar[List[str]] = ["action", "status"]
 
     model_config = ConfigDict(

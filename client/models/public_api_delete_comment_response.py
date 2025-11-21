@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
-from client.models.imported_api_status_success import ImportedAPIStatusSUCCESS
-from client.models.pick_f_comment_is_deleted_or_comment_htmlor_commenter_name_or_user_id import PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId
+from client.models.api_status import APIStatus
+from client.models.deleted_comment_result_comment import DeletedCommentResultComment
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,9 +28,9 @@ class PublicAPIDeleteCommentResponse(BaseModel):
     """
     PublicAPIDeleteCommentResponse
     """ # noqa: E501
-    comment: Optional[PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId] = None
+    comment: Optional[DeletedCommentResultComment] = None
     hard_removed: StrictBool = Field(alias="hardRemoved")
-    status: ImportedAPIStatusSUCCESS
+    status: APIStatus
     __properties: ClassVar[List[str]] = ["comment", "hardRemoved", "status"]
 
     model_config = ConfigDict(
@@ -87,7 +87,7 @@ class PublicAPIDeleteCommentResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "comment": PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId.from_dict(obj["comment"]) if obj.get("comment") is not None else None,
+            "comment": DeletedCommentResultComment.from_dict(obj["comment"]) if obj.get("comment") is not None else None,
             "hardRemoved": obj.get("hardRemoved"),
             "status": obj.get("status")
         })

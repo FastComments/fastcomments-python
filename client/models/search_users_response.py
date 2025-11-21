@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from client.models.imported_api_status_success import ImportedAPIStatusSUCCESS
+from client.models.api_status import APIStatus
 from client.models.user_search_result import UserSearchResult
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class SearchUsersResponse(BaseModel):
     """
     SearchUsersResponse
     """ # noqa: E501
-    status: ImportedAPIStatusSUCCESS
+    status: APIStatus
     users: List[UserSearchResult]
     __properties: ClassVar[List[str]] = ["status", "users"]
 

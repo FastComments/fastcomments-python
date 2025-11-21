@@ -35,7 +35,7 @@ class TestGetCommentText200Response(unittest.TestCase):
         model = GetCommentText200Response()
         if include_optional:
             return GetCommentText200Response(
-                status = 'failed',
+                status = 'success',
                 comment_text = '',
                 sanitized_comment_text = '',
                 reason = '',
@@ -99,6 +99,7 @@ class TestGetCommentText200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -130,7 +131,7 @@ class TestGetCommentText200Response(unittest.TestCase):
             )
         else:
             return GetCommentText200Response(
-                status = 'failed',
+                status = 'success',
                 comment_text = '',
                 sanitized_comment_text = '',
                 reason = '',

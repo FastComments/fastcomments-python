@@ -92,6 +92,7 @@ class CustomConfigParameters(BaseModel):
     no_styles: Optional[StrictBool] = Field(default=None, alias="noStyles")
     page_size: Optional[StrictInt] = Field(default=None, alias="pageSize")
     readonly: Optional[StrictBool] = None
+    no_new_root_comments: Optional[StrictBool] = Field(default=None, alias="noNewRootComments")
     require_sso: Optional[StrictBool] = Field(default=None, alias="requireSSO")
     enable_resize_handle: Optional[StrictBool] = Field(default=None, alias="enableResizeHandle")
     restricted_link_domains: Optional[List[StrictStr]] = Field(default=None, alias="restrictedLinkDomains")
@@ -112,7 +113,7 @@ class CustomConfigParameters(BaseModel):
     widget_questions_required: Optional[CommentQuestionsRequired] = Field(default=None, alias="widgetQuestionsRequired")
     widget_sub_question_visibility: Optional[QuestionSubQuestionVisibility] = Field(default=None, alias="widgetSubQuestionVisibility")
     wrap: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["absoluteAndRelativeDates", "absoluteDates", "allowAnon", "allowAnonFlag", "allowAnonVotes", "allowedLanguages", "collapseReplies", "commentCountFormat", "commentHTMLRenderingMode", "commentThreadDeleteMode", "commenterNameFormat", "countAboveToggle", "customCSS", "defaultAvatarSrc", "defaultSortDirection", "defaultUsername", "disableAutoAdminMigration", "disableAutoHashTagCreation", "disableBlocking", "disableCommenterCommentDelete", "disableCommenterCommentEdit", "disableEmailInputs", "disableLiveCommenting", "disableNotificationBell", "disableProfiles", "disableSuccessMessage", "disableToolbar", "disableUnverifiedLabel", "disableVoting", "enableCommenterLinks", "enableSearch", "enableSpoilers", "enableThirdPartyCookieBypass", "enableViewCounts", "enableVoteList", "enableWYSIWYG", "gifRating", "hasDarkBackground", "headerHTML", "hideAvatars", "hideCommentsUnderCountTextFormat", "imageContentProfanityLevel", "inputAfterComments", "limitCommentsByGroups", "locale", "maxCommentCharacterLength", "maxCommentCreatedCountPUPM", "noCustomConfig", "noImageUploads", "noStyles", "pageSize", "readonly", "requireSSO", "enableResizeHandle", "restrictedLinkDomains", "showBadgesInTopBar", "showCommentSaveSuccess", "showLiveRightAway", "showQuestion", "spamRules", "ssoSecLvl", "translations", "useShowCommentsToggle", "useSingleLineCommentInput", "voteStyle", "widgetQuestionId", "widgetQuestionResultsStyle", "widgetQuestionStyle", "widgetQuestionWhenToSave", "widgetQuestionsRequired", "widgetSubQuestionVisibility", "wrap"]
+    __properties: ClassVar[List[str]] = ["absoluteAndRelativeDates", "absoluteDates", "allowAnon", "allowAnonFlag", "allowAnonVotes", "allowedLanguages", "collapseReplies", "commentCountFormat", "commentHTMLRenderingMode", "commentThreadDeleteMode", "commenterNameFormat", "countAboveToggle", "customCSS", "defaultAvatarSrc", "defaultSortDirection", "defaultUsername", "disableAutoAdminMigration", "disableAutoHashTagCreation", "disableBlocking", "disableCommenterCommentDelete", "disableCommenterCommentEdit", "disableEmailInputs", "disableLiveCommenting", "disableNotificationBell", "disableProfiles", "disableSuccessMessage", "disableToolbar", "disableUnverifiedLabel", "disableVoting", "enableCommenterLinks", "enableSearch", "enableSpoilers", "enableThirdPartyCookieBypass", "enableViewCounts", "enableVoteList", "enableWYSIWYG", "gifRating", "hasDarkBackground", "headerHTML", "hideAvatars", "hideCommentsUnderCountTextFormat", "imageContentProfanityLevel", "inputAfterComments", "limitCommentsByGroups", "locale", "maxCommentCharacterLength", "maxCommentCreatedCountPUPM", "noCustomConfig", "noImageUploads", "noStyles", "pageSize", "readonly", "noNewRootComments", "requireSSO", "enableResizeHandle", "restrictedLinkDomains", "showBadgesInTopBar", "showCommentSaveSuccess", "showLiveRightAway", "showQuestion", "spamRules", "ssoSecLvl", "translations", "useShowCommentsToggle", "useSingleLineCommentInput", "voteStyle", "widgetQuestionId", "widgetQuestionResultsStyle", "widgetQuestionStyle", "widgetQuestionWhenToSave", "widgetQuestionsRequired", "widgetSubQuestionVisibility", "wrap"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -304,6 +305,7 @@ class CustomConfigParameters(BaseModel):
             "noStyles": obj.get("noStyles"),
             "pageSize": obj.get("pageSize"),
             "readonly": obj.get("readonly"),
+            "noNewRootComments": obj.get("noNewRootComments"),
             "requireSSO": obj.get("requireSSO"),
             "enableResizeHandle": obj.get("enableResizeHandle"),
             "restrictedLinkDomains": obj.get("restrictedLinkDomains"),

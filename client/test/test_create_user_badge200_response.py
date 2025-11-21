@@ -35,7 +35,7 @@ class TestCreateUserBadge200Response(unittest.TestCase):
         model = CreateUserBadge200Response()
         if include_optional:
             return CreateUserBadge200Response(
-                status = 'failed',
+                status = 'success',
                 user_badge = client.models.user_badge.UserBadge(
                     _id = '', 
                     user_id = '', 
@@ -55,6 +55,9 @@ class TestCreateUserBadge200Response(unittest.TestCase):
                     displayed_on_comments = True, 
                     received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                     order = 56, ),
+                notes = [
+                    ''
+                    ],
                 reason = '',
                 code = '',
                 secondary_code = '',
@@ -116,6 +119,7 @@ class TestCreateUserBadge200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -147,7 +151,7 @@ class TestCreateUserBadge200Response(unittest.TestCase):
             )
         else:
             return CreateUserBadge200Response(
-                status = 'failed',
+                status = 'success',
                 user_badge = client.models.user_badge.UserBadge(
                     _id = '', 
                     user_id = '', 

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **my_reacts** | **Dict[str, Dict[str, bool]]** |  | [optional] 
-**status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **feed_posts** | [**List[FeedPost]**](FeedPost.md) |  | 
 **user** | [**UserSessionInfo**](UserSessionInfo.md) |  | [optional] 
 **url_id_ws** | **str** |  | [optional] 

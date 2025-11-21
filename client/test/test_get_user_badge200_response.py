@@ -35,7 +35,7 @@ class TestGetUserBadge200Response(unittest.TestCase):
         model = GetUserBadge200Response()
         if include_optional:
             return GetUserBadge200Response(
-                status = 'failed',
+                status = 'success',
                 user_badge = client.models.user_badge.UserBadge(
                     _id = '', 
                     user_id = '', 
@@ -116,6 +116,7 @@ class TestGetUserBadge200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -147,7 +148,7 @@ class TestGetUserBadge200Response(unittest.TestCase):
             )
         else:
             return GetUserBadge200Response(
-                status = 'failed',
+                status = 'success',
                 user_badge = client.models.user_badge.UserBadge(
                     _id = '', 
                     user_id = '', 

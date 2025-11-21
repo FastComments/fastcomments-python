@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from client.models.imported_api_status_success import ImportedAPIStatusSUCCESS
+from client.models.api_status import APIStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class PublicAPIGetCommentTextResponse(BaseModel):
     """
     PublicAPIGetCommentTextResponse
     """ # noqa: E501
-    status: ImportedAPIStatusSUCCESS
+    status: APIStatus
     comment_text: StrictStr = Field(alias="commentText")
     sanitized_comment_text: StrictStr = Field(alias="sanitizedCommentText")
     __properties: ClassVar[List[str]] = ["status", "commentText", "sanitizedCommentText"]

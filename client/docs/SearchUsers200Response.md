@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **users** | [**List[UserSearchResult]**](UserSearchResult.md) |  | 
 **reason** | **str** |  | 
 **code** | **str** |  | 

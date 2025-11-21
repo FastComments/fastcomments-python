@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
-from client.models.imported_api_status_success import ImportedAPIStatusSUCCESS
+from client.models.api_status import APIStatus
 from client.models.record_string_before_string_or_null_after_string_or_null_value import RecordStringBeforeStringOrNullAfterStringOrNullValue
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class ChangeCommentPinStatusResponse(BaseModel):
     ChangeCommentPinStatusResponse
     """ # noqa: E501
     comment_positions: Dict[str, RecordStringBeforeStringOrNullAfterStringOrNullValue] = Field(description="Construct a type with a set of properties K of type T", alias="commentPositions")
-    status: ImportedAPIStatusSUCCESS
+    status: APIStatus
     __properties: ClassVar[List[str]] = ["commentPositions", "status"]
 
     model_config = ConfigDict(

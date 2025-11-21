@@ -3656,7 +3656,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_comment**
-> FlagCommentPublic200Response update_comment(tenant_id, id, body, context_user_id=context_user_id, do_spam_check=do_spam_check, is_live=is_live)
+> FlagCommentPublic200Response update_comment(tenant_id, id, updatable_comment_params, context_user_id=context_user_id, do_spam_check=do_spam_check, is_live=is_live)
 
 
 
@@ -3667,7 +3667,7 @@ Name | Type | Description  | Notes
 ```python
 import client
 from client.models.flag_comment_public200_response import FlagCommentPublic200Response
-from client.models.pick_api_comment_updatable_comment_fields import PickAPICommentUpdatableCommentFields
+from client.models.updatable_comment_params import UpdatableCommentParams
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3694,13 +3694,13 @@ with client.ApiClient(configuration) as api_client:
     api_instance = client.DefaultApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     id = 'id_example' # str | 
-    body = client.PickAPICommentUpdatableCommentFields() # PickAPICommentUpdatableCommentFields | 
+    updatable_comment_params = client.UpdatableCommentParams() # UpdatableCommentParams | 
     context_user_id = 'context_user_id_example' # str |  (optional)
     do_spam_check = True # bool |  (optional)
     is_live = True # bool |  (optional)
 
     try:
-        api_response = api_instance.update_comment(tenant_id, id, body, context_user_id=context_user_id, do_spam_check=do_spam_check, is_live=is_live)
+        api_response = api_instance.update_comment(tenant_id, id, updatable_comment_params, context_user_id=context_user_id, do_spam_check=do_spam_check, is_live=is_live)
         print("The response of DefaultApi->update_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -3716,7 +3716,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant_id** | **str**|  | 
  **id** | **str**|  | 
- **body** | **PickAPICommentUpdatableCommentFields**|  | 
+ **updatable_comment_params** | [**UpdatableCommentParams**](UpdatableCommentParams.md)|  | 
  **context_user_id** | **str**|  | [optional] 
  **do_spam_check** | **bool**|  | [optional] 
  **is_live** | **bool**|  | [optional] 

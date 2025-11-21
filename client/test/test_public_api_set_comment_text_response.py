@@ -35,16 +35,16 @@ class TestPublicAPISetCommentTextResponse(unittest.TestCase):
         model = PublicAPISetCommentTextResponse()
         if include_optional:
             return PublicAPISetCommentTextResponse(
-                comment = client.models.pick_f_comment/approved_or_comment_html_.Pick_FComment.approved-or-commentHTML_(
-                    comment_html = '', 
-                    approved = True, ),
+                comment = client.models.set_comment_text_result.SetCommentTextResult(
+                    approved = True, 
+                    comment_html = '', ),
                 status = 'success'
             )
         else:
             return PublicAPISetCommentTextResponse(
-                comment = client.models.pick_f_comment/approved_or_comment_html_.Pick_FComment.approved-or-commentHTML_(
-                    comment_html = '', 
-                    approved = True, ),
+                comment = client.models.set_comment_text_result.SetCommentTextResult(
+                    approved = True, 
+                    comment_html = '', ),
                 status = 'success',
         )
         """

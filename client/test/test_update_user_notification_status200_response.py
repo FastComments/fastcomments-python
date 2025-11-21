@@ -35,7 +35,7 @@ class TestUpdateUserNotificationStatus200Response(unittest.TestCase):
         model = UpdateUserNotificationStatus200Response()
         if include_optional:
             return UpdateUserNotificationStatus200Response(
-                status = 'failed',
+                status = 'success',
                 matched_count = 56,
                 modified_count = 56,
                 note = 'ignored-since-impersonated',
@@ -100,6 +100,7 @@ class TestUpdateUserNotificationStatus200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -131,7 +132,7 @@ class TestUpdateUserNotificationStatus200Response(unittest.TestCase):
             )
         else:
             return UpdateUserNotificationStatus200Response(
-                status = 'failed',
+                status = 'success',
                 matched_count = 56,
                 modified_count = 56,
                 note = 'ignored-since-impersonated',

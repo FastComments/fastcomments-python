@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**APIStatus**](APIStatus.md) |  | 
-**audit_logs** | [**List[PickTenantAuditLogTenantAuditLogKeys]**](PickTenantAuditLogTenantAuditLogKeys.md) |  | 
+**audit_logs** | [**List[APIAuditLog]**](APIAuditLog.md) |  | 
 
 ## Example
 

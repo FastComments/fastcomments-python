@@ -35,42 +35,28 @@ class TestPubSubComment(unittest.TestCase):
         model = PubSubComment()
         if include_optional:
             return PubSubComment(
-                var_date = '',
                 id = '',
                 tenant_id = '',
-                url_id = '',
-                url = '',
-                page_title = '',
                 user_id = '',
-                anon_user_id = '',
+                url_id = '',
                 commenter_name = '',
                 commenter_link = '',
-                comment = '',
                 comment_html = '',
+                comment = '',
                 parent_id = '',
                 votes = 56,
                 votes_up = 56,
                 votes_down = 56,
-                expire_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 verified = True,
-                reviewed = True,
                 avatar_src = '',
-                is_spam = True,
                 has_images = True,
                 has_links = True,
-                has_code = True,
-                approved = True,
-                locale = '',
-                is_deleted = True,
-                is_deleted_user = True,
-                is_banned_user = True,
                 is_by_admin = True,
                 is_by_moderator = True,
                 is_pinned = True,
                 is_locked = True,
-                flag_count = 56,
-                rating = 1.337,
                 display_label = '',
+                rating = 1.337,
                 badges = [
                     client.models.comment_user_badge_info.CommentUserBadgeInfo(
                         id = '', 
@@ -83,30 +69,44 @@ class TestPubSubComment(unittest.TestCase):
                         text_color = '', 
                         css_class = '', )
                     ],
-                domain = '',
+                view_count = 56,
+                is_deleted = True,
+                is_deleted_user = True,
+                is_spam = True,
+                anon_user_id = '',
                 feedback_ids = [
                     ''
                     ],
+                flag_count = 56,
+                domain = '',
+                url = '',
+                page_title = '',
+                expire_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                reviewed = True,
+                has_code = True,
+                approved = True,
+                locale = '',
+                is_banned_user = True,
                 group_ids = [
                     ''
                     ],
-                view_count = 56,
                 is_live = True,
-                hidden = True
+                hidden = True,
+                var_date = ''
             )
         else:
             return PubSubComment(
-                var_date = '',
                 id = '',
                 tenant_id = '',
                 url_id = '',
-                url = '',
                 commenter_name = '',
-                comment = '',
                 comment_html = '',
+                comment = '',
                 verified = True,
+                url = '',
                 approved = True,
                 locale = '',
+                var_date = '',
         )
         """
 

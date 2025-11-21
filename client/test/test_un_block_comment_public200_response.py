@@ -35,7 +35,7 @@ class TestUnBlockCommentPublic200Response(unittest.TestCase):
         model = UnBlockCommentPublic200Response()
         if include_optional:
             return UnBlockCommentPublic200Response(
-                status = 'failed',
+                status = 'success',
                 comment_statuses = {
                     'key' : True
                     },
@@ -100,6 +100,7 @@ class TestUnBlockCommentPublic200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -131,7 +132,7 @@ class TestUnBlockCommentPublic200Response(unittest.TestCase):
             )
         else:
             return UnBlockCommentPublic200Response(
-                status = 'failed',
+                status = 'success',
                 comment_statuses = {
                     'key' : True
                     },

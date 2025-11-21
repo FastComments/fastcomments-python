@@ -35,7 +35,7 @@ class TestReactFeedPostPublic200Response(unittest.TestCase):
         model = ReactFeedPostPublic200Response()
         if include_optional:
             return ReactFeedPostPublic200Response(
-                status = 'failed',
+                status = 'success',
                 react_type = '',
                 is_undo = True,
                 reason = '',
@@ -99,6 +99,7 @@ class TestReactFeedPostPublic200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -130,7 +131,7 @@ class TestReactFeedPostPublic200Response(unittest.TestCase):
             )
         else:
             return ReactFeedPostPublic200Response(
-                status = 'failed',
+                status = 'success',
                 react_type = '',
                 is_undo = True,
                 reason = '',

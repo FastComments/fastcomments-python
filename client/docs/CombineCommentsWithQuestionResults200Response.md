@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **data** | [**FindCommentsByRangeResponse**](FindCommentsByRangeResponse.md) |  | 
 **reason** | **str** |  | 
 **code** | **str** |  | 

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **comment** | [**FComment**](FComment.md) |  | 
 **user** | [**UserSessionInfo**](UserSessionInfo.md) |  | 
 **module_data** | **Dict[str, object]** | Construct a type with a set of properties K of type T | [optional] 

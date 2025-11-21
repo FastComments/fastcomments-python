@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
-**audit_logs** | [**List[PickTenantAuditLogTenantAuditLogKeys]**](PickTenantAuditLogTenantAuditLogKeys.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
+**audit_logs** | [**List[APIAuditLog]**](APIAuditLog.md) |  | 
 **reason** | **str** |  | 
 **code** | **str** |  | 
 **secondary_code** | **str** |  | [optional] 

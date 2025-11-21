@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **comment_statuses** | **Dict[str, bool]** | Construct a type with a set of properties K of type T | 
 **reason** | **str** |  | 
 **code** | **str** |  | 

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from client.models.api_page import APIPage
 from typing import Optional, Set
@@ -29,9 +29,10 @@ class PatchPageAPIResponse(BaseModel):
     """ # noqa: E501
     reason: Optional[StrictStr] = None
     code: Optional[StrictStr] = None
+    comments_updated: Optional[StrictInt] = Field(default=None, alias="commentsUpdated")
     page: Optional[APIPage] = None
     status: StrictStr
-    __properties: ClassVar[List[str]] = ["reason", "code", "page", "status"]
+    __properties: ClassVar[List[str]] = ["reason", "code", "commentsUpdated", "page", "status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,6 +90,7 @@ class PatchPageAPIResponse(BaseModel):
         _obj = cls.model_validate({
             "reason": obj.get("reason"),
             "code": obj.get("code"),
+            "commentsUpdated": obj.get("commentsUpdated"),
             "page": APIPage.from_dict(obj["page"]) if obj.get("page") is not None else None,
             "status": obj.get("status")
         })

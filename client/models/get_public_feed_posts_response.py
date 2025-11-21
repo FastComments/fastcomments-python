@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from client.models.api_status import APIStatus
 from client.models.feed_post import FeedPost
-from client.models.imported_api_status_success import ImportedAPIStatusSUCCESS
 from client.models.user_session_info import UserSessionInfo
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class GetPublicFeedPostsResponse(BaseModel):
     """
     GetPublicFeedPostsResponse
     """ # noqa: E501
-    status: ImportedAPIStatusSUCCESS
+    status: APIStatus
     feed_posts: List[FeedPost] = Field(alias="feedPosts")
     user: Optional[UserSessionInfo] = None
     __properties: ClassVar[List[str]] = ["status", "feedPosts", "user"]

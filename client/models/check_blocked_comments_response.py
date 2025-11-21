@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List
-from client.models.imported_api_status_success import ImportedAPIStatusSUCCESS
+from client.models.api_status import APIStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class CheckBlockedCommentsResponse(BaseModel):
     CheckBlockedCommentsResponse
     """ # noqa: E501
     comment_statuses: Dict[str, StrictBool] = Field(description="Construct a type with a set of properties K of type T", alias="commentStatuses")
-    status: ImportedAPIStatusSUCCESS
+    status: APIStatus
     __properties: ClassVar[List[str]] = ["commentStatuses", "status"]
 
     model_config = ConfigDict(

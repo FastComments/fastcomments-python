@@ -35,11 +35,11 @@ class TestPublicAPIDeleteCommentResponse(unittest.TestCase):
         model = PublicAPIDeleteCommentResponse()
         if include_optional:
             return PublicAPIDeleteCommentResponse(
-                comment = client.models.pick_f_comment/is_deleted_or_comment_html_or_commenter_name_or_user_id_.Pick_FComment.isDeleted-or-commentHTML-or-commenterName-or-userId_(
-                    user_id = '', 
-                    commenter_name = '', 
+                comment = client.models.deleted_comment_result_comment.DeletedCommentResultComment(
+                    is_deleted = True, 
                     comment_html = '', 
-                    is_deleted = True, ),
+                    commenter_name = '', 
+                    user_id = '', ),
                 hard_removed = True,
                 status = 'success'
             )

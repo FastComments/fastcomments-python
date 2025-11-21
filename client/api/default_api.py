@@ -68,13 +68,13 @@ from client.models.get_user_badges200_response import GetUserBadges200Response
 from client.models.patch_domain_config_params import PatchDomainConfigParams
 from client.models.patch_page_api_response import PatchPageAPIResponse
 from client.models.patch_sso_user_api_response import PatchSSOUserAPIResponse
-from client.models.pick_api_comment_updatable_comment_fields import PickAPICommentUpdatableCommentFields
 from client.models.put_sso_user_api_response import PutSSOUserAPIResponse
 from client.models.sortdir import SORTDIR
 from client.models.save_comment200_response import SaveComment200Response
 from client.models.sort_directions import SortDirections
 from client.models.un_block_comment_public200_response import UnBlockCommentPublic200Response
 from client.models.un_block_from_comment_params import UnBlockFromCommentParams
+from client.models.updatable_comment_params import UpdatableCommentParams
 from client.models.update_api_page_data import UpdateAPIPageData
 from client.models.update_apisso_user_data import UpdateAPISSOUserData
 from client.models.update_domain_config_params import UpdateDomainConfigParams
@@ -13704,7 +13704,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        body: PickAPICommentUpdatableCommentFields,
+        updatable_comment_params: UpdatableCommentParams,
         context_user_id: Optional[StrictStr] = None,
         do_spam_check: Optional[StrictBool] = None,
         is_live: Optional[StrictBool] = None,
@@ -13728,8 +13728,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: PickAPICommentUpdatableCommentFields
+        :param updatable_comment_params: (required)
+        :type updatable_comment_params: UpdatableCommentParams
         :param context_user_id:
         :type context_user_id: str
         :param do_spam_check:
@@ -13761,7 +13761,7 @@ class DefaultApi:
         _param = self._update_comment_serialize(
             tenant_id=tenant_id,
             id=id,
-            body=body,
+            updatable_comment_params=updatable_comment_params,
             context_user_id=context_user_id,
             do_spam_check=do_spam_check,
             is_live=is_live,
@@ -13790,7 +13790,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        body: PickAPICommentUpdatableCommentFields,
+        updatable_comment_params: UpdatableCommentParams,
         context_user_id: Optional[StrictStr] = None,
         do_spam_check: Optional[StrictBool] = None,
         is_live: Optional[StrictBool] = None,
@@ -13814,8 +13814,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: PickAPICommentUpdatableCommentFields
+        :param updatable_comment_params: (required)
+        :type updatable_comment_params: UpdatableCommentParams
         :param context_user_id:
         :type context_user_id: str
         :param do_spam_check:
@@ -13847,7 +13847,7 @@ class DefaultApi:
         _param = self._update_comment_serialize(
             tenant_id=tenant_id,
             id=id,
-            body=body,
+            updatable_comment_params=updatable_comment_params,
             context_user_id=context_user_id,
             do_spam_check=do_spam_check,
             is_live=is_live,
@@ -13876,7 +13876,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        body: PickAPICommentUpdatableCommentFields,
+        updatable_comment_params: UpdatableCommentParams,
         context_user_id: Optional[StrictStr] = None,
         do_spam_check: Optional[StrictBool] = None,
         is_live: Optional[StrictBool] = None,
@@ -13900,8 +13900,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param body: (required)
-        :type body: PickAPICommentUpdatableCommentFields
+        :param updatable_comment_params: (required)
+        :type updatable_comment_params: UpdatableCommentParams
         :param context_user_id:
         :type context_user_id: str
         :param do_spam_check:
@@ -13933,7 +13933,7 @@ class DefaultApi:
         _param = self._update_comment_serialize(
             tenant_id=tenant_id,
             id=id,
-            body=body,
+            updatable_comment_params=updatable_comment_params,
             context_user_id=context_user_id,
             do_spam_check=do_spam_check,
             is_live=is_live,
@@ -13957,7 +13957,7 @@ class DefaultApi:
         self,
         tenant_id,
         id,
-        body,
+        updatable_comment_params,
         context_user_id,
         do_spam_check,
         is_live,
@@ -14004,8 +14004,8 @@ class DefaultApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if body is not None:
-            _body_params = body
+        if updatable_comment_params is not None:
+            _body_params = updatable_comment_params
 
 
         # set the HTTP header `Accept`

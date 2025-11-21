@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **reason** | **str** |  | [optional] 
 **code** | **str** |  | [optional] 
+**comments_updated** | **int** |  | [optional] 
 **page** | [**APIPage**](APIPage.md) |  | [optional] 
 **status** | **str** |  | 
 

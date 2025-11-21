@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status_code** | **int** |  | [optional] 
-**status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **code** | **str** |  | 
 **reason** | **str** |  | 
 **was_unapproved** | **bool** |  | [optional] 

@@ -32,6 +32,9 @@ from client.exceptions import ApiAttributeError
 from client.exceptions import ApiException
 
 # import models into sdk package
+from client.models.api_audit_log import APIAuditLog
+from client.models.api_comment import APIComment
+from client.models.api_comment_base import APICommentBase
 from client.models.api_create_user_badge_response import APICreateUserBadgeResponse
 from client.models.api_empty_response import APIEmptyResponse
 from client.models.api_empty_success_response import APIEmptySuccessResponse
@@ -76,6 +79,9 @@ from client.models.combine_comments_with_question_results200_response import Com
 from client.models.combine_question_results_with_comments_response import CombineQuestionResultsWithCommentsResponse
 from client.models.comment_data import CommentData
 from client.models.comment_html_rendering_mode import CommentHTMLRenderingMode
+from client.models.comment_log_data import CommentLogData
+from client.models.comment_log_entry import CommentLogEntry
+from client.models.comment_log_type import CommentLogType
 from client.models.comment_question_results_rendering_type import CommentQuestionResultsRenderingType
 from client.models.comment_questions_required import CommentQuestionsRequired
 from client.models.comment_text_update_request import CommentTextUpdateRequest
@@ -109,6 +115,7 @@ from client.models.delete_feed_post_public200_response_any_of import DeleteFeedP
 from client.models.delete_page_api_response import DeletePageAPIResponse
 from client.models.delete_sso_user_api_response import DeleteSSOUserAPIResponse
 from client.models.delete_subscription_api_response import DeleteSubscriptionAPIResponse
+from client.models.deleted_comment_result_comment import DeletedCommentResultComment
 from client.models.event_log_entry import EventLogEntry
 from client.models.f_comment import FComment
 from client.models.f_comment_meta import FCommentMeta
@@ -165,8 +172,6 @@ from client.models.gif_rating import GifRating
 from client.models.header_state import HeaderState
 from client.models.ignored_response import IgnoredResponse
 from client.models.image_content_profanity_level import ImageContentProfanityLevel
-from client.models.imported_api_status_failed import ImportedAPIStatusFAILED
-from client.models.imported_api_status_success import ImportedAPIStatusSUCCESS
 from client.models.live_event import LiveEvent
 from client.models.live_event_extra_info import LiveEventExtraInfo
 from client.models.live_event_type import LiveEventType
@@ -179,22 +184,16 @@ from client.models.notification_type import NotificationType
 from client.models.patch_domain_config_params import PatchDomainConfigParams
 from client.models.patch_page_api_response import PatchPageAPIResponse
 from client.models.patch_sso_user_api_response import PatchSSOUserAPIResponse
-from client.models.pick_api_comment_updatable_comment_fields import PickAPICommentUpdatableCommentFields
-from client.models.pick_f_comment_api_comment_fields_keys import PickFCommentAPICommentFieldsKeys
-from client.models.pick_f_comment_api_comment_fields_keys_meta import PickFCommentAPICommentFieldsKeysMeta
-from client.models.pick_f_comment_approved_or_comment_html import PickFCommentApprovedOrCommentHTML
-from client.models.pick_f_comment_is_deleted_or_comment_htmlor_commenter_name_or_user_id import PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId
-from client.models.pick_f_comment_public_comment_fields_keys import PickFCommentPublicCommentFieldsKeys
-from client.models.pick_omit_f_comment_date_public_comment_pub_sub_fields_keys import PickOmitFCommentDatePublicCommentPubSubFieldsKeys
-from client.models.pick_tenant_audit_log_tenant_audit_log_keys import PickTenantAuditLogTenantAuditLogKeys
 from client.models.pin_comment200_response import PinComment200Response
 from client.models.pub_sub_comment import PubSubComment
+from client.models.pub_sub_comment_base import PubSubCommentBase
 from client.models.pub_sub_vote import PubSubVote
 from client.models.public_api_delete_comment_response import PublicAPIDeleteCommentResponse
 from client.models.public_api_get_comment_text_response import PublicAPIGetCommentTextResponse
 from client.models.public_api_set_comment_text_response import PublicAPISetCommentTextResponse
 from client.models.public_block_from_comment_params import PublicBlockFromCommentParams
 from client.models.public_comment import PublicComment
+from client.models.public_comment_base import PublicCommentBase
 from client.models.public_feed_posts_response import PublicFeedPostsResponse
 from client.models.put_sso_user_api_response import PutSSOUserAPIResponse
 from client.models.query_predicate import QueryPredicate
@@ -211,6 +210,8 @@ from client.models.react_feed_post_response import ReactFeedPostResponse
 from client.models.record_string_before_string_or_null_after_string_or_null_value import RecordStringBeforeStringOrNullAfterStringOrNullValue
 from client.models.record_string_string_or_number_value import RecordStringStringOrNumberValue
 from client.models.renderable_user_notification import RenderableUserNotification
+from client.models.repeat_comment_check_ignored_reason import RepeatCommentCheckIgnoredReason
+from client.models.repeat_comment_handling_action import RepeatCommentHandlingAction
 from client.models.reset_user_notifications200_response import ResetUserNotifications200Response
 from client.models.reset_user_notifications_response import ResetUserNotificationsResponse
 from client.models.sortdir import SORTDIR
@@ -222,12 +223,14 @@ from client.models.save_comments_response_with_presence import SaveCommentsRespo
 from client.models.search_users200_response import SearchUsers200Response
 from client.models.search_users_response import SearchUsersResponse
 from client.models.set_comment_text200_response import SetCommentText200Response
+from client.models.set_comment_text_result import SetCommentTextResult
 from client.models.size_preset import SizePreset
 from client.models.sort_directions import SortDirections
 from client.models.spam_rule import SpamRule
 from client.models.un_block_comment_public200_response import UnBlockCommentPublic200Response
 from client.models.un_block_from_comment_params import UnBlockFromCommentParams
 from client.models.unblock_success import UnblockSuccess
+from client.models.updatable_comment_params import UpdatableCommentParams
 from client.models.update_api_page_data import UpdateAPIPageData
 from client.models.update_apisso_user_data import UpdateAPISSOUserData
 from client.models.update_domain_config_params import UpdateDomainConfigParams
@@ -247,7 +250,6 @@ from client.models.user_session_info import UserSessionInfo
 from client.models.vote_body_params import VoteBodyParams
 from client.models.vote_comment200_response import VoteComment200Response
 from client.models.vote_delete_response import VoteDeleteResponse
-from client.models.vote_delete_response_status import VoteDeleteResponseStatus
 from client.models.vote_response import VoteResponse
 from client.models.vote_response_status import VoteResponseStatus
 from client.models.vote_response_user import VoteResponseUser

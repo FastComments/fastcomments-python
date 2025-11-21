@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from client.models.imported_api_status_success import ImportedAPIStatusSUCCESS
+from client.models.api_status import APIStatus
 from client.models.notification_and_count import NotificationAndCount
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class HeaderState(BaseModel):
     """
     HeaderState
     """ # noqa: E501
-    status: ImportedAPIStatusSUCCESS
+    status: APIStatus
     notification_type: Dict[str, Any] = Field(alias="NotificationType")
     user_id: StrictStr = Field(alias="userId")
     user_id_ws: StrictStr = Field(alias="userIdWS")

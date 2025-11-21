@@ -38,7 +38,7 @@ class TestCheckedCommentsForBlocked200Response(unittest.TestCase):
                 comment_statuses = {
                     'key' : True
                     },
-                status = 'failed',
+                status = 'success',
                 reason = '',
                 code = '',
                 secondary_code = '',
@@ -100,6 +100,7 @@ class TestCheckedCommentsForBlocked200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -134,7 +135,7 @@ class TestCheckedCommentsForBlocked200Response(unittest.TestCase):
                 comment_statuses = {
                     'key' : True
                     },
-                status = 'failed',
+                status = 'success',
                 reason = '',
                 code = '',
         )

@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
-from client.models.vote_delete_response_status import VoteDeleteResponseStatus
+from client.models.api_status import APIStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class VoteDeleteResponse(BaseModel):
     """
     VoteDeleteResponse
     """ # noqa: E501
-    status: VoteDeleteResponseStatus
+    status: APIStatus
     was_pending_vote: Optional[StrictBool] = Field(default=None, alias="wasPendingVote")
     __properties: ClassVar[List[str]] = ["status", "wasPendingVote"]
 
@@ -70,9 +70,6 @@ class VoteDeleteResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of status
-        if self.status:
-            _dict['status'] = self.status.to_dict()
         return _dict
 
     @classmethod
@@ -85,7 +82,7 @@ class VoteDeleteResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "status": VoteDeleteResponseStatus.from_dict(obj["status"]) if obj.get("status") is not None else None,
+            "status": obj.get("status"),
             "wasPendingVote": obj.get("wasPendingVote")
         })
         return _obj

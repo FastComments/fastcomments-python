@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
+from client.models.api_comment import APIComment
 from client.models.api_status import APIStatus
-from client.models.pick_f_comment_api_comment_fields_keys import PickFCommentAPICommentFieldsKeys
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class APIGetCommentResponse(BaseModel):
     APIGetCommentResponse
     """ # noqa: E501
     status: APIStatus
-    comment: PickFCommentAPICommentFieldsKeys
+    comment: APIComment
     __properties: ClassVar[List[str]] = ["status", "comment"]
 
     model_config = ConfigDict(
@@ -87,7 +87,7 @@ class APIGetCommentResponse(BaseModel):
 
         _obj = cls.model_validate({
             "status": obj.get("status"),
-            "comment": PickFCommentAPICommentFieldsKeys.from_dict(obj["comment"]) if obj.get("comment") is not None else None
+            "comment": APIComment.from_dict(obj["comment"]) if obj.get("comment") is not None else None
         })
         return _obj
 

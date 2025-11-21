@@ -20,6 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from client.models.comment_log_entry import CommentLogEntry
 from client.models.comment_user_badge_info import CommentUserBadgeInfo
 from client.models.comment_user_hash_tag_info import CommentUserHashTagInfo
 from client.models.comment_user_mention_info import CommentUserMentionInfo
@@ -97,7 +98,7 @@ class FComment(BaseModel):
     autoplay_job_id: Optional[StrictStr] = Field(default=None, alias="autoplayJobId")
     autoplay_delay_ms: Optional[StrictInt] = Field(default=None, alias="autoplayDelayMS")
     feedback_ids: Optional[List[StrictStr]] = Field(default=None, alias="feedbackIds")
-    logs: Optional[List[List[Any]]] = None
+    logs: Optional[List[CommentLogEntry]] = None
     group_ids: Optional[List[StrictStr]] = Field(default=None, alias="groupIds")
     view_count: Optional[StrictInt] = Field(default=None, alias="viewCount")
     requires_verification: Optional[StrictBool] = Field(default=None, alias="requiresVerification")
@@ -167,6 +168,13 @@ class FComment(BaseModel):
                 if _item_badges:
                     _items.append(_item_badges.to_dict())
             _dict['badges'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in logs (list)
+        _items = []
+        if self.logs:
+            for _item_logs in self.logs:
+                if _item_logs:
+                    _items.append(_item_logs.to_dict())
+            _dict['logs'] = _items
         # set to None if page_title (nullable) is None
         # and model_fields_set contains the field
         if self.page_title is None and "page_title" in self.model_fields_set:
@@ -410,7 +418,7 @@ class FComment(BaseModel):
             "autoplayJobId": obj.get("autoplayJobId"),
             "autoplayDelayMS": obj.get("autoplayDelayMS"),
             "feedbackIds": obj.get("feedbackIds"),
-            "logs": obj.get("logs"),
+            "logs": [CommentLogEntry.from_dict(_item) for _item in obj["logs"]] if obj.get("logs") is not None else None,
             "groupIds": obj.get("groupIds"),
             "viewCount": obj.get("viewCount"),
             "requiresVerification": obj.get("requiresVerification"),

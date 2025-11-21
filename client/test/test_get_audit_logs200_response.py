@@ -35,23 +35,21 @@ class TestGetAuditLogs200Response(unittest.TestCase):
         model = GetAuditLogs200Response()
         if include_optional:
             return GetAuditLogs200Response(
-                status = 'failed',
+                status = 'success',
                 audit_logs = [
-                    client.models.pick_tenant_audit_log/tenant_audit_log_keys_.Pick_TenantAuditLog.TenantAuditLogKeys_(
+                    client.models.api_audit_log.APIAuditLog(
                         _id = '', 
-                        url = '', 
                         user_id = '', 
                         username = '', 
                         resource_name = '', 
                         crud_type = 'c', 
                         from = 'ui', 
+                        url = '', 
                         ip = '', 
                         when = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         description = '', 
                         server_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        object_details = {
-                            'key' : null
-                            }, )
+                        object_details = null, )
                     ],
                 reason = '',
                 code = '',
@@ -114,6 +112,7 @@ class TestGetAuditLogs200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -145,23 +144,21 @@ class TestGetAuditLogs200Response(unittest.TestCase):
             )
         else:
             return GetAuditLogs200Response(
-                status = 'failed',
+                status = 'success',
                 audit_logs = [
-                    client.models.pick_tenant_audit_log/tenant_audit_log_keys_.Pick_TenantAuditLog.TenantAuditLogKeys_(
+                    client.models.api_audit_log.APIAuditLog(
                         _id = '', 
-                        url = '', 
                         user_id = '', 
                         username = '', 
                         resource_name = '', 
                         crud_type = 'c', 
                         from = 'ui', 
+                        url = '', 
                         ip = '', 
                         when = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         description = '', 
                         server_start_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        object_details = {
-                            'key' : null
-                            }, )
+                        object_details = null, )
                     ],
                 reason = '',
                 code = '',

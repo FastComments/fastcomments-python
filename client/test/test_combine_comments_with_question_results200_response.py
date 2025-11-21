@@ -35,7 +35,7 @@ class TestCombineCommentsWithQuestionResults200Response(unittest.TestCase):
         model = CombineCommentsWithQuestionResults200Response()
         if include_optional:
             return CombineCommentsWithQuestionResults200Response(
-                status = 'failed',
+                status = 'success',
                 data = client.models.find_comments_by_range_response.FindCommentsByRangeResponse(
                     results = [
                         client.models.find_comments_by_range_item.FindCommentsByRangeItem(
@@ -121,6 +121,7 @@ class TestCombineCommentsWithQuestionResults200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -152,7 +153,7 @@ class TestCombineCommentsWithQuestionResults200Response(unittest.TestCase):
             )
         else:
             return CombineCommentsWithQuestionResults200Response(
-                status = 'failed',
+                status = 'success',
                 data = client.models.find_comments_by_range_response.FindCommentsByRangeResponse(
                     results = [
                         client.models.find_comments_by_range_item.FindCommentsByRangeItem(
