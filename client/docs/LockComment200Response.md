@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **reason** | **str** |  | 
 **code** | **str** |  | 
 **secondary_code** | **str** |  | [optional] 

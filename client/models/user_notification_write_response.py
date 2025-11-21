@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from client.models.imported_api_status_success import ImportedAPIStatusSUCCESS
+from client.models.api_status import APIStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class UserNotificationWriteResponse(BaseModel):
     """
     UserNotificationWriteResponse
     """ # noqa: E501
-    status: ImportedAPIStatusSUCCESS
+    status: APIStatus
     matched_count: StrictInt = Field(alias="matchedCount")
     modified_count: StrictInt = Field(alias="modifiedCount")
     __properties: ClassVar[List[str]] = ["status", "matchedCount", "modifiedCount"]

@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
-**comment** | [**PickFCommentAPICommentFieldsKeys**](PickFCommentAPICommentFieldsKeys.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
+**comment** | [**APIComment**](APIComment.md) |  | 
 **reason** | **str** |  | 
 **code** | **str** |  | 
 **secondary_code** | **str** |  | [optional] 

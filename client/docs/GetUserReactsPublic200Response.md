@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **reacts** | **Dict[str, Dict[str, bool]]** |  | 
 **reason** | **str** |  | 
 **code** | **str** |  | 

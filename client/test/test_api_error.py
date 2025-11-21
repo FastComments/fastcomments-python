@@ -35,7 +35,7 @@ class TestAPIError(unittest.TestCase):
         model = APIError()
         if include_optional:
             return APIError(
-                status = 'failed',
+                status = 'success',
                 reason = '',
                 code = '',
                 secondary_code = '',
@@ -97,6 +97,7 @@ class TestAPIError(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -128,7 +129,7 @@ class TestAPIError(unittest.TestCase):
             )
         else:
             return APIError(
-                status = 'failed',
+                status = 'success',
                 reason = '',
                 code = '',
         )

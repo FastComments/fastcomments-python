@@ -35,92 +35,9 @@ class TestGetComments200Response(unittest.TestCase):
         model = GetComments200Response()
         if include_optional:
             return GetComments200Response(
-                status = 'failed',
+                status = 'success',
                 comments = [
-                    client.models.pick_f_comment/api_comment_fields_keys_.Pick_FComment.APICommentFieldsKeys_(
-                        date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        _id = '', 
-                        tenant_id = '', 
-                        url_id = '', 
-                        url_id_raw = '', 
-                        url = '', 
-                        page_title = '', 
-                        user_id = '', 
-                        anon_user_id = '', 
-                        commenter_email = '', 
-                        commenter_name = '', 
-                        commenter_link = '', 
-                        comment = '', 
-                        comment_html = '', 
-                        parent_id = '', 
-                        local_date_string = '', 
-                        local_date_hours = 56, 
-                        votes = 56, 
-                        votes_up = 56, 
-                        votes_down = 56, 
-                        expire_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        verified = True, 
-                        verified_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        notification_sent_for_parent = True, 
-                        notification_sent_for_parent_tenant = True, 
-                        reviewed = True, 
-                        external_id = '', 
-                        external_parent_id = '', 
-                        avatar_src = '', 
-                        is_spam = True, 
-                        ai_determined_spam = True, 
-                        has_images = True, 
-                        has_links = True, 
-                        has_code = True, 
-                        approved = True, 
-                        locale = '', 
-                        is_deleted = True, 
-                        is_deleted_user = True, 
-                        is_by_admin = True, 
-                        is_by_moderator = True, 
-                        is_pinned = True, 
-                        is_locked = True, 
-                        flag_count = 56, 
-                        rating = 1.337, 
-                        display_label = '', 
-                        from_product_id = 56, 
-                        meta = {
-                            'key' : null
-                            }, 
-                        mentions = [
-                            client.models.comment_user_mention_info.CommentUserMentionInfo(
-                                id = '', 
-                                tag = '', 
-                                raw_tag = '', 
-                                type = 'user', 
-                                sent = True, )
-                            ], 
-                        hash_tags = [
-                            client.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
-                                id = '', 
-                                tag = '', 
-                                url = '', 
-                                retain = True, )
-                            ], 
-                        badges = [
-                            client.models.comment_user_badge_info.CommentUserBadgeInfo(
-                                id = '', 
-                                type = 56, 
-                                description = '', 
-                                display_label = '', 
-                                display_src = '', 
-                                background_color = '', 
-                                border_color = '', 
-                                text_color = '', 
-                                css_class = '', )
-                            ], 
-                        domain = '', 
-                        moderation_group_ids = [
-                            ''
-                            ], 
-                        feedback_ids = [
-                            ''
-                            ], )
+                    null
                     ],
                 reason = '',
                 code = '',
@@ -183,6 +100,7 @@ class TestGetComments200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -214,92 +132,9 @@ class TestGetComments200Response(unittest.TestCase):
             )
         else:
             return GetComments200Response(
-                status = 'failed',
+                status = 'success',
                 comments = [
-                    client.models.pick_f_comment/api_comment_fields_keys_.Pick_FComment.APICommentFieldsKeys_(
-                        date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        _id = '', 
-                        tenant_id = '', 
-                        url_id = '', 
-                        url_id_raw = '', 
-                        url = '', 
-                        page_title = '', 
-                        user_id = '', 
-                        anon_user_id = '', 
-                        commenter_email = '', 
-                        commenter_name = '', 
-                        commenter_link = '', 
-                        comment = '', 
-                        comment_html = '', 
-                        parent_id = '', 
-                        local_date_string = '', 
-                        local_date_hours = 56, 
-                        votes = 56, 
-                        votes_up = 56, 
-                        votes_down = 56, 
-                        expire_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        verified = True, 
-                        verified_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                        notification_sent_for_parent = True, 
-                        notification_sent_for_parent_tenant = True, 
-                        reviewed = True, 
-                        external_id = '', 
-                        external_parent_id = '', 
-                        avatar_src = '', 
-                        is_spam = True, 
-                        ai_determined_spam = True, 
-                        has_images = True, 
-                        has_links = True, 
-                        has_code = True, 
-                        approved = True, 
-                        locale = '', 
-                        is_deleted = True, 
-                        is_deleted_user = True, 
-                        is_by_admin = True, 
-                        is_by_moderator = True, 
-                        is_pinned = True, 
-                        is_locked = True, 
-                        flag_count = 56, 
-                        rating = 1.337, 
-                        display_label = '', 
-                        from_product_id = 56, 
-                        meta = {
-                            'key' : null
-                            }, 
-                        mentions = [
-                            client.models.comment_user_mention_info.CommentUserMentionInfo(
-                                id = '', 
-                                tag = '', 
-                                raw_tag = '', 
-                                type = 'user', 
-                                sent = True, )
-                            ], 
-                        hash_tags = [
-                            client.models.comment_user_hash_tag_info.CommentUserHashTagInfo(
-                                id = '', 
-                                tag = '', 
-                                url = '', 
-                                retain = True, )
-                            ], 
-                        badges = [
-                            client.models.comment_user_badge_info.CommentUserBadgeInfo(
-                                id = '', 
-                                type = 56, 
-                                description = '', 
-                                display_label = '', 
-                                display_src = '', 
-                                background_color = '', 
-                                border_color = '', 
-                                text_color = '', 
-                                css_class = '', )
-                            ], 
-                        domain = '', 
-                        moderation_group_ids = [
-                            ''
-                            ], 
-                        feedback_ids = [
-                            ''
-                            ], )
+                    null
                     ],
                 reason = '',
                 code = '',

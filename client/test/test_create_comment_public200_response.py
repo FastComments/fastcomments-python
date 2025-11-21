@@ -35,7 +35,7 @@ class TestCreateCommentPublic200Response(unittest.TestCase):
         model = CreateCommentPublic200Response()
         if include_optional:
             return CreateCommentPublic200Response(
-                status = 'failed',
+                status = 'success',
                 comment = None,
                 user = client.models.user_session_info.UserSessionInfo(
                     id = '', 
@@ -129,6 +129,7 @@ class TestCreateCommentPublic200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -160,7 +161,7 @@ class TestCreateCommentPublic200Response(unittest.TestCase):
             )
         else:
             return CreateCommentPublic200Response(
-                status = 'failed',
+                status = 'success',
                 comment = None,
                 user = client.models.user_session_info.UserSessionInfo(
                     id = '', 

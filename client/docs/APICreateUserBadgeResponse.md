@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**APIStatus**](APIStatus.md) |  | 
 **user_badge** | [**UserBadge**](UserBadge.md) |  | 
+**notes** | **List[str]** |  | [optional] 
 
 ## Example
 

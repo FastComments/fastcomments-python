@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **vote_id** | **str** |  | [optional] 
 **is_verified** | **bool** |  | [optional] 
 **user** | [**VoteResponseUser**](VoteResponseUser.md) |  | [optional] 

@@ -35,7 +35,7 @@ class TestFlagCommentPublic200Response(unittest.TestCase):
         model = FlagCommentPublic200Response()
         if include_optional:
             return FlagCommentPublic200Response(
-                status = 'failed',
+                status = 'success',
                 reason = '',
                 code = '',
                 secondary_code = '',
@@ -97,6 +97,7 @@ class TestFlagCommentPublic200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -128,7 +129,7 @@ class TestFlagCommentPublic200Response(unittest.TestCase):
             )
         else:
             return FlagCommentPublic200Response(
-                status = 'failed',
+                status = 'success',
                 reason = '',
                 code = '',
         )

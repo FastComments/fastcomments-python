@@ -36,7 +36,7 @@ class TestGetCommentsPublic200Response(unittest.TestCase):
         if include_optional:
             return GetCommentsPublic200Response(
                 status_code = 56,
-                status = 'failed',
+                status = 'success',
                 code = '',
                 reason = '',
                 translated_warning = '',
@@ -143,6 +143,7 @@ class TestGetCommentsPublic200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -181,7 +182,7 @@ class TestGetCommentsPublic200Response(unittest.TestCase):
             )
         else:
             return GetCommentsPublic200Response(
-                status = 'failed',
+                status = 'success',
                 code = '',
                 reason = '',
                 comments = [

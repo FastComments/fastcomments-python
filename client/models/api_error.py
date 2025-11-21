@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from client.models.api_status import APIStatus
 from client.models.custom_config_parameters import CustomConfigParameters
-from client.models.imported_api_status_failed import ImportedAPIStatusFAILED
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class APIError(BaseModel):
     """
     APIError
     """ # noqa: E501
-    status: ImportedAPIStatusFAILED
+    status: APIStatus
     reason: StrictStr
     code: StrictStr
     secondary_code: Optional[StrictStr] = Field(default=None, alias="secondaryCode")

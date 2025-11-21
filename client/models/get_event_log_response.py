@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
+from client.models.api_status import APIStatus
 from client.models.event_log_entry import EventLogEntry
-from client.models.imported_api_status_success import ImportedAPIStatusSUCCESS
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class GetEventLogResponse(BaseModel):
     GetEventLogResponse
     """ # noqa: E501
     events: List[EventLogEntry]
-    status: ImportedAPIStatusSUCCESS
+    status: APIStatus
     __properties: ClassVar[List[str]] = ["events", "status"]
 
     model_config = ConfigDict(

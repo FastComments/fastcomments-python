@@ -35,12 +35,12 @@ class TestVoteDeleteResponse(unittest.TestCase):
         model = VoteDeleteResponse()
         if include_optional:
             return VoteDeleteResponse(
-                status = None,
+                status = 'success',
                 was_pending_vote = True
             )
         else:
             return VoteDeleteResponse(
-                status = None,
+                status = 'success',
         )
         """
 

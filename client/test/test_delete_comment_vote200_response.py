@@ -35,7 +35,7 @@ class TestDeleteCommentVote200Response(unittest.TestCase):
         model = DeleteCommentVote200Response()
         if include_optional:
             return DeleteCommentVote200Response(
-                status = 'failed',
+                status = 'success',
                 was_pending_vote = True,
                 reason = '',
                 code = '',
@@ -98,6 +98,7 @@ class TestDeleteCommentVote200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -129,7 +130,7 @@ class TestDeleteCommentVote200Response(unittest.TestCase):
             )
         else:
             return DeleteCommentVote200Response(
-                status = 'failed',
+                status = 'success',
                 reason = '',
                 code = '',
         )

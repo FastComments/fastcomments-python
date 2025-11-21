@@ -35,10 +35,10 @@ class TestSetCommentText200Response(unittest.TestCase):
         model = SetCommentText200Response()
         if include_optional:
             return SetCommentText200Response(
-                comment = client.models.pick_f_comment/approved_or_comment_html_.Pick_FComment.approved-or-commentHTML_(
-                    comment_html = '', 
-                    approved = True, ),
-                status = 'failed',
+                comment = client.models.set_comment_text_result.SetCommentTextResult(
+                    approved = True, 
+                    comment_html = '', ),
+                status = 'success',
                 reason = '',
                 code = '',
                 secondary_code = '',
@@ -100,6 +100,7 @@ class TestSetCommentText200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -131,10 +132,10 @@ class TestSetCommentText200Response(unittest.TestCase):
             )
         else:
             return SetCommentText200Response(
-                comment = client.models.pick_f_comment/approved_or_comment_html_.Pick_FComment.approved-or-commentHTML_(
-                    comment_html = '', 
-                    approved = True, ),
-                status = 'failed',
+                comment = client.models.set_comment_text_result.SetCommentTextResult(
+                    approved = True, 
+                    comment_html = '', ),
+                status = 'success',
                 reason = '',
                 code = '',
         )

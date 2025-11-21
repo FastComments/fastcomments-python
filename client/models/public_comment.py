@@ -28,34 +28,35 @@ class PublicComment(BaseModel):
     """
     PublicComment
     """ # noqa: E501
-    var_date: datetime = Field(alias="date")
     id: StrictStr = Field(alias="_id")
     user_id: Optional[StrictStr] = Field(default=None, alias="userId")
-    anon_user_id: Optional[StrictStr] = Field(default=None, alias="anonUserId")
     commenter_name: StrictStr = Field(alias="commenterName")
     commenter_link: Optional[StrictStr] = Field(default=None, alias="commenterLink")
     comment_html: StrictStr = Field(alias="commentHTML")
     parent_id: Optional[StrictStr] = Field(default=None, alias="parentId")
+    var_date: Optional[datetime] = Field(alias="date")
     votes: Optional[StrictInt] = None
     votes_up: Optional[StrictInt] = Field(default=None, alias="votesUp")
     votes_down: Optional[StrictInt] = Field(default=None, alias="votesDown")
     verified: StrictBool
     avatar_src: Optional[StrictStr] = Field(default=None, alias="avatarSrc")
-    is_spam: Optional[StrictBool] = Field(default=None, alias="isSpam")
     has_images: Optional[StrictBool] = Field(default=None, alias="hasImages")
-    is_deleted: Optional[StrictBool] = Field(default=None, alias="isDeleted")
-    is_deleted_user: Optional[StrictBool] = Field(default=None, alias="isDeletedUser")
     is_by_admin: Optional[StrictBool] = Field(default=None, alias="isByAdmin")
     is_by_moderator: Optional[StrictBool] = Field(default=None, alias="isByModerator")
     is_pinned: Optional[StrictBool] = Field(default=None, alias="isPinned")
     is_locked: Optional[StrictBool] = Field(default=None, alias="isLocked")
-    rating: Optional[Union[StrictFloat, StrictInt]] = None
     display_label: Optional[StrictStr] = Field(default=None, alias="displayLabel")
+    rating: Optional[Union[StrictFloat, StrictInt]] = None
     badges: Optional[List[CommentUserBadgeInfo]] = None
-    feedback_ids: Optional[List[StrictStr]] = Field(default=None, alias="feedbackIds")
     view_count: Optional[StrictInt] = Field(default=None, alias="viewCount")
+    is_deleted: Optional[StrictBool] = Field(default=None, alias="isDeleted")
+    is_deleted_user: Optional[StrictBool] = Field(default=None, alias="isDeletedUser")
+    is_spam: Optional[StrictBool] = Field(default=None, alias="isSpam")
+    anon_user_id: Optional[StrictStr] = Field(default=None, alias="anonUserId")
+    feedback_ids: Optional[List[StrictStr]] = Field(default=None, alias="feedbackIds")
     requires_verification: Optional[StrictBool] = Field(default=None, alias="requiresVerification")
     edit_key: Optional[StrictStr] = Field(default=None, alias="editKey")
+    approved: Optional[StrictBool] = None
     is_unread: Optional[StrictBool] = Field(default=None, alias="isUnread")
     my_vote_id: Optional[StrictStr] = Field(default=None, alias="myVoteId")
     is_voted_down: Optional[StrictBool] = Field(default=None, alias="isVotedDown")
@@ -66,7 +67,7 @@ class PublicComment(BaseModel):
     children: Optional[List[PublicComment]] = None
     is_flagged: Optional[StrictBool] = Field(default=None, alias="isFlagged")
     is_blocked: Optional[StrictBool] = Field(default=None, alias="isBlocked")
-    __properties: ClassVar[List[str]] = ["date", "_id", "userId", "anonUserId", "commenterName", "commenterLink", "commentHTML", "parentId", "votes", "votesUp", "votesDown", "verified", "avatarSrc", "isSpam", "hasImages", "isDeleted", "isDeletedUser", "isByAdmin", "isByModerator", "isPinned", "isLocked", "rating", "displayLabel", "badges", "feedbackIds", "viewCount", "requiresVerification", "editKey", "isUnread", "myVoteId", "isVotedDown", "isVotedUp", "hasChildren", "nestedChildrenCount", "childCount", "children", "isFlagged", "isBlocked"]
+    __properties: ClassVar[List[str]] = ["_id", "userId", "commenterName", "commenterLink", "commentHTML", "parentId", "date", "votes", "votesUp", "votesDown", "verified", "avatarSrc", "hasImages", "isByAdmin", "isByModerator", "isPinned", "isLocked", "displayLabel", "rating", "badges", "viewCount", "isDeleted", "isDeletedUser", "isSpam", "anonUserId", "feedbackIds", "requiresVerification", "editKey", "approved", "isUnread", "myVoteId", "isVotedDown", "isVotedUp", "hasChildren", "nestedChildrenCount", "childCount", "children", "isFlagged", "isBlocked"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -121,6 +122,81 @@ class PublicComment(BaseModel):
                 if _item_children:
                     _items.append(_item_children.to_dict())
             _dict['children'] = _items
+        # set to None if user_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.user_id is None and "user_id" in self.model_fields_set:
+            _dict['userId'] = None
+
+        # set to None if commenter_link (nullable) is None
+        # and model_fields_set contains the field
+        if self.commenter_link is None and "commenter_link" in self.model_fields_set:
+            _dict['commenterLink'] = None
+
+        # set to None if parent_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.parent_id is None and "parent_id" in self.model_fields_set:
+            _dict['parentId'] = None
+
+        # set to None if var_date (nullable) is None
+        # and model_fields_set contains the field
+        if self.var_date is None and "var_date" in self.model_fields_set:
+            _dict['date'] = None
+
+        # set to None if votes (nullable) is None
+        # and model_fields_set contains the field
+        if self.votes is None and "votes" in self.model_fields_set:
+            _dict['votes'] = None
+
+        # set to None if votes_up (nullable) is None
+        # and model_fields_set contains the field
+        if self.votes_up is None and "votes_up" in self.model_fields_set:
+            _dict['votesUp'] = None
+
+        # set to None if votes_down (nullable) is None
+        # and model_fields_set contains the field
+        if self.votes_down is None and "votes_down" in self.model_fields_set:
+            _dict['votesDown'] = None
+
+        # set to None if avatar_src (nullable) is None
+        # and model_fields_set contains the field
+        if self.avatar_src is None and "avatar_src" in self.model_fields_set:
+            _dict['avatarSrc'] = None
+
+        # set to None if is_pinned (nullable) is None
+        # and model_fields_set contains the field
+        if self.is_pinned is None and "is_pinned" in self.model_fields_set:
+            _dict['isPinned'] = None
+
+        # set to None if is_locked (nullable) is None
+        # and model_fields_set contains the field
+        if self.is_locked is None and "is_locked" in self.model_fields_set:
+            _dict['isLocked'] = None
+
+        # set to None if display_label (nullable) is None
+        # and model_fields_set contains the field
+        if self.display_label is None and "display_label" in self.model_fields_set:
+            _dict['displayLabel'] = None
+
+        # set to None if rating (nullable) is None
+        # and model_fields_set contains the field
+        if self.rating is None and "rating" in self.model_fields_set:
+            _dict['rating'] = None
+
+        # set to None if badges (nullable) is None
+        # and model_fields_set contains the field
+        if self.badges is None and "badges" in self.model_fields_set:
+            _dict['badges'] = None
+
+        # set to None if view_count (nullable) is None
+        # and model_fields_set contains the field
+        if self.view_count is None and "view_count" in self.model_fields_set:
+            _dict['viewCount'] = None
+
+        # set to None if anon_user_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.anon_user_id is None and "anon_user_id" in self.model_fields_set:
+            _dict['anonUserId'] = None
+
         return _dict
 
     @classmethod
@@ -133,34 +209,35 @@ class PublicComment(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "date": obj.get("date"),
             "_id": obj.get("_id"),
             "userId": obj.get("userId"),
-            "anonUserId": obj.get("anonUserId"),
             "commenterName": obj.get("commenterName"),
             "commenterLink": obj.get("commenterLink"),
             "commentHTML": obj.get("commentHTML"),
             "parentId": obj.get("parentId"),
+            "date": obj.get("date"),
             "votes": obj.get("votes"),
             "votesUp": obj.get("votesUp"),
             "votesDown": obj.get("votesDown"),
             "verified": obj.get("verified"),
             "avatarSrc": obj.get("avatarSrc"),
-            "isSpam": obj.get("isSpam"),
             "hasImages": obj.get("hasImages"),
-            "isDeleted": obj.get("isDeleted"),
-            "isDeletedUser": obj.get("isDeletedUser"),
             "isByAdmin": obj.get("isByAdmin"),
             "isByModerator": obj.get("isByModerator"),
             "isPinned": obj.get("isPinned"),
             "isLocked": obj.get("isLocked"),
-            "rating": obj.get("rating"),
             "displayLabel": obj.get("displayLabel"),
+            "rating": obj.get("rating"),
             "badges": [CommentUserBadgeInfo.from_dict(_item) for _item in obj["badges"]] if obj.get("badges") is not None else None,
-            "feedbackIds": obj.get("feedbackIds"),
             "viewCount": obj.get("viewCount"),
+            "isDeleted": obj.get("isDeleted"),
+            "isDeletedUser": obj.get("isDeletedUser"),
+            "isSpam": obj.get("isSpam"),
+            "anonUserId": obj.get("anonUserId"),
+            "feedbackIds": obj.get("feedbackIds"),
             "requiresVerification": obj.get("requiresVerification"),
             "editKey": obj.get("editKey"),
+            "approved": obj.get("approved"),
             "isUnread": obj.get("isUnread"),
             "myVoteId": obj.get("myVoteId"),
             "isVotedDown": obj.get("isVotedDown"),

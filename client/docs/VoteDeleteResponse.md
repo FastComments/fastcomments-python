@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**VoteDeleteResponseStatus**](VoteDeleteResponseStatus.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **was_pending_vote** | **bool** |  | [optional] 
 
 ## Example

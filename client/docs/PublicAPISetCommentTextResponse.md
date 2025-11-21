@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | [**PickFCommentApprovedOrCommentHTML**](PickFCommentApprovedOrCommentHTML.md) |  | 
-**status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**comment** | [**SetCommentTextResult**](SetCommentTextResult.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 
 ## Example
 

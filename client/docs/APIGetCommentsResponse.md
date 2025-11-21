@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**APIStatus**](APIStatus.md) |  | 
-**comments** | [**List[PickFCommentAPICommentFieldsKeys]**](PickFCommentAPICommentFieldsKeys.md) |  | 
+**comments** | [**List[APIComment]**](APIComment.md) |  | 
 
 ## Example
 

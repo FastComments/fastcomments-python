@@ -28,50 +28,50 @@ class PubSubComment(BaseModel):
     """
     PubSubComment
     """ # noqa: E501
-    var_date: StrictStr = Field(alias="date")
     id: StrictStr = Field(alias="_id")
     tenant_id: StrictStr = Field(alias="tenantId")
-    url_id: StrictStr = Field(alias="urlId")
-    url: StrictStr
-    page_title: Optional[StrictStr] = Field(default=None, alias="pageTitle")
     user_id: Optional[StrictStr] = Field(default=None, alias="userId")
-    anon_user_id: Optional[StrictStr] = Field(default=None, alias="anonUserId")
+    url_id: StrictStr = Field(alias="urlId")
     commenter_name: StrictStr = Field(alias="commenterName")
     commenter_link: Optional[StrictStr] = Field(default=None, alias="commenterLink")
-    comment: StrictStr
     comment_html: StrictStr = Field(alias="commentHTML")
+    comment: StrictStr
     parent_id: Optional[StrictStr] = Field(default=None, alias="parentId")
     votes: Optional[StrictInt] = None
     votes_up: Optional[StrictInt] = Field(default=None, alias="votesUp")
     votes_down: Optional[StrictInt] = Field(default=None, alias="votesDown")
-    expire_at: Optional[datetime] = Field(default=None, alias="expireAt")
     verified: StrictBool
-    reviewed: Optional[StrictBool] = None
     avatar_src: Optional[StrictStr] = Field(default=None, alias="avatarSrc")
-    is_spam: Optional[StrictBool] = Field(default=None, alias="isSpam")
     has_images: Optional[StrictBool] = Field(default=None, alias="hasImages")
     has_links: Optional[StrictBool] = Field(default=None, alias="hasLinks")
-    has_code: Optional[StrictBool] = Field(default=None, alias="hasCode")
-    approved: StrictBool
-    locale: StrictStr
-    is_deleted: Optional[StrictBool] = Field(default=None, alias="isDeleted")
-    is_deleted_user: Optional[StrictBool] = Field(default=None, alias="isDeletedUser")
-    is_banned_user: Optional[StrictBool] = Field(default=None, alias="isBannedUser")
     is_by_admin: Optional[StrictBool] = Field(default=None, alias="isByAdmin")
     is_by_moderator: Optional[StrictBool] = Field(default=None, alias="isByModerator")
     is_pinned: Optional[StrictBool] = Field(default=None, alias="isPinned")
     is_locked: Optional[StrictBool] = Field(default=None, alias="isLocked")
-    flag_count: Optional[StrictInt] = Field(default=None, alias="flagCount")
-    rating: Optional[Union[StrictFloat, StrictInt]] = None
     display_label: Optional[StrictStr] = Field(default=None, alias="displayLabel")
+    rating: Optional[Union[StrictFloat, StrictInt]] = None
     badges: Optional[List[CommentUserBadgeInfo]] = None
-    domain: Optional[StrictStr] = None
-    feedback_ids: Optional[List[StrictStr]] = Field(default=None, alias="feedbackIds")
-    group_ids: Optional[List[StrictStr]] = Field(default=None, alias="groupIds")
     view_count: Optional[StrictInt] = Field(default=None, alias="viewCount")
+    is_deleted: Optional[StrictBool] = Field(default=None, alias="isDeleted")
+    is_deleted_user: Optional[StrictBool] = Field(default=None, alias="isDeletedUser")
+    is_spam: Optional[StrictBool] = Field(default=None, alias="isSpam")
+    anon_user_id: Optional[StrictStr] = Field(default=None, alias="anonUserId")
+    feedback_ids: Optional[List[StrictStr]] = Field(default=None, alias="feedbackIds")
+    flag_count: Optional[StrictInt] = Field(default=None, alias="flagCount")
+    domain: Optional[StrictStr] = None
+    url: StrictStr
+    page_title: Optional[StrictStr] = Field(default=None, alias="pageTitle")
+    expire_at: Optional[datetime] = Field(default=None, alias="expireAt")
+    reviewed: Optional[StrictBool] = None
+    has_code: Optional[StrictBool] = Field(default=None, alias="hasCode")
+    approved: StrictBool
+    locale: Optional[StrictStr]
+    is_banned_user: Optional[StrictBool] = Field(default=None, alias="isBannedUser")
+    group_ids: Optional[List[StrictStr]] = Field(default=None, alias="groupIds")
     is_live: Optional[StrictBool] = Field(default=None, alias="isLive")
     hidden: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["date", "_id", "tenantId", "urlId", "url", "pageTitle", "userId", "anonUserId", "commenterName", "commenterLink", "comment", "commentHTML", "parentId", "votes", "votesUp", "votesDown", "expireAt", "verified", "reviewed", "avatarSrc", "isSpam", "hasImages", "hasLinks", "hasCode", "approved", "locale", "isDeleted", "isDeletedUser", "isBannedUser", "isByAdmin", "isByModerator", "isPinned", "isLocked", "flagCount", "rating", "displayLabel", "badges", "domain", "feedbackIds", "groupIds", "viewCount", "isLive", "hidden"]
+    var_date: StrictStr = Field(alias="date")
+    __properties: ClassVar[List[str]] = ["_id", "tenantId", "userId", "urlId", "commenterName", "commenterLink", "commentHTML", "comment", "parentId", "votes", "votesUp", "votesDown", "verified", "avatarSrc", "hasImages", "hasLinks", "isByAdmin", "isByModerator", "isPinned", "isLocked", "displayLabel", "rating", "badges", "viewCount", "isDeleted", "isDeletedUser", "isSpam", "anonUserId", "feedbackIds", "flagCount", "domain", "url", "pageTitle", "expireAt", "reviewed", "hasCode", "approved", "locale", "isBannedUser", "groupIds", "isLive", "hidden", "date"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -119,6 +119,106 @@ class PubSubComment(BaseModel):
                 if _item_badges:
                     _items.append(_item_badges.to_dict())
             _dict['badges'] = _items
+        # set to None if user_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.user_id is None and "user_id" in self.model_fields_set:
+            _dict['userId'] = None
+
+        # set to None if commenter_link (nullable) is None
+        # and model_fields_set contains the field
+        if self.commenter_link is None and "commenter_link" in self.model_fields_set:
+            _dict['commenterLink'] = None
+
+        # set to None if parent_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.parent_id is None and "parent_id" in self.model_fields_set:
+            _dict['parentId'] = None
+
+        # set to None if votes (nullable) is None
+        # and model_fields_set contains the field
+        if self.votes is None and "votes" in self.model_fields_set:
+            _dict['votes'] = None
+
+        # set to None if votes_up (nullable) is None
+        # and model_fields_set contains the field
+        if self.votes_up is None and "votes_up" in self.model_fields_set:
+            _dict['votesUp'] = None
+
+        # set to None if votes_down (nullable) is None
+        # and model_fields_set contains the field
+        if self.votes_down is None and "votes_down" in self.model_fields_set:
+            _dict['votesDown'] = None
+
+        # set to None if avatar_src (nullable) is None
+        # and model_fields_set contains the field
+        if self.avatar_src is None and "avatar_src" in self.model_fields_set:
+            _dict['avatarSrc'] = None
+
+        # set to None if is_pinned (nullable) is None
+        # and model_fields_set contains the field
+        if self.is_pinned is None and "is_pinned" in self.model_fields_set:
+            _dict['isPinned'] = None
+
+        # set to None if is_locked (nullable) is None
+        # and model_fields_set contains the field
+        if self.is_locked is None and "is_locked" in self.model_fields_set:
+            _dict['isLocked'] = None
+
+        # set to None if display_label (nullable) is None
+        # and model_fields_set contains the field
+        if self.display_label is None and "display_label" in self.model_fields_set:
+            _dict['displayLabel'] = None
+
+        # set to None if rating (nullable) is None
+        # and model_fields_set contains the field
+        if self.rating is None and "rating" in self.model_fields_set:
+            _dict['rating'] = None
+
+        # set to None if badges (nullable) is None
+        # and model_fields_set contains the field
+        if self.badges is None and "badges" in self.model_fields_set:
+            _dict['badges'] = None
+
+        # set to None if view_count (nullable) is None
+        # and model_fields_set contains the field
+        if self.view_count is None and "view_count" in self.model_fields_set:
+            _dict['viewCount'] = None
+
+        # set to None if anon_user_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.anon_user_id is None and "anon_user_id" in self.model_fields_set:
+            _dict['anonUserId'] = None
+
+        # set to None if flag_count (nullable) is None
+        # and model_fields_set contains the field
+        if self.flag_count is None and "flag_count" in self.model_fields_set:
+            _dict['flagCount'] = None
+
+        # set to None if domain (nullable) is None
+        # and model_fields_set contains the field
+        if self.domain is None and "domain" in self.model_fields_set:
+            _dict['domain'] = None
+
+        # set to None if page_title (nullable) is None
+        # and model_fields_set contains the field
+        if self.page_title is None and "page_title" in self.model_fields_set:
+            _dict['pageTitle'] = None
+
+        # set to None if expire_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.expire_at is None and "expire_at" in self.model_fields_set:
+            _dict['expireAt'] = None
+
+        # set to None if locale (nullable) is None
+        # and model_fields_set contains the field
+        if self.locale is None and "locale" in self.model_fields_set:
+            _dict['locale'] = None
+
+        # set to None if group_ids (nullable) is None
+        # and model_fields_set contains the field
+        if self.group_ids is None and "group_ids" in self.model_fields_set:
+            _dict['groupIds'] = None
+
         return _dict
 
     @classmethod
@@ -131,49 +231,49 @@ class PubSubComment(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "date": obj.get("date"),
             "_id": obj.get("_id"),
             "tenantId": obj.get("tenantId"),
-            "urlId": obj.get("urlId"),
-            "url": obj.get("url"),
-            "pageTitle": obj.get("pageTitle"),
             "userId": obj.get("userId"),
-            "anonUserId": obj.get("anonUserId"),
+            "urlId": obj.get("urlId"),
             "commenterName": obj.get("commenterName"),
             "commenterLink": obj.get("commenterLink"),
-            "comment": obj.get("comment"),
             "commentHTML": obj.get("commentHTML"),
+            "comment": obj.get("comment"),
             "parentId": obj.get("parentId"),
             "votes": obj.get("votes"),
             "votesUp": obj.get("votesUp"),
             "votesDown": obj.get("votesDown"),
-            "expireAt": obj.get("expireAt"),
             "verified": obj.get("verified"),
-            "reviewed": obj.get("reviewed"),
             "avatarSrc": obj.get("avatarSrc"),
-            "isSpam": obj.get("isSpam"),
             "hasImages": obj.get("hasImages"),
             "hasLinks": obj.get("hasLinks"),
-            "hasCode": obj.get("hasCode"),
-            "approved": obj.get("approved"),
-            "locale": obj.get("locale"),
-            "isDeleted": obj.get("isDeleted"),
-            "isDeletedUser": obj.get("isDeletedUser"),
-            "isBannedUser": obj.get("isBannedUser"),
             "isByAdmin": obj.get("isByAdmin"),
             "isByModerator": obj.get("isByModerator"),
             "isPinned": obj.get("isPinned"),
             "isLocked": obj.get("isLocked"),
-            "flagCount": obj.get("flagCount"),
-            "rating": obj.get("rating"),
             "displayLabel": obj.get("displayLabel"),
+            "rating": obj.get("rating"),
             "badges": [CommentUserBadgeInfo.from_dict(_item) for _item in obj["badges"]] if obj.get("badges") is not None else None,
-            "domain": obj.get("domain"),
-            "feedbackIds": obj.get("feedbackIds"),
-            "groupIds": obj.get("groupIds"),
             "viewCount": obj.get("viewCount"),
+            "isDeleted": obj.get("isDeleted"),
+            "isDeletedUser": obj.get("isDeletedUser"),
+            "isSpam": obj.get("isSpam"),
+            "anonUserId": obj.get("anonUserId"),
+            "feedbackIds": obj.get("feedbackIds"),
+            "flagCount": obj.get("flagCount"),
+            "domain": obj.get("domain"),
+            "url": obj.get("url"),
+            "pageTitle": obj.get("pageTitle"),
+            "expireAt": obj.get("expireAt"),
+            "reviewed": obj.get("reviewed"),
+            "hasCode": obj.get("hasCode"),
+            "approved": obj.get("approved"),
+            "locale": obj.get("locale"),
+            "isBannedUser": obj.get("isBannedUser"),
+            "groupIds": obj.get("groupIds"),
             "isLive": obj.get("isLive"),
-            "hidden": obj.get("hidden")
+            "hidden": obj.get("hidden"),
+            "date": obj.get("date")
         })
         return _obj
 

@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from client.models.imported_api_status_success import ImportedAPIStatusSUCCESS
+from client.models.api_status import APIStatus
 from client.models.renderable_user_notification import RenderableUserNotification
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,7 +32,7 @@ class GetMyNotificationsResponse(BaseModel):
     is_subscribed: StrictBool = Field(alias="isSubscribed")
     has_more: StrictBool = Field(alias="hasMore")
     notifications: List[RenderableUserNotification]
-    status: ImportedAPIStatusSUCCESS
+    status: APIStatus
     __properties: ClassVar[List[str]] = ["translations", "isSubscribed", "hasMore", "notifications", "status"]
 
     model_config = ConfigDict(

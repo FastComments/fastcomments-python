@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **feed_post** | [**FeedPost**](FeedPost.md) |  | 
 **reason** | **str** |  | 
 **code** | **str** |  | 

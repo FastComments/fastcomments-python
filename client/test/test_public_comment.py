@@ -35,29 +35,25 @@ class TestPublicComment(unittest.TestCase):
         model = PublicComment()
         if include_optional:
             return PublicComment(
-                var_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 id = '',
                 user_id = '',
-                anon_user_id = '',
                 commenter_name = '',
                 commenter_link = '',
                 comment_html = '',
                 parent_id = '',
+                var_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 votes = 56,
                 votes_up = 56,
                 votes_down = 56,
                 verified = True,
                 avatar_src = '',
-                is_spam = True,
                 has_images = True,
-                is_deleted = True,
-                is_deleted_user = True,
                 is_by_admin = True,
                 is_by_moderator = True,
                 is_pinned = True,
                 is_locked = True,
-                rating = 1.337,
                 display_label = '',
+                rating = 1.337,
                 badges = [
                     client.models.comment_user_badge_info.CommentUserBadgeInfo(
                         id = '', 
@@ -70,12 +66,17 @@ class TestPublicComment(unittest.TestCase):
                         text_color = '', 
                         css_class = '', )
                     ],
+                view_count = 56,
+                is_deleted = True,
+                is_deleted_user = True,
+                is_spam = True,
+                anon_user_id = '',
                 feedback_ids = [
                     ''
                     ],
-                view_count = 56,
                 requires_verification = True,
                 edit_key = '',
+                approved = True,
                 is_unread = True,
                 my_vote_id = '',
                 is_voted_down = True,
@@ -91,10 +92,10 @@ class TestPublicComment(unittest.TestCase):
             )
         else:
             return PublicComment(
-                var_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 id = '',
                 commenter_name = '',
                 comment_html = '',
+                var_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 verified = True,
         )
         """

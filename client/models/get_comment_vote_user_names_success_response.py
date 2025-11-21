@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List
-from client.models.imported_api_status_success import ImportedAPIStatusSUCCESS
+from client.models.api_status import APIStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class GetCommentVoteUserNamesSuccessResponse(BaseModel):
     """
     GetCommentVoteUserNamesSuccessResponse
     """ # noqa: E501
-    status: ImportedAPIStatusSUCCESS
+    status: APIStatus
     vote_user_names: List[StrictStr] = Field(alias="voteUserNames")
     has_more: StrictBool = Field(alias="hasMore")
     __properties: ClassVar[List[str]] = ["status", "voteUserNames", "hasMore"]

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **comment_statuses** | **Dict[str, bool]** | Construct a type with a set of properties K of type T | 
-**status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 
 ## Example
 

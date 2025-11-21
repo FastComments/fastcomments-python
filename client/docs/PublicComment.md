@@ -5,34 +5,35 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**var_date** | **datetime** |  | 
 **id** | **str** |  | 
 **user_id** | **str** |  | [optional] 
-**anon_user_id** | **str** |  | [optional] 
 **commenter_name** | **str** |  | 
 **commenter_link** | **str** |  | [optional] 
 **comment_html** | **str** |  | 
 **parent_id** | **str** |  | [optional] 
+**var_date** | **datetime** |  | 
 **votes** | **int** |  | [optional] 
 **votes_up** | **int** |  | [optional] 
 **votes_down** | **int** |  | [optional] 
 **verified** | **bool** |  | 
 **avatar_src** | **str** |  | [optional] 
-**is_spam** | **bool** |  | [optional] 
 **has_images** | **bool** |  | [optional] 
-**is_deleted** | **bool** |  | [optional] 
-**is_deleted_user** | **bool** |  | [optional] 
 **is_by_admin** | **bool** |  | [optional] 
 **is_by_moderator** | **bool** |  | [optional] 
 **is_pinned** | **bool** |  | [optional] 
 **is_locked** | **bool** |  | [optional] 
-**rating** | **float** |  | [optional] 
 **display_label** | **str** |  | [optional] 
+**rating** | **float** |  | [optional] 
 **badges** | [**List[CommentUserBadgeInfo]**](CommentUserBadgeInfo.md) |  | [optional] 
-**feedback_ids** | **List[str]** |  | [optional] 
 **view_count** | **int** |  | [optional] 
+**is_deleted** | **bool** |  | [optional] 
+**is_deleted_user** | **bool** |  | [optional] 
+**is_spam** | **bool** |  | [optional] 
+**anon_user_id** | **str** |  | [optional] 
+**feedback_ids** | **List[str]** |  | [optional] 
 **requires_verification** | **bool** |  | [optional] 
 **edit_key** | **str** |  | [optional] 
+**approved** | **bool** |  | [optional] 
 **is_unread** | **bool** |  | [optional] 
 **my_vote_id** | **str** |  | [optional] 
 **is_voted_down** | **bool** |  | [optional] 

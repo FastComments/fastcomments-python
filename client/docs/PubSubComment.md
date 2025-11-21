@@ -5,49 +5,49 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**var_date** | **str** |  | 
 **id** | **str** |  | 
 **tenant_id** | **str** |  | 
-**url_id** | **str** |  | 
-**url** | **str** |  | 
-**page_title** | **str** |  | [optional] 
 **user_id** | **str** |  | [optional] 
-**anon_user_id** | **str** |  | [optional] 
+**url_id** | **str** |  | 
 **commenter_name** | **str** |  | 
 **commenter_link** | **str** |  | [optional] 
-**comment** | **str** |  | 
 **comment_html** | **str** |  | 
+**comment** | **str** |  | 
 **parent_id** | **str** |  | [optional] 
 **votes** | **int** |  | [optional] 
 **votes_up** | **int** |  | [optional] 
 **votes_down** | **int** |  | [optional] 
-**expire_at** | **datetime** |  | [optional] 
 **verified** | **bool** |  | 
-**reviewed** | **bool** |  | [optional] 
 **avatar_src** | **str** |  | [optional] 
-**is_spam** | **bool** |  | [optional] 
 **has_images** | **bool** |  | [optional] 
 **has_links** | **bool** |  | [optional] 
-**has_code** | **bool** |  | [optional] 
-**approved** | **bool** |  | 
-**locale** | **str** |  | 
-**is_deleted** | **bool** |  | [optional] 
-**is_deleted_user** | **bool** |  | [optional] 
-**is_banned_user** | **bool** |  | [optional] 
 **is_by_admin** | **bool** |  | [optional] 
 **is_by_moderator** | **bool** |  | [optional] 
 **is_pinned** | **bool** |  | [optional] 
 **is_locked** | **bool** |  | [optional] 
-**flag_count** | **int** |  | [optional] 
-**rating** | **float** |  | [optional] 
 **display_label** | **str** |  | [optional] 
+**rating** | **float** |  | [optional] 
 **badges** | [**List[CommentUserBadgeInfo]**](CommentUserBadgeInfo.md) |  | [optional] 
-**domain** | **str** |  | [optional] 
-**feedback_ids** | **List[str]** |  | [optional] 
-**group_ids** | **List[str]** |  | [optional] 
 **view_count** | **int** |  | [optional] 
+**is_deleted** | **bool** |  | [optional] 
+**is_deleted_user** | **bool** |  | [optional] 
+**is_spam** | **bool** |  | [optional] 
+**anon_user_id** | **str** |  | [optional] 
+**feedback_ids** | **List[str]** |  | [optional] 
+**flag_count** | **int** |  | [optional] 
+**domain** | **str** |  | [optional] 
+**url** | **str** |  | 
+**page_title** | **str** |  | [optional] 
+**expire_at** | **datetime** |  | [optional] 
+**reviewed** | **bool** |  | [optional] 
+**has_code** | **bool** |  | [optional] 
+**approved** | **bool** |  | 
+**locale** | **str** |  | 
+**is_banned_user** | **bool** |  | [optional] 
+**group_ids** | **List[str]** |  | [optional] 
 **is_live** | **bool** |  | [optional] 
 **hidden** | **bool** |  | [optional] 
+**var_date** | **str** |  | 
 
 ## Example
 

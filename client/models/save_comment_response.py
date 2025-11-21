@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
+from client.models.api_status import APIStatus
 from client.models.f_comment import FComment
-from client.models.imported_api_status_success import ImportedAPIStatusSUCCESS
 from client.models.user_session_info import UserSessionInfo
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class SaveCommentResponse(BaseModel):
     """
     SaveCommentResponse
     """ # noqa: E501
-    status: ImportedAPIStatusSUCCESS
+    status: APIStatus
     comment: FComment
     user: Optional[UserSessionInfo]
     module_data: Optional[Dict[str, Any]] = Field(default=None, description="Construct a type with a set of properties K of type T", alias="moduleData")

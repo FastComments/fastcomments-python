@@ -35,13 +35,13 @@ class TestDeleteCommentPublic200Response(unittest.TestCase):
         model = DeleteCommentPublic200Response()
         if include_optional:
             return DeleteCommentPublic200Response(
-                comment = client.models.pick_f_comment/is_deleted_or_comment_html_or_commenter_name_or_user_id_.Pick_FComment.isDeleted-or-commentHTML-or-commenterName-or-userId_(
-                    user_id = '', 
-                    commenter_name = '', 
+                comment = client.models.deleted_comment_result_comment.DeletedCommentResultComment(
+                    is_deleted = True, 
                     comment_html = '', 
-                    is_deleted = True, ),
+                    commenter_name = '', 
+                    user_id = '', ),
                 hard_removed = True,
-                status = 'failed',
+                status = 'success',
                 reason = '',
                 code = '',
                 secondary_code = '',
@@ -103,6 +103,7 @@ class TestDeleteCommentPublic200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -135,7 +136,7 @@ class TestDeleteCommentPublic200Response(unittest.TestCase):
         else:
             return DeleteCommentPublic200Response(
                 hard_removed = True,
-                status = 'failed',
+                status = 'success',
                 reason = '',
                 code = '',
         )

@@ -133,9 +133,57 @@ class TestFindCommentsByRangeItem(unittest.TestCase):
                         ''
                         ], 
                     logs = [
-                        [
-                            null
-                            ]
+                        client.models.comment_log_entry.CommentLogEntry(
+                            d = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            t = 0, 
+                            da = client.models.comment_log_data.CommentLogData(
+                                clear_content = True, 
+                                is_deleted_user = True, 
+                                phrase = '', 
+                                bad_word = '', 
+                                word = '', 
+                                locale = '', 
+                                tenant_badge_id = '', 
+                                badge_id = '', 
+                                was_logged_in = True, 
+                                found_user = True, 
+                                verified = True, 
+                                engine = '', 
+                                engine_response = '', 
+                                engine_tokens = 1.337, 
+                                trust_factor = 1.337, 
+                                rule = client.models.spam_rule.SpamRule(
+                                    actions = [
+                                        'spam'
+                                        ], 
+                                    comment_contains = '', ), 
+                                user_id = '', 
+                                subscribers = 1.337, 
+                                notification_count = 1.337, 
+                                votes_before = 1.337, 
+                                votes_up_before = 1.337, 
+                                votes_down_before = 1.337, 
+                                votes_after = 1.337, 
+                                votes_up_after = 1.337, 
+                                votes_down_after = 1.337, 
+                                repeat_action = 0, 
+                                reason = 0, 
+                                other_data = null, 
+                                spam_before = True, 
+                                spam_after = True, 
+                                permanent_flag = 'permanent', 
+                                approved_before = True, 
+                                approved_after = True, 
+                                reviewed_before = True, 
+                                reviewed_after = True, 
+                                text_before = '', 
+                                text_after = '', 
+                                expire_before = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                expire_after = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                flag_count_before = 1.337, 
+                                trust_factor_before = 1.337, 
+                                trust_factor_after = 1.337, 
+                                referenced_comment_id = '', ), )
                         ], 
                     group_ids = [
                         ''
@@ -262,9 +310,57 @@ class TestFindCommentsByRangeItem(unittest.TestCase):
                         ''
                         ], 
                     logs = [
-                        [
-                            null
-                            ]
+                        client.models.comment_log_entry.CommentLogEntry(
+                            d = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                            t = 0, 
+                            da = client.models.comment_log_data.CommentLogData(
+                                clear_content = True, 
+                                is_deleted_user = True, 
+                                phrase = '', 
+                                bad_word = '', 
+                                word = '', 
+                                locale = '', 
+                                tenant_badge_id = '', 
+                                badge_id = '', 
+                                was_logged_in = True, 
+                                found_user = True, 
+                                verified = True, 
+                                engine = '', 
+                                engine_response = '', 
+                                engine_tokens = 1.337, 
+                                trust_factor = 1.337, 
+                                rule = client.models.spam_rule.SpamRule(
+                                    actions = [
+                                        'spam'
+                                        ], 
+                                    comment_contains = '', ), 
+                                user_id = '', 
+                                subscribers = 1.337, 
+                                notification_count = 1.337, 
+                                votes_before = 1.337, 
+                                votes_up_before = 1.337, 
+                                votes_down_before = 1.337, 
+                                votes_after = 1.337, 
+                                votes_up_after = 1.337, 
+                                votes_down_after = 1.337, 
+                                repeat_action = 0, 
+                                reason = 0, 
+                                other_data = null, 
+                                spam_before = True, 
+                                spam_after = True, 
+                                permanent_flag = 'permanent', 
+                                approved_before = True, 
+                                approved_after = True, 
+                                reviewed_before = True, 
+                                reviewed_after = True, 
+                                text_before = '', 
+                                text_after = '', 
+                                expire_before = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                expire_after = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                flag_count_before = 1.337, 
+                                trust_factor_before = 1.337, 
+                                trust_factor_after = 1.337, 
+                                referenced_comment_id = '', ), )
                         ], 
                     group_ids = [
                         ''

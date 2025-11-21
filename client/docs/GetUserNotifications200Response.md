@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **is_subscribed** | **bool** |  | 
 **has_more** | **bool** |  | 
 **notifications** | [**List[RenderableUserNotification]**](RenderableUserNotification.md) |  | 
-**status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **reason** | **str** |  | 
 **code** | **str** |  | 
 **secondary_code** | **str** |  | [optional] 

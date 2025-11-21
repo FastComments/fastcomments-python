@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **events** | [**List[EventLogEntry]**](EventLogEntry.md) |  | 
-**status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **reason** | **str** |  | 
 **code** | **str** |  | 
 **secondary_code** | **str** |  | [optional] 

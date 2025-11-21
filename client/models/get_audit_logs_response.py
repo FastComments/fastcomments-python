@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from client.models.api_audit_log import APIAuditLog
 from client.models.api_status import APIStatus
-from client.models.pick_tenant_audit_log_tenant_audit_log_keys import PickTenantAuditLogTenantAuditLogKeys
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class GetAuditLogsResponse(BaseModel):
     GetAuditLogsResponse
     """ # noqa: E501
     status: APIStatus
-    audit_logs: List[PickTenantAuditLogTenantAuditLogKeys] = Field(alias="auditLogs")
+    audit_logs: List[APIAuditLog] = Field(alias="auditLogs")
     __properties: ClassVar[List[str]] = ["status", "auditLogs"]
 
     model_config = ConfigDict(
@@ -91,7 +91,7 @@ class GetAuditLogsResponse(BaseModel):
 
         _obj = cls.model_validate({
             "status": obj.get("status"),
-            "auditLogs": [PickTenantAuditLogTenantAuditLogKeys.from_dict(_item) for _item in obj["auditLogs"]] if obj.get("auditLogs") is not None else None
+            "auditLogs": [APIAuditLog.from_dict(_item) for _item in obj["auditLogs"]] if obj.get("auditLogs") is not None else None
         })
         return _obj
 

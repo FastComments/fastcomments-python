@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **feed_posts** | [**List[FeedPost]**](FeedPost.md) |  | 
 **user** | [**UserSessionInfo**](UserSessionInfo.md) |  | [optional] 
 

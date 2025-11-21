@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**ImportedAPIStatusFAILED**](ImportedAPIStatusFAILED.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **user_badge_progresses** | [**List[UserBadgeProgress]**](UserBadgeProgress.md) |  | 
 **reason** | **str** |  | 
 **code** | **str** |  | 

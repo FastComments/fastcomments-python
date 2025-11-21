@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **vote_user_names** | **List[str]** |  | 
 **has_more** | **bool** |  | 
 

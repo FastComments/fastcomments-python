@@ -35,7 +35,7 @@ class TestSearchUsers200Response(unittest.TestCase):
         model = SearchUsers200Response()
         if include_optional:
             return SearchUsers200Response(
-                status = 'failed',
+                status = 'success',
                 users = [
                     client.models.user_search_result.UserSearchResult(
                         id = '', 
@@ -105,6 +105,7 @@ class TestSearchUsers200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -136,7 +137,7 @@ class TestSearchUsers200Response(unittest.TestCase):
             )
         else:
             return SearchUsers200Response(
-                status = 'failed',
+                status = 'success',
                 users = [
                     client.models.user_search_result.UserSearchResult(
                         id = '', 

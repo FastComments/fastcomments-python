@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**ImportedAPIStatusSUCCESS**](ImportedAPIStatusSUCCESS.md) |  | 
+**status** | [**APIStatus**](APIStatus.md) |  | 
 **notification_type** | **object** |  | 
 **user_id** | **str** |  | 
 **user_id_ws** | **str** |  | 

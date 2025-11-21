@@ -35,7 +35,7 @@ class TestResetUserNotifications200Response(unittest.TestCase):
         model = ResetUserNotifications200Response()
         if include_optional:
             return ResetUserNotifications200Response(
-                status = 'failed',
+                status = 'success',
                 code = '',
                 reason = '',
                 secondary_code = '',
@@ -97,6 +97,7 @@ class TestResetUserNotifications200Response(unittest.TestCase):
                     no_styles = True, 
                     page_size = 56, 
                     readonly = True, 
+                    no_new_root_comments = True, 
                     require_sso = True, 
                     enable_resize_handle = True, 
                     restricted_link_domains = [
@@ -128,7 +129,7 @@ class TestResetUserNotifications200Response(unittest.TestCase):
             )
         else:
             return ResetUserNotifications200Response(
-                status = 'failed',
+                status = 'success',
                 code = '',
                 reason = '',
         )

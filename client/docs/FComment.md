@@ -71,7 +71,7 @@ Name | Type | Description | Notes
 **autoplay_job_id** | **str** |  | [optional] 
 **autoplay_delay_ms** | **int** |  | [optional] 
 **feedback_ids** | **List[str]** |  | [optional] 
-**logs** | **List[List[object]]** |  | [optional] 
+**logs** | [**List[CommentLogEntry]**](CommentLogEntry.md) |  | [optional] 
 **group_ids** | **List[str]** |  | [optional] 
 **view_count** | **int** |  | [optional] 
 **requires_verification** | **bool** |  | [optional] 

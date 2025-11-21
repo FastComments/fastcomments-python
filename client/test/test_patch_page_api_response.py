@@ -37,6 +37,7 @@ class TestPatchPageAPIResponse(unittest.TestCase):
             return PatchPageAPIResponse(
                 reason = '',
                 code = '',
+                comments_updated = 56,
                 page = client.models.api_page.APIPage(
                     is_closed = True, 
                     accessible_by_group_ids = [
