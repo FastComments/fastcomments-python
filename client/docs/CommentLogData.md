@@ -48,6 +48,9 @@ Name | Type | Description | Notes
 **trust_factor_before** | **float** |  | [optional] 
 **trust_factor_after** | **float** |  | [optional] 
 **referenced_comment_id** | **str** |  | [optional] 
+**invalid_locale** | **str** |  | [optional] 
+**detected_locale** | **str** |  | [optional] 
+**detected_language** | **str** |  | [optional] 
 
 ## Example
 

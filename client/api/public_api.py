@@ -8175,7 +8175,7 @@ class PublicApi:
         self,
         tenant_id: StrictStr,
         url_id: StrictStr,
-        username_starts_with: StrictStr,
+        username_starts_with: Optional[StrictStr] = None,
         mention_group_ids: Optional[List[StrictStr]] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
@@ -8198,7 +8198,7 @@ class PublicApi:
         :type tenant_id: str
         :param url_id: (required)
         :type url_id: str
-        :param username_starts_with: (required)
+        :param username_starts_with:
         :type username_starts_with: str
         :param mention_group_ids:
         :type mention_group_ids: List[str]
@@ -8257,7 +8257,7 @@ class PublicApi:
         self,
         tenant_id: StrictStr,
         url_id: StrictStr,
-        username_starts_with: StrictStr,
+        username_starts_with: Optional[StrictStr] = None,
         mention_group_ids: Optional[List[StrictStr]] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
@@ -8280,7 +8280,7 @@ class PublicApi:
         :type tenant_id: str
         :param url_id: (required)
         :type url_id: str
-        :param username_starts_with: (required)
+        :param username_starts_with:
         :type username_starts_with: str
         :param mention_group_ids:
         :type mention_group_ids: List[str]
@@ -8339,7 +8339,7 @@ class PublicApi:
         self,
         tenant_id: StrictStr,
         url_id: StrictStr,
-        username_starts_with: StrictStr,
+        username_starts_with: Optional[StrictStr] = None,
         mention_group_ids: Optional[List[StrictStr]] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
@@ -8362,7 +8362,7 @@ class PublicApi:
         :type tenant_id: str
         :param url_id: (required)
         :type url_id: str
-        :param username_starts_with: (required)
+        :param username_starts_with:
         :type username_starts_with: str
         :param mention_group_ids:
         :type mention_group_ids: List[str]
