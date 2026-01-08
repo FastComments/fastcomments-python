@@ -73,7 +73,10 @@ class CommentLogData(BaseModel):
     trust_factor_before: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="trustFactorBefore")
     trust_factor_after: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="trustFactorAfter")
     referenced_comment_id: Optional[StrictStr] = Field(default=None, alias="referencedCommentId")
-    __properties: ClassVar[List[str]] = ["clearContent", "isDeletedUser", "phrase", "badWord", "word", "locale", "tenantBadgeId", "badgeId", "wasLoggedIn", "foundUser", "verified", "engine", "engineResponse", "engineTokens", "trustFactor", "rule", "userId", "subscribers", "notificationCount", "votesBefore", "votesUpBefore", "votesDownBefore", "votesAfter", "votesUpAfter", "votesDownAfter", "repeatAction", "reason", "otherData", "spamBefore", "spamAfter", "permanentFlag", "approvedBefore", "approvedAfter", "reviewedBefore", "reviewedAfter", "textBefore", "textAfter", "expireBefore", "expireAfter", "flagCountBefore", "trustFactorBefore", "trustFactorAfter", "referencedCommentId"]
+    invalid_locale: Optional[StrictStr] = Field(default=None, alias="invalidLocale")
+    detected_locale: Optional[StrictStr] = Field(default=None, alias="detectedLocale")
+    detected_language: Optional[StrictStr] = Field(default=None, alias="detectedLanguage")
+    __properties: ClassVar[List[str]] = ["clearContent", "isDeletedUser", "phrase", "badWord", "word", "locale", "tenantBadgeId", "badgeId", "wasLoggedIn", "foundUser", "verified", "engine", "engineResponse", "engineTokens", "trustFactor", "rule", "userId", "subscribers", "notificationCount", "votesBefore", "votesUpBefore", "votesDownBefore", "votesAfter", "votesUpAfter", "votesDownAfter", "repeatAction", "reason", "otherData", "spamBefore", "spamAfter", "permanentFlag", "approvedBefore", "approvedAfter", "reviewedBefore", "reviewedAfter", "textBefore", "textAfter", "expireBefore", "expireAfter", "flagCountBefore", "trustFactorBefore", "trustFactorAfter", "referencedCommentId", "invalidLocale", "detectedLocale", "detectedLanguage"]
 
     @field_validator('permanent_flag')
     def permanent_flag_validate_enum(cls, value):
@@ -231,7 +234,10 @@ class CommentLogData(BaseModel):
             "flagCountBefore": obj.get("flagCountBefore"),
             "trustFactorBefore": obj.get("trustFactorBefore"),
             "trustFactorAfter": obj.get("trustFactorAfter"),
-            "referencedCommentId": obj.get("referencedCommentId")
+            "referencedCommentId": obj.get("referencedCommentId"),
+            "invalidLocale": obj.get("invalidLocale"),
+            "detectedLocale": obj.get("detectedLocale"),
+            "detectedLanguage": obj.get("detectedLanguage")
         })
         return _obj
 

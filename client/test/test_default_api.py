@@ -32,6 +32,18 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_add_hash_tag(self) -> None:
+        """Test case for add_hash_tag
+
+        """
+        pass
+
+    def test_add_hash_tags_bulk(self) -> None:
+        """Test case for add_hash_tags_bulk
+
+        """
+        pass
+
     def test_add_page(self) -> None:
         """Test case for add_page
 
@@ -74,8 +86,32 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_create_email_template(self) -> None:
+        """Test case for create_email_template
+
+        """
+        pass
+
     def test_create_feed_post(self) -> None:
         """Test case for create_feed_post
+
+        """
+        pass
+
+    def test_create_moderator(self) -> None:
+        """Test case for create_moderator
+
+        """
+        pass
+
+    def test_create_question_config(self) -> None:
+        """Test case for create_question_config
+
+        """
+        pass
+
+    def test_create_question_result(self) -> None:
+        """Test case for create_question_result
 
         """
         pass
@@ -86,8 +122,32 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_create_tenant(self) -> None:
+        """Test case for create_tenant
+
+        """
+        pass
+
+    def test_create_tenant_package(self) -> None:
+        """Test case for create_tenant_package
+
+        """
+        pass
+
+    def test_create_tenant_user(self) -> None:
+        """Test case for create_tenant_user
+
+        """
+        pass
+
     def test_create_user_badge(self) -> None:
         """Test case for create_user_badge
+
+        """
+        pass
+
+    def test_create_vote(self) -> None:
+        """Test case for create_vote
 
         """
         pass
@@ -104,8 +164,56 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_email_template(self) -> None:
+        """Test case for delete_email_template
+
+        """
+        pass
+
+    def test_delete_email_template_render_error(self) -> None:
+        """Test case for delete_email_template_render_error
+
+        """
+        pass
+
+    def test_delete_hash_tag(self) -> None:
+        """Test case for delete_hash_tag
+
+        """
+        pass
+
+    def test_delete_moderator(self) -> None:
+        """Test case for delete_moderator
+
+        """
+        pass
+
+    def test_delete_notification_count(self) -> None:
+        """Test case for delete_notification_count
+
+        """
+        pass
+
     def test_delete_page(self) -> None:
         """Test case for delete_page
+
+        """
+        pass
+
+    def test_delete_pending_webhook_event(self) -> None:
+        """Test case for delete_pending_webhook_event
+
+        """
+        pass
+
+    def test_delete_question_config(self) -> None:
+        """Test case for delete_question_config
+
+        """
+        pass
+
+    def test_delete_question_result(self) -> None:
+        """Test case for delete_question_result
 
         """
         pass
@@ -122,8 +230,32 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_tenant(self) -> None:
+        """Test case for delete_tenant
+
+        """
+        pass
+
+    def test_delete_tenant_package(self) -> None:
+        """Test case for delete_tenant_package
+
+        """
+        pass
+
+    def test_delete_tenant_user(self) -> None:
+        """Test case for delete_tenant_user
+
+        """
+        pass
+
     def test_delete_user_badge(self) -> None:
         """Test case for delete_user_badge
+
+        """
+        pass
+
+    def test_delete_vote(self) -> None:
+        """Test case for delete_vote
 
         """
         pass
@@ -136,6 +268,12 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_get_audit_logs(self) -> None:
         """Test case for get_audit_logs
+
+        """
+        pass
+
+    def test_get_cached_notification_count(self) -> None:
+        """Test case for get_cached_notification_count
 
         """
         pass
@@ -164,8 +302,62 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_get_email_template(self) -> None:
+        """Test case for get_email_template
+
+        """
+        pass
+
+    def test_get_email_template_definitions(self) -> None:
+        """Test case for get_email_template_definitions
+
+        """
+        pass
+
+    def test_get_email_template_render_errors(self) -> None:
+        """Test case for get_email_template_render_errors
+
+        """
+        pass
+
+    def test_get_email_templates(self) -> None:
+        """Test case for get_email_templates
+
+        """
+        pass
+
     def test_get_feed_posts(self) -> None:
         """Test case for get_feed_posts
+
+        """
+        pass
+
+    def test_get_hash_tags(self) -> None:
+        """Test case for get_hash_tags
+
+        """
+        pass
+
+    def test_get_moderator(self) -> None:
+        """Test case for get_moderator
+
+        """
+        pass
+
+    def test_get_moderators(self) -> None:
+        """Test case for get_moderators
+
+        """
+        pass
+
+    def test_get_notification_count(self) -> None:
+        """Test case for get_notification_count
+
+        """
+        pass
+
+    def test_get_notifications(self) -> None:
+        """Test case for get_notifications
 
         """
         pass
@@ -178,6 +370,42 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_get_pages(self) -> None:
         """Test case for get_pages
+
+        """
+        pass
+
+    def test_get_pending_webhook_event_count(self) -> None:
+        """Test case for get_pending_webhook_event_count
+
+        """
+        pass
+
+    def test_get_pending_webhook_events(self) -> None:
+        """Test case for get_pending_webhook_events
+
+        """
+        pass
+
+    def test_get_question_config(self) -> None:
+        """Test case for get_question_config
+
+        """
+        pass
+
+    def test_get_question_configs(self) -> None:
+        """Test case for get_question_configs
+
+        """
+        pass
+
+    def test_get_question_result(self) -> None:
+        """Test case for get_question_result
+
+        """
+        pass
+
+    def test_get_question_results(self) -> None:
+        """Test case for get_question_results
 
         """
         pass
@@ -202,6 +430,54 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_get_subscriptions(self) -> None:
         """Test case for get_subscriptions
+
+        """
+        pass
+
+    def test_get_tenant(self) -> None:
+        """Test case for get_tenant
+
+        """
+        pass
+
+    def test_get_tenant_daily_usages(self) -> None:
+        """Test case for get_tenant_daily_usages
+
+        """
+        pass
+
+    def test_get_tenant_package(self) -> None:
+        """Test case for get_tenant_package
+
+        """
+        pass
+
+    def test_get_tenant_packages(self) -> None:
+        """Test case for get_tenant_packages
+
+        """
+        pass
+
+    def test_get_tenant_user(self) -> None:
+        """Test case for get_tenant_user
+
+        """
+        pass
+
+    def test_get_tenant_users(self) -> None:
+        """Test case for get_tenant_users
+
+        """
+        pass
+
+    def test_get_tenants(self) -> None:
+        """Test case for get_tenants
+
+        """
+        pass
+
+    def test_get_user(self) -> None:
+        """Test case for get_user
 
         """
         pass
@@ -236,8 +512,26 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_get_votes(self) -> None:
+        """Test case for get_votes
+
+        """
+        pass
+
+    def test_get_votes_for_user(self) -> None:
+        """Test case for get_votes_for_user
+
+        """
+        pass
+
     def test_patch_domain_config(self) -> None:
         """Test case for patch_domain_config
+
+        """
+        pass
+
+    def test_patch_hash_tag(self) -> None:
+        """Test case for patch_hash_tag
 
         """
         pass
@@ -266,6 +560,24 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_render_email_template(self) -> None:
+        """Test case for render_email_template
+
+        """
+        pass
+
+    def test_replace_tenant_package(self) -> None:
+        """Test case for replace_tenant_package
+
+        """
+        pass
+
+    def test_replace_tenant_user(self) -> None:
+        """Test case for replace_tenant_user
+
+        """
+        pass
+
     def test_save_comment(self) -> None:
         """Test case for save_comment
 
@@ -274,6 +586,18 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_save_comments_bulk(self) -> None:
         """Test case for save_comments_bulk
+
+        """
+        pass
+
+    def test_send_invite(self) -> None:
+        """Test case for send_invite
+
+        """
+        pass
+
+    def test_send_login_link(self) -> None:
+        """Test case for send_login_link
 
         """
         pass
@@ -296,8 +620,56 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_update_email_template(self) -> None:
+        """Test case for update_email_template
+
+        """
+        pass
+
     def test_update_feed_post(self) -> None:
         """Test case for update_feed_post
+
+        """
+        pass
+
+    def test_update_moderator(self) -> None:
+        """Test case for update_moderator
+
+        """
+        pass
+
+    def test_update_notification(self) -> None:
+        """Test case for update_notification
+
+        """
+        pass
+
+    def test_update_question_config(self) -> None:
+        """Test case for update_question_config
+
+        """
+        pass
+
+    def test_update_question_result(self) -> None:
+        """Test case for update_question_result
+
+        """
+        pass
+
+    def test_update_tenant(self) -> None:
+        """Test case for update_tenant
+
+        """
+        pass
+
+    def test_update_tenant_package(self) -> None:
+        """Test case for update_tenant_package
+
+        """
+        pass
+
+    def test_update_tenant_user(self) -> None:
+        """Test case for update_tenant_user
 
         """
         pass

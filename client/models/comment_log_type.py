@@ -81,6 +81,7 @@ class CommentLogType(int, Enum):
     NUMBER_52 = 52
     NUMBER_53 = 53
     NUMBER_54 = 54
+    NUMBER_55 = 55
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

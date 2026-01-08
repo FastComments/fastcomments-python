@@ -184,7 +184,10 @@ class TestSaveComment200Response(unittest.TestCase):
                                 flag_count_before = 1.337, 
                                 trust_factor_before = 1.337, 
                                 trust_factor_after = 1.337, 
-                                referenced_comment_id = '', ), )
+                                referenced_comment_id = '', 
+                                invalid_locale = '', 
+                                detected_locale = '', 
+                                detected_language = '', ), )
                         ], 
                     group_ids = [
                         ''
@@ -464,7 +467,10 @@ class TestSaveComment200Response(unittest.TestCase):
                                 flag_count_before = 1.337, 
                                 trust_factor_before = 1.337, 
                                 trust_factor_after = 1.337, 
-                                referenced_comment_id = '', ), )
+                                referenced_comment_id = '', 
+                                invalid_locale = '', 
+                                detected_locale = '', 
+                                detected_language = '', ), )
                         ], 
                     group_ids = [
                         ''

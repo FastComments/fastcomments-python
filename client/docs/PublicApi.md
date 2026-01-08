@@ -1836,7 +1836,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_users**
-> SearchUsers200Response search_users(tenant_id, url_id, username_starts_with, mention_group_ids=mention_group_ids, sso=sso)
+> SearchUsers200Response search_users(tenant_id, url_id, username_starts_with=username_starts_with, mention_group_ids=mention_group_ids, sso=sso)
 
 
 
@@ -1862,12 +1862,12 @@ with client.ApiClient(configuration) as api_client:
     api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
     url_id = 'url_id_example' # str | 
-    username_starts_with = 'username_starts_with_example' # str | 
+    username_starts_with = 'username_starts_with_example' # str |  (optional)
     mention_group_ids = ['mention_group_ids_example'] # List[str] |  (optional)
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.search_users(tenant_id, url_id, username_starts_with, mention_group_ids=mention_group_ids, sso=sso)
+        api_response = api_instance.search_users(tenant_id, url_id, username_starts_with=username_starts_with, mention_group_ids=mention_group_ids, sso=sso)
         print("The response of PublicApi->search_users:\n")
         pprint(api_response)
     except Exception as e:
@@ -1883,7 +1883,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant_id** | **str**|  | 
  **url_id** | **str**|  | 
- **username_starts_with** | **str**|  | 
+ **username_starts_with** | **str**|  | [optional] 
  **mention_group_ids** | [**List[str]**](str.md)|  | [optional] 
  **sso** | **str**|  | [optional] 
 
