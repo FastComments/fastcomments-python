@@ -135,8 +135,6 @@ from client.models.create_tenant_user_body import CreateTenantUserBody
 from client.models.create_tenant_user_response import CreateTenantUserResponse
 from client.models.create_user_badge200_response import CreateUserBadge200Response
 from client.models.create_user_badge_params import CreateUserBadgeParams
-from client.models.create_vote200_response import CreateVote200Response
-from client.models.create_vote_response import CreateVoteResponse
 from client.models.custom_config_parameters import CustomConfigParameters
 from client.models.custom_email_template import CustomEmailTemplate
 from client.models.delete_comment200_response import DeleteComment200Response
@@ -151,8 +149,6 @@ from client.models.delete_hash_tag_request import DeleteHashTagRequest
 from client.models.delete_page_api_response import DeletePageAPIResponse
 from client.models.delete_sso_user_api_response import DeleteSSOUserAPIResponse
 from client.models.delete_subscription_api_response import DeleteSubscriptionAPIResponse
-from client.models.delete_vote200_response import DeleteVote200Response
-from client.models.delete_vote_response import DeleteVoteResponse
 from client.models.deleted_comment_result_comment import DeletedCommentResultComment
 from client.models.digest_email_frequency import DigestEmailFrequency
 from client.models.email_template_definition import EmailTemplateDefinition

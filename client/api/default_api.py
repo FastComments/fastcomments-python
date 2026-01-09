@@ -59,14 +59,13 @@ from client.models.create_tenant_user200_response import CreateTenantUser200Resp
 from client.models.create_tenant_user_body import CreateTenantUserBody
 from client.models.create_user_badge200_response import CreateUserBadge200Response
 from client.models.create_user_badge_params import CreateUserBadgeParams
-from client.models.create_vote200_response import CreateVote200Response
 from client.models.delete_comment200_response import DeleteComment200Response
+from client.models.delete_comment_vote200_response import DeleteCommentVote200Response
 from client.models.delete_domain_config200_response import DeleteDomainConfig200Response
 from client.models.delete_hash_tag_request import DeleteHashTagRequest
 from client.models.delete_page_api_response import DeletePageAPIResponse
 from client.models.delete_sso_user_api_response import DeleteSSOUserAPIResponse
 from client.models.delete_subscription_api_response import DeleteSubscriptionAPIResponse
-from client.models.delete_vote200_response import DeleteVote200Response
 from client.models.feed_post import FeedPost
 from client.models.flag_comment200_response import FlagComment200Response
 from client.models.flag_comment_public200_response import FlagCommentPublic200Response
@@ -141,6 +140,7 @@ from client.models.update_tenant_package_body import UpdateTenantPackageBody
 from client.models.update_tenant_user_body import UpdateTenantUserBody
 from client.models.update_user_badge200_response import UpdateUserBadge200Response
 from client.models.update_user_badge_params import UpdateUserBadgeParams
+from client.models.vote_comment200_response import VoteComment200Response
 
 from client.api_client import ApiClient, RequestSerialized
 from client.api_response import ApiResponse
@@ -6313,7 +6313,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateVote200Response:
+    ) -> VoteComment200Response:
         """create_vote
 
 
@@ -6362,7 +6362,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateVote200Response",
+            '200': "VoteComment200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6395,7 +6395,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateVote200Response]:
+    ) -> ApiResponse[VoteComment200Response]:
         """create_vote
 
 
@@ -6444,7 +6444,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateVote200Response",
+            '200': "VoteComment200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6526,7 +6526,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateVote200Response",
+            '200': "VoteComment200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11510,7 +11510,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteVote200Response:
+    ) -> DeleteCommentVote200Response:
         """delete_vote
 
 
@@ -11553,7 +11553,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteVote200Response",
+            '200': "DeleteCommentVote200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11584,7 +11584,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteVote200Response]:
+    ) -> ApiResponse[DeleteCommentVote200Response]:
         """delete_vote
 
 
@@ -11627,7 +11627,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteVote200Response",
+            '200': "DeleteCommentVote200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11701,7 +11701,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteVote200Response",
+            '200': "DeleteCommentVote200Response",
         }
         response_data = self.api_client.call_api(
             *_param,
