@@ -1741,7 +1741,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_vote**
-> CreateVote200Response create_vote(tenant_id, comment_id, direction, user_id=user_id, anon_user_id=anon_user_id)
+> VoteComment200Response create_vote(tenant_id, comment_id, direction, user_id=user_id, anon_user_id=anon_user_id)
 
 
 
@@ -1751,7 +1751,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.create_vote200_response import CreateVote200Response
+from client.models.vote_comment200_response import VoteComment200Response
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1805,7 +1805,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateVote200Response**](CreateVote200Response.md)
+[**VoteComment200Response**](VoteComment200Response.md)
 
 ### Authorization
 
@@ -3174,7 +3174,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_vote**
-> DeleteVote200Response delete_vote(tenant_id, id, edit_key=edit_key)
+> DeleteCommentVote200Response delete_vote(tenant_id, id, edit_key=edit_key)
 
 
 
@@ -3184,7 +3184,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.delete_vote200_response import DeleteVote200Response
+from client.models.delete_comment_vote200_response import DeleteCommentVote200Response
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3234,7 +3234,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteVote200Response**](DeleteVote200Response.md)
+[**DeleteCommentVote200Response**](DeleteCommentVote200Response.md)
 
 ### Authorization
 

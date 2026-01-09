@@ -116,8 +116,6 @@ client/models/create_tenant_user_body.py
 client/models/create_tenant_user_response.py
 client/models/create_user_badge200_response.py
 client/models/create_user_badge_params.py
-client/models/create_vote200_response.py
-client/models/create_vote_response.py
 client/models/custom_config_parameters.py
 client/models/custom_email_template.py
 client/models/delete_comment200_response.py
@@ -132,8 +130,6 @@ client/models/delete_hash_tag_request.py
 client/models/delete_page_api_response.py
 client/models/delete_sso_user_api_response.py
 client/models/delete_subscription_api_response.py
-client/models/delete_vote200_response.py
-client/models/delete_vote_response.py
 client/models/deleted_comment_result_comment.py
 client/models/digest_email_frequency.py
 client/models/email_template_definition.py
@@ -459,8 +455,6 @@ docs/CreateTenantUserBody.md
 docs/CreateTenantUserResponse.md
 docs/CreateUserBadge200Response.md
 docs/CreateUserBadgeParams.md
-docs/CreateVote200Response.md
-docs/CreateVoteResponse.md
 docs/CustomConfigParameters.md
 docs/CustomEmailTemplate.md
 docs/DefaultApi.md
@@ -476,8 +470,6 @@ docs/DeleteHashTagRequest.md
 docs/DeletePageAPIResponse.md
 docs/DeleteSSOUserAPIResponse.md
 docs/DeleteSubscriptionAPIResponse.md
-docs/DeleteVote200Response.md
-docs/DeleteVoteResponse.md
 docs/DeletedCommentResultComment.md
 docs/DigestEmailFrequency.md
 docs/EmailTemplateDefinition.md
@@ -809,8 +801,6 @@ test/test_create_tenant_user_body.py
 test/test_create_tenant_user_response.py
 test/test_create_user_badge200_response.py
 test/test_create_user_badge_params.py
-test/test_create_vote200_response.py
-test/test_create_vote_response.py
 test/test_custom_config_parameters.py
 test/test_custom_email_template.py
 test/test_default_api.py
@@ -826,8 +816,6 @@ test/test_delete_hash_tag_request.py
 test/test_delete_page_api_response.py
 test/test_delete_sso_user_api_response.py
 test/test_delete_subscription_api_response.py
-test/test_delete_vote200_response.py
-test/test_delete_vote_response.py
 test/test_deleted_comment_result_comment.py
 test/test_digest_email_frequency.py
 test/test_email_template_definition.py
