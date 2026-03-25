@@ -101,6 +101,7 @@ class TestPublicFeedPostsResponse(unittest.TestCase):
                         ], 
                     has_blocked_users = True, 
                     is_anon_session = True, 
+                    needs_tos = True, 
                     session_id = '', 
                     username = '', 
                     website_url = '', ),

@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**notification_frequency** | **float** |  | [optional] 
 **created_at** | **datetime** |  | 
 **page_title** | **str** |  | [optional] 
 **url** | **str** |  | [optional] 

@@ -53,7 +53,8 @@ class CommentData(BaseModel):
     autoplay_delay_ms: Optional[StrictInt] = Field(default=None, alias="autoplayDelayMS")
     feedback_ids: Optional[List[StrictStr]] = Field(default=None, alias="feedbackIds")
     question_values: Optional[Dict[str, RecordStringStringOrNumberValue]] = Field(default=None, description="Construct a type with a set of properties K of type T", alias="questionValues")
-    __properties: ClassVar[List[str]] = ["date", "localDateString", "localDateHours", "commenterName", "commenterEmail", "commenterLink", "comment", "productId", "userId", "avatarSrc", "parentId", "mentions", "hashTags", "pageTitle", "isFromMyAccountPage", "url", "urlId", "meta", "moderationGroupIds", "rating", "fromOfflineRestore", "autoplayDelayMS", "feedbackIds", "questionValues"]
+    tos: Optional[StrictBool] = None
+    __properties: ClassVar[List[str]] = ["date", "localDateString", "localDateHours", "commenterName", "commenterEmail", "commenterLink", "comment", "productId", "userId", "avatarSrc", "parentId", "mentions", "hashTags", "pageTitle", "isFromMyAccountPage", "url", "urlId", "meta", "moderationGroupIds", "rating", "fromOfflineRestore", "autoplayDelayMS", "feedbackIds", "questionValues", "tos"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -180,7 +181,8 @@ class CommentData(BaseModel):
                 for _k, _v in obj["questionValues"].items()
             )
             if obj.get("questionValues") is not None
-            else None
+            else None,
+            "tos": obj.get("tos")
         })
         return _obj
 

@@ -34,6 +34,7 @@ client/models/aggregation_value.py
 client/models/api_audit_log.py
 client/models/api_comment.py
 client/models/api_comment_base.py
+client/models/api_comment_base_meta.py
 client/models/api_create_user_badge_response.py
 client/models/api_domain_configuration.py
 client/models/api_empty_response.py
@@ -49,6 +50,9 @@ client/models/api_page.py
 client/models/api_status.py
 client/models/api_tenant.py
 client/models/api_tenant_daily_usage.py
+client/models/api_ticket.py
+client/models/api_ticket_detail.py
+client/models/api_ticket_file.py
 client/models/api_user_subscription.py
 client/models/apisso_user.py
 client/models/billing_info.py
@@ -63,6 +67,9 @@ client/models/bulk_create_hash_tags_body.py
 client/models/bulk_create_hash_tags_body_tags_inner.py
 client/models/bulk_create_hash_tags_response.py
 client/models/change_comment_pin_status_response.py
+client/models/change_ticket_state200_response.py
+client/models/change_ticket_state_body.py
+client/models/change_ticket_state_response.py
 client/models/check_blocked_comments_response.py
 client/models/checked_comments_for_blocked200_response.py
 client/models/combine_comments_with_question_results200_response.py
@@ -114,6 +121,9 @@ client/models/create_tenant_response.py
 client/models/create_tenant_user200_response.py
 client/models/create_tenant_user_body.py
 client/models/create_tenant_user_response.py
+client/models/create_ticket200_response.py
+client/models/create_ticket_body.py
+client/models/create_ticket_response.py
 client/models/create_user_badge200_response.py
 client/models/create_user_badge_params.py
 client/models/custom_config_parameters.py
@@ -222,6 +232,10 @@ client/models/get_tenant_users200_response.py
 client/models/get_tenant_users_response.py
 client/models/get_tenants200_response.py
 client/models/get_tenants_response.py
+client/models/get_ticket200_response.py
+client/models/get_ticket_response.py
+client/models/get_tickets200_response.py
+client/models/get_tickets_response.py
 client/models/get_user200_response.py
 client/models/get_user_badge200_response.py
 client/models/get_user_badge_progress_by_id200_response.py
@@ -239,6 +253,7 @@ client/models/get_votes_for_user200_response.py
 client/models/get_votes_for_user_response.py
 client/models/get_votes_response.py
 client/models/gif_rating.py
+client/models/header_account_notification.py
 client/models/header_state.py
 client/models/ignored_response.py
 client/models/image_content_profanity_level.py
@@ -248,6 +263,7 @@ client/models/live_event_extra_info.py
 client/models/live_event_type.py
 client/models/lock_comment200_response.py
 client/models/media_asset.py
+client/models/mention_auto_complete_mode.py
 client/models/meta_item.py
 client/models/moderator.py
 client/models/notification_and_count.py
@@ -302,6 +318,7 @@ client/models/save_comment_response_optimized.py
 client/models/save_comments_response_with_presence.py
 client/models/search_users200_response.py
 client/models/search_users_response.py
+client/models/search_users_sectioned_response.py
 client/models/set_comment_text200_response.py
 client/models/set_comment_text_result.py
 client/models/size_preset.py
@@ -311,11 +328,13 @@ client/models/spam_rule.py
 client/models/sso_security_level.py
 client/models/tenant_hash_tag.py
 client/models/tenant_package.py
+client/models/tos_config.py
 client/models/un_block_comment_public200_response.py
 client/models/un_block_from_comment_params.py
 client/models/unblock_success.py
 client/models/updatable_comment_params.py
 client/models/update_api_page_data.py
+client/models/update_api_user_subscription_data.py
 client/models/update_apisso_user_data.py
 client/models/update_domain_config_params.py
 client/models/update_email_template_body.py
@@ -326,6 +345,7 @@ client/models/update_moderator_body.py
 client/models/update_notification_body.py
 client/models/update_question_config_body.py
 client/models/update_question_result_body.py
+client/models/update_subscription_api_response.py
 client/models/update_tenant_body.py
 client/models/update_tenant_package_body.py
 client/models/update_tenant_user_body.py
@@ -342,6 +362,8 @@ client/models/user_notification_write_response.py
 client/models/user_presence_data.py
 client/models/user_reacts_response.py
 client/models/user_search_result.py
+client/models/user_search_section.py
+client/models/user_search_section_result.py
 client/models/user_session_info.py
 client/models/vote_body_params.py
 client/models/vote_comment200_response.py
@@ -355,6 +377,7 @@ client/rest.py
 docs/APIAuditLog.md
 docs/APIComment.md
 docs/APICommentBase.md
+docs/APICommentBaseMeta.md
 docs/APICreateUserBadgeResponse.md
 docs/APIDomainConfiguration.md
 docs/APIEmptyResponse.md
@@ -371,6 +394,9 @@ docs/APISSOUser.md
 docs/APIStatus.md
 docs/APITenant.md
 docs/APITenantDailyUsage.md
+docs/APITicket.md
+docs/APITicketDetail.md
+docs/APITicketFile.md
 docs/APIUserSubscription.md
 docs/AddDomainConfig200Response.md
 docs/AddDomainConfig200ResponseAnyOf.md
@@ -402,6 +428,9 @@ docs/BulkCreateHashTagsBody.md
 docs/BulkCreateHashTagsBodyTagsInner.md
 docs/BulkCreateHashTagsResponse.md
 docs/ChangeCommentPinStatusResponse.md
+docs/ChangeTicketState200Response.md
+docs/ChangeTicketStateBody.md
+docs/ChangeTicketStateResponse.md
 docs/CheckBlockedCommentsResponse.md
 docs/CheckedCommentsForBlocked200Response.md
 docs/CombineCommentsWithQuestionResults200Response.md
@@ -453,6 +482,9 @@ docs/CreateTenantResponse.md
 docs/CreateTenantUser200Response.md
 docs/CreateTenantUserBody.md
 docs/CreateTenantUserResponse.md
+docs/CreateTicket200Response.md
+docs/CreateTicketBody.md
+docs/CreateTicketResponse.md
 docs/CreateUserBadge200Response.md
 docs/CreateUserBadgeParams.md
 docs/CustomConfigParameters.md
@@ -562,6 +594,10 @@ docs/GetTenantUsers200Response.md
 docs/GetTenantUsersResponse.md
 docs/GetTenants200Response.md
 docs/GetTenantsResponse.md
+docs/GetTicket200Response.md
+docs/GetTicketResponse.md
+docs/GetTickets200Response.md
+docs/GetTicketsResponse.md
 docs/GetUser200Response.md
 docs/GetUserBadge200Response.md
 docs/GetUserBadgeProgressById200Response.md
@@ -579,6 +615,7 @@ docs/GetVotesForUser200Response.md
 docs/GetVotesForUserResponse.md
 docs/GetVotesResponse.md
 docs/GifRating.md
+docs/HeaderAccountNotification.md
 docs/HeaderState.md
 docs/IgnoredResponse.md
 docs/ImageContentProfanityLevel.md
@@ -588,6 +625,7 @@ docs/LiveEventExtraInfo.md
 docs/LiveEventType.md
 docs/LockComment200Response.md
 docs/MediaAsset.md
+docs/MentionAutoCompleteMode.md
 docs/MetaItem.md
 docs/Moderator.md
 docs/NotificationAndCount.md
@@ -645,11 +683,13 @@ docs/SaveCommentResponseOptimized.md
 docs/SaveCommentsResponseWithPresence.md
 docs/SearchUsers200Response.md
 docs/SearchUsersResponse.md
+docs/SearchUsersSectionedResponse.md
 docs/SetCommentText200Response.md
 docs/SetCommentTextResult.md
 docs/SizePreset.md
 docs/SortDirections.md
 docs/SpamRule.md
+docs/TOSConfig.md
 docs/TenantHashTag.md
 docs/TenantPackage.md
 docs/UnBlockCommentPublic200Response.md
@@ -658,6 +698,7 @@ docs/UnblockSuccess.md
 docs/UpdatableCommentParams.md
 docs/UpdateAPIPageData.md
 docs/UpdateAPISSOUserData.md
+docs/UpdateAPIUserSubscriptionData.md
 docs/UpdateDomainConfigParams.md
 docs/UpdateEmailTemplateBody.md
 docs/UpdateFeedPostParams.md
@@ -667,6 +708,7 @@ docs/UpdateModeratorBody.md
 docs/UpdateNotificationBody.md
 docs/UpdateQuestionConfigBody.md
 docs/UpdateQuestionResultBody.md
+docs/UpdateSubscriptionAPIResponse.md
 docs/UpdateTenantBody.md
 docs/UpdateTenantPackageBody.md
 docs/UpdateTenantUserBody.md
@@ -683,6 +725,8 @@ docs/UserNotificationWriteResponse.md
 docs/UserPresenceData.md
 docs/UserReactsResponse.md
 docs/UserSearchResult.md
+docs/UserSearchSection.md
+docs/UserSearchSectionResult.md
 docs/UserSessionInfo.md
 docs/VoteBodyParams.md
 docs/VoteComment200Response.md
@@ -719,6 +763,7 @@ test/test_aggregation_value.py
 test/test_api_audit_log.py
 test/test_api_comment.py
 test/test_api_comment_base.py
+test/test_api_comment_base_meta.py
 test/test_api_create_user_badge_response.py
 test/test_api_domain_configuration.py
 test/test_api_empty_response.py
@@ -734,6 +779,9 @@ test/test_api_page.py
 test/test_api_status.py
 test/test_api_tenant.py
 test/test_api_tenant_daily_usage.py
+test/test_api_ticket.py
+test/test_api_ticket_detail.py
+test/test_api_ticket_file.py
 test/test_api_user_subscription.py
 test/test_apisso_user.py
 test/test_billing_info.py
@@ -748,6 +796,9 @@ test/test_bulk_create_hash_tags_body.py
 test/test_bulk_create_hash_tags_body_tags_inner.py
 test/test_bulk_create_hash_tags_response.py
 test/test_change_comment_pin_status_response.py
+test/test_change_ticket_state200_response.py
+test/test_change_ticket_state_body.py
+test/test_change_ticket_state_response.py
 test/test_check_blocked_comments_response.py
 test/test_checked_comments_for_blocked200_response.py
 test/test_combine_comments_with_question_results200_response.py
@@ -799,6 +850,9 @@ test/test_create_tenant_response.py
 test/test_create_tenant_user200_response.py
 test/test_create_tenant_user_body.py
 test/test_create_tenant_user_response.py
+test/test_create_ticket200_response.py
+test/test_create_ticket_body.py
+test/test_create_ticket_response.py
 test/test_create_user_badge200_response.py
 test/test_create_user_badge_params.py
 test/test_custom_config_parameters.py
@@ -908,6 +962,10 @@ test/test_get_tenant_users200_response.py
 test/test_get_tenant_users_response.py
 test/test_get_tenants200_response.py
 test/test_get_tenants_response.py
+test/test_get_ticket200_response.py
+test/test_get_ticket_response.py
+test/test_get_tickets200_response.py
+test/test_get_tickets_response.py
 test/test_get_user200_response.py
 test/test_get_user_badge200_response.py
 test/test_get_user_badge_progress_by_id200_response.py
@@ -925,6 +983,7 @@ test/test_get_votes_for_user200_response.py
 test/test_get_votes_for_user_response.py
 test/test_get_votes_response.py
 test/test_gif_rating.py
+test/test_header_account_notification.py
 test/test_header_state.py
 test/test_ignored_response.py
 test/test_image_content_profanity_level.py
@@ -934,6 +993,7 @@ test/test_live_event_extra_info.py
 test/test_live_event_type.py
 test/test_lock_comment200_response.py
 test/test_media_asset.py
+test/test_mention_auto_complete_mode.py
 test/test_meta_item.py
 test/test_moderator.py
 test/test_notification_and_count.py
@@ -989,6 +1049,7 @@ test/test_save_comment_response_optimized.py
 test/test_save_comments_response_with_presence.py
 test/test_search_users200_response.py
 test/test_search_users_response.py
+test/test_search_users_sectioned_response.py
 test/test_set_comment_text200_response.py
 test/test_set_comment_text_result.py
 test/test_size_preset.py
@@ -998,11 +1059,13 @@ test/test_spam_rule.py
 test/test_sso_security_level.py
 test/test_tenant_hash_tag.py
 test/test_tenant_package.py
+test/test_tos_config.py
 test/test_un_block_comment_public200_response.py
 test/test_un_block_from_comment_params.py
 test/test_unblock_success.py
 test/test_updatable_comment_params.py
 test/test_update_api_page_data.py
+test/test_update_api_user_subscription_data.py
 test/test_update_apisso_user_data.py
 test/test_update_domain_config_params.py
 test/test_update_email_template_body.py
@@ -1013,6 +1076,7 @@ test/test_update_moderator_body.py
 test/test_update_notification_body.py
 test/test_update_question_config_body.py
 test/test_update_question_result_body.py
+test/test_update_subscription_api_response.py
 test/test_update_tenant_body.py
 test/test_update_tenant_package_body.py
 test/test_update_tenant_user_body.py
@@ -1029,6 +1093,8 @@ test/test_user_notification_write_response.py
 test/test_user_presence_data.py
 test/test_user_reacts_response.py
 test/test_user_search_result.py
+test/test_user_search_section.py
+test/test_user_search_section_result.py
 test/test_user_session_info.py
 test/test_vote_body_params.py
 test/test_vote_comment200_response.py

@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,12 +26,13 @@ class CreateAPIUserSubscriptionData(BaseModel):
     """
     CreateAPIUserSubscriptionData
     """ # noqa: E501
+    notification_frequency: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="notificationFrequency")
     page_title: Optional[StrictStr] = Field(default=None, alias="pageTitle")
     url: Optional[StrictStr] = None
     url_id: StrictStr = Field(alias="urlId")
     anon_user_id: Optional[StrictStr] = Field(default=None, alias="anonUserId")
     user_id: Optional[StrictStr] = Field(default=None, alias="userId")
-    __properties: ClassVar[List[str]] = ["pageTitle", "url", "urlId", "anonUserId", "userId"]
+    __properties: ClassVar[List[str]] = ["notificationFrequency", "pageTitle", "url", "urlId", "anonUserId", "userId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,6 +85,7 @@ class CreateAPIUserSubscriptionData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "notificationFrequency": obj.get("notificationFrequency"),
             "pageTitle": obj.get("pageTitle"),
             "url": obj.get("url"),
             "urlId": obj.get("urlId"),

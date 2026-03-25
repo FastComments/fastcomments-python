@@ -37,6 +37,7 @@ class UpdateTenantPackageBody(BaseModel):
     max_sso_users: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="maxSSOUsers")
     max_moderators: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="maxModerators")
     max_domains: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="maxDomains")
+    max_custom_collection_size: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="maxCustomCollectionSize")
     has_debranding: Optional[StrictBool] = Field(default=None, alias="hasDebranding")
     has_white_labeling: Optional[StrictBool] = Field(default=None, alias="hasWhiteLabeling")
     for_who_text: Optional[StrictStr] = Field(default=None, alias="forWhoText")
@@ -57,7 +58,7 @@ class UpdateTenantPackageBody(BaseModel):
     flex_domain_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexDomainCostCents")
     flex_domain_unit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexDomainUnit")
     flex_minimum_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexMinimumCostCents")
-    __properties: ClassVar[List[str]] = ["name", "monthlyCostUSD", "yearlyCostUSD", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "hasDebranding", "hasWhiteLabeling", "forWhoText", "featureTaglines", "hasFlexPricing", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexMinimumCostCents"]
+    __properties: ClassVar[List[str]] = ["name", "monthlyCostUSD", "yearlyCostUSD", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxCustomCollectionSize", "hasDebranding", "hasWhiteLabeling", "forWhoText", "featureTaglines", "hasFlexPricing", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexMinimumCostCents"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -121,6 +122,7 @@ class UpdateTenantPackageBody(BaseModel):
             "maxSSOUsers": obj.get("maxSSOUsers"),
             "maxModerators": obj.get("maxModerators"),
             "maxDomains": obj.get("maxDomains"),
+            "maxCustomCollectionSize": obj.get("maxCustomCollectionSize"),
             "hasDebranding": obj.get("hasDebranding"),
             "hasWhiteLabeling": obj.get("hasWhiteLabeling"),
             "forWhoText": obj.get("forWhoText"),

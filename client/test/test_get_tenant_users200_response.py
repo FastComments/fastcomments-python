@@ -45,6 +45,8 @@ class TestGetTenantUsers200Response(unittest.TestCase):
                         website_url = '', 
                         email = '', 
                         pending_email = '', 
+                        backup_email = '', 
+                        pending_backup_email = '', 
                         sign_up_date = 56, 
                         created_from_url_id = '', 
                         created_from_tenant_id = '', 
@@ -67,6 +69,7 @@ class TestGetTenantUsers200Response(unittest.TestCase):
                         is_manage_data_admin = True, 
                         is_comment_moderator_admin = True, 
                         is_api_admin = True, 
+                        is_site_admin = True, 
                         moderator_ids = [
                             ''
                             ], 
@@ -74,6 +77,10 @@ class TestGetTenantUsers200Response(unittest.TestCase):
                         is_coupon_manager = True, 
                         locale = '', 
                         digest_email_frequency = -1, 
+                        notification_frequency = 1.337, 
+                        admin_notification_frequency = 1.337, 
+                        last_tenant_notification_sent_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        last_reply_notification_sent_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         ignored_add_to_my_site_messages = True, 
                         last_login_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         display_label = '', 
@@ -92,7 +99,8 @@ class TestGetTenantUsers200Response(unittest.TestCase):
                         social_links = [
                             ''
                             ], 
-                        has_two_factor = True, )
+                        has_two_factor = True, 
+                        is_email_suppressed = True, )
                     ],
                 reason = '',
                 code = '',
@@ -127,6 +135,8 @@ class TestGetTenantUsers200Response(unittest.TestCase):
                     disable_email_inputs = True, 
                     disable_live_commenting = True, 
                     disable_notification_bell = True, 
+                    disable_profile_comments = True, 
+                    disable_profile_direct_messages = True, 
                     disable_profiles = True, 
                     disable_success_message = True, 
                     disable_toolbar = True, 
@@ -151,6 +161,7 @@ class TestGetTenantUsers200Response(unittest.TestCase):
                     max_comment_character_length = 56, 
                     max_comment_created_count_pupm = 56, 
                     no_custom_config = True, 
+                    mention_auto_complete_mode = null, 
                     no_image_uploads = True, 
                     no_styles = True, 
                     page_size = 56, 
@@ -179,11 +190,25 @@ class TestGetTenantUsers200Response(unittest.TestCase):
                     vote_style = 0, 
                     widget_question_id = '', 
                     widget_question_results_style = 0, 
+                    widget_question_show_breakdown = True, 
                     widget_question_style = 0, 
                     widget_question_when_to_save = 0, 
                     widget_questions_required = 0, 
                     widget_sub_question_visibility = 0, 
-                    wrap = True, )
+                    wrap = True, 
+                    ticket_base_url = '', 
+                    ticket_kb_search_endpoint = '', 
+                    ticket_file_uploads_enabled = True, 
+                    ticket_max_file_size = 56, 
+                    ticket_auto_assign_user_ids = [
+                        ''
+                        ], 
+                    tos = client.models.tos_config.TOSConfig(
+                        enabled = True, 
+                        text_by_locale = {
+                            'key' : ''
+                            }, 
+                        last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), )
             )
         else:
             return GetTenantUsers200Response(
@@ -197,6 +222,8 @@ class TestGetTenantUsers200Response(unittest.TestCase):
                         website_url = '', 
                         email = '', 
                         pending_email = '', 
+                        backup_email = '', 
+                        pending_backup_email = '', 
                         sign_up_date = 56, 
                         created_from_url_id = '', 
                         created_from_tenant_id = '', 
@@ -219,6 +246,7 @@ class TestGetTenantUsers200Response(unittest.TestCase):
                         is_manage_data_admin = True, 
                         is_comment_moderator_admin = True, 
                         is_api_admin = True, 
+                        is_site_admin = True, 
                         moderator_ids = [
                             ''
                             ], 
@@ -226,6 +254,10 @@ class TestGetTenantUsers200Response(unittest.TestCase):
                         is_coupon_manager = True, 
                         locale = '', 
                         digest_email_frequency = -1, 
+                        notification_frequency = 1.337, 
+                        admin_notification_frequency = 1.337, 
+                        last_tenant_notification_sent_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                        last_reply_notification_sent_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         ignored_add_to_my_site_messages = True, 
                         last_login_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         display_label = '', 
@@ -244,7 +276,8 @@ class TestGetTenantUsers200Response(unittest.TestCase):
                         social_links = [
                             ''
                             ], 
-                        has_two_factor = True, )
+                        has_two_factor = True, 
+                        is_email_suppressed = True, )
                     ],
                 reason = '',
                 code = '',

@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**APIStatus**](APIStatus.md) |  | 
+**sections** | [**List[UserSearchSectionResult]**](UserSearchSectionResult.md) |  | 
 **users** | [**List[UserSearchResult]**](UserSearchResult.md) |  | 
 **reason** | **str** |  | 
 **code** | **str** |  | 

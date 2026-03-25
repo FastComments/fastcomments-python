@@ -46,7 +46,8 @@ class TestAPIGetUserBadgeProgressResponse(unittest.TestCase):
                     manual_trust_factor = 1.337, 
                     progress = {
                         'key' : 1.337
-                        }, )
+                        }, 
+                    tos_accepted_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
             )
         else:
             return APIGetUserBadgeProgressResponse(
@@ -61,7 +62,8 @@ class TestAPIGetUserBadgeProgressResponse(unittest.TestCase):
                     manual_trust_factor = 1.337, 
                     progress = {
                         'key' : 1.337
-                        }, ),
+                        }, 
+                    tos_accepted_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ),
         )
         """
 

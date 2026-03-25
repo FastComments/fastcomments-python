@@ -77,7 +77,8 @@ class TestCommentData(unittest.TestCase):
                     ],
                 question_values = {
                     'key' : null
-                    }
+                    },
+                tos = True
             )
         else:
             return CommentData(

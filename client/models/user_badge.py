@@ -45,7 +45,8 @@ class UserBadge(BaseModel):
     displayed_on_comments: StrictBool = Field(alias="displayedOnComments")
     received_at: datetime = Field(alias="receivedAt")
     order: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["_id", "userId", "badgeId", "fromTenantId", "createdAt", "type", "threshold", "description", "displayLabel", "displaySrc", "backgroundColor", "borderColor", "textColor", "cssClass", "veteranUserThresholdMillis", "displayedOnComments", "receivedAt", "order"]
+    url_id: Optional[StrictStr] = Field(default=None, alias="urlId")
+    __properties: ClassVar[List[str]] = ["_id", "userId", "badgeId", "fromTenantId", "createdAt", "type", "threshold", "description", "displayLabel", "displaySrc", "backgroundColor", "borderColor", "textColor", "cssClass", "veteranUserThresholdMillis", "displayedOnComments", "receivedAt", "order", "urlId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -111,6 +112,11 @@ class UserBadge(BaseModel):
         if self.css_class is None and "css_class" in self.model_fields_set:
             _dict['cssClass'] = None
 
+        # set to None if url_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.url_id is None and "url_id" in self.model_fields_set:
+            _dict['urlId'] = None
+
         return _dict
 
     @classmethod
@@ -140,7 +146,8 @@ class UserBadge(BaseModel):
             "veteranUserThresholdMillis": obj.get("veteranUserThresholdMillis"),
             "displayedOnComments": obj.get("displayedOnComments"),
             "receivedAt": obj.get("receivedAt"),
-            "order": obj.get("order")
+            "order": obj.get("order"),
+            "urlId": obj.get("urlId")
         })
         return _obj
 

@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **autoplay_delay_ms** | **int** |  | [optional] 
 **feedback_ids** | **List[str]** |  | [optional] 
 **question_values** | [**Dict[str, RecordStringStringOrNumberValue]**](RecordStringStringOrNumberValue.md) | Construct a type with a set of properties K of type T | [optional] 
+**tos** | **bool** |  | [optional] 
 
 ## Example
 

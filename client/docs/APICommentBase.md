@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 **local_date_string** | **str** |  | [optional] 
 **locale** | **str** |  | 
 **mentions** | [**List[CommentUserMentionInfo]**](CommentUserMentionInfo.md) |  | [optional] 
-**meta** | [**FCommentMeta**](FCommentMeta.md) |  | [optional] 
+**meta** | [**APICommentBaseMeta**](APICommentBaseMeta.md) |  | [optional] 
 **moderation_group_ids** | **List[str]** |  | [optional] 
 **notification_sent_for_parent** | **bool** |  | [optional] 
 **notification_sent_for_parent_tenant** | **bool** |  | [optional] 

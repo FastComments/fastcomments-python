@@ -21,26 +21,29 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, f
 from typing import Optional
 from client.models.api_error import APIError
 from client.models.search_users_response import SearchUsersResponse
+from client.models.search_users_sectioned_response import SearchUsersSectionedResponse
 from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-SEARCHUSERS200RESPONSE_ANY_OF_SCHEMAS = ["APIError", "SearchUsersResponse"]
+SEARCHUSERS200RESPONSE_ANY_OF_SCHEMAS = ["APIError", "SearchUsersResponse", "SearchUsersSectionedResponse"]
 
 class SearchUsers200Response(BaseModel):
     """
     SearchUsers200Response
     """
 
+    # data type: SearchUsersSectionedResponse
+    anyof_schema_1_validator: Optional[SearchUsersSectionedResponse] = None
     # data type: SearchUsersResponse
-    anyof_schema_1_validator: Optional[SearchUsersResponse] = None
+    anyof_schema_2_validator: Optional[SearchUsersResponse] = None
     # data type: APIError
-    anyof_schema_2_validator: Optional[APIError] = None
+    anyof_schema_3_validator: Optional[APIError] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[APIError, SearchUsersResponse]] = None
+        actual_instance: Optional[Union[APIError, SearchUsersResponse, SearchUsersSectionedResponse]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "APIError", "SearchUsersResponse" }
+    any_of_schemas: Set[str] = { "APIError", "SearchUsersResponse", "SearchUsersSectionedResponse" }
 
     model_config = {
         "validate_assignment": True,
@@ -61,6 +64,12 @@ class SearchUsers200Response(BaseModel):
     def actual_instance_must_validate_anyof(cls, v):
         instance = SearchUsers200Response.model_construct()
         error_messages = []
+        # validate data type: SearchUsersSectionedResponse
+        if not isinstance(v, SearchUsersSectionedResponse):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `SearchUsersSectionedResponse`")
+        else:
+            return v
+
         # validate data type: SearchUsersResponse
         if not isinstance(v, SearchUsersResponse):
             error_messages.append(f"Error! Input type `{type(v)}` is not `SearchUsersResponse`")
@@ -75,7 +84,7 @@ class SearchUsers200Response(BaseModel):
 
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in SearchUsers200Response with anyOf schemas: APIError, SearchUsersResponse. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in SearchUsers200Response with anyOf schemas: APIError, SearchUsersResponse, SearchUsersSectionedResponse. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -88,13 +97,19 @@ class SearchUsers200Response(BaseModel):
         """Returns the object represented by the json string"""
         instance = cls.model_construct()
         error_messages = []
-        # anyof_schema_1_validator: Optional[SearchUsersResponse] = None
+        # anyof_schema_1_validator: Optional[SearchUsersSectionedResponse] = None
+        try:
+            instance.actual_instance = SearchUsersSectionedResponse.from_json(json_str)
+            return instance
+        except (ValidationError, ValueError) as e:
+             error_messages.append(str(e))
+        # anyof_schema_2_validator: Optional[SearchUsersResponse] = None
         try:
             instance.actual_instance = SearchUsersResponse.from_json(json_str)
             return instance
         except (ValidationError, ValueError) as e:
              error_messages.append(str(e))
-        # anyof_schema_2_validator: Optional[APIError] = None
+        # anyof_schema_3_validator: Optional[APIError] = None
         try:
             instance.actual_instance = APIError.from_json(json_str)
             return instance
@@ -103,7 +118,7 @@ class SearchUsers200Response(BaseModel):
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into SearchUsers200Response with anyOf schemas: APIError, SearchUsersResponse. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into SearchUsers200Response with anyOf schemas: APIError, SearchUsersResponse, SearchUsersSectionedResponse. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -117,7 +132,7 @@ class SearchUsers200Response(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], APIError, SearchUsersResponse]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], APIError, SearchUsersResponse, SearchUsersSectionedResponse]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

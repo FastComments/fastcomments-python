@@ -8178,6 +8178,7 @@ class PublicApi:
         username_starts_with: Optional[StrictStr] = None,
         mention_group_ids: Optional[List[StrictStr]] = None,
         sso: Optional[StrictStr] = None,
+        search_section: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8204,6 +8205,8 @@ class PublicApi:
         :type mention_group_ids: List[str]
         :param sso:
         :type sso: str
+        :param search_section:
+        :type search_section: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8232,6 +8235,7 @@ class PublicApi:
             username_starts_with=username_starts_with,
             mention_group_ids=mention_group_ids,
             sso=sso,
+            search_section=search_section,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8260,6 +8264,7 @@ class PublicApi:
         username_starts_with: Optional[StrictStr] = None,
         mention_group_ids: Optional[List[StrictStr]] = None,
         sso: Optional[StrictStr] = None,
+        search_section: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8286,6 +8291,8 @@ class PublicApi:
         :type mention_group_ids: List[str]
         :param sso:
         :type sso: str
+        :param search_section:
+        :type search_section: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8314,6 +8321,7 @@ class PublicApi:
             username_starts_with=username_starts_with,
             mention_group_ids=mention_group_ids,
             sso=sso,
+            search_section=search_section,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8342,6 +8350,7 @@ class PublicApi:
         username_starts_with: Optional[StrictStr] = None,
         mention_group_ids: Optional[List[StrictStr]] = None,
         sso: Optional[StrictStr] = None,
+        search_section: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8368,6 +8377,8 @@ class PublicApi:
         :type mention_group_ids: List[str]
         :param sso:
         :type sso: str
+        :param search_section:
+        :type search_section: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8396,6 +8407,7 @@ class PublicApi:
             username_starts_with=username_starts_with,
             mention_group_ids=mention_group_ids,
             sso=sso,
+            search_section=search_section,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8419,6 +8431,7 @@ class PublicApi:
         username_starts_with,
         mention_group_ids,
         sso,
+        search_section,
         _request_auth,
         _content_type,
         _headers,
@@ -8459,6 +8472,10 @@ class PublicApi:
         if sso is not None:
             
             _query_params.append(('sso', sso))
+            
+        if search_section is not None:
+            
+            _query_params.append(('searchSection', search_section))
             
         # process the header parameters
         # process the form parameters

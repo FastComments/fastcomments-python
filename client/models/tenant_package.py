@@ -46,6 +46,7 @@ class TenantPackage(BaseModel):
     max_domains: Union[StrictFloat, StrictInt] = Field(alias="maxDomains")
     max_white_labeled_tenants: Union[StrictFloat, StrictInt] = Field(alias="maxWhiteLabeledTenants")
     max_monthly_event_log_requests: Union[StrictFloat, StrictInt] = Field(alias="maxMonthlyEventLogRequests")
+    max_custom_collection_size: Union[StrictFloat, StrictInt] = Field(alias="maxCustomCollectionSize")
     has_white_labeling: StrictBool = Field(alias="hasWhiteLabeling")
     has_debranding: StrictBool = Field(alias="hasDebranding")
     has_llm_spam_detection: StrictBool = Field(alias="hasLLMSpamDetection")
@@ -54,6 +55,7 @@ class TenantPackage(BaseModel):
     has_auditing: StrictBool = Field(alias="hasAuditing")
     has_flex_pricing: StrictBool = Field(alias="hasFlexPricing")
     enable_saml: Optional[StrictBool] = Field(default=None, alias="enableSAML")
+    enable_canvas_lti: Optional[StrictBool] = Field(default=None, alias="enableCanvasLTI")
     flex_page_load_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexPageLoadCostCents")
     flex_page_load_unit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexPageLoadUnit")
     flex_comment_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexCommentCostCents")
@@ -79,7 +81,7 @@ class TenantPackage(BaseModel):
     flex_sso_moderator_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexSSOModeratorCostCents")
     flex_sso_moderator_unit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexSSOModeratorUnit")
     is_sso_billing_monthly_active_users: Optional[StrictBool] = Field(default=None, alias="isSSOBillingMonthlyActiveUsers")
-    __properties: ClassVar[List[str]] = ["_id", "name", "tenantId", "createdAt", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing", "enableSAML", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexSmallWidgetsCreditCostCents", "flexSmallWidgetsCreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexChatGPTCostCents", "flexChatGPTUnit", "flexMinimumCostCents", "flexManagedTenantCostCents", "flexSSOAdminCostCents", "flexSSOAdminUnit", "flexSSOModeratorCostCents", "flexSSOModeratorUnit", "isSSOBillingMonthlyActiveUsers"]
+    __properties: ClassVar[List[str]] = ["_id", "name", "tenantId", "createdAt", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing", "enableSAML", "enableCanvasLTI", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexSmallWidgetsCreditCostCents", "flexSmallWidgetsCreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexChatGPTCostCents", "flexChatGPTUnit", "flexMinimumCostCents", "flexManagedTenantCostCents", "flexSSOAdminCostCents", "flexSSOAdminUnit", "flexSSOModeratorCostCents", "flexSSOModeratorUnit", "isSSOBillingMonthlyActiveUsers"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -171,6 +173,7 @@ class TenantPackage(BaseModel):
             "maxDomains": obj.get("maxDomains"),
             "maxWhiteLabeledTenants": obj.get("maxWhiteLabeledTenants"),
             "maxMonthlyEventLogRequests": obj.get("maxMonthlyEventLogRequests"),
+            "maxCustomCollectionSize": obj.get("maxCustomCollectionSize"),
             "hasWhiteLabeling": obj.get("hasWhiteLabeling"),
             "hasDebranding": obj.get("hasDebranding"),
             "hasLLMSpamDetection": obj.get("hasLLMSpamDetection"),
@@ -179,6 +182,7 @@ class TenantPackage(BaseModel):
             "hasAuditing": obj.get("hasAuditing"),
             "hasFlexPricing": obj.get("hasFlexPricing"),
             "enableSAML": obj.get("enableSAML"),
+            "enableCanvasLTI": obj.get("enableCanvasLTI"),
             "flexPageLoadCostCents": obj.get("flexPageLoadCostCents"),
             "flexPageLoadUnit": obj.get("flexPageLoadUnit"),
             "flexCommentCostCents": obj.get("flexCommentCostCents"),

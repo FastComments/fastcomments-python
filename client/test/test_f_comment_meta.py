@@ -35,6 +35,7 @@ class TestFCommentMeta(unittest.TestCase):
         model = FCommentMeta()
         if include_optional:
             return FCommentMeta(
+                wp_id = '',
                 wp_user_id = '',
                 wp_post_id = ''
             )

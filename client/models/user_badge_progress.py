@@ -35,7 +35,8 @@ class UserBadgeProgress(BaseModel):
     auto_trust_factor: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="autoTrustFactor")
     manual_trust_factor: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="manualTrustFactor")
     progress: Dict[str, Union[StrictFloat, StrictInt]] = Field(description="Construct a type with a set of properties K of type T")
-    __properties: ClassVar[List[str]] = ["_id", "tenantId", "userId", "firstCommentId", "firstCommentDate", "autoTrustFactor", "manualTrustFactor", "progress"]
+    tos_accepted_at: Optional[datetime] = Field(default=None, alias="tosAcceptedAt")
+    __properties: ClassVar[List[str]] = ["_id", "tenantId", "userId", "firstCommentId", "firstCommentDate", "autoTrustFactor", "manualTrustFactor", "progress", "tosAcceptedAt"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -95,7 +96,8 @@ class UserBadgeProgress(BaseModel):
             "firstCommentDate": obj.get("firstCommentDate"),
             "autoTrustFactor": obj.get("autoTrustFactor"),
             "manualTrustFactor": obj.get("manualTrustFactor"),
-            "progress": obj.get("progress")
+            "progress": obj.get("progress"),
+            "tosAcceptedAt": obj.get("tosAcceptedAt")
         })
         return _obj
 

@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**aggregate_question_results**](DefaultApi.md#aggregate_question_results) | **GET** /api/v1/question-results-aggregation | 
 [**block_user_from_comment**](DefaultApi.md#block_user_from_comment) | **POST** /api/v1/comments/{id}/block | 
 [**bulk_aggregate_question_results**](DefaultApi.md#bulk_aggregate_question_results) | **POST** /api/v1/question-results-aggregation/bulk | 
+[**change_ticket_state**](DefaultApi.md#change_ticket_state) | **PATCH** /api/v1/tickets/{id}/state | 
 [**combine_comments_with_question_results**](DefaultApi.md#combine_comments_with_question_results) | **GET** /api/v1/question-results-aggregation/combine/comments | 
 [**create_email_template**](DefaultApi.md#create_email_template) | **POST** /api/v1/email-templates | 
 [**create_feed_post**](DefaultApi.md#create_feed_post) | **POST** /api/v1/feed-posts | 
@@ -23,6 +24,7 @@ Method | HTTP request | Description
 [**create_tenant**](DefaultApi.md#create_tenant) | **POST** /api/v1/tenants | 
 [**create_tenant_package**](DefaultApi.md#create_tenant_package) | **POST** /api/v1/tenant-packages | 
 [**create_tenant_user**](DefaultApi.md#create_tenant_user) | **POST** /api/v1/tenant-users | 
+[**create_ticket**](DefaultApi.md#create_ticket) | **POST** /api/v1/tickets | 
 [**create_user_badge**](DefaultApi.md#create_user_badge) | **POST** /api/v1/user-badges | 
 [**create_vote**](DefaultApi.md#create_vote) | **POST** /api/v1/votes | 
 [**delete_comment**](DefaultApi.md#delete_comment) | **DELETE** /api/v1/comments/{id} | 
@@ -79,6 +81,8 @@ Method | HTTP request | Description
 [**get_tenant_user**](DefaultApi.md#get_tenant_user) | **GET** /api/v1/tenant-users/{id} | 
 [**get_tenant_users**](DefaultApi.md#get_tenant_users) | **GET** /api/v1/tenant-users | 
 [**get_tenants**](DefaultApi.md#get_tenants) | **GET** /api/v1/tenants | 
+[**get_ticket**](DefaultApi.md#get_ticket) | **GET** /api/v1/tickets/{id} | 
+[**get_tickets**](DefaultApi.md#get_tickets) | **GET** /api/v1/tickets | 
 [**get_user**](DefaultApi.md#get_user) | **GET** /api/v1/users/{id} | 
 [**get_user_badge**](DefaultApi.md#get_user_badge) | **GET** /api/v1/user-badges/{id} | 
 [**get_user_badge_progress_by_id**](DefaultApi.md#get_user_badge_progress_by_id) | **GET** /api/v1/user-badge-progress/{id} | 
@@ -109,6 +113,7 @@ Method | HTTP request | Description
 [**update_notification**](DefaultApi.md#update_notification) | **PATCH** /api/v1/notifications/{id} | 
 [**update_question_config**](DefaultApi.md#update_question_config) | **PATCH** /api/v1/question-configs/{id} | 
 [**update_question_result**](DefaultApi.md#update_question_result) | **PATCH** /api/v1/question-results/{id} | 
+[**update_subscription**](DefaultApi.md#update_subscription) | **PATCH** /api/v1/subscriptions/{id} | 
 [**update_tenant**](DefaultApi.md#update_tenant) | **PATCH** /api/v1/tenants/{id} | 
 [**update_tenant_package**](DefaultApi.md#update_tenant_package) | **PATCH** /api/v1/tenant-packages/{id} | 
 [**update_tenant_user**](DefaultApi.md#update_tenant_user) | **PATCH** /api/v1/tenant-users/{id} | 
@@ -832,6 +837,89 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BulkAggregateQuestionResults200Response**](BulkAggregateQuestionResults200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **change_ticket_state**
+> ChangeTicketState200Response change_ticket_state(tenant_id, user_id, id, change_ticket_state_body)
+
+
+
+### Example
+
+* Api Key Authentication (api_key):
+
+```python
+import client
+from client.models.change_ticket_state200_response import ChangeTicketState200Response
+from client.models.change_ticket_state_body import ChangeTicketStateBody
+from client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://fastcomments.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = client.Configuration(
+    host = "https://fastcomments.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key
+configuration.api_key['api_key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['api_key'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = client.DefaultApi(api_client)
+    tenant_id = 'tenant_id_example' # str | 
+    user_id = 'user_id_example' # str | 
+    id = 'id_example' # str | 
+    change_ticket_state_body = client.ChangeTicketStateBody() # ChangeTicketStateBody | 
+
+    try:
+        api_response = api_instance.change_ticket_state(tenant_id, user_id, id, change_ticket_state_body)
+        print("The response of DefaultApi->change_ticket_state:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->change_ticket_state: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenant_id** | **str**|  | 
+ **user_id** | **str**|  | 
+ **id** | **str**|  | 
+ **change_ticket_state_body** | [**ChangeTicketStateBody**](ChangeTicketStateBody.md)|  | 
+
+### Return type
+
+[**ChangeTicketState200Response**](ChangeTicketState200Response.md)
 
 ### Authorization
 
@@ -1643,6 +1731,87 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateTenantUser200Response**](CreateTenantUser200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_ticket**
+> CreateTicket200Response create_ticket(tenant_id, user_id, create_ticket_body)
+
+
+
+### Example
+
+* Api Key Authentication (api_key):
+
+```python
+import client
+from client.models.create_ticket200_response import CreateTicket200Response
+from client.models.create_ticket_body import CreateTicketBody
+from client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://fastcomments.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = client.Configuration(
+    host = "https://fastcomments.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key
+configuration.api_key['api_key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['api_key'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = client.DefaultApi(api_client)
+    tenant_id = 'tenant_id_example' # str | 
+    user_id = 'user_id_example' # str | 
+    create_ticket_body = client.CreateTicketBody() # CreateTicketBody | 
+
+    try:
+        api_response = api_instance.create_ticket(tenant_id, user_id, create_ticket_body)
+        print("The response of DefaultApi->create_ticket:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->create_ticket: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenant_id** | **str**|  | 
+ **user_id** | **str**|  | 
+ **create_ticket_body** | [**CreateTicketBody**](CreateTicketBody.md)|  | 
+
+### Return type
+
+[**CreateTicket200Response**](CreateTicket200Response.md)
 
 ### Authorization
 
@@ -6161,6 +6330,170 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_ticket**
+> GetTicket200Response get_ticket(tenant_id, id, user_id=user_id)
+
+
+
+### Example
+
+* Api Key Authentication (api_key):
+
+```python
+import client
+from client.models.get_ticket200_response import GetTicket200Response
+from client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://fastcomments.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = client.Configuration(
+    host = "https://fastcomments.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key
+configuration.api_key['api_key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['api_key'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = client.DefaultApi(api_client)
+    tenant_id = 'tenant_id_example' # str | 
+    id = 'id_example' # str | 
+    user_id = 'user_id_example' # str |  (optional)
+
+    try:
+        api_response = api_instance.get_ticket(tenant_id, id, user_id=user_id)
+        print("The response of DefaultApi->get_ticket:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->get_ticket: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenant_id** | **str**|  | 
+ **id** | **str**|  | 
+ **user_id** | **str**|  | [optional] 
+
+### Return type
+
+[**GetTicket200Response**](GetTicket200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_tickets**
+> GetTickets200Response get_tickets(tenant_id, user_id=user_id, state=state, skip=skip, limit=limit)
+
+
+
+### Example
+
+* Api Key Authentication (api_key):
+
+```python
+import client
+from client.models.get_tickets200_response import GetTickets200Response
+from client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://fastcomments.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = client.Configuration(
+    host = "https://fastcomments.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key
+configuration.api_key['api_key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['api_key'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = client.DefaultApi(api_client)
+    tenant_id = 'tenant_id_example' # str | 
+    user_id = 'user_id_example' # str |  (optional)
+    state = 3.4 # float |  (optional)
+    skip = 3.4 # float |  (optional)
+    limit = 3.4 # float |  (optional)
+
+    try:
+        api_response = api_instance.get_tickets(tenant_id, user_id=user_id, state=state, skip=skip, limit=limit)
+        print("The response of DefaultApi->get_tickets:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->get_tickets: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenant_id** | **str**|  | 
+ **user_id** | **str**|  | [optional] 
+ **state** | **float**|  | [optional] 
+ **skip** | **float**|  | [optional] 
+ **limit** | **float**|  | [optional] 
+
+### Return type
+
+[**GetTickets200Response**](GetTickets200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_user**
 > GetUser200Response get_user(tenant_id, id)
 
@@ -8596,6 +8929,89 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FlagCommentPublic200Response**](FlagCommentPublic200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Ok |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_subscription**
+> UpdateSubscriptionAPIResponse update_subscription(tenant_id, id, update_api_user_subscription_data, user_id=user_id)
+
+
+
+### Example
+
+* Api Key Authentication (api_key):
+
+```python
+import client
+from client.models.update_api_user_subscription_data import UpdateAPIUserSubscriptionData
+from client.models.update_subscription_api_response import UpdateSubscriptionAPIResponse
+from client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://fastcomments.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = client.Configuration(
+    host = "https://fastcomments.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key
+configuration.api_key['api_key'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['api_key'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = client.DefaultApi(api_client)
+    tenant_id = 'tenant_id_example' # str | 
+    id = 'id_example' # str | 
+    update_api_user_subscription_data = client.UpdateAPIUserSubscriptionData() # UpdateAPIUserSubscriptionData | 
+    user_id = 'user_id_example' # str |  (optional)
+
+    try:
+        api_response = api_instance.update_subscription(tenant_id, id, update_api_user_subscription_data, user_id=user_id)
+        print("The response of DefaultApi->update_subscription:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->update_subscription: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenant_id** | **str**|  | 
+ **id** | **str**|  | 
+ **update_api_user_subscription_data** | [**UpdateAPIUserSubscriptionData**](UpdateAPIUserSubscriptionData.md)|  | 
+ **user_id** | **str**|  | [optional] 
+
+### Return type
+
+[**UpdateSubscriptionAPIResponse**](UpdateSubscriptionAPIResponse.md)
 
 ### Authorization
 

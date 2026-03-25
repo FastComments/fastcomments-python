@@ -20,7 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from client.models.f_comment_meta import FCommentMeta
+from client.models.api_comment_base_meta import APICommentBaseMeta
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -64,7 +64,7 @@ class UpdatableCommentParams(BaseModel):
     is_locked: Optional[StrictBool] = Field(default=None, alias="isLocked")
     flag_count: Optional[StrictInt] = Field(default=None, alias="flagCount")
     display_label: Optional[StrictStr] = Field(default=None, alias="displayLabel")
-    meta: Optional[FCommentMeta] = None
+    meta: Optional[APICommentBaseMeta] = None
     moderation_group_ids: Optional[List[StrictStr]] = Field(default=None, alias="moderationGroupIds")
     feedback_ids: Optional[List[StrictStr]] = Field(default=None, alias="feedbackIds")
     __properties: ClassVar[List[str]] = ["urlId", "urlIdRaw", "url", "pageTitle", "userId", "commenterEmail", "commenterName", "commenterLink", "comment", "commentHTML", "parentId", "date", "localDateString", "localDateHours", "votes", "votesUp", "votesDown", "expireAt", "verified", "verifiedDate", "notificationSentForParent", "notificationSentForParentTenant", "reviewed", "externalId", "externalParentId", "avatarSrc", "isSpam", "approved", "isDeleted", "isDeletedUser", "isByAdmin", "isByModerator", "isPinned", "isLocked", "flagCount", "displayLabel", "meta", "moderationGroupIds", "feedbackIds"]
@@ -264,7 +264,7 @@ class UpdatableCommentParams(BaseModel):
             "isLocked": obj.get("isLocked"),
             "flagCount": obj.get("flagCount"),
             "displayLabel": obj.get("displayLabel"),
-            "meta": FCommentMeta.from_dict(obj["meta"]) if obj.get("meta") is not None else None,
+            "meta": APICommentBaseMeta.from_dict(obj["meta"]) if obj.get("meta") is not None else None,
             "moderationGroupIds": obj.get("moderationGroupIds"),
             "feedbackIds": obj.get("feedbackIds")
         })

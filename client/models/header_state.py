@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from client.models.api_status import APIStatus
+from client.models.header_account_notification import HeaderAccountNotification
 from client.models.notification_and_count import NotificationAndCount
 from typing import Optional, Set
 from typing_extensions import Self
@@ -33,7 +34,8 @@ class HeaderState(BaseModel):
     user_id: StrictStr = Field(alias="userId")
     user_id_ws: StrictStr = Field(alias="userIdWS")
     notification_counts: List[NotificationAndCount] = Field(alias="notificationCounts")
-    __properties: ClassVar[List[str]] = ["status", "NotificationType", "userId", "userIdWS", "notificationCounts"]
+    account_notifications: List[HeaderAccountNotification] = Field(alias="accountNotifications")
+    __properties: ClassVar[List[str]] = ["status", "NotificationType", "userId", "userIdWS", "notificationCounts", "accountNotifications"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,6 +83,13 @@ class HeaderState(BaseModel):
                 if _item_notification_counts:
                     _items.append(_item_notification_counts.to_dict())
             _dict['notificationCounts'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in account_notifications (list)
+        _items = []
+        if self.account_notifications:
+            for _item_account_notifications in self.account_notifications:
+                if _item_account_notifications:
+                    _items.append(_item_account_notifications.to_dict())
+            _dict['accountNotifications'] = _items
         return _dict
 
     @classmethod
@@ -97,7 +106,8 @@ class HeaderState(BaseModel):
             "NotificationType": obj.get("NotificationType"),
             "userId": obj.get("userId"),
             "userIdWS": obj.get("userIdWS"),
-            "notificationCounts": [NotificationAndCount.from_dict(_item) for _item in obj["notificationCounts"]] if obj.get("notificationCounts") is not None else None
+            "notificationCounts": [NotificationAndCount.from_dict(_item) for _item in obj["notificationCounts"]] if obj.get("notificationCounts") is not None else None,
+            "accountNotifications": [HeaderAccountNotification.from_dict(_item) for _item in obj["accountNotifications"]] if obj.get("accountNotifications") is not None else None
         })
         return _obj
 

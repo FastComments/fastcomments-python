@@ -192,7 +192,8 @@ class TestFComment(unittest.TestCase):
                     ],
                 view_count = 56,
                 requires_verification = True,
-                edit_key = ''
+                edit_key = '',
+                tos_accepted_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
             return FComment(

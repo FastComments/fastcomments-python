@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **auto_trust_factor** | **float** |  | [optional] 
 **manual_trust_factor** | **float** |  | [optional] 
 **progress** | **Dict[str, float]** | Construct a type with a set of properties K of type T | 
+**tos_accepted_at** | **datetime** |  | [optional] 
 
 ## Example
 

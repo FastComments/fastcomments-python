@@ -26,12 +26,14 @@ from client.models.comment_thread_deletion_mode import CommentThreadDeletionMode
 from client.models.commenter_name_formats import CommenterNameFormats
 from client.models.gif_rating import GifRating
 from client.models.image_content_profanity_level import ImageContentProfanityLevel
+from client.models.mention_auto_complete_mode import MentionAutoCompleteMode
 from client.models.question_rendering_type import QuestionRenderingType
 from client.models.question_sub_question_visibility import QuestionSubQuestionVisibility
 from client.models.question_when_save import QuestionWhenSave
 from client.models.sort_directions import SortDirections
 from client.models.spam_rule import SpamRule
 from client.models.sso_security_level import SSOSecurityLevel
+from client.models.tos_config import TOSConfig
 from client.models.vote_style import VoteStyle
 from typing import Optional, Set
 from typing_extensions import Self
@@ -64,6 +66,8 @@ class CustomConfigParameters(BaseModel):
     disable_email_inputs: Optional[StrictBool] = Field(default=None, alias="disableEmailInputs")
     disable_live_commenting: Optional[StrictBool] = Field(default=None, alias="disableLiveCommenting")
     disable_notification_bell: Optional[StrictBool] = Field(default=None, alias="disableNotificationBell")
+    disable_profile_comments: Optional[StrictBool] = Field(default=None, alias="disableProfileComments")
+    disable_profile_direct_messages: Optional[StrictBool] = Field(default=None, alias="disableProfileDirectMessages")
     disable_profiles: Optional[StrictBool] = Field(default=None, alias="disableProfiles")
     disable_success_message: Optional[StrictBool] = Field(default=None, alias="disableSuccessMessage")
     disable_toolbar: Optional[StrictBool] = Field(default=None, alias="disableToolbar")
@@ -88,6 +92,7 @@ class CustomConfigParameters(BaseModel):
     max_comment_character_length: Optional[StrictInt] = Field(default=None, alias="maxCommentCharacterLength")
     max_comment_created_count_pupm: Optional[StrictInt] = Field(default=None, alias="maxCommentCreatedCountPUPM")
     no_custom_config: Optional[StrictBool] = Field(default=None, alias="noCustomConfig")
+    mention_auto_complete_mode: Optional[MentionAutoCompleteMode] = Field(default=None, alias="mentionAutoCompleteMode")
     no_image_uploads: Optional[StrictBool] = Field(default=None, alias="noImageUploads")
     no_styles: Optional[StrictBool] = Field(default=None, alias="noStyles")
     page_size: Optional[StrictInt] = Field(default=None, alias="pageSize")
@@ -108,12 +113,19 @@ class CustomConfigParameters(BaseModel):
     vote_style: Optional[VoteStyle] = Field(default=None, alias="voteStyle")
     widget_question_id: Optional[StrictStr] = Field(default=None, alias="widgetQuestionId")
     widget_question_results_style: Optional[CommentQuestionResultsRenderingType] = Field(default=None, alias="widgetQuestionResultsStyle")
+    widget_question_show_breakdown: Optional[StrictBool] = Field(default=None, alias="widgetQuestionShowBreakdown")
     widget_question_style: Optional[QuestionRenderingType] = Field(default=None, alias="widgetQuestionStyle")
     widget_question_when_to_save: Optional[QuestionWhenSave] = Field(default=None, alias="widgetQuestionWhenToSave")
     widget_questions_required: Optional[CommentQuestionsRequired] = Field(default=None, alias="widgetQuestionsRequired")
     widget_sub_question_visibility: Optional[QuestionSubQuestionVisibility] = Field(default=None, alias="widgetSubQuestionVisibility")
     wrap: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["absoluteAndRelativeDates", "absoluteDates", "allowAnon", "allowAnonFlag", "allowAnonVotes", "allowedLanguages", "collapseReplies", "commentCountFormat", "commentHTMLRenderingMode", "commentThreadDeleteMode", "commenterNameFormat", "countAboveToggle", "customCSS", "defaultAvatarSrc", "defaultSortDirection", "defaultUsername", "disableAutoAdminMigration", "disableAutoHashTagCreation", "disableBlocking", "disableCommenterCommentDelete", "disableCommenterCommentEdit", "disableEmailInputs", "disableLiveCommenting", "disableNotificationBell", "disableProfiles", "disableSuccessMessage", "disableToolbar", "disableUnverifiedLabel", "disableVoting", "enableCommenterLinks", "enableSearch", "enableSpoilers", "enableThirdPartyCookieBypass", "enableViewCounts", "enableVoteList", "enableWYSIWYG", "gifRating", "hasDarkBackground", "headerHTML", "hideAvatars", "hideCommentsUnderCountTextFormat", "imageContentProfanityLevel", "inputAfterComments", "limitCommentsByGroups", "locale", "maxCommentCharacterLength", "maxCommentCreatedCountPUPM", "noCustomConfig", "noImageUploads", "noStyles", "pageSize", "readonly", "noNewRootComments", "requireSSO", "enableResizeHandle", "restrictedLinkDomains", "showBadgesInTopBar", "showCommentSaveSuccess", "showLiveRightAway", "showQuestion", "spamRules", "ssoSecLvl", "translations", "useShowCommentsToggle", "useSingleLineCommentInput", "voteStyle", "widgetQuestionId", "widgetQuestionResultsStyle", "widgetQuestionStyle", "widgetQuestionWhenToSave", "widgetQuestionsRequired", "widgetSubQuestionVisibility", "wrap"]
+    ticket_base_url: Optional[StrictStr] = Field(default=None, alias="ticketBaseUrl")
+    ticket_kb_search_endpoint: Optional[StrictStr] = Field(default=None, alias="ticketKBSearchEndpoint")
+    ticket_file_uploads_enabled: Optional[StrictBool] = Field(default=None, alias="ticketFileUploadsEnabled")
+    ticket_max_file_size: Optional[StrictInt] = Field(default=None, alias="ticketMaxFileSize")
+    ticket_auto_assign_user_ids: Optional[List[StrictStr]] = Field(default=None, alias="ticketAutoAssignUserIds")
+    tos: Optional[TOSConfig] = None
+    __properties: ClassVar[List[str]] = ["absoluteAndRelativeDates", "absoluteDates", "allowAnon", "allowAnonFlag", "allowAnonVotes", "allowedLanguages", "collapseReplies", "commentCountFormat", "commentHTMLRenderingMode", "commentThreadDeleteMode", "commenterNameFormat", "countAboveToggle", "customCSS", "defaultAvatarSrc", "defaultSortDirection", "defaultUsername", "disableAutoAdminMigration", "disableAutoHashTagCreation", "disableBlocking", "disableCommenterCommentDelete", "disableCommenterCommentEdit", "disableEmailInputs", "disableLiveCommenting", "disableNotificationBell", "disableProfileComments", "disableProfileDirectMessages", "disableProfiles", "disableSuccessMessage", "disableToolbar", "disableUnverifiedLabel", "disableVoting", "enableCommenterLinks", "enableSearch", "enableSpoilers", "enableThirdPartyCookieBypass", "enableViewCounts", "enableVoteList", "enableWYSIWYG", "gifRating", "hasDarkBackground", "headerHTML", "hideAvatars", "hideCommentsUnderCountTextFormat", "imageContentProfanityLevel", "inputAfterComments", "limitCommentsByGroups", "locale", "maxCommentCharacterLength", "maxCommentCreatedCountPUPM", "noCustomConfig", "mentionAutoCompleteMode", "noImageUploads", "noStyles", "pageSize", "readonly", "noNewRootComments", "requireSSO", "enableResizeHandle", "restrictedLinkDomains", "showBadgesInTopBar", "showCommentSaveSuccess", "showLiveRightAway", "showQuestion", "spamRules", "ssoSecLvl", "translations", "useShowCommentsToggle", "useSingleLineCommentInput", "voteStyle", "widgetQuestionId", "widgetQuestionResultsStyle", "widgetQuestionShowBreakdown", "widgetQuestionStyle", "widgetQuestionWhenToSave", "widgetQuestionsRequired", "widgetSubQuestionVisibility", "wrap", "ticketBaseUrl", "ticketKBSearchEndpoint", "ticketFileUploadsEnabled", "ticketMaxFileSize", "ticketAutoAssignUserIds", "tos"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -161,6 +173,9 @@ class CustomConfigParameters(BaseModel):
                 if _item_spam_rules:
                     _items.append(_item_spam_rules.to_dict())
             _dict['spamRules'] = _items
+        # override the default output from pydantic by calling `to_dict()` of tos
+        if self.tos:
+            _dict['tos'] = self.tos.to_dict()
         # set to None if allowed_languages (nullable) is None
         # and model_fields_set contains the field
         if self.allowed_languages is None and "allowed_languages" in self.model_fields_set:
@@ -226,6 +241,11 @@ class CustomConfigParameters(BaseModel):
         if self.max_comment_created_count_pupm is None and "max_comment_created_count_pupm" in self.model_fields_set:
             _dict['maxCommentCreatedCountPUPM'] = None
 
+        # set to None if mention_auto_complete_mode (nullable) is None
+        # and model_fields_set contains the field
+        if self.mention_auto_complete_mode is None and "mention_auto_complete_mode" in self.model_fields_set:
+            _dict['mentionAutoCompleteMode'] = None
+
         # set to None if page_size (nullable) is None
         # and model_fields_set contains the field
         if self.page_size is None and "page_size" in self.model_fields_set:
@@ -277,6 +297,8 @@ class CustomConfigParameters(BaseModel):
             "disableEmailInputs": obj.get("disableEmailInputs"),
             "disableLiveCommenting": obj.get("disableLiveCommenting"),
             "disableNotificationBell": obj.get("disableNotificationBell"),
+            "disableProfileComments": obj.get("disableProfileComments"),
+            "disableProfileDirectMessages": obj.get("disableProfileDirectMessages"),
             "disableProfiles": obj.get("disableProfiles"),
             "disableSuccessMessage": obj.get("disableSuccessMessage"),
             "disableToolbar": obj.get("disableToolbar"),
@@ -301,6 +323,7 @@ class CustomConfigParameters(BaseModel):
             "maxCommentCharacterLength": obj.get("maxCommentCharacterLength"),
             "maxCommentCreatedCountPUPM": obj.get("maxCommentCreatedCountPUPM"),
             "noCustomConfig": obj.get("noCustomConfig"),
+            "mentionAutoCompleteMode": obj.get("mentionAutoCompleteMode"),
             "noImageUploads": obj.get("noImageUploads"),
             "noStyles": obj.get("noStyles"),
             "pageSize": obj.get("pageSize"),
@@ -321,11 +344,18 @@ class CustomConfigParameters(BaseModel):
             "voteStyle": obj.get("voteStyle"),
             "widgetQuestionId": obj.get("widgetQuestionId"),
             "widgetQuestionResultsStyle": obj.get("widgetQuestionResultsStyle"),
+            "widgetQuestionShowBreakdown": obj.get("widgetQuestionShowBreakdown"),
             "widgetQuestionStyle": obj.get("widgetQuestionStyle"),
             "widgetQuestionWhenToSave": obj.get("widgetQuestionWhenToSave"),
             "widgetQuestionsRequired": obj.get("widgetQuestionsRequired"),
             "widgetSubQuestionVisibility": obj.get("widgetSubQuestionVisibility"),
-            "wrap": obj.get("wrap")
+            "wrap": obj.get("wrap"),
+            "ticketBaseUrl": obj.get("ticketBaseUrl"),
+            "ticketKBSearchEndpoint": obj.get("ticketKBSearchEndpoint"),
+            "ticketFileUploadsEnabled": obj.get("ticketFileUploadsEnabled"),
+            "ticketMaxFileSize": obj.get("ticketMaxFileSize"),
+            "ticketAutoAssignUserIds": obj.get("ticketAutoAssignUserIds"),
+            "tos": TOSConfig.from_dict(obj["tos"]) if obj.get("tos") is not None else None
         })
         return _obj
 

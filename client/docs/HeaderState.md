@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **user_id** | **str** |  | 
 **user_id_ws** | **str** |  | 
 **notification_counts** | [**List[NotificationAndCount]**](NotificationAndCount.md) |  | 
+**account_notifications** | [**List[HeaderAccountNotification]**](HeaderAccountNotification.md) |  | 
 
 ## Example
 

@@ -20,10 +20,10 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from client.models.api_comment_base_meta import APICommentBaseMeta
 from client.models.comment_user_badge_info import CommentUserBadgeInfo
 from client.models.comment_user_hash_tag_info import CommentUserHashTagInfo
 from client.models.comment_user_mention_info import CommentUserMentionInfo
-from client.models.f_comment_meta import FCommentMeta
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -66,7 +66,7 @@ class APIComment(BaseModel):
     local_date_string: Optional[StrictStr] = Field(default=None, alias="localDateString")
     locale: Optional[StrictStr]
     mentions: Optional[List[CommentUserMentionInfo]] = None
-    meta: Optional[FCommentMeta] = None
+    meta: Optional[APICommentBaseMeta] = None
     moderation_group_ids: Optional[List[StrictStr]] = Field(default=None, alias="moderationGroupIds")
     notification_sent_for_parent: Optional[StrictBool] = Field(default=None, alias="notificationSentForParent")
     notification_sent_for_parent_tenant: Optional[StrictBool] = Field(default=None, alias="notificationSentForParentTenant")
@@ -326,7 +326,7 @@ class APIComment(BaseModel):
             "localDateString": obj.get("localDateString"),
             "locale": obj.get("locale"),
             "mentions": [CommentUserMentionInfo.from_dict(_item) for _item in obj["mentions"]] if obj.get("mentions") is not None else None,
-            "meta": FCommentMeta.from_dict(obj["meta"]) if obj.get("meta") is not None else None,
+            "meta": APICommentBaseMeta.from_dict(obj["meta"]) if obj.get("meta") is not None else None,
             "moderationGroupIds": obj.get("moderationGroupIds"),
             "notificationSentForParent": obj.get("notificationSentForParent"),
             "notificationSentForParentTenant": obj.get("notificationSentForParentTenant"),

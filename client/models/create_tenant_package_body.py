@@ -42,6 +42,7 @@ class CreateTenantPackageBody(BaseModel):
     max_domains: Union[StrictFloat, StrictInt] = Field(alias="maxDomains")
     max_white_labeled_tenants: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="maxWhiteLabeledTenants")
     max_monthly_event_log_requests: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="maxMonthlyEventLogRequests")
+    max_custom_collection_size: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="maxCustomCollectionSize")
     has_white_labeling: Optional[StrictBool] = Field(default=None, alias="hasWhiteLabeling")
     has_debranding: StrictBool = Field(alias="hasDebranding")
     has_llm_spam_detection: Optional[StrictBool] = Field(default=None, alias="hasLLMSpamDetection")
@@ -74,7 +75,7 @@ class CreateTenantPackageBody(BaseModel):
     flex_sso_admin_unit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexSSOAdminUnit")
     flex_sso_moderator_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexSSOModeratorCostCents")
     flex_sso_moderator_unit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexSSOModeratorUnit")
-    __properties: ClassVar[List[str]] = ["name", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing", "enableSAML", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexSmallWidgetsCreditCostCents", "flexSmallWidgetsCreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexChatGPTCostCents", "flexChatGPTUnit", "flexMinimumCostCents", "flexManagedTenantCostCents", "flexSSOAdminCostCents", "flexSSOAdminUnit", "flexSSOModeratorCostCents", "flexSSOModeratorUnit"]
+    __properties: ClassVar[List[str]] = ["name", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing", "enableSAML", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexSmallWidgetsCreditCostCents", "flexSmallWidgetsCreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexChatGPTCostCents", "flexChatGPTUnit", "flexMinimumCostCents", "flexManagedTenantCostCents", "flexSSOAdminCostCents", "flexSSOAdminUnit", "flexSSOModeratorCostCents", "flexSSOModeratorUnit"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -163,6 +164,7 @@ class CreateTenantPackageBody(BaseModel):
             "maxDomains": obj.get("maxDomains"),
             "maxWhiteLabeledTenants": obj.get("maxWhiteLabeledTenants"),
             "maxMonthlyEventLogRequests": obj.get("maxMonthlyEventLogRequests"),
+            "maxCustomCollectionSize": obj.get("maxCustomCollectionSize"),
             "hasWhiteLabeling": obj.get("hasWhiteLabeling"),
             "hasDebranding": obj.get("hasDebranding"),
             "hasLLMSpamDetection": obj.get("hasLLMSpamDetection"),

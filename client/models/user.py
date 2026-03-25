@@ -35,6 +35,8 @@ class User(BaseModel):
     website_url: Optional[StrictStr] = Field(default=None, alias="websiteUrl")
     email: Optional[StrictStr]
     pending_email: Optional[StrictStr] = Field(default=None, alias="pendingEmail")
+    backup_email: Optional[StrictStr] = Field(default=None, alias="backupEmail")
+    pending_backup_email: Optional[StrictStr] = Field(default=None, alias="pendingBackupEmail")
     sign_up_date: StrictInt = Field(alias="signUpDate")
     created_from_url_id: Optional[StrictStr] = Field(default=None, alias="createdFromUrlId")
     created_from_tenant_id: Optional[StrictStr] = Field(alias="createdFromTenantId")
@@ -57,11 +59,16 @@ class User(BaseModel):
     is_manage_data_admin: Optional[StrictBool] = Field(default=None, alias="isManageDataAdmin")
     is_comment_moderator_admin: Optional[StrictBool] = Field(default=None, alias="isCommentModeratorAdmin")
     is_api_admin: Optional[StrictBool] = Field(default=None, alias="isAPIAdmin")
+    is_site_admin: Optional[StrictBool] = Field(default=None, alias="isSiteAdmin")
     moderator_ids: Optional[List[StrictStr]] = Field(default=None, alias="moderatorIds")
     is_impersonator: Optional[StrictBool] = Field(default=None, alias="isImpersonator")
     is_coupon_manager: Optional[StrictBool] = Field(default=None, alias="isCouponManager")
     locale: Optional[StrictStr] = None
     digest_email_frequency: Optional[DigestEmailFrequency] = Field(default=None, alias="digestEmailFrequency")
+    notification_frequency: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="notificationFrequency")
+    admin_notification_frequency: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="adminNotificationFrequency")
+    last_tenant_notification_sent_date: Optional[datetime] = Field(default=None, alias="lastTenantNotificationSentDate")
+    last_reply_notification_sent_date: Optional[datetime] = Field(default=None, alias="lastReplyNotificationSentDate")
     ignored_add_to_my_site_messages: Optional[StrictBool] = Field(default=None, alias="ignoredAddToMySiteMessages")
     last_login_date: Optional[datetime] = Field(default=None, alias="lastLoginDate")
     display_label: Optional[StrictStr] = Field(default=None, alias="displayLabel")
@@ -79,7 +86,8 @@ class User(BaseModel):
     country_flag: Optional[StrictStr] = Field(default=None, alias="countryFlag")
     social_links: Optional[List[StrictStr]] = Field(default=None, alias="socialLinks")
     has_two_factor: Optional[StrictBool] = Field(default=None, alias="hasTwoFactor")
-    __properties: ClassVar[List[str]] = ["_id", "tenantId", "username", "displayName", "websiteUrl", "email", "pendingEmail", "signUpDate", "createdFromUrlId", "createdFromTenantId", "createdFromIpHashed", "verified", "loginId", "loginIdDate", "loginCount", "optedInNotifications", "optedInTenantNotifications", "hideAccountCode", "avatarSrc", "isFastCommentsHelpRequestAdmin", "isHelpRequestAdmin", "isAccountOwner", "isAdminAdmin", "isBillingAdmin", "isAnalyticsAdmin", "isCustomizationAdmin", "isManageDataAdmin", "isCommentModeratorAdmin", "isAPIAdmin", "moderatorIds", "isImpersonator", "isCouponManager", "locale", "digestEmailFrequency", "ignoredAddToMySiteMessages", "lastLoginDate", "displayLabel", "isProfileActivityPrivate", "isProfileCommentsPrivate", "isProfileDMDisabled", "profileCommentApprovalMode", "karma", "passwordHash", "averageTicketAckTimeMS", "hasBlockedUsers", "bio", "headerBackgroundSrc", "countryCode", "countryFlag", "socialLinks", "hasTwoFactor"]
+    is_email_suppressed: Optional[StrictBool] = Field(default=None, alias="isEmailSuppressed")
+    __properties: ClassVar[List[str]] = ["_id", "tenantId", "username", "displayName", "websiteUrl", "email", "pendingEmail", "backupEmail", "pendingBackupEmail", "signUpDate", "createdFromUrlId", "createdFromTenantId", "createdFromIpHashed", "verified", "loginId", "loginIdDate", "loginCount", "optedInNotifications", "optedInTenantNotifications", "hideAccountCode", "avatarSrc", "isFastCommentsHelpRequestAdmin", "isHelpRequestAdmin", "isAccountOwner", "isAdminAdmin", "isBillingAdmin", "isAnalyticsAdmin", "isCustomizationAdmin", "isManageDataAdmin", "isCommentModeratorAdmin", "isAPIAdmin", "isSiteAdmin", "moderatorIds", "isImpersonator", "isCouponManager", "locale", "digestEmailFrequency", "notificationFrequency", "adminNotificationFrequency", "lastTenantNotificationSentDate", "lastReplyNotificationSentDate", "ignoredAddToMySiteMessages", "lastLoginDate", "displayLabel", "isProfileActivityPrivate", "isProfileCommentsPrivate", "isProfileDMDisabled", "profileCommentApprovalMode", "karma", "passwordHash", "averageTicketAckTimeMS", "hasBlockedUsers", "bio", "headerBackgroundSrc", "countryCode", "countryFlag", "socialLinks", "hasTwoFactor", "isEmailSuppressed"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -174,6 +182,8 @@ class User(BaseModel):
             "websiteUrl": obj.get("websiteUrl"),
             "email": obj.get("email"),
             "pendingEmail": obj.get("pendingEmail"),
+            "backupEmail": obj.get("backupEmail"),
+            "pendingBackupEmail": obj.get("pendingBackupEmail"),
             "signUpDate": obj.get("signUpDate"),
             "createdFromUrlId": obj.get("createdFromUrlId"),
             "createdFromTenantId": obj.get("createdFromTenantId"),
@@ -196,11 +206,16 @@ class User(BaseModel):
             "isManageDataAdmin": obj.get("isManageDataAdmin"),
             "isCommentModeratorAdmin": obj.get("isCommentModeratorAdmin"),
             "isAPIAdmin": obj.get("isAPIAdmin"),
+            "isSiteAdmin": obj.get("isSiteAdmin"),
             "moderatorIds": obj.get("moderatorIds"),
             "isImpersonator": obj.get("isImpersonator"),
             "isCouponManager": obj.get("isCouponManager"),
             "locale": obj.get("locale"),
             "digestEmailFrequency": obj.get("digestEmailFrequency"),
+            "notificationFrequency": obj.get("notificationFrequency"),
+            "adminNotificationFrequency": obj.get("adminNotificationFrequency"),
+            "lastTenantNotificationSentDate": obj.get("lastTenantNotificationSentDate"),
+            "lastReplyNotificationSentDate": obj.get("lastReplyNotificationSentDate"),
             "ignoredAddToMySiteMessages": obj.get("ignoredAddToMySiteMessages"),
             "lastLoginDate": obj.get("lastLoginDate"),
             "displayLabel": obj.get("displayLabel"),
@@ -217,7 +232,8 @@ class User(BaseModel):
             "countryCode": obj.get("countryCode"),
             "countryFlag": obj.get("countryFlag"),
             "socialLinks": obj.get("socialLinks"),
-            "hasTwoFactor": obj.get("hasTwoFactor")
+            "hasTwoFactor": obj.get("hasTwoFactor"),
+            "isEmailSuppressed": obj.get("isEmailSuppressed")
         })
         return _obj
 

@@ -45,7 +45,8 @@ class Moderator(BaseModel):
     verification_id: Optional[StrictStr] = Field(alias="verificationId")
     created_at: datetime = Field(alias="createdAt")
     moderation_group_ids: Optional[List[StrictStr]] = Field(alias="moderationGroupIds")
-    __properties: ClassVar[List[str]] = ["_id", "tenantId", "name", "userId", "acceptedInvite", "email", "markReviewedCount", "deletedCount", "markedSpamCount", "markedNotSpamCount", "approvedCount", "unApprovedCount", "editedCount", "bannedCount", "unFlaggedCount", "verificationId", "createdAt", "moderationGroupIds"]
+    is_email_suppressed: Optional[StrictBool] = Field(default=None, alias="isEmailSuppressed")
+    __properties: ClassVar[List[str]] = ["_id", "tenantId", "name", "userId", "acceptedInvite", "email", "markReviewedCount", "deletedCount", "markedSpamCount", "markedNotSpamCount", "approvedCount", "unApprovedCount", "editedCount", "bannedCount", "unFlaggedCount", "verificationId", "createdAt", "moderationGroupIds", "isEmailSuppressed"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -140,7 +141,8 @@ class Moderator(BaseModel):
             "unFlaggedCount": obj.get("unFlaggedCount"),
             "verificationId": obj.get("verificationId"),
             "createdAt": obj.get("createdAt"),
-            "moderationGroupIds": obj.get("moderationGroupIds")
+            "moderationGroupIds": obj.get("moderationGroupIds"),
+            "isEmailSuppressed": obj.get("isEmailSuppressed")
         })
         return _obj
 

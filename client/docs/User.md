@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **website_url** | **str** |  | [optional] 
 **email** | **str** |  | 
 **pending_email** | **str** |  | [optional] 
+**backup_email** | **str** |  | [optional] 
+**pending_backup_email** | **str** |  | [optional] 
 **sign_up_date** | **int** |  | 
 **created_from_url_id** | **str** |  | [optional] 
 **created_from_tenant_id** | **str** |  | 
@@ -34,11 +36,16 @@ Name | Type | Description | Notes
 **is_manage_data_admin** | **bool** |  | [optional] 
 **is_comment_moderator_admin** | **bool** |  | [optional] 
 **is_api_admin** | **bool** |  | [optional] 
+**is_site_admin** | **bool** |  | [optional] 
 **moderator_ids** | **List[str]** |  | [optional] 
 **is_impersonator** | **bool** |  | [optional] 
 **is_coupon_manager** | **bool** |  | [optional] 
 **locale** | **str** |  | [optional] 
 **digest_email_frequency** | [**DigestEmailFrequency**](DigestEmailFrequency.md) |  | [optional] 
+**notification_frequency** | **float** |  | [optional] 
+**admin_notification_frequency** | **float** |  | [optional] 
+**last_tenant_notification_sent_date** | **datetime** |  | [optional] 
+**last_reply_notification_sent_date** | **datetime** |  | [optional] 
 **ignored_add_to_my_site_messages** | **bool** |  | [optional] 
 **last_login_date** | **datetime** |  | [optional] 
 **display_label** | **str** |  | [optional] 
@@ -56,6 +63,7 @@ Name | Type | Description | Notes
 **country_flag** | **str** |  | [optional] 
 **social_links** | **List[str]** |  | [optional] 
 **has_two_factor** | **bool** |  | [optional] 
+**is_email_suppressed** | **bool** |  | [optional] 
 
 ## Example
 

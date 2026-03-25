@@ -53,6 +53,7 @@ class CreateCommentParams(BaseModel):
     autoplay_delay_ms: Optional[StrictInt] = Field(default=None, alias="autoplayDelayMS")
     feedback_ids: Optional[List[StrictStr]] = Field(default=None, alias="feedbackIds")
     question_values: Optional[Dict[str, RecordStringStringOrNumberValue]] = Field(default=None, description="Construct a type with a set of properties K of type T", alias="questionValues")
+    tos: Optional[StrictBool] = None
     approved: Optional[StrictBool] = None
     domain: Optional[StrictStr] = None
     ip: Optional[StrictStr] = None
@@ -63,7 +64,7 @@ class CreateCommentParams(BaseModel):
     votes: Optional[StrictInt] = None
     votes_down: Optional[StrictInt] = Field(default=None, alias="votesDown")
     votes_up: Optional[StrictInt] = Field(default=None, alias="votesUp")
-    __properties: ClassVar[List[str]] = ["date", "localDateString", "localDateHours", "commenterName", "commenterEmail", "commenterLink", "comment", "productId", "userId", "avatarSrc", "parentId", "mentions", "hashTags", "pageTitle", "isFromMyAccountPage", "url", "urlId", "meta", "moderationGroupIds", "rating", "fromOfflineRestore", "autoplayDelayMS", "feedbackIds", "questionValues", "approved", "domain", "ip", "isPinned", "locale", "reviewed", "verified", "votes", "votesDown", "votesUp"]
+    __properties: ClassVar[List[str]] = ["date", "localDateString", "localDateHours", "commenterName", "commenterEmail", "commenterLink", "comment", "productId", "userId", "avatarSrc", "parentId", "mentions", "hashTags", "pageTitle", "isFromMyAccountPage", "url", "urlId", "meta", "moderationGroupIds", "rating", "fromOfflineRestore", "autoplayDelayMS", "feedbackIds", "questionValues", "tos", "approved", "domain", "ip", "isPinned", "locale", "reviewed", "verified", "votes", "votesDown", "votesUp"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -191,6 +192,7 @@ class CreateCommentParams(BaseModel):
             )
             if obj.get("questionValues") is not None
             else None,
+            "tos": obj.get("tos"),
             "approved": obj.get("approved"),
             "domain": obj.get("domain"),
             "ip": obj.get("ip"),

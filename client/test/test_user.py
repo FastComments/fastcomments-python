@@ -42,6 +42,8 @@ class TestUser(unittest.TestCase):
                 website_url = '',
                 email = '',
                 pending_email = '',
+                backup_email = '',
+                pending_backup_email = '',
                 sign_up_date = 56,
                 created_from_url_id = '',
                 created_from_tenant_id = '',
@@ -64,6 +66,7 @@ class TestUser(unittest.TestCase):
                 is_manage_data_admin = True,
                 is_comment_moderator_admin = True,
                 is_api_admin = True,
+                is_site_admin = True,
                 moderator_ids = [
                     ''
                     ],
@@ -71,6 +74,10 @@ class TestUser(unittest.TestCase):
                 is_coupon_manager = True,
                 locale = '',
                 digest_email_frequency = -1,
+                notification_frequency = 1.337,
+                admin_notification_frequency = 1.337,
+                last_tenant_notification_sent_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                last_reply_notification_sent_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 ignored_add_to_my_site_messages = True,
                 last_login_date = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 display_label = '',
@@ -89,7 +96,8 @@ class TestUser(unittest.TestCase):
                 social_links = [
                     ''
                     ],
-                has_two_factor = True
+                has_two_factor = True,
+                is_email_suppressed = True
             )
         else:
             return User(

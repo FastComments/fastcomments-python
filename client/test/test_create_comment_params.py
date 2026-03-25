@@ -78,6 +78,7 @@ class TestCreateCommentParams(unittest.TestCase):
                 question_values = {
                     'key' : null
                     },
+                tos = True,
                 approved = True,
                 domain = '',
                 ip = '',

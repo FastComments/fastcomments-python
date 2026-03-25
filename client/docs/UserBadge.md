@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **displayed_on_comments** | **bool** |  | 
 **received_at** | **datetime** |  | 
 **order** | **int** |  | [optional] 
+**url_id** | **str** |  | [optional] 
 
 ## Example
 

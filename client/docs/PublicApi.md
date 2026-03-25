@@ -1836,7 +1836,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_users**
-> SearchUsers200Response search_users(tenant_id, url_id, username_starts_with=username_starts_with, mention_group_ids=mention_group_ids, sso=sso)
+> SearchUsers200Response search_users(tenant_id, url_id, username_starts_with=username_starts_with, mention_group_ids=mention_group_ids, sso=sso, search_section=search_section)
 
 
 
@@ -1865,9 +1865,10 @@ with client.ApiClient(configuration) as api_client:
     username_starts_with = 'username_starts_with_example' # str |  (optional)
     mention_group_ids = ['mention_group_ids_example'] # List[str] |  (optional)
     sso = 'sso_example' # str |  (optional)
+    search_section = 'search_section_example' # str |  (optional)
 
     try:
-        api_response = api_instance.search_users(tenant_id, url_id, username_starts_with=username_starts_with, mention_group_ids=mention_group_ids, sso=sso)
+        api_response = api_instance.search_users(tenant_id, url_id, username_starts_with=username_starts_with, mention_group_ids=mention_group_ids, sso=sso, search_section=search_section)
         print("The response of PublicApi->search_users:\n")
         pprint(api_response)
     except Exception as e:
@@ -1886,6 +1887,7 @@ Name | Type | Description  | Notes
  **username_starts_with** | **str**|  | [optional] 
  **mention_group_ids** | [**List[str]**](str.md)|  | [optional] 
  **sso** | **str**|  | [optional] 
+ **search_section** | **str**|  | [optional] 
 
 ### Return type
 

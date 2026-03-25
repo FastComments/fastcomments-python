@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fastcomments"
-version = "1.2.0"
+version = "1.2.1"
 description = "FastComments Python SDK - A SDK for interacting with the FastComments API"
 readme = "README.md"
 license = "MIT"

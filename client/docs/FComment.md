@@ -76,6 +76,7 @@ Name | Type | Description | Notes
 **view_count** | **int** |  | [optional] 
 **requires_verification** | **bool** |  | [optional] 
 **edit_key** | **str** |  | [optional] 
+**tos_accepted_at** | **datetime** |  | [optional] 
 
 ## Example
 

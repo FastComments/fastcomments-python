@@ -39,6 +39,7 @@ class TestGetSubscriptionsAPIResponse(unittest.TestCase):
                 code = '',
                 subscriptions = [
                     client.models.api_user_subscription.APIUserSubscription(
+                        notification_frequency = 1.337, 
                         created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         page_title = '', 
                         url = '', 

@@ -46,6 +46,7 @@ class TestReplaceTenantPackageBody(unittest.TestCase):
                 max_sso_users = 1.337,
                 max_moderators = 1.337,
                 max_domains = 1.337,
+                max_custom_collection_size = 1.337,
                 has_debranding = True,
                 for_who_text = '',
                 feature_taglines = [

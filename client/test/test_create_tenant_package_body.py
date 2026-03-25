@@ -51,6 +51,7 @@ class TestCreateTenantPackageBody(unittest.TestCase):
                 max_domains = 1.337,
                 max_white_labeled_tenants = 1.337,
                 max_monthly_event_log_requests = 1.337,
+                max_custom_collection_size = 1.337,
                 has_white_labeling = True,
                 has_debranding = True,
                 has_llm_spam_detection = True,

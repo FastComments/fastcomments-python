@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **verification_id** | **str** |  | 
 **created_at** | **datetime** |  | 
 **moderation_group_ids** | **List[str]** |  | 
+**is_email_suppressed** | **bool** |  | [optional] 
 
 ## Example
 

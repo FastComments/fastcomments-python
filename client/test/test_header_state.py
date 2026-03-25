@@ -43,6 +43,18 @@ class TestHeaderState(unittest.TestCase):
                     client.models.notification_and_count.NotificationAndCount(
                         type = 0, 
                         count = 56, )
+                    ],
+                account_notifications = [
+                    client.models.header_account_notification.HeaderAccountNotification(
+                        _id = '', 
+                        title = '', 
+                        message = '', 
+                        messages_by_locale = null, 
+                        dates = null, 
+                        severity = '', 
+                        link_url = '', 
+                        link_text = '', 
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ]
             )
         else:
@@ -55,6 +67,18 @@ class TestHeaderState(unittest.TestCase):
                     client.models.notification_and_count.NotificationAndCount(
                         type = 0, 
                         count = 56, )
+                    ],
+                account_notifications = [
+                    client.models.header_account_notification.HeaderAccountNotification(
+                        _id = '', 
+                        title = '', 
+                        message = '', 
+                        messages_by_locale = null, 
+                        dates = null, 
+                        severity = '', 
+                        link_url = '', 
+                        link_text = '', 
+                        created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
         )
         """

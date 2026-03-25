@@ -37,10 +37,11 @@ class UserSessionInfo(BaseModel):
     group_ids: Optional[List[StrictStr]] = Field(default=None, alias="groupIds")
     has_blocked_users: Optional[StrictBool] = Field(default=None, alias="hasBlockedUsers")
     is_anon_session: Optional[StrictBool] = Field(default=None, alias="isAnonSession")
+    needs_tos: Optional[StrictBool] = Field(default=None, alias="needsTOS")
     session_id: Optional[StrictStr] = Field(default=None, alias="sessionId")
     username: Optional[StrictStr] = None
     website_url: Optional[StrictStr] = Field(default=None, alias="websiteUrl")
-    __properties: ClassVar[List[str]] = ["id", "authorized", "avatarSrc", "badges", "displayLabel", "displayName", "email", "groupIds", "hasBlockedUsers", "isAnonSession", "sessionId", "username", "websiteUrl"]
+    __properties: ClassVar[List[str]] = ["id", "authorized", "avatarSrc", "badges", "displayLabel", "displayName", "email", "groupIds", "hasBlockedUsers", "isAnonSession", "needsTOS", "sessionId", "username", "websiteUrl"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -125,6 +126,7 @@ class UserSessionInfo(BaseModel):
             "groupIds": obj.get("groupIds"),
             "hasBlockedUsers": obj.get("hasBlockedUsers"),
             "isAnonSession": obj.get("isAnonSession"),
+            "needsTOS": obj.get("needsTOS"),
             "sessionId": obj.get("sessionId"),
             "username": obj.get("username"),
             "websiteUrl": obj.get("websiteUrl")

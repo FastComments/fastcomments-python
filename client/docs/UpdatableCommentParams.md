@@ -41,7 +41,7 @@ Name | Type | Description | Notes
 **is_locked** | **bool** |  | [optional] 
 **flag_count** | **int** |  | [optional] 
 **display_label** | **str** |  | [optional] 
-**meta** | [**FCommentMeta**](FCommentMeta.md) |  | [optional] 
+**meta** | [**APICommentBaseMeta**](APICommentBaseMeta.md) |  | [optional] 
 **moderation_group_ids** | **List[str]** |  | [optional] 
 **feedback_ids** | **List[str]** |  | [optional] 
 

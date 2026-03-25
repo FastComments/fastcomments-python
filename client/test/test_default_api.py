@@ -80,6 +80,12 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_change_ticket_state(self) -> None:
+        """Test case for change_ticket_state
+
+        """
+        pass
+
     def test_combine_comments_with_question_results(self) -> None:
         """Test case for combine_comments_with_question_results
 
@@ -136,6 +142,12 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_create_tenant_user(self) -> None:
         """Test case for create_tenant_user
+
+        """
+        pass
+
+    def test_create_ticket(self) -> None:
+        """Test case for create_ticket
 
         """
         pass
@@ -476,6 +488,18 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_get_ticket(self) -> None:
+        """Test case for get_ticket
+
+        """
+        pass
+
+    def test_get_tickets(self) -> None:
+        """Test case for get_tickets
+
+        """
+        pass
+
     def test_get_user(self) -> None:
         """Test case for get_user
 
@@ -652,6 +676,12 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_update_question_result(self) -> None:
         """Test case for update_question_result
+
+        """
+        pass
+
+    def test_update_subscription(self) -> None:
+        """Test case for update_subscription
 
         """
         pass

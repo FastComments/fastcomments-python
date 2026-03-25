@@ -26,10 +26,11 @@ class FCommentMeta(BaseModel):
     """
     FCommentMeta
     """ # noqa: E501
+    wp_id: Optional[StrictStr] = Field(default=None, alias="wpId")
     wp_user_id: Optional[StrictStr] = Field(default=None, alias="wpUserId")
     wp_post_id: Optional[StrictStr] = Field(default=None, alias="wpPostId")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["wpUserId", "wpPostId"]
+    __properties: ClassVar[List[str]] = ["wpId", "wpUserId", "wpPostId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -89,6 +90,7 @@ class FCommentMeta(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "wpId": obj.get("wpId"),
             "wpUserId": obj.get("wpUserId"),
             "wpPostId": obj.get("wpPostId")
         })

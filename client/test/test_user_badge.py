@@ -52,7 +52,8 @@ class TestUserBadge(unittest.TestCase):
                 veteran_user_threshold_millis = 56,
                 displayed_on_comments = True,
                 received_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                order = 56
+                order = 56,
+                url_id = ''
             )
         else:
             return UserBadge(

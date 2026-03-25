@@ -35,6 +35,7 @@ class TestCreateAPIUserSubscriptionData(unittest.TestCase):
         model = CreateAPIUserSubscriptionData()
         if include_optional:
             return CreateAPIUserSubscriptionData(
+                notification_frequency = 1.337,
                 page_title = '',
                 url = '',
                 url_id = '',

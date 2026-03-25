@@ -37,6 +37,7 @@ class ReplaceTenantPackageBody(BaseModel):
     max_sso_users: Union[StrictFloat, StrictInt] = Field(alias="maxSSOUsers")
     max_moderators: Union[StrictFloat, StrictInt] = Field(alias="maxModerators")
     max_domains: Union[StrictFloat, StrictInt] = Field(alias="maxDomains")
+    max_custom_collection_size: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="maxCustomCollectionSize")
     has_debranding: StrictBool = Field(alias="hasDebranding")
     for_who_text: StrictStr = Field(alias="forWhoText")
     feature_taglines: List[StrictStr] = Field(alias="featureTaglines")
@@ -56,7 +57,7 @@ class ReplaceTenantPackageBody(BaseModel):
     flex_domain_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexDomainCostCents")
     flex_domain_unit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexDomainUnit")
     flex_minimum_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexMinimumCostCents")
-    __properties: ClassVar[List[str]] = ["name", "monthlyCostUSD", "yearlyCostUSD", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "hasDebranding", "forWhoText", "featureTaglines", "hasFlexPricing", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexMinimumCostCents"]
+    __properties: ClassVar[List[str]] = ["name", "monthlyCostUSD", "yearlyCostUSD", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxCustomCollectionSize", "hasDebranding", "forWhoText", "featureTaglines", "hasFlexPricing", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexMinimumCostCents"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -120,6 +121,7 @@ class ReplaceTenantPackageBody(BaseModel):
             "maxSSOUsers": obj.get("maxSSOUsers"),
             "maxModerators": obj.get("maxModerators"),
             "maxDomains": obj.get("maxDomains"),
+            "maxCustomCollectionSize": obj.get("maxCustomCollectionSize"),
             "hasDebranding": obj.get("hasDebranding"),
             "forWhoText": obj.get("forWhoText"),
             "featureTaglines": obj.get("featureTaglines"),

@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**wp_id** | **str** |  | [optional] 
 **wp_user_id** | **str** |  | [optional] 
 **wp_post_id** | **str** |  | [optional] 
 
