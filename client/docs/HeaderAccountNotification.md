@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **link_url** | **str** |  | 
 **link_text** | **str** |  | 
 **created_at** | **datetime** |  | 
+**type** | **str** | Discriminator for notifications with a special layout/click handler (e.g. \&quot;feedback-offer\&quot;). | [optional] 
 
 ## Example
 

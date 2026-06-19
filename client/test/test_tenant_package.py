@@ -39,6 +39,7 @@ class TestTenantPackage(unittest.TestCase):
                 name = '',
                 tenant_id = '',
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                template_id = '',
                 monthly_cost_usd = 1.337,
                 yearly_cost_usd = 1.337,
                 monthly_stripe_plan_id = '',
@@ -84,13 +85,19 @@ class TestTenantPackage(unittest.TestCase):
                 flex_domain_unit = 1.337,
                 flex_chat_gpt_cost_cents = 1.337,
                 flex_chat_gpt_unit = 1.337,
+                flex_llm_cost_cents = 1.337,
+                flex_llm_unit = 1.337,
                 flex_minimum_cost_cents = 1.337,
                 flex_managed_tenant_cost_cents = 1.337,
                 flex_sso_admin_cost_cents = 1.337,
                 flex_sso_admin_unit = 1.337,
                 flex_sso_moderator_cost_cents = 1.337,
                 flex_sso_moderator_unit = 1.337,
-                is_sso_billing_monthly_active_users = True
+                is_sso_billing_monthly_active_users = True,
+                has_ai_agents = True,
+                max_ai_agents = 1.337,
+                ai_agent_daily_budget_cents = 1.337,
+                ai_agent_monthly_budget_cents = 1.337
             )
         else:
             return TenantPackage(

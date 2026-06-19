@@ -31,7 +31,7 @@ class APICommentBase(BaseModel):
     """
     APICommentBase
     """ # noqa: E501
-    id: StrictStr = Field(alias="_id")
+    id: StrictStr
     ai_determined_spam: Optional[StrictBool] = Field(default=None, alias="aiDeterminedSpam")
     anon_user_id: Optional[StrictStr] = Field(default=None, alias="anonUserId")
     approved: StrictBool
@@ -84,7 +84,7 @@ class APICommentBase(BaseModel):
     votes: Optional[StrictInt] = None
     votes_down: Optional[StrictInt] = Field(default=None, alias="votesDown")
     votes_up: Optional[StrictInt] = Field(default=None, alias="votesUp")
-    __properties: ClassVar[List[str]] = ["_id", "aiDeterminedSpam", "anonUserId", "approved", "avatarSrc", "badges", "comment", "commentHTML", "commenterEmail", "commenterLink", "commenterName", "date", "displayLabel", "domain", "externalId", "externalParentId", "expireAt", "feedbackIds", "flagCount", "fromProductId", "hasCode", "hasImages", "hasLinks", "hashTags", "isByAdmin", "isByModerator", "isDeleted", "isDeletedUser", "isPinned", "isLocked", "isSpam", "localDateHours", "localDateString", "locale", "mentions", "meta", "moderationGroupIds", "notificationSentForParent", "notificationSentForParentTenant", "pageTitle", "parentId", "rating", "reviewed", "tenantId", "url", "urlId", "urlIdRaw", "userId", "verified", "verifiedDate", "votes", "votesDown", "votesUp"]
+    __properties: ClassVar[List[str]] = ["id", "aiDeterminedSpam", "anonUserId", "approved", "avatarSrc", "badges", "comment", "commentHTML", "commenterEmail", "commenterLink", "commenterName", "date", "displayLabel", "domain", "externalId", "externalParentId", "expireAt", "feedbackIds", "flagCount", "fromProductId", "hasCode", "hasImages", "hasLinks", "hashTags", "isByAdmin", "isByModerator", "isDeleted", "isDeletedUser", "isPinned", "isLocked", "isSpam", "localDateHours", "localDateString", "locale", "mentions", "meta", "moderationGroupIds", "notificationSentForParent", "notificationSentForParentTenant", "pageTitle", "parentId", "rating", "reviewed", "tenantId", "url", "urlId", "urlIdRaw", "userId", "verified", "verifiedDate", "votes", "votesDown", "votesUp"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -291,7 +291,7 @@ class APICommentBase(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "_id": obj.get("_id"),
+            "id": obj.get("id"),
             "aiDeterminedSpam": obj.get("aiDeterminedSpam"),
             "anonUserId": obj.get("anonUserId"),
             "approved": obj.get("approved"),

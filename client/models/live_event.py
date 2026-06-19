@@ -48,8 +48,9 @@ class LiveEvent(BaseModel):
     is_closed: Optional[StrictBool] = Field(default=None, alias="isClosed")
     uj: Optional[List[StrictStr]] = None
     ul: Optional[List[StrictStr]] = None
+    sc: Optional[StrictInt] = None
     changes: Optional[Dict[str, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["type", "timestamp", "ts", "broadcastId", "userId", "badges", "notification", "vote", "comment", "feedPost", "extraInfo", "config", "isClosed", "uj", "ul", "changes"]
+    __properties: ClassVar[List[str]] = ["type", "timestamp", "ts", "broadcastId", "userId", "badges", "notification", "vote", "comment", "feedPost", "extraInfo", "config", "isClosed", "uj", "ul", "sc", "changes"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -139,6 +140,7 @@ class LiveEvent(BaseModel):
             "isClosed": obj.get("isClosed"),
             "uj": obj.get("uj"),
             "ul": obj.get("ul"),
+            "sc": obj.get("sc"),
             "changes": obj.get("changes")
         })
         return _obj

@@ -50,6 +50,18 @@ class TestPublicApi(unittest.TestCase):
         """
         pass
 
+    def test_create_v1_page_react(self) -> None:
+        """Test case for create_v1_page_react
+
+        """
+        pass
+
+    def test_create_v2_page_react(self) -> None:
+        """Test case for create_v2_page_react
+
+        """
+        pass
+
     def test_delete_comment_public(self) -> None:
         """Test case for delete_comment_public
 
@@ -68,6 +80,18 @@ class TestPublicApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_v1_page_react(self) -> None:
+        """Test case for delete_v1_page_react
+
+        """
+        pass
+
+    def test_delete_v2_page_react(self) -> None:
+        """Test case for delete_v2_page_react
+
+        """
+        pass
+
     def test_flag_comment_public(self) -> None:
         """Test case for flag_comment_public
 
@@ -82,6 +106,12 @@ class TestPublicApi(unittest.TestCase):
 
     def test_get_comment_vote_user_names(self) -> None:
         """Test case for get_comment_vote_user_names
+
+        """
+        pass
+
+    def test_get_comments_for_user(self) -> None:
+        """Test case for get_comments_for_user
 
         """
         pass
@@ -110,8 +140,50 @@ class TestPublicApi(unittest.TestCase):
         """
         pass
 
+    def test_get_gif_large(self) -> None:
+        """Test case for get_gif_large
+
+        """
+        pass
+
+    def test_get_gifs_search(self) -> None:
+        """Test case for get_gifs_search
+
+        """
+        pass
+
+    def test_get_gifs_trending(self) -> None:
+        """Test case for get_gifs_trending
+
+        """
+        pass
+
     def test_get_global_event_log(self) -> None:
         """Test case for get_global_event_log
+
+        """
+        pass
+
+    def test_get_offline_users(self) -> None:
+        """Test case for get_offline_users
+
+        """
+        pass
+
+    def test_get_online_users(self) -> None:
+        """Test case for get_online_users
+
+        """
+        pass
+
+    def test_get_pages_public(self) -> None:
+        """Test case for get_pages_public
+
+        """
+        pass
+
+    def test_get_translations(self) -> None:
+        """Test case for get_translations
 
         """
         pass
@@ -140,8 +212,38 @@ class TestPublicApi(unittest.TestCase):
         """
         pass
 
+    def test_get_users_info(self) -> None:
+        """Test case for get_users_info
+
+        """
+        pass
+
+    def test_get_v1_page_likes(self) -> None:
+        """Test case for get_v1_page_likes
+
+        """
+        pass
+
+    def test_get_v2_page_react_users(self) -> None:
+        """Test case for get_v2_page_react_users
+
+        """
+        pass
+
+    def test_get_v2_page_reacts(self) -> None:
+        """Test case for get_v2_page_reacts
+
+        """
+        pass
+
     def test_lock_comment(self) -> None:
         """Test case for lock_comment
+
+        """
+        pass
+
+    def test_logout_public(self) -> None:
+        """Test case for logout_public
 
         """
         pass

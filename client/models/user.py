@@ -21,6 +21,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from client.models.digest_email_frequency import DigestEmailFrequency
+from client.models.imported_agent_approval_notification_frequency import ImportedAgentApprovalNotificationFrequency
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -67,6 +68,7 @@ class User(BaseModel):
     digest_email_frequency: Optional[DigestEmailFrequency] = Field(default=None, alias="digestEmailFrequency")
     notification_frequency: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="notificationFrequency")
     admin_notification_frequency: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="adminNotificationFrequency")
+    agent_approval_notification_frequency: Optional[ImportedAgentApprovalNotificationFrequency] = Field(default=None, alias="agentApprovalNotificationFrequency")
     last_tenant_notification_sent_date: Optional[datetime] = Field(default=None, alias="lastTenantNotificationSentDate")
     last_reply_notification_sent_date: Optional[datetime] = Field(default=None, alias="lastReplyNotificationSentDate")
     ignored_add_to_my_site_messages: Optional[StrictBool] = Field(default=None, alias="ignoredAddToMySiteMessages")
@@ -87,7 +89,7 @@ class User(BaseModel):
     social_links: Optional[List[StrictStr]] = Field(default=None, alias="socialLinks")
     has_two_factor: Optional[StrictBool] = Field(default=None, alias="hasTwoFactor")
     is_email_suppressed: Optional[StrictBool] = Field(default=None, alias="isEmailSuppressed")
-    __properties: ClassVar[List[str]] = ["_id", "tenantId", "username", "displayName", "websiteUrl", "email", "pendingEmail", "backupEmail", "pendingBackupEmail", "signUpDate", "createdFromUrlId", "createdFromTenantId", "createdFromIpHashed", "verified", "loginId", "loginIdDate", "loginCount", "optedInNotifications", "optedInTenantNotifications", "hideAccountCode", "avatarSrc", "isFastCommentsHelpRequestAdmin", "isHelpRequestAdmin", "isAccountOwner", "isAdminAdmin", "isBillingAdmin", "isAnalyticsAdmin", "isCustomizationAdmin", "isManageDataAdmin", "isCommentModeratorAdmin", "isAPIAdmin", "isSiteAdmin", "moderatorIds", "isImpersonator", "isCouponManager", "locale", "digestEmailFrequency", "notificationFrequency", "adminNotificationFrequency", "lastTenantNotificationSentDate", "lastReplyNotificationSentDate", "ignoredAddToMySiteMessages", "lastLoginDate", "displayLabel", "isProfileActivityPrivate", "isProfileCommentsPrivate", "isProfileDMDisabled", "profileCommentApprovalMode", "karma", "passwordHash", "averageTicketAckTimeMS", "hasBlockedUsers", "bio", "headerBackgroundSrc", "countryCode", "countryFlag", "socialLinks", "hasTwoFactor", "isEmailSuppressed"]
+    __properties: ClassVar[List[str]] = ["_id", "tenantId", "username", "displayName", "websiteUrl", "email", "pendingEmail", "backupEmail", "pendingBackupEmail", "signUpDate", "createdFromUrlId", "createdFromTenantId", "createdFromIpHashed", "verified", "loginId", "loginIdDate", "loginCount", "optedInNotifications", "optedInTenantNotifications", "hideAccountCode", "avatarSrc", "isFastCommentsHelpRequestAdmin", "isHelpRequestAdmin", "isAccountOwner", "isAdminAdmin", "isBillingAdmin", "isAnalyticsAdmin", "isCustomizationAdmin", "isManageDataAdmin", "isCommentModeratorAdmin", "isAPIAdmin", "isSiteAdmin", "moderatorIds", "isImpersonator", "isCouponManager", "locale", "digestEmailFrequency", "notificationFrequency", "adminNotificationFrequency", "agentApprovalNotificationFrequency", "lastTenantNotificationSentDate", "lastReplyNotificationSentDate", "ignoredAddToMySiteMessages", "lastLoginDate", "displayLabel", "isProfileActivityPrivate", "isProfileCommentsPrivate", "isProfileDMDisabled", "profileCommentApprovalMode", "karma", "passwordHash", "averageTicketAckTimeMS", "hasBlockedUsers", "bio", "headerBackgroundSrc", "countryCode", "countryFlag", "socialLinks", "hasTwoFactor", "isEmailSuppressed"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -214,6 +216,7 @@ class User(BaseModel):
             "digestEmailFrequency": obj.get("digestEmailFrequency"),
             "notificationFrequency": obj.get("notificationFrequency"),
             "adminNotificationFrequency": obj.get("adminNotificationFrequency"),
+            "agentApprovalNotificationFrequency": obj.get("agentApprovalNotificationFrequency"),
             "lastTenantNotificationSentDate": obj.get("lastTenantNotificationSentDate"),
             "lastReplyNotificationSentDate": obj.get("lastReplyNotificationSentDate"),
             "ignoredAddToMySiteMessages": obj.get("ignoredAddToMySiteMessages"),

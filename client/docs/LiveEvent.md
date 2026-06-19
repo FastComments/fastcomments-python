@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **is_closed** | **bool** |  | [optional] 
 **uj** | **List[str]** |  | [optional] 
 **ul** | **List[str]** |  | [optional] 
+**sc** | **int** |  | [optional] 
 **changes** | **Dict[str, int]** |  | [optional] 
 
 ## Example

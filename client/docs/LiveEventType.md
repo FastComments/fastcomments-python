@@ -37,6 +37,18 @@
 
 * `DELETED_MINUS_FEED_MINUS_POST` (value: `'deleted-feed-post'`)
 
+* `NEW_MINUS_TICKET` (value: `'new-ticket'`)
+
+* `UPDATED_MINUS_TICKET_MINUS_STATE` (value: `'updated-ticket-state'`)
+
+* `UPDATED_MINUS_TICKET_MINUS_ASSIGNMENT` (value: `'updated-ticket-assignment'`)
+
+* `DELETED_MINUS_TICKET` (value: `'deleted-ticket'`)
+
+* `PAGE_MINUS_REACT` (value: `'page-react'`)
+
+* `QUESTION_MINUS_RESULT` (value: `'question-result'`)
+
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

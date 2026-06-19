@@ -28,8 +28,9 @@ Name | Type | Description | Notes
 **from_offline_restore** | **bool** |  | [optional] 
 **autoplay_delay_ms** | **int** |  | [optional] 
 **feedback_ids** | **List[str]** |  | [optional] 
-**question_values** | [**Dict[str, RecordStringStringOrNumberValue]**](RecordStringStringOrNumberValue.md) | Construct a type with a set of properties K of type T | [optional] 
+**question_values** | [**Dict[str, GifSearchResponseImagesInnerInner]**](GifSearchResponseImagesInnerInner.md) | Construct a type with a set of properties K of type T | [optional] 
 **tos** | **bool** |  | [optional] 
+**bot_id** | **str** |  | [optional] 
 
 ## Example
 
