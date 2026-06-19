@@ -18,7 +18,7 @@ This library contains two modules: the generated API client and the core Python 
 
 ### Public vs Secured APIs
 
-For the API client, there are two classes, `DefaultApi` and `PublicApi`. The `DefaultApi` contains methods that require your API key, and `PublicApi` contains API calls that can be made directly from a browser/mobile device/etc without authentication.
+For the API client, there are three classes, `DefaultApi`, `PublicApi`, and `ModerationApi`. The `DefaultApi` contains methods that require your API key, and `PublicApi` contains methods that can be made directly from a browser/mobile device/etc without authentication. The `ModerationApi` powers the moderator dashboard and contains methods for moderating comments (list, count, search, logs, export), moderation actions (remove/restore, flag, set review/spam/approval status, votes, reopen/close thread), bans (ban from comment, undo, pre-ban summaries, ban status/preferences, banned-user counts), and badges & trust (award/remove badge, manual badges, get/set trust factor, user internal profile). Every `ModerationApi` method accepts an `sso` parameter so it can be called on behalf of an SSO-authenticated moderator.
 
 ## Quick Start
 
@@ -86,6 +86,27 @@ except Exception as e:
     print(f"Error: {e}")
 ```
 
+### Using the Moderation Dashboard (ModerationApi)
+
+The `ModerationApi` powers the moderator dashboard. Methods are called on behalf of a moderator by passing an `sso` token:
+
+```python
+from client import ApiClient, Configuration, ModerationApi
+
+config = Configuration()
+config.host = "https://fastcomments.com/api"
+
+api_client = ApiClient(configuration=config)
+moderation_api = ModerationApi(api_client)
+
+try:
+    # Count the comments awaiting moderation
+    response = moderation_api.get_count(sso="SSO_TOKEN")
+    print(response)
+except Exception as e:
+    print(f"Error: {e}")
+```
+
 ### Using SSO (Single Sign-On)
 
 The SDK includes utilities for generating secure SSO tokens:
@@ -131,7 +152,7 @@ sso_token = sso.create_token()
 ### Common Issues
 
 1. **401 "missing-api-key" error**: Make sure you set `config.api_key = {"ApiKeyAuth": "YOUR_KEY"}` before creating the DefaultApi instance.
-2. **Wrong API class**: Use `DefaultApi` for server-side authenticated requests, `PublicApi` for client-side/public requests.
+2. **Wrong API class**: Use `DefaultApi` for server-side authenticated requests, `PublicApi` for client-side/public requests, and `ModerationApi` for moderator dashboard requests.
 3. **Import errors**: Make sure you're importing from the correct module:
    - API client: `from client import ...`
    - SSO utilities: `from sso import ...`
