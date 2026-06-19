@@ -21,7 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, Stri
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from client.models.comment_user_hash_tag_info import CommentUserHashTagInfo
 from client.models.comment_user_mention_info import CommentUserMentionInfo
-from client.models.record_string_string_or_number_value import RecordStringStringOrNumberValue
+from client.models.gif_search_response_images_inner_inner import GifSearchResponseImagesInnerInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -52,8 +52,9 @@ class CreateCommentParams(BaseModel):
     from_offline_restore: Optional[StrictBool] = Field(default=None, alias="fromOfflineRestore")
     autoplay_delay_ms: Optional[StrictInt] = Field(default=None, alias="autoplayDelayMS")
     feedback_ids: Optional[List[StrictStr]] = Field(default=None, alias="feedbackIds")
-    question_values: Optional[Dict[str, RecordStringStringOrNumberValue]] = Field(default=None, description="Construct a type with a set of properties K of type T", alias="questionValues")
+    question_values: Optional[Dict[str, GifSearchResponseImagesInnerInner]] = Field(default=None, description="Construct a type with a set of properties K of type T", alias="questionValues")
     tos: Optional[StrictBool] = None
+    bot_id: Optional[StrictStr] = Field(default=None, alias="botId")
     approved: Optional[StrictBool] = None
     domain: Optional[StrictStr] = None
     ip: Optional[StrictStr] = None
@@ -64,7 +65,7 @@ class CreateCommentParams(BaseModel):
     votes: Optional[StrictInt] = None
     votes_down: Optional[StrictInt] = Field(default=None, alias="votesDown")
     votes_up: Optional[StrictInt] = Field(default=None, alias="votesUp")
-    __properties: ClassVar[List[str]] = ["date", "localDateString", "localDateHours", "commenterName", "commenterEmail", "commenterLink", "comment", "productId", "userId", "avatarSrc", "parentId", "mentions", "hashTags", "pageTitle", "isFromMyAccountPage", "url", "urlId", "meta", "moderationGroupIds", "rating", "fromOfflineRestore", "autoplayDelayMS", "feedbackIds", "questionValues", "tos", "approved", "domain", "ip", "isPinned", "locale", "reviewed", "verified", "votes", "votesDown", "votesUp"]
+    __properties: ClassVar[List[str]] = ["date", "localDateString", "localDateHours", "commenterName", "commenterEmail", "commenterLink", "comment", "productId", "userId", "avatarSrc", "parentId", "mentions", "hashTags", "pageTitle", "isFromMyAccountPage", "url", "urlId", "meta", "moderationGroupIds", "rating", "fromOfflineRestore", "autoplayDelayMS", "feedbackIds", "questionValues", "tos", "botId", "approved", "domain", "ip", "isPinned", "locale", "reviewed", "verified", "votes", "votesDown", "votesUp"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -187,12 +188,13 @@ class CreateCommentParams(BaseModel):
             "autoplayDelayMS": obj.get("autoplayDelayMS"),
             "feedbackIds": obj.get("feedbackIds"),
             "questionValues": dict(
-                (_k, RecordStringStringOrNumberValue.from_dict(_v))
+                (_k, GifSearchResponseImagesInnerInner.from_dict(_v))
                 for _k, _v in obj["questionValues"].items()
             )
             if obj.get("questionValues") is not None
             else None,
             "tos": obj.get("tos"),
+            "botId": obj.get("botId"),
             "approved": obj.get("approved"),
             "domain": obj.get("domain"),
             "ip": obj.get("ip"),

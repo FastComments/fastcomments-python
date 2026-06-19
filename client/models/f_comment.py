@@ -104,7 +104,8 @@ class FComment(BaseModel):
     requires_verification: Optional[StrictBool] = Field(default=None, alias="requiresVerification")
     edit_key: Optional[StrictStr] = Field(default=None, alias="editKey")
     tos_accepted_at: Optional[datetime] = Field(default=None, alias="tosAcceptedAt")
-    __properties: ClassVar[List[str]] = ["_id", "tenantId", "urlId", "urlIdRaw", "url", "pageTitle", "userId", "anonUserId", "commenterEmail", "commenterName", "commenterLink", "comment", "commentHTML", "parentId", "date", "localDateString", "localDateHours", "votes", "votesUp", "votesDown", "expireAt", "verified", "verifiedDate", "verificationId", "notificationSentForParent", "notificationSentForParentTenant", "reviewed", "imported", "externalId", "externalParentId", "avatarSrc", "isSpam", "permNotSpam", "aiDeterminedSpam", "hasImages", "pageNumber", "pageNumberOF", "pageNumberNF", "hasLinks", "hasCode", "approved", "locale", "isDeleted", "isDeletedUser", "isBannedUser", "isByAdmin", "isByModerator", "isPinned", "isLocked", "flagCount", "rating", "displayLabel", "fromProductId", "meta", "ipHash", "mentions", "hashTags", "badges", "domain", "veteranBadgeProcessed", "moderationGroupIds", "didProcessBadges", "fromOfflineRestore", "autoplayJobId", "autoplayDelayMS", "feedbackIds", "logs", "groupIds", "viewCount", "requiresVerification", "editKey", "tosAcceptedAt"]
+    bot_id: Optional[StrictStr] = Field(default=None, alias="botId")
+    __properties: ClassVar[List[str]] = ["_id", "tenantId", "urlId", "urlIdRaw", "url", "pageTitle", "userId", "anonUserId", "commenterEmail", "commenterName", "commenterLink", "comment", "commentHTML", "parentId", "date", "localDateString", "localDateHours", "votes", "votesUp", "votesDown", "expireAt", "verified", "verifiedDate", "verificationId", "notificationSentForParent", "notificationSentForParentTenant", "reviewed", "imported", "externalId", "externalParentId", "avatarSrc", "isSpam", "permNotSpam", "aiDeterminedSpam", "hasImages", "pageNumber", "pageNumberOF", "pageNumberNF", "hasLinks", "hasCode", "approved", "locale", "isDeleted", "isDeletedUser", "isBannedUser", "isByAdmin", "isByModerator", "isPinned", "isLocked", "flagCount", "rating", "displayLabel", "fromProductId", "meta", "ipHash", "mentions", "hashTags", "badges", "domain", "veteranBadgeProcessed", "moderationGroupIds", "didProcessBadges", "fromOfflineRestore", "autoplayJobId", "autoplayDelayMS", "feedbackIds", "logs", "groupIds", "viewCount", "requiresVerification", "editKey", "tosAcceptedAt", "botId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -424,7 +425,8 @@ class FComment(BaseModel):
             "viewCount": obj.get("viewCount"),
             "requiresVerification": obj.get("requiresVerification"),
             "editKey": obj.get("editKey"),
-            "tosAcceptedAt": obj.get("tosAcceptedAt")
+            "tosAcceptedAt": obj.get("tosAcceptedAt"),
+            "botId": obj.get("botId")
         })
         return _obj
 

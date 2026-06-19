@@ -36,7 +36,8 @@ class HeaderAccountNotification(BaseModel):
     link_url: Optional[StrictStr] = Field(alias="linkUrl")
     link_text: Optional[StrictStr] = Field(alias="linkText")
     created_at: datetime = Field(alias="createdAt")
-    __properties: ClassVar[List[str]] = ["_id", "title", "message", "messagesByLocale", "dates", "severity", "linkUrl", "linkText", "createdAt"]
+    type: Optional[StrictStr] = Field(default=None, description="Discriminator for notifications with a special layout/click handler (e.g. \"feedback-offer\").")
+    __properties: ClassVar[List[str]] = ["_id", "title", "message", "messagesByLocale", "dates", "severity", "linkUrl", "linkText", "createdAt", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,6 +98,11 @@ class HeaderAccountNotification(BaseModel):
         if self.link_text is None and "link_text" in self.model_fields_set:
             _dict['linkText'] = None
 
+        # set to None if type (nullable) is None
+        # and model_fields_set contains the field
+        if self.type is None and "type" in self.model_fields_set:
+            _dict['type'] = None
+
         return _dict
 
     @classmethod
@@ -117,7 +123,8 @@ class HeaderAccountNotification(BaseModel):
             "severity": obj.get("severity"),
             "linkUrl": obj.get("linkUrl"),
             "linkText": obj.get("linkText"),
-            "createdAt": obj.get("createdAt")
+            "createdAt": obj.get("createdAt"),
+            "type": obj.get("type")
         })
         return _obj
 

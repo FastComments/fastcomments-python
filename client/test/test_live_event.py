@@ -147,6 +147,7 @@ class TestLiveEvent(unittest.TestCase):
                 ul = [
                     ''
                     ],
+                sc = 56,
                 changes = {
                     'key' : 56
                     }

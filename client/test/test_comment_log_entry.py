@@ -53,6 +53,7 @@ class TestCommentLogEntry(unittest.TestCase):
                     engine_response = '', 
                     engine_tokens = 1.337, 
                     trust_factor = 1.337, 
+                    source = '', 
                     rule = client.models.spam_rule.SpamRule(
                         actions = [
                             'spam'

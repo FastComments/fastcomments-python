@@ -47,7 +47,8 @@ class TestHeaderAccountNotification(unittest.TestCase):
                 severity = '',
                 link_url = '',
                 link_text = '',
-                created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
+                created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                type = ''
             )
         else:
             return HeaderAccountNotification(

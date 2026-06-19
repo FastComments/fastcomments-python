@@ -45,6 +45,7 @@ class CommentLogData(BaseModel):
     engine_response: Optional[StrictStr] = Field(default=None, alias="engineResponse")
     engine_tokens: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="engineTokens")
     trust_factor: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="trustFactor")
+    source: Optional[StrictStr] = None
     rule: Optional[SpamRule] = None
     user_id: Optional[StrictStr] = Field(default=None, alias="userId")
     subscribers: Optional[Union[StrictFloat, StrictInt]] = None
@@ -76,7 +77,7 @@ class CommentLogData(BaseModel):
     invalid_locale: Optional[StrictStr] = Field(default=None, alias="invalidLocale")
     detected_locale: Optional[StrictStr] = Field(default=None, alias="detectedLocale")
     detected_language: Optional[StrictStr] = Field(default=None, alias="detectedLanguage")
-    __properties: ClassVar[List[str]] = ["clearContent", "isDeletedUser", "phrase", "badWord", "word", "locale", "tenantBadgeId", "badgeId", "wasLoggedIn", "foundUser", "verified", "engine", "engineResponse", "engineTokens", "trustFactor", "rule", "userId", "subscribers", "notificationCount", "votesBefore", "votesUpBefore", "votesDownBefore", "votesAfter", "votesUpAfter", "votesDownAfter", "repeatAction", "reason", "otherData", "spamBefore", "spamAfter", "permanentFlag", "approvedBefore", "approvedAfter", "reviewedBefore", "reviewedAfter", "textBefore", "textAfter", "expireBefore", "expireAfter", "flagCountBefore", "trustFactorBefore", "trustFactorAfter", "referencedCommentId", "invalidLocale", "detectedLocale", "detectedLanguage"]
+    __properties: ClassVar[List[str]] = ["clearContent", "isDeletedUser", "phrase", "badWord", "word", "locale", "tenantBadgeId", "badgeId", "wasLoggedIn", "foundUser", "verified", "engine", "engineResponse", "engineTokens", "trustFactor", "source", "rule", "userId", "subscribers", "notificationCount", "votesBefore", "votesUpBefore", "votesDownBefore", "votesAfter", "votesUpAfter", "votesDownAfter", "repeatAction", "reason", "otherData", "spamBefore", "spamAfter", "permanentFlag", "approvedBefore", "approvedAfter", "reviewedBefore", "reviewedAfter", "textBefore", "textAfter", "expireBefore", "expireAfter", "flagCountBefore", "trustFactorBefore", "trustFactorAfter", "referencedCommentId", "invalidLocale", "detectedLocale", "detectedLanguage"]
 
     @field_validator('permanent_flag')
     def permanent_flag_validate_enum(cls, value):
@@ -207,6 +208,7 @@ class CommentLogData(BaseModel):
             "engineResponse": obj.get("engineResponse"),
             "engineTokens": obj.get("engineTokens"),
             "trustFactor": obj.get("trustFactor"),
+            "source": obj.get("source"),
             "rule": SpamRule.from_dict(obj["rule"]) if obj.get("rule") is not None else None,
             "userId": obj.get("userId"),
             "subscribers": obj.get("subscribers"),

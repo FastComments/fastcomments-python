@@ -78,7 +78,8 @@ class TestCommentData(unittest.TestCase):
                 question_values = {
                     'key' : null
                     },
-                tos = True
+                tos = True,
+                bot_id = ''
             )
         else:
             return CommentData(

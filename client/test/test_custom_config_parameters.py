@@ -89,11 +89,16 @@ class TestCustomConfigParameters(unittest.TestCase):
                 no_custom_config = True,
                 mention_auto_complete_mode = 0,
                 no_image_uploads = True,
+                allow_embeds = True,
+                allowed_embed_domains = [
+                    ''
+                    ],
                 no_styles = True,
                 page_size = 56,
                 readonly = True,
                 no_new_root_comments = True,
                 require_sso = True,
+                enable_f_chat = True,
                 enable_resize_handle = True,
                 restricted_link_domains = [
                     ''
@@ -124,6 +129,8 @@ class TestCustomConfigParameters(unittest.TestCase):
                 widget_questions_required = 0,
                 widget_sub_question_visibility = 0,
                 wrap = True,
+                users_list_location = 0,
+                users_list_include_offline = True,
                 ticket_base_url = '',
                 ticket_kb_search_endpoint = '',
                 ticket_file_uploads_enabled = True,

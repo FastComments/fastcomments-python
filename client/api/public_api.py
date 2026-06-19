@@ -16,46 +16,61 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr, field_validator
+from pydantic import Field, StrictBool, StrictBytes, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import List, Optional, Tuple, Union
 from typing_extensions import Annotated
-from client.models.block_from_comment_public200_response import BlockFromCommentPublic200Response
-from client.models.checked_comments_for_blocked200_response import CheckedCommentsForBlocked200Response
+from client.models.api_empty_response import APIEmptyResponse
+from client.models.block_success import BlockSuccess
+from client.models.change_comment_pin_status_response import ChangeCommentPinStatusResponse
+from client.models.check_blocked_comments_response import CheckBlockedCommentsResponse
 from client.models.comment_data import CommentData
 from client.models.comment_text_update_request import CommentTextUpdateRequest
-from client.models.create_comment_public200_response import CreateCommentPublic200Response
 from client.models.create_feed_post_params import CreateFeedPostParams
-from client.models.create_feed_post_public200_response import CreateFeedPostPublic200Response
-from client.models.delete_comment_public200_response import DeleteCommentPublic200Response
-from client.models.delete_comment_vote200_response import DeleteCommentVote200Response
-from client.models.delete_feed_post_public200_response import DeleteFeedPostPublic200Response
-from client.models.flag_comment_public200_response import FlagCommentPublic200Response
-from client.models.get_comment_text200_response import GetCommentText200Response
-from client.models.get_comment_vote_user_names200_response import GetCommentVoteUserNames200Response
-from client.models.get_comments_public200_response import GetCommentsPublic200Response
-from client.models.get_event_log200_response import GetEventLog200Response
-from client.models.get_feed_posts_public200_response import GetFeedPostsPublic200Response
-from client.models.get_feed_posts_stats200_response import GetFeedPostsStats200Response
-from client.models.get_user_notification_count200_response import GetUserNotificationCount200Response
-from client.models.get_user_notifications200_response import GetUserNotifications200Response
-from client.models.get_user_presence_statuses200_response import GetUserPresenceStatuses200Response
-from client.models.get_user_reacts_public200_response import GetUserReactsPublic200Response
-from client.models.lock_comment200_response import LockComment200Response
-from client.models.pin_comment200_response import PinComment200Response
+from client.models.create_feed_post_response import CreateFeedPostResponse
+from client.models.create_v1_page_react import CreateV1PageReact
+from client.models.delete_feed_post_public_response import DeleteFeedPostPublicResponse
+from client.models.feed_posts_stats_response import FeedPostsStatsResponse
+from client.models.get_comment_vote_user_names_success_response import GetCommentVoteUserNamesSuccessResponse
+from client.models.get_comments_for_user_response import GetCommentsForUserResponse
+from client.models.get_comments_response_with_presence_public_comment import GetCommentsResponseWithPresencePublicComment
+from client.models.get_event_log_response import GetEventLogResponse
+from client.models.get_gifs_search_response import GetGifsSearchResponse
+from client.models.get_gifs_trending_response import GetGifsTrendingResponse
+from client.models.get_my_notifications_response import GetMyNotificationsResponse
+from client.models.get_public_pages_response import GetPublicPagesResponse
+from client.models.get_translations_response import GetTranslationsResponse
+from client.models.get_user_notification_count_response import GetUserNotificationCountResponse
+from client.models.get_user_presence_statuses_response import GetUserPresenceStatusesResponse
+from client.models.get_v1_page_likes import GetV1PageLikes
+from client.models.get_v2_page_react_users_response import GetV2PageReactUsersResponse
+from client.models.get_v2_page_reacts import GetV2PageReacts
+from client.models.gif_get_large_response import GifGetLargeResponse
+from client.models.page_users_info_response import PageUsersInfoResponse
+from client.models.page_users_offline_response import PageUsersOfflineResponse
+from client.models.page_users_online_response import PageUsersOnlineResponse
+from client.models.pages_sort_by import PagesSortBy
+from client.models.public_api_delete_comment_response import PublicAPIDeleteCommentResponse
+from client.models.public_api_get_comment_text_response import PublicAPIGetCommentTextResponse
+from client.models.public_api_set_comment_text_response import PublicAPISetCommentTextResponse
 from client.models.public_block_from_comment_params import PublicBlockFromCommentParams
+from client.models.public_feed_posts_response import PublicFeedPostsResponse
 from client.models.react_body_params import ReactBodyParams
-from client.models.react_feed_post_public200_response import ReactFeedPostPublic200Response
-from client.models.reset_user_notifications200_response import ResetUserNotifications200Response
-from client.models.search_users200_response import SearchUsers200Response
-from client.models.set_comment_text200_response import SetCommentText200Response
+from client.models.react_feed_post_response import ReactFeedPostResponse
+from client.models.reset_user_notifications_response import ResetUserNotificationsResponse
+from client.models.save_comments_response_with_presence import SaveCommentsResponseWithPresence
+from client.models.search_users_result import SearchUsersResult
 from client.models.size_preset import SizePreset
 from client.models.sort_directions import SortDirections
-from client.models.un_block_comment_public200_response import UnBlockCommentPublic200Response
+from client.models.unblock_success import UnblockSuccess
 from client.models.update_feed_post_params import UpdateFeedPostParams
-from client.models.update_user_notification_status200_response import UpdateUserNotificationStatus200Response
+from client.models.update_user_notification_comment_subscription_status_response import UpdateUserNotificationCommentSubscriptionStatusResponse
+from client.models.update_user_notification_page_subscription_status_response import UpdateUserNotificationPageSubscriptionStatusResponse
+from client.models.update_user_notification_status_response import UpdateUserNotificationStatusResponse
 from client.models.upload_image_response import UploadImageResponse
+from client.models.user_reacts_response import UserReactsResponse
 from client.models.vote_body_params import VoteBodyParams
-from client.models.vote_comment200_response import VoteComment200Response
+from client.models.vote_delete_response import VoteDeleteResponse
+from client.models.vote_response import VoteResponse
 
 from client.api_client import ApiClient, RequestSerialized
 from client.api_response import ApiResponse
@@ -94,7 +109,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BlockFromCommentPublic200Response:
+    ) -> BlockSuccess:
         """block_from_comment_public
 
 
@@ -140,7 +155,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BlockFromCommentPublic200Response",
+            '200': "BlockSuccess",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -172,7 +187,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BlockFromCommentPublic200Response]:
+    ) -> ApiResponse[BlockSuccess]:
         """block_from_comment_public
 
 
@@ -218,7 +233,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BlockFromCommentPublic200Response",
+            '200': "BlockSuccess",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -296,7 +311,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BlockFromCommentPublic200Response",
+            '200': "BlockSuccess",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -412,7 +427,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CheckedCommentsForBlocked200Response:
+    ) -> CheckBlockedCommentsResponse:
         """checked_comments_for_blocked
 
 
@@ -455,7 +470,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CheckedCommentsForBlocked200Response",
+            '200': "CheckBlockedCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -486,7 +501,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CheckedCommentsForBlocked200Response]:
+    ) -> ApiResponse[CheckBlockedCommentsResponse]:
         """checked_comments_for_blocked
 
 
@@ -529,7 +544,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CheckedCommentsForBlocked200Response",
+            '200': "CheckBlockedCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -603,7 +618,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CheckedCommentsForBlocked200Response",
+            '200': "CheckBlockedCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -708,7 +723,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateCommentPublic200Response:
+    ) -> SaveCommentsResponseWithPresence:
         """create_comment_public
 
 
@@ -760,7 +775,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateCommentPublic200Response",
+            '200': "SaveCommentsResponseWithPresence",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -794,7 +809,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateCommentPublic200Response]:
+    ) -> ApiResponse[SaveCommentsResponseWithPresence]:
         """create_comment_public
 
 
@@ -846,7 +861,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateCommentPublic200Response",
+            '200': "SaveCommentsResponseWithPresence",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -932,7 +947,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateCommentPublic200Response",
+            '200': "SaveCommentsResponseWithPresence",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1059,7 +1074,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateFeedPostPublic200Response:
+    ) -> CreateFeedPostResponse:
         """create_feed_post_public
 
 
@@ -1105,7 +1120,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateFeedPostPublic200Response",
+            '200': "CreateFeedPostResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1137,7 +1152,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateFeedPostPublic200Response]:
+    ) -> ApiResponse[CreateFeedPostResponse]:
         """create_feed_post_public
 
 
@@ -1183,7 +1198,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateFeedPostPublic200Response",
+            '200': "CreateFeedPostResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1261,7 +1276,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateFeedPostPublic200Response",
+            '200': "CreateFeedPostResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1360,6 +1375,605 @@ class PublicApi:
 
 
     @validate_call
+    def create_v1_page_react(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        title: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> CreateV1PageReact:
+        """create_v1_page_react
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param title:
+        :type title: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_v1_page_react_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            title=title,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateV1PageReact",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def create_v1_page_react_with_http_info(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        title: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[CreateV1PageReact]:
+        """create_v1_page_react
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param title:
+        :type title: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_v1_page_react_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            title=title,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateV1PageReact",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def create_v1_page_react_without_preload_content(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        title: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """create_v1_page_react
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param title:
+        :type title: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_v1_page_react_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            title=title,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateV1PageReact",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _create_v1_page_react_serialize(
+        self,
+        tenant_id,
+        url_id,
+        title,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if tenant_id is not None:
+            _path_params['tenantId'] = tenant_id
+        # process the query parameters
+        if url_id is not None:
+            
+            _query_params.append(('urlId', url_id))
+            
+        if title is not None:
+            
+            _query_params.append(('title', title))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/page-reacts/v1/likes/{tenantId}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def create_v2_page_react(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        id: StrictStr,
+        title: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> CreateV1PageReact:
+        """create_v2_page_react
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param id: (required)
+        :type id: str
+        :param title:
+        :type title: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_v2_page_react_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            id=id,
+            title=title,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateV1PageReact",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def create_v2_page_react_with_http_info(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        id: StrictStr,
+        title: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[CreateV1PageReact]:
+        """create_v2_page_react
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param id: (required)
+        :type id: str
+        :param title:
+        :type title: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_v2_page_react_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            id=id,
+            title=title,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateV1PageReact",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def create_v2_page_react_without_preload_content(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        id: StrictStr,
+        title: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """create_v2_page_react
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param id: (required)
+        :type id: str
+        :param title:
+        :type title: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_v2_page_react_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            id=id,
+            title=title,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateV1PageReact",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _create_v2_page_react_serialize(
+        self,
+        tenant_id,
+        url_id,
+        id,
+        title,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if tenant_id is not None:
+            _path_params['tenantId'] = tenant_id
+        # process the query parameters
+        if url_id is not None:
+            
+            _query_params.append(('urlId', url_id))
+            
+        if id is not None:
+            
+            _query_params.append(('id', id))
+            
+        if title is not None:
+            
+            _query_params.append(('title', title))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/page-reacts/v2/{tenantId}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def delete_comment_public(
         self,
         tenant_id: StrictStr,
@@ -1379,7 +1993,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteCommentPublic200Response:
+    ) -> PublicAPIDeleteCommentResponse:
         """delete_comment_public
 
 
@@ -1428,7 +2042,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteCommentPublic200Response",
+            '200': "PublicAPIDeleteCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1461,7 +2075,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteCommentPublic200Response]:
+    ) -> ApiResponse[PublicAPIDeleteCommentResponse]:
         """delete_comment_public
 
 
@@ -1510,7 +2124,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteCommentPublic200Response",
+            '200': "PublicAPIDeleteCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1592,7 +2206,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteCommentPublic200Response",
+            '200': "PublicAPIDeleteCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1704,7 +2318,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteCommentVote200Response:
+    ) -> VoteDeleteResponse:
         """delete_comment_vote
 
 
@@ -1759,7 +2373,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteCommentVote200Response",
+            '200': "VoteDeleteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1794,7 +2408,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteCommentVote200Response]:
+    ) -> ApiResponse[VoteDeleteResponse]:
         """delete_comment_vote
 
 
@@ -1849,7 +2463,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteCommentVote200Response",
+            '200': "VoteDeleteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1939,7 +2553,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteCommentVote200Response",
+            '200': "VoteDeleteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2056,7 +2670,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteFeedPostPublic200Response:
+    ) -> DeleteFeedPostPublicResponse:
         """delete_feed_post_public
 
 
@@ -2102,7 +2716,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteFeedPostPublic200Response",
+            '200': "DeleteFeedPostPublicResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2134,7 +2748,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteFeedPostPublic200Response]:
+    ) -> ApiResponse[DeleteFeedPostPublicResponse]:
         """delete_feed_post_public
 
 
@@ -2180,7 +2794,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteFeedPostPublic200Response",
+            '200': "DeleteFeedPostPublicResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2258,7 +2872,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteFeedPostPublic200Response",
+            '200': "DeleteFeedPostPublicResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2344,6 +2958,571 @@ class PublicApi:
 
 
     @validate_call
+    def delete_v1_page_react(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> CreateV1PageReact:
+        """delete_v1_page_react
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_v1_page_react_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateV1PageReact",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def delete_v1_page_react_with_http_info(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[CreateV1PageReact]:
+        """delete_v1_page_react
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_v1_page_react_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateV1PageReact",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def delete_v1_page_react_without_preload_content(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """delete_v1_page_react
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_v1_page_react_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateV1PageReact",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _delete_v1_page_react_serialize(
+        self,
+        tenant_id,
+        url_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if tenant_id is not None:
+            _path_params['tenantId'] = tenant_id
+        # process the query parameters
+        if url_id is not None:
+            
+            _query_params.append(('urlId', url_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='DELETE',
+            resource_path='/page-reacts/v1/likes/{tenantId}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def delete_v2_page_react(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> CreateV1PageReact:
+        """delete_v2_page_react
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param id: (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_v2_page_react_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateV1PageReact",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def delete_v2_page_react_with_http_info(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[CreateV1PageReact]:
+        """delete_v2_page_react
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param id: (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_v2_page_react_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateV1PageReact",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def delete_v2_page_react_without_preload_content(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """delete_v2_page_react
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param id: (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_v2_page_react_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CreateV1PageReact",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _delete_v2_page_react_serialize(
+        self,
+        tenant_id,
+        url_id,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if tenant_id is not None:
+            _path_params['tenantId'] = tenant_id
+        # process the query parameters
+        if url_id is not None:
+            
+            _query_params.append(('urlId', url_id))
+            
+        if id is not None:
+            
+            _query_params.append(('id', id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='DELETE',
+            resource_path='/page-reacts/v2/{tenantId}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def flag_comment_public(
         self,
         tenant_id: StrictStr,
@@ -2362,7 +3541,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FlagCommentPublic200Response:
+    ) -> APIEmptyResponse:
         """flag_comment_public
 
 
@@ -2408,7 +3587,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FlagCommentPublic200Response",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2440,7 +3619,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FlagCommentPublic200Response]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """flag_comment_public
 
 
@@ -2486,7 +3665,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FlagCommentPublic200Response",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2564,7 +3743,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FlagCommentPublic200Response",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2670,7 +3849,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetCommentText200Response:
+    ) -> PublicAPIGetCommentTextResponse:
         """get_comment_text
 
 
@@ -2716,7 +3895,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentText200Response",
+            '200': "PublicAPIGetCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2748,7 +3927,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetCommentText200Response]:
+    ) -> ApiResponse[PublicAPIGetCommentTextResponse]:
         """get_comment_text
 
 
@@ -2794,7 +3973,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentText200Response",
+            '200': "PublicAPIGetCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2872,7 +4051,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentText200Response",
+            '200': "PublicAPIGetCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2976,7 +4155,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetCommentVoteUserNames200Response:
+    ) -> GetCommentVoteUserNamesSuccessResponse:
         """get_comment_vote_user_names
 
 
@@ -3022,7 +4201,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentVoteUserNames200Response",
+            '200': "GetCommentVoteUserNamesSuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3054,7 +4233,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetCommentVoteUserNames200Response]:
+    ) -> ApiResponse[GetCommentVoteUserNamesSuccessResponse]:
         """get_comment_vote_user_names
 
 
@@ -3100,7 +4279,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentVoteUserNames200Response",
+            '200': "GetCommentVoteUserNamesSuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3178,7 +4357,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentVoteUserNames200Response",
+            '200': "GetCommentVoteUserNamesSuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3264,6 +4443,367 @@ class PublicApi:
 
 
     @validate_call
+    def get_comments_for_user(
+        self,
+        user_id: Optional[StrictStr] = None,
+        direction: Optional[SortDirections] = None,
+        replies_to_user_id: Optional[StrictStr] = None,
+        page: Optional[Union[StrictFloat, StrictInt]] = None,
+        includei10n: Optional[StrictBool] = None,
+        locale: Optional[StrictStr] = None,
+        is_crawler: Optional[StrictBool] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetCommentsForUserResponse:
+        """get_comments_for_user
+
+
+        :param user_id:
+        :type user_id: str
+        :param direction:
+        :type direction: SortDirections
+        :param replies_to_user_id:
+        :type replies_to_user_id: str
+        :param page:
+        :type page: float
+        :param includei10n:
+        :type includei10n: bool
+        :param locale:
+        :type locale: str
+        :param is_crawler:
+        :type is_crawler: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_comments_for_user_serialize(
+            user_id=user_id,
+            direction=direction,
+            replies_to_user_id=replies_to_user_id,
+            page=page,
+            includei10n=includei10n,
+            locale=locale,
+            is_crawler=is_crawler,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCommentsForUserResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_comments_for_user_with_http_info(
+        self,
+        user_id: Optional[StrictStr] = None,
+        direction: Optional[SortDirections] = None,
+        replies_to_user_id: Optional[StrictStr] = None,
+        page: Optional[Union[StrictFloat, StrictInt]] = None,
+        includei10n: Optional[StrictBool] = None,
+        locale: Optional[StrictStr] = None,
+        is_crawler: Optional[StrictBool] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GetCommentsForUserResponse]:
+        """get_comments_for_user
+
+
+        :param user_id:
+        :type user_id: str
+        :param direction:
+        :type direction: SortDirections
+        :param replies_to_user_id:
+        :type replies_to_user_id: str
+        :param page:
+        :type page: float
+        :param includei10n:
+        :type includei10n: bool
+        :param locale:
+        :type locale: str
+        :param is_crawler:
+        :type is_crawler: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_comments_for_user_serialize(
+            user_id=user_id,
+            direction=direction,
+            replies_to_user_id=replies_to_user_id,
+            page=page,
+            includei10n=includei10n,
+            locale=locale,
+            is_crawler=is_crawler,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCommentsForUserResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_comments_for_user_without_preload_content(
+        self,
+        user_id: Optional[StrictStr] = None,
+        direction: Optional[SortDirections] = None,
+        replies_to_user_id: Optional[StrictStr] = None,
+        page: Optional[Union[StrictFloat, StrictInt]] = None,
+        includei10n: Optional[StrictBool] = None,
+        locale: Optional[StrictStr] = None,
+        is_crawler: Optional[StrictBool] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_comments_for_user
+
+
+        :param user_id:
+        :type user_id: str
+        :param direction:
+        :type direction: SortDirections
+        :param replies_to_user_id:
+        :type replies_to_user_id: str
+        :param page:
+        :type page: float
+        :param includei10n:
+        :type includei10n: bool
+        :param locale:
+        :type locale: str
+        :param is_crawler:
+        :type is_crawler: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_comments_for_user_serialize(
+            user_id=user_id,
+            direction=direction,
+            replies_to_user_id=replies_to_user_id,
+            page=page,
+            includei10n=includei10n,
+            locale=locale,
+            is_crawler=is_crawler,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetCommentsForUserResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_comments_for_user_serialize(
+        self,
+        user_id,
+        direction,
+        replies_to_user_id,
+        page,
+        includei10n,
+        locale,
+        is_crawler,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if user_id is not None:
+            
+            _query_params.append(('userId', user_id))
+            
+        if direction is not None:
+            
+            _query_params.append(('direction', direction.value))
+            
+        if replies_to_user_id is not None:
+            
+            _query_params.append(('repliesToUserId', replies_to_user_id))
+            
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if includei10n is not None:
+            
+            _query_params.append(('includei10n', includei10n))
+            
+        if locale is not None:
+            
+            _query_params.append(('locale', locale))
+            
+        if is_crawler is not None:
+            
+            _query_params.append(('isCrawler', is_crawler))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/comments-for-user',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def get_comments_public(
         self,
         tenant_id: StrictStr,
@@ -3306,7 +4846,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetCommentsPublic200Response:
+    ) -> GetCommentsResponseWithPresencePublicComment:
         """get_comments_public
 
          req tenantId urlId
@@ -3425,7 +4965,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentsPublic200Response",
+            '200': "GetCommentsResponseWithPresencePublicComment",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3481,7 +5021,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetCommentsPublic200Response]:
+    ) -> ApiResponse[GetCommentsResponseWithPresencePublicComment]:
         """get_comments_public
 
          req tenantId urlId
@@ -3600,7 +5140,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentsPublic200Response",
+            '200': "GetCommentsResponseWithPresencePublicComment",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3775,7 +5315,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentsPublic200Response",
+            '200': "GetCommentsResponseWithPresencePublicComment",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3990,7 +5530,7 @@ class PublicApi:
         url_id: StrictStr,
         user_id_ws: StrictStr,
         start_time: StrictInt,
-        end_time: StrictInt,
+        end_time: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4003,7 +5543,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetEventLog200Response:
+    ) -> GetEventLogResponse:
         """get_event_log
 
          req tenantId urlId userIdWS
@@ -4016,7 +5556,7 @@ class PublicApi:
         :type user_id_ws: str
         :param start_time: (required)
         :type start_time: int
-        :param end_time: (required)
+        :param end_time:
         :type end_time: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4053,7 +5593,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEventLog200Response",
+            '200': "GetEventLogResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4073,7 +5613,7 @@ class PublicApi:
         url_id: StrictStr,
         user_id_ws: StrictStr,
         start_time: StrictInt,
-        end_time: StrictInt,
+        end_time: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4086,7 +5626,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetEventLog200Response]:
+    ) -> ApiResponse[GetEventLogResponse]:
         """get_event_log
 
          req tenantId urlId userIdWS
@@ -4099,7 +5639,7 @@ class PublicApi:
         :type user_id_ws: str
         :param start_time: (required)
         :type start_time: int
-        :param end_time: (required)
+        :param end_time:
         :type end_time: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4136,7 +5676,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEventLog200Response",
+            '200': "GetEventLogResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4156,7 +5696,7 @@ class PublicApi:
         url_id: StrictStr,
         user_id_ws: StrictStr,
         start_time: StrictInt,
-        end_time: StrictInt,
+        end_time: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4182,7 +5722,7 @@ class PublicApi:
         :type user_id_ws: str
         :param start_time: (required)
         :type start_time: int
-        :param end_time: (required)
+        :param end_time:
         :type end_time: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -4219,7 +5759,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEventLog200Response",
+            '200': "GetEventLogResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4333,7 +5873,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetFeedPostsPublic200Response:
+    ) -> PublicFeedPostsResponse:
         """get_feed_posts_public
 
          req tenantId afterId
@@ -4389,7 +5929,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedPostsPublic200Response",
+            '200': "PublicFeedPostsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4424,7 +5964,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetFeedPostsPublic200Response]:
+    ) -> ApiResponse[PublicFeedPostsResponse]:
         """get_feed_posts_public
 
          req tenantId afterId
@@ -4480,7 +6020,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedPostsPublic200Response",
+            '200': "PublicFeedPostsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4571,7 +6111,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedPostsPublic200Response",
+            '200': "PublicFeedPostsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4692,7 +6232,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetFeedPostsStats200Response:
+    ) -> FeedPostsStatsResponse:
         """get_feed_posts_stats
 
 
@@ -4735,7 +6275,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedPostsStats200Response",
+            '200': "FeedPostsStatsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4766,7 +6306,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetFeedPostsStats200Response]:
+    ) -> ApiResponse[FeedPostsStatsResponse]:
         """get_feed_posts_stats
 
 
@@ -4809,7 +6349,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedPostsStats200Response",
+            '200': "FeedPostsStatsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4883,7 +6423,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedPostsStats200Response",
+            '200': "FeedPostsStatsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4967,13 +6507,10 @@ class PublicApi:
 
 
     @validate_call
-    def get_global_event_log(
+    def get_gif_large(
         self,
         tenant_id: StrictStr,
-        url_id: StrictStr,
-        user_id_ws: StrictStr,
-        start_time: StrictInt,
-        end_time: StrictInt,
+        large_internal_url_sanitized: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4986,7 +6523,923 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetEventLog200Response:
+    ) -> GifGetLargeResponse:
+        """get_gif_large
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param large_internal_url_sanitized: (required)
+        :type large_internal_url_sanitized: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_gif_large_serialize(
+            tenant_id=tenant_id,
+            large_internal_url_sanitized=large_internal_url_sanitized,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GifGetLargeResponse",
+            '422': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_gif_large_with_http_info(
+        self,
+        tenant_id: StrictStr,
+        large_internal_url_sanitized: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GifGetLargeResponse]:
+        """get_gif_large
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param large_internal_url_sanitized: (required)
+        :type large_internal_url_sanitized: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_gif_large_serialize(
+            tenant_id=tenant_id,
+            large_internal_url_sanitized=large_internal_url_sanitized,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GifGetLargeResponse",
+            '422': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_gif_large_without_preload_content(
+        self,
+        tenant_id: StrictStr,
+        large_internal_url_sanitized: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_gif_large
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param large_internal_url_sanitized: (required)
+        :type large_internal_url_sanitized: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_gif_large_serialize(
+            tenant_id=tenant_id,
+            large_internal_url_sanitized=large_internal_url_sanitized,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GifGetLargeResponse",
+            '422': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_gif_large_serialize(
+        self,
+        tenant_id,
+        large_internal_url_sanitized,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if tenant_id is not None:
+            _path_params['tenantId'] = tenant_id
+        # process the query parameters
+        if large_internal_url_sanitized is not None:
+            
+            _query_params.append(('largeInternalURLSanitized', large_internal_url_sanitized))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/gifs/get-large/{tenantId}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_gifs_search(
+        self,
+        tenant_id: StrictStr,
+        search: StrictStr,
+        locale: Optional[StrictStr] = None,
+        rating: Optional[StrictStr] = None,
+        page: Optional[Union[StrictFloat, StrictInt]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetGifsSearchResponse:
+        """get_gifs_search
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param search: (required)
+        :type search: str
+        :param locale:
+        :type locale: str
+        :param rating:
+        :type rating: str
+        :param page:
+        :type page: float
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_gifs_search_serialize(
+            tenant_id=tenant_id,
+            search=search,
+            locale=locale,
+            rating=rating,
+            page=page,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetGifsSearchResponse",
+            '422': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_gifs_search_with_http_info(
+        self,
+        tenant_id: StrictStr,
+        search: StrictStr,
+        locale: Optional[StrictStr] = None,
+        rating: Optional[StrictStr] = None,
+        page: Optional[Union[StrictFloat, StrictInt]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GetGifsSearchResponse]:
+        """get_gifs_search
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param search: (required)
+        :type search: str
+        :param locale:
+        :type locale: str
+        :param rating:
+        :type rating: str
+        :param page:
+        :type page: float
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_gifs_search_serialize(
+            tenant_id=tenant_id,
+            search=search,
+            locale=locale,
+            rating=rating,
+            page=page,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetGifsSearchResponse",
+            '422': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_gifs_search_without_preload_content(
+        self,
+        tenant_id: StrictStr,
+        search: StrictStr,
+        locale: Optional[StrictStr] = None,
+        rating: Optional[StrictStr] = None,
+        page: Optional[Union[StrictFloat, StrictInt]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_gifs_search
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param search: (required)
+        :type search: str
+        :param locale:
+        :type locale: str
+        :param rating:
+        :type rating: str
+        :param page:
+        :type page: float
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_gifs_search_serialize(
+            tenant_id=tenant_id,
+            search=search,
+            locale=locale,
+            rating=rating,
+            page=page,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetGifsSearchResponse",
+            '422': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_gifs_search_serialize(
+        self,
+        tenant_id,
+        search,
+        locale,
+        rating,
+        page,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if tenant_id is not None:
+            _path_params['tenantId'] = tenant_id
+        # process the query parameters
+        if search is not None:
+            
+            _query_params.append(('search', search))
+            
+        if locale is not None:
+            
+            _query_params.append(('locale', locale))
+            
+        if rating is not None:
+            
+            _query_params.append(('rating', rating))
+            
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/gifs/search/{tenantId}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_gifs_trending(
+        self,
+        tenant_id: StrictStr,
+        locale: Optional[StrictStr] = None,
+        rating: Optional[StrictStr] = None,
+        page: Optional[Union[StrictFloat, StrictInt]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetGifsTrendingResponse:
+        """get_gifs_trending
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param locale:
+        :type locale: str
+        :param rating:
+        :type rating: str
+        :param page:
+        :type page: float
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_gifs_trending_serialize(
+            tenant_id=tenant_id,
+            locale=locale,
+            rating=rating,
+            page=page,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetGifsTrendingResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_gifs_trending_with_http_info(
+        self,
+        tenant_id: StrictStr,
+        locale: Optional[StrictStr] = None,
+        rating: Optional[StrictStr] = None,
+        page: Optional[Union[StrictFloat, StrictInt]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GetGifsTrendingResponse]:
+        """get_gifs_trending
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param locale:
+        :type locale: str
+        :param rating:
+        :type rating: str
+        :param page:
+        :type page: float
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_gifs_trending_serialize(
+            tenant_id=tenant_id,
+            locale=locale,
+            rating=rating,
+            page=page,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetGifsTrendingResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_gifs_trending_without_preload_content(
+        self,
+        tenant_id: StrictStr,
+        locale: Optional[StrictStr] = None,
+        rating: Optional[StrictStr] = None,
+        page: Optional[Union[StrictFloat, StrictInt]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_gifs_trending
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param locale:
+        :type locale: str
+        :param rating:
+        :type rating: str
+        :param page:
+        :type page: float
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_gifs_trending_serialize(
+            tenant_id=tenant_id,
+            locale=locale,
+            rating=rating,
+            page=page,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetGifsTrendingResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_gifs_trending_serialize(
+        self,
+        tenant_id,
+        locale,
+        rating,
+        page,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if tenant_id is not None:
+            _path_params['tenantId'] = tenant_id
+        # process the query parameters
+        if locale is not None:
+            
+            _query_params.append(('locale', locale))
+            
+        if rating is not None:
+            
+            _query_params.append(('rating', rating))
+            
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/gifs/trending/{tenantId}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_global_event_log(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        user_id_ws: StrictStr,
+        start_time: StrictInt,
+        end_time: Optional[StrictInt] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetEventLogResponse:
         """get_global_event_log
 
          req tenantId urlId userIdWS
@@ -4999,7 +7452,7 @@ class PublicApi:
         :type user_id_ws: str
         :param start_time: (required)
         :type start_time: int
-        :param end_time: (required)
+        :param end_time:
         :type end_time: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5036,7 +7489,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEventLog200Response",
+            '200': "GetEventLogResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5056,7 +7509,7 @@ class PublicApi:
         url_id: StrictStr,
         user_id_ws: StrictStr,
         start_time: StrictInt,
-        end_time: StrictInt,
+        end_time: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5069,7 +7522,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetEventLog200Response]:
+    ) -> ApiResponse[GetEventLogResponse]:
         """get_global_event_log
 
          req tenantId urlId userIdWS
@@ -5082,7 +7535,7 @@ class PublicApi:
         :type user_id_ws: str
         :param start_time: (required)
         :type start_time: int
-        :param end_time: (required)
+        :param end_time:
         :type end_time: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5119,7 +7572,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEventLog200Response",
+            '200': "GetEventLogResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5139,7 +7592,7 @@ class PublicApi:
         url_id: StrictStr,
         user_id_ws: StrictStr,
         start_time: StrictInt,
-        end_time: StrictInt,
+        end_time: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5165,7 +7618,7 @@ class PublicApi:
         :type user_id_ws: str
         :param start_time: (required)
         :type start_time: int
-        :param end_time: (required)
+        :param end_time:
         :type end_time: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -5202,7 +7655,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEventLog200Response",
+            '200': "GetEventLogResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5295,6 +7748,1297 @@ class PublicApi:
 
 
     @validate_call
+    def get_offline_users(
+        self,
+        tenant_id: StrictStr,
+        url_id: Annotated[StrictStr, Field(description="Page URL identifier (cleaned server-side).")],
+        after_name: Annotated[Optional[StrictStr], Field(description="Cursor: pass nextAfterName from the previous response.")] = None,
+        after_user_id: Annotated[Optional[StrictStr], Field(description="Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> PageUsersOfflineResponse:
+        """get_offline_users
+
+        Past commenters on the page who are NOT currently online. Sorted by displayName. Use this after exhausting /users/online to render a \"Members\" section. Cursor pagination on commenterName: server walks the partial {tenantId, urlId, commenterName} index from afterName forward via $gt, no $skip cost.
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: Page URL identifier (cleaned server-side). (required)
+        :type url_id: str
+        :param after_name: Cursor: pass nextAfterName from the previous response.
+        :type after_name: str
+        :param after_user_id: Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.
+        :type after_user_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_offline_users_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            after_name=after_name,
+            after_user_id=after_user_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PageUsersOfflineResponse",
+            '403': "APIError",
+            '422': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_offline_users_with_http_info(
+        self,
+        tenant_id: StrictStr,
+        url_id: Annotated[StrictStr, Field(description="Page URL identifier (cleaned server-side).")],
+        after_name: Annotated[Optional[StrictStr], Field(description="Cursor: pass nextAfterName from the previous response.")] = None,
+        after_user_id: Annotated[Optional[StrictStr], Field(description="Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[PageUsersOfflineResponse]:
+        """get_offline_users
+
+        Past commenters on the page who are NOT currently online. Sorted by displayName. Use this after exhausting /users/online to render a \"Members\" section. Cursor pagination on commenterName: server walks the partial {tenantId, urlId, commenterName} index from afterName forward via $gt, no $skip cost.
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: Page URL identifier (cleaned server-side). (required)
+        :type url_id: str
+        :param after_name: Cursor: pass nextAfterName from the previous response.
+        :type after_name: str
+        :param after_user_id: Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.
+        :type after_user_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_offline_users_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            after_name=after_name,
+            after_user_id=after_user_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PageUsersOfflineResponse",
+            '403': "APIError",
+            '422': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_offline_users_without_preload_content(
+        self,
+        tenant_id: StrictStr,
+        url_id: Annotated[StrictStr, Field(description="Page URL identifier (cleaned server-side).")],
+        after_name: Annotated[Optional[StrictStr], Field(description="Cursor: pass nextAfterName from the previous response.")] = None,
+        after_user_id: Annotated[Optional[StrictStr], Field(description="Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_offline_users
+
+        Past commenters on the page who are NOT currently online. Sorted by displayName. Use this after exhausting /users/online to render a \"Members\" section. Cursor pagination on commenterName: server walks the partial {tenantId, urlId, commenterName} index from afterName forward via $gt, no $skip cost.
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: Page URL identifier (cleaned server-side). (required)
+        :type url_id: str
+        :param after_name: Cursor: pass nextAfterName from the previous response.
+        :type after_name: str
+        :param after_user_id: Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.
+        :type after_user_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_offline_users_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            after_name=after_name,
+            after_user_id=after_user_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PageUsersOfflineResponse",
+            '403': "APIError",
+            '422': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_offline_users_serialize(
+        self,
+        tenant_id,
+        url_id,
+        after_name,
+        after_user_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if tenant_id is not None:
+            _path_params['tenantId'] = tenant_id
+        # process the query parameters
+        if url_id is not None:
+            
+            _query_params.append(('urlId', url_id))
+            
+        if after_name is not None:
+            
+            _query_params.append(('afterName', after_name))
+            
+        if after_user_id is not None:
+            
+            _query_params.append(('afterUserId', after_user_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/pages/{tenantId}/users/offline',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_online_users(
+        self,
+        tenant_id: StrictStr,
+        url_id: Annotated[StrictStr, Field(description="Page URL identifier (cleaned server-side).")],
+        after_name: Annotated[Optional[StrictStr], Field(description="Cursor: pass nextAfterName from the previous response.")] = None,
+        after_user_id: Annotated[Optional[StrictStr], Field(description="Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> PageUsersOnlineResponse:
+        """get_online_users
+
+        Currently-online viewers of a page: people whose websocket session is subscribed to the page right now. Returns anonCount + totalCount (room-wide subscribers, including anon viewers we don't enumerate).
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: Page URL identifier (cleaned server-side). (required)
+        :type url_id: str
+        :param after_name: Cursor: pass nextAfterName from the previous response.
+        :type after_name: str
+        :param after_user_id: Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.
+        :type after_user_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_online_users_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            after_name=after_name,
+            after_user_id=after_user_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PageUsersOnlineResponse",
+            '403': "APIError",
+            '422': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_online_users_with_http_info(
+        self,
+        tenant_id: StrictStr,
+        url_id: Annotated[StrictStr, Field(description="Page URL identifier (cleaned server-side).")],
+        after_name: Annotated[Optional[StrictStr], Field(description="Cursor: pass nextAfterName from the previous response.")] = None,
+        after_user_id: Annotated[Optional[StrictStr], Field(description="Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[PageUsersOnlineResponse]:
+        """get_online_users
+
+        Currently-online viewers of a page: people whose websocket session is subscribed to the page right now. Returns anonCount + totalCount (room-wide subscribers, including anon viewers we don't enumerate).
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: Page URL identifier (cleaned server-side). (required)
+        :type url_id: str
+        :param after_name: Cursor: pass nextAfterName from the previous response.
+        :type after_name: str
+        :param after_user_id: Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.
+        :type after_user_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_online_users_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            after_name=after_name,
+            after_user_id=after_user_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PageUsersOnlineResponse",
+            '403': "APIError",
+            '422': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_online_users_without_preload_content(
+        self,
+        tenant_id: StrictStr,
+        url_id: Annotated[StrictStr, Field(description="Page URL identifier (cleaned server-side).")],
+        after_name: Annotated[Optional[StrictStr], Field(description="Cursor: pass nextAfterName from the previous response.")] = None,
+        after_user_id: Annotated[Optional[StrictStr], Field(description="Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_online_users
+
+        Currently-online viewers of a page: people whose websocket session is subscribed to the page right now. Returns anonCount + totalCount (room-wide subscribers, including anon viewers we don't enumerate).
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: Page URL identifier (cleaned server-side). (required)
+        :type url_id: str
+        :param after_name: Cursor: pass nextAfterName from the previous response.
+        :type after_name: str
+        :param after_user_id: Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.
+        :type after_user_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_online_users_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            after_name=after_name,
+            after_user_id=after_user_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PageUsersOnlineResponse",
+            '403': "APIError",
+            '422': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_online_users_serialize(
+        self,
+        tenant_id,
+        url_id,
+        after_name,
+        after_user_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if tenant_id is not None:
+            _path_params['tenantId'] = tenant_id
+        # process the query parameters
+        if url_id is not None:
+            
+            _query_params.append(('urlId', url_id))
+            
+        if after_name is not None:
+            
+            _query_params.append(('afterName', after_name))
+            
+        if after_user_id is not None:
+            
+            _query_params.append(('afterUserId', after_user_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/pages/{tenantId}/users/online',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_pages_public(
+        self,
+        tenant_id: StrictStr,
+        cursor: Annotated[Optional[StrictStr], Field(description="Opaque pagination cursor returned as `nextCursor` from a prior request. Tied to the same `sortBy`.")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="1..200, default 50")] = None,
+        q: Annotated[Optional[StrictStr], Field(description="Optional case-insensitive title prefix filter.")] = None,
+        sort_by: Annotated[Optional[PagesSortBy], Field(description="Sort order. `updatedAt` (default, newest first), `commentCount` (most comments first), or `title` (alphabetical).")] = None,
+        has_comments: Annotated[Optional[StrictBool], Field(description="If true, only return pages with at least one comment.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetPublicPagesResponse:
+        """get_pages_public
+
+        List pages for a tenant. Used by the FChat desktop client to populate its room list. Requires `enableFChat` to be true on the resolved custom config for each page. Pages that require SSO are filtered against the requesting user's group access.
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param cursor: Opaque pagination cursor returned as `nextCursor` from a prior request. Tied to the same `sortBy`.
+        :type cursor: str
+        :param limit: 1..200, default 50
+        :type limit: int
+        :param q: Optional case-insensitive title prefix filter.
+        :type q: str
+        :param sort_by: Sort order. `updatedAt` (default, newest first), `commentCount` (most comments first), or `title` (alphabetical).
+        :type sort_by: PagesSortBy
+        :param has_comments: If true, only return pages with at least one comment.
+        :type has_comments: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_pages_public_serialize(
+            tenant_id=tenant_id,
+            cursor=cursor,
+            limit=limit,
+            q=q,
+            sort_by=sort_by,
+            has_comments=has_comments,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetPublicPagesResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_pages_public_with_http_info(
+        self,
+        tenant_id: StrictStr,
+        cursor: Annotated[Optional[StrictStr], Field(description="Opaque pagination cursor returned as `nextCursor` from a prior request. Tied to the same `sortBy`.")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="1..200, default 50")] = None,
+        q: Annotated[Optional[StrictStr], Field(description="Optional case-insensitive title prefix filter.")] = None,
+        sort_by: Annotated[Optional[PagesSortBy], Field(description="Sort order. `updatedAt` (default, newest first), `commentCount` (most comments first), or `title` (alphabetical).")] = None,
+        has_comments: Annotated[Optional[StrictBool], Field(description="If true, only return pages with at least one comment.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GetPublicPagesResponse]:
+        """get_pages_public
+
+        List pages for a tenant. Used by the FChat desktop client to populate its room list. Requires `enableFChat` to be true on the resolved custom config for each page. Pages that require SSO are filtered against the requesting user's group access.
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param cursor: Opaque pagination cursor returned as `nextCursor` from a prior request. Tied to the same `sortBy`.
+        :type cursor: str
+        :param limit: 1..200, default 50
+        :type limit: int
+        :param q: Optional case-insensitive title prefix filter.
+        :type q: str
+        :param sort_by: Sort order. `updatedAt` (default, newest first), `commentCount` (most comments first), or `title` (alphabetical).
+        :type sort_by: PagesSortBy
+        :param has_comments: If true, only return pages with at least one comment.
+        :type has_comments: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_pages_public_serialize(
+            tenant_id=tenant_id,
+            cursor=cursor,
+            limit=limit,
+            q=q,
+            sort_by=sort_by,
+            has_comments=has_comments,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetPublicPagesResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_pages_public_without_preload_content(
+        self,
+        tenant_id: StrictStr,
+        cursor: Annotated[Optional[StrictStr], Field(description="Opaque pagination cursor returned as `nextCursor` from a prior request. Tied to the same `sortBy`.")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="1..200, default 50")] = None,
+        q: Annotated[Optional[StrictStr], Field(description="Optional case-insensitive title prefix filter.")] = None,
+        sort_by: Annotated[Optional[PagesSortBy], Field(description="Sort order. `updatedAt` (default, newest first), `commentCount` (most comments first), or `title` (alphabetical).")] = None,
+        has_comments: Annotated[Optional[StrictBool], Field(description="If true, only return pages with at least one comment.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_pages_public
+
+        List pages for a tenant. Used by the FChat desktop client to populate its room list. Requires `enableFChat` to be true on the resolved custom config for each page. Pages that require SSO are filtered against the requesting user's group access.
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param cursor: Opaque pagination cursor returned as `nextCursor` from a prior request. Tied to the same `sortBy`.
+        :type cursor: str
+        :param limit: 1..200, default 50
+        :type limit: int
+        :param q: Optional case-insensitive title prefix filter.
+        :type q: str
+        :param sort_by: Sort order. `updatedAt` (default, newest first), `commentCount` (most comments first), or `title` (alphabetical).
+        :type sort_by: PagesSortBy
+        :param has_comments: If true, only return pages with at least one comment.
+        :type has_comments: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_pages_public_serialize(
+            tenant_id=tenant_id,
+            cursor=cursor,
+            limit=limit,
+            q=q,
+            sort_by=sort_by,
+            has_comments=has_comments,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetPublicPagesResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_pages_public_serialize(
+        self,
+        tenant_id,
+        cursor,
+        limit,
+        q,
+        sort_by,
+        has_comments,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if tenant_id is not None:
+            _path_params['tenantId'] = tenant_id
+        # process the query parameters
+        if cursor is not None:
+            
+            _query_params.append(('cursor', cursor))
+            
+        if limit is not None:
+            
+            _query_params.append(('limit', limit))
+            
+        if q is not None:
+            
+            _query_params.append(('q', q))
+            
+        if sort_by is not None:
+            
+            _query_params.append(('sortBy', sort_by.value))
+            
+        if has_comments is not None:
+            
+            _query_params.append(('hasComments', has_comments))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/pages/{tenantId}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_translations(
+        self,
+        namespace: StrictStr,
+        component: StrictStr,
+        locale: Optional[StrictStr] = None,
+        use_full_translation_ids: Optional[StrictBool] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetTranslationsResponse:
+        """get_translations
+
+
+        :param namespace: (required)
+        :type namespace: str
+        :param component: (required)
+        :type component: str
+        :param locale:
+        :type locale: str
+        :param use_full_translation_ids:
+        :type use_full_translation_ids: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_translations_serialize(
+            namespace=namespace,
+            component=component,
+            locale=locale,
+            use_full_translation_ids=use_full_translation_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTranslationsResponse",
+            '422': "APIError",
+            '500': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_translations_with_http_info(
+        self,
+        namespace: StrictStr,
+        component: StrictStr,
+        locale: Optional[StrictStr] = None,
+        use_full_translation_ids: Optional[StrictBool] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GetTranslationsResponse]:
+        """get_translations
+
+
+        :param namespace: (required)
+        :type namespace: str
+        :param component: (required)
+        :type component: str
+        :param locale:
+        :type locale: str
+        :param use_full_translation_ids:
+        :type use_full_translation_ids: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_translations_serialize(
+            namespace=namespace,
+            component=component,
+            locale=locale,
+            use_full_translation_ids=use_full_translation_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTranslationsResponse",
+            '422': "APIError",
+            '500': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_translations_without_preload_content(
+        self,
+        namespace: StrictStr,
+        component: StrictStr,
+        locale: Optional[StrictStr] = None,
+        use_full_translation_ids: Optional[StrictBool] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_translations
+
+
+        :param namespace: (required)
+        :type namespace: str
+        :param component: (required)
+        :type component: str
+        :param locale:
+        :type locale: str
+        :param use_full_translation_ids:
+        :type use_full_translation_ids: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_translations_serialize(
+            namespace=namespace,
+            component=component,
+            locale=locale,
+            use_full_translation_ids=use_full_translation_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetTranslationsResponse",
+            '422': "APIError",
+            '500': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_translations_serialize(
+        self,
+        namespace,
+        component,
+        locale,
+        use_full_translation_ids,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if namespace is not None:
+            _path_params['namespace'] = namespace
+        if component is not None:
+            _path_params['component'] = component
+        # process the query parameters
+        if locale is not None:
+            
+            _query_params.append(('locale', locale))
+            
+        if use_full_translation_ids is not None:
+            
+            _query_params.append(('useFullTranslationIds', use_full_translation_ids))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/translations/{namespace}/{component}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def get_user_notification_count(
         self,
         tenant_id: StrictStr,
@@ -5311,7 +9055,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserNotificationCount200Response:
+    ) -> GetUserNotificationCountResponse:
         """get_user_notification_count
 
 
@@ -5351,7 +9095,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserNotificationCount200Response",
+            '200': "GetUserNotificationCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5381,7 +9125,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserNotificationCount200Response]:
+    ) -> ApiResponse[GetUserNotificationCountResponse]:
         """get_user_notification_count
 
 
@@ -5421,7 +9165,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserNotificationCount200Response",
+            '200': "GetUserNotificationCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5491,7 +9235,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserNotificationCount200Response",
+            '200': "GetUserNotificationCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5574,6 +9318,7 @@ class PublicApi:
     def get_user_notifications(
         self,
         tenant_id: StrictStr,
+        url_id: Annotated[Optional[StrictStr], Field(description="Used to determine whether the current page is subscribed.")] = None,
         page_size: Optional[StrictInt] = None,
         after_id: Optional[StrictStr] = None,
         include_context: Optional[StrictBool] = None,
@@ -5582,6 +9327,7 @@ class PublicApi:
         dm_only: Optional[StrictBool] = None,
         no_dm: Optional[StrictBool] = None,
         include_translations: Optional[StrictBool] = None,
+        include_tenant_notifications: Optional[StrictBool] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -5595,12 +9341,14 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserNotifications200Response:
+    ) -> GetMyNotificationsResponse:
         """get_user_notifications
 
 
         :param tenant_id: (required)
         :type tenant_id: str
+        :param url_id: Used to determine whether the current page is subscribed.
+        :type url_id: str
         :param page_size:
         :type page_size: int
         :param after_id:
@@ -5617,6 +9365,8 @@ class PublicApi:
         :type no_dm: bool
         :param include_translations:
         :type include_translations: bool
+        :param include_tenant_notifications:
+        :type include_tenant_notifications: bool
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -5643,6 +9393,7 @@ class PublicApi:
 
         _param = self._get_user_notifications_serialize(
             tenant_id=tenant_id,
+            url_id=url_id,
             page_size=page_size,
             after_id=after_id,
             include_context=include_context,
@@ -5651,6 +9402,7 @@ class PublicApi:
             dm_only=dm_only,
             no_dm=no_dm,
             include_translations=include_translations,
+            include_tenant_notifications=include_tenant_notifications,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5659,7 +9411,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserNotifications200Response",
+            '200': "GetMyNotificationsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5676,6 +9428,7 @@ class PublicApi:
     def get_user_notifications_with_http_info(
         self,
         tenant_id: StrictStr,
+        url_id: Annotated[Optional[StrictStr], Field(description="Used to determine whether the current page is subscribed.")] = None,
         page_size: Optional[StrictInt] = None,
         after_id: Optional[StrictStr] = None,
         include_context: Optional[StrictBool] = None,
@@ -5684,6 +9437,7 @@ class PublicApi:
         dm_only: Optional[StrictBool] = None,
         no_dm: Optional[StrictBool] = None,
         include_translations: Optional[StrictBool] = None,
+        include_tenant_notifications: Optional[StrictBool] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -5697,12 +9451,14 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserNotifications200Response]:
+    ) -> ApiResponse[GetMyNotificationsResponse]:
         """get_user_notifications
 
 
         :param tenant_id: (required)
         :type tenant_id: str
+        :param url_id: Used to determine whether the current page is subscribed.
+        :type url_id: str
         :param page_size:
         :type page_size: int
         :param after_id:
@@ -5719,6 +9475,8 @@ class PublicApi:
         :type no_dm: bool
         :param include_translations:
         :type include_translations: bool
+        :param include_tenant_notifications:
+        :type include_tenant_notifications: bool
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -5745,6 +9503,7 @@ class PublicApi:
 
         _param = self._get_user_notifications_serialize(
             tenant_id=tenant_id,
+            url_id=url_id,
             page_size=page_size,
             after_id=after_id,
             include_context=include_context,
@@ -5753,6 +9512,7 @@ class PublicApi:
             dm_only=dm_only,
             no_dm=no_dm,
             include_translations=include_translations,
+            include_tenant_notifications=include_tenant_notifications,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5761,7 +9521,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserNotifications200Response",
+            '200': "GetMyNotificationsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5778,6 +9538,7 @@ class PublicApi:
     def get_user_notifications_without_preload_content(
         self,
         tenant_id: StrictStr,
+        url_id: Annotated[Optional[StrictStr], Field(description="Used to determine whether the current page is subscribed.")] = None,
         page_size: Optional[StrictInt] = None,
         after_id: Optional[StrictStr] = None,
         include_context: Optional[StrictBool] = None,
@@ -5786,6 +9547,7 @@ class PublicApi:
         dm_only: Optional[StrictBool] = None,
         no_dm: Optional[StrictBool] = None,
         include_translations: Optional[StrictBool] = None,
+        include_tenant_notifications: Optional[StrictBool] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -5805,6 +9567,8 @@ class PublicApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
+        :param url_id: Used to determine whether the current page is subscribed.
+        :type url_id: str
         :param page_size:
         :type page_size: int
         :param after_id:
@@ -5821,6 +9585,8 @@ class PublicApi:
         :type no_dm: bool
         :param include_translations:
         :type include_translations: bool
+        :param include_tenant_notifications:
+        :type include_tenant_notifications: bool
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -5847,6 +9613,7 @@ class PublicApi:
 
         _param = self._get_user_notifications_serialize(
             tenant_id=tenant_id,
+            url_id=url_id,
             page_size=page_size,
             after_id=after_id,
             include_context=include_context,
@@ -5855,6 +9622,7 @@ class PublicApi:
             dm_only=dm_only,
             no_dm=no_dm,
             include_translations=include_translations,
+            include_tenant_notifications=include_tenant_notifications,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5863,7 +9631,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserNotifications200Response",
+            '200': "GetMyNotificationsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5875,6 +9643,7 @@ class PublicApi:
     def _get_user_notifications_serialize(
         self,
         tenant_id,
+        url_id,
         page_size,
         after_id,
         include_context,
@@ -5883,6 +9652,7 @@ class PublicApi:
         dm_only,
         no_dm,
         include_translations,
+        include_tenant_notifications,
         sso,
         _request_auth,
         _content_type,
@@ -5909,6 +9679,10 @@ class PublicApi:
         if tenant_id is not None:
             
             _query_params.append(('tenantId', tenant_id))
+            
+        if url_id is not None:
+            
+            _query_params.append(('urlId', url_id))
             
         if page_size is not None:
             
@@ -5941,6 +9715,10 @@ class PublicApi:
         if include_translations is not None:
             
             _query_params.append(('includeTranslations', include_translations))
+            
+        if include_tenant_notifications is not None:
+            
+            _query_params.append(('includeTenantNotifications', include_tenant_notifications))
             
         if sso is not None:
             
@@ -6000,7 +9778,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserPresenceStatuses200Response:
+    ) -> GetUserPresenceStatusesResponse:
         """get_user_presence_statuses
 
 
@@ -6043,7 +9821,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserPresenceStatuses200Response",
+            '200': "GetUserPresenceStatusesResponse",
             '422': "APIError",
         }
         response_data = self.api_client.call_api(
@@ -6075,7 +9853,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserPresenceStatuses200Response]:
+    ) -> ApiResponse[GetUserPresenceStatusesResponse]:
         """get_user_presence_statuses
 
 
@@ -6118,7 +9896,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserPresenceStatuses200Response",
+            '200': "GetUserPresenceStatusesResponse",
             '422': "APIError",
         }
         response_data = self.api_client.call_api(
@@ -6193,7 +9971,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserPresenceStatuses200Response",
+            '200': "GetUserPresenceStatusesResponse",
             '422': "APIError",
         }
         response_data = self.api_client.call_api(
@@ -6296,7 +10074,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserReactsPublic200Response:
+    ) -> UserReactsResponse:
         """get_user_reacts_public
 
 
@@ -6339,7 +10117,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserReactsPublic200Response",
+            '200': "UserReactsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6370,7 +10148,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserReactsPublic200Response]:
+    ) -> ApiResponse[UserReactsResponse]:
         """get_user_reacts_public
 
 
@@ -6413,7 +10191,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserReactsPublic200Response",
+            '200': "UserReactsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6487,7 +10265,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserReactsPublic200Response",
+            '200': "UserReactsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6571,6 +10349,1125 @@ class PublicApi:
 
 
     @validate_call
+    def get_users_info(
+        self,
+        tenant_id: StrictStr,
+        ids: Annotated[StrictStr, Field(description="Comma-delimited userIds.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> PageUsersInfoResponse:
+        """get_users_info
+
+        Bulk user info for a tenant. Given userIds, return display info from User / SSOUser. Used by the comment widget to enrich users that just appeared via a presence event. No page context: privacy is enforced uniformly (private profiles are masked).
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param ids: Comma-delimited userIds. (required)
+        :type ids: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_users_info_serialize(
+            tenant_id=tenant_id,
+            ids=ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PageUsersInfoResponse",
+            '422': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_users_info_with_http_info(
+        self,
+        tenant_id: StrictStr,
+        ids: Annotated[StrictStr, Field(description="Comma-delimited userIds.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[PageUsersInfoResponse]:
+        """get_users_info
+
+        Bulk user info for a tenant. Given userIds, return display info from User / SSOUser. Used by the comment widget to enrich users that just appeared via a presence event. No page context: privacy is enforced uniformly (private profiles are masked).
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param ids: Comma-delimited userIds. (required)
+        :type ids: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_users_info_serialize(
+            tenant_id=tenant_id,
+            ids=ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PageUsersInfoResponse",
+            '422': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_users_info_without_preload_content(
+        self,
+        tenant_id: StrictStr,
+        ids: Annotated[StrictStr, Field(description="Comma-delimited userIds.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_users_info
+
+        Bulk user info for a tenant. Given userIds, return display info from User / SSOUser. Used by the comment widget to enrich users that just appeared via a presence event. No page context: privacy is enforced uniformly (private profiles are masked).
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param ids: Comma-delimited userIds. (required)
+        :type ids: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_users_info_serialize(
+            tenant_id=tenant_id,
+            ids=ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PageUsersInfoResponse",
+            '422': "APIError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_users_info_serialize(
+        self,
+        tenant_id,
+        ids,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if tenant_id is not None:
+            _path_params['tenantId'] = tenant_id
+        # process the query parameters
+        if ids is not None:
+            
+            _query_params.append(('ids', ids))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/pages/{tenantId}/users/info',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_v1_page_likes(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetV1PageLikes:
+        """get_v1_page_likes
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v1_page_likes_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV1PageLikes",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_v1_page_likes_with_http_info(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GetV1PageLikes]:
+        """get_v1_page_likes
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v1_page_likes_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV1PageLikes",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_v1_page_likes_without_preload_content(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_v1_page_likes
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v1_page_likes_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV1PageLikes",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_v1_page_likes_serialize(
+        self,
+        tenant_id,
+        url_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if tenant_id is not None:
+            _path_params['tenantId'] = tenant_id
+        # process the query parameters
+        if url_id is not None:
+            
+            _query_params.append(('urlId', url_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/page-reacts/v1/likes/{tenantId}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_v2_page_react_users(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetV2PageReactUsersResponse:
+        """get_v2_page_react_users
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param id: (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v2_page_react_users_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV2PageReactUsersResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_v2_page_react_users_with_http_info(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GetV2PageReactUsersResponse]:
+        """get_v2_page_react_users
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param id: (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v2_page_react_users_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV2PageReactUsersResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_v2_page_react_users_without_preload_content(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_v2_page_react_users
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param id: (required)
+        :type id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v2_page_react_users_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            id=id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV2PageReactUsersResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_v2_page_react_users_serialize(
+        self,
+        tenant_id,
+        url_id,
+        id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if tenant_id is not None:
+            _path_params['tenantId'] = tenant_id
+        # process the query parameters
+        if url_id is not None:
+            
+            _query_params.append(('urlId', url_id))
+            
+        if id is not None:
+            
+            _query_params.append(('id', id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/page-reacts/v2/{tenantId}/list',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_v2_page_reacts(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> GetV2PageReacts:
+        """get_v2_page_reacts
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v2_page_reacts_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV2PageReacts",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_v2_page_reacts_with_http_info(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[GetV2PageReacts]:
+        """get_v2_page_reacts
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v2_page_reacts_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV2PageReacts",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_v2_page_reacts_without_preload_content(
+        self,
+        tenant_id: StrictStr,
+        url_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """get_v2_page_reacts
+
+
+        :param tenant_id: (required)
+        :type tenant_id: str
+        :param url_id: (required)
+        :type url_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_v2_page_reacts_serialize(
+            tenant_id=tenant_id,
+            url_id=url_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "GetV2PageReacts",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_v2_page_reacts_serialize(
+        self,
+        tenant_id,
+        url_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if tenant_id is not None:
+            _path_params['tenantId'] = tenant_id
+        # process the query parameters
+        if url_id is not None:
+            
+            _query_params.append(('urlId', url_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/page-reacts/v2/{tenantId}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def lock_comment(
         self,
         tenant_id: StrictStr,
@@ -6589,7 +11486,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> LockComment200Response:
+    ) -> APIEmptyResponse:
         """lock_comment
 
 
@@ -6635,7 +11532,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "LockComment200Response",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6667,7 +11564,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[LockComment200Response]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """lock_comment
 
 
@@ -6713,7 +11610,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "LockComment200Response",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6791,7 +11688,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "LockComment200Response",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6877,6 +11774,248 @@ class PublicApi:
 
 
     @validate_call
+    def logout_public(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> APIEmptyResponse:
+        """logout_public
+
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._logout_public_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "APIEmptyResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def logout_public_with_http_info(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[APIEmptyResponse]:
+        """logout_public
+
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._logout_public_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "APIEmptyResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def logout_public_without_preload_content(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """logout_public
+
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._logout_public_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "APIEmptyResponse",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _logout_public_serialize(
+        self,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='PUT',
+            resource_path='/auth/logout',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def pin_comment(
         self,
         tenant_id: StrictStr,
@@ -6895,7 +12034,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PinComment200Response:
+    ) -> ChangeCommentPinStatusResponse:
         """pin_comment
 
 
@@ -6941,7 +12080,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PinComment200Response",
+            '200': "ChangeCommentPinStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6973,7 +12112,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PinComment200Response]:
+    ) -> ApiResponse[ChangeCommentPinStatusResponse]:
         """pin_comment
 
 
@@ -7019,7 +12158,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PinComment200Response",
+            '200': "ChangeCommentPinStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7097,7 +12236,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PinComment200Response",
+            '200': "ChangeCommentPinStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7203,7 +12342,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ReactFeedPostPublic200Response:
+    ) -> ReactFeedPostResponse:
         """react_feed_post_public
 
 
@@ -7255,7 +12394,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ReactFeedPostPublic200Response",
+            '200': "ReactFeedPostResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7289,7 +12428,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ReactFeedPostPublic200Response]:
+    ) -> ApiResponse[ReactFeedPostResponse]:
         """react_feed_post_public
 
 
@@ -7341,7 +12480,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ReactFeedPostPublic200Response",
+            '200': "ReactFeedPostResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7427,7 +12566,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ReactFeedPostPublic200Response",
+            '200': "ReactFeedPostResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7550,7 +12689,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ResetUserNotifications200Response:
+    ) -> ResetUserNotificationsResponse:
         """reset_user_notification_count
 
 
@@ -7590,7 +12729,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResetUserNotifications200Response",
+            '200': "ResetUserNotificationsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7620,7 +12759,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ResetUserNotifications200Response]:
+    ) -> ApiResponse[ResetUserNotificationsResponse]:
         """reset_user_notification_count
 
 
@@ -7660,7 +12799,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResetUserNotifications200Response",
+            '200': "ResetUserNotificationsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7730,7 +12869,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResetUserNotifications200Response",
+            '200': "ResetUserNotificationsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7831,7 +12970,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ResetUserNotifications200Response:
+    ) -> ResetUserNotificationsResponse:
         """reset_user_notifications
 
 
@@ -7886,7 +13025,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResetUserNotifications200Response",
+            '200': "ResetUserNotificationsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7921,7 +13060,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ResetUserNotifications200Response]:
+    ) -> ApiResponse[ResetUserNotificationsResponse]:
         """reset_user_notifications
 
 
@@ -7976,7 +13115,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResetUserNotifications200Response",
+            '200': "ResetUserNotificationsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8066,7 +13205,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResetUserNotifications200Response",
+            '200': "ResetUserNotificationsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8191,7 +13330,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SearchUsers200Response:
+    ) -> SearchUsersResult:
         """search_users
 
 
@@ -8243,7 +13382,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SearchUsers200Response",
+            '200': "SearchUsersResult",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8277,7 +13416,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SearchUsers200Response]:
+    ) -> ApiResponse[SearchUsersResult]:
         """search_users
 
 
@@ -8329,7 +13468,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SearchUsers200Response",
+            '200': "SearchUsersResult",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8415,7 +13554,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SearchUsers200Response",
+            '200': "SearchUsersResult",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8534,7 +13673,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SetCommentText200Response:
+    ) -> PublicAPISetCommentTextResponse:
         """set_comment_text
 
 
@@ -8586,7 +13725,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetCommentText200Response",
+            '200': "PublicAPISetCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8620,7 +13759,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SetCommentText200Response]:
+    ) -> ApiResponse[PublicAPISetCommentTextResponse]:
         """set_comment_text
 
 
@@ -8672,7 +13811,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetCommentText200Response",
+            '200': "PublicAPISetCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8758,7 +13897,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetCommentText200Response",
+            '200': "PublicAPISetCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8883,7 +14022,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UnBlockCommentPublic200Response:
+    ) -> UnblockSuccess:
         """un_block_comment_public
 
 
@@ -8929,7 +14068,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnBlockCommentPublic200Response",
+            '200': "UnblockSuccess",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8961,7 +14100,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UnBlockCommentPublic200Response]:
+    ) -> ApiResponse[UnblockSuccess]:
         """un_block_comment_public
 
 
@@ -9007,7 +14146,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnBlockCommentPublic200Response",
+            '200': "UnblockSuccess",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9085,7 +14224,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnBlockCommentPublic200Response",
+            '200': "UnblockSuccess",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9202,7 +14341,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> LockComment200Response:
+    ) -> APIEmptyResponse:
         """un_lock_comment
 
 
@@ -9248,7 +14387,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "LockComment200Response",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9280,7 +14419,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[LockComment200Response]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """un_lock_comment
 
 
@@ -9326,7 +14465,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "LockComment200Response",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9404,7 +14543,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "LockComment200Response",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9508,7 +14647,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PinComment200Response:
+    ) -> ChangeCommentPinStatusResponse:
         """un_pin_comment
 
 
@@ -9554,7 +14693,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PinComment200Response",
+            '200': "ChangeCommentPinStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9586,7 +14725,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PinComment200Response]:
+    ) -> ApiResponse[ChangeCommentPinStatusResponse]:
         """un_pin_comment
 
 
@@ -9632,7 +14771,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PinComment200Response",
+            '200': "ChangeCommentPinStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9710,7 +14849,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PinComment200Response",
+            '200': "ChangeCommentPinStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9815,7 +14954,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateFeedPostPublic200Response:
+    ) -> CreateFeedPostResponse:
         """update_feed_post_public
 
 
@@ -9864,7 +15003,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateFeedPostPublic200Response",
+            '200': "CreateFeedPostResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9897,7 +15036,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateFeedPostPublic200Response]:
+    ) -> ApiResponse[CreateFeedPostResponse]:
         """update_feed_post_public
 
 
@@ -9946,7 +15085,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateFeedPostPublic200Response",
+            '200': "CreateFeedPostResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10028,7 +15167,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateFeedPostPublic200Response",
+            '200': "CreateFeedPostResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10149,7 +15288,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateUserNotificationStatus200Response:
+    ) -> UpdateUserNotificationCommentSubscriptionStatusResponse:
         """update_user_notification_comment_subscription_status
 
         Enable or disable notifications for a specific comment.
@@ -10199,7 +15338,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateUserNotificationStatus200Response",
+            '200': "UpdateUserNotificationCommentSubscriptionStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10232,7 +15371,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UpdateUserNotificationStatus200Response]:
+    ) -> ApiResponse[UpdateUserNotificationCommentSubscriptionStatusResponse]:
         """update_user_notification_comment_subscription_status
 
         Enable or disable notifications for a specific comment.
@@ -10282,7 +15421,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateUserNotificationStatus200Response",
+            '200': "UpdateUserNotificationCommentSubscriptionStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10365,7 +15504,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateUserNotificationStatus200Response",
+            '200': "UpdateUserNotificationCommentSubscriptionStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10476,7 +15615,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateUserNotificationStatus200Response:
+    ) -> UpdateUserNotificationPageSubscriptionStatusResponse:
         """update_user_notification_page_subscription_status
 
         Enable or disable notifications for a page. When users are subscribed to a page, notifications are created for new root comments, and also
@@ -10529,7 +15668,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateUserNotificationStatus200Response",
+            '200': "UpdateUserNotificationPageSubscriptionStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10563,7 +15702,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UpdateUserNotificationStatus200Response]:
+    ) -> ApiResponse[UpdateUserNotificationPageSubscriptionStatusResponse]:
         """update_user_notification_page_subscription_status
 
         Enable or disable notifications for a page. When users are subscribed to a page, notifications are created for new root comments, and also
@@ -10616,7 +15755,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateUserNotificationStatus200Response",
+            '200': "UpdateUserNotificationPageSubscriptionStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10703,7 +15842,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateUserNotificationStatus200Response",
+            '200': "UpdateUserNotificationPageSubscriptionStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10819,7 +15958,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateUserNotificationStatus200Response:
+    ) -> UpdateUserNotificationStatusResponse:
         """update_user_notification_status
 
 
@@ -10865,7 +16004,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateUserNotificationStatus200Response",
+            '200': "UpdateUserNotificationStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10897,7 +16036,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UpdateUserNotificationStatus200Response]:
+    ) -> ApiResponse[UpdateUserNotificationStatusResponse]:
         """update_user_notification_status
 
 
@@ -10943,7 +16082,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateUserNotificationStatus200Response",
+            '200': "UpdateUserNotificationStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11021,7 +16160,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateUserNotificationStatus200Response",
+            '200': "UpdateUserNotificationStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11450,7 +16589,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> VoteComment200Response:
+    ) -> VoteResponse:
         """vote_comment
 
 
@@ -11505,7 +16644,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VoteComment200Response",
+            '200': "VoteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11540,7 +16679,7 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[VoteComment200Response]:
+    ) -> ApiResponse[VoteResponse]:
         """vote_comment
 
 
@@ -11595,7 +16734,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VoteComment200Response",
+            '200': "VoteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11685,7 +16824,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VoteComment200Response",
+            '200': "VoteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

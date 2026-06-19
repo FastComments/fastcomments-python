@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**APIStatus**](APIStatus.md) |  | 
-**results** | [**List[AddHashTag200Response]**](AddHashTag200Response.md) |  | 
+**results** | [**List[BulkCreateHashTagsResponseResultsInner]**](BulkCreateHashTagsResponseResultsInner.md) |  | 
 
 ## Example
 

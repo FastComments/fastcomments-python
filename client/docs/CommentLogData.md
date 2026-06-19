@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **engine_response** | **str** |  | [optional] 
 **engine_tokens** | **float** |  | [optional] 
 **trust_factor** | **float** |  | [optional] 
+**source** | **str** |  | [optional] 
 **rule** | [**SpamRule**](SpamRule.md) |  | [optional] 
 **user_id** | **str** |  | [optional] 
 **subscribers** | **float** |  | [optional] 

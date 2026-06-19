@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,8 +26,8 @@ class RecordStringBeforeStringOrNullAfterStringOrNullValue(BaseModel):
     """
     RecordStringBeforeStringOrNullAfterStringOrNullValue
     """ # noqa: E501
-    after: StrictStr
-    before: StrictStr
+    after: Optional[StrictStr]
+    before: Optional[StrictStr]
     __properties: ClassVar[List[str]] = ["after", "before"]
 
     model_config = ConfigDict(
@@ -69,6 +69,16 @@ class RecordStringBeforeStringOrNullAfterStringOrNullValue(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if after (nullable) is None
+        # and model_fields_set contains the field
+        if self.after is None and "after" in self.model_fields_set:
+            _dict['after'] = None
+
+        # set to None if before (nullable) is None
+        # and model_fields_set contains the field
+        if self.before is None and "before" in self.model_fields_set:
+            _dict['before'] = None
+
         return _dict
 
     @classmethod

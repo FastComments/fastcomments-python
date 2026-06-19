@@ -79,6 +79,7 @@ class TestCreateCommentParams(unittest.TestCase):
                     'key' : null
                     },
                 tos = True,
+                bot_id = '',
                 approved = True,
                 domain = '',
                 ip = '',

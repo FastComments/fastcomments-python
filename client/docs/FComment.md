@@ -77,6 +77,7 @@ Name | Type | Description | Notes
 **requires_verification** | **bool** |  | [optional] 
 **edit_key** | **str** |  | [optional] 
 **tos_accepted_at** | **datetime** |  | [optional] 
+**bot_id** | **str** |  | [optional] 
 
 ## Example
 

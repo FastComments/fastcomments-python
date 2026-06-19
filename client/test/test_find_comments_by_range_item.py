@@ -152,6 +152,7 @@ class TestFindCommentsByRangeItem(unittest.TestCase):
                                 engine_response = '', 
                                 engine_tokens = 1.337, 
                                 trust_factor = 1.337, 
+                                source = '', 
                                 rule = client.models.spam_rule.SpamRule(
                                     actions = [
                                         'spam'
@@ -194,7 +195,8 @@ class TestFindCommentsByRangeItem(unittest.TestCase):
                     view_count = 56, 
                     requires_verification = True, 
                     edit_key = '', 
-                    tos_accepted_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ),
+                    tos_accepted_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    bot_id = '', ),
                 result = client.models.question_result.QuestionResult(
                     _id = '', 
                     tenant_id = '', 
@@ -333,6 +335,7 @@ class TestFindCommentsByRangeItem(unittest.TestCase):
                                 engine_response = '', 
                                 engine_tokens = 1.337, 
                                 trust_factor = 1.337, 
+                                source = '', 
                                 rule = client.models.spam_rule.SpamRule(
                                     actions = [
                                         'spam'
@@ -375,7 +378,8 @@ class TestFindCommentsByRangeItem(unittest.TestCase):
                     view_count = 56, 
                     requires_verification = True, 
                     edit_key = '', 
-                    tos_accepted_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ),
+                    tos_accepted_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    bot_id = '', ),
                 result = client.models.question_result.QuestionResult(
                     _id = '', 
                     tenant_id = '', 

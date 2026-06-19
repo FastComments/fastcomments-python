@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from client.models.add_hash_tag200_response import AddHashTag200Response
 from client.models.api_status import APIStatus
+from client.models.bulk_create_hash_tags_response_results_inner import BulkCreateHashTagsResponseResultsInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class BulkCreateHashTagsResponse(BaseModel):
     BulkCreateHashTagsResponse
     """ # noqa: E501
     status: APIStatus
-    results: List[AddHashTag200Response]
+    results: List[BulkCreateHashTagsResponseResultsInner]
     __properties: ClassVar[List[str]] = ["status", "results"]
 
     model_config = ConfigDict(
@@ -91,7 +91,7 @@ class BulkCreateHashTagsResponse(BaseModel):
 
         _obj = cls.model_validate({
             "status": obj.get("status"),
-            "results": [AddHashTag200Response.from_dict(_item) for _item in obj["results"]] if obj.get("results") is not None else None
+            "results": [BulkCreateHashTagsResponseResultsInner.from_dict(_item) for _item in obj["results"]] if obj.get("results") is not None else None
         })
         return _obj
 

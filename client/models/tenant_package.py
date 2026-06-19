@@ -31,6 +31,7 @@ class TenantPackage(BaseModel):
     name: StrictStr
     tenant_id: StrictStr = Field(alias="tenantId")
     created_at: datetime = Field(alias="createdAt")
+    template_id: Optional[StrictStr] = Field(default=None, alias="templateId")
     monthly_cost_usd: Optional[Union[StrictFloat, StrictInt]] = Field(alias="monthlyCostUSD")
     yearly_cost_usd: Optional[Union[StrictFloat, StrictInt]] = Field(alias="yearlyCostUSD")
     monthly_stripe_plan_id: Optional[StrictStr] = Field(alias="monthlyStripePlanId")
@@ -74,6 +75,8 @@ class TenantPackage(BaseModel):
     flex_domain_unit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexDomainUnit")
     flex_chat_gpt_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexChatGPTCostCents")
     flex_chat_gpt_unit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexChatGPTUnit")
+    flex_llm_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexLLMCostCents")
+    flex_llm_unit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexLLMUnit")
     flex_minimum_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexMinimumCostCents")
     flex_managed_tenant_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexManagedTenantCostCents")
     flex_sso_admin_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexSSOAdminCostCents")
@@ -81,7 +84,11 @@ class TenantPackage(BaseModel):
     flex_sso_moderator_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexSSOModeratorCostCents")
     flex_sso_moderator_unit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexSSOModeratorUnit")
     is_sso_billing_monthly_active_users: Optional[StrictBool] = Field(default=None, alias="isSSOBillingMonthlyActiveUsers")
-    __properties: ClassVar[List[str]] = ["_id", "name", "tenantId", "createdAt", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing", "enableSAML", "enableCanvasLTI", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexSmallWidgetsCreditCostCents", "flexSmallWidgetsCreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexChatGPTCostCents", "flexChatGPTUnit", "flexMinimumCostCents", "flexManagedTenantCostCents", "flexSSOAdminCostCents", "flexSSOAdminUnit", "flexSSOModeratorCostCents", "flexSSOModeratorUnit", "isSSOBillingMonthlyActiveUsers"]
+    has_ai_agents: Optional[StrictBool] = Field(default=None, alias="hasAIAgents")
+    max_ai_agents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="maxAIAgents")
+    ai_agent_daily_budget_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="aiAgentDailyBudgetCents")
+    ai_agent_monthly_budget_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="aiAgentMonthlyBudgetCents")
+    __properties: ClassVar[List[str]] = ["_id", "name", "tenantId", "createdAt", "templateId", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing", "enableSAML", "enableCanvasLTI", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexSmallWidgetsCreditCostCents", "flexSmallWidgetsCreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexChatGPTCostCents", "flexChatGPTUnit", "flexLLMCostCents", "flexLLMUnit", "flexMinimumCostCents", "flexManagedTenantCostCents", "flexSSOAdminCostCents", "flexSSOAdminUnit", "flexSSOModeratorCostCents", "flexSSOModeratorUnit", "isSSOBillingMonthlyActiveUsers", "hasAIAgents", "maxAIAgents", "aiAgentDailyBudgetCents", "aiAgentMonthlyBudgetCents"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -158,6 +165,7 @@ class TenantPackage(BaseModel):
             "name": obj.get("name"),
             "tenantId": obj.get("tenantId"),
             "createdAt": obj.get("createdAt"),
+            "templateId": obj.get("templateId"),
             "monthlyCostUSD": obj.get("monthlyCostUSD"),
             "yearlyCostUSD": obj.get("yearlyCostUSD"),
             "monthlyStripePlanId": obj.get("monthlyStripePlanId"),
@@ -201,13 +209,19 @@ class TenantPackage(BaseModel):
             "flexDomainUnit": obj.get("flexDomainUnit"),
             "flexChatGPTCostCents": obj.get("flexChatGPTCostCents"),
             "flexChatGPTUnit": obj.get("flexChatGPTUnit"),
+            "flexLLMCostCents": obj.get("flexLLMCostCents"),
+            "flexLLMUnit": obj.get("flexLLMUnit"),
             "flexMinimumCostCents": obj.get("flexMinimumCostCents"),
             "flexManagedTenantCostCents": obj.get("flexManagedTenantCostCents"),
             "flexSSOAdminCostCents": obj.get("flexSSOAdminCostCents"),
             "flexSSOAdminUnit": obj.get("flexSSOAdminUnit"),
             "flexSSOModeratorCostCents": obj.get("flexSSOModeratorCostCents"),
             "flexSSOModeratorUnit": obj.get("flexSSOModeratorUnit"),
-            "isSSOBillingMonthlyActiveUsers": obj.get("isSSOBillingMonthlyActiveUsers")
+            "isSSOBillingMonthlyActiveUsers": obj.get("isSSOBillingMonthlyActiveUsers"),
+            "hasAIAgents": obj.get("hasAIAgents"),
+            "maxAIAgents": obj.get("maxAIAgents"),
+            "aiAgentDailyBudgetCents": obj.get("aiAgentDailyBudgetCents"),
+            "aiAgentMonthlyBudgetCents": obj.get("aiAgentMonthlyBudgetCents")
         })
         return _obj
 

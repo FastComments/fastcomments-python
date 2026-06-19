@@ -43,6 +43,12 @@ class LiveEventType(str, Enum):
     NEW_MINUS_FEED_MINUS_POST = 'new-feed-post'
     UPDATED_MINUS_FEED_MINUS_POST = 'updated-feed-post'
     DELETED_MINUS_FEED_MINUS_POST = 'deleted-feed-post'
+    NEW_MINUS_TICKET = 'new-ticket'
+    UPDATED_MINUS_TICKET_MINUS_STATE = 'updated-ticket-state'
+    UPDATED_MINUS_TICKET_MINUS_ASSIGNMENT = 'updated-ticket-assignment'
+    DELETED_MINUS_TICKET = 'deleted-ticket'
+    PAGE_MINUS_REACT = 'page-react'
+    QUESTION_MINUS_RESULT = 'question-result'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

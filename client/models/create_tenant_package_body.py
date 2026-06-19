@@ -67,15 +67,15 @@ class CreateTenantPackageBody(BaseModel):
     flex_admin_unit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexAdminUnit")
     flex_domain_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexDomainCostCents")
     flex_domain_unit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexDomainUnit")
-    flex_chat_gpt_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexChatGPTCostCents")
-    flex_chat_gpt_unit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexChatGPTUnit")
+    flex_llm_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexLLMCostCents")
+    flex_llm_unit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexLLMUnit")
     flex_minimum_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexMinimumCostCents")
     flex_managed_tenant_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexManagedTenantCostCents")
     flex_sso_admin_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexSSOAdminCostCents")
     flex_sso_admin_unit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexSSOAdminUnit")
     flex_sso_moderator_cost_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexSSOModeratorCostCents")
     flex_sso_moderator_unit: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="flexSSOModeratorUnit")
-    __properties: ClassVar[List[str]] = ["name", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing", "enableSAML", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexSmallWidgetsCreditCostCents", "flexSmallWidgetsCreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexChatGPTCostCents", "flexChatGPTUnit", "flexMinimumCostCents", "flexManagedTenantCostCents", "flexSSOAdminCostCents", "flexSSOAdminUnit", "flexSSOModeratorCostCents", "flexSSOModeratorUnit"]
+    __properties: ClassVar[List[str]] = ["name", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing", "enableSAML", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexSmallWidgetsCreditCostCents", "flexSmallWidgetsCreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexLLMCostCents", "flexLLMUnit", "flexMinimumCostCents", "flexManagedTenantCostCents", "flexSSOAdminCostCents", "flexSSOAdminUnit", "flexSSOModeratorCostCents", "flexSSOModeratorUnit"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -189,8 +189,8 @@ class CreateTenantPackageBody(BaseModel):
             "flexAdminUnit": obj.get("flexAdminUnit"),
             "flexDomainCostCents": obj.get("flexDomainCostCents"),
             "flexDomainUnit": obj.get("flexDomainUnit"),
-            "flexChatGPTCostCents": obj.get("flexChatGPTCostCents"),
-            "flexChatGPTUnit": obj.get("flexChatGPTUnit"),
+            "flexLLMCostCents": obj.get("flexLLMCostCents"),
+            "flexLLMUnit": obj.get("flexLLMUnit"),
             "flexMinimumCostCents": obj.get("flexMinimumCostCents"),
             "flexManagedTenantCostCents": obj.get("flexManagedTenantCostCents"),
             "flexSSOAdminCostCents": obj.get("flexSSOAdminCostCents"),

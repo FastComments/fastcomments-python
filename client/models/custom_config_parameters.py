@@ -34,6 +34,7 @@ from client.models.sort_directions import SortDirections
 from client.models.spam_rule import SpamRule
 from client.models.sso_security_level import SSOSecurityLevel
 from client.models.tos_config import TOSConfig
+from client.models.users_list_location import UsersListLocation
 from client.models.vote_style import VoteStyle
 from typing import Optional, Set
 from typing_extensions import Self
@@ -94,11 +95,14 @@ class CustomConfigParameters(BaseModel):
     no_custom_config: Optional[StrictBool] = Field(default=None, alias="noCustomConfig")
     mention_auto_complete_mode: Optional[MentionAutoCompleteMode] = Field(default=None, alias="mentionAutoCompleteMode")
     no_image_uploads: Optional[StrictBool] = Field(default=None, alias="noImageUploads")
+    allow_embeds: Optional[StrictBool] = Field(default=None, alias="allowEmbeds")
+    allowed_embed_domains: Optional[List[StrictStr]] = Field(default=None, alias="allowedEmbedDomains")
     no_styles: Optional[StrictBool] = Field(default=None, alias="noStyles")
     page_size: Optional[StrictInt] = Field(default=None, alias="pageSize")
     readonly: Optional[StrictBool] = None
     no_new_root_comments: Optional[StrictBool] = Field(default=None, alias="noNewRootComments")
     require_sso: Optional[StrictBool] = Field(default=None, alias="requireSSO")
+    enable_f_chat: Optional[StrictBool] = Field(default=None, alias="enableFChat")
     enable_resize_handle: Optional[StrictBool] = Field(default=None, alias="enableResizeHandle")
     restricted_link_domains: Optional[List[StrictStr]] = Field(default=None, alias="restrictedLinkDomains")
     show_badges_in_top_bar: Optional[StrictBool] = Field(default=None, alias="showBadgesInTopBar")
@@ -119,13 +123,15 @@ class CustomConfigParameters(BaseModel):
     widget_questions_required: Optional[CommentQuestionsRequired] = Field(default=None, alias="widgetQuestionsRequired")
     widget_sub_question_visibility: Optional[QuestionSubQuestionVisibility] = Field(default=None, alias="widgetSubQuestionVisibility")
     wrap: Optional[StrictBool] = None
+    users_list_location: Optional[UsersListLocation] = Field(default=None, alias="usersListLocation")
+    users_list_include_offline: Optional[StrictBool] = Field(default=None, alias="usersListIncludeOffline")
     ticket_base_url: Optional[StrictStr] = Field(default=None, alias="ticketBaseUrl")
     ticket_kb_search_endpoint: Optional[StrictStr] = Field(default=None, alias="ticketKBSearchEndpoint")
     ticket_file_uploads_enabled: Optional[StrictBool] = Field(default=None, alias="ticketFileUploadsEnabled")
     ticket_max_file_size: Optional[StrictInt] = Field(default=None, alias="ticketMaxFileSize")
     ticket_auto_assign_user_ids: Optional[List[StrictStr]] = Field(default=None, alias="ticketAutoAssignUserIds")
     tos: Optional[TOSConfig] = None
-    __properties: ClassVar[List[str]] = ["absoluteAndRelativeDates", "absoluteDates", "allowAnon", "allowAnonFlag", "allowAnonVotes", "allowedLanguages", "collapseReplies", "commentCountFormat", "commentHTMLRenderingMode", "commentThreadDeleteMode", "commenterNameFormat", "countAboveToggle", "customCSS", "defaultAvatarSrc", "defaultSortDirection", "defaultUsername", "disableAutoAdminMigration", "disableAutoHashTagCreation", "disableBlocking", "disableCommenterCommentDelete", "disableCommenterCommentEdit", "disableEmailInputs", "disableLiveCommenting", "disableNotificationBell", "disableProfileComments", "disableProfileDirectMessages", "disableProfiles", "disableSuccessMessage", "disableToolbar", "disableUnverifiedLabel", "disableVoting", "enableCommenterLinks", "enableSearch", "enableSpoilers", "enableThirdPartyCookieBypass", "enableViewCounts", "enableVoteList", "enableWYSIWYG", "gifRating", "hasDarkBackground", "headerHTML", "hideAvatars", "hideCommentsUnderCountTextFormat", "imageContentProfanityLevel", "inputAfterComments", "limitCommentsByGroups", "locale", "maxCommentCharacterLength", "maxCommentCreatedCountPUPM", "noCustomConfig", "mentionAutoCompleteMode", "noImageUploads", "noStyles", "pageSize", "readonly", "noNewRootComments", "requireSSO", "enableResizeHandle", "restrictedLinkDomains", "showBadgesInTopBar", "showCommentSaveSuccess", "showLiveRightAway", "showQuestion", "spamRules", "ssoSecLvl", "translations", "useShowCommentsToggle", "useSingleLineCommentInput", "voteStyle", "widgetQuestionId", "widgetQuestionResultsStyle", "widgetQuestionShowBreakdown", "widgetQuestionStyle", "widgetQuestionWhenToSave", "widgetQuestionsRequired", "widgetSubQuestionVisibility", "wrap", "ticketBaseUrl", "ticketKBSearchEndpoint", "ticketFileUploadsEnabled", "ticketMaxFileSize", "ticketAutoAssignUserIds", "tos"]
+    __properties: ClassVar[List[str]] = ["absoluteAndRelativeDates", "absoluteDates", "allowAnon", "allowAnonFlag", "allowAnonVotes", "allowedLanguages", "collapseReplies", "commentCountFormat", "commentHTMLRenderingMode", "commentThreadDeleteMode", "commenterNameFormat", "countAboveToggle", "customCSS", "defaultAvatarSrc", "defaultSortDirection", "defaultUsername", "disableAutoAdminMigration", "disableAutoHashTagCreation", "disableBlocking", "disableCommenterCommentDelete", "disableCommenterCommentEdit", "disableEmailInputs", "disableLiveCommenting", "disableNotificationBell", "disableProfileComments", "disableProfileDirectMessages", "disableProfiles", "disableSuccessMessage", "disableToolbar", "disableUnverifiedLabel", "disableVoting", "enableCommenterLinks", "enableSearch", "enableSpoilers", "enableThirdPartyCookieBypass", "enableViewCounts", "enableVoteList", "enableWYSIWYG", "gifRating", "hasDarkBackground", "headerHTML", "hideAvatars", "hideCommentsUnderCountTextFormat", "imageContentProfanityLevel", "inputAfterComments", "limitCommentsByGroups", "locale", "maxCommentCharacterLength", "maxCommentCreatedCountPUPM", "noCustomConfig", "mentionAutoCompleteMode", "noImageUploads", "allowEmbeds", "allowedEmbedDomains", "noStyles", "pageSize", "readonly", "noNewRootComments", "requireSSO", "enableFChat", "enableResizeHandle", "restrictedLinkDomains", "showBadgesInTopBar", "showCommentSaveSuccess", "showLiveRightAway", "showQuestion", "spamRules", "ssoSecLvl", "translations", "useShowCommentsToggle", "useSingleLineCommentInput", "voteStyle", "widgetQuestionId", "widgetQuestionResultsStyle", "widgetQuestionShowBreakdown", "widgetQuestionStyle", "widgetQuestionWhenToSave", "widgetQuestionsRequired", "widgetSubQuestionVisibility", "wrap", "usersListLocation", "usersListIncludeOffline", "ticketBaseUrl", "ticketKBSearchEndpoint", "ticketFileUploadsEnabled", "ticketMaxFileSize", "ticketAutoAssignUserIds", "tos"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -246,6 +252,11 @@ class CustomConfigParameters(BaseModel):
         if self.mention_auto_complete_mode is None and "mention_auto_complete_mode" in self.model_fields_set:
             _dict['mentionAutoCompleteMode'] = None
 
+        # set to None if allowed_embed_domains (nullable) is None
+        # and model_fields_set contains the field
+        if self.allowed_embed_domains is None and "allowed_embed_domains" in self.model_fields_set:
+            _dict['allowedEmbedDomains'] = None
+
         # set to None if page_size (nullable) is None
         # and model_fields_set contains the field
         if self.page_size is None and "page_size" in self.model_fields_set:
@@ -325,11 +336,14 @@ class CustomConfigParameters(BaseModel):
             "noCustomConfig": obj.get("noCustomConfig"),
             "mentionAutoCompleteMode": obj.get("mentionAutoCompleteMode"),
             "noImageUploads": obj.get("noImageUploads"),
+            "allowEmbeds": obj.get("allowEmbeds"),
+            "allowedEmbedDomains": obj.get("allowedEmbedDomains"),
             "noStyles": obj.get("noStyles"),
             "pageSize": obj.get("pageSize"),
             "readonly": obj.get("readonly"),
             "noNewRootComments": obj.get("noNewRootComments"),
             "requireSSO": obj.get("requireSSO"),
+            "enableFChat": obj.get("enableFChat"),
             "enableResizeHandle": obj.get("enableResizeHandle"),
             "restrictedLinkDomains": obj.get("restrictedLinkDomains"),
             "showBadgesInTopBar": obj.get("showBadgesInTopBar"),
@@ -350,6 +364,8 @@ class CustomConfigParameters(BaseModel):
             "widgetQuestionsRequired": obj.get("widgetQuestionsRequired"),
             "widgetSubQuestionVisibility": obj.get("widgetSubQuestionVisibility"),
             "wrap": obj.get("wrap"),
+            "usersListLocation": obj.get("usersListLocation"),
+            "usersListIncludeOffline": obj.get("usersListIncludeOffline"),
             "ticketBaseUrl": obj.get("ticketBaseUrl"),
             "ticketKBSearchEndpoint": obj.get("ticketKBSearchEndpoint"),
             "ticketFileUploadsEnabled": obj.get("ticketFileUploadsEnabled"),
