@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_hash_tag**
-> AddHashTagResponse add_hash_tag(tenant_id=tenant_id, create_hash_tag_body=create_hash_tag_body)
+> CreateHashTagResponse add_hash_tag(tenant_id=tenant_id, create_hash_tag_body=create_hash_tag_body)
 
 
 
@@ -210,8 +210,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.add_hash_tag_response import AddHashTagResponse
 from client.models.create_hash_tag_body import CreateHashTagBody
+from client.models.create_hash_tag_response import CreateHashTagResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddHashTagResponse**](AddHashTagResponse.md)
+[**CreateHashTagResponse**](CreateHashTagResponse.md)
 
 ### Authorization
 
@@ -275,11 +275,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_hash_tags_bulk**
-> AddHashTagsBulkResponse add_hash_tags_bulk(tenant_id=tenant_id, bulk_create_hash_tags_body=bulk_create_hash_tags_body)
+> BulkCreateHashTagsResponse add_hash_tags_bulk(tenant_id=tenant_id, bulk_create_hash_tags_body=bulk_create_hash_tags_body)
 
 
 
@@ -289,8 +290,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.add_hash_tags_bulk_response import AddHashTagsBulkResponse
 from client.models.bulk_create_hash_tags_body import BulkCreateHashTagsBody
+from client.models.bulk_create_hash_tags_response import BulkCreateHashTagsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -338,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddHashTagsBulkResponse**](AddHashTagsBulkResponse.md)
+[**BulkCreateHashTagsResponse**](BulkCreateHashTagsResponse.md)
 
 ### Authorization
 
@@ -354,6 +355,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -601,7 +603,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **aggregate_question_results**
-> AggregateQuestionResultsResponse1 aggregate_question_results(tenant_id, question_id=question_id, question_ids=question_ids, url_id=url_id, time_bucket=time_bucket, start_date=start_date, force_recalculate=force_recalculate)
+> AggregateQuestionResultsResponse aggregate_question_results(tenant_id, question_id=question_id, question_ids=question_ids, url_id=url_id, time_bucket=time_bucket, start_date=start_date, force_recalculate=force_recalculate)
 
 
 
@@ -611,7 +613,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.aggregate_question_results_response1 import AggregateQuestionResultsResponse1
+from client.models.aggregate_question_results_response import AggregateQuestionResultsResponse
 from client.models.aggregate_time_bucket import AggregateTimeBucket
 from client.rest import ApiException
 from pprint import pprint
@@ -670,7 +672,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AggregateQuestionResultsResponse1**](AggregateQuestionResultsResponse1.md)
+[**AggregateQuestionResultsResponse**](AggregateQuestionResultsResponse.md)
 
 ### Authorization
 
@@ -686,11 +688,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **block_user_from_comment**
-> BlockUserFromCommentResponse block_user_from_comment(tenant_id, id, block_from_comment_params, user_id=user_id, anon_user_id=anon_user_id)
+> BlockSuccess block_user_from_comment(tenant_id, id, block_from_comment_params, user_id=user_id, anon_user_id=anon_user_id)
 
 
 
@@ -701,7 +704,7 @@ Name | Type | Description  | Notes
 ```python
 import client
 from client.models.block_from_comment_params import BlockFromCommentParams
-from client.models.block_user_from_comment_response import BlockUserFromCommentResponse
+from client.models.block_success import BlockSuccess
 from client.rest import ApiException
 from pprint import pprint
 
@@ -755,7 +758,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BlockUserFromCommentResponse**](BlockUserFromCommentResponse.md)
+[**BlockSuccess**](BlockSuccess.md)
 
 ### Authorization
 
@@ -771,11 +774,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **bulk_aggregate_question_results**
-> BulkAggregateQuestionResultsResponse1 bulk_aggregate_question_results(tenant_id, bulk_aggregate_question_results_request, force_recalculate=force_recalculate)
+> BulkAggregateQuestionResultsResponse bulk_aggregate_question_results(tenant_id, bulk_aggregate_question_results_request, force_recalculate=force_recalculate)
 
 
 
@@ -786,7 +790,7 @@ Name | Type | Description  | Notes
 ```python
 import client
 from client.models.bulk_aggregate_question_results_request import BulkAggregateQuestionResultsRequest
-from client.models.bulk_aggregate_question_results_response1 import BulkAggregateQuestionResultsResponse1
+from client.models.bulk_aggregate_question_results_response import BulkAggregateQuestionResultsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -836,7 +840,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BulkAggregateQuestionResultsResponse1**](BulkAggregateQuestionResultsResponse1.md)
+[**BulkAggregateQuestionResultsResponse**](BulkAggregateQuestionResultsResponse.md)
 
 ### Authorization
 
@@ -852,11 +856,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **change_ticket_state**
-> ChangeTicketStateResponse1 change_ticket_state(tenant_id, user_id, id, change_ticket_state_body)
+> ChangeTicketStateResponse change_ticket_state(tenant_id, user_id, id, change_ticket_state_body)
 
 
 
@@ -867,7 +872,7 @@ Name | Type | Description  | Notes
 ```python
 import client
 from client.models.change_ticket_state_body import ChangeTicketStateBody
-from client.models.change_ticket_state_response1 import ChangeTicketStateResponse1
+from client.models.change_ticket_state_response import ChangeTicketStateResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -919,7 +924,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ChangeTicketStateResponse1**](ChangeTicketStateResponse1.md)
+[**ChangeTicketStateResponse**](ChangeTicketStateResponse.md)
 
 ### Authorization
 
@@ -935,11 +940,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **combine_comments_with_question_results**
-> CombineCommentsWithQuestionResultsResponse combine_comments_with_question_results(tenant_id, question_id=question_id, question_ids=question_ids, url_id=url_id, start_date=start_date, force_recalculate=force_recalculate, min_value=min_value, max_value=max_value, limit=limit)
+> CombineQuestionResultsWithCommentsResponse combine_comments_with_question_results(tenant_id, question_id=question_id, question_ids=question_ids, url_id=url_id, start_date=start_date, force_recalculate=force_recalculate, min_value=min_value, max_value=max_value, limit=limit)
 
 
 
@@ -949,7 +955,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.combine_comments_with_question_results_response import CombineCommentsWithQuestionResultsResponse
+from client.models.combine_question_results_with_comments_response import CombineQuestionResultsWithCommentsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1011,7 +1017,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CombineCommentsWithQuestionResultsResponse**](CombineCommentsWithQuestionResultsResponse.md)
+[**CombineQuestionResultsWithCommentsResponse**](CombineQuestionResultsWithCommentsResponse.md)
 
 ### Authorization
 
@@ -1027,11 +1033,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_email_template**
-> CreateEmailTemplateResponse1 create_email_template(tenant_id, create_email_template_body)
+> CreateEmailTemplateResponse create_email_template(tenant_id, create_email_template_body)
 
 
 
@@ -1042,7 +1049,7 @@ Name | Type | Description  | Notes
 ```python
 import client
 from client.models.create_email_template_body import CreateEmailTemplateBody
-from client.models.create_email_template_response1 import CreateEmailTemplateResponse1
+from client.models.create_email_template_response import CreateEmailTemplateResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1090,7 +1097,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateEmailTemplateResponse1**](CreateEmailTemplateResponse1.md)
+[**CreateEmailTemplateResponse**](CreateEmailTemplateResponse.md)
 
 ### Authorization
 
@@ -1106,11 +1113,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_feed_post**
-> CreateFeedPostResponse1 create_feed_post(tenant_id, create_feed_post_params, broadcast_id=broadcast_id, is_live=is_live, do_spam_check=do_spam_check, skip_dup_check=skip_dup_check)
+> CreateFeedPostsResponse create_feed_post(tenant_id, create_feed_post_params, broadcast_id=broadcast_id, is_live=is_live, do_spam_check=do_spam_check, skip_dup_check=skip_dup_check)
 
 
 
@@ -1121,7 +1129,7 @@ Name | Type | Description  | Notes
 ```python
 import client
 from client.models.create_feed_post_params import CreateFeedPostParams
-from client.models.create_feed_post_response1 import CreateFeedPostResponse1
+from client.models.create_feed_posts_response import CreateFeedPostsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1177,7 +1185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateFeedPostResponse1**](CreateFeedPostResponse1.md)
+[**CreateFeedPostsResponse**](CreateFeedPostsResponse.md)
 
 ### Authorization
 
@@ -1193,11 +1201,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_moderator**
-> CreateModeratorResponse1 create_moderator(tenant_id, create_moderator_body)
+> CreateModeratorResponse create_moderator(tenant_id, create_moderator_body)
 
 
 
@@ -1208,7 +1217,7 @@ Name | Type | Description  | Notes
 ```python
 import client
 from client.models.create_moderator_body import CreateModeratorBody
-from client.models.create_moderator_response1 import CreateModeratorResponse1
+from client.models.create_moderator_response import CreateModeratorResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1256,7 +1265,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateModeratorResponse1**](CreateModeratorResponse1.md)
+[**CreateModeratorResponse**](CreateModeratorResponse.md)
 
 ### Authorization
 
@@ -1272,11 +1281,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_question_config**
-> CreateQuestionConfigResponse1 create_question_config(tenant_id, create_question_config_body)
+> CreateQuestionConfigResponse create_question_config(tenant_id, create_question_config_body)
 
 
 
@@ -1287,7 +1297,7 @@ Name | Type | Description  | Notes
 ```python
 import client
 from client.models.create_question_config_body import CreateQuestionConfigBody
-from client.models.create_question_config_response1 import CreateQuestionConfigResponse1
+from client.models.create_question_config_response import CreateQuestionConfigResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1335,7 +1345,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateQuestionConfigResponse1**](CreateQuestionConfigResponse1.md)
+[**CreateQuestionConfigResponse**](CreateQuestionConfigResponse.md)
 
 ### Authorization
 
@@ -1351,11 +1361,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_question_result**
-> CreateQuestionResultResponse1 create_question_result(tenant_id, create_question_result_body)
+> CreateQuestionResultResponse create_question_result(tenant_id, create_question_result_body)
 
 
 
@@ -1366,7 +1377,7 @@ Name | Type | Description  | Notes
 ```python
 import client
 from client.models.create_question_result_body import CreateQuestionResultBody
-from client.models.create_question_result_response1 import CreateQuestionResultResponse1
+from client.models.create_question_result_response import CreateQuestionResultResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1414,7 +1425,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateQuestionResultResponse1**](CreateQuestionResultResponse1.md)
+[**CreateQuestionResultResponse**](CreateQuestionResultResponse.md)
 
 ### Authorization
 
@@ -1430,6 +1441,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1513,7 +1525,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_tenant**
-> CreateTenantResponse1 create_tenant(tenant_id, create_tenant_body)
+> CreateTenantResponse create_tenant(tenant_id, create_tenant_body)
 
 
 
@@ -1524,7 +1536,7 @@ Name | Type | Description  | Notes
 ```python
 import client
 from client.models.create_tenant_body import CreateTenantBody
-from client.models.create_tenant_response1 import CreateTenantResponse1
+from client.models.create_tenant_response import CreateTenantResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1572,7 +1584,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTenantResponse1**](CreateTenantResponse1.md)
+[**CreateTenantResponse**](CreateTenantResponse.md)
 
 ### Authorization
 
@@ -1588,11 +1600,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_tenant_package**
-> CreateTenantPackageResponse1 create_tenant_package(tenant_id, create_tenant_package_body)
+> CreateTenantPackageResponse create_tenant_package(tenant_id, create_tenant_package_body)
 
 
 
@@ -1603,7 +1616,7 @@ Name | Type | Description  | Notes
 ```python
 import client
 from client.models.create_tenant_package_body import CreateTenantPackageBody
-from client.models.create_tenant_package_response1 import CreateTenantPackageResponse1
+from client.models.create_tenant_package_response import CreateTenantPackageResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1651,7 +1664,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTenantPackageResponse1**](CreateTenantPackageResponse1.md)
+[**CreateTenantPackageResponse**](CreateTenantPackageResponse.md)
 
 ### Authorization
 
@@ -1667,11 +1680,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_tenant_user**
-> CreateTenantUserResponse1 create_tenant_user(tenant_id, create_tenant_user_body)
+> CreateTenantUserResponse create_tenant_user(tenant_id, create_tenant_user_body)
 
 
 
@@ -1682,7 +1696,7 @@ Name | Type | Description  | Notes
 ```python
 import client
 from client.models.create_tenant_user_body import CreateTenantUserBody
-from client.models.create_tenant_user_response1 import CreateTenantUserResponse1
+from client.models.create_tenant_user_response import CreateTenantUserResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1730,7 +1744,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTenantUserResponse1**](CreateTenantUserResponse1.md)
+[**CreateTenantUserResponse**](CreateTenantUserResponse.md)
 
 ### Authorization
 
@@ -1746,11 +1760,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_ticket**
-> CreateTicketResponse1 create_ticket(tenant_id, user_id, create_ticket_body)
+> CreateTicketResponse create_ticket(tenant_id, user_id, create_ticket_body)
 
 
 
@@ -1761,7 +1776,7 @@ Name | Type | Description  | Notes
 ```python
 import client
 from client.models.create_ticket_body import CreateTicketBody
-from client.models.create_ticket_response1 import CreateTicketResponse1
+from client.models.create_ticket_response import CreateTicketResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1811,7 +1826,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateTicketResponse1**](CreateTicketResponse1.md)
+[**CreateTicketResponse**](CreateTicketResponse.md)
 
 ### Authorization
 
@@ -1827,11 +1842,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_user_badge**
-> CreateUserBadgeResponse create_user_badge(tenant_id, create_user_badge_params)
+> APICreateUserBadgeResponse create_user_badge(tenant_id, create_user_badge_params)
 
 
 
@@ -1841,8 +1857,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
+from client.models.api_create_user_badge_response import APICreateUserBadgeResponse
 from client.models.create_user_badge_params import CreateUserBadgeParams
-from client.models.create_user_badge_response import CreateUserBadgeResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1890,7 +1906,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateUserBadgeResponse**](CreateUserBadgeResponse.md)
+[**APICreateUserBadgeResponse**](APICreateUserBadgeResponse.md)
 
 ### Authorization
 
@@ -1906,11 +1922,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_vote**
-> CreateVoteResponse create_vote(tenant_id, comment_id, direction, user_id=user_id, anon_user_id=anon_user_id)
+> VoteResponse create_vote(tenant_id, comment_id, direction, user_id=user_id, anon_user_id=anon_user_id)
 
 
 
@@ -1920,7 +1937,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.create_vote_response import CreateVoteResponse
+from client.models.vote_response import VoteResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1974,7 +1991,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateVoteResponse**](CreateVoteResponse.md)
+[**VoteResponse**](VoteResponse.md)
 
 ### Authorization
 
@@ -1990,11 +2007,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_comment**
-> DeleteCommentResponse delete_comment(tenant_id, id, context_user_id=context_user_id, is_live=is_live)
+> DeleteCommentResult delete_comment(tenant_id, id, context_user_id=context_user_id, is_live=is_live)
 
 
 
@@ -2004,7 +2022,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.delete_comment_response import DeleteCommentResponse
+from client.models.delete_comment_result import DeleteCommentResult
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2056,7 +2074,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteCommentResponse**](DeleteCommentResponse.md)
+[**DeleteCommentResult**](DeleteCommentResult.md)
 
 ### Authorization
 
@@ -2072,6 +2090,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2154,7 +2173,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_email_template**
-> DeleteEmailTemplateResponse delete_email_template(tenant_id, id)
+> APIEmptyResponse delete_email_template(tenant_id, id)
 
 
 
@@ -2164,7 +2183,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.delete_email_template_response import DeleteEmailTemplateResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2212,7 +2231,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteEmailTemplateResponse**](DeleteEmailTemplateResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2228,11 +2247,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_email_template_render_error**
-> DeleteEmailTemplateRenderErrorResponse delete_email_template_render_error(tenant_id, id, error_id)
+> APIEmptyResponse delete_email_template_render_error(tenant_id, id, error_id)
 
 
 
@@ -2242,7 +2262,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.delete_email_template_render_error_response import DeleteEmailTemplateRenderErrorResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2292,7 +2312,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteEmailTemplateRenderErrorResponse**](DeleteEmailTemplateRenderErrorResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2308,11 +2328,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_hash_tag**
-> DeleteHashTagResponse delete_hash_tag(tag, tenant_id=tenant_id, delete_hash_tag_request_body=delete_hash_tag_request_body)
+> APIEmptyResponse delete_hash_tag(tag, tenant_id=tenant_id, delete_hash_tag_request_body=delete_hash_tag_request_body)
 
 
 
@@ -2322,8 +2343,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
+from client.models.api_empty_response import APIEmptyResponse
 from client.models.delete_hash_tag_request_body import DeleteHashTagRequestBody
-from client.models.delete_hash_tag_response import DeleteHashTagResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2373,7 +2394,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteHashTagResponse**](DeleteHashTagResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2389,11 +2410,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_moderator**
-> DeleteModeratorResponse delete_moderator(tenant_id, id, send_email=send_email)
+> APIEmptyResponse delete_moderator(tenant_id, id, send_email=send_email)
 
 
 
@@ -2403,7 +2425,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.delete_moderator_response import DeleteModeratorResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2453,7 +2475,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteModeratorResponse**](DeleteModeratorResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2469,11 +2491,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_notification_count**
-> DeleteNotificationCountResponse delete_notification_count(tenant_id, id)
+> APIEmptyResponse delete_notification_count(tenant_id, id)
 
 
 
@@ -2483,7 +2506,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.delete_notification_count_response import DeleteNotificationCountResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2531,7 +2554,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteNotificationCountResponse**](DeleteNotificationCountResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2547,6 +2570,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2629,7 +2653,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_pending_webhook_event**
-> DeletePendingWebhookEventResponse delete_pending_webhook_event(tenant_id, id)
+> APIEmptyResponse delete_pending_webhook_event(tenant_id, id)
 
 
 
@@ -2639,7 +2663,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.delete_pending_webhook_event_response import DeletePendingWebhookEventResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2687,7 +2711,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeletePendingWebhookEventResponse**](DeletePendingWebhookEventResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2703,11 +2727,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_question_config**
-> DeleteQuestionConfigResponse delete_question_config(tenant_id, id)
+> APIEmptyResponse delete_question_config(tenant_id, id)
 
 
 
@@ -2717,7 +2742,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.delete_question_config_response import DeleteQuestionConfigResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2765,7 +2790,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteQuestionConfigResponse**](DeleteQuestionConfigResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2781,11 +2806,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_question_result**
-> DeleteQuestionResultResponse delete_question_result(tenant_id, id)
+> APIEmptyResponse delete_question_result(tenant_id, id)
 
 
 
@@ -2795,7 +2821,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.delete_question_result_response import DeleteQuestionResultResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2843,7 +2869,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteQuestionResultResponse**](DeleteQuestionResultResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2859,6 +2885,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3025,7 +3052,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_tenant**
-> DeleteTenantResponse delete_tenant(tenant_id, id, sure=sure)
+> APIEmptyResponse delete_tenant(tenant_id, id, sure=sure)
 
 
 
@@ -3035,7 +3062,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.delete_tenant_response import DeleteTenantResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3085,7 +3112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteTenantResponse**](DeleteTenantResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3101,11 +3128,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_tenant_package**
-> DeleteTenantPackageResponse delete_tenant_package(tenant_id, id)
+> APIEmptyResponse delete_tenant_package(tenant_id, id)
 
 
 
@@ -3115,7 +3143,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.delete_tenant_package_response import DeleteTenantPackageResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3163,7 +3191,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteTenantPackageResponse**](DeleteTenantPackageResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3179,11 +3207,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_tenant_user**
-> DeleteTenantUserResponse delete_tenant_user(tenant_id, id, delete_comments=delete_comments, comment_delete_mode=comment_delete_mode)
+> APIEmptyResponse delete_tenant_user(tenant_id, id, delete_comments=delete_comments, comment_delete_mode=comment_delete_mode)
 
 
 
@@ -3193,7 +3222,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.delete_tenant_user_response import DeleteTenantUserResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3245,7 +3274,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteTenantUserResponse**](DeleteTenantUserResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3261,11 +3290,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_user_badge**
-> DeleteUserBadgeResponse delete_user_badge(tenant_id, id)
+> APIEmptySuccessResponse delete_user_badge(tenant_id, id)
 
 
 
@@ -3275,7 +3305,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.delete_user_badge_response import DeleteUserBadgeResponse
+from client.models.api_empty_success_response import APIEmptySuccessResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3323,7 +3353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteUserBadgeResponse**](DeleteUserBadgeResponse.md)
+[**APIEmptySuccessResponse**](APIEmptySuccessResponse.md)
 
 ### Authorization
 
@@ -3339,11 +3369,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_vote**
-> DeleteVoteResponse delete_vote(tenant_id, id, edit_key=edit_key)
+> VoteDeleteResponse delete_vote(tenant_id, id, edit_key=edit_key)
 
 
 
@@ -3353,7 +3384,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.delete_vote_response import DeleteVoteResponse
+from client.models.vote_delete_response import VoteDeleteResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3403,7 +3434,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteVoteResponse**](DeleteVoteResponse.md)
+[**VoteDeleteResponse**](VoteDeleteResponse.md)
 
 ### Authorization
 
@@ -3419,11 +3450,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **flag_comment**
-> FlagCommentResponse1 flag_comment(tenant_id, id, user_id=user_id, anon_user_id=anon_user_id)
+> FlagCommentResponse flag_comment(tenant_id, id, user_id=user_id, anon_user_id=anon_user_id)
 
 
 
@@ -3433,7 +3465,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.flag_comment_response1 import FlagCommentResponse1
+from client.models.flag_comment_response import FlagCommentResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3485,7 +3517,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FlagCommentResponse1**](FlagCommentResponse1.md)
+[**FlagCommentResponse**](FlagCommentResponse.md)
 
 ### Authorization
 
@@ -3501,11 +3533,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audit_logs**
-> GetAuditLogsResponse1 get_audit_logs(tenant_id, limit=limit, skip=skip, order=order, after=after, before=before)
+> GetAuditLogsResponse get_audit_logs(tenant_id, limit=limit, skip=skip, order=order, after=after, before=before)
 
 
 
@@ -3515,7 +3548,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_audit_logs_response1 import GetAuditLogsResponse1
+from client.models.get_audit_logs_response import GetAuditLogsResponse
 from client.models.sortdir import SORTDIR
 from client.rest import ApiException
 from pprint import pprint
@@ -3572,7 +3605,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetAuditLogsResponse1**](GetAuditLogsResponse1.md)
+[**GetAuditLogsResponse**](GetAuditLogsResponse.md)
 
 ### Authorization
 
@@ -3588,11 +3621,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_cached_notification_count**
-> GetCachedNotificationCountResponse1 get_cached_notification_count(tenant_id, id)
+> GetCachedNotificationCountResponse get_cached_notification_count(tenant_id, id)
 
 
 
@@ -3602,7 +3636,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_cached_notification_count_response1 import GetCachedNotificationCountResponse1
+from client.models.get_cached_notification_count_response import GetCachedNotificationCountResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3650,7 +3684,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCachedNotificationCountResponse1**](GetCachedNotificationCountResponse1.md)
+[**GetCachedNotificationCountResponse**](GetCachedNotificationCountResponse.md)
 
 ### Authorization
 
@@ -3666,11 +3700,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comment**
-> GetCommentResponse get_comment(tenant_id, id)
+> APIGetCommentResponse get_comment(tenant_id, id)
 
 
 
@@ -3680,7 +3715,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_comment_response import GetCommentResponse
+from client.models.api_get_comment_response import APIGetCommentResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3728,7 +3763,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCommentResponse**](GetCommentResponse.md)
+[**APIGetCommentResponse**](APIGetCommentResponse.md)
 
 ### Authorization
 
@@ -3744,11 +3779,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comments**
-> GetCommentsResponse get_comments(tenant_id, page=page, limit=limit, skip=skip, as_tree=as_tree, skip_children=skip_children, limit_children=limit_children, max_tree_depth=max_tree_depth, url_id=url_id, user_id=user_id, anon_user_id=anon_user_id, context_user_id=context_user_id, hash_tag=hash_tag, parent_id=parent_id, direction=direction, from_date=from_date, to_date=to_date)
+> APIGetCommentsResponse get_comments(tenant_id, page=page, limit=limit, skip=skip, as_tree=as_tree, skip_children=skip_children, limit_children=limit_children, max_tree_depth=max_tree_depth, url_id=url_id, user_id=user_id, anon_user_id=anon_user_id, context_user_id=context_user_id, hash_tag=hash_tag, parent_id=parent_id, direction=direction, from_date=from_date, to_date=to_date)
 
 
 
@@ -3758,7 +3794,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_comments_response import GetCommentsResponse
+from client.models.api_get_comments_response import APIGetCommentsResponse
 from client.models.sort_directions import SortDirections
 from client.rest import ApiException
 from pprint import pprint
@@ -3837,7 +3873,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCommentsResponse**](GetCommentsResponse.md)
+[**APIGetCommentsResponse**](APIGetCommentsResponse.md)
 
 ### Authorization
 
@@ -3853,6 +3889,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4011,7 +4048,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_template**
-> GetEmailTemplateResponse1 get_email_template(tenant_id, id)
+> GetEmailTemplateResponse get_email_template(tenant_id, id)
 
 
 
@@ -4021,7 +4058,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_email_template_response1 import GetEmailTemplateResponse1
+from client.models.get_email_template_response import GetEmailTemplateResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -4069,7 +4106,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEmailTemplateResponse1**](GetEmailTemplateResponse1.md)
+[**GetEmailTemplateResponse**](GetEmailTemplateResponse.md)
 
 ### Authorization
 
@@ -4085,11 +4122,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_template_definitions**
-> GetEmailTemplateDefinitionsResponse1 get_email_template_definitions(tenant_id)
+> GetEmailTemplateDefinitionsResponse get_email_template_definitions(tenant_id)
 
 
 
@@ -4099,7 +4137,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_email_template_definitions_response1 import GetEmailTemplateDefinitionsResponse1
+from client.models.get_email_template_definitions_response import GetEmailTemplateDefinitionsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -4145,7 +4183,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEmailTemplateDefinitionsResponse1**](GetEmailTemplateDefinitionsResponse1.md)
+[**GetEmailTemplateDefinitionsResponse**](GetEmailTemplateDefinitionsResponse.md)
 
 ### Authorization
 
@@ -4161,11 +4199,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_template_render_errors**
-> GetEmailTemplateRenderErrorsResponse1 get_email_template_render_errors(tenant_id, id, skip=skip)
+> GetEmailTemplateRenderErrorsResponse get_email_template_render_errors(tenant_id, id, skip=skip)
 
 
 
@@ -4175,7 +4214,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_email_template_render_errors_response1 import GetEmailTemplateRenderErrorsResponse1
+from client.models.get_email_template_render_errors_response import GetEmailTemplateRenderErrorsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -4225,7 +4264,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEmailTemplateRenderErrorsResponse1**](GetEmailTemplateRenderErrorsResponse1.md)
+[**GetEmailTemplateRenderErrorsResponse**](GetEmailTemplateRenderErrorsResponse.md)
 
 ### Authorization
 
@@ -4241,11 +4280,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_templates**
-> GetEmailTemplatesResponse1 get_email_templates(tenant_id, skip=skip)
+> GetEmailTemplatesResponse get_email_templates(tenant_id, skip=skip)
 
 
 
@@ -4255,7 +4295,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_email_templates_response1 import GetEmailTemplatesResponse1
+from client.models.get_email_templates_response import GetEmailTemplatesResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -4303,7 +4343,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEmailTemplatesResponse1**](GetEmailTemplatesResponse1.md)
+[**GetEmailTemplatesResponse**](GetEmailTemplatesResponse.md)
 
 ### Authorization
 
@@ -4319,11 +4359,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_feed_posts**
-> GetFeedPostsResponse1 get_feed_posts(tenant_id, after_id=after_id, limit=limit, tags=tags)
+> GetFeedPostsResponse get_feed_posts(tenant_id, after_id=after_id, limit=limit, tags=tags)
 
 
 
@@ -4335,7 +4376,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_feed_posts_response1 import GetFeedPostsResponse1
+from client.models.get_feed_posts_response import GetFeedPostsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -4387,7 +4428,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetFeedPostsResponse1**](GetFeedPostsResponse1.md)
+[**GetFeedPostsResponse**](GetFeedPostsResponse.md)
 
 ### Authorization
 
@@ -4403,11 +4444,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_hash_tags**
-> GetHashTagsResponse1 get_hash_tags(tenant_id, page=page)
+> GetHashTagsResponse get_hash_tags(tenant_id, page=page)
 
 
 
@@ -4417,7 +4459,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_hash_tags_response1 import GetHashTagsResponse1
+from client.models.get_hash_tags_response import GetHashTagsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -4465,7 +4507,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetHashTagsResponse1**](GetHashTagsResponse1.md)
+[**GetHashTagsResponse**](GetHashTagsResponse.md)
 
 ### Authorization
 
@@ -4481,11 +4523,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_moderator**
-> GetModeratorResponse1 get_moderator(tenant_id, id)
+> GetModeratorResponse get_moderator(tenant_id, id)
 
 
 
@@ -4495,7 +4538,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_moderator_response1 import GetModeratorResponse1
+from client.models.get_moderator_response import GetModeratorResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -4543,7 +4586,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetModeratorResponse1**](GetModeratorResponse1.md)
+[**GetModeratorResponse**](GetModeratorResponse.md)
 
 ### Authorization
 
@@ -4559,11 +4602,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_moderators**
-> GetModeratorsResponse1 get_moderators(tenant_id, skip=skip)
+> GetModeratorsResponse get_moderators(tenant_id, skip=skip)
 
 
 
@@ -4573,7 +4617,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_moderators_response1 import GetModeratorsResponse1
+from client.models.get_moderators_response import GetModeratorsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -4621,7 +4665,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetModeratorsResponse1**](GetModeratorsResponse1.md)
+[**GetModeratorsResponse**](GetModeratorsResponse.md)
 
 ### Authorization
 
@@ -4637,11 +4681,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notification_count**
-> GetNotificationCountResponse1 get_notification_count(tenant_id, user_id=user_id, url_id=url_id, from_comment_id=from_comment_id, viewed=viewed, type=type)
+> GetNotificationCountResponse get_notification_count(tenant_id, user_id=user_id, url_id=url_id, from_comment_id=from_comment_id, viewed=viewed, type=type)
 
 
 
@@ -4651,7 +4696,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_notification_count_response1 import GetNotificationCountResponse1
+from client.models.get_notification_count_response import GetNotificationCountResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -4707,7 +4752,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetNotificationCountResponse1**](GetNotificationCountResponse1.md)
+[**GetNotificationCountResponse**](GetNotificationCountResponse.md)
 
 ### Authorization
 
@@ -4723,11 +4768,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notifications**
-> GetNotificationsResponse1 get_notifications(tenant_id, user_id=user_id, url_id=url_id, from_comment_id=from_comment_id, viewed=viewed, type=type, skip=skip)
+> GetNotificationsResponse get_notifications(tenant_id, user_id=user_id, url_id=url_id, from_comment_id=from_comment_id, viewed=viewed, type=type, skip=skip)
 
 
 
@@ -4737,7 +4783,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_notifications_response1 import GetNotificationsResponse1
+from client.models.get_notifications_response import GetNotificationsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -4795,7 +4841,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetNotificationsResponse1**](GetNotificationsResponse1.md)
+[**GetNotificationsResponse**](GetNotificationsResponse.md)
 
 ### Authorization
 
@@ -4811,6 +4857,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4969,7 +5016,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_pending_webhook_event_count**
-> GetPendingWebhookEventCountResponse1 get_pending_webhook_event_count(tenant_id, comment_id=comment_id, external_id=external_id, event_type=event_type, type=type, domain=domain, attempt_count_gt=attempt_count_gt)
+> GetPendingWebhookEventCountResponse get_pending_webhook_event_count(tenant_id, comment_id=comment_id, external_id=external_id, event_type=event_type, type=type, domain=domain, attempt_count_gt=attempt_count_gt)
 
 
 
@@ -4979,7 +5026,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_pending_webhook_event_count_response1 import GetPendingWebhookEventCountResponse1
+from client.models.get_pending_webhook_event_count_response import GetPendingWebhookEventCountResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -5037,7 +5084,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetPendingWebhookEventCountResponse1**](GetPendingWebhookEventCountResponse1.md)
+[**GetPendingWebhookEventCountResponse**](GetPendingWebhookEventCountResponse.md)
 
 ### Authorization
 
@@ -5053,11 +5100,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_pending_webhook_events**
-> GetPendingWebhookEventsResponse1 get_pending_webhook_events(tenant_id, comment_id=comment_id, external_id=external_id, event_type=event_type, type=type, domain=domain, attempt_count_gt=attempt_count_gt, skip=skip)
+> GetPendingWebhookEventsResponse get_pending_webhook_events(tenant_id, comment_id=comment_id, external_id=external_id, event_type=event_type, type=type, domain=domain, attempt_count_gt=attempt_count_gt, skip=skip)
 
 
 
@@ -5067,7 +5115,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_pending_webhook_events_response1 import GetPendingWebhookEventsResponse1
+from client.models.get_pending_webhook_events_response import GetPendingWebhookEventsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -5127,7 +5175,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetPendingWebhookEventsResponse1**](GetPendingWebhookEventsResponse1.md)
+[**GetPendingWebhookEventsResponse**](GetPendingWebhookEventsResponse.md)
 
 ### Authorization
 
@@ -5143,11 +5191,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_question_config**
-> GetQuestionConfigResponse1 get_question_config(tenant_id, id)
+> GetQuestionConfigResponse get_question_config(tenant_id, id)
 
 
 
@@ -5157,7 +5206,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_question_config_response1 import GetQuestionConfigResponse1
+from client.models.get_question_config_response import GetQuestionConfigResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -5205,7 +5254,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetQuestionConfigResponse1**](GetQuestionConfigResponse1.md)
+[**GetQuestionConfigResponse**](GetQuestionConfigResponse.md)
 
 ### Authorization
 
@@ -5221,11 +5270,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_question_configs**
-> GetQuestionConfigsResponse1 get_question_configs(tenant_id, skip=skip)
+> GetQuestionConfigsResponse get_question_configs(tenant_id, skip=skip)
 
 
 
@@ -5235,7 +5285,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_question_configs_response1 import GetQuestionConfigsResponse1
+from client.models.get_question_configs_response import GetQuestionConfigsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -5283,7 +5333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetQuestionConfigsResponse1**](GetQuestionConfigsResponse1.md)
+[**GetQuestionConfigsResponse**](GetQuestionConfigsResponse.md)
 
 ### Authorization
 
@@ -5299,11 +5349,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_question_result**
-> GetQuestionResultResponse1 get_question_result(tenant_id, id)
+> GetQuestionResultResponse get_question_result(tenant_id, id)
 
 
 
@@ -5313,7 +5364,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_question_result_response1 import GetQuestionResultResponse1
+from client.models.get_question_result_response import GetQuestionResultResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -5361,7 +5412,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetQuestionResultResponse1**](GetQuestionResultResponse1.md)
+[**GetQuestionResultResponse**](GetQuestionResultResponse.md)
 
 ### Authorization
 
@@ -5377,11 +5428,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_question_results**
-> GetQuestionResultsResponse1 get_question_results(tenant_id, url_id=url_id, user_id=user_id, start_date=start_date, question_id=question_id, question_ids=question_ids, skip=skip)
+> GetQuestionResultsResponse get_question_results(tenant_id, url_id=url_id, user_id=user_id, start_date=start_date, question_id=question_id, question_ids=question_ids, skip=skip)
 
 
 
@@ -5391,7 +5443,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_question_results_response1 import GetQuestionResultsResponse1
+from client.models.get_question_results_response import GetQuestionResultsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -5449,7 +5501,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetQuestionResultsResponse1**](GetQuestionResultsResponse1.md)
+[**GetQuestionResultsResponse**](GetQuestionResultsResponse.md)
 
 ### Authorization
 
@@ -5465,6 +5517,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -5781,7 +5834,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tenant**
-> GetTenantResponse1 get_tenant(tenant_id, id)
+> GetTenantResponse get_tenant(tenant_id, id)
 
 
 
@@ -5791,7 +5844,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_tenant_response1 import GetTenantResponse1
+from client.models.get_tenant_response import GetTenantResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -5839,7 +5892,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTenantResponse1**](GetTenantResponse1.md)
+[**GetTenantResponse**](GetTenantResponse.md)
 
 ### Authorization
 
@@ -5855,11 +5908,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tenant_daily_usages**
-> GetTenantDailyUsagesResponse1 get_tenant_daily_usages(tenant_id, year_number=year_number, month_number=month_number, day_number=day_number, skip=skip)
+> GetTenantDailyUsagesResponse get_tenant_daily_usages(tenant_id, year_number=year_number, month_number=month_number, day_number=day_number, skip=skip)
 
 
 
@@ -5869,7 +5923,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_tenant_daily_usages_response1 import GetTenantDailyUsagesResponse1
+from client.models.get_tenant_daily_usages_response import GetTenantDailyUsagesResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -5923,7 +5977,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTenantDailyUsagesResponse1**](GetTenantDailyUsagesResponse1.md)
+[**GetTenantDailyUsagesResponse**](GetTenantDailyUsagesResponse.md)
 
 ### Authorization
 
@@ -5939,11 +5993,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tenant_package**
-> GetTenantPackageResponse1 get_tenant_package(tenant_id, id)
+> GetTenantPackageResponse get_tenant_package(tenant_id, id)
 
 
 
@@ -5953,7 +6008,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_tenant_package_response1 import GetTenantPackageResponse1
+from client.models.get_tenant_package_response import GetTenantPackageResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -6001,7 +6056,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTenantPackageResponse1**](GetTenantPackageResponse1.md)
+[**GetTenantPackageResponse**](GetTenantPackageResponse.md)
 
 ### Authorization
 
@@ -6017,11 +6072,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tenant_packages**
-> GetTenantPackagesResponse1 get_tenant_packages(tenant_id, skip=skip)
+> GetTenantPackagesResponse get_tenant_packages(tenant_id, skip=skip)
 
 
 
@@ -6031,7 +6087,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_tenant_packages_response1 import GetTenantPackagesResponse1
+from client.models.get_tenant_packages_response import GetTenantPackagesResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -6079,7 +6135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTenantPackagesResponse1**](GetTenantPackagesResponse1.md)
+[**GetTenantPackagesResponse**](GetTenantPackagesResponse.md)
 
 ### Authorization
 
@@ -6095,11 +6151,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tenant_user**
-> GetTenantUserResponse1 get_tenant_user(tenant_id, id)
+> GetTenantUserResponse get_tenant_user(tenant_id, id)
 
 
 
@@ -6109,7 +6166,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_tenant_user_response1 import GetTenantUserResponse1
+from client.models.get_tenant_user_response import GetTenantUserResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -6157,7 +6214,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTenantUserResponse1**](GetTenantUserResponse1.md)
+[**GetTenantUserResponse**](GetTenantUserResponse.md)
 
 ### Authorization
 
@@ -6173,11 +6230,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tenant_users**
-> GetTenantUsersResponse1 get_tenant_users(tenant_id, skip=skip)
+> GetTenantUsersResponse get_tenant_users(tenant_id, skip=skip)
 
 
 
@@ -6187,7 +6245,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_tenant_users_response1 import GetTenantUsersResponse1
+from client.models.get_tenant_users_response import GetTenantUsersResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -6235,7 +6293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTenantUsersResponse1**](GetTenantUsersResponse1.md)
+[**GetTenantUsersResponse**](GetTenantUsersResponse.md)
 
 ### Authorization
 
@@ -6251,11 +6309,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tenants**
-> GetTenantsResponse1 get_tenants(tenant_id, meta=meta, skip=skip)
+> GetTenantsResponse get_tenants(tenant_id, meta=meta, skip=skip)
 
 
 
@@ -6265,7 +6324,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_tenants_response1 import GetTenantsResponse1
+from client.models.get_tenants_response import GetTenantsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -6315,7 +6374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTenantsResponse1**](GetTenantsResponse1.md)
+[**GetTenantsResponse**](GetTenantsResponse.md)
 
 ### Authorization
 
@@ -6331,11 +6390,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ticket**
-> GetTicketResponse1 get_ticket(tenant_id, id, user_id=user_id)
+> GetTicketResponse get_ticket(tenant_id, id, user_id=user_id)
 
 
 
@@ -6345,7 +6405,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_ticket_response1 import GetTicketResponse1
+from client.models.get_ticket_response import GetTicketResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -6395,7 +6455,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTicketResponse1**](GetTicketResponse1.md)
+[**GetTicketResponse**](GetTicketResponse.md)
 
 ### Authorization
 
@@ -6411,11 +6471,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tickets**
-> GetTicketsResponse1 get_tickets(tenant_id, user_id=user_id, state=state, skip=skip, limit=limit)
+> GetTicketsResponse get_tickets(tenant_id, user_id=user_id, state=state, skip=skip, limit=limit)
 
 
 
@@ -6425,7 +6486,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_tickets_response1 import GetTicketsResponse1
+from client.models.get_tickets_response import GetTicketsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -6479,7 +6540,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTicketsResponse1**](GetTicketsResponse1.md)
+[**GetTicketsResponse**](GetTicketsResponse.md)
 
 ### Authorization
 
@@ -6495,11 +6556,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user**
-> GetUserResponse1 get_user(tenant_id, id)
+> GetUserResponse get_user(tenant_id, id)
 
 
 
@@ -6509,7 +6571,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_user_response1 import GetUserResponse1
+from client.models.get_user_response import GetUserResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -6557,7 +6619,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserResponse1**](GetUserResponse1.md)
+[**GetUserResponse**](GetUserResponse.md)
 
 ### Authorization
 
@@ -6573,11 +6635,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_badge**
-> GetUserBadgeResponse get_user_badge(tenant_id, id)
+> APIGetUserBadgeResponse get_user_badge(tenant_id, id)
 
 
 
@@ -6587,7 +6650,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_user_badge_response import GetUserBadgeResponse
+from client.models.api_get_user_badge_response import APIGetUserBadgeResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -6635,7 +6698,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserBadgeResponse**](GetUserBadgeResponse.md)
+[**APIGetUserBadgeResponse**](APIGetUserBadgeResponse.md)
 
 ### Authorization
 
@@ -6651,11 +6714,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_badge_progress_by_id**
-> GetUserBadgeProgressByIdResponse get_user_badge_progress_by_id(tenant_id, id)
+> APIGetUserBadgeProgressResponse get_user_badge_progress_by_id(tenant_id, id)
 
 
 
@@ -6665,7 +6729,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_user_badge_progress_by_id_response import GetUserBadgeProgressByIdResponse
+from client.models.api_get_user_badge_progress_response import APIGetUserBadgeProgressResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -6713,7 +6777,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserBadgeProgressByIdResponse**](GetUserBadgeProgressByIdResponse.md)
+[**APIGetUserBadgeProgressResponse**](APIGetUserBadgeProgressResponse.md)
 
 ### Authorization
 
@@ -6729,11 +6793,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_badge_progress_by_user_id**
-> GetUserBadgeProgressByUserIdResponse get_user_badge_progress_by_user_id(tenant_id, user_id)
+> APIGetUserBadgeProgressResponse get_user_badge_progress_by_user_id(tenant_id, user_id)
 
 
 
@@ -6743,7 +6808,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_user_badge_progress_by_user_id_response import GetUserBadgeProgressByUserIdResponse
+from client.models.api_get_user_badge_progress_response import APIGetUserBadgeProgressResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -6791,7 +6856,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserBadgeProgressByUserIdResponse**](GetUserBadgeProgressByUserIdResponse.md)
+[**APIGetUserBadgeProgressResponse**](APIGetUserBadgeProgressResponse.md)
 
 ### Authorization
 
@@ -6807,11 +6872,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_badge_progress_list**
-> GetUserBadgeProgressListResponse get_user_badge_progress_list(tenant_id, user_id=user_id, limit=limit, skip=skip)
+> APIGetUserBadgeProgressListResponse get_user_badge_progress_list(tenant_id, user_id=user_id, limit=limit, skip=skip)
 
 
 
@@ -6821,7 +6887,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_user_badge_progress_list_response import GetUserBadgeProgressListResponse
+from client.models.api_get_user_badge_progress_list_response import APIGetUserBadgeProgressListResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -6873,7 +6939,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserBadgeProgressListResponse**](GetUserBadgeProgressListResponse.md)
+[**APIGetUserBadgeProgressListResponse**](APIGetUserBadgeProgressListResponse.md)
 
 ### Authorization
 
@@ -6889,11 +6955,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_badges**
-> GetUserBadgesResponse get_user_badges(tenant_id, user_id=user_id, badge_id=badge_id, type=type, displayed_on_comments=displayed_on_comments, limit=limit, skip=skip)
+> APIGetUserBadgesResponse get_user_badges(tenant_id, user_id=user_id, badge_id=badge_id, type=type, displayed_on_comments=displayed_on_comments, limit=limit, skip=skip)
 
 
 
@@ -6903,7 +6970,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_user_badges_response import GetUserBadgesResponse
+from client.models.api_get_user_badges_response import APIGetUserBadgesResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -6961,7 +7028,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserBadgesResponse**](GetUserBadgesResponse.md)
+[**APIGetUserBadgesResponse**](APIGetUserBadgesResponse.md)
 
 ### Authorization
 
@@ -6977,11 +7044,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_votes**
-> GetVotesResponse1 get_votes(tenant_id, url_id)
+> GetVotesResponse get_votes(tenant_id, url_id)
 
 
 
@@ -6991,7 +7059,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_votes_response1 import GetVotesResponse1
+from client.models.get_votes_response import GetVotesResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -7039,7 +7107,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetVotesResponse1**](GetVotesResponse1.md)
+[**GetVotesResponse**](GetVotesResponse.md)
 
 ### Authorization
 
@@ -7055,11 +7123,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_votes_for_user**
-> GetVotesForUserResponse1 get_votes_for_user(tenant_id, url_id, user_id=user_id, anon_user_id=anon_user_id)
+> GetVotesForUserResponse get_votes_for_user(tenant_id, url_id, user_id=user_id, anon_user_id=anon_user_id)
 
 
 
@@ -7069,7 +7138,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.get_votes_for_user_response1 import GetVotesForUserResponse1
+from client.models.get_votes_for_user_response import GetVotesForUserResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -7121,7 +7190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetVotesForUserResponse1**](GetVotesForUserResponse1.md)
+[**GetVotesForUserResponse**](GetVotesForUserResponse.md)
 
 ### Authorization
 
@@ -7137,6 +7206,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -7222,7 +7292,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_hash_tag**
-> PatchHashTagResponse patch_hash_tag(tag, tenant_id=tenant_id, update_hash_tag_body=update_hash_tag_body)
+> UpdateHashTagResponse patch_hash_tag(tag, tenant_id=tenant_id, update_hash_tag_body=update_hash_tag_body)
 
 
 
@@ -7232,8 +7302,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.patch_hash_tag_response import PatchHashTagResponse
 from client.models.update_hash_tag_body import UpdateHashTagBody
+from client.models.update_hash_tag_response import UpdateHashTagResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -7283,7 +7353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PatchHashTagResponse**](PatchHashTagResponse.md)
+[**UpdateHashTagResponse**](UpdateHashTagResponse.md)
 
 ### Authorization
 
@@ -7299,6 +7369,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -7631,7 +7702,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **render_email_template**
-> RenderEmailTemplateResponse1 render_email_template(tenant_id, render_email_template_body, locale=locale)
+> RenderEmailTemplateResponse render_email_template(tenant_id, render_email_template_body, locale=locale)
 
 
 
@@ -7642,7 +7713,7 @@ Name | Type | Description  | Notes
 ```python
 import client
 from client.models.render_email_template_body import RenderEmailTemplateBody
-from client.models.render_email_template_response1 import RenderEmailTemplateResponse1
+from client.models.render_email_template_response import RenderEmailTemplateResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -7692,7 +7763,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**RenderEmailTemplateResponse1**](RenderEmailTemplateResponse1.md)
+[**RenderEmailTemplateResponse**](RenderEmailTemplateResponse.md)
 
 ### Authorization
 
@@ -7708,11 +7779,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **replace_tenant_package**
-> ReplaceTenantPackageResponse replace_tenant_package(tenant_id, id, replace_tenant_package_body)
+> APIEmptyResponse replace_tenant_package(tenant_id, id, replace_tenant_package_body)
 
 
 
@@ -7722,8 +7794,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
+from client.models.api_empty_response import APIEmptyResponse
 from client.models.replace_tenant_package_body import ReplaceTenantPackageBody
-from client.models.replace_tenant_package_response import ReplaceTenantPackageResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -7773,7 +7845,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ReplaceTenantPackageResponse**](ReplaceTenantPackageResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -7789,11 +7861,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **replace_tenant_user**
-> ReplaceTenantUserResponse replace_tenant_user(tenant_id, id, replace_tenant_user_body, update_comments=update_comments)
+> APIEmptyResponse replace_tenant_user(tenant_id, id, replace_tenant_user_body, update_comments=update_comments)
 
 
 
@@ -7803,8 +7876,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
+from client.models.api_empty_response import APIEmptyResponse
 from client.models.replace_tenant_user_body import ReplaceTenantUserBody
-from client.models.replace_tenant_user_response import ReplaceTenantUserResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -7856,7 +7929,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ReplaceTenantUserResponse**](ReplaceTenantUserResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -7872,11 +7945,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **save_comment**
-> SaveCommentResponse save_comment(tenant_id, create_comment_params, is_live=is_live, do_spam_check=do_spam_check, send_emails=send_emails, populate_notifications=populate_notifications)
+> APISaveCommentResponse save_comment(tenant_id, create_comment_params, is_live=is_live, do_spam_check=do_spam_check, send_emails=send_emails, populate_notifications=populate_notifications)
 
 
 
@@ -7886,8 +7960,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
+from client.models.api_save_comment_response import APISaveCommentResponse
 from client.models.create_comment_params import CreateCommentParams
-from client.models.save_comment_response import SaveCommentResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -7943,7 +8017,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SaveCommentResponse**](SaveCommentResponse.md)
+[**APISaveCommentResponse**](APISaveCommentResponse.md)
 
 ### Authorization
 
@@ -7959,6 +8033,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -8050,7 +8125,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **send_invite**
-> SendInviteResponse send_invite(tenant_id, id, from_name)
+> APIEmptyResponse send_invite(tenant_id, id, from_name)
 
 
 
@@ -8060,7 +8135,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.send_invite_response import SendInviteResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -8110,7 +8185,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SendInviteResponse**](SendInviteResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -8126,11 +8201,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **send_login_link**
-> SendLoginLinkResponse send_login_link(tenant_id, id, redirect_url=redirect_url)
+> APIEmptyResponse send_login_link(tenant_id, id, redirect_url=redirect_url)
 
 
 
@@ -8140,7 +8216,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.send_login_link_response import SendLoginLinkResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -8190,7 +8266,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SendLoginLinkResponse**](SendLoginLinkResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -8206,11 +8282,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **un_block_user_from_comment**
-> UnBlockUserFromCommentResponse un_block_user_from_comment(tenant_id, id, un_block_from_comment_params, user_id=user_id, anon_user_id=anon_user_id)
+> UnblockSuccess un_block_user_from_comment(tenant_id, id, un_block_from_comment_params, user_id=user_id, anon_user_id=anon_user_id)
 
 
 
@@ -8221,7 +8298,7 @@ Name | Type | Description  | Notes
 ```python
 import client
 from client.models.un_block_from_comment_params import UnBlockFromCommentParams
-from client.models.un_block_user_from_comment_response import UnBlockUserFromCommentResponse
+from client.models.unblock_success import UnblockSuccess
 from client.rest import ApiException
 from pprint import pprint
 
@@ -8275,7 +8352,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UnBlockUserFromCommentResponse**](UnBlockUserFromCommentResponse.md)
+[**UnblockSuccess**](UnblockSuccess.md)
 
 ### Authorization
 
@@ -8291,11 +8368,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **un_flag_comment**
-> UnFlagCommentResponse un_flag_comment(tenant_id, id, user_id=user_id, anon_user_id=anon_user_id)
+> FlagCommentResponse un_flag_comment(tenant_id, id, user_id=user_id, anon_user_id=anon_user_id)
 
 
 
@@ -8305,7 +8383,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.models.un_flag_comment_response import UnFlagCommentResponse
+from client.models.flag_comment_response import FlagCommentResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -8357,7 +8435,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UnFlagCommentResponse**](UnFlagCommentResponse.md)
+[**FlagCommentResponse**](FlagCommentResponse.md)
 
 ### Authorization
 
@@ -8373,11 +8451,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_comment**
-> UpdateCommentResponse update_comment(tenant_id, id, updatable_comment_params, context_user_id=context_user_id, do_spam_check=do_spam_check, is_live=is_live)
+> APIEmptyResponse update_comment(tenant_id, id, updatable_comment_params, context_user_id=context_user_id, do_spam_check=do_spam_check, is_live=is_live)
 
 
 
@@ -8387,8 +8466,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
+from client.models.api_empty_response import APIEmptyResponse
 from client.models.updatable_comment_params import UpdatableCommentParams
-from client.models.update_comment_response import UpdateCommentResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -8444,7 +8523,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateCommentResponse**](UpdateCommentResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -8460,11 +8539,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_email_template**
-> UpdateEmailTemplateResponse update_email_template(tenant_id, id, update_email_template_body)
+> APIEmptyResponse update_email_template(tenant_id, id, update_email_template_body)
 
 
 
@@ -8474,8 +8554,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
+from client.models.api_empty_response import APIEmptyResponse
 from client.models.update_email_template_body import UpdateEmailTemplateBody
-from client.models.update_email_template_response import UpdateEmailTemplateResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -8525,7 +8605,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateEmailTemplateResponse**](UpdateEmailTemplateResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -8541,11 +8621,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_feed_post**
-> UpdateFeedPostResponse update_feed_post(tenant_id, id, feed_post)
+> APIEmptyResponse update_feed_post(tenant_id, id, feed_post)
 
 
 
@@ -8555,8 +8636,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
+from client.models.api_empty_response import APIEmptyResponse
 from client.models.feed_post import FeedPost
-from client.models.update_feed_post_response import UpdateFeedPostResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -8606,7 +8687,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateFeedPostResponse**](UpdateFeedPostResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -8622,11 +8703,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_moderator**
-> UpdateModeratorResponse update_moderator(tenant_id, id, update_moderator_body)
+> APIEmptyResponse update_moderator(tenant_id, id, update_moderator_body)
 
 
 
@@ -8636,8 +8718,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
+from client.models.api_empty_response import APIEmptyResponse
 from client.models.update_moderator_body import UpdateModeratorBody
-from client.models.update_moderator_response import UpdateModeratorResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -8687,7 +8769,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateModeratorResponse**](UpdateModeratorResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -8703,11 +8785,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_notification**
-> UpdateNotificationResponse update_notification(tenant_id, id, update_notification_body, user_id=user_id)
+> APIEmptyResponse update_notification(tenant_id, id, update_notification_body, user_id=user_id)
 
 
 
@@ -8717,8 +8800,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
+from client.models.api_empty_response import APIEmptyResponse
 from client.models.update_notification_body import UpdateNotificationBody
-from client.models.update_notification_response import UpdateNotificationResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -8770,7 +8853,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateNotificationResponse**](UpdateNotificationResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -8786,11 +8869,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_question_config**
-> UpdateQuestionConfigResponse update_question_config(tenant_id, id, update_question_config_body)
+> APIEmptyResponse update_question_config(tenant_id, id, update_question_config_body)
 
 
 
@@ -8800,8 +8884,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
+from client.models.api_empty_response import APIEmptyResponse
 from client.models.update_question_config_body import UpdateQuestionConfigBody
-from client.models.update_question_config_response import UpdateQuestionConfigResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -8851,7 +8935,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateQuestionConfigResponse**](UpdateQuestionConfigResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -8867,11 +8951,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_question_result**
-> UpdateQuestionResultResponse update_question_result(tenant_id, id, update_question_result_body)
+> APIEmptyResponse update_question_result(tenant_id, id, update_question_result_body)
 
 
 
@@ -8881,8 +8966,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
+from client.models.api_empty_response import APIEmptyResponse
 from client.models.update_question_result_body import UpdateQuestionResultBody
-from client.models.update_question_result_response import UpdateQuestionResultResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -8932,7 +9017,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateQuestionResultResponse**](UpdateQuestionResultResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -8948,6 +9033,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -9035,7 +9121,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_tenant**
-> UpdateTenantResponse update_tenant(tenant_id, id, update_tenant_body)
+> APIEmptyResponse update_tenant(tenant_id, id, update_tenant_body)
 
 
 
@@ -9045,8 +9131,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
+from client.models.api_empty_response import APIEmptyResponse
 from client.models.update_tenant_body import UpdateTenantBody
-from client.models.update_tenant_response import UpdateTenantResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -9096,7 +9182,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateTenantResponse**](UpdateTenantResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -9112,11 +9198,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_tenant_package**
-> UpdateTenantPackageResponse update_tenant_package(tenant_id, id, update_tenant_package_body)
+> APIEmptyResponse update_tenant_package(tenant_id, id, update_tenant_package_body)
 
 
 
@@ -9126,8 +9213,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
+from client.models.api_empty_response import APIEmptyResponse
 from client.models.update_tenant_package_body import UpdateTenantPackageBody
-from client.models.update_tenant_package_response import UpdateTenantPackageResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -9177,7 +9264,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateTenantPackageResponse**](UpdateTenantPackageResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -9193,11 +9280,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_tenant_user**
-> UpdateTenantUserResponse update_tenant_user(tenant_id, id, update_tenant_user_body, update_comments=update_comments)
+> APIEmptyResponse update_tenant_user(tenant_id, id, update_tenant_user_body, update_comments=update_comments)
 
 
 
@@ -9207,8 +9295,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
+from client.models.api_empty_response import APIEmptyResponse
 from client.models.update_tenant_user_body import UpdateTenantUserBody
-from client.models.update_tenant_user_response import UpdateTenantUserResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -9260,7 +9348,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateTenantUserResponse**](UpdateTenantUserResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -9276,11 +9364,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_user_badge**
-> UpdateUserBadgeResponse update_user_badge(tenant_id, id, update_user_badge_params)
+> APIEmptySuccessResponse update_user_badge(tenant_id, id, update_user_badge_params)
 
 
 
@@ -9290,8 +9379,8 @@ Name | Type | Description  | Notes
 
 ```python
 import client
+from client.models.api_empty_success_response import APIEmptySuccessResponse
 from client.models.update_user_badge_params import UpdateUserBadgeParams
-from client.models.update_user_badge_response import UpdateUserBadgeResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -9341,7 +9430,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UpdateUserBadgeResponse**](UpdateUserBadgeResponse.md)
+[**APIEmptySuccessResponse**](APIEmptySuccessResponse.md)
 
 ### Authorization
 
@@ -9357,6 +9446,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

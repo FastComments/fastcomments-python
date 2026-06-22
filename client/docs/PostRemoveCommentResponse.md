@@ -6,14 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **str** |  | 
-**status** | [**APIStatus**](APIStatus.md) |  | 
-**reason** | **str** |  | 
-**code** | **str** |  | 
-**secondary_code** | **str** |  | [optional] 
-**banned_until** | **int** |  | [optional] 
-**max_character_length** | **int** |  | [optional] 
-**translated_error** | **str** |  | [optional] 
-**custom_config** | [**CustomConfigParameters**](CustomConfigParameters.md) |  | [optional] 
+**status** | **str** |  | 
 
 ## Example
 

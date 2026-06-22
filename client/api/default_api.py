@@ -19,166 +19,139 @@ from typing_extensions import Annotated
 from datetime import datetime
 from pydantic import StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import List, Optional, Union
+from client.models.api_create_user_badge_response import APICreateUserBadgeResponse
+from client.models.api_empty_response import APIEmptyResponse
+from client.models.api_empty_success_response import APIEmptySuccessResponse
+from client.models.api_get_comment_response import APIGetCommentResponse
+from client.models.api_get_comments_response import APIGetCommentsResponse
+from client.models.api_get_user_badge_progress_list_response import APIGetUserBadgeProgressListResponse
+from client.models.api_get_user_badge_progress_response import APIGetUserBadgeProgressResponse
+from client.models.api_get_user_badge_response import APIGetUserBadgeResponse
+from client.models.api_get_user_badges_response import APIGetUserBadgesResponse
+from client.models.api_save_comment_response import APISaveCommentResponse
 from client.models.add_domain_config_params import AddDomainConfigParams
 from client.models.add_domain_config_response import AddDomainConfigResponse
-from client.models.add_hash_tag_response import AddHashTagResponse
-from client.models.add_hash_tags_bulk_response import AddHashTagsBulkResponse
 from client.models.add_page_api_response import AddPageAPIResponse
 from client.models.add_sso_user_api_response import AddSSOUserAPIResponse
-from client.models.aggregate_question_results_response1 import AggregateQuestionResultsResponse1
+from client.models.aggregate_question_results_response import AggregateQuestionResultsResponse
 from client.models.aggregate_response import AggregateResponse
 from client.models.aggregate_time_bucket import AggregateTimeBucket
 from client.models.aggregation_request import AggregationRequest
 from client.models.block_from_comment_params import BlockFromCommentParams
-from client.models.block_user_from_comment_response import BlockUserFromCommentResponse
+from client.models.block_success import BlockSuccess
 from client.models.bulk_aggregate_question_results_request import BulkAggregateQuestionResultsRequest
-from client.models.bulk_aggregate_question_results_response1 import BulkAggregateQuestionResultsResponse1
+from client.models.bulk_aggregate_question_results_response import BulkAggregateQuestionResultsResponse
 from client.models.bulk_create_hash_tags_body import BulkCreateHashTagsBody
+from client.models.bulk_create_hash_tags_response import BulkCreateHashTagsResponse
 from client.models.change_ticket_state_body import ChangeTicketStateBody
-from client.models.change_ticket_state_response1 import ChangeTicketStateResponse1
-from client.models.combine_comments_with_question_results_response import CombineCommentsWithQuestionResultsResponse
+from client.models.change_ticket_state_response import ChangeTicketStateResponse
+from client.models.combine_question_results_with_comments_response import CombineQuestionResultsWithCommentsResponse
 from client.models.create_api_page_data import CreateAPIPageData
 from client.models.create_apisso_user_data import CreateAPISSOUserData
 from client.models.create_api_user_subscription_data import CreateAPIUserSubscriptionData
 from client.models.create_comment_params import CreateCommentParams
 from client.models.create_email_template_body import CreateEmailTemplateBody
-from client.models.create_email_template_response1 import CreateEmailTemplateResponse1
+from client.models.create_email_template_response import CreateEmailTemplateResponse
 from client.models.create_feed_post_params import CreateFeedPostParams
-from client.models.create_feed_post_response1 import CreateFeedPostResponse1
+from client.models.create_feed_posts_response import CreateFeedPostsResponse
 from client.models.create_hash_tag_body import CreateHashTagBody
+from client.models.create_hash_tag_response import CreateHashTagResponse
 from client.models.create_moderator_body import CreateModeratorBody
-from client.models.create_moderator_response1 import CreateModeratorResponse1
+from client.models.create_moderator_response import CreateModeratorResponse
 from client.models.create_question_config_body import CreateQuestionConfigBody
-from client.models.create_question_config_response1 import CreateQuestionConfigResponse1
+from client.models.create_question_config_response import CreateQuestionConfigResponse
 from client.models.create_question_result_body import CreateQuestionResultBody
-from client.models.create_question_result_response1 import CreateQuestionResultResponse1
+from client.models.create_question_result_response import CreateQuestionResultResponse
 from client.models.create_subscription_api_response import CreateSubscriptionAPIResponse
 from client.models.create_tenant_body import CreateTenantBody
 from client.models.create_tenant_package_body import CreateTenantPackageBody
-from client.models.create_tenant_package_response1 import CreateTenantPackageResponse1
-from client.models.create_tenant_response1 import CreateTenantResponse1
+from client.models.create_tenant_package_response import CreateTenantPackageResponse
+from client.models.create_tenant_response import CreateTenantResponse
 from client.models.create_tenant_user_body import CreateTenantUserBody
-from client.models.create_tenant_user_response1 import CreateTenantUserResponse1
+from client.models.create_tenant_user_response import CreateTenantUserResponse
 from client.models.create_ticket_body import CreateTicketBody
-from client.models.create_ticket_response1 import CreateTicketResponse1
+from client.models.create_ticket_response import CreateTicketResponse
 from client.models.create_user_badge_params import CreateUserBadgeParams
-from client.models.create_user_badge_response import CreateUserBadgeResponse
-from client.models.create_vote_response import CreateVoteResponse
-from client.models.delete_comment_response import DeleteCommentResponse
+from client.models.delete_comment_result import DeleteCommentResult
 from client.models.delete_domain_config_response import DeleteDomainConfigResponse
-from client.models.delete_email_template_render_error_response import DeleteEmailTemplateRenderErrorResponse
-from client.models.delete_email_template_response import DeleteEmailTemplateResponse
 from client.models.delete_hash_tag_request_body import DeleteHashTagRequestBody
-from client.models.delete_hash_tag_response import DeleteHashTagResponse
-from client.models.delete_moderator_response import DeleteModeratorResponse
-from client.models.delete_notification_count_response import DeleteNotificationCountResponse
 from client.models.delete_page_api_response import DeletePageAPIResponse
-from client.models.delete_pending_webhook_event_response import DeletePendingWebhookEventResponse
-from client.models.delete_question_config_response import DeleteQuestionConfigResponse
-from client.models.delete_question_result_response import DeleteQuestionResultResponse
 from client.models.delete_sso_user_api_response import DeleteSSOUserAPIResponse
 from client.models.delete_subscription_api_response import DeleteSubscriptionAPIResponse
-from client.models.delete_tenant_package_response import DeleteTenantPackageResponse
-from client.models.delete_tenant_response import DeleteTenantResponse
-from client.models.delete_tenant_user_response import DeleteTenantUserResponse
-from client.models.delete_user_badge_response import DeleteUserBadgeResponse
-from client.models.delete_vote_response import DeleteVoteResponse
 from client.models.feed_post import FeedPost
-from client.models.flag_comment_response1 import FlagCommentResponse1
-from client.models.get_audit_logs_response1 import GetAuditLogsResponse1
-from client.models.get_cached_notification_count_response1 import GetCachedNotificationCountResponse1
-from client.models.get_comment_response import GetCommentResponse
-from client.models.get_comments_response import GetCommentsResponse
+from client.models.flag_comment_response import FlagCommentResponse
+from client.models.get_audit_logs_response import GetAuditLogsResponse
+from client.models.get_cached_notification_count_response import GetCachedNotificationCountResponse
 from client.models.get_domain_config_response import GetDomainConfigResponse
 from client.models.get_domain_configs_response import GetDomainConfigsResponse
-from client.models.get_email_template_definitions_response1 import GetEmailTemplateDefinitionsResponse1
-from client.models.get_email_template_render_errors_response1 import GetEmailTemplateRenderErrorsResponse1
-from client.models.get_email_template_response1 import GetEmailTemplateResponse1
-from client.models.get_email_templates_response1 import GetEmailTemplatesResponse1
-from client.models.get_feed_posts_response1 import GetFeedPostsResponse1
-from client.models.get_hash_tags_response1 import GetHashTagsResponse1
-from client.models.get_moderator_response1 import GetModeratorResponse1
-from client.models.get_moderators_response1 import GetModeratorsResponse1
-from client.models.get_notification_count_response1 import GetNotificationCountResponse1
-from client.models.get_notifications_response1 import GetNotificationsResponse1
+from client.models.get_email_template_definitions_response import GetEmailTemplateDefinitionsResponse
+from client.models.get_email_template_render_errors_response import GetEmailTemplateRenderErrorsResponse
+from client.models.get_email_template_response import GetEmailTemplateResponse
+from client.models.get_email_templates_response import GetEmailTemplatesResponse
+from client.models.get_feed_posts_response import GetFeedPostsResponse
+from client.models.get_hash_tags_response import GetHashTagsResponse
+from client.models.get_moderator_response import GetModeratorResponse
+from client.models.get_moderators_response import GetModeratorsResponse
+from client.models.get_notification_count_response import GetNotificationCountResponse
+from client.models.get_notifications_response import GetNotificationsResponse
 from client.models.get_page_by_urlid_api_response import GetPageByURLIdAPIResponse
 from client.models.get_pages_api_response import GetPagesAPIResponse
-from client.models.get_pending_webhook_event_count_response1 import GetPendingWebhookEventCountResponse1
-from client.models.get_pending_webhook_events_response1 import GetPendingWebhookEventsResponse1
-from client.models.get_question_config_response1 import GetQuestionConfigResponse1
-from client.models.get_question_configs_response1 import GetQuestionConfigsResponse1
-from client.models.get_question_result_response1 import GetQuestionResultResponse1
-from client.models.get_question_results_response1 import GetQuestionResultsResponse1
+from client.models.get_pending_webhook_event_count_response import GetPendingWebhookEventCountResponse
+from client.models.get_pending_webhook_events_response import GetPendingWebhookEventsResponse
+from client.models.get_question_config_response import GetQuestionConfigResponse
+from client.models.get_question_configs_response import GetQuestionConfigsResponse
+from client.models.get_question_result_response import GetQuestionResultResponse
+from client.models.get_question_results_response import GetQuestionResultsResponse
 from client.models.get_sso_user_by_email_api_response import GetSSOUserByEmailAPIResponse
 from client.models.get_sso_user_by_id_api_response import GetSSOUserByIdAPIResponse
 from client.models.get_sso_users_response import GetSSOUsersResponse
 from client.models.get_subscriptions_api_response import GetSubscriptionsAPIResponse
-from client.models.get_tenant_daily_usages_response1 import GetTenantDailyUsagesResponse1
-from client.models.get_tenant_package_response1 import GetTenantPackageResponse1
-from client.models.get_tenant_packages_response1 import GetTenantPackagesResponse1
-from client.models.get_tenant_response1 import GetTenantResponse1
-from client.models.get_tenant_user_response1 import GetTenantUserResponse1
-from client.models.get_tenant_users_response1 import GetTenantUsersResponse1
-from client.models.get_tenants_response1 import GetTenantsResponse1
-from client.models.get_ticket_response1 import GetTicketResponse1
-from client.models.get_tickets_response1 import GetTicketsResponse1
-from client.models.get_user_badge_progress_by_id_response import GetUserBadgeProgressByIdResponse
-from client.models.get_user_badge_progress_by_user_id_response import GetUserBadgeProgressByUserIdResponse
-from client.models.get_user_badge_progress_list_response import GetUserBadgeProgressListResponse
-from client.models.get_user_badge_response import GetUserBadgeResponse
-from client.models.get_user_badges_response import GetUserBadgesResponse
-from client.models.get_user_response1 import GetUserResponse1
-from client.models.get_votes_for_user_response1 import GetVotesForUserResponse1
-from client.models.get_votes_response1 import GetVotesResponse1
+from client.models.get_tenant_daily_usages_response import GetTenantDailyUsagesResponse
+from client.models.get_tenant_package_response import GetTenantPackageResponse
+from client.models.get_tenant_packages_response import GetTenantPackagesResponse
+from client.models.get_tenant_response import GetTenantResponse
+from client.models.get_tenant_user_response import GetTenantUserResponse
+from client.models.get_tenant_users_response import GetTenantUsersResponse
+from client.models.get_tenants_response import GetTenantsResponse
+from client.models.get_ticket_response import GetTicketResponse
+from client.models.get_tickets_response import GetTicketsResponse
+from client.models.get_user_response import GetUserResponse
+from client.models.get_votes_for_user_response import GetVotesForUserResponse
+from client.models.get_votes_response import GetVotesResponse
 from client.models.patch_domain_config_params import PatchDomainConfigParams
 from client.models.patch_domain_config_response import PatchDomainConfigResponse
-from client.models.patch_hash_tag_response import PatchHashTagResponse
 from client.models.patch_page_api_response import PatchPageAPIResponse
 from client.models.patch_sso_user_api_response import PatchSSOUserAPIResponse
 from client.models.put_domain_config_response import PutDomainConfigResponse
 from client.models.put_sso_user_api_response import PutSSOUserAPIResponse
 from client.models.render_email_template_body import RenderEmailTemplateBody
-from client.models.render_email_template_response1 import RenderEmailTemplateResponse1
+from client.models.render_email_template_response import RenderEmailTemplateResponse
 from client.models.replace_tenant_package_body import ReplaceTenantPackageBody
-from client.models.replace_tenant_package_response import ReplaceTenantPackageResponse
 from client.models.replace_tenant_user_body import ReplaceTenantUserBody
-from client.models.replace_tenant_user_response import ReplaceTenantUserResponse
 from client.models.sortdir import SORTDIR
-from client.models.save_comment_response import SaveCommentResponse
 from client.models.save_comments_bulk_response import SaveCommentsBulkResponse
-from client.models.send_invite_response import SendInviteResponse
-from client.models.send_login_link_response import SendLoginLinkResponse
 from client.models.sort_directions import SortDirections
 from client.models.un_block_from_comment_params import UnBlockFromCommentParams
-from client.models.un_block_user_from_comment_response import UnBlockUserFromCommentResponse
-from client.models.un_flag_comment_response import UnFlagCommentResponse
+from client.models.unblock_success import UnblockSuccess
 from client.models.updatable_comment_params import UpdatableCommentParams
 from client.models.update_api_page_data import UpdateAPIPageData
 from client.models.update_apisso_user_data import UpdateAPISSOUserData
 from client.models.update_api_user_subscription_data import UpdateAPIUserSubscriptionData
-from client.models.update_comment_response import UpdateCommentResponse
 from client.models.update_domain_config_params import UpdateDomainConfigParams
 from client.models.update_email_template_body import UpdateEmailTemplateBody
-from client.models.update_email_template_response import UpdateEmailTemplateResponse
-from client.models.update_feed_post_response import UpdateFeedPostResponse
 from client.models.update_hash_tag_body import UpdateHashTagBody
+from client.models.update_hash_tag_response import UpdateHashTagResponse
 from client.models.update_moderator_body import UpdateModeratorBody
-from client.models.update_moderator_response import UpdateModeratorResponse
 from client.models.update_notification_body import UpdateNotificationBody
-from client.models.update_notification_response import UpdateNotificationResponse
 from client.models.update_question_config_body import UpdateQuestionConfigBody
-from client.models.update_question_config_response import UpdateQuestionConfigResponse
 from client.models.update_question_result_body import UpdateQuestionResultBody
-from client.models.update_question_result_response import UpdateQuestionResultResponse
 from client.models.update_subscription_api_response import UpdateSubscriptionAPIResponse
 from client.models.update_tenant_body import UpdateTenantBody
 from client.models.update_tenant_package_body import UpdateTenantPackageBody
-from client.models.update_tenant_package_response import UpdateTenantPackageResponse
-from client.models.update_tenant_response import UpdateTenantResponse
 from client.models.update_tenant_user_body import UpdateTenantUserBody
-from client.models.update_tenant_user_response import UpdateTenantUserResponse
 from client.models.update_user_badge_params import UpdateUserBadgeParams
-from client.models.update_user_badge_response import UpdateUserBadgeResponse
+from client.models.vote_delete_response import VoteDeleteResponse
+from client.models.vote_response import VoteResponse
 
 from client.api_client import ApiClient, RequestSerialized
 from client.api_response import ApiResponse
@@ -503,7 +476,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AddHashTagResponse:
+    ) -> CreateHashTagResponse:
         """add_hash_tag
 
 
@@ -543,7 +516,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AddHashTagResponse",
+            '200': "CreateHashTagResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -573,7 +546,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AddHashTagResponse]:
+    ) -> ApiResponse[CreateHashTagResponse]:
         """add_hash_tag
 
 
@@ -613,7 +586,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AddHashTagResponse",
+            '200': "CreateHashTagResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -683,7 +656,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AddHashTagResponse",
+            '200': "CreateHashTagResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -791,7 +764,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AddHashTagsBulkResponse:
+    ) -> BulkCreateHashTagsResponse:
         """add_hash_tags_bulk
 
 
@@ -831,7 +804,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AddHashTagsBulkResponse",
+            '200': "BulkCreateHashTagsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -861,7 +834,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AddHashTagsBulkResponse]:
+    ) -> ApiResponse[BulkCreateHashTagsResponse]:
         """add_hash_tags_bulk
 
 
@@ -901,7 +874,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AddHashTagsBulkResponse",
+            '200': "BulkCreateHashTagsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -971,7 +944,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AddHashTagsBulkResponse",
+            '200': "BulkCreateHashTagsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1985,7 +1958,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AggregateQuestionResultsResponse1:
+    ) -> AggregateQuestionResultsResponse:
         """aggregate_question_results
 
 
@@ -2040,7 +2013,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AggregateQuestionResultsResponse1",
+            '200': "AggregateQuestionResultsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2075,7 +2048,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AggregateQuestionResultsResponse1]:
+    ) -> ApiResponse[AggregateQuestionResultsResponse]:
         """aggregate_question_results
 
 
@@ -2130,7 +2103,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AggregateQuestionResultsResponse1",
+            '200': "AggregateQuestionResultsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2220,7 +2193,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AggregateQuestionResultsResponse1",
+            '200': "AggregateQuestionResultsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2355,7 +2328,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BlockUserFromCommentResponse:
+    ) -> BlockSuccess:
         """block_user_from_comment
 
 
@@ -2404,7 +2377,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BlockUserFromCommentResponse",
+            '200': "BlockSuccess",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2437,7 +2410,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BlockUserFromCommentResponse]:
+    ) -> ApiResponse[BlockSuccess]:
         """block_user_from_comment
 
 
@@ -2486,7 +2459,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BlockUserFromCommentResponse",
+            '200': "BlockSuccess",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2568,7 +2541,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BlockUserFromCommentResponse",
+            '200': "BlockSuccess",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2690,7 +2663,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BulkAggregateQuestionResultsResponse1:
+    ) -> BulkAggregateQuestionResultsResponse:
         """bulk_aggregate_question_results
 
 
@@ -2733,7 +2706,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkAggregateQuestionResultsResponse1",
+            '200': "BulkAggregateQuestionResultsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2764,7 +2737,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BulkAggregateQuestionResultsResponse1]:
+    ) -> ApiResponse[BulkAggregateQuestionResultsResponse]:
         """bulk_aggregate_question_results
 
 
@@ -2807,7 +2780,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkAggregateQuestionResultsResponse1",
+            '200': "BulkAggregateQuestionResultsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2881,7 +2854,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkAggregateQuestionResultsResponse1",
+            '200': "BulkAggregateQuestionResultsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2996,7 +2969,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ChangeTicketStateResponse1:
+    ) -> ChangeTicketStateResponse:
         """change_ticket_state
 
 
@@ -3042,7 +3015,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ChangeTicketStateResponse1",
+            '200': "ChangeTicketStateResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3074,7 +3047,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ChangeTicketStateResponse1]:
+    ) -> ApiResponse[ChangeTicketStateResponse]:
         """change_ticket_state
 
 
@@ -3120,7 +3093,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ChangeTicketStateResponse1",
+            '200': "ChangeTicketStateResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3198,7 +3171,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ChangeTicketStateResponse1",
+            '200': "ChangeTicketStateResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3321,7 +3294,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CombineCommentsWithQuestionResultsResponse:
+    ) -> CombineQuestionResultsWithCommentsResponse:
         """combine_comments_with_question_results
 
 
@@ -3382,7 +3355,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CombineCommentsWithQuestionResultsResponse",
+            '200': "CombineQuestionResultsWithCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3419,7 +3392,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CombineCommentsWithQuestionResultsResponse]:
+    ) -> ApiResponse[CombineQuestionResultsWithCommentsResponse]:
         """combine_comments_with_question_results
 
 
@@ -3480,7 +3453,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CombineCommentsWithQuestionResultsResponse",
+            '200': "CombineQuestionResultsWithCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3578,7 +3551,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CombineCommentsWithQuestionResultsResponse",
+            '200': "CombineQuestionResultsWithCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3720,7 +3693,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateEmailTemplateResponse1:
+    ) -> CreateEmailTemplateResponse:
         """create_email_template
 
 
@@ -3760,7 +3733,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateEmailTemplateResponse1",
+            '200': "CreateEmailTemplateResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3790,7 +3763,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateEmailTemplateResponse1]:
+    ) -> ApiResponse[CreateEmailTemplateResponse]:
         """create_email_template
 
 
@@ -3830,7 +3803,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateEmailTemplateResponse1",
+            '200': "CreateEmailTemplateResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3900,7 +3873,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateEmailTemplateResponse1",
+            '200': "CreateEmailTemplateResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4012,7 +3985,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateFeedPostResponse1:
+    ) -> CreateFeedPostsResponse:
         """create_feed_post
 
 
@@ -4064,7 +4037,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateFeedPostResponse1",
+            '200': "CreateFeedPostsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4098,7 +4071,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateFeedPostResponse1]:
+    ) -> ApiResponse[CreateFeedPostsResponse]:
         """create_feed_post
 
 
@@ -4150,7 +4123,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateFeedPostResponse1",
+            '200': "CreateFeedPostsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4236,7 +4209,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateFeedPostResponse1",
+            '200': "CreateFeedPostsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4364,7 +4337,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateModeratorResponse1:
+    ) -> CreateModeratorResponse:
         """create_moderator
 
 
@@ -4404,7 +4377,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateModeratorResponse1",
+            '200': "CreateModeratorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4434,7 +4407,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateModeratorResponse1]:
+    ) -> ApiResponse[CreateModeratorResponse]:
         """create_moderator
 
 
@@ -4474,7 +4447,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateModeratorResponse1",
+            '200': "CreateModeratorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4544,7 +4517,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateModeratorResponse1",
+            '200': "CreateModeratorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4652,7 +4625,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateQuestionConfigResponse1:
+    ) -> CreateQuestionConfigResponse:
         """create_question_config
 
 
@@ -4692,7 +4665,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateQuestionConfigResponse1",
+            '200': "CreateQuestionConfigResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4722,7 +4695,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateQuestionConfigResponse1]:
+    ) -> ApiResponse[CreateQuestionConfigResponse]:
         """create_question_config
 
 
@@ -4762,7 +4735,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateQuestionConfigResponse1",
+            '200': "CreateQuestionConfigResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4832,7 +4805,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateQuestionConfigResponse1",
+            '200': "CreateQuestionConfigResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4940,7 +4913,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateQuestionResultResponse1:
+    ) -> CreateQuestionResultResponse:
         """create_question_result
 
 
@@ -4980,7 +4953,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateQuestionResultResponse1",
+            '200': "CreateQuestionResultResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5010,7 +4983,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateQuestionResultResponse1]:
+    ) -> ApiResponse[CreateQuestionResultResponse]:
         """create_question_result
 
 
@@ -5050,7 +5023,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateQuestionResultResponse1",
+            '200': "CreateQuestionResultResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5120,7 +5093,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateQuestionResultResponse1",
+            '200': "CreateQuestionResultResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5516,7 +5489,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateTenantResponse1:
+    ) -> CreateTenantResponse:
         """create_tenant
 
 
@@ -5556,7 +5529,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTenantResponse1",
+            '200': "CreateTenantResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5586,7 +5559,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateTenantResponse1]:
+    ) -> ApiResponse[CreateTenantResponse]:
         """create_tenant
 
 
@@ -5626,7 +5599,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTenantResponse1",
+            '200': "CreateTenantResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5696,7 +5669,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTenantResponse1",
+            '200': "CreateTenantResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5804,7 +5777,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateTenantPackageResponse1:
+    ) -> CreateTenantPackageResponse:
         """create_tenant_package
 
 
@@ -5844,7 +5817,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTenantPackageResponse1",
+            '200': "CreateTenantPackageResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5874,7 +5847,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateTenantPackageResponse1]:
+    ) -> ApiResponse[CreateTenantPackageResponse]:
         """create_tenant_package
 
 
@@ -5914,7 +5887,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTenantPackageResponse1",
+            '200': "CreateTenantPackageResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5984,7 +5957,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTenantPackageResponse1",
+            '200': "CreateTenantPackageResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6092,7 +6065,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateTenantUserResponse1:
+    ) -> CreateTenantUserResponse:
         """create_tenant_user
 
 
@@ -6132,7 +6105,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTenantUserResponse1",
+            '200': "CreateTenantUserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6162,7 +6135,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateTenantUserResponse1]:
+    ) -> ApiResponse[CreateTenantUserResponse]:
         """create_tenant_user
 
 
@@ -6202,7 +6175,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTenantUserResponse1",
+            '200': "CreateTenantUserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6272,7 +6245,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTenantUserResponse1",
+            '200': "CreateTenantUserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6381,7 +6354,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateTicketResponse1:
+    ) -> CreateTicketResponse:
         """create_ticket
 
 
@@ -6424,7 +6397,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTicketResponse1",
+            '200': "CreateTicketResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6455,7 +6428,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateTicketResponse1]:
+    ) -> ApiResponse[CreateTicketResponse]:
         """create_ticket
 
 
@@ -6498,7 +6471,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTicketResponse1",
+            '200': "CreateTicketResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6572,7 +6545,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateTicketResponse1",
+            '200': "CreateTicketResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6685,7 +6658,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateUserBadgeResponse:
+    ) -> APICreateUserBadgeResponse:
         """create_user_badge
 
 
@@ -6725,7 +6698,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateUserBadgeResponse",
+            '200': "APICreateUserBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6755,7 +6728,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateUserBadgeResponse]:
+    ) -> ApiResponse[APICreateUserBadgeResponse]:
         """create_user_badge
 
 
@@ -6795,7 +6768,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateUserBadgeResponse",
+            '200': "APICreateUserBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6865,7 +6838,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateUserBadgeResponse",
+            '200': "APICreateUserBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6976,7 +6949,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CreateVoteResponse:
+    ) -> VoteResponse:
         """create_vote
 
 
@@ -7025,7 +6998,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateVoteResponse",
+            '200': "VoteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7058,7 +7031,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CreateVoteResponse]:
+    ) -> ApiResponse[VoteResponse]:
         """create_vote
 
 
@@ -7107,7 +7080,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateVoteResponse",
+            '200': "VoteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7189,7 +7162,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CreateVoteResponse",
+            '200': "VoteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7303,7 +7276,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteCommentResponse:
+    ) -> DeleteCommentResult:
         """delete_comment
 
 
@@ -7349,7 +7322,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteCommentResponse",
+            '200': "DeleteCommentResult",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7381,7 +7354,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteCommentResponse]:
+    ) -> ApiResponse[DeleteCommentResult]:
         """delete_comment
 
 
@@ -7427,7 +7400,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteCommentResponse",
+            '200': "DeleteCommentResult",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7505,7 +7478,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteCommentResponse",
+            '200': "DeleteCommentResult",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7885,7 +7858,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteEmailTemplateResponse:
+    ) -> APIEmptyResponse:
         """delete_email_template
 
 
@@ -7925,7 +7898,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteEmailTemplateResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7955,7 +7928,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteEmailTemplateResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """delete_email_template
 
 
@@ -7995,7 +7968,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteEmailTemplateResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8065,7 +8038,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteEmailTemplateResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8161,7 +8134,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteEmailTemplateRenderErrorResponse:
+    ) -> APIEmptyResponse:
         """delete_email_template_render_error
 
 
@@ -8204,7 +8177,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteEmailTemplateRenderErrorResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8235,7 +8208,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteEmailTemplateRenderErrorResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """delete_email_template_render_error
 
 
@@ -8278,7 +8251,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteEmailTemplateRenderErrorResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8352,7 +8325,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteEmailTemplateRenderErrorResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8451,7 +8424,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteHashTagResponse:
+    ) -> APIEmptyResponse:
         """delete_hash_tag
 
 
@@ -8494,7 +8467,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteHashTagResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8525,7 +8498,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteHashTagResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """delete_hash_tag
 
 
@@ -8568,7 +8541,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteHashTagResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8642,7 +8615,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteHashTagResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8754,7 +8727,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteModeratorResponse:
+    ) -> APIEmptyResponse:
         """delete_moderator
 
 
@@ -8797,7 +8770,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteModeratorResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8828,7 +8801,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteModeratorResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """delete_moderator
 
 
@@ -8871,7 +8844,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteModeratorResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8945,7 +8918,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteModeratorResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9045,7 +9018,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteNotificationCountResponse:
+    ) -> APIEmptyResponse:
         """delete_notification_count
 
 
@@ -9085,7 +9058,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteNotificationCountResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9115,7 +9088,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteNotificationCountResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """delete_notification_count
 
 
@@ -9155,7 +9128,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteNotificationCountResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9225,7 +9198,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteNotificationCountResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9595,7 +9568,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeletePendingWebhookEventResponse:
+    ) -> APIEmptyResponse:
         """delete_pending_webhook_event
 
 
@@ -9635,7 +9608,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeletePendingWebhookEventResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9665,7 +9638,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeletePendingWebhookEventResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """delete_pending_webhook_event
 
 
@@ -9705,7 +9678,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeletePendingWebhookEventResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9775,7 +9748,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeletePendingWebhookEventResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9870,7 +9843,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteQuestionConfigResponse:
+    ) -> APIEmptyResponse:
         """delete_question_config
 
 
@@ -9910,7 +9883,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteQuestionConfigResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9940,7 +9913,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteQuestionConfigResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """delete_question_config
 
 
@@ -9980,7 +9953,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteQuestionConfigResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10050,7 +10023,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteQuestionConfigResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10145,7 +10118,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteQuestionResultResponse:
+    ) -> APIEmptyResponse:
         """delete_question_result
 
 
@@ -10185,7 +10158,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteQuestionResultResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10215,7 +10188,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteQuestionResultResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """delete_question_result
 
 
@@ -10255,7 +10228,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteQuestionResultResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10325,7 +10298,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteQuestionResultResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11022,7 +10995,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteTenantResponse:
+    ) -> APIEmptyResponse:
         """delete_tenant
 
 
@@ -11065,7 +11038,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteTenantResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11096,7 +11069,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteTenantResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """delete_tenant
 
 
@@ -11139,7 +11112,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteTenantResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11213,7 +11186,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteTenantResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11313,7 +11286,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteTenantPackageResponse:
+    ) -> APIEmptyResponse:
         """delete_tenant_package
 
 
@@ -11353,7 +11326,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteTenantPackageResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11383,7 +11356,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteTenantPackageResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """delete_tenant_package
 
 
@@ -11423,7 +11396,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteTenantPackageResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11493,7 +11466,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteTenantPackageResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11590,7 +11563,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteTenantUserResponse:
+    ) -> APIEmptyResponse:
         """delete_tenant_user
 
 
@@ -11636,7 +11609,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteTenantUserResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11668,7 +11641,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteTenantUserResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """delete_tenant_user
 
 
@@ -11714,7 +11687,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteTenantUserResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11792,7 +11765,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteTenantUserResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11897,7 +11870,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteUserBadgeResponse:
+    ) -> APIEmptySuccessResponse:
         """delete_user_badge
 
 
@@ -11937,7 +11910,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteUserBadgeResponse",
+            '200': "APIEmptySuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11967,7 +11940,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteUserBadgeResponse]:
+    ) -> ApiResponse[APIEmptySuccessResponse]:
         """delete_user_badge
 
 
@@ -12007,7 +11980,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteUserBadgeResponse",
+            '200': "APIEmptySuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12077,7 +12050,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteUserBadgeResponse",
+            '200': "APIEmptySuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12173,7 +12146,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteVoteResponse:
+    ) -> VoteDeleteResponse:
         """delete_vote
 
 
@@ -12216,7 +12189,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteVoteResponse",
+            '200': "VoteDeleteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12247,7 +12220,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteVoteResponse]:
+    ) -> ApiResponse[VoteDeleteResponse]:
         """delete_vote
 
 
@@ -12290,7 +12263,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteVoteResponse",
+            '200': "VoteDeleteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12364,7 +12337,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteVoteResponse",
+            '200': "VoteDeleteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12466,7 +12439,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> FlagCommentResponse1:
+    ) -> FlagCommentResponse:
         """flag_comment
 
 
@@ -12512,7 +12485,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FlagCommentResponse1",
+            '200': "FlagCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12544,7 +12517,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[FlagCommentResponse1]:
+    ) -> ApiResponse[FlagCommentResponse]:
         """flag_comment
 
 
@@ -12590,7 +12563,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FlagCommentResponse1",
+            '200': "FlagCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12668,7 +12641,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "FlagCommentResponse1",
+            '200': "FlagCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12777,7 +12750,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetAuditLogsResponse1:
+    ) -> GetAuditLogsResponse:
         """get_audit_logs
 
 
@@ -12829,7 +12802,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetAuditLogsResponse1",
+            '200': "GetAuditLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12863,7 +12836,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetAuditLogsResponse1]:
+    ) -> ApiResponse[GetAuditLogsResponse]:
         """get_audit_logs
 
 
@@ -12915,7 +12888,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetAuditLogsResponse1",
+            '200': "GetAuditLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -13001,7 +12974,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetAuditLogsResponse1",
+            '200': "GetAuditLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -13118,7 +13091,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetCachedNotificationCountResponse1:
+    ) -> GetCachedNotificationCountResponse:
         """get_cached_notification_count
 
 
@@ -13158,7 +13131,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCachedNotificationCountResponse1",
+            '200': "GetCachedNotificationCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -13188,7 +13161,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetCachedNotificationCountResponse1]:
+    ) -> ApiResponse[GetCachedNotificationCountResponse]:
         """get_cached_notification_count
 
 
@@ -13228,7 +13201,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCachedNotificationCountResponse1",
+            '200': "GetCachedNotificationCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -13298,7 +13271,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCachedNotificationCountResponse1",
+            '200': "GetCachedNotificationCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -13393,7 +13366,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetCommentResponse:
+    ) -> APIGetCommentResponse:
         """get_comment
 
 
@@ -13433,7 +13406,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentResponse",
+            '200': "APIGetCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -13463,7 +13436,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetCommentResponse]:
+    ) -> ApiResponse[APIGetCommentResponse]:
         """get_comment
 
 
@@ -13503,7 +13476,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentResponse",
+            '200': "APIGetCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -13573,7 +13546,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentResponse",
+            '200': "APIGetCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -13683,7 +13656,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetCommentsResponse:
+    ) -> APIGetCommentsResponse:
         """get_comments
 
 
@@ -13768,7 +13741,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentsResponse",
+            '200': "APIGetCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -13813,7 +13786,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetCommentsResponse]:
+    ) -> ApiResponse[APIGetCommentsResponse]:
         """get_comments
 
 
@@ -13898,7 +13871,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentsResponse",
+            '200': "APIGetCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -14028,7 +14001,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentsResponse",
+            '200': "APIGetCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -14735,7 +14708,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetEmailTemplateResponse1:
+    ) -> GetEmailTemplateResponse:
         """get_email_template
 
 
@@ -14775,7 +14748,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEmailTemplateResponse1",
+            '200': "GetEmailTemplateResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -14805,7 +14778,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetEmailTemplateResponse1]:
+    ) -> ApiResponse[GetEmailTemplateResponse]:
         """get_email_template
 
 
@@ -14845,7 +14818,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEmailTemplateResponse1",
+            '200': "GetEmailTemplateResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -14915,7 +14888,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEmailTemplateResponse1",
+            '200': "GetEmailTemplateResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -15009,7 +14982,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetEmailTemplateDefinitionsResponse1:
+    ) -> GetEmailTemplateDefinitionsResponse:
         """get_email_template_definitions
 
 
@@ -15046,7 +15019,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEmailTemplateDefinitionsResponse1",
+            '200': "GetEmailTemplateDefinitionsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -15075,7 +15048,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetEmailTemplateDefinitionsResponse1]:
+    ) -> ApiResponse[GetEmailTemplateDefinitionsResponse]:
         """get_email_template_definitions
 
 
@@ -15112,7 +15085,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEmailTemplateDefinitionsResponse1",
+            '200': "GetEmailTemplateDefinitionsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -15178,7 +15151,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEmailTemplateDefinitionsResponse1",
+            '200': "GetEmailTemplateDefinitionsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -15271,7 +15244,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetEmailTemplateRenderErrorsResponse1:
+    ) -> GetEmailTemplateRenderErrorsResponse:
         """get_email_template_render_errors
 
 
@@ -15314,7 +15287,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEmailTemplateRenderErrorsResponse1",
+            '200': "GetEmailTemplateRenderErrorsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -15345,7 +15318,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetEmailTemplateRenderErrorsResponse1]:
+    ) -> ApiResponse[GetEmailTemplateRenderErrorsResponse]:
         """get_email_template_render_errors
 
 
@@ -15388,7 +15361,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEmailTemplateRenderErrorsResponse1",
+            '200': "GetEmailTemplateRenderErrorsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -15462,7 +15435,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEmailTemplateRenderErrorsResponse1",
+            '200': "GetEmailTemplateRenderErrorsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -15562,7 +15535,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetEmailTemplatesResponse1:
+    ) -> GetEmailTemplatesResponse:
         """get_email_templates
 
 
@@ -15602,7 +15575,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEmailTemplatesResponse1",
+            '200': "GetEmailTemplatesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -15632,7 +15605,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetEmailTemplatesResponse1]:
+    ) -> ApiResponse[GetEmailTemplatesResponse]:
         """get_email_templates
 
 
@@ -15672,7 +15645,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEmailTemplatesResponse1",
+            '200': "GetEmailTemplatesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -15742,7 +15715,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetEmailTemplatesResponse1",
+            '200': "GetEmailTemplatesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -15841,7 +15814,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetFeedPostsResponse1:
+    ) -> GetFeedPostsResponse:
         """get_feed_posts
 
          req tenantId afterId
@@ -15888,7 +15861,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedPostsResponse1",
+            '200': "GetFeedPostsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -15920,7 +15893,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetFeedPostsResponse1]:
+    ) -> ApiResponse[GetFeedPostsResponse]:
         """get_feed_posts
 
          req tenantId afterId
@@ -15967,7 +15940,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedPostsResponse1",
+            '200': "GetFeedPostsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -16046,7 +16019,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetFeedPostsResponse1",
+            '200': "GetFeedPostsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -16154,7 +16127,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetHashTagsResponse1:
+    ) -> GetHashTagsResponse:
         """get_hash_tags
 
 
@@ -16194,7 +16167,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetHashTagsResponse1",
+            '200': "GetHashTagsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -16224,7 +16197,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetHashTagsResponse1]:
+    ) -> ApiResponse[GetHashTagsResponse]:
         """get_hash_tags
 
 
@@ -16264,7 +16237,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetHashTagsResponse1",
+            '200': "GetHashTagsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -16334,7 +16307,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetHashTagsResponse1",
+            '200': "GetHashTagsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -16431,7 +16404,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetModeratorResponse1:
+    ) -> GetModeratorResponse:
         """get_moderator
 
 
@@ -16471,7 +16444,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetModeratorResponse1",
+            '200': "GetModeratorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -16501,7 +16474,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetModeratorResponse1]:
+    ) -> ApiResponse[GetModeratorResponse]:
         """get_moderator
 
 
@@ -16541,7 +16514,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetModeratorResponse1",
+            '200': "GetModeratorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -16611,7 +16584,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetModeratorResponse1",
+            '200': "GetModeratorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -16706,7 +16679,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetModeratorsResponse1:
+    ) -> GetModeratorsResponse:
         """get_moderators
 
 
@@ -16746,7 +16719,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetModeratorsResponse1",
+            '200': "GetModeratorsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -16776,7 +16749,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetModeratorsResponse1]:
+    ) -> ApiResponse[GetModeratorsResponse]:
         """get_moderators
 
 
@@ -16816,7 +16789,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetModeratorsResponse1",
+            '200': "GetModeratorsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -16886,7 +16859,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetModeratorsResponse1",
+            '200': "GetModeratorsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -16987,7 +16960,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetNotificationCountResponse1:
+    ) -> GetNotificationCountResponse:
         """get_notification_count
 
 
@@ -17039,7 +17012,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetNotificationCountResponse1",
+            '200': "GetNotificationCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -17073,7 +17046,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetNotificationCountResponse1]:
+    ) -> ApiResponse[GetNotificationCountResponse]:
         """get_notification_count
 
 
@@ -17125,7 +17098,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetNotificationCountResponse1",
+            '200': "GetNotificationCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -17211,7 +17184,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetNotificationCountResponse1",
+            '200': "GetNotificationCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -17333,7 +17306,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetNotificationsResponse1:
+    ) -> GetNotificationsResponse:
         """get_notifications
 
 
@@ -17388,7 +17361,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetNotificationsResponse1",
+            '200': "GetNotificationsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -17423,7 +17396,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetNotificationsResponse1]:
+    ) -> ApiResponse[GetNotificationsResponse]:
         """get_notifications
 
 
@@ -17478,7 +17451,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetNotificationsResponse1",
+            '200': "GetNotificationsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -17568,7 +17541,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetNotificationsResponse1",
+            '200': "GetNotificationsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -18232,7 +18205,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetPendingWebhookEventCountResponse1:
+    ) -> GetPendingWebhookEventCountResponse:
         """get_pending_webhook_event_count
 
 
@@ -18287,7 +18260,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetPendingWebhookEventCountResponse1",
+            '200': "GetPendingWebhookEventCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -18322,7 +18295,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetPendingWebhookEventCountResponse1]:
+    ) -> ApiResponse[GetPendingWebhookEventCountResponse]:
         """get_pending_webhook_event_count
 
 
@@ -18377,7 +18350,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetPendingWebhookEventCountResponse1",
+            '200': "GetPendingWebhookEventCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -18467,7 +18440,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetPendingWebhookEventCountResponse1",
+            '200': "GetPendingWebhookEventCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -18595,7 +18568,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetPendingWebhookEventsResponse1:
+    ) -> GetPendingWebhookEventsResponse:
         """get_pending_webhook_events
 
 
@@ -18653,7 +18626,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetPendingWebhookEventsResponse1",
+            '200': "GetPendingWebhookEventsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -18689,7 +18662,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetPendingWebhookEventsResponse1]:
+    ) -> ApiResponse[GetPendingWebhookEventsResponse]:
         """get_pending_webhook_events
 
 
@@ -18747,7 +18720,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetPendingWebhookEventsResponse1",
+            '200': "GetPendingWebhookEventsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -18841,7 +18814,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetPendingWebhookEventsResponse1",
+            '200': "GetPendingWebhookEventsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -18968,7 +18941,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetQuestionConfigResponse1:
+    ) -> GetQuestionConfigResponse:
         """get_question_config
 
 
@@ -19008,7 +18981,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetQuestionConfigResponse1",
+            '200': "GetQuestionConfigResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -19038,7 +19011,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetQuestionConfigResponse1]:
+    ) -> ApiResponse[GetQuestionConfigResponse]:
         """get_question_config
 
 
@@ -19078,7 +19051,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetQuestionConfigResponse1",
+            '200': "GetQuestionConfigResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -19148,7 +19121,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetQuestionConfigResponse1",
+            '200': "GetQuestionConfigResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -19243,7 +19216,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetQuestionConfigsResponse1:
+    ) -> GetQuestionConfigsResponse:
         """get_question_configs
 
 
@@ -19283,7 +19256,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetQuestionConfigsResponse1",
+            '200': "GetQuestionConfigsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -19313,7 +19286,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetQuestionConfigsResponse1]:
+    ) -> ApiResponse[GetQuestionConfigsResponse]:
         """get_question_configs
 
 
@@ -19353,7 +19326,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetQuestionConfigsResponse1",
+            '200': "GetQuestionConfigsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -19423,7 +19396,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetQuestionConfigsResponse1",
+            '200': "GetQuestionConfigsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -19520,7 +19493,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetQuestionResultResponse1:
+    ) -> GetQuestionResultResponse:
         """get_question_result
 
 
@@ -19560,7 +19533,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetQuestionResultResponse1",
+            '200': "GetQuestionResultResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -19590,7 +19563,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetQuestionResultResponse1]:
+    ) -> ApiResponse[GetQuestionResultResponse]:
         """get_question_result
 
 
@@ -19630,7 +19603,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetQuestionResultResponse1",
+            '200': "GetQuestionResultResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -19700,7 +19673,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetQuestionResultResponse1",
+            '200': "GetQuestionResultResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -19800,7 +19773,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetQuestionResultsResponse1:
+    ) -> GetQuestionResultsResponse:
         """get_question_results
 
 
@@ -19855,7 +19828,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetQuestionResultsResponse1",
+            '200': "GetQuestionResultsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -19890,7 +19863,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetQuestionResultsResponse1]:
+    ) -> ApiResponse[GetQuestionResultsResponse]:
         """get_question_results
 
 
@@ -19945,7 +19918,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetQuestionResultsResponse1",
+            '200': "GetQuestionResultsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -20035,7 +20008,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetQuestionResultsResponse1",
+            '200': "GetQuestionResultsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -21261,7 +21234,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTenantResponse1:
+    ) -> GetTenantResponse:
         """get_tenant
 
 
@@ -21301,7 +21274,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantResponse1",
+            '200': "GetTenantResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -21331,7 +21304,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetTenantResponse1]:
+    ) -> ApiResponse[GetTenantResponse]:
         """get_tenant
 
 
@@ -21371,7 +21344,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantResponse1",
+            '200': "GetTenantResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -21441,7 +21414,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantResponse1",
+            '200': "GetTenantResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -21539,7 +21512,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTenantDailyUsagesResponse1:
+    ) -> GetTenantDailyUsagesResponse:
         """get_tenant_daily_usages
 
 
@@ -21588,7 +21561,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantDailyUsagesResponse1",
+            '200': "GetTenantDailyUsagesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -21621,7 +21594,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetTenantDailyUsagesResponse1]:
+    ) -> ApiResponse[GetTenantDailyUsagesResponse]:
         """get_tenant_daily_usages
 
 
@@ -21670,7 +21643,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantDailyUsagesResponse1",
+            '200': "GetTenantDailyUsagesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -21752,7 +21725,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantDailyUsagesResponse1",
+            '200': "GetTenantDailyUsagesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -21864,7 +21837,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTenantPackageResponse1:
+    ) -> GetTenantPackageResponse:
         """get_tenant_package
 
 
@@ -21904,7 +21877,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantPackageResponse1",
+            '200': "GetTenantPackageResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -21934,7 +21907,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetTenantPackageResponse1]:
+    ) -> ApiResponse[GetTenantPackageResponse]:
         """get_tenant_package
 
 
@@ -21974,7 +21947,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantPackageResponse1",
+            '200': "GetTenantPackageResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -22044,7 +22017,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantPackageResponse1",
+            '200': "GetTenantPackageResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -22139,7 +22112,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTenantPackagesResponse1:
+    ) -> GetTenantPackagesResponse:
         """get_tenant_packages
 
 
@@ -22179,7 +22152,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantPackagesResponse1",
+            '200': "GetTenantPackagesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -22209,7 +22182,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetTenantPackagesResponse1]:
+    ) -> ApiResponse[GetTenantPackagesResponse]:
         """get_tenant_packages
 
 
@@ -22249,7 +22222,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantPackagesResponse1",
+            '200': "GetTenantPackagesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -22319,7 +22292,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantPackagesResponse1",
+            '200': "GetTenantPackagesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -22416,7 +22389,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTenantUserResponse1:
+    ) -> GetTenantUserResponse:
         """get_tenant_user
 
 
@@ -22456,7 +22429,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantUserResponse1",
+            '200': "GetTenantUserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -22486,7 +22459,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetTenantUserResponse1]:
+    ) -> ApiResponse[GetTenantUserResponse]:
         """get_tenant_user
 
 
@@ -22526,7 +22499,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantUserResponse1",
+            '200': "GetTenantUserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -22596,7 +22569,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantUserResponse1",
+            '200': "GetTenantUserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -22691,7 +22664,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTenantUsersResponse1:
+    ) -> GetTenantUsersResponse:
         """get_tenant_users
 
 
@@ -22731,7 +22704,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantUsersResponse1",
+            '200': "GetTenantUsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -22761,7 +22734,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetTenantUsersResponse1]:
+    ) -> ApiResponse[GetTenantUsersResponse]:
         """get_tenant_users
 
 
@@ -22801,7 +22774,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantUsersResponse1",
+            '200': "GetTenantUsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -22871,7 +22844,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantUsersResponse1",
+            '200': "GetTenantUsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -22969,7 +22942,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTenantsResponse1:
+    ) -> GetTenantsResponse:
         """get_tenants
 
 
@@ -23012,7 +22985,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantsResponse1",
+            '200': "GetTenantsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -23043,7 +23016,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetTenantsResponse1]:
+    ) -> ApiResponse[GetTenantsResponse]:
         """get_tenants
 
 
@@ -23086,7 +23059,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantsResponse1",
+            '200': "GetTenantsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -23160,7 +23133,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantsResponse1",
+            '200': "GetTenantsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -23263,7 +23236,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTicketResponse1:
+    ) -> GetTicketResponse:
         """get_ticket
 
 
@@ -23306,7 +23279,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTicketResponse1",
+            '200': "GetTicketResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -23337,7 +23310,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetTicketResponse1]:
+    ) -> ApiResponse[GetTicketResponse]:
         """get_ticket
 
 
@@ -23380,7 +23353,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTicketResponse1",
+            '200': "GetTicketResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -23454,7 +23427,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTicketResponse1",
+            '200': "GetTicketResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -23557,7 +23530,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTicketsResponse1:
+    ) -> GetTicketsResponse:
         """get_tickets
 
 
@@ -23606,7 +23579,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTicketsResponse1",
+            '200': "GetTicketsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -23639,7 +23612,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetTicketsResponse1]:
+    ) -> ApiResponse[GetTicketsResponse]:
         """get_tickets
 
 
@@ -23688,7 +23661,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTicketsResponse1",
+            '200': "GetTicketsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -23770,7 +23743,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTicketsResponse1",
+            '200': "GetTicketsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -23882,7 +23855,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserResponse1:
+    ) -> GetUserResponse:
         """get_user
 
 
@@ -23922,7 +23895,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserResponse1",
+            '200': "GetUserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -23952,7 +23925,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserResponse1]:
+    ) -> ApiResponse[GetUserResponse]:
         """get_user
 
 
@@ -23992,7 +23965,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserResponse1",
+            '200': "GetUserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -24062,7 +24035,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserResponse1",
+            '200': "GetUserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -24157,7 +24130,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserBadgeResponse:
+    ) -> APIGetUserBadgeResponse:
         """get_user_badge
 
 
@@ -24197,7 +24170,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBadgeResponse",
+            '200': "APIGetUserBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -24227,7 +24200,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserBadgeResponse]:
+    ) -> ApiResponse[APIGetUserBadgeResponse]:
         """get_user_badge
 
 
@@ -24267,7 +24240,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBadgeResponse",
+            '200': "APIGetUserBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -24337,7 +24310,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBadgeResponse",
+            '200': "APIGetUserBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -24432,7 +24405,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserBadgeProgressByIdResponse:
+    ) -> APIGetUserBadgeProgressResponse:
         """get_user_badge_progress_by_id
 
 
@@ -24472,7 +24445,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBadgeProgressByIdResponse",
+            '200': "APIGetUserBadgeProgressResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -24502,7 +24475,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserBadgeProgressByIdResponse]:
+    ) -> ApiResponse[APIGetUserBadgeProgressResponse]:
         """get_user_badge_progress_by_id
 
 
@@ -24542,7 +24515,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBadgeProgressByIdResponse",
+            '200': "APIGetUserBadgeProgressResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -24612,7 +24585,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBadgeProgressByIdResponse",
+            '200': "APIGetUserBadgeProgressResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -24707,7 +24680,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserBadgeProgressByUserIdResponse:
+    ) -> APIGetUserBadgeProgressResponse:
         """get_user_badge_progress_by_user_id
 
 
@@ -24747,7 +24720,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBadgeProgressByUserIdResponse",
+            '200': "APIGetUserBadgeProgressResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -24777,7 +24750,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserBadgeProgressByUserIdResponse]:
+    ) -> ApiResponse[APIGetUserBadgeProgressResponse]:
         """get_user_badge_progress_by_user_id
 
 
@@ -24817,7 +24790,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBadgeProgressByUserIdResponse",
+            '200': "APIGetUserBadgeProgressResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -24887,7 +24860,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBadgeProgressByUserIdResponse",
+            '200': "APIGetUserBadgeProgressResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -24984,7 +24957,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserBadgeProgressListResponse:
+    ) -> APIGetUserBadgeProgressListResponse:
         """get_user_badge_progress_list
 
 
@@ -25030,7 +25003,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBadgeProgressListResponse",
+            '200': "APIGetUserBadgeProgressListResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -25062,7 +25035,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserBadgeProgressListResponse]:
+    ) -> ApiResponse[APIGetUserBadgeProgressListResponse]:
         """get_user_badge_progress_list
 
 
@@ -25108,7 +25081,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBadgeProgressListResponse",
+            '200': "APIGetUserBadgeProgressListResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -25186,7 +25159,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBadgeProgressListResponse",
+            '200': "APIGetUserBadgeProgressListResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -25298,7 +25271,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserBadgesResponse:
+    ) -> APIGetUserBadgesResponse:
         """get_user_badges
 
 
@@ -25353,7 +25326,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBadgesResponse",
+            '200': "APIGetUserBadgesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -25388,7 +25361,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserBadgesResponse]:
+    ) -> ApiResponse[APIGetUserBadgesResponse]:
         """get_user_badges
 
 
@@ -25443,7 +25416,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBadgesResponse",
+            '200': "APIGetUserBadgesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -25533,7 +25506,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBadgesResponse",
+            '200': "APIGetUserBadgesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -25655,7 +25628,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetVotesResponse1:
+    ) -> GetVotesResponse:
         """get_votes
 
 
@@ -25695,7 +25668,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetVotesResponse1",
+            '200': "GetVotesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -25725,7 +25698,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetVotesResponse1]:
+    ) -> ApiResponse[GetVotesResponse]:
         """get_votes
 
 
@@ -25765,7 +25738,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetVotesResponse1",
+            '200': "GetVotesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -25835,7 +25808,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetVotesResponse1",
+            '200': "GetVotesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -25934,7 +25907,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetVotesForUserResponse1:
+    ) -> GetVotesForUserResponse:
         """get_votes_for_user
 
 
@@ -25980,7 +25953,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetVotesForUserResponse1",
+            '200': "GetVotesForUserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -26012,7 +25985,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetVotesForUserResponse1]:
+    ) -> ApiResponse[GetVotesForUserResponse]:
         """get_votes_for_user
 
 
@@ -26058,7 +26031,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetVotesForUserResponse1",
+            '200': "GetVotesForUserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -26136,7 +26109,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetVotesForUserResponse1",
+            '200': "GetVotesForUserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -26547,7 +26520,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PatchHashTagResponse:
+    ) -> UpdateHashTagResponse:
         """patch_hash_tag
 
 
@@ -26590,7 +26563,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchHashTagResponse",
+            '200': "UpdateHashTagResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -26621,7 +26594,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PatchHashTagResponse]:
+    ) -> ApiResponse[UpdateHashTagResponse]:
         """patch_hash_tag
 
 
@@ -26664,7 +26637,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchHashTagResponse",
+            '200': "UpdateHashTagResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -26738,7 +26711,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PatchHashTagResponse",
+            '200': "UpdateHashTagResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -28096,7 +28069,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RenderEmailTemplateResponse1:
+    ) -> RenderEmailTemplateResponse:
         """render_email_template
 
 
@@ -28139,7 +28112,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RenderEmailTemplateResponse1",
+            '200': "RenderEmailTemplateResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -28170,7 +28143,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[RenderEmailTemplateResponse1]:
+    ) -> ApiResponse[RenderEmailTemplateResponse]:
         """render_email_template
 
 
@@ -28213,7 +28186,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RenderEmailTemplateResponse1",
+            '200': "RenderEmailTemplateResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -28287,7 +28260,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RenderEmailTemplateResponse1",
+            '200': "RenderEmailTemplateResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -28401,7 +28374,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ReplaceTenantPackageResponse:
+    ) -> APIEmptyResponse:
         """replace_tenant_package
 
 
@@ -28444,7 +28417,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ReplaceTenantPackageResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -28475,7 +28448,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ReplaceTenantPackageResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """replace_tenant_package
 
 
@@ -28518,7 +28491,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ReplaceTenantPackageResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -28592,7 +28565,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ReplaceTenantPackageResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -28705,7 +28678,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ReplaceTenantUserResponse:
+    ) -> APIEmptyResponse:
         """replace_tenant_user
 
 
@@ -28751,7 +28724,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ReplaceTenantUserResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -28783,7 +28756,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ReplaceTenantUserResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """replace_tenant_user
 
 
@@ -28829,7 +28802,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ReplaceTenantUserResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -28907,7 +28880,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ReplaceTenantUserResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -29027,7 +29000,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SaveCommentResponse:
+    ) -> APISaveCommentResponse:
         """save_comment
 
 
@@ -29079,7 +29052,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SaveCommentResponse",
+            '200': "APISaveCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -29113,7 +29086,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SaveCommentResponse]:
+    ) -> ApiResponse[APISaveCommentResponse]:
         """save_comment
 
 
@@ -29165,7 +29138,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SaveCommentResponse",
+            '200': "APISaveCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -29251,7 +29224,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SaveCommentResponse",
+            '200': "APISaveCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -29737,7 +29710,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SendInviteResponse:
+    ) -> APIEmptyResponse:
         """send_invite
 
 
@@ -29780,7 +29753,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SendInviteResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -29811,7 +29784,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SendInviteResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """send_invite
 
 
@@ -29854,7 +29827,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SendInviteResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -29928,7 +29901,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SendInviteResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -30029,7 +30002,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SendLoginLinkResponse:
+    ) -> APIEmptyResponse:
         """send_login_link
 
 
@@ -30072,7 +30045,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SendLoginLinkResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -30103,7 +30076,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SendLoginLinkResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """send_login_link
 
 
@@ -30146,7 +30119,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SendLoginLinkResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -30220,7 +30193,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SendLoginLinkResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -30323,7 +30296,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UnBlockUserFromCommentResponse:
+    ) -> UnblockSuccess:
         """un_block_user_from_comment
 
 
@@ -30372,7 +30345,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnBlockUserFromCommentResponse",
+            '200': "UnblockSuccess",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -30405,7 +30378,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UnBlockUserFromCommentResponse]:
+    ) -> ApiResponse[UnblockSuccess]:
         """un_block_user_from_comment
 
 
@@ -30454,7 +30427,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnBlockUserFromCommentResponse",
+            '200': "UnblockSuccess",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -30536,7 +30509,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnBlockUserFromCommentResponse",
+            '200': "UnblockSuccess",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -30659,7 +30632,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UnFlagCommentResponse:
+    ) -> FlagCommentResponse:
         """un_flag_comment
 
 
@@ -30705,7 +30678,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnFlagCommentResponse",
+            '200': "FlagCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -30737,7 +30710,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UnFlagCommentResponse]:
+    ) -> ApiResponse[FlagCommentResponse]:
         """un_flag_comment
 
 
@@ -30783,7 +30756,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnFlagCommentResponse",
+            '200': "FlagCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -30861,7 +30834,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UnFlagCommentResponse",
+            '200': "FlagCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -30970,7 +30943,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateCommentResponse:
+    ) -> APIEmptyResponse:
         """update_comment
 
 
@@ -31022,7 +30995,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateCommentResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -31056,7 +31029,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UpdateCommentResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """update_comment
 
 
@@ -31108,7 +31081,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateCommentResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -31194,7 +31167,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateCommentResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -31321,7 +31294,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateEmailTemplateResponse:
+    ) -> APIEmptyResponse:
         """update_email_template
 
 
@@ -31364,7 +31337,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateEmailTemplateResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -31395,7 +31368,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UpdateEmailTemplateResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """update_email_template
 
 
@@ -31438,7 +31411,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateEmailTemplateResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -31512,7 +31485,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateEmailTemplateResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -31624,7 +31597,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateFeedPostResponse:
+    ) -> APIEmptyResponse:
         """update_feed_post
 
 
@@ -31667,7 +31640,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateFeedPostResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -31698,7 +31671,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UpdateFeedPostResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """update_feed_post
 
 
@@ -31741,7 +31714,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateFeedPostResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -31815,7 +31788,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateFeedPostResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -31927,7 +31900,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateModeratorResponse:
+    ) -> APIEmptyResponse:
         """update_moderator
 
 
@@ -31970,7 +31943,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateModeratorResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -32001,7 +31974,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UpdateModeratorResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """update_moderator
 
 
@@ -32044,7 +32017,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateModeratorResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -32118,7 +32091,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateModeratorResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -32231,7 +32204,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateNotificationResponse:
+    ) -> APIEmptyResponse:
         """update_notification
 
 
@@ -32277,7 +32250,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateNotificationResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -32309,7 +32282,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UpdateNotificationResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """update_notification
 
 
@@ -32355,7 +32328,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateNotificationResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -32433,7 +32406,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateNotificationResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -32550,7 +32523,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateQuestionConfigResponse:
+    ) -> APIEmptyResponse:
         """update_question_config
 
 
@@ -32593,7 +32566,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateQuestionConfigResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -32624,7 +32597,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UpdateQuestionConfigResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """update_question_config
 
 
@@ -32667,7 +32640,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateQuestionConfigResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -32741,7 +32714,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateQuestionConfigResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -32853,7 +32826,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateQuestionResultResponse:
+    ) -> APIEmptyResponse:
         """update_question_result
 
 
@@ -32896,7 +32869,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateQuestionResultResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -32927,7 +32900,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UpdateQuestionResultResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """update_question_result
 
 
@@ -32970,7 +32943,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateQuestionResultResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -33044,7 +33017,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateQuestionResultResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -33476,7 +33449,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateTenantResponse:
+    ) -> APIEmptyResponse:
         """update_tenant
 
 
@@ -33519,7 +33492,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateTenantResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -33550,7 +33523,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UpdateTenantResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """update_tenant
 
 
@@ -33593,7 +33566,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateTenantResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -33667,7 +33640,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateTenantResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -33779,7 +33752,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateTenantPackageResponse:
+    ) -> APIEmptyResponse:
         """update_tenant_package
 
 
@@ -33822,7 +33795,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateTenantPackageResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -33853,7 +33826,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UpdateTenantPackageResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """update_tenant_package
 
 
@@ -33896,7 +33869,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateTenantPackageResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -33970,7 +33943,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateTenantPackageResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -34083,7 +34056,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateTenantUserResponse:
+    ) -> APIEmptyResponse:
         """update_tenant_user
 
 
@@ -34129,7 +34102,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateTenantUserResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -34161,7 +34134,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UpdateTenantUserResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """update_tenant_user
 
 
@@ -34207,7 +34180,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateTenantUserResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -34285,7 +34258,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateTenantUserResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -34402,7 +34375,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UpdateUserBadgeResponse:
+    ) -> APIEmptySuccessResponse:
         """update_user_badge
 
 
@@ -34445,7 +34418,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateUserBadgeResponse",
+            '200': "APIEmptySuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -34476,7 +34449,7 @@ class DefaultApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UpdateUserBadgeResponse]:
+    ) -> ApiResponse[APIEmptySuccessResponse]:
         """update_user_badge
 
 
@@ -34519,7 +34492,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateUserBadgeResponse",
+            '200': "APIEmptySuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -34593,7 +34566,7 @@ class DefaultApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UpdateUserBadgeResponse",
+            '200': "APIEmptySuccessResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

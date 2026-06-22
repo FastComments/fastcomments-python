@@ -19,14 +19,13 @@ import pprint
 import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Optional
-from client.models.api_error import APIError
 from client.models.delete_comment_result import DeleteCommentResult
 from client.models.remove_comment_action_response import RemoveCommentActionResponse
 from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-POSTREMOVECOMMENTRESPONSE_ANY_OF_SCHEMAS = ["APIError", "DeleteCommentResult", "RemoveCommentActionResponse"]
+POSTREMOVECOMMENTRESPONSE_ANY_OF_SCHEMAS = ["DeleteCommentResult", "RemoveCommentActionResponse"]
 
 class PostRemoveCommentResponse(BaseModel):
     """
@@ -37,13 +36,11 @@ class PostRemoveCommentResponse(BaseModel):
     anyof_schema_1_validator: Optional[DeleteCommentResult] = None
     # data type: RemoveCommentActionResponse
     anyof_schema_2_validator: Optional[RemoveCommentActionResponse] = None
-    # data type: APIError
-    anyof_schema_3_validator: Optional[APIError] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[APIError, DeleteCommentResult, RemoveCommentActionResponse]] = None
+        actual_instance: Optional[Union[DeleteCommentResult, RemoveCommentActionResponse]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "APIError", "DeleteCommentResult", "RemoveCommentActionResponse" }
+    any_of_schemas: Set[str] = { "DeleteCommentResult", "RemoveCommentActionResponse" }
 
     model_config = {
         "validate_assignment": True,
@@ -76,15 +73,9 @@ class PostRemoveCommentResponse(BaseModel):
         else:
             return v
 
-        # validate data type: APIError
-        if not isinstance(v, APIError):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `APIError`")
-        else:
-            return v
-
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in PostRemoveCommentResponse with anyOf schemas: APIError, DeleteCommentResult, RemoveCommentActionResponse. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in PostRemoveCommentResponse with anyOf schemas: DeleteCommentResult, RemoveCommentActionResponse. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -109,16 +100,10 @@ class PostRemoveCommentResponse(BaseModel):
             return instance
         except (ValidationError, ValueError) as e:
              error_messages.append(str(e))
-        # anyof_schema_3_validator: Optional[APIError] = None
-        try:
-            instance.actual_instance = APIError.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into PostRemoveCommentResponse with anyOf schemas: APIError, DeleteCommentResult, RemoveCommentActionResponse. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into PostRemoveCommentResponse with anyOf schemas: DeleteCommentResult, RemoveCommentActionResponse. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -132,7 +117,7 @@ class PostRemoveCommentResponse(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], APIError, DeleteCommentResult, RemoveCommentActionResponse]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], DeleteCommentResult, RemoveCommentActionResponse]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

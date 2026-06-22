@@ -18,54 +18,46 @@ from typing_extensions import Annotated
 
 from pydantic import StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Optional, Union
+from client.models.api_empty_response import APIEmptyResponse
+from client.models.api_moderate_get_user_ban_preferences_response import APIModerateGetUserBanPreferencesResponse
 from client.models.adjust_comment_votes_params import AdjustCommentVotesParams
+from client.models.adjust_votes_response import AdjustVotesResponse
+from client.models.award_user_badge_response import AwardUserBadgeResponse
+from client.models.ban_user_from_comment_result import BanUserFromCommentResult
 from client.models.ban_user_undo_params import BanUserUndoParams
 from client.models.bulk_pre_ban_params import BulkPreBanParams
+from client.models.bulk_pre_ban_summary import BulkPreBanSummary
 from client.models.comments_by_ids_params import CommentsByIdsParams
-from client.models.delete_moderation_vote_response import DeleteModerationVoteResponse
-from client.models.get_api_comments_response import GetApiCommentsResponse
-from client.models.get_api_export_status_response import GetApiExportStatusResponse
-from client.models.get_api_ids_response import GetApiIdsResponse
-from client.models.get_ban_users_from_comment_response import GetBanUsersFromCommentResponse
-from client.models.get_comment_ban_status_response1 import GetCommentBanStatusResponse1
-from client.models.get_comment_children_response import GetCommentChildrenResponse
-from client.models.get_count_response import GetCountResponse
-from client.models.get_counts_response import GetCountsResponse
-from client.models.get_logs_response import GetLogsResponse
-from client.models.get_manual_badges_for_user_response import GetManualBadgesForUserResponse
-from client.models.get_manual_badges_response import GetManualBadgesResponse
-from client.models.get_moderation_comment_response import GetModerationCommentResponse
-from client.models.get_moderation_comment_text_response import GetModerationCommentTextResponse
-from client.models.get_pre_ban_summary_response import GetPreBanSummaryResponse
-from client.models.get_search_comments_summary_response import GetSearchCommentsSummaryResponse
-from client.models.get_search_pages_response import GetSearchPagesResponse
-from client.models.get_search_sites_response import GetSearchSitesResponse
-from client.models.get_search_suggest_response import GetSearchSuggestResponse
-from client.models.get_search_users_response import GetSearchUsersResponse
-from client.models.get_trust_factor_response import GetTrustFactorResponse
-from client.models.get_user_ban_preference_response import GetUserBanPreferenceResponse
-from client.models.get_user_internal_profile_response1 import GetUserInternalProfileResponse1
-from client.models.post_adjust_comment_votes_response import PostAdjustCommentVotesResponse
-from client.models.post_api_export_response import PostApiExportResponse
-from client.models.post_ban_user_from_comment_response import PostBanUserFromCommentResponse
-from client.models.post_ban_user_undo_response import PostBanUserUndoResponse
-from client.models.post_bulk_pre_ban_summary_response import PostBulkPreBanSummaryResponse
-from client.models.post_comments_by_ids_response import PostCommentsByIdsResponse
-from client.models.post_flag_comment_response import PostFlagCommentResponse
+from client.models.get_banned_users_count_response import GetBannedUsersCountResponse
+from client.models.get_banned_users_from_comment_response import GetBannedUsersFromCommentResponse
+from client.models.get_comment_ban_status_response import GetCommentBanStatusResponse
+from client.models.get_comment_text_response import GetCommentTextResponse
+from client.models.get_tenant_manual_badges_response import GetTenantManualBadgesResponse
+from client.models.get_user_internal_profile_response import GetUserInternalProfileResponse
+from client.models.get_user_manual_badges_response import GetUserManualBadgesResponse
+from client.models.get_user_trust_factor_response import GetUserTrustFactorResponse
+from client.models.moderation_api_child_comments_response import ModerationAPIChildCommentsResponse
+from client.models.moderation_api_comment_response import ModerationAPICommentResponse
+from client.models.moderation_api_count_comments_response import ModerationAPICountCommentsResponse
+from client.models.moderation_api_get_comment_ids_response import ModerationAPIGetCommentIdsResponse
+from client.models.moderation_api_get_comments_response import ModerationAPIGetCommentsResponse
+from client.models.moderation_api_get_logs_response import ModerationAPIGetLogsResponse
+from client.models.moderation_comment_search_response import ModerationCommentSearchResponse
+from client.models.moderation_export_response import ModerationExportResponse
+from client.models.moderation_export_status_response import ModerationExportStatusResponse
+from client.models.moderation_page_search_response import ModerationPageSearchResponse
+from client.models.moderation_site_search_response import ModerationSiteSearchResponse
+from client.models.moderation_suggest_response import ModerationSuggestResponse
+from client.models.moderation_user_search_response import ModerationUserSearchResponse
 from client.models.post_remove_comment_response import PostRemoveCommentResponse
-from client.models.post_restore_deleted_comment_response import PostRestoreDeletedCommentResponse
-from client.models.post_set_comment_approval_status_response import PostSetCommentApprovalStatusResponse
-from client.models.post_set_comment_review_status_response import PostSetCommentReviewStatusResponse
-from client.models.post_set_comment_spam_status_response import PostSetCommentSpamStatusResponse
-from client.models.post_set_comment_text_response import PostSetCommentTextResponse
-from client.models.post_un_flag_comment_response import PostUnFlagCommentResponse
-from client.models.post_vote_response import PostVoteResponse
-from client.models.put_award_badge_response import PutAwardBadgeResponse
-from client.models.put_close_thread_response import PutCloseThreadResponse
-from client.models.put_remove_badge_response import PutRemoveBadgeResponse
-from client.models.put_reopen_thread_response import PutReopenThreadResponse
+from client.models.pre_ban_summary import PreBanSummary
+from client.models.remove_user_badge_response import RemoveUserBadgeResponse
+from client.models.set_comment_approved_response import SetCommentApprovedResponse
 from client.models.set_comment_text_params import SetCommentTextParams
-from client.models.set_trust_factor_response import SetTrustFactorResponse
+from client.models.set_comment_text_response import SetCommentTextResponse
+from client.models.set_user_trust_factor_response import SetUserTrustFactorResponse
+from client.models.vote_delete_response import VoteDeleteResponse
+from client.models.vote_response import VoteResponse
 
 from client.api_client import ApiClient, RequestSerialized
 from client.api_response import ApiResponse
@@ -105,7 +97,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> DeleteModerationVoteResponse:
+    ) -> VoteDeleteResponse:
         """delete_moderation_vote
 
 
@@ -154,7 +146,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteModerationVoteResponse",
+            '200': "VoteDeleteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -187,7 +179,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[DeleteModerationVoteResponse]:
+    ) -> ApiResponse[VoteDeleteResponse]:
         """delete_moderation_vote
 
 
@@ -236,7 +228,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteModerationVoteResponse",
+            '200': "VoteDeleteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -318,7 +310,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "DeleteModerationVoteResponse",
+            '200': "VoteDeleteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -433,7 +425,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetApiCommentsResponse:
+    ) -> ModerationAPIGetCommentsResponse:
         """get_api_comments
 
 
@@ -497,7 +489,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetApiCommentsResponse",
+            '200': "ModerationAPIGetCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -535,7 +527,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetApiCommentsResponse]:
+    ) -> ApiResponse[ModerationAPIGetCommentsResponse]:
         """get_api_comments
 
 
@@ -599,7 +591,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetApiCommentsResponse",
+            '200': "ModerationAPIGetCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -701,7 +693,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetApiCommentsResponse",
+            '200': "ModerationAPIGetCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -838,7 +830,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetApiExportStatusResponse:
+    ) -> ModerationExportStatusResponse:
         """get_api_export_status
 
 
@@ -881,7 +873,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetApiExportStatusResponse",
+            '200': "ModerationExportStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -912,7 +904,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetApiExportStatusResponse]:
+    ) -> ApiResponse[ModerationExportStatusResponse]:
         """get_api_export_status
 
 
@@ -955,7 +947,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetApiExportStatusResponse",
+            '200': "ModerationExportStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1029,7 +1021,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetApiExportStatusResponse",
+            '200': "ModerationExportStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1136,7 +1128,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetApiIdsResponse:
+    ) -> ModerationAPIGetCommentIdsResponse:
         """get_api_ids
 
 
@@ -1194,7 +1186,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetApiIdsResponse",
+            '200': "ModerationAPIGetCommentIdsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1230,7 +1222,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetApiIdsResponse]:
+    ) -> ApiResponse[ModerationAPIGetCommentIdsResponse]:
         """get_api_ids
 
 
@@ -1288,7 +1280,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetApiIdsResponse",
+            '200': "ModerationAPIGetCommentIdsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1382,7 +1374,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetApiIdsResponse",
+            '200': "ModerationAPIGetCommentIdsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1509,7 +1501,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetBanUsersFromCommentResponse:
+    ) -> GetBannedUsersFromCommentResponse:
         """get_ban_users_from_comment
 
 
@@ -1552,7 +1544,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBanUsersFromCommentResponse",
+            '200': "GetBannedUsersFromCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1583,7 +1575,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetBanUsersFromCommentResponse]:
+    ) -> ApiResponse[GetBannedUsersFromCommentResponse]:
         """get_ban_users_from_comment
 
 
@@ -1626,7 +1618,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBanUsersFromCommentResponse",
+            '200': "GetBannedUsersFromCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1700,7 +1692,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBanUsersFromCommentResponse",
+            '200': "GetBannedUsersFromCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1800,7 +1792,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetCommentBanStatusResponse1:
+    ) -> GetCommentBanStatusResponse:
         """get_comment_ban_status
 
 
@@ -1843,7 +1835,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentBanStatusResponse1",
+            '200': "GetCommentBanStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1874,7 +1866,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetCommentBanStatusResponse1]:
+    ) -> ApiResponse[GetCommentBanStatusResponse]:
         """get_comment_ban_status
 
 
@@ -1917,7 +1909,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentBanStatusResponse1",
+            '200': "GetCommentBanStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1991,7 +1983,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentBanStatusResponse1",
+            '200': "GetCommentBanStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2091,7 +2083,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetCommentChildrenResponse:
+    ) -> ModerationAPIChildCommentsResponse:
         """get_comment_children
 
 
@@ -2134,7 +2126,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentChildrenResponse",
+            '200': "ModerationAPIChildCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2165,7 +2157,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetCommentChildrenResponse]:
+    ) -> ApiResponse[ModerationAPIChildCommentsResponse]:
         """get_comment_children
 
 
@@ -2208,7 +2200,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentChildrenResponse",
+            '200': "ModerationAPIChildCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2282,7 +2274,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentChildrenResponse",
+            '200': "ModerationAPIChildCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2386,7 +2378,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetCountResponse:
+    ) -> ModerationAPICountCommentsResponse:
         """get_count
 
 
@@ -2441,7 +2433,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCountResponse",
+            '200': "ModerationAPICountCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2476,7 +2468,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetCountResponse]:
+    ) -> ApiResponse[ModerationAPICountCommentsResponse]:
         """get_count
 
 
@@ -2531,7 +2523,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCountResponse",
+            '200': "ModerationAPICountCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2621,7 +2613,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCountResponse",
+            '200': "ModerationAPICountCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2742,7 +2734,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetCountsResponse:
+    ) -> GetBannedUsersCountResponse:
         """get_counts
 
 
@@ -2782,7 +2774,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCountsResponse",
+            '200': "GetBannedUsersCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2812,7 +2804,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetCountsResponse]:
+    ) -> ApiResponse[GetBannedUsersCountResponse]:
         """get_counts
 
 
@@ -2852,7 +2844,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCountsResponse",
+            '200': "GetBannedUsersCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2922,7 +2914,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCountsResponse",
+            '200': "GetBannedUsersCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3019,7 +3011,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetLogsResponse:
+    ) -> ModerationAPIGetLogsResponse:
         """get_logs
 
 
@@ -3062,7 +3054,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLogsResponse",
+            '200': "ModerationAPIGetLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3093,7 +3085,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetLogsResponse]:
+    ) -> ApiResponse[ModerationAPIGetLogsResponse]:
         """get_logs
 
 
@@ -3136,7 +3128,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLogsResponse",
+            '200': "ModerationAPIGetLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3210,7 +3202,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetLogsResponse",
+            '200': "ModerationAPIGetLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3309,7 +3301,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetManualBadgesResponse:
+    ) -> GetTenantManualBadgesResponse:
         """get_manual_badges
 
 
@@ -3349,7 +3341,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetManualBadgesResponse",
+            '200': "GetTenantManualBadgesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3379,7 +3371,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetManualBadgesResponse]:
+    ) -> ApiResponse[GetTenantManualBadgesResponse]:
         """get_manual_badges
 
 
@@ -3419,7 +3411,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetManualBadgesResponse",
+            '200': "GetTenantManualBadgesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3489,7 +3481,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetManualBadgesResponse",
+            '200': "GetTenantManualBadgesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3587,7 +3579,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetManualBadgesForUserResponse:
+    ) -> GetUserManualBadgesResponse:
         """get_manual_badges_for_user
 
 
@@ -3633,7 +3625,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetManualBadgesForUserResponse",
+            '200': "GetUserManualBadgesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3665,7 +3657,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetManualBadgesForUserResponse]:
+    ) -> ApiResponse[GetUserManualBadgesResponse]:
         """get_manual_badges_for_user
 
 
@@ -3711,7 +3703,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetManualBadgesForUserResponse",
+            '200': "GetUserManualBadgesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3789,7 +3781,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetManualBadgesForUserResponse",
+            '200': "GetUserManualBadgesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3898,7 +3890,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetModerationCommentResponse:
+    ) -> ModerationAPICommentResponse:
         """get_moderation_comment
 
 
@@ -3947,7 +3939,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetModerationCommentResponse",
+            '200': "ModerationAPICommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3980,7 +3972,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetModerationCommentResponse]:
+    ) -> ApiResponse[ModerationAPICommentResponse]:
         """get_moderation_comment
 
 
@@ -4029,7 +4021,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetModerationCommentResponse",
+            '200': "ModerationAPICommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4111,7 +4103,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetModerationCommentResponse",
+            '200': "ModerationAPICommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4221,7 +4213,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetModerationCommentTextResponse:
+    ) -> GetCommentTextResponse:
         """get_moderation_comment_text
 
 
@@ -4264,7 +4256,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetModerationCommentTextResponse",
+            '200': "GetCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4295,7 +4287,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetModerationCommentTextResponse]:
+    ) -> ApiResponse[GetCommentTextResponse]:
         """get_moderation_comment_text
 
 
@@ -4338,7 +4330,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetModerationCommentTextResponse",
+            '200': "GetCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4412,7 +4404,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetModerationCommentTextResponse",
+            '200': "GetCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4515,7 +4507,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetPreBanSummaryResponse:
+    ) -> PreBanSummary:
         """get_pre_ban_summary
 
 
@@ -4567,7 +4559,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetPreBanSummaryResponse",
+            '200': "PreBanSummary",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4601,7 +4593,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetPreBanSummaryResponse]:
+    ) -> ApiResponse[PreBanSummary]:
         """get_pre_ban_summary
 
 
@@ -4653,7 +4645,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetPreBanSummaryResponse",
+            '200': "PreBanSummary",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4739,7 +4731,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetPreBanSummaryResponse",
+            '200': "PreBanSummary",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4856,7 +4848,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetSearchCommentsSummaryResponse:
+    ) -> ModerationCommentSearchResponse:
         """get_search_comments_summary
 
 
@@ -4905,7 +4897,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchCommentsSummaryResponse",
+            '200': "ModerationCommentSearchResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4938,7 +4930,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetSearchCommentsSummaryResponse]:
+    ) -> ApiResponse[ModerationCommentSearchResponse]:
         """get_search_comments_summary
 
 
@@ -4987,7 +4979,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchCommentsSummaryResponse",
+            '200': "ModerationCommentSearchResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5069,7 +5061,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchCommentsSummaryResponse",
+            '200': "ModerationCommentSearchResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5181,7 +5173,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetSearchPagesResponse:
+    ) -> ModerationPageSearchResponse:
         """get_search_pages
 
 
@@ -5224,7 +5216,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchPagesResponse",
+            '200': "ModerationPageSearchResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5255,7 +5247,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetSearchPagesResponse]:
+    ) -> ApiResponse[ModerationPageSearchResponse]:
         """get_search_pages
 
 
@@ -5298,7 +5290,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchPagesResponse",
+            '200': "ModerationPageSearchResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5372,7 +5364,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchPagesResponse",
+            '200': "ModerationPageSearchResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5474,7 +5466,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetSearchSitesResponse:
+    ) -> ModerationSiteSearchResponse:
         """get_search_sites
 
 
@@ -5517,7 +5509,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchSitesResponse",
+            '200': "ModerationSiteSearchResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5548,7 +5540,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetSearchSitesResponse]:
+    ) -> ApiResponse[ModerationSiteSearchResponse]:
         """get_search_sites
 
 
@@ -5591,7 +5583,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchSitesResponse",
+            '200': "ModerationSiteSearchResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5665,7 +5657,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchSitesResponse",
+            '200': "ModerationSiteSearchResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5767,7 +5759,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetSearchSuggestResponse:
+    ) -> ModerationSuggestResponse:
         """get_search_suggest
 
 
@@ -5810,7 +5802,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchSuggestResponse",
+            '200': "ModerationSuggestResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5841,7 +5833,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetSearchSuggestResponse]:
+    ) -> ApiResponse[ModerationSuggestResponse]:
         """get_search_suggest
 
 
@@ -5884,7 +5876,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchSuggestResponse",
+            '200': "ModerationSuggestResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5958,7 +5950,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchSuggestResponse",
+            '200': "ModerationSuggestResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6060,7 +6052,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetSearchUsersResponse:
+    ) -> ModerationUserSearchResponse:
         """get_search_users
 
 
@@ -6103,7 +6095,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchUsersResponse",
+            '200': "ModerationUserSearchResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6134,7 +6126,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetSearchUsersResponse]:
+    ) -> ApiResponse[ModerationUserSearchResponse]:
         """get_search_users
 
 
@@ -6177,7 +6169,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchUsersResponse",
+            '200': "ModerationUserSearchResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6251,7 +6243,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetSearchUsersResponse",
+            '200': "ModerationUserSearchResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6353,7 +6345,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTrustFactorResponse:
+    ) -> GetUserTrustFactorResponse:
         """get_trust_factor
 
 
@@ -6396,7 +6388,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTrustFactorResponse",
+            '200': "GetUserTrustFactorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6427,7 +6419,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetTrustFactorResponse]:
+    ) -> ApiResponse[GetUserTrustFactorResponse]:
         """get_trust_factor
 
 
@@ -6470,7 +6462,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTrustFactorResponse",
+            '200': "GetUserTrustFactorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6544,7 +6536,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTrustFactorResponse",
+            '200': "GetUserTrustFactorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6645,7 +6637,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserBanPreferenceResponse:
+    ) -> APIModerateGetUserBanPreferencesResponse:
         """get_user_ban_preference
 
 
@@ -6685,7 +6677,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBanPreferenceResponse",
+            '200': "APIModerateGetUserBanPreferencesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6715,7 +6707,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserBanPreferenceResponse]:
+    ) -> ApiResponse[APIModerateGetUserBanPreferencesResponse]:
         """get_user_ban_preference
 
 
@@ -6755,7 +6747,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBanPreferenceResponse",
+            '200': "APIModerateGetUserBanPreferencesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6825,7 +6817,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserBanPreferenceResponse",
+            '200': "APIModerateGetUserBanPreferencesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6922,7 +6914,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserInternalProfileResponse1:
+    ) -> GetUserInternalProfileResponse:
         """get_user_internal_profile
 
 
@@ -6965,7 +6957,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserInternalProfileResponse1",
+            '200': "GetUserInternalProfileResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6996,7 +6988,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserInternalProfileResponse1]:
+    ) -> ApiResponse[GetUserInternalProfileResponse]:
         """get_user_internal_profile
 
 
@@ -7039,7 +7031,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserInternalProfileResponse1",
+            '200': "GetUserInternalProfileResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7113,7 +7105,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserInternalProfileResponse1",
+            '200': "GetUserInternalProfileResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7217,7 +7209,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostAdjustCommentVotesResponse:
+    ) -> AdjustVotesResponse:
         """post_adjust_comment_votes
 
 
@@ -7266,7 +7258,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostAdjustCommentVotesResponse",
+            '200': "AdjustVotesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7299,7 +7291,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostAdjustCommentVotesResponse]:
+    ) -> ApiResponse[AdjustVotesResponse]:
         """post_adjust_comment_votes
 
 
@@ -7348,7 +7340,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostAdjustCommentVotesResponse",
+            '200': "AdjustVotesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7430,7 +7422,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostAdjustCommentVotesResponse",
+            '200': "AdjustVotesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7555,7 +7547,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostApiExportResponse:
+    ) -> ModerationExportResponse:
         """post_api_export
 
 
@@ -7610,7 +7602,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostApiExportResponse",
+            '200': "ModerationExportResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7645,7 +7637,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostApiExportResponse]:
+    ) -> ApiResponse[ModerationExportResponse]:
         """post_api_export
 
 
@@ -7700,7 +7692,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostApiExportResponse",
+            '200': "ModerationExportResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7790,7 +7782,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostApiExportResponse",
+            '200': "ModerationExportResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7920,7 +7912,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostBanUserFromCommentResponse:
+    ) -> BanUserFromCommentResult:
         """post_ban_user_from_comment
 
 
@@ -7987,7 +7979,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostBanUserFromCommentResponse",
+            '200': "BanUserFromCommentResult",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8026,7 +8018,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostBanUserFromCommentResponse]:
+    ) -> ApiResponse[BanUserFromCommentResult]:
         """post_ban_user_from_comment
 
 
@@ -8093,7 +8085,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostBanUserFromCommentResponse",
+            '200': "BanUserFromCommentResult",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8199,7 +8191,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostBanUserFromCommentResponse",
+            '200': "BanUserFromCommentResult",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8339,7 +8331,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostBanUserUndoResponse:
+    ) -> APIEmptyResponse:
         """post_ban_user_undo
 
 
@@ -8382,7 +8374,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostBanUserUndoResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8413,7 +8405,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostBanUserUndoResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """post_ban_user_undo
 
 
@@ -8456,7 +8448,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostBanUserUndoResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8530,7 +8522,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostBanUserUndoResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8646,7 +8638,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostBulkPreBanSummaryResponse:
+    ) -> BulkPreBanSummary:
         """post_bulk_pre_ban_summary
 
 
@@ -8698,7 +8690,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostBulkPreBanSummaryResponse",
+            '200': "BulkPreBanSummary",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8732,7 +8724,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostBulkPreBanSummaryResponse]:
+    ) -> ApiResponse[BulkPreBanSummary]:
         """post_bulk_pre_ban_summary
 
 
@@ -8784,7 +8776,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostBulkPreBanSummaryResponse",
+            '200': "BulkPreBanSummary",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8870,7 +8862,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostBulkPreBanSummaryResponse",
+            '200': "BulkPreBanSummary",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8998,7 +8990,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostCommentsByIdsResponse:
+    ) -> ModerationAPIChildCommentsResponse:
         """post_comments_by_ids
 
 
@@ -9041,7 +9033,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostCommentsByIdsResponse",
+            '200': "ModerationAPIChildCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9072,7 +9064,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostCommentsByIdsResponse]:
+    ) -> ApiResponse[ModerationAPIChildCommentsResponse]:
         """post_comments_by_ids
 
 
@@ -9115,7 +9107,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostCommentsByIdsResponse",
+            '200': "ModerationAPIChildCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9189,7 +9181,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostCommentsByIdsResponse",
+            '200': "ModerationAPIChildCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9303,7 +9295,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostFlagCommentResponse:
+    ) -> APIEmptyResponse:
         """post_flag_comment
 
 
@@ -9349,7 +9341,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostFlagCommentResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9381,7 +9373,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostFlagCommentResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """post_flag_comment
 
 
@@ -9427,7 +9419,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostFlagCommentResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9505,7 +9497,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostFlagCommentResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9919,7 +9911,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostRestoreDeletedCommentResponse:
+    ) -> APIEmptyResponse:
         """post_restore_deleted_comment
 
 
@@ -9965,7 +9957,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostRestoreDeletedCommentResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9997,7 +9989,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostRestoreDeletedCommentResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """post_restore_deleted_comment
 
 
@@ -10043,7 +10035,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostRestoreDeletedCommentResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10121,7 +10113,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostRestoreDeletedCommentResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10228,7 +10220,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostSetCommentApprovalStatusResponse:
+    ) -> SetCommentApprovedResponse:
         """post_set_comment_approval_status
 
 
@@ -10277,7 +10269,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostSetCommentApprovalStatusResponse",
+            '200': "SetCommentApprovedResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10310,7 +10302,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostSetCommentApprovalStatusResponse]:
+    ) -> ApiResponse[SetCommentApprovedResponse]:
         """post_set_comment_approval_status
 
 
@@ -10359,7 +10351,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostSetCommentApprovalStatusResponse",
+            '200': "SetCommentApprovedResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10441,7 +10433,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostSetCommentApprovalStatusResponse",
+            '200': "SetCommentApprovedResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10553,7 +10545,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostSetCommentReviewStatusResponse:
+    ) -> APIEmptyResponse:
         """post_set_comment_review_status
 
 
@@ -10602,7 +10594,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostSetCommentReviewStatusResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10635,7 +10627,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostSetCommentReviewStatusResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """post_set_comment_review_status
 
 
@@ -10684,7 +10676,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostSetCommentReviewStatusResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10766,7 +10758,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostSetCommentReviewStatusResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10879,7 +10871,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostSetCommentSpamStatusResponse:
+    ) -> APIEmptyResponse:
         """post_set_comment_spam_status
 
 
@@ -10931,7 +10923,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostSetCommentSpamStatusResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10965,7 +10957,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostSetCommentSpamStatusResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """post_set_comment_spam_status
 
 
@@ -11017,7 +11009,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostSetCommentSpamStatusResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11103,7 +11095,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostSetCommentSpamStatusResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11220,7 +11212,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostSetCommentTextResponse:
+    ) -> SetCommentTextResponse:
         """post_set_comment_text
 
 
@@ -11269,7 +11261,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostSetCommentTextResponse",
+            '200': "SetCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11302,7 +11294,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostSetCommentTextResponse]:
+    ) -> ApiResponse[SetCommentTextResponse]:
         """post_set_comment_text
 
 
@@ -11351,7 +11343,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostSetCommentTextResponse",
+            '200': "SetCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11433,7 +11425,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostSetCommentTextResponse",
+            '200': "SetCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11555,7 +11547,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostUnFlagCommentResponse:
+    ) -> APIEmptyResponse:
         """post_un_flag_comment
 
 
@@ -11601,7 +11593,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostUnFlagCommentResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11633,7 +11625,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostUnFlagCommentResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """post_un_flag_comment
 
 
@@ -11679,7 +11671,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostUnFlagCommentResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11757,7 +11749,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostUnFlagCommentResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11864,7 +11856,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PostVoteResponse:
+    ) -> VoteResponse:
         """post_vote
 
 
@@ -11913,7 +11905,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostVoteResponse",
+            '200': "VoteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11946,7 +11938,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PostVoteResponse]:
+    ) -> ApiResponse[VoteResponse]:
         """post_vote
 
 
@@ -11995,7 +11987,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostVoteResponse",
+            '200': "VoteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12077,7 +12069,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PostVoteResponse",
+            '200': "VoteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12190,7 +12182,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PutAwardBadgeResponse:
+    ) -> AwardUserBadgeResponse:
         """put_award_badge
 
 
@@ -12242,7 +12234,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PutAwardBadgeResponse",
+            '200': "AwardUserBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12276,7 +12268,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PutAwardBadgeResponse]:
+    ) -> ApiResponse[AwardUserBadgeResponse]:
         """put_award_badge
 
 
@@ -12328,7 +12320,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PutAwardBadgeResponse",
+            '200': "AwardUserBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12414,7 +12406,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PutAwardBadgeResponse",
+            '200': "AwardUserBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12531,7 +12523,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PutCloseThreadResponse:
+    ) -> APIEmptyResponse:
         """put_close_thread
 
 
@@ -12574,7 +12566,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PutCloseThreadResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12605,7 +12597,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PutCloseThreadResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """put_close_thread
 
 
@@ -12648,7 +12640,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PutCloseThreadResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12722,7 +12714,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PutCloseThreadResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12827,7 +12819,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PutRemoveBadgeResponse:
+    ) -> RemoveUserBadgeResponse:
         """put_remove_badge
 
 
@@ -12879,7 +12871,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PutRemoveBadgeResponse",
+            '200': "RemoveUserBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12913,7 +12905,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PutRemoveBadgeResponse]:
+    ) -> ApiResponse[RemoveUserBadgeResponse]:
         """put_remove_badge
 
 
@@ -12965,7 +12957,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PutRemoveBadgeResponse",
+            '200': "RemoveUserBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -13051,7 +13043,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PutRemoveBadgeResponse",
+            '200': "RemoveUserBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -13168,7 +13160,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PutReopenThreadResponse:
+    ) -> APIEmptyResponse:
         """put_reopen_thread
 
 
@@ -13211,7 +13203,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PutReopenThreadResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -13242,7 +13234,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PutReopenThreadResponse]:
+    ) -> ApiResponse[APIEmptyResponse]:
         """put_reopen_thread
 
 
@@ -13285,7 +13277,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PutReopenThreadResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -13359,7 +13351,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PutReopenThreadResponse",
+            '200': "APIEmptyResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -13462,7 +13454,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SetTrustFactorResponse:
+    ) -> SetUserTrustFactorResponse:
         """set_trust_factor
 
 
@@ -13508,7 +13500,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetTrustFactorResponse",
+            '200': "SetUserTrustFactorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -13540,7 +13532,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SetTrustFactorResponse]:
+    ) -> ApiResponse[SetUserTrustFactorResponse]:
         """set_trust_factor
 
 
@@ -13586,7 +13578,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetTrustFactorResponse",
+            '200': "SetUserTrustFactorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -13664,7 +13656,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetTrustFactorResponse",
+            '200': "SetUserTrustFactorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,

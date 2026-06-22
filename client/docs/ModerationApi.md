@@ -50,7 +50,7 @@ Method | HTTP request | Description
 
 
 # **delete_moderation_vote**
-> DeleteModerationVoteResponse delete_moderation_vote(comment_id, vote_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+> VoteDeleteResponse delete_moderation_vote(comment_id, vote_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -59,7 +59,7 @@ Method | HTTP request | Description
 
 ```python
 import client
-from client.models.delete_moderation_vote_response import DeleteModerationVoteResponse
+from client.models.vote_delete_response import VoteDeleteResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteModerationVoteResponse**](DeleteModerationVoteResponse.md)
+[**VoteDeleteResponse**](VoteDeleteResponse.md)
 
 ### Authorization
 
@@ -119,11 +119,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_api_comments**
-> GetApiCommentsResponse get_api_comments(page=page, count=count, text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, sorts=sorts, demo=demo, tenant_id=tenant_id, sso=sso)
+> ModerationAPIGetCommentsResponse get_api_comments(page=page, count=count, text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, sorts=sorts, demo=demo, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -132,7 +133,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_api_comments_response import GetApiCommentsResponse
+from client.models.moderation_api_get_comments_response import ModerationAPIGetCommentsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -186,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetApiCommentsResponse**](GetApiCommentsResponse.md)
+[**ModerationAPIGetCommentsResponse**](ModerationAPIGetCommentsResponse.md)
 
 ### Authorization
 
@@ -202,11 +203,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_api_export_status**
-> GetApiExportStatusResponse get_api_export_status(batch_job_id=batch_job_id, tenant_id=tenant_id, sso=sso)
+> ModerationExportStatusResponse get_api_export_status(batch_job_id=batch_job_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -215,7 +217,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_api_export_status_response import GetApiExportStatusResponse
+from client.models.moderation_export_status_response import ModerationExportStatusResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -255,7 +257,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetApiExportStatusResponse**](GetApiExportStatusResponse.md)
+[**ModerationExportStatusResponse**](ModerationExportStatusResponse.md)
 
 ### Authorization
 
@@ -271,11 +273,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_api_ids**
-> GetApiIdsResponse get_api_ids(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, after_id=after_id, demo=demo, tenant_id=tenant_id, sso=sso)
+> ModerationAPIGetCommentIdsResponse get_api_ids(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, after_id=after_id, demo=demo, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -284,7 +287,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_api_ids_response import GetApiIdsResponse
+from client.models.moderation_api_get_comment_ids_response import ModerationAPIGetCommentIdsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -334,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetApiIdsResponse**](GetApiIdsResponse.md)
+[**ModerationAPIGetCommentIdsResponse**](ModerationAPIGetCommentIdsResponse.md)
 
 ### Authorization
 
@@ -350,11 +353,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ban_users_from_comment**
-> GetBanUsersFromCommentResponse get_ban_users_from_comment(comment_id, tenant_id=tenant_id, sso=sso)
+> GetBannedUsersFromCommentResponse get_ban_users_from_comment(comment_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -363,7 +367,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_ban_users_from_comment_response import GetBanUsersFromCommentResponse
+from client.models.get_banned_users_from_comment_response import GetBannedUsersFromCommentResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -403,7 +407,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetBanUsersFromCommentResponse**](GetBanUsersFromCommentResponse.md)
+[**GetBannedUsersFromCommentResponse**](GetBannedUsersFromCommentResponse.md)
 
 ### Authorization
 
@@ -419,11 +423,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comment_ban_status**
-> GetCommentBanStatusResponse1 get_comment_ban_status(comment_id, tenant_id=tenant_id, sso=sso)
+> GetCommentBanStatusResponse get_comment_ban_status(comment_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -432,7 +437,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_comment_ban_status_response1 import GetCommentBanStatusResponse1
+from client.models.get_comment_ban_status_response import GetCommentBanStatusResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -472,7 +477,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCommentBanStatusResponse1**](GetCommentBanStatusResponse1.md)
+[**GetCommentBanStatusResponse**](GetCommentBanStatusResponse.md)
 
 ### Authorization
 
@@ -488,11 +493,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comment_children**
-> GetCommentChildrenResponse get_comment_children(comment_id, tenant_id=tenant_id, sso=sso)
+> ModerationAPIChildCommentsResponse get_comment_children(comment_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -501,7 +507,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_comment_children_response import GetCommentChildrenResponse
+from client.models.moderation_api_child_comments_response import ModerationAPIChildCommentsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -541,7 +547,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCommentChildrenResponse**](GetCommentChildrenResponse.md)
+[**ModerationAPIChildCommentsResponse**](ModerationAPIChildCommentsResponse.md)
 
 ### Authorization
 
@@ -557,11 +563,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_count**
-> GetCountResponse get_count(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filter=filter, search_filters=search_filters, demo=demo, tenant_id=tenant_id, sso=sso)
+> ModerationAPICountCommentsResponse get_count(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filter=filter, search_filters=search_filters, demo=demo, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -570,7 +577,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_count_response import GetCountResponse
+from client.models.moderation_api_count_comments_response import ModerationAPICountCommentsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -618,7 +625,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCountResponse**](GetCountResponse.md)
+[**ModerationAPICountCommentsResponse**](ModerationAPICountCommentsResponse.md)
 
 ### Authorization
 
@@ -634,11 +641,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_counts**
-> GetCountsResponse get_counts(tenant_id=tenant_id, sso=sso)
+> GetBannedUsersCountResponse get_counts(tenant_id=tenant_id, sso=sso)
 
 
 
@@ -647,7 +655,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_counts_response import GetCountsResponse
+from client.models.get_banned_users_count_response import GetBannedUsersCountResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -685,7 +693,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCountsResponse**](GetCountsResponse.md)
+[**GetBannedUsersCountResponse**](GetBannedUsersCountResponse.md)
 
 ### Authorization
 
@@ -701,11 +709,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_logs**
-> GetLogsResponse get_logs(comment_id, tenant_id=tenant_id, sso=sso)
+> ModerationAPIGetLogsResponse get_logs(comment_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -714,7 +723,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_logs_response import GetLogsResponse
+from client.models.moderation_api_get_logs_response import ModerationAPIGetLogsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -754,7 +763,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetLogsResponse**](GetLogsResponse.md)
+[**ModerationAPIGetLogsResponse**](ModerationAPIGetLogsResponse.md)
 
 ### Authorization
 
@@ -770,11 +779,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_manual_badges**
-> GetManualBadgesResponse get_manual_badges(tenant_id=tenant_id, sso=sso)
+> GetTenantManualBadgesResponse get_manual_badges(tenant_id=tenant_id, sso=sso)
 
 
 
@@ -783,7 +793,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_manual_badges_response import GetManualBadgesResponse
+from client.models.get_tenant_manual_badges_response import GetTenantManualBadgesResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -821,7 +831,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetManualBadgesResponse**](GetManualBadgesResponse.md)
+[**GetTenantManualBadgesResponse**](GetTenantManualBadgesResponse.md)
 
 ### Authorization
 
@@ -837,11 +847,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_manual_badges_for_user**
-> GetManualBadgesForUserResponse get_manual_badges_for_user(badges_user_id=badges_user_id, comment_id=comment_id, tenant_id=tenant_id, sso=sso)
+> GetUserManualBadgesResponse get_manual_badges_for_user(badges_user_id=badges_user_id, comment_id=comment_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -850,7 +861,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_manual_badges_for_user_response import GetManualBadgesForUserResponse
+from client.models.get_user_manual_badges_response import GetUserManualBadgesResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -892,7 +903,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetManualBadgesForUserResponse**](GetManualBadgesForUserResponse.md)
+[**GetUserManualBadgesResponse**](GetUserManualBadgesResponse.md)
 
 ### Authorization
 
@@ -908,11 +919,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_moderation_comment**
-> GetModerationCommentResponse get_moderation_comment(comment_id, include_email=include_email, include_ip=include_ip, tenant_id=tenant_id, sso=sso)
+> ModerationAPICommentResponse get_moderation_comment(comment_id, include_email=include_email, include_ip=include_ip, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -921,7 +933,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_moderation_comment_response import GetModerationCommentResponse
+from client.models.moderation_api_comment_response import ModerationAPICommentResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -965,7 +977,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetModerationCommentResponse**](GetModerationCommentResponse.md)
+[**ModerationAPICommentResponse**](ModerationAPICommentResponse.md)
 
 ### Authorization
 
@@ -981,11 +993,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_moderation_comment_text**
-> GetModerationCommentTextResponse get_moderation_comment_text(comment_id, tenant_id=tenant_id, sso=sso)
+> GetCommentTextResponse get_moderation_comment_text(comment_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -994,7 +1007,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_moderation_comment_text_response import GetModerationCommentTextResponse
+from client.models.get_comment_text_response import GetCommentTextResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1034,7 +1047,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetModerationCommentTextResponse**](GetModerationCommentTextResponse.md)
+[**GetCommentTextResponse**](GetCommentTextResponse.md)
 
 ### Authorization
 
@@ -1050,11 +1063,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_pre_ban_summary**
-> GetPreBanSummaryResponse get_pre_ban_summary(comment_id, include_by_user_id_and_email=include_by_user_id_and_email, include_by_ip=include_by_ip, include_by_email_domain=include_by_email_domain, tenant_id=tenant_id, sso=sso)
+> PreBanSummary get_pre_ban_summary(comment_id, include_by_user_id_and_email=include_by_user_id_and_email, include_by_ip=include_by_ip, include_by_email_domain=include_by_email_domain, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -1063,7 +1077,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_pre_ban_summary_response import GetPreBanSummaryResponse
+from client.models.pre_ban_summary import PreBanSummary
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1109,7 +1123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetPreBanSummaryResponse**](GetPreBanSummaryResponse.md)
+[**PreBanSummary**](PreBanSummary.md)
 
 ### Authorization
 
@@ -1125,11 +1139,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_search_comments_summary**
-> GetSearchCommentsSummaryResponse get_search_comments_summary(value=value, filters=filters, search_filters=search_filters, tenant_id=tenant_id, sso=sso)
+> ModerationCommentSearchResponse get_search_comments_summary(value=value, filters=filters, search_filters=search_filters, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -1138,7 +1153,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_search_comments_summary_response import GetSearchCommentsSummaryResponse
+from client.models.moderation_comment_search_response import ModerationCommentSearchResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1182,7 +1197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSearchCommentsSummaryResponse**](GetSearchCommentsSummaryResponse.md)
+[**ModerationCommentSearchResponse**](ModerationCommentSearchResponse.md)
 
 ### Authorization
 
@@ -1198,11 +1213,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_search_pages**
-> GetSearchPagesResponse get_search_pages(value=value, tenant_id=tenant_id, sso=sso)
+> ModerationPageSearchResponse get_search_pages(value=value, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -1211,7 +1227,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_search_pages_response import GetSearchPagesResponse
+from client.models.moderation_page_search_response import ModerationPageSearchResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1251,7 +1267,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSearchPagesResponse**](GetSearchPagesResponse.md)
+[**ModerationPageSearchResponse**](ModerationPageSearchResponse.md)
 
 ### Authorization
 
@@ -1267,11 +1283,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_search_sites**
-> GetSearchSitesResponse get_search_sites(value=value, tenant_id=tenant_id, sso=sso)
+> ModerationSiteSearchResponse get_search_sites(value=value, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -1280,7 +1297,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_search_sites_response import GetSearchSitesResponse
+from client.models.moderation_site_search_response import ModerationSiteSearchResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1320,7 +1337,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSearchSitesResponse**](GetSearchSitesResponse.md)
+[**ModerationSiteSearchResponse**](ModerationSiteSearchResponse.md)
 
 ### Authorization
 
@@ -1336,11 +1353,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_search_suggest**
-> GetSearchSuggestResponse get_search_suggest(text_search=text_search, tenant_id=tenant_id, sso=sso)
+> ModerationSuggestResponse get_search_suggest(text_search=text_search, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -1349,7 +1367,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_search_suggest_response import GetSearchSuggestResponse
+from client.models.moderation_suggest_response import ModerationSuggestResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1389,7 +1407,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSearchSuggestResponse**](GetSearchSuggestResponse.md)
+[**ModerationSuggestResponse**](ModerationSuggestResponse.md)
 
 ### Authorization
 
@@ -1405,11 +1423,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_search_users**
-> GetSearchUsersResponse get_search_users(value=value, tenant_id=tenant_id, sso=sso)
+> ModerationUserSearchResponse get_search_users(value=value, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -1418,7 +1437,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_search_users_response import GetSearchUsersResponse
+from client.models.moderation_user_search_response import ModerationUserSearchResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1458,7 +1477,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetSearchUsersResponse**](GetSearchUsersResponse.md)
+[**ModerationUserSearchResponse**](ModerationUserSearchResponse.md)
 
 ### Authorization
 
@@ -1474,11 +1493,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_trust_factor**
-> GetTrustFactorResponse get_trust_factor(user_id=user_id, tenant_id=tenant_id, sso=sso)
+> GetUserTrustFactorResponse get_trust_factor(user_id=user_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -1487,7 +1507,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_trust_factor_response import GetTrustFactorResponse
+from client.models.get_user_trust_factor_response import GetUserTrustFactorResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1527,7 +1547,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTrustFactorResponse**](GetTrustFactorResponse.md)
+[**GetUserTrustFactorResponse**](GetUserTrustFactorResponse.md)
 
 ### Authorization
 
@@ -1543,11 +1563,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_ban_preference**
-> GetUserBanPreferenceResponse get_user_ban_preference(tenant_id=tenant_id, sso=sso)
+> APIModerateGetUserBanPreferencesResponse get_user_ban_preference(tenant_id=tenant_id, sso=sso)
 
 
 
@@ -1556,7 +1577,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_user_ban_preference_response import GetUserBanPreferenceResponse
+from client.models.api_moderate_get_user_ban_preferences_response import APIModerateGetUserBanPreferencesResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1594,7 +1615,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserBanPreferenceResponse**](GetUserBanPreferenceResponse.md)
+[**APIModerateGetUserBanPreferencesResponse**](APIModerateGetUserBanPreferencesResponse.md)
 
 ### Authorization
 
@@ -1610,11 +1631,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_internal_profile**
-> GetUserInternalProfileResponse1 get_user_internal_profile(comment_id=comment_id, tenant_id=tenant_id, sso=sso)
+> GetUserInternalProfileResponse get_user_internal_profile(comment_id=comment_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -1623,7 +1645,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_user_internal_profile_response1 import GetUserInternalProfileResponse1
+from client.models.get_user_internal_profile_response import GetUserInternalProfileResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1663,7 +1685,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserInternalProfileResponse1**](GetUserInternalProfileResponse1.md)
+[**GetUserInternalProfileResponse**](GetUserInternalProfileResponse.md)
 
 ### Authorization
 
@@ -1679,11 +1701,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_adjust_comment_votes**
-> PostAdjustCommentVotesResponse post_adjust_comment_votes(comment_id, adjust_comment_votes_params, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+> AdjustVotesResponse post_adjust_comment_votes(comment_id, adjust_comment_votes_params, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -1693,7 +1716,7 @@ No authorization required
 ```python
 import client
 from client.models.adjust_comment_votes_params import AdjustCommentVotesParams
-from client.models.post_adjust_comment_votes_response import PostAdjustCommentVotesResponse
+from client.models.adjust_votes_response import AdjustVotesResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1737,7 +1760,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostAdjustCommentVotesResponse**](PostAdjustCommentVotesResponse.md)
+[**AdjustVotesResponse**](AdjustVotesResponse.md)
 
 ### Authorization
 
@@ -1753,11 +1776,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_api_export**
-> PostApiExportResponse post_api_export(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, sorts=sorts, tenant_id=tenant_id, sso=sso)
+> ModerationExportResponse post_api_export(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, sorts=sorts, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -1766,7 +1790,7 @@ No authorization required
 
 ```python
 import client
-from client.models.post_api_export_response import PostApiExportResponse
+from client.models.moderation_export_response import ModerationExportResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1814,7 +1838,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostApiExportResponse**](PostApiExportResponse.md)
+[**ModerationExportResponse**](ModerationExportResponse.md)
 
 ### Authorization
 
@@ -1830,11 +1854,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_ban_user_from_comment**
-> PostBanUserFromCommentResponse post_ban_user_from_comment(comment_id, ban_email=ban_email, ban_email_domain=ban_email_domain, ban_ip=ban_ip, delete_all_users_comments=delete_all_users_comments, banned_until=banned_until, is_shadow_ban=is_shadow_ban, update_id=update_id, ban_reason=ban_reason, tenant_id=tenant_id, sso=sso)
+> BanUserFromCommentResult post_ban_user_from_comment(comment_id, ban_email=ban_email, ban_email_domain=ban_email_domain, ban_ip=ban_ip, delete_all_users_comments=delete_all_users_comments, banned_until=banned_until, is_shadow_ban=is_shadow_ban, update_id=update_id, ban_reason=ban_reason, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -1843,7 +1868,7 @@ No authorization required
 
 ```python
 import client
-from client.models.post_ban_user_from_comment_response import PostBanUserFromCommentResponse
+from client.models.ban_user_from_comment_result import BanUserFromCommentResult
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1899,7 +1924,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostBanUserFromCommentResponse**](PostBanUserFromCommentResponse.md)
+[**BanUserFromCommentResult**](BanUserFromCommentResult.md)
 
 ### Authorization
 
@@ -1915,11 +1940,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_ban_user_undo**
-> PostBanUserUndoResponse post_ban_user_undo(ban_user_undo_params, tenant_id=tenant_id, sso=sso)
+> APIEmptyResponse post_ban_user_undo(ban_user_undo_params, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -1928,8 +1954,8 @@ No authorization required
 
 ```python
 import client
+from client.models.api_empty_response import APIEmptyResponse
 from client.models.ban_user_undo_params import BanUserUndoParams
-from client.models.post_ban_user_undo_response import PostBanUserUndoResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1969,7 +1995,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostBanUserUndoResponse**](PostBanUserUndoResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -1985,11 +2011,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_bulk_pre_ban_summary**
-> PostBulkPreBanSummaryResponse post_bulk_pre_ban_summary(bulk_pre_ban_params, include_by_user_id_and_email=include_by_user_id_and_email, include_by_ip=include_by_ip, include_by_email_domain=include_by_email_domain, tenant_id=tenant_id, sso=sso)
+> BulkPreBanSummary post_bulk_pre_ban_summary(bulk_pre_ban_params, include_by_user_id_and_email=include_by_user_id_and_email, include_by_ip=include_by_ip, include_by_email_domain=include_by_email_domain, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -1999,7 +2026,7 @@ No authorization required
 ```python
 import client
 from client.models.bulk_pre_ban_params import BulkPreBanParams
-from client.models.post_bulk_pre_ban_summary_response import PostBulkPreBanSummaryResponse
+from client.models.bulk_pre_ban_summary import BulkPreBanSummary
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2045,7 +2072,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostBulkPreBanSummaryResponse**](PostBulkPreBanSummaryResponse.md)
+[**BulkPreBanSummary**](BulkPreBanSummary.md)
 
 ### Authorization
 
@@ -2061,11 +2088,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_comments_by_ids**
-> PostCommentsByIdsResponse post_comments_by_ids(comments_by_ids_params, tenant_id=tenant_id, sso=sso)
+> ModerationAPIChildCommentsResponse post_comments_by_ids(comments_by_ids_params, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -2075,7 +2103,7 @@ No authorization required
 ```python
 import client
 from client.models.comments_by_ids_params import CommentsByIdsParams
-from client.models.post_comments_by_ids_response import PostCommentsByIdsResponse
+from client.models.moderation_api_child_comments_response import ModerationAPIChildCommentsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2115,7 +2143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostCommentsByIdsResponse**](PostCommentsByIdsResponse.md)
+[**ModerationAPIChildCommentsResponse**](ModerationAPIChildCommentsResponse.md)
 
 ### Authorization
 
@@ -2131,11 +2159,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_flag_comment**
-> PostFlagCommentResponse post_flag_comment(comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+> APIEmptyResponse post_flag_comment(comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -2144,7 +2173,7 @@ No authorization required
 
 ```python
 import client
-from client.models.post_flag_comment_response import PostFlagCommentResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2186,7 +2215,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostFlagCommentResponse**](PostFlagCommentResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2202,6 +2231,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2273,11 +2303,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_restore_deleted_comment**
-> PostRestoreDeletedCommentResponse post_restore_deleted_comment(comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+> APIEmptyResponse post_restore_deleted_comment(comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -2286,7 +2317,7 @@ No authorization required
 
 ```python
 import client
-from client.models.post_restore_deleted_comment_response import PostRestoreDeletedCommentResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2328,7 +2359,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostRestoreDeletedCommentResponse**](PostRestoreDeletedCommentResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2344,11 +2375,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_set_comment_approval_status**
-> PostSetCommentApprovalStatusResponse post_set_comment_approval_status(comment_id, approved=approved, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+> SetCommentApprovedResponse post_set_comment_approval_status(comment_id, approved=approved, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -2357,7 +2389,7 @@ No authorization required
 
 ```python
 import client
-from client.models.post_set_comment_approval_status_response import PostSetCommentApprovalStatusResponse
+from client.models.set_comment_approved_response import SetCommentApprovedResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2401,7 +2433,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostSetCommentApprovalStatusResponse**](PostSetCommentApprovalStatusResponse.md)
+[**SetCommentApprovedResponse**](SetCommentApprovedResponse.md)
 
 ### Authorization
 
@@ -2417,11 +2449,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_set_comment_review_status**
-> PostSetCommentReviewStatusResponse post_set_comment_review_status(comment_id, reviewed=reviewed, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+> APIEmptyResponse post_set_comment_review_status(comment_id, reviewed=reviewed, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -2430,7 +2463,7 @@ No authorization required
 
 ```python
 import client
-from client.models.post_set_comment_review_status_response import PostSetCommentReviewStatusResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2474,7 +2507,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostSetCommentReviewStatusResponse**](PostSetCommentReviewStatusResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2490,11 +2523,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_set_comment_spam_status**
-> PostSetCommentSpamStatusResponse post_set_comment_spam_status(comment_id, spam=spam, perm_not_spam=perm_not_spam, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+> APIEmptyResponse post_set_comment_spam_status(comment_id, spam=spam, perm_not_spam=perm_not_spam, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -2503,7 +2537,7 @@ No authorization required
 
 ```python
 import client
-from client.models.post_set_comment_spam_status_response import PostSetCommentSpamStatusResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2549,7 +2583,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostSetCommentSpamStatusResponse**](PostSetCommentSpamStatusResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2565,11 +2599,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_set_comment_text**
-> PostSetCommentTextResponse post_set_comment_text(comment_id, set_comment_text_params, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+> SetCommentTextResponse post_set_comment_text(comment_id, set_comment_text_params, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -2578,8 +2613,8 @@ No authorization required
 
 ```python
 import client
-from client.models.post_set_comment_text_response import PostSetCommentTextResponse
 from client.models.set_comment_text_params import SetCommentTextParams
+from client.models.set_comment_text_response import SetCommentTextResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2623,7 +2658,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostSetCommentTextResponse**](PostSetCommentTextResponse.md)
+[**SetCommentTextResponse**](SetCommentTextResponse.md)
 
 ### Authorization
 
@@ -2639,11 +2674,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_un_flag_comment**
-> PostUnFlagCommentResponse post_un_flag_comment(comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+> APIEmptyResponse post_un_flag_comment(comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -2652,7 +2688,7 @@ No authorization required
 
 ```python
 import client
-from client.models.post_un_flag_comment_response import PostUnFlagCommentResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2694,7 +2730,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostUnFlagCommentResponse**](PostUnFlagCommentResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2710,11 +2746,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_vote**
-> PostVoteResponse post_vote(comment_id, direction=direction, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+> VoteResponse post_vote(comment_id, direction=direction, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -2723,7 +2760,7 @@ No authorization required
 
 ```python
 import client
-from client.models.post_vote_response import PostVoteResponse
+from client.models.vote_response import VoteResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2767,7 +2804,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PostVoteResponse**](PostVoteResponse.md)
+[**VoteResponse**](VoteResponse.md)
 
 ### Authorization
 
@@ -2783,11 +2820,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_award_badge**
-> PutAwardBadgeResponse put_award_badge(badge_id, user_id=user_id, comment_id=comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+> AwardUserBadgeResponse put_award_badge(badge_id, user_id=user_id, comment_id=comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -2796,7 +2834,7 @@ No authorization required
 
 ```python
 import client
-from client.models.put_award_badge_response import PutAwardBadgeResponse
+from client.models.award_user_badge_response import AwardUserBadgeResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2842,7 +2880,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PutAwardBadgeResponse**](PutAwardBadgeResponse.md)
+[**AwardUserBadgeResponse**](AwardUserBadgeResponse.md)
 
 ### Authorization
 
@@ -2858,11 +2896,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_close_thread**
-> PutCloseThreadResponse put_close_thread(url_id, tenant_id=tenant_id, sso=sso)
+> APIEmptyResponse put_close_thread(url_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -2871,7 +2910,7 @@ No authorization required
 
 ```python
 import client
-from client.models.put_close_thread_response import PutCloseThreadResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2911,7 +2950,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PutCloseThreadResponse**](PutCloseThreadResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2927,11 +2966,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_remove_badge**
-> PutRemoveBadgeResponse put_remove_badge(badge_id, user_id=user_id, comment_id=comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+> RemoveUserBadgeResponse put_remove_badge(badge_id, user_id=user_id, comment_id=comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -2940,7 +2980,7 @@ No authorization required
 
 ```python
 import client
-from client.models.put_remove_badge_response import PutRemoveBadgeResponse
+from client.models.remove_user_badge_response import RemoveUserBadgeResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2986,7 +3026,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PutRemoveBadgeResponse**](PutRemoveBadgeResponse.md)
+[**RemoveUserBadgeResponse**](RemoveUserBadgeResponse.md)
 
 ### Authorization
 
@@ -3002,11 +3042,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_reopen_thread**
-> PutReopenThreadResponse put_reopen_thread(url_id, tenant_id=tenant_id, sso=sso)
+> APIEmptyResponse put_reopen_thread(url_id, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -3015,7 +3056,7 @@ No authorization required
 
 ```python
 import client
-from client.models.put_reopen_thread_response import PutReopenThreadResponse
+from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3055,7 +3096,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PutReopenThreadResponse**](PutReopenThreadResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3071,11 +3112,12 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_trust_factor**
-> SetTrustFactorResponse set_trust_factor(user_id=user_id, trust_factor=trust_factor, tenant_id=tenant_id, sso=sso)
+> SetUserTrustFactorResponse set_trust_factor(user_id=user_id, trust_factor=trust_factor, tenant_id=tenant_id, sso=sso)
 
 
 
@@ -3084,7 +3126,7 @@ No authorization required
 
 ```python
 import client
-from client.models.set_trust_factor_response import SetTrustFactorResponse
+from client.models.set_user_trust_factor_response import SetUserTrustFactorResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3126,7 +3168,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SetTrustFactorResponse**](SetTrustFactorResponse.md)
+[**SetUserTrustFactorResponse**](SetUserTrustFactorResponse.md)
 
 ### Authorization
 
@@ -3142,6 +3184,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

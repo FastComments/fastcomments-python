@@ -9,13 +9,6 @@ Name | Type | Description | Notes
 **matched_count** | **int** |  | 
 **modified_count** | **int** |  | 
 **note** | **str** |  | 
-**reason** | **str** |  | 
-**code** | **str** |  | 
-**secondary_code** | **str** |  | [optional] 
-**banned_until** | **int** |  | [optional] 
-**max_character_length** | **int** |  | [optional] 
-**translated_error** | **str** |  | [optional] 
-**custom_config** | [**CustomConfigParameters**](CustomConfigParameters.md) |  | [optional] 
 
 ## Example
 
