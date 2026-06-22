@@ -18,46 +18,54 @@ from typing_extensions import Annotated
 
 from pydantic import StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Optional, Union
-from client.models.api_empty_response import APIEmptyResponse
-from client.models.api_moderate_get_user_ban_preferences_response import APIModerateGetUserBanPreferencesResponse
 from client.models.adjust_comment_votes_params import AdjustCommentVotesParams
-from client.models.adjust_votes_response import AdjustVotesResponse
-from client.models.award_user_badge_response import AwardUserBadgeResponse
-from client.models.ban_user_from_comment_result import BanUserFromCommentResult
 from client.models.ban_user_undo_params import BanUserUndoParams
 from client.models.bulk_pre_ban_params import BulkPreBanParams
-from client.models.bulk_pre_ban_summary import BulkPreBanSummary
 from client.models.comments_by_ids_params import CommentsByIdsParams
-from client.models.get_banned_users_count_response import GetBannedUsersCountResponse
-from client.models.get_banned_users_from_comment_response import GetBannedUsersFromCommentResponse
-from client.models.get_comment_ban_status_response import GetCommentBanStatusResponse
-from client.models.get_comment_text_response import GetCommentTextResponse
-from client.models.get_tenant_manual_badges_response import GetTenantManualBadgesResponse
-from client.models.get_user_internal_profile_response import GetUserInternalProfileResponse
-from client.models.get_user_manual_badges_response import GetUserManualBadgesResponse
-from client.models.get_user_trust_factor_response import GetUserTrustFactorResponse
-from client.models.moderation_api_child_comments_response import ModerationAPIChildCommentsResponse
-from client.models.moderation_api_comment_response import ModerationAPICommentResponse
-from client.models.moderation_api_count_comments_response import ModerationAPICountCommentsResponse
-from client.models.moderation_api_get_comment_ids_response import ModerationAPIGetCommentIdsResponse
-from client.models.moderation_api_get_comments_response import ModerationAPIGetCommentsResponse
-from client.models.moderation_api_get_logs_response import ModerationAPIGetLogsResponse
-from client.models.moderation_comment_search_response import ModerationCommentSearchResponse
-from client.models.moderation_export_response import ModerationExportResponse
-from client.models.moderation_export_status_response import ModerationExportStatusResponse
-from client.models.moderation_page_search_response import ModerationPageSearchResponse
-from client.models.moderation_site_search_response import ModerationSiteSearchResponse
-from client.models.moderation_suggest_response import ModerationSuggestResponse
-from client.models.moderation_user_search_response import ModerationUserSearchResponse
+from client.models.delete_moderation_vote_response import DeleteModerationVoteResponse
+from client.models.get_api_comments_response import GetApiCommentsResponse
+from client.models.get_api_export_status_response import GetApiExportStatusResponse
+from client.models.get_api_ids_response import GetApiIdsResponse
+from client.models.get_ban_users_from_comment_response import GetBanUsersFromCommentResponse
+from client.models.get_comment_ban_status_response1 import GetCommentBanStatusResponse1
+from client.models.get_comment_children_response import GetCommentChildrenResponse
+from client.models.get_count_response import GetCountResponse
+from client.models.get_counts_response import GetCountsResponse
+from client.models.get_logs_response import GetLogsResponse
+from client.models.get_manual_badges_for_user_response import GetManualBadgesForUserResponse
+from client.models.get_manual_badges_response import GetManualBadgesResponse
+from client.models.get_moderation_comment_response import GetModerationCommentResponse
+from client.models.get_moderation_comment_text_response import GetModerationCommentTextResponse
+from client.models.get_pre_ban_summary_response import GetPreBanSummaryResponse
+from client.models.get_search_comments_summary_response import GetSearchCommentsSummaryResponse
+from client.models.get_search_pages_response import GetSearchPagesResponse
+from client.models.get_search_sites_response import GetSearchSitesResponse
+from client.models.get_search_suggest_response import GetSearchSuggestResponse
+from client.models.get_search_users_response import GetSearchUsersResponse
+from client.models.get_trust_factor_response import GetTrustFactorResponse
+from client.models.get_user_ban_preference_response import GetUserBanPreferenceResponse
+from client.models.get_user_internal_profile_response1 import GetUserInternalProfileResponse1
+from client.models.post_adjust_comment_votes_response import PostAdjustCommentVotesResponse
+from client.models.post_api_export_response import PostApiExportResponse
+from client.models.post_ban_user_from_comment_response import PostBanUserFromCommentResponse
+from client.models.post_ban_user_undo_response import PostBanUserUndoResponse
+from client.models.post_bulk_pre_ban_summary_response import PostBulkPreBanSummaryResponse
+from client.models.post_comments_by_ids_response import PostCommentsByIdsResponse
+from client.models.post_flag_comment_response import PostFlagCommentResponse
 from client.models.post_remove_comment_response import PostRemoveCommentResponse
-from client.models.pre_ban_summary import PreBanSummary
-from client.models.remove_user_badge_response import RemoveUserBadgeResponse
-from client.models.set_comment_approved_response import SetCommentApprovedResponse
+from client.models.post_restore_deleted_comment_response import PostRestoreDeletedCommentResponse
+from client.models.post_set_comment_approval_status_response import PostSetCommentApprovalStatusResponse
+from client.models.post_set_comment_review_status_response import PostSetCommentReviewStatusResponse
+from client.models.post_set_comment_spam_status_response import PostSetCommentSpamStatusResponse
+from client.models.post_set_comment_text_response import PostSetCommentTextResponse
+from client.models.post_un_flag_comment_response import PostUnFlagCommentResponse
+from client.models.post_vote_response import PostVoteResponse
+from client.models.put_award_badge_response import PutAwardBadgeResponse
+from client.models.put_close_thread_response import PutCloseThreadResponse
+from client.models.put_remove_badge_response import PutRemoveBadgeResponse
+from client.models.put_reopen_thread_response import PutReopenThreadResponse
 from client.models.set_comment_text_params import SetCommentTextParams
-from client.models.set_comment_text_response import SetCommentTextResponse
-from client.models.set_user_trust_factor_response import SetUserTrustFactorResponse
-from client.models.vote_delete_response import VoteDeleteResponse
-from client.models.vote_response import VoteResponse
+from client.models.set_trust_factor_response import SetTrustFactorResponse
 
 from client.api_client import ApiClient, RequestSerialized
 from client.api_response import ApiResponse
@@ -82,6 +90,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         vote_id: StrictStr,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -95,7 +105,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> VoteDeleteResponse:
+    ) -> DeleteModerationVoteResponse:
         """delete_moderation_vote
 
 
@@ -103,6 +113,10 @@ class ModerationApi:
         :type comment_id: str
         :param vote_id: (required)
         :type vote_id: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -130,6 +144,8 @@ class ModerationApi:
         _param = self._delete_moderation_vote_serialize(
             comment_id=comment_id,
             vote_id=vote_id,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -138,7 +154,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VoteDeleteResponse",
+            '200': "DeleteModerationVoteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -156,6 +172,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         vote_id: StrictStr,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -169,7 +187,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[VoteDeleteResponse]:
+    ) -> ApiResponse[DeleteModerationVoteResponse]:
         """delete_moderation_vote
 
 
@@ -177,6 +195,10 @@ class ModerationApi:
         :type comment_id: str
         :param vote_id: (required)
         :type vote_id: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -204,6 +226,8 @@ class ModerationApi:
         _param = self._delete_moderation_vote_serialize(
             comment_id=comment_id,
             vote_id=vote_id,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -212,7 +236,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VoteDeleteResponse",
+            '200': "DeleteModerationVoteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -230,6 +254,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         vote_id: StrictStr,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -251,6 +277,10 @@ class ModerationApi:
         :type comment_id: str
         :param vote_id: (required)
         :type vote_id: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -278,6 +308,8 @@ class ModerationApi:
         _param = self._delete_moderation_vote_serialize(
             comment_id=comment_id,
             vote_id=vote_id,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -286,7 +318,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VoteDeleteResponse",
+            '200': "DeleteModerationVoteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -299,6 +331,8 @@ class ModerationApi:
         self,
         comment_id,
         vote_id,
+        broadcast_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -326,6 +360,14 @@ class ModerationApi:
         if vote_id is not None:
             _path_params['voteId'] = vote_id
         # process the query parameters
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -377,6 +419,7 @@ class ModerationApi:
         search_filters: Optional[StrictStr] = None,
         sorts: Optional[StrictStr] = None,
         demo: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -390,7 +433,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModerationAPIGetCommentsResponse:
+    ) -> GetApiCommentsResponse:
         """get_api_comments
 
 
@@ -410,6 +453,8 @@ class ModerationApi:
         :type sorts: str
         :param demo:
         :type demo: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -443,6 +488,7 @@ class ModerationApi:
             search_filters=search_filters,
             sorts=sorts,
             demo=demo,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -451,7 +497,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPIGetCommentsResponse",
+            '200': "GetApiCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -475,6 +521,7 @@ class ModerationApi:
         search_filters: Optional[StrictStr] = None,
         sorts: Optional[StrictStr] = None,
         demo: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -488,7 +535,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModerationAPIGetCommentsResponse]:
+    ) -> ApiResponse[GetApiCommentsResponse]:
         """get_api_comments
 
 
@@ -508,6 +555,8 @@ class ModerationApi:
         :type sorts: str
         :param demo:
         :type demo: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -541,6 +590,7 @@ class ModerationApi:
             search_filters=search_filters,
             sorts=sorts,
             demo=demo,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -549,7 +599,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPIGetCommentsResponse",
+            '200': "GetApiCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -573,6 +623,7 @@ class ModerationApi:
         search_filters: Optional[StrictStr] = None,
         sorts: Optional[StrictStr] = None,
         demo: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -606,6 +657,8 @@ class ModerationApi:
         :type sorts: str
         :param demo:
         :type demo: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -639,6 +692,7 @@ class ModerationApi:
             search_filters=search_filters,
             sorts=sorts,
             demo=demo,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -647,7 +701,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPIGetCommentsResponse",
+            '200': "GetApiCommentsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -666,6 +720,7 @@ class ModerationApi:
         search_filters,
         sorts,
         demo,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -721,6 +776,10 @@ class ModerationApi:
             
             _query_params.append(('demo', demo))
             
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -765,6 +824,7 @@ class ModerationApi:
     def get_api_export_status(
         self,
         batch_job_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -778,12 +838,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModerationExportStatusResponse:
+    ) -> GetApiExportStatusResponse:
         """get_api_export_status
 
 
         :param batch_job_id:
         :type batch_job_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -810,6 +872,7 @@ class ModerationApi:
 
         _param = self._get_api_export_status_serialize(
             batch_job_id=batch_job_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -818,7 +881,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationExportStatusResponse",
+            '200': "GetApiExportStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -835,6 +898,7 @@ class ModerationApi:
     def get_api_export_status_with_http_info(
         self,
         batch_job_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -848,12 +912,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModerationExportStatusResponse]:
+    ) -> ApiResponse[GetApiExportStatusResponse]:
         """get_api_export_status
 
 
         :param batch_job_id:
         :type batch_job_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -880,6 +946,7 @@ class ModerationApi:
 
         _param = self._get_api_export_status_serialize(
             batch_job_id=batch_job_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -888,7 +955,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationExportStatusResponse",
+            '200': "GetApiExportStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -905,6 +972,7 @@ class ModerationApi:
     def get_api_export_status_without_preload_content(
         self,
         batch_job_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -924,6 +992,8 @@ class ModerationApi:
 
         :param batch_job_id:
         :type batch_job_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -950,6 +1020,7 @@ class ModerationApi:
 
         _param = self._get_api_export_status_serialize(
             batch_job_id=batch_job_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -958,7 +1029,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationExportStatusResponse",
+            '200': "GetApiExportStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -970,6 +1041,7 @@ class ModerationApi:
     def _get_api_export_status_serialize(
         self,
         batch_job_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -996,6 +1068,10 @@ class ModerationApi:
         if batch_job_id is not None:
             
             _query_params.append(('batchJobId', batch_job_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -1046,6 +1122,7 @@ class ModerationApi:
         search_filters: Optional[StrictStr] = None,
         after_id: Optional[StrictStr] = None,
         demo: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -1059,7 +1136,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModerationAPIGetCommentIdsResponse:
+    ) -> GetApiIdsResponse:
         """get_api_ids
 
 
@@ -1075,6 +1152,8 @@ class ModerationApi:
         :type after_id: str
         :param demo:
         :type demo: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1106,6 +1185,7 @@ class ModerationApi:
             search_filters=search_filters,
             after_id=after_id,
             demo=demo,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1114,7 +1194,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPIGetCommentIdsResponse",
+            '200': "GetApiIdsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1136,6 +1216,7 @@ class ModerationApi:
         search_filters: Optional[StrictStr] = None,
         after_id: Optional[StrictStr] = None,
         demo: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -1149,7 +1230,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModerationAPIGetCommentIdsResponse]:
+    ) -> ApiResponse[GetApiIdsResponse]:
         """get_api_ids
 
 
@@ -1165,6 +1246,8 @@ class ModerationApi:
         :type after_id: str
         :param demo:
         :type demo: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1196,6 +1279,7 @@ class ModerationApi:
             search_filters=search_filters,
             after_id=after_id,
             demo=demo,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1204,7 +1288,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPIGetCommentIdsResponse",
+            '200': "GetApiIdsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1226,6 +1310,7 @@ class ModerationApi:
         search_filters: Optional[StrictStr] = None,
         after_id: Optional[StrictStr] = None,
         demo: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -1255,6 +1340,8 @@ class ModerationApi:
         :type after_id: str
         :param demo:
         :type demo: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1286,6 +1373,7 @@ class ModerationApi:
             search_filters=search_filters,
             after_id=after_id,
             demo=demo,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1294,7 +1382,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPIGetCommentIdsResponse",
+            '200': "GetApiIdsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1311,6 +1399,7 @@ class ModerationApi:
         search_filters,
         after_id,
         demo,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -1358,6 +1447,10 @@ class ModerationApi:
             
             _query_params.append(('demo', demo))
             
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -1402,6 +1495,7 @@ class ModerationApi:
     def get_ban_users_from_comment(
         self,
         comment_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -1415,12 +1509,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetBannedUsersFromCommentResponse:
+    ) -> GetBanUsersFromCommentResponse:
         """get_ban_users_from_comment
 
 
         :param comment_id: (required)
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1447,6 +1543,7 @@ class ModerationApi:
 
         _param = self._get_ban_users_from_comment_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1455,7 +1552,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBannedUsersFromCommentResponse",
+            '200': "GetBanUsersFromCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1472,6 +1569,7 @@ class ModerationApi:
     def get_ban_users_from_comment_with_http_info(
         self,
         comment_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -1485,12 +1583,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetBannedUsersFromCommentResponse]:
+    ) -> ApiResponse[GetBanUsersFromCommentResponse]:
         """get_ban_users_from_comment
 
 
         :param comment_id: (required)
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1517,6 +1617,7 @@ class ModerationApi:
 
         _param = self._get_ban_users_from_comment_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1525,7 +1626,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBannedUsersFromCommentResponse",
+            '200': "GetBanUsersFromCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1542,6 +1643,7 @@ class ModerationApi:
     def get_ban_users_from_comment_without_preload_content(
         self,
         comment_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -1561,6 +1663,8 @@ class ModerationApi:
 
         :param comment_id: (required)
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1587,6 +1691,7 @@ class ModerationApi:
 
         _param = self._get_ban_users_from_comment_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1595,7 +1700,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBannedUsersFromCommentResponse",
+            '200': "GetBanUsersFromCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1607,6 +1712,7 @@ class ModerationApi:
     def _get_ban_users_from_comment_serialize(
         self,
         comment_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -1632,6 +1738,10 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -1676,6 +1786,7 @@ class ModerationApi:
     def get_comment_ban_status(
         self,
         comment_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -1689,12 +1800,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetCommentBanStatusResponse:
+    ) -> GetCommentBanStatusResponse1:
         """get_comment_ban_status
 
 
         :param comment_id: (required)
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1721,6 +1834,7 @@ class ModerationApi:
 
         _param = self._get_comment_ban_status_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1729,7 +1843,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentBanStatusResponse",
+            '200': "GetCommentBanStatusResponse1",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1746,6 +1860,7 @@ class ModerationApi:
     def get_comment_ban_status_with_http_info(
         self,
         comment_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -1759,12 +1874,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetCommentBanStatusResponse]:
+    ) -> ApiResponse[GetCommentBanStatusResponse1]:
         """get_comment_ban_status
 
 
         :param comment_id: (required)
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1791,6 +1908,7 @@ class ModerationApi:
 
         _param = self._get_comment_ban_status_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1799,7 +1917,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentBanStatusResponse",
+            '200': "GetCommentBanStatusResponse1",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1816,6 +1934,7 @@ class ModerationApi:
     def get_comment_ban_status_without_preload_content(
         self,
         comment_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -1835,6 +1954,8 @@ class ModerationApi:
 
         :param comment_id: (required)
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1861,6 +1982,7 @@ class ModerationApi:
 
         _param = self._get_comment_ban_status_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1869,7 +1991,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentBanStatusResponse",
+            '200': "GetCommentBanStatusResponse1",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1881,6 +2003,7 @@ class ModerationApi:
     def _get_comment_ban_status_serialize(
         self,
         comment_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -1906,6 +2029,10 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -1950,6 +2077,7 @@ class ModerationApi:
     def get_comment_children(
         self,
         comment_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -1963,12 +2091,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModerationAPIChildCommentsResponse:
+    ) -> GetCommentChildrenResponse:
         """get_comment_children
 
 
         :param comment_id: (required)
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1995,6 +2125,7 @@ class ModerationApi:
 
         _param = self._get_comment_children_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2003,7 +2134,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPIChildCommentsResponse",
+            '200': "GetCommentChildrenResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2020,6 +2151,7 @@ class ModerationApi:
     def get_comment_children_with_http_info(
         self,
         comment_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -2033,12 +2165,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModerationAPIChildCommentsResponse]:
+    ) -> ApiResponse[GetCommentChildrenResponse]:
         """get_comment_children
 
 
         :param comment_id: (required)
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2065,6 +2199,7 @@ class ModerationApi:
 
         _param = self._get_comment_children_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2073,7 +2208,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPIChildCommentsResponse",
+            '200': "GetCommentChildrenResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2090,6 +2225,7 @@ class ModerationApi:
     def get_comment_children_without_preload_content(
         self,
         comment_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -2109,6 +2245,8 @@ class ModerationApi:
 
         :param comment_id: (required)
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2135,6 +2273,7 @@ class ModerationApi:
 
         _param = self._get_comment_children_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2143,7 +2282,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPIChildCommentsResponse",
+            '200': "GetCommentChildrenResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2155,6 +2294,7 @@ class ModerationApi:
     def _get_comment_children_serialize(
         self,
         comment_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -2180,6 +2320,10 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -2228,6 +2372,7 @@ class ModerationApi:
         filter: Optional[StrictStr] = None,
         search_filters: Optional[StrictStr] = None,
         demo: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -2241,7 +2386,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModerationAPICountCommentsResponse:
+    ) -> GetCountResponse:
         """get_count
 
 
@@ -2255,6 +2400,8 @@ class ModerationApi:
         :type search_filters: str
         :param demo:
         :type demo: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2285,6 +2432,7 @@ class ModerationApi:
             filter=filter,
             search_filters=search_filters,
             demo=demo,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2293,7 +2441,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPICountCommentsResponse",
+            '200': "GetCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2314,6 +2462,7 @@ class ModerationApi:
         filter: Optional[StrictStr] = None,
         search_filters: Optional[StrictStr] = None,
         demo: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -2327,7 +2476,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModerationAPICountCommentsResponse]:
+    ) -> ApiResponse[GetCountResponse]:
         """get_count
 
 
@@ -2341,6 +2490,8 @@ class ModerationApi:
         :type search_filters: str
         :param demo:
         :type demo: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2371,6 +2522,7 @@ class ModerationApi:
             filter=filter,
             search_filters=search_filters,
             demo=demo,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2379,7 +2531,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPICountCommentsResponse",
+            '200': "GetCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2400,6 +2552,7 @@ class ModerationApi:
         filter: Optional[StrictStr] = None,
         search_filters: Optional[StrictStr] = None,
         demo: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -2427,6 +2580,8 @@ class ModerationApi:
         :type search_filters: str
         :param demo:
         :type demo: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2457,6 +2612,7 @@ class ModerationApi:
             filter=filter,
             search_filters=search_filters,
             demo=demo,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2465,7 +2621,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPICountCommentsResponse",
+            '200': "GetCountResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2481,6 +2637,7 @@ class ModerationApi:
         filter,
         search_filters,
         demo,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -2523,6 +2680,10 @@ class ModerationApi:
         if demo is not None:
             
             _query_params.append(('demo', demo))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -2567,6 +2728,7 @@ class ModerationApi:
     @validate_call
     def get_counts(
         self,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -2580,10 +2742,12 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetBannedUsersCountResponse:
+    ) -> GetCountsResponse:
         """get_counts
 
 
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2609,6 +2773,7 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_counts_serialize(
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2617,7 +2782,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBannedUsersCountResponse",
+            '200': "GetCountsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2633,6 +2798,7 @@ class ModerationApi:
     @validate_call
     def get_counts_with_http_info(
         self,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -2646,10 +2812,12 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetBannedUsersCountResponse]:
+    ) -> ApiResponse[GetCountsResponse]:
         """get_counts
 
 
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2675,6 +2843,7 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_counts_serialize(
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2683,7 +2852,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBannedUsersCountResponse",
+            '200': "GetCountsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2699,6 +2868,7 @@ class ModerationApi:
     @validate_call
     def get_counts_without_preload_content(
         self,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -2716,6 +2886,8 @@ class ModerationApi:
         """get_counts
 
 
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2741,6 +2913,7 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_counts_serialize(
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2749,7 +2922,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetBannedUsersCountResponse",
+            '200': "GetCountsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2760,6 +2933,7 @@ class ModerationApi:
 
     def _get_counts_serialize(
         self,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -2783,6 +2957,10 @@ class ModerationApi:
 
         # process the path parameters
         # process the query parameters
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -2827,6 +3005,7 @@ class ModerationApi:
     def get_logs(
         self,
         comment_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -2840,12 +3019,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModerationAPIGetLogsResponse:
+    ) -> GetLogsResponse:
         """get_logs
 
 
         :param comment_id: (required)
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2872,6 +3053,7 @@ class ModerationApi:
 
         _param = self._get_logs_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2880,7 +3062,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPIGetLogsResponse",
+            '200': "GetLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2897,6 +3079,7 @@ class ModerationApi:
     def get_logs_with_http_info(
         self,
         comment_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -2910,12 +3093,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModerationAPIGetLogsResponse]:
+    ) -> ApiResponse[GetLogsResponse]:
         """get_logs
 
 
         :param comment_id: (required)
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -2942,6 +3127,7 @@ class ModerationApi:
 
         _param = self._get_logs_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2950,7 +3136,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPIGetLogsResponse",
+            '200': "GetLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2967,6 +3153,7 @@ class ModerationApi:
     def get_logs_without_preload_content(
         self,
         comment_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -2986,6 +3173,8 @@ class ModerationApi:
 
         :param comment_id: (required)
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -3012,6 +3201,7 @@ class ModerationApi:
 
         _param = self._get_logs_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3020,7 +3210,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPIGetLogsResponse",
+            '200': "GetLogsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3032,6 +3222,7 @@ class ModerationApi:
     def _get_logs_serialize(
         self,
         comment_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -3057,6 +3248,10 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -3100,6 +3295,7 @@ class ModerationApi:
     @validate_call
     def get_manual_badges(
         self,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -3113,10 +3309,12 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetTenantManualBadgesResponse:
+    ) -> GetManualBadgesResponse:
         """get_manual_badges
 
 
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -3142,6 +3340,7 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_manual_badges_serialize(
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3150,7 +3349,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantManualBadgesResponse",
+            '200': "GetManualBadgesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3166,6 +3365,7 @@ class ModerationApi:
     @validate_call
     def get_manual_badges_with_http_info(
         self,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -3179,10 +3379,12 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetTenantManualBadgesResponse]:
+    ) -> ApiResponse[GetManualBadgesResponse]:
         """get_manual_badges
 
 
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -3208,6 +3410,7 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_manual_badges_serialize(
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3216,7 +3419,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantManualBadgesResponse",
+            '200': "GetManualBadgesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3232,6 +3435,7 @@ class ModerationApi:
     @validate_call
     def get_manual_badges_without_preload_content(
         self,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -3249,6 +3453,8 @@ class ModerationApi:
         """get_manual_badges
 
 
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -3274,6 +3480,7 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_manual_badges_serialize(
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3282,7 +3489,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetTenantManualBadgesResponse",
+            '200': "GetManualBadgesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3293,6 +3500,7 @@ class ModerationApi:
 
     def _get_manual_badges_serialize(
         self,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -3316,6 +3524,10 @@ class ModerationApi:
 
         # process the path parameters
         # process the query parameters
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -3361,6 +3573,7 @@ class ModerationApi:
         self,
         badges_user_id: Optional[StrictStr] = None,
         comment_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -3374,7 +3587,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserManualBadgesResponse:
+    ) -> GetManualBadgesForUserResponse:
         """get_manual_badges_for_user
 
 
@@ -3382,6 +3595,8 @@ class ModerationApi:
         :type badges_user_id: str
         :param comment_id:
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -3409,6 +3624,7 @@ class ModerationApi:
         _param = self._get_manual_badges_for_user_serialize(
             badges_user_id=badges_user_id,
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3417,7 +3633,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserManualBadgesResponse",
+            '200': "GetManualBadgesForUserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3435,6 +3651,7 @@ class ModerationApi:
         self,
         badges_user_id: Optional[StrictStr] = None,
         comment_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -3448,7 +3665,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserManualBadgesResponse]:
+    ) -> ApiResponse[GetManualBadgesForUserResponse]:
         """get_manual_badges_for_user
 
 
@@ -3456,6 +3673,8 @@ class ModerationApi:
         :type badges_user_id: str
         :param comment_id:
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -3483,6 +3702,7 @@ class ModerationApi:
         _param = self._get_manual_badges_for_user_serialize(
             badges_user_id=badges_user_id,
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3491,7 +3711,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserManualBadgesResponse",
+            '200': "GetManualBadgesForUserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3509,6 +3729,7 @@ class ModerationApi:
         self,
         badges_user_id: Optional[StrictStr] = None,
         comment_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -3530,6 +3751,8 @@ class ModerationApi:
         :type badges_user_id: str
         :param comment_id:
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -3557,6 +3780,7 @@ class ModerationApi:
         _param = self._get_manual_badges_for_user_serialize(
             badges_user_id=badges_user_id,
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3565,7 +3789,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserManualBadgesResponse",
+            '200': "GetManualBadgesForUserResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3578,6 +3802,7 @@ class ModerationApi:
         self,
         badges_user_id,
         comment_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -3608,6 +3833,10 @@ class ModerationApi:
         if comment_id is not None:
             
             _query_params.append(('commentId', comment_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -3655,6 +3884,7 @@ class ModerationApi:
         comment_id: StrictStr,
         include_email: Optional[StrictBool] = None,
         include_ip: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -3668,7 +3898,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModerationAPICommentResponse:
+    ) -> GetModerationCommentResponse:
         """get_moderation_comment
 
 
@@ -3678,6 +3908,8 @@ class ModerationApi:
         :type include_email: bool
         :param include_ip:
         :type include_ip: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -3706,6 +3938,7 @@ class ModerationApi:
             comment_id=comment_id,
             include_email=include_email,
             include_ip=include_ip,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3714,7 +3947,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPICommentResponse",
+            '200': "GetModerationCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3733,6 +3966,7 @@ class ModerationApi:
         comment_id: StrictStr,
         include_email: Optional[StrictBool] = None,
         include_ip: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -3746,7 +3980,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModerationAPICommentResponse]:
+    ) -> ApiResponse[GetModerationCommentResponse]:
         """get_moderation_comment
 
 
@@ -3756,6 +3990,8 @@ class ModerationApi:
         :type include_email: bool
         :param include_ip:
         :type include_ip: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -3784,6 +4020,7 @@ class ModerationApi:
             comment_id=comment_id,
             include_email=include_email,
             include_ip=include_ip,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3792,7 +4029,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPICommentResponse",
+            '200': "GetModerationCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3811,6 +4048,7 @@ class ModerationApi:
         comment_id: StrictStr,
         include_email: Optional[StrictBool] = None,
         include_ip: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -3834,6 +4072,8 @@ class ModerationApi:
         :type include_email: bool
         :param include_ip:
         :type include_ip: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -3862,6 +4102,7 @@ class ModerationApi:
             comment_id=comment_id,
             include_email=include_email,
             include_ip=include_ip,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3870,7 +4111,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPICommentResponse",
+            '200': "GetModerationCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3884,6 +4125,7 @@ class ModerationApi:
         comment_id,
         include_email,
         include_ip,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -3916,6 +4158,10 @@ class ModerationApi:
         if include_ip is not None:
             
             _query_params.append(('includeIP', include_ip))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -3961,6 +4207,7 @@ class ModerationApi:
     def get_moderation_comment_text(
         self,
         comment_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -3974,12 +4221,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetCommentTextResponse:
+    ) -> GetModerationCommentTextResponse:
         """get_moderation_comment_text
 
 
         :param comment_id: (required)
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -4006,6 +4255,7 @@ class ModerationApi:
 
         _param = self._get_moderation_comment_text_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4014,7 +4264,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentTextResponse",
+            '200': "GetModerationCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4031,6 +4281,7 @@ class ModerationApi:
     def get_moderation_comment_text_with_http_info(
         self,
         comment_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -4044,12 +4295,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetCommentTextResponse]:
+    ) -> ApiResponse[GetModerationCommentTextResponse]:
         """get_moderation_comment_text
 
 
         :param comment_id: (required)
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -4076,6 +4329,7 @@ class ModerationApi:
 
         _param = self._get_moderation_comment_text_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4084,7 +4338,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentTextResponse",
+            '200': "GetModerationCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4101,6 +4355,7 @@ class ModerationApi:
     def get_moderation_comment_text_without_preload_content(
         self,
         comment_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -4120,6 +4375,8 @@ class ModerationApi:
 
         :param comment_id: (required)
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -4146,6 +4403,7 @@ class ModerationApi:
 
         _param = self._get_moderation_comment_text_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4154,7 +4412,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetCommentTextResponse",
+            '200': "GetModerationCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4166,6 +4424,7 @@ class ModerationApi:
     def _get_moderation_comment_text_serialize(
         self,
         comment_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -4191,6 +4450,10 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -4238,6 +4501,7 @@ class ModerationApi:
         include_by_user_id_and_email: Optional[StrictBool] = None,
         include_by_ip: Optional[StrictBool] = None,
         include_by_email_domain: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -4251,7 +4515,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PreBanSummary:
+    ) -> GetPreBanSummaryResponse:
         """get_pre_ban_summary
 
 
@@ -4263,6 +4527,8 @@ class ModerationApi:
         :type include_by_ip: bool
         :param include_by_email_domain:
         :type include_by_email_domain: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -4292,6 +4558,7 @@ class ModerationApi:
             include_by_user_id_and_email=include_by_user_id_and_email,
             include_by_ip=include_by_ip,
             include_by_email_domain=include_by_email_domain,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4300,7 +4567,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PreBanSummary",
+            '200': "GetPreBanSummaryResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4320,6 +4587,7 @@ class ModerationApi:
         include_by_user_id_and_email: Optional[StrictBool] = None,
         include_by_ip: Optional[StrictBool] = None,
         include_by_email_domain: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -4333,7 +4601,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PreBanSummary]:
+    ) -> ApiResponse[GetPreBanSummaryResponse]:
         """get_pre_ban_summary
 
 
@@ -4345,6 +4613,8 @@ class ModerationApi:
         :type include_by_ip: bool
         :param include_by_email_domain:
         :type include_by_email_domain: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -4374,6 +4644,7 @@ class ModerationApi:
             include_by_user_id_and_email=include_by_user_id_and_email,
             include_by_ip=include_by_ip,
             include_by_email_domain=include_by_email_domain,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4382,7 +4653,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PreBanSummary",
+            '200': "GetPreBanSummaryResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4402,6 +4673,7 @@ class ModerationApi:
         include_by_user_id_and_email: Optional[StrictBool] = None,
         include_by_ip: Optional[StrictBool] = None,
         include_by_email_domain: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -4427,6 +4699,8 @@ class ModerationApi:
         :type include_by_ip: bool
         :param include_by_email_domain:
         :type include_by_email_domain: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -4456,6 +4730,7 @@ class ModerationApi:
             include_by_user_id_and_email=include_by_user_id_and_email,
             include_by_ip=include_by_ip,
             include_by_email_domain=include_by_email_domain,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4464,7 +4739,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PreBanSummary",
+            '200': "GetPreBanSummaryResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4479,6 +4754,7 @@ class ModerationApi:
         include_by_user_id_and_email,
         include_by_ip,
         include_by_email_domain,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -4515,6 +4791,10 @@ class ModerationApi:
         if include_by_email_domain is not None:
             
             _query_params.append(('includeByEmailDomain', include_by_email_domain))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -4562,6 +4842,7 @@ class ModerationApi:
         value: Optional[StrictStr] = None,
         filters: Optional[StrictStr] = None,
         search_filters: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -4575,7 +4856,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModerationCommentSearchResponse:
+    ) -> GetSearchCommentsSummaryResponse:
         """get_search_comments_summary
 
 
@@ -4585,6 +4866,8 @@ class ModerationApi:
         :type filters: str
         :param search_filters:
         :type search_filters: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -4613,6 +4896,7 @@ class ModerationApi:
             value=value,
             filters=filters,
             search_filters=search_filters,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4621,7 +4905,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationCommentSearchResponse",
+            '200': "GetSearchCommentsSummaryResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4640,6 +4924,7 @@ class ModerationApi:
         value: Optional[StrictStr] = None,
         filters: Optional[StrictStr] = None,
         search_filters: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -4653,7 +4938,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModerationCommentSearchResponse]:
+    ) -> ApiResponse[GetSearchCommentsSummaryResponse]:
         """get_search_comments_summary
 
 
@@ -4663,6 +4948,8 @@ class ModerationApi:
         :type filters: str
         :param search_filters:
         :type search_filters: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -4691,6 +4978,7 @@ class ModerationApi:
             value=value,
             filters=filters,
             search_filters=search_filters,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4699,7 +4987,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationCommentSearchResponse",
+            '200': "GetSearchCommentsSummaryResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4718,6 +5006,7 @@ class ModerationApi:
         value: Optional[StrictStr] = None,
         filters: Optional[StrictStr] = None,
         search_filters: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -4741,6 +5030,8 @@ class ModerationApi:
         :type filters: str
         :param search_filters:
         :type search_filters: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -4769,6 +5060,7 @@ class ModerationApi:
             value=value,
             filters=filters,
             search_filters=search_filters,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4777,7 +5069,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationCommentSearchResponse",
+            '200': "GetSearchCommentsSummaryResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4791,6 +5083,7 @@ class ModerationApi:
         value,
         filters,
         search_filters,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -4825,6 +5118,10 @@ class ModerationApi:
         if search_filters is not None:
             
             _query_params.append(('searchFilters', search_filters))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -4870,6 +5167,7 @@ class ModerationApi:
     def get_search_pages(
         self,
         value: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -4883,12 +5181,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModerationPageSearchResponse:
+    ) -> GetSearchPagesResponse:
         """get_search_pages
 
 
         :param value:
         :type value: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -4915,6 +5215,7 @@ class ModerationApi:
 
         _param = self._get_search_pages_serialize(
             value=value,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4923,7 +5224,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationPageSearchResponse",
+            '200': "GetSearchPagesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4940,6 +5241,7 @@ class ModerationApi:
     def get_search_pages_with_http_info(
         self,
         value: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -4953,12 +5255,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModerationPageSearchResponse]:
+    ) -> ApiResponse[GetSearchPagesResponse]:
         """get_search_pages
 
 
         :param value:
         :type value: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -4985,6 +5289,7 @@ class ModerationApi:
 
         _param = self._get_search_pages_serialize(
             value=value,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -4993,7 +5298,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationPageSearchResponse",
+            '200': "GetSearchPagesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5010,6 +5315,7 @@ class ModerationApi:
     def get_search_pages_without_preload_content(
         self,
         value: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -5029,6 +5335,8 @@ class ModerationApi:
 
         :param value:
         :type value: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -5055,6 +5363,7 @@ class ModerationApi:
 
         _param = self._get_search_pages_serialize(
             value=value,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5063,7 +5372,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationPageSearchResponse",
+            '200': "GetSearchPagesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5075,6 +5384,7 @@ class ModerationApi:
     def _get_search_pages_serialize(
         self,
         value,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -5101,6 +5411,10 @@ class ModerationApi:
         if value is not None:
             
             _query_params.append(('value', value))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -5146,6 +5460,7 @@ class ModerationApi:
     def get_search_sites(
         self,
         value: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -5159,12 +5474,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModerationSiteSearchResponse:
+    ) -> GetSearchSitesResponse:
         """get_search_sites
 
 
         :param value:
         :type value: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -5191,6 +5508,7 @@ class ModerationApi:
 
         _param = self._get_search_sites_serialize(
             value=value,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5199,7 +5517,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationSiteSearchResponse",
+            '200': "GetSearchSitesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5216,6 +5534,7 @@ class ModerationApi:
     def get_search_sites_with_http_info(
         self,
         value: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -5229,12 +5548,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModerationSiteSearchResponse]:
+    ) -> ApiResponse[GetSearchSitesResponse]:
         """get_search_sites
 
 
         :param value:
         :type value: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -5261,6 +5582,7 @@ class ModerationApi:
 
         _param = self._get_search_sites_serialize(
             value=value,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5269,7 +5591,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationSiteSearchResponse",
+            '200': "GetSearchSitesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5286,6 +5608,7 @@ class ModerationApi:
     def get_search_sites_without_preload_content(
         self,
         value: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -5305,6 +5628,8 @@ class ModerationApi:
 
         :param value:
         :type value: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -5331,6 +5656,7 @@ class ModerationApi:
 
         _param = self._get_search_sites_serialize(
             value=value,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5339,7 +5665,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationSiteSearchResponse",
+            '200': "GetSearchSitesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5351,6 +5677,7 @@ class ModerationApi:
     def _get_search_sites_serialize(
         self,
         value,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -5377,6 +5704,10 @@ class ModerationApi:
         if value is not None:
             
             _query_params.append(('value', value))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -5422,6 +5753,7 @@ class ModerationApi:
     def get_search_suggest(
         self,
         text_search: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -5435,12 +5767,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModerationSuggestResponse:
+    ) -> GetSearchSuggestResponse:
         """get_search_suggest
 
 
         :param text_search:
         :type text_search: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -5467,6 +5801,7 @@ class ModerationApi:
 
         _param = self._get_search_suggest_serialize(
             text_search=text_search,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5475,7 +5810,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationSuggestResponse",
+            '200': "GetSearchSuggestResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5492,6 +5827,7 @@ class ModerationApi:
     def get_search_suggest_with_http_info(
         self,
         text_search: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -5505,12 +5841,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModerationSuggestResponse]:
+    ) -> ApiResponse[GetSearchSuggestResponse]:
         """get_search_suggest
 
 
         :param text_search:
         :type text_search: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -5537,6 +5875,7 @@ class ModerationApi:
 
         _param = self._get_search_suggest_serialize(
             text_search=text_search,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5545,7 +5884,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationSuggestResponse",
+            '200': "GetSearchSuggestResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5562,6 +5901,7 @@ class ModerationApi:
     def get_search_suggest_without_preload_content(
         self,
         text_search: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -5581,6 +5921,8 @@ class ModerationApi:
 
         :param text_search:
         :type text_search: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -5607,6 +5949,7 @@ class ModerationApi:
 
         _param = self._get_search_suggest_serialize(
             text_search=text_search,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5615,7 +5958,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationSuggestResponse",
+            '200': "GetSearchSuggestResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5627,6 +5970,7 @@ class ModerationApi:
     def _get_search_suggest_serialize(
         self,
         text_search,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -5653,6 +5997,10 @@ class ModerationApi:
         if text_search is not None:
             
             _query_params.append(('text-search', text_search))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -5698,6 +6046,7 @@ class ModerationApi:
     def get_search_users(
         self,
         value: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -5711,12 +6060,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModerationUserSearchResponse:
+    ) -> GetSearchUsersResponse:
         """get_search_users
 
 
         :param value:
         :type value: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -5743,6 +6094,7 @@ class ModerationApi:
 
         _param = self._get_search_users_serialize(
             value=value,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5751,7 +6103,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationUserSearchResponse",
+            '200': "GetSearchUsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5768,6 +6120,7 @@ class ModerationApi:
     def get_search_users_with_http_info(
         self,
         value: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -5781,12 +6134,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModerationUserSearchResponse]:
+    ) -> ApiResponse[GetSearchUsersResponse]:
         """get_search_users
 
 
         :param value:
         :type value: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -5813,6 +6168,7 @@ class ModerationApi:
 
         _param = self._get_search_users_serialize(
             value=value,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5821,7 +6177,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationUserSearchResponse",
+            '200': "GetSearchUsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5838,6 +6194,7 @@ class ModerationApi:
     def get_search_users_without_preload_content(
         self,
         value: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -5857,6 +6214,8 @@ class ModerationApi:
 
         :param value:
         :type value: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -5883,6 +6242,7 @@ class ModerationApi:
 
         _param = self._get_search_users_serialize(
             value=value,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -5891,7 +6251,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationUserSearchResponse",
+            '200': "GetSearchUsersResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5903,6 +6263,7 @@ class ModerationApi:
     def _get_search_users_serialize(
         self,
         value,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -5929,6 +6290,10 @@ class ModerationApi:
         if value is not None:
             
             _query_params.append(('value', value))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -5974,6 +6339,7 @@ class ModerationApi:
     def get_trust_factor(
         self,
         user_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -5987,12 +6353,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserTrustFactorResponse:
+    ) -> GetTrustFactorResponse:
         """get_trust_factor
 
 
         :param user_id:
         :type user_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -6019,6 +6387,7 @@ class ModerationApi:
 
         _param = self._get_trust_factor_serialize(
             user_id=user_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6027,7 +6396,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserTrustFactorResponse",
+            '200': "GetTrustFactorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6044,6 +6413,7 @@ class ModerationApi:
     def get_trust_factor_with_http_info(
         self,
         user_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -6057,12 +6427,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserTrustFactorResponse]:
+    ) -> ApiResponse[GetTrustFactorResponse]:
         """get_trust_factor
 
 
         :param user_id:
         :type user_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -6089,6 +6461,7 @@ class ModerationApi:
 
         _param = self._get_trust_factor_serialize(
             user_id=user_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6097,7 +6470,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserTrustFactorResponse",
+            '200': "GetTrustFactorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6114,6 +6487,7 @@ class ModerationApi:
     def get_trust_factor_without_preload_content(
         self,
         user_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -6133,6 +6507,8 @@ class ModerationApi:
 
         :param user_id:
         :type user_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -6159,6 +6535,7 @@ class ModerationApi:
 
         _param = self._get_trust_factor_serialize(
             user_id=user_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6167,7 +6544,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserTrustFactorResponse",
+            '200': "GetTrustFactorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6179,6 +6556,7 @@ class ModerationApi:
     def _get_trust_factor_serialize(
         self,
         user_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -6205,6 +6583,10 @@ class ModerationApi:
         if user_id is not None:
             
             _query_params.append(('userId', user_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -6249,6 +6631,7 @@ class ModerationApi:
     @validate_call
     def get_user_ban_preference(
         self,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -6262,10 +6645,12 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> APIModerateGetUserBanPreferencesResponse:
+    ) -> GetUserBanPreferenceResponse:
         """get_user_ban_preference
 
 
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -6291,6 +6676,7 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_user_ban_preference_serialize(
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6299,7 +6685,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIModerateGetUserBanPreferencesResponse",
+            '200': "GetUserBanPreferenceResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6315,6 +6701,7 @@ class ModerationApi:
     @validate_call
     def get_user_ban_preference_with_http_info(
         self,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -6328,10 +6715,12 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[APIModerateGetUserBanPreferencesResponse]:
+    ) -> ApiResponse[GetUserBanPreferenceResponse]:
         """get_user_ban_preference
 
 
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -6357,6 +6746,7 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_user_ban_preference_serialize(
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6365,7 +6755,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIModerateGetUserBanPreferencesResponse",
+            '200': "GetUserBanPreferenceResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6381,6 +6771,7 @@ class ModerationApi:
     @validate_call
     def get_user_ban_preference_without_preload_content(
         self,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -6398,6 +6789,8 @@ class ModerationApi:
         """get_user_ban_preference
 
 
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -6423,6 +6816,7 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_user_ban_preference_serialize(
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6431,7 +6825,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIModerateGetUserBanPreferencesResponse",
+            '200': "GetUserBanPreferenceResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6442,6 +6836,7 @@ class ModerationApi:
 
     def _get_user_ban_preference_serialize(
         self,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -6465,6 +6860,10 @@ class ModerationApi:
 
         # process the path parameters
         # process the query parameters
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -6509,6 +6908,7 @@ class ModerationApi:
     def get_user_internal_profile(
         self,
         comment_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -6522,12 +6922,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> GetUserInternalProfileResponse:
+    ) -> GetUserInternalProfileResponse1:
         """get_user_internal_profile
 
 
         :param comment_id:
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -6554,6 +6956,7 @@ class ModerationApi:
 
         _param = self._get_user_internal_profile_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6562,7 +6965,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserInternalProfileResponse",
+            '200': "GetUserInternalProfileResponse1",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6579,6 +6982,7 @@ class ModerationApi:
     def get_user_internal_profile_with_http_info(
         self,
         comment_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -6592,12 +6996,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[GetUserInternalProfileResponse]:
+    ) -> ApiResponse[GetUserInternalProfileResponse1]:
         """get_user_internal_profile
 
 
         :param comment_id:
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -6624,6 +7030,7 @@ class ModerationApi:
 
         _param = self._get_user_internal_profile_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6632,7 +7039,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserInternalProfileResponse",
+            '200': "GetUserInternalProfileResponse1",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6649,6 +7056,7 @@ class ModerationApi:
     def get_user_internal_profile_without_preload_content(
         self,
         comment_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -6668,6 +7076,8 @@ class ModerationApi:
 
         :param comment_id:
         :type comment_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -6694,6 +7104,7 @@ class ModerationApi:
 
         _param = self._get_user_internal_profile_serialize(
             comment_id=comment_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6702,7 +7113,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetUserInternalProfileResponse",
+            '200': "GetUserInternalProfileResponse1",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6714,6 +7125,7 @@ class ModerationApi:
     def _get_user_internal_profile_serialize(
         self,
         comment_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -6740,6 +7152,10 @@ class ModerationApi:
         if comment_id is not None:
             
             _query_params.append(('commentId', comment_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -6786,6 +7202,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         adjust_comment_votes_params: AdjustCommentVotesParams,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -6799,7 +7217,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AdjustVotesResponse:
+    ) -> PostAdjustCommentVotesResponse:
         """post_adjust_comment_votes
 
 
@@ -6807,6 +7225,10 @@ class ModerationApi:
         :type comment_id: str
         :param adjust_comment_votes_params: (required)
         :type adjust_comment_votes_params: AdjustCommentVotesParams
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -6834,6 +7256,8 @@ class ModerationApi:
         _param = self._post_adjust_comment_votes_serialize(
             comment_id=comment_id,
             adjust_comment_votes_params=adjust_comment_votes_params,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6842,7 +7266,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AdjustVotesResponse",
+            '200': "PostAdjustCommentVotesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6860,6 +7284,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         adjust_comment_votes_params: AdjustCommentVotesParams,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -6873,7 +7299,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AdjustVotesResponse]:
+    ) -> ApiResponse[PostAdjustCommentVotesResponse]:
         """post_adjust_comment_votes
 
 
@@ -6881,6 +7307,10 @@ class ModerationApi:
         :type comment_id: str
         :param adjust_comment_votes_params: (required)
         :type adjust_comment_votes_params: AdjustCommentVotesParams
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -6908,6 +7338,8 @@ class ModerationApi:
         _param = self._post_adjust_comment_votes_serialize(
             comment_id=comment_id,
             adjust_comment_votes_params=adjust_comment_votes_params,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6916,7 +7348,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AdjustVotesResponse",
+            '200': "PostAdjustCommentVotesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6934,6 +7366,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         adjust_comment_votes_params: AdjustCommentVotesParams,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -6955,6 +7389,10 @@ class ModerationApi:
         :type comment_id: str
         :param adjust_comment_votes_params: (required)
         :type adjust_comment_votes_params: AdjustCommentVotesParams
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -6982,6 +7420,8 @@ class ModerationApi:
         _param = self._post_adjust_comment_votes_serialize(
             comment_id=comment_id,
             adjust_comment_votes_params=adjust_comment_votes_params,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -6990,7 +7430,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AdjustVotesResponse",
+            '200': "PostAdjustCommentVotesResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7003,6 +7443,8 @@ class ModerationApi:
         self,
         comment_id,
         adjust_comment_votes_params,
+        broadcast_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -7028,6 +7470,14 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -7091,6 +7541,7 @@ class ModerationApi:
         filters: Optional[StrictStr] = None,
         search_filters: Optional[StrictStr] = None,
         sorts: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -7104,7 +7555,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModerationExportResponse:
+    ) -> PostApiExportResponse:
         """post_api_export
 
 
@@ -7118,6 +7569,8 @@ class ModerationApi:
         :type search_filters: str
         :param sorts:
         :type sorts: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -7148,6 +7601,7 @@ class ModerationApi:
             filters=filters,
             search_filters=search_filters,
             sorts=sorts,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -7156,7 +7610,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationExportResponse",
+            '200': "PostApiExportResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7177,6 +7631,7 @@ class ModerationApi:
         filters: Optional[StrictStr] = None,
         search_filters: Optional[StrictStr] = None,
         sorts: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -7190,7 +7645,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModerationExportResponse]:
+    ) -> ApiResponse[PostApiExportResponse]:
         """post_api_export
 
 
@@ -7204,6 +7659,8 @@ class ModerationApi:
         :type search_filters: str
         :param sorts:
         :type sorts: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -7234,6 +7691,7 @@ class ModerationApi:
             filters=filters,
             search_filters=search_filters,
             sorts=sorts,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -7242,7 +7700,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationExportResponse",
+            '200': "PostApiExportResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7263,6 +7721,7 @@ class ModerationApi:
         filters: Optional[StrictStr] = None,
         search_filters: Optional[StrictStr] = None,
         sorts: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -7290,6 +7749,8 @@ class ModerationApi:
         :type search_filters: str
         :param sorts:
         :type sorts: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -7320,6 +7781,7 @@ class ModerationApi:
             filters=filters,
             search_filters=search_filters,
             sorts=sorts,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -7328,7 +7790,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationExportResponse",
+            '200': "PostApiExportResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7344,6 +7806,7 @@ class ModerationApi:
         filters,
         search_filters,
         sorts,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -7386,6 +7849,10 @@ class ModerationApi:
         if sorts is not None:
             
             _query_params.append(('sorts', sorts))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -7439,6 +7906,7 @@ class ModerationApi:
         is_shadow_ban: Optional[StrictBool] = None,
         update_id: Optional[StrictStr] = None,
         ban_reason: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -7452,7 +7920,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BanUserFromCommentResult:
+    ) -> PostBanUserFromCommentResponse:
         """post_ban_user_from_comment
 
 
@@ -7474,6 +7942,8 @@ class ModerationApi:
         :type update_id: str
         :param ban_reason:
         :type ban_reason: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -7508,6 +7978,7 @@ class ModerationApi:
             is_shadow_ban=is_shadow_ban,
             update_id=update_id,
             ban_reason=ban_reason,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -7516,7 +7987,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BanUserFromCommentResult",
+            '200': "PostBanUserFromCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7541,6 +8012,7 @@ class ModerationApi:
         is_shadow_ban: Optional[StrictBool] = None,
         update_id: Optional[StrictStr] = None,
         ban_reason: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -7554,7 +8026,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BanUserFromCommentResult]:
+    ) -> ApiResponse[PostBanUserFromCommentResponse]:
         """post_ban_user_from_comment
 
 
@@ -7576,6 +8048,8 @@ class ModerationApi:
         :type update_id: str
         :param ban_reason:
         :type ban_reason: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -7610,6 +8084,7 @@ class ModerationApi:
             is_shadow_ban=is_shadow_ban,
             update_id=update_id,
             ban_reason=ban_reason,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -7618,7 +8093,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BanUserFromCommentResult",
+            '200': "PostBanUserFromCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7643,6 +8118,7 @@ class ModerationApi:
         is_shadow_ban: Optional[StrictBool] = None,
         update_id: Optional[StrictStr] = None,
         ban_reason: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -7678,6 +8154,8 @@ class ModerationApi:
         :type update_id: str
         :param ban_reason:
         :type ban_reason: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -7712,6 +8190,7 @@ class ModerationApi:
             is_shadow_ban=is_shadow_ban,
             update_id=update_id,
             ban_reason=ban_reason,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -7720,7 +8199,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BanUserFromCommentResult",
+            '200': "PostBanUserFromCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7740,6 +8219,7 @@ class ModerationApi:
         is_shadow_ban,
         update_id,
         ban_reason,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -7797,6 +8277,10 @@ class ModerationApi:
             
             _query_params.append(('banReason', ban_reason))
             
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -7841,6 +8325,7 @@ class ModerationApi:
     def post_ban_user_undo(
         self,
         ban_user_undo_params: BanUserUndoParams,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -7854,12 +8339,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> APIEmptyResponse:
+    ) -> PostBanUserUndoResponse:
         """post_ban_user_undo
 
 
         :param ban_user_undo_params: (required)
         :type ban_user_undo_params: BanUserUndoParams
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -7886,6 +8373,7 @@ class ModerationApi:
 
         _param = self._post_ban_user_undo_serialize(
             ban_user_undo_params=ban_user_undo_params,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -7894,7 +8382,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostBanUserUndoResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7911,6 +8399,7 @@ class ModerationApi:
     def post_ban_user_undo_with_http_info(
         self,
         ban_user_undo_params: BanUserUndoParams,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -7924,12 +8413,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[APIEmptyResponse]:
+    ) -> ApiResponse[PostBanUserUndoResponse]:
         """post_ban_user_undo
 
 
         :param ban_user_undo_params: (required)
         :type ban_user_undo_params: BanUserUndoParams
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -7956,6 +8447,7 @@ class ModerationApi:
 
         _param = self._post_ban_user_undo_serialize(
             ban_user_undo_params=ban_user_undo_params,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -7964,7 +8456,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostBanUserUndoResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -7981,6 +8473,7 @@ class ModerationApi:
     def post_ban_user_undo_without_preload_content(
         self,
         ban_user_undo_params: BanUserUndoParams,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -8000,6 +8493,8 @@ class ModerationApi:
 
         :param ban_user_undo_params: (required)
         :type ban_user_undo_params: BanUserUndoParams
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -8026,6 +8521,7 @@ class ModerationApi:
 
         _param = self._post_ban_user_undo_serialize(
             ban_user_undo_params=ban_user_undo_params,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8034,7 +8530,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostBanUserUndoResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8046,6 +8542,7 @@ class ModerationApi:
     def _post_ban_user_undo_serialize(
         self,
         ban_user_undo_params,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -8069,6 +8566,10 @@ class ModerationApi:
 
         # process the path parameters
         # process the query parameters
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -8131,6 +8632,7 @@ class ModerationApi:
         include_by_user_id_and_email: Optional[StrictBool] = None,
         include_by_ip: Optional[StrictBool] = None,
         include_by_email_domain: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -8144,7 +8646,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BulkPreBanSummary:
+    ) -> PostBulkPreBanSummaryResponse:
         """post_bulk_pre_ban_summary
 
 
@@ -8156,6 +8658,8 @@ class ModerationApi:
         :type include_by_ip: bool
         :param include_by_email_domain:
         :type include_by_email_domain: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -8185,6 +8689,7 @@ class ModerationApi:
             include_by_user_id_and_email=include_by_user_id_and_email,
             include_by_ip=include_by_ip,
             include_by_email_domain=include_by_email_domain,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8193,7 +8698,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkPreBanSummary",
+            '200': "PostBulkPreBanSummaryResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8213,6 +8718,7 @@ class ModerationApi:
         include_by_user_id_and_email: Optional[StrictBool] = None,
         include_by_ip: Optional[StrictBool] = None,
         include_by_email_domain: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -8226,7 +8732,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BulkPreBanSummary]:
+    ) -> ApiResponse[PostBulkPreBanSummaryResponse]:
         """post_bulk_pre_ban_summary
 
 
@@ -8238,6 +8744,8 @@ class ModerationApi:
         :type include_by_ip: bool
         :param include_by_email_domain:
         :type include_by_email_domain: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -8267,6 +8775,7 @@ class ModerationApi:
             include_by_user_id_and_email=include_by_user_id_and_email,
             include_by_ip=include_by_ip,
             include_by_email_domain=include_by_email_domain,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8275,7 +8784,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkPreBanSummary",
+            '200': "PostBulkPreBanSummaryResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8295,6 +8804,7 @@ class ModerationApi:
         include_by_user_id_and_email: Optional[StrictBool] = None,
         include_by_ip: Optional[StrictBool] = None,
         include_by_email_domain: Optional[StrictBool] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -8320,6 +8830,8 @@ class ModerationApi:
         :type include_by_ip: bool
         :param include_by_email_domain:
         :type include_by_email_domain: bool
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -8349,6 +8861,7 @@ class ModerationApi:
             include_by_user_id_and_email=include_by_user_id_and_email,
             include_by_ip=include_by_ip,
             include_by_email_domain=include_by_email_domain,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8357,7 +8870,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BulkPreBanSummary",
+            '200': "PostBulkPreBanSummaryResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8372,6 +8885,7 @@ class ModerationApi:
         include_by_user_id_and_email,
         include_by_ip,
         include_by_email_domain,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -8406,6 +8920,10 @@ class ModerationApi:
         if include_by_email_domain is not None:
             
             _query_params.append(('includeByEmailDomain', include_by_email_domain))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -8466,6 +8984,7 @@ class ModerationApi:
     def post_comments_by_ids(
         self,
         comments_by_ids_params: CommentsByIdsParams,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -8479,12 +8998,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ModerationAPIChildCommentsResponse:
+    ) -> PostCommentsByIdsResponse:
         """post_comments_by_ids
 
 
         :param comments_by_ids_params: (required)
         :type comments_by_ids_params: CommentsByIdsParams
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -8511,6 +9032,7 @@ class ModerationApi:
 
         _param = self._post_comments_by_ids_serialize(
             comments_by_ids_params=comments_by_ids_params,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8519,7 +9041,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPIChildCommentsResponse",
+            '200': "PostCommentsByIdsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8536,6 +9058,7 @@ class ModerationApi:
     def post_comments_by_ids_with_http_info(
         self,
         comments_by_ids_params: CommentsByIdsParams,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -8549,12 +9072,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ModerationAPIChildCommentsResponse]:
+    ) -> ApiResponse[PostCommentsByIdsResponse]:
         """post_comments_by_ids
 
 
         :param comments_by_ids_params: (required)
         :type comments_by_ids_params: CommentsByIdsParams
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -8581,6 +9106,7 @@ class ModerationApi:
 
         _param = self._post_comments_by_ids_serialize(
             comments_by_ids_params=comments_by_ids_params,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8589,7 +9115,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPIChildCommentsResponse",
+            '200': "PostCommentsByIdsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8606,6 +9132,7 @@ class ModerationApi:
     def post_comments_by_ids_without_preload_content(
         self,
         comments_by_ids_params: CommentsByIdsParams,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -8625,6 +9152,8 @@ class ModerationApi:
 
         :param comments_by_ids_params: (required)
         :type comments_by_ids_params: CommentsByIdsParams
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -8651,6 +9180,7 @@ class ModerationApi:
 
         _param = self._post_comments_by_ids_serialize(
             comments_by_ids_params=comments_by_ids_params,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8659,7 +9189,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ModerationAPIChildCommentsResponse",
+            '200': "PostCommentsByIdsResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8671,6 +9201,7 @@ class ModerationApi:
     def _post_comments_by_ids_serialize(
         self,
         comments_by_ids_params,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -8694,6 +9225,10 @@ class ModerationApi:
 
         # process the path parameters
         # process the query parameters
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -8753,6 +9288,8 @@ class ModerationApi:
     def post_flag_comment(
         self,
         comment_id: StrictStr,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -8766,12 +9303,16 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> APIEmptyResponse:
+    ) -> PostFlagCommentResponse:
         """post_flag_comment
 
 
         :param comment_id: (required)
         :type comment_id: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -8798,6 +9339,8 @@ class ModerationApi:
 
         _param = self._post_flag_comment_serialize(
             comment_id=comment_id,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8806,7 +9349,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostFlagCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8823,6 +9366,8 @@ class ModerationApi:
     def post_flag_comment_with_http_info(
         self,
         comment_id: StrictStr,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -8836,12 +9381,16 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[APIEmptyResponse]:
+    ) -> ApiResponse[PostFlagCommentResponse]:
         """post_flag_comment
 
 
         :param comment_id: (required)
         :type comment_id: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -8868,6 +9417,8 @@ class ModerationApi:
 
         _param = self._post_flag_comment_serialize(
             comment_id=comment_id,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8876,7 +9427,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostFlagCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8893,6 +9444,8 @@ class ModerationApi:
     def post_flag_comment_without_preload_content(
         self,
         comment_id: StrictStr,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -8912,6 +9465,10 @@ class ModerationApi:
 
         :param comment_id: (required)
         :type comment_id: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -8938,6 +9495,8 @@ class ModerationApi:
 
         _param = self._post_flag_comment_serialize(
             comment_id=comment_id,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8946,7 +9505,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostFlagCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -8958,6 +9517,8 @@ class ModerationApi:
     def _post_flag_comment_serialize(
         self,
         comment_id,
+        broadcast_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -8983,6 +9544,14 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -9027,6 +9596,8 @@ class ModerationApi:
     def post_remove_comment(
         self,
         comment_id: StrictStr,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -9046,6 +9617,10 @@ class ModerationApi:
 
         :param comment_id: (required)
         :type comment_id: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -9072,6 +9647,8 @@ class ModerationApi:
 
         _param = self._post_remove_comment_serialize(
             comment_id=comment_id,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9097,6 +9674,8 @@ class ModerationApi:
     def post_remove_comment_with_http_info(
         self,
         comment_id: StrictStr,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -9116,6 +9695,10 @@ class ModerationApi:
 
         :param comment_id: (required)
         :type comment_id: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -9142,6 +9725,8 @@ class ModerationApi:
 
         _param = self._post_remove_comment_serialize(
             comment_id=comment_id,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9167,6 +9752,8 @@ class ModerationApi:
     def post_remove_comment_without_preload_content(
         self,
         comment_id: StrictStr,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -9186,6 +9773,10 @@ class ModerationApi:
 
         :param comment_id: (required)
         :type comment_id: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -9212,6 +9803,8 @@ class ModerationApi:
 
         _param = self._post_remove_comment_serialize(
             comment_id=comment_id,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9232,6 +9825,8 @@ class ModerationApi:
     def _post_remove_comment_serialize(
         self,
         comment_id,
+        broadcast_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -9257,6 +9852,14 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -9301,6 +9904,8 @@ class ModerationApi:
     def post_restore_deleted_comment(
         self,
         comment_id: StrictStr,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -9314,12 +9919,16 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> APIEmptyResponse:
+    ) -> PostRestoreDeletedCommentResponse:
         """post_restore_deleted_comment
 
 
         :param comment_id: (required)
         :type comment_id: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -9346,6 +9955,8 @@ class ModerationApi:
 
         _param = self._post_restore_deleted_comment_serialize(
             comment_id=comment_id,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9354,7 +9965,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostRestoreDeletedCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9371,6 +9982,8 @@ class ModerationApi:
     def post_restore_deleted_comment_with_http_info(
         self,
         comment_id: StrictStr,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -9384,12 +9997,16 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[APIEmptyResponse]:
+    ) -> ApiResponse[PostRestoreDeletedCommentResponse]:
         """post_restore_deleted_comment
 
 
         :param comment_id: (required)
         :type comment_id: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -9416,6 +10033,8 @@ class ModerationApi:
 
         _param = self._post_restore_deleted_comment_serialize(
             comment_id=comment_id,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9424,7 +10043,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostRestoreDeletedCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9441,6 +10060,8 @@ class ModerationApi:
     def post_restore_deleted_comment_without_preload_content(
         self,
         comment_id: StrictStr,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -9460,6 +10081,10 @@ class ModerationApi:
 
         :param comment_id: (required)
         :type comment_id: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -9486,6 +10111,8 @@ class ModerationApi:
 
         _param = self._post_restore_deleted_comment_serialize(
             comment_id=comment_id,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9494,7 +10121,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostRestoreDeletedCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9506,6 +10133,8 @@ class ModerationApi:
     def _post_restore_deleted_comment_serialize(
         self,
         comment_id,
+        broadcast_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -9531,6 +10160,14 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -9576,6 +10213,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         approved: Optional[StrictBool] = None,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -9589,7 +10228,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SetCommentApprovedResponse:
+    ) -> PostSetCommentApprovalStatusResponse:
         """post_set_comment_approval_status
 
 
@@ -9597,6 +10236,10 @@ class ModerationApi:
         :type comment_id: str
         :param approved:
         :type approved: bool
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -9624,6 +10267,8 @@ class ModerationApi:
         _param = self._post_set_comment_approval_status_serialize(
             comment_id=comment_id,
             approved=approved,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9632,7 +10277,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetCommentApprovedResponse",
+            '200': "PostSetCommentApprovalStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9650,6 +10295,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         approved: Optional[StrictBool] = None,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -9663,7 +10310,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SetCommentApprovedResponse]:
+    ) -> ApiResponse[PostSetCommentApprovalStatusResponse]:
         """post_set_comment_approval_status
 
 
@@ -9671,6 +10318,10 @@ class ModerationApi:
         :type comment_id: str
         :param approved:
         :type approved: bool
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -9698,6 +10349,8 @@ class ModerationApi:
         _param = self._post_set_comment_approval_status_serialize(
             comment_id=comment_id,
             approved=approved,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9706,7 +10359,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetCommentApprovedResponse",
+            '200': "PostSetCommentApprovalStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9724,6 +10377,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         approved: Optional[StrictBool] = None,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -9745,6 +10400,10 @@ class ModerationApi:
         :type comment_id: str
         :param approved:
         :type approved: bool
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -9772,6 +10431,8 @@ class ModerationApi:
         _param = self._post_set_comment_approval_status_serialize(
             comment_id=comment_id,
             approved=approved,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9780,7 +10441,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetCommentApprovedResponse",
+            '200': "PostSetCommentApprovalStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9793,6 +10454,8 @@ class ModerationApi:
         self,
         comment_id,
         approved,
+        broadcast_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -9821,6 +10484,14 @@ class ModerationApi:
         if approved is not None:
             
             _query_params.append(('approved', approved))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -9867,6 +10538,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         reviewed: Optional[StrictBool] = None,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -9880,7 +10553,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> APIEmptyResponse:
+    ) -> PostSetCommentReviewStatusResponse:
         """post_set_comment_review_status
 
 
@@ -9888,6 +10561,10 @@ class ModerationApi:
         :type comment_id: str
         :param reviewed:
         :type reviewed: bool
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -9915,6 +10592,8 @@ class ModerationApi:
         _param = self._post_set_comment_review_status_serialize(
             comment_id=comment_id,
             reviewed=reviewed,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9923,7 +10602,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostSetCommentReviewStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -9941,6 +10620,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         reviewed: Optional[StrictBool] = None,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -9954,7 +10635,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[APIEmptyResponse]:
+    ) -> ApiResponse[PostSetCommentReviewStatusResponse]:
         """post_set_comment_review_status
 
 
@@ -9962,6 +10643,10 @@ class ModerationApi:
         :type comment_id: str
         :param reviewed:
         :type reviewed: bool
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -9989,6 +10674,8 @@ class ModerationApi:
         _param = self._post_set_comment_review_status_serialize(
             comment_id=comment_id,
             reviewed=reviewed,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9997,7 +10684,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostSetCommentReviewStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10015,6 +10702,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         reviewed: Optional[StrictBool] = None,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -10036,6 +10725,10 @@ class ModerationApi:
         :type comment_id: str
         :param reviewed:
         :type reviewed: bool
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -10063,6 +10756,8 @@ class ModerationApi:
         _param = self._post_set_comment_review_status_serialize(
             comment_id=comment_id,
             reviewed=reviewed,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10071,7 +10766,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostSetCommentReviewStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10084,6 +10779,8 @@ class ModerationApi:
         self,
         comment_id,
         reviewed,
+        broadcast_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -10112,6 +10809,14 @@ class ModerationApi:
         if reviewed is not None:
             
             _query_params.append(('reviewed', reviewed))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -10159,6 +10864,8 @@ class ModerationApi:
         comment_id: StrictStr,
         spam: Optional[StrictBool] = None,
         perm_not_spam: Optional[StrictBool] = None,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -10172,7 +10879,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> APIEmptyResponse:
+    ) -> PostSetCommentSpamStatusResponse:
         """post_set_comment_spam_status
 
 
@@ -10182,6 +10889,10 @@ class ModerationApi:
         :type spam: bool
         :param perm_not_spam:
         :type perm_not_spam: bool
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -10210,6 +10921,8 @@ class ModerationApi:
             comment_id=comment_id,
             spam=spam,
             perm_not_spam=perm_not_spam,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10218,7 +10931,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostSetCommentSpamStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10237,6 +10950,8 @@ class ModerationApi:
         comment_id: StrictStr,
         spam: Optional[StrictBool] = None,
         perm_not_spam: Optional[StrictBool] = None,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -10250,7 +10965,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[APIEmptyResponse]:
+    ) -> ApiResponse[PostSetCommentSpamStatusResponse]:
         """post_set_comment_spam_status
 
 
@@ -10260,6 +10975,10 @@ class ModerationApi:
         :type spam: bool
         :param perm_not_spam:
         :type perm_not_spam: bool
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -10288,6 +11007,8 @@ class ModerationApi:
             comment_id=comment_id,
             spam=spam,
             perm_not_spam=perm_not_spam,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10296,7 +11017,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostSetCommentSpamStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10315,6 +11036,8 @@ class ModerationApi:
         comment_id: StrictStr,
         spam: Optional[StrictBool] = None,
         perm_not_spam: Optional[StrictBool] = None,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -10338,6 +11061,10 @@ class ModerationApi:
         :type spam: bool
         :param perm_not_spam:
         :type perm_not_spam: bool
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -10366,6 +11093,8 @@ class ModerationApi:
             comment_id=comment_id,
             spam=spam,
             perm_not_spam=perm_not_spam,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10374,7 +11103,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostSetCommentSpamStatusResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10388,6 +11117,8 @@ class ModerationApi:
         comment_id,
         spam,
         perm_not_spam,
+        broadcast_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -10420,6 +11151,14 @@ class ModerationApi:
         if perm_not_spam is not None:
             
             _query_params.append(('permNotSpam', perm_not_spam))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -10466,6 +11205,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         set_comment_text_params: SetCommentTextParams,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -10479,7 +11220,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SetCommentTextResponse:
+    ) -> PostSetCommentTextResponse:
         """post_set_comment_text
 
 
@@ -10487,6 +11228,10 @@ class ModerationApi:
         :type comment_id: str
         :param set_comment_text_params: (required)
         :type set_comment_text_params: SetCommentTextParams
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -10514,6 +11259,8 @@ class ModerationApi:
         _param = self._post_set_comment_text_serialize(
             comment_id=comment_id,
             set_comment_text_params=set_comment_text_params,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10522,7 +11269,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetCommentTextResponse",
+            '200': "PostSetCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10540,6 +11287,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         set_comment_text_params: SetCommentTextParams,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -10553,7 +11302,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SetCommentTextResponse]:
+    ) -> ApiResponse[PostSetCommentTextResponse]:
         """post_set_comment_text
 
 
@@ -10561,6 +11310,10 @@ class ModerationApi:
         :type comment_id: str
         :param set_comment_text_params: (required)
         :type set_comment_text_params: SetCommentTextParams
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -10588,6 +11341,8 @@ class ModerationApi:
         _param = self._post_set_comment_text_serialize(
             comment_id=comment_id,
             set_comment_text_params=set_comment_text_params,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10596,7 +11351,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetCommentTextResponse",
+            '200': "PostSetCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10614,6 +11369,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         set_comment_text_params: SetCommentTextParams,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -10635,6 +11392,10 @@ class ModerationApi:
         :type comment_id: str
         :param set_comment_text_params: (required)
         :type set_comment_text_params: SetCommentTextParams
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -10662,6 +11423,8 @@ class ModerationApi:
         _param = self._post_set_comment_text_serialize(
             comment_id=comment_id,
             set_comment_text_params=set_comment_text_params,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10670,7 +11433,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetCommentTextResponse",
+            '200': "PostSetCommentTextResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10683,6 +11446,8 @@ class ModerationApi:
         self,
         comment_id,
         set_comment_text_params,
+        broadcast_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -10708,6 +11473,14 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -10767,6 +11540,8 @@ class ModerationApi:
     def post_un_flag_comment(
         self,
         comment_id: StrictStr,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -10780,12 +11555,16 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> APIEmptyResponse:
+    ) -> PostUnFlagCommentResponse:
         """post_un_flag_comment
 
 
         :param comment_id: (required)
         :type comment_id: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -10812,6 +11591,8 @@ class ModerationApi:
 
         _param = self._post_un_flag_comment_serialize(
             comment_id=comment_id,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10820,7 +11601,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostUnFlagCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10837,6 +11618,8 @@ class ModerationApi:
     def post_un_flag_comment_with_http_info(
         self,
         comment_id: StrictStr,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -10850,12 +11633,16 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[APIEmptyResponse]:
+    ) -> ApiResponse[PostUnFlagCommentResponse]:
         """post_un_flag_comment
 
 
         :param comment_id: (required)
         :type comment_id: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -10882,6 +11669,8 @@ class ModerationApi:
 
         _param = self._post_un_flag_comment_serialize(
             comment_id=comment_id,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10890,7 +11679,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostUnFlagCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10907,6 +11696,8 @@ class ModerationApi:
     def post_un_flag_comment_without_preload_content(
         self,
         comment_id: StrictStr,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -10926,6 +11717,10 @@ class ModerationApi:
 
         :param comment_id: (required)
         :type comment_id: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -10952,6 +11747,8 @@ class ModerationApi:
 
         _param = self._post_un_flag_comment_serialize(
             comment_id=comment_id,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10960,7 +11757,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PostUnFlagCommentResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -10972,6 +11769,8 @@ class ModerationApi:
     def _post_un_flag_comment_serialize(
         self,
         comment_id,
+        broadcast_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -10997,6 +11796,14 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
+            
         if sso is not None:
             
             _query_params.append(('sso', sso))
@@ -11042,6 +11849,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         direction: Optional[StrictStr] = None,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -11055,7 +11864,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> VoteResponse:
+    ) -> PostVoteResponse:
         """post_vote
 
 
@@ -11063,6 +11872,10 @@ class ModerationApi:
         :type comment_id: str
         :param direction:
         :type direction: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -11090,6 +11903,8 @@ class ModerationApi:
         _param = self._post_vote_serialize(
             comment_id=comment_id,
             direction=direction,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -11098,7 +11913,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VoteResponse",
+            '200': "PostVoteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11116,6 +11931,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         direction: Optional[StrictStr] = None,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -11129,7 +11946,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[VoteResponse]:
+    ) -> ApiResponse[PostVoteResponse]:
         """post_vote
 
 
@@ -11137,6 +11954,10 @@ class ModerationApi:
         :type comment_id: str
         :param direction:
         :type direction: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -11164,6 +11985,8 @@ class ModerationApi:
         _param = self._post_vote_serialize(
             comment_id=comment_id,
             direction=direction,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -11172,7 +11995,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VoteResponse",
+            '200': "PostVoteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11190,6 +12013,8 @@ class ModerationApi:
         self,
         comment_id: StrictStr,
         direction: Optional[StrictStr] = None,
+        broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -11211,6 +12036,10 @@ class ModerationApi:
         :type comment_id: str
         :param direction:
         :type direction: str
+        :param broadcast_id:
+        :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -11238,6 +12067,8 @@ class ModerationApi:
         _param = self._post_vote_serialize(
             comment_id=comment_id,
             direction=direction,
+            broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -11246,7 +12077,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VoteResponse",
+            '200': "PostVoteResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11259,6 +12090,8 @@ class ModerationApi:
         self,
         comment_id,
         direction,
+        broadcast_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -11287,6 +12120,14 @@ class ModerationApi:
         if direction is not None:
             
             _query_params.append(('direction', direction))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -11335,6 +12176,7 @@ class ModerationApi:
         user_id: Optional[StrictStr] = None,
         comment_id: Optional[StrictStr] = None,
         broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -11348,7 +12190,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AwardUserBadgeResponse:
+    ) -> PutAwardBadgeResponse:
         """put_award_badge
 
 
@@ -11360,6 +12202,8 @@ class ModerationApi:
         :type comment_id: str
         :param broadcast_id:
         :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -11389,6 +12233,7 @@ class ModerationApi:
             user_id=user_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -11397,7 +12242,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AwardUserBadgeResponse",
+            '200': "PutAwardBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11417,6 +12262,7 @@ class ModerationApi:
         user_id: Optional[StrictStr] = None,
         comment_id: Optional[StrictStr] = None,
         broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -11430,7 +12276,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AwardUserBadgeResponse]:
+    ) -> ApiResponse[PutAwardBadgeResponse]:
         """put_award_badge
 
 
@@ -11442,6 +12288,8 @@ class ModerationApi:
         :type comment_id: str
         :param broadcast_id:
         :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -11471,6 +12319,7 @@ class ModerationApi:
             user_id=user_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -11479,7 +12328,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AwardUserBadgeResponse",
+            '200': "PutAwardBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11499,6 +12348,7 @@ class ModerationApi:
         user_id: Optional[StrictStr] = None,
         comment_id: Optional[StrictStr] = None,
         broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -11524,6 +12374,8 @@ class ModerationApi:
         :type comment_id: str
         :param broadcast_id:
         :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -11553,6 +12405,7 @@ class ModerationApi:
             user_id=user_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -11561,7 +12414,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AwardUserBadgeResponse",
+            '200': "PutAwardBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11576,6 +12429,7 @@ class ModerationApi:
         user_id,
         comment_id,
         broadcast_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -11614,6 +12468,10 @@ class ModerationApi:
         if broadcast_id is not None:
             
             _query_params.append(('broadcastId', broadcast_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -11659,6 +12517,7 @@ class ModerationApi:
     def put_close_thread(
         self,
         url_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -11672,12 +12531,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> APIEmptyResponse:
+    ) -> PutCloseThreadResponse:
         """put_close_thread
 
 
         :param url_id: (required)
         :type url_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -11704,6 +12565,7 @@ class ModerationApi:
 
         _param = self._put_close_thread_serialize(
             url_id=url_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -11712,7 +12574,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PutCloseThreadResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11729,6 +12591,7 @@ class ModerationApi:
     def put_close_thread_with_http_info(
         self,
         url_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -11742,12 +12605,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[APIEmptyResponse]:
+    ) -> ApiResponse[PutCloseThreadResponse]:
         """put_close_thread
 
 
         :param url_id: (required)
         :type url_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -11774,6 +12639,7 @@ class ModerationApi:
 
         _param = self._put_close_thread_serialize(
             url_id=url_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -11782,7 +12648,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PutCloseThreadResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11799,6 +12665,7 @@ class ModerationApi:
     def put_close_thread_without_preload_content(
         self,
         url_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -11818,6 +12685,8 @@ class ModerationApi:
 
         :param url_id: (required)
         :type url_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -11844,6 +12713,7 @@ class ModerationApi:
 
         _param = self._put_close_thread_serialize(
             url_id=url_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -11852,7 +12722,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PutCloseThreadResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -11864,6 +12734,7 @@ class ModerationApi:
     def _put_close_thread_serialize(
         self,
         url_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -11890,6 +12761,10 @@ class ModerationApi:
         if url_id is not None:
             
             _query_params.append(('urlId', url_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -11938,6 +12813,7 @@ class ModerationApi:
         user_id: Optional[StrictStr] = None,
         comment_id: Optional[StrictStr] = None,
         broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -11951,7 +12827,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RemoveUserBadgeResponse:
+    ) -> PutRemoveBadgeResponse:
         """put_remove_badge
 
 
@@ -11963,6 +12839,8 @@ class ModerationApi:
         :type comment_id: str
         :param broadcast_id:
         :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -11992,6 +12870,7 @@ class ModerationApi:
             user_id=user_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -12000,7 +12879,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RemoveUserBadgeResponse",
+            '200': "PutRemoveBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12020,6 +12899,7 @@ class ModerationApi:
         user_id: Optional[StrictStr] = None,
         comment_id: Optional[StrictStr] = None,
         broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -12033,7 +12913,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[RemoveUserBadgeResponse]:
+    ) -> ApiResponse[PutRemoveBadgeResponse]:
         """put_remove_badge
 
 
@@ -12045,6 +12925,8 @@ class ModerationApi:
         :type comment_id: str
         :param broadcast_id:
         :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -12074,6 +12956,7 @@ class ModerationApi:
             user_id=user_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -12082,7 +12965,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RemoveUserBadgeResponse",
+            '200': "PutRemoveBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12102,6 +12985,7 @@ class ModerationApi:
         user_id: Optional[StrictStr] = None,
         comment_id: Optional[StrictStr] = None,
         broadcast_id: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -12127,6 +13011,8 @@ class ModerationApi:
         :type comment_id: str
         :param broadcast_id:
         :type broadcast_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -12156,6 +13042,7 @@ class ModerationApi:
             user_id=user_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -12164,7 +13051,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "RemoveUserBadgeResponse",
+            '200': "PutRemoveBadgeResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12179,6 +13066,7 @@ class ModerationApi:
         user_id,
         comment_id,
         broadcast_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -12217,6 +13105,10 @@ class ModerationApi:
         if broadcast_id is not None:
             
             _query_params.append(('broadcastId', broadcast_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -12262,6 +13154,7 @@ class ModerationApi:
     def put_reopen_thread(
         self,
         url_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -12275,12 +13168,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> APIEmptyResponse:
+    ) -> PutReopenThreadResponse:
         """put_reopen_thread
 
 
         :param url_id: (required)
         :type url_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -12307,6 +13202,7 @@ class ModerationApi:
 
         _param = self._put_reopen_thread_serialize(
             url_id=url_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -12315,7 +13211,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PutReopenThreadResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12332,6 +13228,7 @@ class ModerationApi:
     def put_reopen_thread_with_http_info(
         self,
         url_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -12345,12 +13242,14 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[APIEmptyResponse]:
+    ) -> ApiResponse[PutReopenThreadResponse]:
         """put_reopen_thread
 
 
         :param url_id: (required)
         :type url_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -12377,6 +13276,7 @@ class ModerationApi:
 
         _param = self._put_reopen_thread_serialize(
             url_id=url_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -12385,7 +13285,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PutReopenThreadResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12402,6 +13302,7 @@ class ModerationApi:
     def put_reopen_thread_without_preload_content(
         self,
         url_id: StrictStr,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -12421,6 +13322,8 @@ class ModerationApi:
 
         :param url_id: (required)
         :type url_id: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -12447,6 +13350,7 @@ class ModerationApi:
 
         _param = self._put_reopen_thread_serialize(
             url_id=url_id,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -12455,7 +13359,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "APIEmptyResponse",
+            '200': "PutReopenThreadResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12467,6 +13371,7 @@ class ModerationApi:
     def _put_reopen_thread_serialize(
         self,
         url_id,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -12493,6 +13398,10 @@ class ModerationApi:
         if url_id is not None:
             
             _query_params.append(('urlId', url_id))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             
@@ -12539,6 +13448,7 @@ class ModerationApi:
         self,
         user_id: Optional[StrictStr] = None,
         trust_factor: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -12552,7 +13462,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SetUserTrustFactorResponse:
+    ) -> SetTrustFactorResponse:
         """set_trust_factor
 
 
@@ -12560,6 +13470,8 @@ class ModerationApi:
         :type user_id: str
         :param trust_factor:
         :type trust_factor: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -12587,6 +13499,7 @@ class ModerationApi:
         _param = self._set_trust_factor_serialize(
             user_id=user_id,
             trust_factor=trust_factor,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -12595,7 +13508,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetUserTrustFactorResponse",
+            '200': "SetTrustFactorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12613,6 +13526,7 @@ class ModerationApi:
         self,
         user_id: Optional[StrictStr] = None,
         trust_factor: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -12626,7 +13540,7 @@ class ModerationApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SetUserTrustFactorResponse]:
+    ) -> ApiResponse[SetTrustFactorResponse]:
         """set_trust_factor
 
 
@@ -12634,6 +13548,8 @@ class ModerationApi:
         :type user_id: str
         :param trust_factor:
         :type trust_factor: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -12661,6 +13577,7 @@ class ModerationApi:
         _param = self._set_trust_factor_serialize(
             user_id=user_id,
             trust_factor=trust_factor,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -12669,7 +13586,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetUserTrustFactorResponse",
+            '200': "SetTrustFactorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12687,6 +13604,7 @@ class ModerationApi:
         self,
         user_id: Optional[StrictStr] = None,
         trust_factor: Optional[StrictStr] = None,
+        tenant_id: Optional[StrictStr] = None,
         sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -12708,6 +13626,8 @@ class ModerationApi:
         :type user_id: str
         :param trust_factor:
         :type trust_factor: str
+        :param tenant_id:
+        :type tenant_id: str
         :param sso:
         :type sso: str
         :param _request_timeout: timeout setting for this request. If one
@@ -12735,6 +13655,7 @@ class ModerationApi:
         _param = self._set_trust_factor_serialize(
             user_id=user_id,
             trust_factor=trust_factor,
+            tenant_id=tenant_id,
             sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -12743,7 +13664,7 @@ class ModerationApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SetUserTrustFactorResponse",
+            '200': "SetTrustFactorResponse",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -12756,6 +13677,7 @@ class ModerationApi:
         self,
         user_id,
         trust_factor,
+        tenant_id,
         sso,
         _request_auth,
         _content_type,
@@ -12786,6 +13708,10 @@ class ModerationApi:
         if trust_factor is not None:
             
             _query_params.append(('trustFactor', trust_factor))
+            
+        if tenant_id is not None:
+            
+            _query_params.append(('tenantId', tenant_id))
             
         if sso is not None:
             

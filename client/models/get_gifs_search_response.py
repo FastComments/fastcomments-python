@@ -19,13 +19,14 @@ import pprint
 import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Optional
+from client.models.api_error import APIError
 from client.models.gif_search_internal_error import GifSearchInternalError
 from client.models.gif_search_response import GifSearchResponse
 from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-GETGIFSSEARCHRESPONSE_ANY_OF_SCHEMAS = ["GifSearchInternalError", "GifSearchResponse"]
+GETGIFSSEARCHRESPONSE_ANY_OF_SCHEMAS = ["APIError", "GifSearchInternalError", "GifSearchResponse"]
 
 class GetGifsSearchResponse(BaseModel):
     """
@@ -36,11 +37,13 @@ class GetGifsSearchResponse(BaseModel):
     anyof_schema_1_validator: Optional[GifSearchResponse] = None
     # data type: GifSearchInternalError
     anyof_schema_2_validator: Optional[GifSearchInternalError] = None
+    # data type: APIError
+    anyof_schema_3_validator: Optional[APIError] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[GifSearchInternalError, GifSearchResponse]] = None
+        actual_instance: Optional[Union[APIError, GifSearchInternalError, GifSearchResponse]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "GifSearchInternalError", "GifSearchResponse" }
+    any_of_schemas: Set[str] = { "APIError", "GifSearchInternalError", "GifSearchResponse" }
 
     model_config = {
         "validate_assignment": True,
@@ -73,9 +76,15 @@ class GetGifsSearchResponse(BaseModel):
         else:
             return v
 
+        # validate data type: APIError
+        if not isinstance(v, APIError):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `APIError`")
+        else:
+            return v
+
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in GetGifsSearchResponse with anyOf schemas: GifSearchInternalError, GifSearchResponse. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in GetGifsSearchResponse with anyOf schemas: APIError, GifSearchInternalError, GifSearchResponse. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -100,10 +109,16 @@ class GetGifsSearchResponse(BaseModel):
             return instance
         except (ValidationError, ValueError) as e:
              error_messages.append(str(e))
+        # anyof_schema_3_validator: Optional[APIError] = None
+        try:
+            instance.actual_instance = APIError.from_json(json_str)
+            return instance
+        except (ValidationError, ValueError) as e:
+             error_messages.append(str(e))
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into GetGifsSearchResponse with anyOf schemas: GifSearchInternalError, GifSearchResponse. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into GetGifsSearchResponse with anyOf schemas: APIError, GifSearchInternalError, GifSearchResponse. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -117,7 +132,7 @@ class GetGifsSearchResponse(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], GifSearchInternalError, GifSearchResponse]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], APIError, GifSearchInternalError, GifSearchResponse]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

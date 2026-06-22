@@ -59,7 +59,7 @@ Method | HTTP request | Description
 
 
 # **block_from_comment_public**
-> BlockSuccess block_from_comment_public(tenant_id, comment_id, public_block_from_comment_params, sso=sso)
+> BlockFromCommentPublicResponse block_from_comment_public(tenant_id, comment_id, public_block_from_comment_params, sso=sso)
 
 
 
@@ -68,7 +68,7 @@ Method | HTTP request | Description
 
 ```python
 import client
-from client.models.block_success import BlockSuccess
+from client.models.block_from_comment_public_response import BlockFromCommentPublicResponse
 from client.models.public_block_from_comment_params import PublicBlockFromCommentParams
 from client.rest import ApiException
 from pprint import pprint
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BlockSuccess**](BlockSuccess.md)
+[**BlockFromCommentPublicResponse**](BlockFromCommentPublicResponse.md)
 
 ### Authorization
 
@@ -127,12 +127,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **checked_comments_for_blocked**
-> CheckBlockedCommentsResponse checked_comments_for_blocked(tenant_id, comment_ids, sso=sso)
+> CheckedCommentsForBlockedResponse checked_comments_for_blocked(tenant_id, comment_ids, sso=sso)
 
 
 
@@ -141,7 +140,7 @@ No authorization required
 
 ```python
 import client
-from client.models.check_blocked_comments_response import CheckBlockedCommentsResponse
+from client.models.checked_comments_for_blocked_response import CheckedCommentsForBlockedResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -181,7 +180,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CheckBlockedCommentsResponse**](CheckBlockedCommentsResponse.md)
+[**CheckedCommentsForBlockedResponse**](CheckedCommentsForBlockedResponse.md)
 
 ### Authorization
 
@@ -197,12 +196,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_comment_public**
-> SaveCommentsResponseWithPresence create_comment_public(tenant_id, url_id, broadcast_id, comment_data, session_id=session_id, sso=sso)
+> CreateCommentPublicResponse create_comment_public(tenant_id, url_id, broadcast_id, comment_data, session_id=session_id, sso=sso)
 
 
 
@@ -212,7 +210,7 @@ No authorization required
 ```python
 import client
 from client.models.comment_data import CommentData
-from client.models.save_comments_response_with_presence import SaveCommentsResponseWithPresence
+from client.models.create_comment_public_response import CreateCommentPublicResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -258,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SaveCommentsResponseWithPresence**](SaveCommentsResponseWithPresence.md)
+[**CreateCommentPublicResponse**](CreateCommentPublicResponse.md)
 
 ### Authorization
 
@@ -274,12 +272,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_feed_post_public**
-> CreateFeedPostResponse create_feed_post_public(tenant_id, create_feed_post_params, broadcast_id=broadcast_id, sso=sso)
+> CreateFeedPostPublicResponse create_feed_post_public(tenant_id, create_feed_post_params, broadcast_id=broadcast_id, sso=sso)
 
 
 
@@ -289,7 +286,7 @@ No authorization required
 ```python
 import client
 from client.models.create_feed_post_params import CreateFeedPostParams
-from client.models.create_feed_post_response import CreateFeedPostResponse
+from client.models.create_feed_post_public_response import CreateFeedPostPublicResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -331,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateFeedPostResponse**](CreateFeedPostResponse.md)
+[**CreateFeedPostPublicResponse**](CreateFeedPostPublicResponse.md)
 
 ### Authorization
 
@@ -347,12 +344,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_v1_page_react**
-> CreateV1PageReact create_v1_page_react(tenant_id, url_id, title=title)
+> CreateV1PageReactResponse create_v1_page_react(tenant_id, url_id, title=title)
 
 
 
@@ -361,7 +357,7 @@ No authorization required
 
 ```python
 import client
-from client.models.create_v1_page_react import CreateV1PageReact
+from client.models.create_v1_page_react_response import CreateV1PageReactResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -401,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateV1PageReact**](CreateV1PageReact.md)
+[**CreateV1PageReactResponse**](CreateV1PageReactResponse.md)
 
 ### Authorization
 
@@ -417,12 +413,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_v2_page_react**
-> CreateV1PageReact create_v2_page_react(tenant_id, url_id, id, title=title)
+> CreateV2PageReactResponse create_v2_page_react(tenant_id, url_id, id, title=title)
 
 
 
@@ -431,7 +426,7 @@ No authorization required
 
 ```python
 import client
-from client.models.create_v1_page_react import CreateV1PageReact
+from client.models.create_v2_page_react_response import CreateV2PageReactResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -473,7 +468,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateV1PageReact**](CreateV1PageReact.md)
+[**CreateV2PageReactResponse**](CreateV2PageReactResponse.md)
 
 ### Authorization
 
@@ -489,12 +484,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_comment_public**
-> PublicAPIDeleteCommentResponse delete_comment_public(tenant_id, comment_id, broadcast_id, edit_key=edit_key, sso=sso)
+> DeleteCommentPublicResponse delete_comment_public(tenant_id, comment_id, broadcast_id, edit_key=edit_key, sso=sso)
 
 
 
@@ -503,7 +497,7 @@ No authorization required
 
 ```python
 import client
-from client.models.public_api_delete_comment_response import PublicAPIDeleteCommentResponse
+from client.models.delete_comment_public_response import DeleteCommentPublicResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -547,7 +541,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PublicAPIDeleteCommentResponse**](PublicAPIDeleteCommentResponse.md)
+[**DeleteCommentPublicResponse**](DeleteCommentPublicResponse.md)
 
 ### Authorization
 
@@ -563,12 +557,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_comment_vote**
-> VoteDeleteResponse delete_comment_vote(tenant_id, comment_id, vote_id, url_id, broadcast_id, edit_key=edit_key, sso=sso)
+> DeleteCommentVoteResponse delete_comment_vote(tenant_id, comment_id, vote_id, url_id, broadcast_id, edit_key=edit_key, sso=sso)
 
 
 
@@ -577,7 +570,7 @@ No authorization required
 
 ```python
 import client
-from client.models.vote_delete_response import VoteDeleteResponse
+from client.models.delete_comment_vote_response import DeleteCommentVoteResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -625,7 +618,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VoteDeleteResponse**](VoteDeleteResponse.md)
+[**DeleteCommentVoteResponse**](DeleteCommentVoteResponse.md)
 
 ### Authorization
 
@@ -641,7 +634,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -713,12 +705,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_v1_page_react**
-> CreateV1PageReact delete_v1_page_react(tenant_id, url_id)
+> DeleteV1PageReactResponse delete_v1_page_react(tenant_id, url_id)
 
 
 
@@ -727,7 +718,7 @@ No authorization required
 
 ```python
 import client
-from client.models.create_v1_page_react import CreateV1PageReact
+from client.models.delete_v1_page_react_response import DeleteV1PageReactResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -765,7 +756,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateV1PageReact**](CreateV1PageReact.md)
+[**DeleteV1PageReactResponse**](DeleteV1PageReactResponse.md)
 
 ### Authorization
 
@@ -781,12 +772,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_v2_page_react**
-> CreateV1PageReact delete_v2_page_react(tenant_id, url_id, id)
+> DeleteV2PageReactResponse delete_v2_page_react(tenant_id, url_id, id)
 
 
 
@@ -795,7 +785,7 @@ No authorization required
 
 ```python
 import client
-from client.models.create_v1_page_react import CreateV1PageReact
+from client.models.delete_v2_page_react_response import DeleteV2PageReactResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -835,7 +825,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateV1PageReact**](CreateV1PageReact.md)
+[**DeleteV2PageReactResponse**](DeleteV2PageReactResponse.md)
 
 ### Authorization
 
@@ -851,12 +841,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **flag_comment_public**
-> APIEmptyResponse flag_comment_public(tenant_id, comment_id, is_flagged, sso=sso)
+> FlagCommentPublicResponse flag_comment_public(tenant_id, comment_id, is_flagged, sso=sso)
 
 
 
@@ -865,7 +854,7 @@ No authorization required
 
 ```python
 import client
-from client.models.api_empty_response import APIEmptyResponse
+from client.models.flag_comment_public_response import FlagCommentPublicResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -907,7 +896,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**FlagCommentPublicResponse**](FlagCommentPublicResponse.md)
 
 ### Authorization
 
@@ -923,12 +912,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comment_text**
-> PublicAPIGetCommentTextResponse get_comment_text(tenant_id, comment_id, edit_key=edit_key, sso=sso)
+> GetCommentTextResponse1 get_comment_text(tenant_id, comment_id, edit_key=edit_key, sso=sso)
 
 
 
@@ -937,7 +925,7 @@ No authorization required
 
 ```python
 import client
-from client.models.public_api_get_comment_text_response import PublicAPIGetCommentTextResponse
+from client.models.get_comment_text_response1 import GetCommentTextResponse1
 from client.rest import ApiException
 from pprint import pprint
 
@@ -979,7 +967,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PublicAPIGetCommentTextResponse**](PublicAPIGetCommentTextResponse.md)
+[**GetCommentTextResponse1**](GetCommentTextResponse1.md)
 
 ### Authorization
 
@@ -995,12 +983,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comment_vote_user_names**
-> GetCommentVoteUserNamesSuccessResponse get_comment_vote_user_names(tenant_id, comment_id, dir, sso=sso)
+> GetCommentVoteUserNamesResponse get_comment_vote_user_names(tenant_id, comment_id, dir, sso=sso)
 
 
 
@@ -1009,7 +996,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_comment_vote_user_names_success_response import GetCommentVoteUserNamesSuccessResponse
+from client.models.get_comment_vote_user_names_response import GetCommentVoteUserNamesResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1051,7 +1038,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCommentVoteUserNamesSuccessResponse**](GetCommentVoteUserNamesSuccessResponse.md)
+[**GetCommentVoteUserNamesResponse**](GetCommentVoteUserNamesResponse.md)
 
 ### Authorization
 
@@ -1067,12 +1054,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comments_for_user**
-> GetCommentsForUserResponse get_comments_for_user(user_id=user_id, direction=direction, replies_to_user_id=replies_to_user_id, page=page, includei10n=includei10n, locale=locale, is_crawler=is_crawler)
+> GetCommentsForUserResponse1 get_comments_for_user(user_id=user_id, direction=direction, replies_to_user_id=replies_to_user_id, page=page, includei10n=includei10n, locale=locale, is_crawler=is_crawler)
 
 
 
@@ -1081,7 +1067,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_comments_for_user_response import GetCommentsForUserResponse
+from client.models.get_comments_for_user_response1 import GetCommentsForUserResponse1
 from client.models.sort_directions import SortDirections
 from client.rest import ApiException
 from pprint import pprint
@@ -1130,7 +1116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCommentsForUserResponse**](GetCommentsForUserResponse.md)
+[**GetCommentsForUserResponse1**](GetCommentsForUserResponse1.md)
 
 ### Authorization
 
@@ -1146,12 +1132,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comments_public**
-> GetCommentsResponseWithPresencePublicComment get_comments_public(tenant_id, url_id, page=page, direction=direction, sso=sso, skip=skip, skip_children=skip_children, limit=limit, limit_children=limit_children, count_children=count_children, fetch_page_for_comment_id=fetch_page_for_comment_id, include_config=include_config, count_all=count_all, includei10n=includei10n, locale=locale, modules=modules, is_crawler=is_crawler, include_notification_count=include_notification_count, as_tree=as_tree, max_tree_depth=max_tree_depth, use_full_translation_ids=use_full_translation_ids, parent_id=parent_id, search_text=search_text, hash_tags=hash_tags, user_id=user_id, custom_config_str=custom_config_str, after_comment_id=after_comment_id, before_comment_id=before_comment_id)
+> GetCommentsPublicResponse get_comments_public(tenant_id, url_id, page=page, direction=direction, sso=sso, skip=skip, skip_children=skip_children, limit=limit, limit_children=limit_children, count_children=count_children, fetch_page_for_comment_id=fetch_page_for_comment_id, include_config=include_config, count_all=count_all, includei10n=includei10n, locale=locale, modules=modules, is_crawler=is_crawler, include_notification_count=include_notification_count, as_tree=as_tree, max_tree_depth=max_tree_depth, use_full_translation_ids=use_full_translation_ids, parent_id=parent_id, search_text=search_text, hash_tags=hash_tags, user_id=user_id, custom_config_str=custom_config_str, after_comment_id=after_comment_id, before_comment_id=before_comment_id)
 
 
 
@@ -1162,7 +1147,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_comments_response_with_presence_public_comment import GetCommentsResponseWithPresencePublicComment
+from client.models.get_comments_public_response import GetCommentsPublicResponse
 from client.models.sort_directions import SortDirections
 from client.rest import ApiException
 from pprint import pprint
@@ -1253,7 +1238,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetCommentsResponseWithPresencePublicComment**](GetCommentsResponseWithPresencePublicComment.md)
+[**GetCommentsPublicResponse**](GetCommentsPublicResponse.md)
 
 ### Authorization
 
@@ -1269,12 +1254,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_event_log**
-> GetEventLogResponse get_event_log(tenant_id, url_id, user_id_ws, start_time, end_time=end_time)
+> GetEventLogResponse1 get_event_log(tenant_id, url_id, user_id_ws, start_time, end_time=end_time)
 
 
 
@@ -1285,7 +1269,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_event_log_response import GetEventLogResponse
+from client.models.get_event_log_response1 import GetEventLogResponse1
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1329,7 +1313,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEventLogResponse**](GetEventLogResponse.md)
+[**GetEventLogResponse1**](GetEventLogResponse1.md)
 
 ### Authorization
 
@@ -1345,12 +1329,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_feed_posts_public**
-> PublicFeedPostsResponse get_feed_posts_public(tenant_id, after_id=after_id, limit=limit, tags=tags, sso=sso, is_crawler=is_crawler, include_user_info=include_user_info)
+> GetFeedPostsPublicResponse get_feed_posts_public(tenant_id, after_id=after_id, limit=limit, tags=tags, sso=sso, is_crawler=is_crawler, include_user_info=include_user_info)
 
 
 
@@ -1361,7 +1344,7 @@ No authorization required
 
 ```python
 import client
-from client.models.public_feed_posts_response import PublicFeedPostsResponse
+from client.models.get_feed_posts_public_response import GetFeedPostsPublicResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1409,7 +1392,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PublicFeedPostsResponse**](PublicFeedPostsResponse.md)
+[**GetFeedPostsPublicResponse**](GetFeedPostsPublicResponse.md)
 
 ### Authorization
 
@@ -1425,12 +1408,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_feed_posts_stats**
-> FeedPostsStatsResponse get_feed_posts_stats(tenant_id, post_ids, sso=sso)
+> GetFeedPostsStatsResponse get_feed_posts_stats(tenant_id, post_ids, sso=sso)
 
 
 
@@ -1439,7 +1421,7 @@ No authorization required
 
 ```python
 import client
-from client.models.feed_posts_stats_response import FeedPostsStatsResponse
+from client.models.get_feed_posts_stats_response import GetFeedPostsStatsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1479,7 +1461,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**FeedPostsStatsResponse**](FeedPostsStatsResponse.md)
+[**GetFeedPostsStatsResponse**](GetFeedPostsStatsResponse.md)
 
 ### Authorization
 
@@ -1495,12 +1477,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_gif_large**
-> GifGetLargeResponse get_gif_large(tenant_id, large_internal_url_sanitized)
+> GetGifLargeResponse get_gif_large(tenant_id, large_internal_url_sanitized)
 
 
 
@@ -1509,7 +1490,7 @@ No authorization required
 
 ```python
 import client
-from client.models.gif_get_large_response import GifGetLargeResponse
+from client.models.get_gif_large_response import GetGifLargeResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1547,7 +1528,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GifGetLargeResponse**](GifGetLargeResponse.md)
+[**GetGifLargeResponse**](GetGifLargeResponse.md)
 
 ### Authorization
 
@@ -1564,7 +1545,6 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
 **422** | Validation Failed |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1639,7 +1619,6 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
 **422** | Validation Failed |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1715,7 +1694,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_global_event_log**
-> GetEventLogResponse get_global_event_log(tenant_id, url_id, user_id_ws, start_time, end_time=end_time)
+> GetGlobalEventLogResponse get_global_event_log(tenant_id, url_id, user_id_ws, start_time, end_time=end_time)
 
 
 
@@ -1726,7 +1705,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_event_log_response import GetEventLogResponse
+from client.models.get_global_event_log_response import GetGlobalEventLogResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1770,7 +1749,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetEventLogResponse**](GetEventLogResponse.md)
+[**GetGlobalEventLogResponse**](GetGlobalEventLogResponse.md)
 
 ### Authorization
 
@@ -1786,12 +1765,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_offline_users**
-> PageUsersOfflineResponse get_offline_users(tenant_id, url_id, after_name=after_name, after_user_id=after_user_id)
+> GetOfflineUsersResponse get_offline_users(tenant_id, url_id, after_name=after_name, after_user_id=after_user_id)
 
 
 
@@ -1802,7 +1780,7 @@ Past commenters on the page who are NOT currently online. Sorted by displayName.
 
 ```python
 import client
-from client.models.page_users_offline_response import PageUsersOfflineResponse
+from client.models.get_offline_users_response import GetOfflineUsersResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1844,7 +1822,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageUsersOfflineResponse**](PageUsersOfflineResponse.md)
+[**GetOfflineUsersResponse**](GetOfflineUsersResponse.md)
 
 ### Authorization
 
@@ -1862,12 +1840,11 @@ No authorization required
 **200** | Ok |  -  |
 **403** | Forbidden |  -  |
 **422** | Validation Failed |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_online_users**
-> PageUsersOnlineResponse get_online_users(tenant_id, url_id, after_name=after_name, after_user_id=after_user_id)
+> GetOnlineUsersResponse get_online_users(tenant_id, url_id, after_name=after_name, after_user_id=after_user_id)
 
 
 
@@ -1878,7 +1855,7 @@ Currently-online viewers of a page: people whose websocket session is subscribed
 
 ```python
 import client
-from client.models.page_users_online_response import PageUsersOnlineResponse
+from client.models.get_online_users_response import GetOnlineUsersResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -1920,7 +1897,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageUsersOnlineResponse**](PageUsersOnlineResponse.md)
+[**GetOnlineUsersResponse**](GetOnlineUsersResponse.md)
 
 ### Authorization
 
@@ -1938,12 +1915,11 @@ No authorization required
 **200** | Ok |  -  |
 **403** | Forbidden |  -  |
 **422** | Validation Failed |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_pages_public**
-> GetPublicPagesResponse get_pages_public(tenant_id, cursor=cursor, limit=limit, q=q, sort_by=sort_by, has_comments=has_comments)
+> GetPagesPublicResponse get_pages_public(tenant_id, cursor=cursor, limit=limit, q=q, sort_by=sort_by, has_comments=has_comments)
 
 
 
@@ -1954,7 +1930,7 @@ List pages for a tenant. Used by the FChat desktop client to populate its room l
 
 ```python
 import client
-from client.models.get_public_pages_response import GetPublicPagesResponse
+from client.models.get_pages_public_response import GetPagesPublicResponse
 from client.models.pages_sort_by import PagesSortBy
 from client.rest import ApiException
 from pprint import pprint
@@ -2001,7 +1977,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetPublicPagesResponse**](GetPublicPagesResponse.md)
+[**GetPagesPublicResponse**](GetPagesPublicResponse.md)
 
 ### Authorization
 
@@ -2017,12 +1993,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_translations**
-> GetTranslationsResponse get_translations(namespace, component, locale=locale, use_full_translation_ids=use_full_translation_ids)
+> GetTranslationsResponse1 get_translations(namespace, component, locale=locale, use_full_translation_ids=use_full_translation_ids)
 
 
 
@@ -2031,7 +2006,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_translations_response import GetTranslationsResponse
+from client.models.get_translations_response1 import GetTranslationsResponse1
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2073,7 +2048,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTranslationsResponse**](GetTranslationsResponse.md)
+[**GetTranslationsResponse1**](GetTranslationsResponse1.md)
 
 ### Authorization
 
@@ -2091,12 +2066,11 @@ No authorization required
 **200** | Ok |  -  |
 **422** | Validation Failed |  -  |
 **500** | Internal |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_notification_count**
-> GetUserNotificationCountResponse get_user_notification_count(tenant_id, sso=sso)
+> GetUserNotificationCountResponse1 get_user_notification_count(tenant_id, sso=sso)
 
 
 
@@ -2105,7 +2079,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_user_notification_count_response import GetUserNotificationCountResponse
+from client.models.get_user_notification_count_response1 import GetUserNotificationCountResponse1
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2143,7 +2117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserNotificationCountResponse**](GetUserNotificationCountResponse.md)
+[**GetUserNotificationCountResponse1**](GetUserNotificationCountResponse1.md)
 
 ### Authorization
 
@@ -2159,12 +2133,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_notifications**
-> GetMyNotificationsResponse get_user_notifications(tenant_id, url_id=url_id, page_size=page_size, after_id=after_id, include_context=include_context, after_created_at=after_created_at, unread_only=unread_only, dm_only=dm_only, no_dm=no_dm, include_translations=include_translations, include_tenant_notifications=include_tenant_notifications, sso=sso)
+> GetUserNotificationsResponse get_user_notifications(tenant_id, url_id=url_id, page_size=page_size, after_id=after_id, include_context=include_context, after_created_at=after_created_at, unread_only=unread_only, dm_only=dm_only, no_dm=no_dm, include_translations=include_translations, include_tenant_notifications=include_tenant_notifications, sso=sso)
 
 
 
@@ -2173,7 +2146,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_my_notifications_response import GetMyNotificationsResponse
+from client.models.get_user_notifications_response import GetUserNotificationsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2231,7 +2204,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetMyNotificationsResponse**](GetMyNotificationsResponse.md)
+[**GetUserNotificationsResponse**](GetUserNotificationsResponse.md)
 
 ### Authorization
 
@@ -2247,12 +2220,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_presence_statuses**
-> GetUserPresenceStatusesResponse get_user_presence_statuses(tenant_id, url_id_ws, user_ids)
+> GetUserPresenceStatusesResponse1 get_user_presence_statuses(tenant_id, url_id_ws, user_ids)
 
 
 
@@ -2261,7 +2233,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_user_presence_statuses_response import GetUserPresenceStatusesResponse
+from client.models.get_user_presence_statuses_response1 import GetUserPresenceStatusesResponse1
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2301,7 +2273,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserPresenceStatusesResponse**](GetUserPresenceStatusesResponse.md)
+[**GetUserPresenceStatusesResponse1**](GetUserPresenceStatusesResponse1.md)
 
 ### Authorization
 
@@ -2318,12 +2290,11 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
 **422** | Validation Failed |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_reacts_public**
-> UserReactsResponse get_user_reacts_public(tenant_id, post_ids=post_ids, sso=sso)
+> GetUserReactsPublicResponse get_user_reacts_public(tenant_id, post_ids=post_ids, sso=sso)
 
 
 
@@ -2332,7 +2303,7 @@ No authorization required
 
 ```python
 import client
-from client.models.user_reacts_response import UserReactsResponse
+from client.models.get_user_reacts_public_response import GetUserReactsPublicResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2372,7 +2343,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserReactsResponse**](UserReactsResponse.md)
+[**GetUserReactsPublicResponse**](GetUserReactsPublicResponse.md)
 
 ### Authorization
 
@@ -2388,12 +2359,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_users_info**
-> PageUsersInfoResponse get_users_info(tenant_id, ids)
+> GetUsersInfoResponse get_users_info(tenant_id, ids)
 
 
 
@@ -2404,7 +2374,7 @@ Bulk user info for a tenant. Given userIds, return display info from User / SSOU
 
 ```python
 import client
-from client.models.page_users_info_response import PageUsersInfoResponse
+from client.models.get_users_info_response import GetUsersInfoResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2442,7 +2412,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PageUsersInfoResponse**](PageUsersInfoResponse.md)
+[**GetUsersInfoResponse**](GetUsersInfoResponse.md)
 
 ### Authorization
 
@@ -2459,12 +2429,11 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
 **422** | Validation Failed |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_v1_page_likes**
-> GetV1PageLikes get_v1_page_likes(tenant_id, url_id)
+> GetV1PageLikesResponse get_v1_page_likes(tenant_id, url_id)
 
 
 
@@ -2473,7 +2442,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_v1_page_likes import GetV1PageLikes
+from client.models.get_v1_page_likes_response import GetV1PageLikesResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2511,7 +2480,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetV1PageLikes**](GetV1PageLikes.md)
+[**GetV1PageLikesResponse**](GetV1PageLikesResponse.md)
 
 ### Authorization
 
@@ -2527,12 +2496,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_v2_page_react_users**
-> GetV2PageReactUsersResponse get_v2_page_react_users(tenant_id, url_id, id)
+> GetV2PageReactUsersResponse1 get_v2_page_react_users(tenant_id, url_id, id)
 
 
 
@@ -2541,7 +2509,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_v2_page_react_users_response import GetV2PageReactUsersResponse
+from client.models.get_v2_page_react_users_response1 import GetV2PageReactUsersResponse1
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2581,7 +2549,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetV2PageReactUsersResponse**](GetV2PageReactUsersResponse.md)
+[**GetV2PageReactUsersResponse1**](GetV2PageReactUsersResponse1.md)
 
 ### Authorization
 
@@ -2597,12 +2565,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_v2_page_reacts**
-> GetV2PageReacts get_v2_page_reacts(tenant_id, url_id)
+> GetV2PageReactsResponse get_v2_page_reacts(tenant_id, url_id)
 
 
 
@@ -2611,7 +2578,7 @@ No authorization required
 
 ```python
 import client
-from client.models.get_v2_page_reacts import GetV2PageReacts
+from client.models.get_v2_page_reacts_response import GetV2PageReactsResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2649,7 +2616,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetV2PageReacts**](GetV2PageReacts.md)
+[**GetV2PageReactsResponse**](GetV2PageReactsResponse.md)
 
 ### Authorization
 
@@ -2665,12 +2632,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lock_comment**
-> APIEmptyResponse lock_comment(tenant_id, comment_id, broadcast_id, sso=sso)
+> LockCommentResponse lock_comment(tenant_id, comment_id, broadcast_id, sso=sso)
 
 
 
@@ -2679,7 +2645,7 @@ No authorization required
 
 ```python
 import client
-from client.models.api_empty_response import APIEmptyResponse
+from client.models.lock_comment_response import LockCommentResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2721,7 +2687,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**LockCommentResponse**](LockCommentResponse.md)
 
 ### Authorization
 
@@ -2737,7 +2703,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2803,7 +2768,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pin_comment**
-> ChangeCommentPinStatusResponse pin_comment(tenant_id, comment_id, broadcast_id, sso=sso)
+> PinCommentResponse pin_comment(tenant_id, comment_id, broadcast_id, sso=sso)
 
 
 
@@ -2812,7 +2777,7 @@ No authorization required
 
 ```python
 import client
-from client.models.change_comment_pin_status_response import ChangeCommentPinStatusResponse
+from client.models.pin_comment_response import PinCommentResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2854,7 +2819,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ChangeCommentPinStatusResponse**](ChangeCommentPinStatusResponse.md)
+[**PinCommentResponse**](PinCommentResponse.md)
 
 ### Authorization
 
@@ -2870,12 +2835,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **react_feed_post_public**
-> ReactFeedPostResponse react_feed_post_public(tenant_id, post_id, react_body_params, is_undo=is_undo, broadcast_id=broadcast_id, sso=sso)
+> ReactFeedPostPublicResponse react_feed_post_public(tenant_id, post_id, react_body_params, is_undo=is_undo, broadcast_id=broadcast_id, sso=sso)
 
 
 
@@ -2885,7 +2849,7 @@ No authorization required
 ```python
 import client
 from client.models.react_body_params import ReactBodyParams
-from client.models.react_feed_post_response import ReactFeedPostResponse
+from client.models.react_feed_post_public_response import ReactFeedPostPublicResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2931,7 +2895,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ReactFeedPostResponse**](ReactFeedPostResponse.md)
+[**ReactFeedPostPublicResponse**](ReactFeedPostPublicResponse.md)
 
 ### Authorization
 
@@ -2947,12 +2911,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reset_user_notification_count**
-> ResetUserNotificationsResponse reset_user_notification_count(tenant_id, sso=sso)
+> ResetUserNotificationCountResponse reset_user_notification_count(tenant_id, sso=sso)
 
 
 
@@ -2961,7 +2924,7 @@ No authorization required
 
 ```python
 import client
-from client.models.reset_user_notifications_response import ResetUserNotificationsResponse
+from client.models.reset_user_notification_count_response import ResetUserNotificationCountResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -2999,7 +2962,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResetUserNotificationsResponse**](ResetUserNotificationsResponse.md)
+[**ResetUserNotificationCountResponse**](ResetUserNotificationCountResponse.md)
 
 ### Authorization
 
@@ -3015,12 +2978,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reset_user_notifications**
-> ResetUserNotificationsResponse reset_user_notifications(tenant_id, after_id=after_id, after_created_at=after_created_at, unread_only=unread_only, dm_only=dm_only, no_dm=no_dm, sso=sso)
+> ResetUserNotificationsResponse1 reset_user_notifications(tenant_id, after_id=after_id, after_created_at=after_created_at, unread_only=unread_only, dm_only=dm_only, no_dm=no_dm, sso=sso)
 
 
 
@@ -3029,7 +2991,7 @@ No authorization required
 
 ```python
 import client
-from client.models.reset_user_notifications_response import ResetUserNotificationsResponse
+from client.models.reset_user_notifications_response1 import ResetUserNotificationsResponse1
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3077,7 +3039,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResetUserNotificationsResponse**](ResetUserNotificationsResponse.md)
+[**ResetUserNotificationsResponse1**](ResetUserNotificationsResponse1.md)
 
 ### Authorization
 
@@ -3093,12 +3055,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_users**
-> SearchUsersResult search_users(tenant_id, url_id, username_starts_with=username_starts_with, mention_group_ids=mention_group_ids, sso=sso, search_section=search_section)
+> SearchUsersResponse1 search_users(tenant_id, url_id, username_starts_with=username_starts_with, mention_group_ids=mention_group_ids, sso=sso, search_section=search_section)
 
 
 
@@ -3107,7 +3068,7 @@ No authorization required
 
 ```python
 import client
-from client.models.search_users_result import SearchUsersResult
+from client.models.search_users_response1 import SearchUsersResponse1
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3153,7 +3114,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SearchUsersResult**](SearchUsersResult.md)
+[**SearchUsersResponse1**](SearchUsersResponse1.md)
 
 ### Authorization
 
@@ -3169,12 +3130,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_comment_text**
-> PublicAPISetCommentTextResponse set_comment_text(tenant_id, comment_id, broadcast_id, comment_text_update_request, edit_key=edit_key, sso=sso)
+> SetCommentTextResponse1 set_comment_text(tenant_id, comment_id, broadcast_id, comment_text_update_request, edit_key=edit_key, sso=sso)
 
 
 
@@ -3184,7 +3144,7 @@ No authorization required
 ```python
 import client
 from client.models.comment_text_update_request import CommentTextUpdateRequest
-from client.models.public_api_set_comment_text_response import PublicAPISetCommentTextResponse
+from client.models.set_comment_text_response1 import SetCommentTextResponse1
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3230,7 +3190,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PublicAPISetCommentTextResponse**](PublicAPISetCommentTextResponse.md)
+[**SetCommentTextResponse1**](SetCommentTextResponse1.md)
 
 ### Authorization
 
@@ -3246,12 +3206,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **un_block_comment_public**
-> UnblockSuccess un_block_comment_public(tenant_id, comment_id, public_block_from_comment_params, sso=sso)
+> UnBlockCommentPublicResponse un_block_comment_public(tenant_id, comment_id, public_block_from_comment_params, sso=sso)
 
 
 
@@ -3261,7 +3220,7 @@ No authorization required
 ```python
 import client
 from client.models.public_block_from_comment_params import PublicBlockFromCommentParams
-from client.models.unblock_success import UnblockSuccess
+from client.models.un_block_comment_public_response import UnBlockCommentPublicResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3303,7 +3262,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UnblockSuccess**](UnblockSuccess.md)
+[**UnBlockCommentPublicResponse**](UnBlockCommentPublicResponse.md)
 
 ### Authorization
 
@@ -3319,12 +3278,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **un_lock_comment**
-> APIEmptyResponse un_lock_comment(tenant_id, comment_id, broadcast_id, sso=sso)
+> UnLockCommentResponse un_lock_comment(tenant_id, comment_id, broadcast_id, sso=sso)
 
 
 
@@ -3333,7 +3291,7 @@ No authorization required
 
 ```python
 import client
-from client.models.api_empty_response import APIEmptyResponse
+from client.models.un_lock_comment_response import UnLockCommentResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3375,7 +3333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UnLockCommentResponse**](UnLockCommentResponse.md)
 
 ### Authorization
 
@@ -3391,12 +3349,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **un_pin_comment**
-> ChangeCommentPinStatusResponse un_pin_comment(tenant_id, comment_id, broadcast_id, sso=sso)
+> UnPinCommentResponse un_pin_comment(tenant_id, comment_id, broadcast_id, sso=sso)
 
 
 
@@ -3405,7 +3362,7 @@ No authorization required
 
 ```python
 import client
-from client.models.change_comment_pin_status_response import ChangeCommentPinStatusResponse
+from client.models.un_pin_comment_response import UnPinCommentResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3447,7 +3404,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ChangeCommentPinStatusResponse**](ChangeCommentPinStatusResponse.md)
+[**UnPinCommentResponse**](UnPinCommentResponse.md)
 
 ### Authorization
 
@@ -3463,12 +3420,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_feed_post_public**
-> CreateFeedPostResponse update_feed_post_public(tenant_id, post_id, update_feed_post_params, broadcast_id=broadcast_id, sso=sso)
+> UpdateFeedPostPublicResponse update_feed_post_public(tenant_id, post_id, update_feed_post_params, broadcast_id=broadcast_id, sso=sso)
 
 
 
@@ -3477,8 +3433,8 @@ No authorization required
 
 ```python
 import client
-from client.models.create_feed_post_response import CreateFeedPostResponse
 from client.models.update_feed_post_params import UpdateFeedPostParams
+from client.models.update_feed_post_public_response import UpdateFeedPostPublicResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3522,7 +3478,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CreateFeedPostResponse**](CreateFeedPostResponse.md)
+[**UpdateFeedPostPublicResponse**](UpdateFeedPostPublicResponse.md)
 
 ### Authorization
 
@@ -3538,7 +3494,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3614,7 +3569,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3692,7 +3646,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3764,7 +3717,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3843,7 +3795,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **vote_comment**
-> VoteResponse vote_comment(tenant_id, comment_id, url_id, broadcast_id, vote_body_params, session_id=session_id, sso=sso)
+> VoteCommentResponse vote_comment(tenant_id, comment_id, url_id, broadcast_id, vote_body_params, session_id=session_id, sso=sso)
 
 
 
@@ -3853,7 +3805,7 @@ No authorization required
 ```python
 import client
 from client.models.vote_body_params import VoteBodyParams
-from client.models.vote_response import VoteResponse
+from client.models.vote_comment_response import VoteCommentResponse
 from client.rest import ApiException
 from pprint import pprint
 
@@ -3901,7 +3853,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VoteResponse**](VoteResponse.md)
+[**VoteCommentResponse**](VoteCommentResponse.md)
 
 ### Authorization
 
@@ -3917,7 +3869,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Ok |  -  |
-**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
