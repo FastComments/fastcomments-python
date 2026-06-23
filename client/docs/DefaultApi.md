@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_hash_tag**
-> CreateHashTagResponse add_hash_tag(create_hash_tag_body, options=)
+> CreateHashTagResponse add_hash_tag(create_hash_tag_body, tenant_id=tenant_id)
 
 ### Example
 
@@ -206,7 +206,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiAddHashTagOptions
 from client.models.create_hash_tag_body import CreateHashTagBody
 from client.models.create_hash_tag_response import CreateHashTagResponse
 from client.rest import ApiException
@@ -237,7 +236,7 @@ with client.ApiClient(configuration) as api_client:
     create_hash_tag_body = client.CreateHashTagBody() # CreateHashTagBody |  (optional)
 
     try:
-        api_response = api_instance.add_hash_tag(create_hash_tag_body, ApiAddHashTagOptions(tenant_id=tenant_id))
+        api_response = api_instance.add_hash_tag(create_hash_tag_body, tenant_id=tenant_id)
         print("The response of DefaultApi->add_hash_tag:\n")
         pprint(api_response)
     except Exception as e:
@@ -277,7 +276,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_hash_tags_bulk**
-> BulkCreateHashTagsResponse add_hash_tags_bulk(bulk_create_hash_tags_body, options=)
+> BulkCreateHashTagsResponse add_hash_tags_bulk(bulk_create_hash_tags_body, tenant_id=tenant_id)
 
 ### Example
 
@@ -285,7 +284,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiAddHashTagsBulkOptions
 from client.models.bulk_create_hash_tags_body import BulkCreateHashTagsBody
 from client.models.bulk_create_hash_tags_response import BulkCreateHashTagsResponse
 from client.rest import ApiException
@@ -316,7 +314,7 @@ with client.ApiClient(configuration) as api_client:
     bulk_create_hash_tags_body = client.BulkCreateHashTagsBody() # BulkCreateHashTagsBody |  (optional)
 
     try:
-        api_response = api_instance.add_hash_tags_bulk(bulk_create_hash_tags_body, ApiAddHashTagsBulkOptions(tenant_id=tenant_id))
+        api_response = api_instance.add_hash_tags_bulk(bulk_create_hash_tags_body, tenant_id=tenant_id)
         print("The response of DefaultApi->add_hash_tags_bulk:\n")
         pprint(api_response)
     except Exception as e:
@@ -769,7 +767,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **bulk_aggregate_question_results**
-> BulkAggregateQuestionResultsResponse bulk_aggregate_question_results(tenant_id, bulk_aggregate_question_results_request, options=)
+> BulkAggregateQuestionResultsResponse bulk_aggregate_question_results(tenant_id, bulk_aggregate_question_results_request, force_recalculate=force_recalculate)
 
 ### Example
 
@@ -777,7 +775,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiBulkAggregateQuestionResultsOptions
 from client.models.bulk_aggregate_question_results_request import BulkAggregateQuestionResultsRequest
 from client.models.bulk_aggregate_question_results_response import BulkAggregateQuestionResultsResponse
 from client.rest import ApiException
@@ -809,7 +806,7 @@ with client.ApiClient(configuration) as api_client:
     force_recalculate = True # bool |  (optional)
 
     try:
-        api_response = api_instance.bulk_aggregate_question_results(tenant_id, bulk_aggregate_question_results_request, ApiBulkAggregateQuestionResultsOptions(force_recalculate=force_recalculate))
+        api_response = api_instance.bulk_aggregate_question_results(tenant_id, bulk_aggregate_question_results_request, force_recalculate=force_recalculate)
         print("The response of DefaultApi->bulk_aggregate_question_results:\n")
         pprint(api_response)
     except Exception as e:
@@ -2290,7 +2287,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_hash_tag**
-> APIEmptyResponse delete_hash_tag(tag, delete_hash_tag_request_body, options=)
+> APIEmptyResponse delete_hash_tag(tag, delete_hash_tag_request_body, tenant_id=tenant_id)
 
 ### Example
 
@@ -2298,7 +2295,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiDeleteHashTagOptions
 from client.models.api_empty_response import APIEmptyResponse
 from client.models.delete_hash_tag_request_body import DeleteHashTagRequestBody
 from client.rest import ApiException
@@ -2330,7 +2326,7 @@ with client.ApiClient(configuration) as api_client:
     delete_hash_tag_request_body = client.DeleteHashTagRequestBody() # DeleteHashTagRequestBody |  (optional)
 
     try:
-        api_response = api_instance.delete_hash_tag(tag, delete_hash_tag_request_body, ApiDeleteHashTagOptions(tenant_id=tenant_id))
+        api_response = api_instance.delete_hash_tag(tag, delete_hash_tag_request_body, tenant_id=tenant_id)
         print("The response of DefaultApi->delete_hash_tag:\n")
         pprint(api_response)
     except Exception as e:
@@ -2371,7 +2367,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_moderator**
-> APIEmptyResponse delete_moderator(tenant_id, id, options=)
+> APIEmptyResponse delete_moderator(tenant_id, id, send_email=send_email)
 
 ### Example
 
@@ -2379,7 +2375,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiDeleteModeratorOptions
 from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2410,7 +2405,7 @@ with client.ApiClient(configuration) as api_client:
     send_email = 'send_email_example' # str |  (optional)
 
     try:
-        api_response = api_instance.delete_moderator(tenant_id, id, ApiDeleteModeratorOptions(send_email=send_email))
+        api_response = api_instance.delete_moderator(tenant_id, id, send_email=send_email)
         print("The response of DefaultApi->delete_moderator:\n")
         pprint(api_response)
     except Exception as e:
@@ -2916,7 +2911,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_subscription**
-> DeleteSubscriptionAPIResponse delete_subscription(tenant_id, id, options=)
+> DeleteSubscriptionAPIResponse delete_subscription(tenant_id, id, user_id=user_id)
 
 ### Example
 
@@ -2924,7 +2919,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiDeleteSubscriptionOptions
 from client.models.delete_subscription_api_response import DeleteSubscriptionAPIResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2955,7 +2949,7 @@ with client.ApiClient(configuration) as api_client:
     user_id = 'user_id_example' # str |  (optional)
 
     try:
-        api_response = api_instance.delete_subscription(tenant_id, id, ApiDeleteSubscriptionOptions(user_id=user_id))
+        api_response = api_instance.delete_subscription(tenant_id, id, user_id=user_id)
         print("The response of DefaultApi->delete_subscription:\n")
         pprint(api_response)
     except Exception as e:
@@ -2995,7 +2989,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_tenant**
-> APIEmptyResponse delete_tenant(tenant_id, id, options=)
+> APIEmptyResponse delete_tenant(tenant_id, id, sure=sure)
 
 ### Example
 
@@ -3003,7 +2997,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiDeleteTenantOptions
 from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -3034,7 +3027,7 @@ with client.ApiClient(configuration) as api_client:
     sure = 'sure_example' # str |  (optional)
 
     try:
-        api_response = api_instance.delete_tenant(tenant_id, id, ApiDeleteTenantOptions(sure=sure))
+        api_response = api_instance.delete_tenant(tenant_id, id, sure=sure)
         print("The response of DefaultApi->delete_tenant:\n")
         pprint(api_response)
     except Exception as e:
@@ -3311,7 +3304,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_vote**
-> VoteDeleteResponse delete_vote(tenant_id, id, options=)
+> VoteDeleteResponse delete_vote(tenant_id, id, edit_key=edit_key)
 
 ### Example
 
@@ -3319,7 +3312,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiDeleteVoteOptions
 from client.models.vote_delete_response import VoteDeleteResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -3350,7 +3342,7 @@ with client.ApiClient(configuration) as api_client:
     edit_key = 'edit_key_example' # str |  (optional)
 
     try:
-        api_response = api_instance.delete_vote(tenant_id, id, ApiDeleteVoteOptions(edit_key=edit_key))
+        api_response = api_instance.delete_vote(tenant_id, id, edit_key=edit_key)
         print("The response of DefaultApi->delete_vote:\n")
         pprint(api_response)
     except Exception as e:
@@ -4125,7 +4117,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_template_render_errors**
-> GetEmailTemplateRenderErrorsResponse get_email_template_render_errors(tenant_id, id, options=)
+> GetEmailTemplateRenderErrorsResponse get_email_template_render_errors(tenant_id, id, skip=skip)
 
 ### Example
 
@@ -4133,7 +4125,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetEmailTemplateRenderErrorsOptions
 from client.models.get_email_template_render_errors_response import GetEmailTemplateRenderErrorsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -4164,7 +4155,7 @@ with client.ApiClient(configuration) as api_client:
     skip = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_email_template_render_errors(tenant_id, id, ApiGetEmailTemplateRenderErrorsOptions(skip=skip))
+        api_response = api_instance.get_email_template_render_errors(tenant_id, id, skip=skip)
         print("The response of DefaultApi->get_email_template_render_errors:\n")
         pprint(api_response)
     except Exception as e:
@@ -4205,7 +4196,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_email_templates**
-> GetEmailTemplatesResponse get_email_templates(tenant_id, options=)
+> GetEmailTemplatesResponse get_email_templates(tenant_id, skip=skip)
 
 ### Example
 
@@ -4213,7 +4204,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetEmailTemplatesOptions
 from client.models.get_email_templates_response import GetEmailTemplatesResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -4243,7 +4233,7 @@ with client.ApiClient(configuration) as api_client:
     skip = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_email_templates(tenant_id, ApiGetEmailTemplatesOptions(skip=skip))
+        api_response = api_instance.get_email_templates(tenant_id, skip=skip)
         print("The response of DefaultApi->get_email_templates:\n")
         pprint(api_response)
     except Exception as e:
@@ -4370,7 +4360,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_hash_tags**
-> GetHashTagsResponse get_hash_tags(tenant_id, options=)
+> GetHashTagsResponse get_hash_tags(tenant_id, page=page)
 
 ### Example
 
@@ -4378,7 +4368,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetHashTagsOptions
 from client.models.get_hash_tags_response import GetHashTagsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -4408,7 +4397,7 @@ with client.ApiClient(configuration) as api_client:
     page = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_hash_tags(tenant_id, ApiGetHashTagsOptions(page=page))
+        api_response = api_instance.get_hash_tags(tenant_id, page=page)
         print("The response of DefaultApi->get_hash_tags:\n")
         pprint(api_response)
     except Exception as e:
@@ -4525,7 +4514,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_moderators**
-> GetModeratorsResponse get_moderators(tenant_id, options=)
+> GetModeratorsResponse get_moderators(tenant_id, skip=skip)
 
 ### Example
 
@@ -4533,7 +4522,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetModeratorsOptions
 from client.models.get_moderators_response import GetModeratorsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -4563,7 +4551,7 @@ with client.ApiClient(configuration) as api_client:
     skip = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_moderators(tenant_id, ApiGetModeratorsOptions(skip=skip))
+        api_response = api_instance.get_moderators(tenant_id, skip=skip)
         print("The response of DefaultApi->get_moderators:\n")
         pprint(api_response)
     except Exception as e:
@@ -5182,7 +5170,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_question_configs**
-> GetQuestionConfigsResponse get_question_configs(tenant_id, options=)
+> GetQuestionConfigsResponse get_question_configs(tenant_id, skip=skip)
 
 ### Example
 
@@ -5190,7 +5178,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetQuestionConfigsOptions
 from client.models.get_question_configs_response import GetQuestionConfigsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -5220,7 +5207,7 @@ with client.ApiClient(configuration) as api_client:
     skip = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_question_configs(tenant_id, ApiGetQuestionConfigsOptions(skip=skip))
+        api_response = api_instance.get_question_configs(tenant_id, skip=skip)
         print("The response of DefaultApi->get_question_configs:\n")
         pprint(api_response)
     except Exception as e:
@@ -5577,7 +5564,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_sso_users**
-> GetSSOUsersResponse get_sso_users(tenant_id, options=)
+> GetSSOUsersResponse get_sso_users(tenant_id, skip=skip)
 
 ### Example
 
@@ -5585,7 +5572,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetSsoUsersOptions
 from client.models.get_sso_users_response import GetSSOUsersResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -5615,7 +5601,7 @@ with client.ApiClient(configuration) as api_client:
     skip = 56 # int |  (optional)
 
     try:
-        api_response = api_instance.get_sso_users(tenant_id, ApiGetSsoUsersOptions(skip=skip))
+        api_response = api_instance.get_sso_users(tenant_id, skip=skip)
         print("The response of DefaultApi->get_sso_users:\n")
         pprint(api_response)
     except Exception as e:
@@ -5654,7 +5640,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_subscriptions**
-> GetSubscriptionsAPIResponse get_subscriptions(tenant_id, options=)
+> GetSubscriptionsAPIResponse get_subscriptions(tenant_id, user_id=user_id)
 
 ### Example
 
@@ -5662,7 +5648,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetSubscriptionsOptions
 from client.models.get_subscriptions_api_response import GetSubscriptionsAPIResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -5692,7 +5677,7 @@ with client.ApiClient(configuration) as api_client:
     user_id = 'user_id_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_subscriptions(tenant_id, ApiGetSubscriptionsOptions(user_id=user_id))
+        api_response = api_instance.get_subscriptions(tenant_id, user_id=user_id)
         print("The response of DefaultApi->get_subscriptions:\n")
         pprint(api_response)
     except Exception as e:
@@ -5969,7 +5954,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tenant_packages**
-> GetTenantPackagesResponse get_tenant_packages(tenant_id, options=)
+> GetTenantPackagesResponse get_tenant_packages(tenant_id, skip=skip)
 
 ### Example
 
@@ -5977,7 +5962,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetTenantPackagesOptions
 from client.models.get_tenant_packages_response import GetTenantPackagesResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -6007,7 +5991,7 @@ with client.ApiClient(configuration) as api_client:
     skip = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_tenant_packages(tenant_id, ApiGetTenantPackagesOptions(skip=skip))
+        api_response = api_instance.get_tenant_packages(tenant_id, skip=skip)
         print("The response of DefaultApi->get_tenant_packages:\n")
         pprint(api_response)
     except Exception as e:
@@ -6124,7 +6108,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tenant_users**
-> GetTenantUsersResponse get_tenant_users(tenant_id, options=)
+> GetTenantUsersResponse get_tenant_users(tenant_id, skip=skip)
 
 ### Example
 
@@ -6132,7 +6116,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetTenantUsersOptions
 from client.models.get_tenant_users_response import GetTenantUsersResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -6162,7 +6145,7 @@ with client.ApiClient(configuration) as api_client:
     skip = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_tenant_users(tenant_id, ApiGetTenantUsersOptions(skip=skip))
+        api_response = api_instance.get_tenant_users(tenant_id, skip=skip)
         print("The response of DefaultApi->get_tenant_users:\n")
         pprint(api_response)
     except Exception as e:
@@ -6282,7 +6265,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ticket**
-> GetTicketResponse get_ticket(tenant_id, id, options=)
+> GetTicketResponse get_ticket(tenant_id, id, user_id=user_id)
 
 ### Example
 
@@ -6290,7 +6273,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetTicketOptions
 from client.models.get_ticket_response import GetTicketResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -6321,7 +6303,7 @@ with client.ApiClient(configuration) as api_client:
     user_id = 'user_id_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_ticket(tenant_id, id, ApiGetTicketOptions(user_id=user_id))
+        api_response = api_instance.get_ticket(tenant_id, id, user_id=user_id)
         print("The response of DefaultApi->get_ticket:\n")
         pprint(api_response)
     except Exception as e:
@@ -7162,7 +7144,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_hash_tag**
-> UpdateHashTagResponse patch_hash_tag(tag, update_hash_tag_body, options=)
+> UpdateHashTagResponse patch_hash_tag(tag, update_hash_tag_body, tenant_id=tenant_id)
 
 ### Example
 
@@ -7170,7 +7152,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiPatchHashTagOptions
 from client.models.update_hash_tag_body import UpdateHashTagBody
 from client.models.update_hash_tag_response import UpdateHashTagResponse
 from client.rest import ApiException
@@ -7202,7 +7183,7 @@ with client.ApiClient(configuration) as api_client:
     update_hash_tag_body = client.UpdateHashTagBody() # UpdateHashTagBody |  (optional)
 
     try:
-        api_response = api_instance.patch_hash_tag(tag, update_hash_tag_body, ApiPatchHashTagOptions(tenant_id=tenant_id))
+        api_response = api_instance.patch_hash_tag(tag, update_hash_tag_body, tenant_id=tenant_id)
         print("The response of DefaultApi->patch_hash_tag:\n")
         pprint(api_response)
     except Exception as e:
@@ -7322,7 +7303,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_sso_user**
-> PatchSSOUserAPIResponse patch_sso_user(tenant_id, id, update_apisso_user_data, options=)
+> PatchSSOUserAPIResponse patch_sso_user(tenant_id, id, update_apisso_user_data, update_comments=update_comments)
 
 ### Example
 
@@ -7330,7 +7311,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiPatchSsoUserOptions
 from client.models.patch_sso_user_api_response import PatchSSOUserAPIResponse
 from client.models.update_apisso_user_data import UpdateAPISSOUserData
 from client.rest import ApiException
@@ -7363,7 +7343,7 @@ with client.ApiClient(configuration) as api_client:
     update_comments = True # bool |  (optional)
 
     try:
-        api_response = api_instance.patch_sso_user(tenant_id, id, update_apisso_user_data, ApiPatchSsoUserOptions(update_comments=update_comments))
+        api_response = api_instance.patch_sso_user(tenant_id, id, update_apisso_user_data, update_comments=update_comments)
         print("The response of DefaultApi->patch_sso_user:\n")
         pprint(api_response)
     except Exception as e:
@@ -7483,7 +7463,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_sso_user**
-> PutSSOUserAPIResponse put_sso_user(tenant_id, id, update_apisso_user_data, options=)
+> PutSSOUserAPIResponse put_sso_user(tenant_id, id, update_apisso_user_data, update_comments=update_comments)
 
 ### Example
 
@@ -7491,7 +7471,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiPutSsoUserOptions
 from client.models.put_sso_user_api_response import PutSSOUserAPIResponse
 from client.models.update_apisso_user_data import UpdateAPISSOUserData
 from client.rest import ApiException
@@ -7524,7 +7503,7 @@ with client.ApiClient(configuration) as api_client:
     update_comments = True # bool |  (optional)
 
     try:
-        api_response = api_instance.put_sso_user(tenant_id, id, update_apisso_user_data, ApiPutSsoUserOptions(update_comments=update_comments))
+        api_response = api_instance.put_sso_user(tenant_id, id, update_apisso_user_data, update_comments=update_comments)
         print("The response of DefaultApi->put_sso_user:\n")
         pprint(api_response)
     except Exception as e:
@@ -7565,7 +7544,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **render_email_template**
-> RenderEmailTemplateResponse render_email_template(tenant_id, render_email_template_body, options=)
+> RenderEmailTemplateResponse render_email_template(tenant_id, render_email_template_body, locale=locale)
 
 ### Example
 
@@ -7573,7 +7552,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiRenderEmailTemplateOptions
 from client.models.render_email_template_body import RenderEmailTemplateBody
 from client.models.render_email_template_response import RenderEmailTemplateResponse
 from client.rest import ApiException
@@ -7605,7 +7583,7 @@ with client.ApiClient(configuration) as api_client:
     locale = 'locale_example' # str |  (optional)
 
     try:
-        api_response = api_instance.render_email_template(tenant_id, render_email_template_body, ApiRenderEmailTemplateOptions(locale=locale))
+        api_response = api_instance.render_email_template(tenant_id, render_email_template_body, locale=locale)
         print("The response of DefaultApi->render_email_template:\n")
         pprint(api_response)
     except Exception as e:
@@ -7726,7 +7704,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **replace_tenant_user**
-> APIEmptyResponse replace_tenant_user(tenant_id, id, replace_tenant_user_body, options=)
+> APIEmptyResponse replace_tenant_user(tenant_id, id, replace_tenant_user_body, update_comments=update_comments)
 
 ### Example
 
@@ -7734,7 +7712,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiReplaceTenantUserOptions
 from client.models.api_empty_response import APIEmptyResponse
 from client.models.replace_tenant_user_body import ReplaceTenantUserBody
 from client.rest import ApiException
@@ -7767,7 +7744,7 @@ with client.ApiClient(configuration) as api_client:
     update_comments = 'update_comments_example' # str |  (optional)
 
     try:
-        api_response = api_instance.replace_tenant_user(tenant_id, id, replace_tenant_user_body, ApiReplaceTenantUserOptions(update_comments=update_comments))
+        api_response = api_instance.replace_tenant_user(tenant_id, id, replace_tenant_user_body, update_comments=update_comments)
         print("The response of DefaultApi->replace_tenant_user:\n")
         pprint(api_response)
     except Exception as e:
@@ -8061,7 +8038,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **send_login_link**
-> APIEmptyResponse send_login_link(tenant_id, id, options=)
+> APIEmptyResponse send_login_link(tenant_id, id, redirect_url=redirect_url)
 
 ### Example
 
@@ -8069,7 +8046,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiSendLoginLinkOptions
 from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -8100,7 +8076,7 @@ with client.ApiClient(configuration) as api_client:
     redirect_url = 'redirect_url_example' # str |  (optional)
 
     try:
-        api_response = api_instance.send_login_link(tenant_id, id, ApiSendLoginLinkOptions(redirect_url=redirect_url))
+        api_response = api_instance.send_login_link(tenant_id, id, redirect_url=redirect_url)
         print("The response of DefaultApi->send_login_link:\n")
         pprint(api_response)
     except Exception as e:
@@ -8635,7 +8611,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_notification**
-> APIEmptyResponse update_notification(tenant_id, id, update_notification_body, options=)
+> APIEmptyResponse update_notification(tenant_id, id, update_notification_body, user_id=user_id)
 
 ### Example
 
@@ -8643,7 +8619,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiUpdateNotificationOptions
 from client.models.api_empty_response import APIEmptyResponse
 from client.models.update_notification_body import UpdateNotificationBody
 from client.rest import ApiException
@@ -8676,7 +8651,7 @@ with client.ApiClient(configuration) as api_client:
     user_id = 'user_id_example' # str |  (optional)
 
     try:
-        api_response = api_instance.update_notification(tenant_id, id, update_notification_body, ApiUpdateNotificationOptions(user_id=user_id))
+        api_response = api_instance.update_notification(tenant_id, id, update_notification_body, user_id=user_id)
         print("The response of DefaultApi->update_notification:\n")
         pprint(api_response)
     except Exception as e:
@@ -8878,7 +8853,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_subscription**
-> UpdateSubscriptionAPIResponse update_subscription(tenant_id, id, update_api_user_subscription_data, options=)
+> UpdateSubscriptionAPIResponse update_subscription(tenant_id, id, update_api_user_subscription_data, user_id=user_id)
 
 ### Example
 
@@ -8886,7 +8861,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiUpdateSubscriptionOptions
 from client.models.update_api_user_subscription_data import UpdateAPIUserSubscriptionData
 from client.models.update_subscription_api_response import UpdateSubscriptionAPIResponse
 from client.rest import ApiException
@@ -8919,7 +8893,7 @@ with client.ApiClient(configuration) as api_client:
     user_id = 'user_id_example' # str |  (optional)
 
     try:
-        api_response = api_instance.update_subscription(tenant_id, id, update_api_user_subscription_data, ApiUpdateSubscriptionOptions(user_id=user_id))
+        api_response = api_instance.update_subscription(tenant_id, id, update_api_user_subscription_data, user_id=user_id)
         print("The response of DefaultApi->update_subscription:\n")
         pprint(api_response)
     except Exception as e:
@@ -9120,7 +9094,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_tenant_user**
-> APIEmptyResponse update_tenant_user(tenant_id, id, update_tenant_user_body, options=)
+> APIEmptyResponse update_tenant_user(tenant_id, id, update_tenant_user_body, update_comments=update_comments)
 
 ### Example
 
@@ -9128,7 +9102,6 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiUpdateTenantUserOptions
 from client.models.api_empty_response import APIEmptyResponse
 from client.models.update_tenant_user_body import UpdateTenantUserBody
 from client.rest import ApiException
@@ -9161,7 +9134,7 @@ with client.ApiClient(configuration) as api_client:
     update_comments = 'update_comments_example' # str |  (optional)
 
     try:
-        api_response = api_instance.update_tenant_user(tenant_id, id, update_tenant_user_body, ApiUpdateTenantUserOptions(update_comments=update_comments))
+        api_response = api_instance.update_tenant_user(tenant_id, id, update_tenant_user_body, update_comments=update_comments)
         print("The response of DefaultApi->update_tenant_user:\n")
         pprint(api_response)
     except Exception as e:

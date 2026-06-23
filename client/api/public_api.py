@@ -79,22 +79,6 @@ from client.rest import RESTResponseType
 from pydantic import BaseModel
 
 
-class ApiBlockFromCommentPublicOptions(BaseModel):
-    """Optional parameters for block_from_comment_public."""
-    sso: Optional[StrictStr] = None
-
-
-from pydantic import BaseModel
-
-
-class ApiCheckedCommentsForBlockedOptions(BaseModel):
-    """Optional parameters for checked_comments_for_blocked."""
-    sso: Optional[StrictStr] = None
-
-
-from pydantic import BaseModel
-
-
 class ApiCreateCommentPublicOptions(BaseModel):
     """Optional parameters for create_comment_public."""
     session_id: Optional[StrictStr] = None
@@ -108,22 +92,6 @@ class ApiCreateFeedPostPublicOptions(BaseModel):
     """Optional parameters for create_feed_post_public."""
     broadcast_id: Optional[StrictStr] = None
     sso: Optional[StrictStr] = None
-
-
-from pydantic import BaseModel
-
-
-class ApiCreateV1PageReactOptions(BaseModel):
-    """Optional parameters for create_v1_page_react."""
-    title: Optional[StrictStr] = None
-
-
-from pydantic import BaseModel
-
-
-class ApiCreateV2PageReactOptions(BaseModel):
-    """Optional parameters for create_v2_page_react."""
-    title: Optional[StrictStr] = None
 
 
 from pydantic import BaseModel
@@ -156,25 +124,9 @@ class ApiDeleteFeedPostPublicOptions(BaseModel):
 from pydantic import BaseModel
 
 
-class ApiFlagCommentPublicOptions(BaseModel):
-    """Optional parameters for flag_comment_public."""
-    sso: Optional[StrictStr] = None
-
-
-from pydantic import BaseModel
-
-
 class ApiGetCommentTextOptions(BaseModel):
     """Optional parameters for get_comment_text."""
     edit_key: Optional[StrictStr] = None
-    sso: Optional[StrictStr] = None
-
-
-from pydantic import BaseModel
-
-
-class ApiGetCommentVoteUserNamesOptions(BaseModel):
-    """Optional parameters for get_comment_vote_user_names."""
     sso: Optional[StrictStr] = None
 
 
@@ -228,14 +180,6 @@ class ApiGetCommentsPublicOptions(BaseModel):
 from pydantic import BaseModel
 
 
-class ApiGetEventLogOptions(BaseModel):
-    """Optional parameters for get_event_log."""
-    end_time: Optional[StrictInt] = None
-
-
-from pydantic import BaseModel
-
-
 class ApiGetFeedPostsPublicOptions(BaseModel):
     """Optional parameters for get_feed_posts_public."""
     after_id: Optional[StrictStr] = None
@@ -244,14 +188,6 @@ class ApiGetFeedPostsPublicOptions(BaseModel):
     sso: Optional[StrictStr] = None
     is_crawler: Optional[StrictBool] = None
     include_user_info: Optional[StrictBool] = None
-
-
-from pydantic import BaseModel
-
-
-class ApiGetFeedPostsStatsOptions(BaseModel):
-    """Optional parameters for get_feed_posts_stats."""
-    sso: Optional[StrictStr] = None
 
 
 from pydantic import BaseModel
@@ -272,14 +208,6 @@ class ApiGetGifsTrendingOptions(BaseModel):
     locale: Optional[StrictStr] = None
     rating: Optional[StrictStr] = None
     page: Optional[Union[StrictFloat, StrictInt]] = None
-
-
-from pydantic import BaseModel
-
-
-class ApiGetGlobalEventLogOptions(BaseModel):
-    """Optional parameters for get_global_event_log."""
-    end_time: Optional[StrictInt] = None
 
 
 from pydantic import BaseModel
@@ -324,14 +252,6 @@ class ApiGetTranslationsOptions(BaseModel):
 from pydantic import BaseModel
 
 
-class ApiGetUserNotificationCountOptions(BaseModel):
-    """Optional parameters for get_user_notification_count."""
-    sso: Optional[StrictStr] = None
-
-
-from pydantic import BaseModel
-
-
 class ApiGetUserNotificationsOptions(BaseModel):
     """Optional parameters for get_user_notifications."""
     url_id: Annotated[Optional[StrictStr], Field(description="Used to determine whether the current page is subscribed.")] = None
@@ -359,34 +279,10 @@ class ApiGetUserReactsPublicOptions(BaseModel):
 from pydantic import BaseModel
 
 
-class ApiLockCommentOptions(BaseModel):
-    """Optional parameters for lock_comment."""
-    sso: Optional[StrictStr] = None
-
-
-from pydantic import BaseModel
-
-
-class ApiPinCommentOptions(BaseModel):
-    """Optional parameters for pin_comment."""
-    sso: Optional[StrictStr] = None
-
-
-from pydantic import BaseModel
-
-
 class ApiReactFeedPostPublicOptions(BaseModel):
     """Optional parameters for react_feed_post_public."""
     is_undo: Optional[StrictBool] = None
     broadcast_id: Optional[StrictStr] = None
-    sso: Optional[StrictStr] = None
-
-
-from pydantic import BaseModel
-
-
-class ApiResetUserNotificationCountOptions(BaseModel):
-    """Optional parameters for reset_user_notification_count."""
     sso: Optional[StrictStr] = None
 
 
@@ -426,57 +322,9 @@ class ApiSetCommentTextOptions(BaseModel):
 from pydantic import BaseModel
 
 
-class ApiUnBlockCommentPublicOptions(BaseModel):
-    """Optional parameters for un_block_comment_public."""
-    sso: Optional[StrictStr] = None
-
-
-from pydantic import BaseModel
-
-
-class ApiUnLockCommentOptions(BaseModel):
-    """Optional parameters for un_lock_comment."""
-    sso: Optional[StrictStr] = None
-
-
-from pydantic import BaseModel
-
-
-class ApiUnPinCommentOptions(BaseModel):
-    """Optional parameters for un_pin_comment."""
-    sso: Optional[StrictStr] = None
-
-
-from pydantic import BaseModel
-
-
 class ApiUpdateFeedPostPublicOptions(BaseModel):
     """Optional parameters for update_feed_post_public."""
     broadcast_id: Optional[StrictStr] = None
-    sso: Optional[StrictStr] = None
-
-
-from pydantic import BaseModel
-
-
-class ApiUpdateUserNotificationCommentSubscriptionStatusOptions(BaseModel):
-    """Optional parameters for update_user_notification_comment_subscription_status."""
-    sso: Optional[StrictStr] = None
-
-
-from pydantic import BaseModel
-
-
-class ApiUpdateUserNotificationPageSubscriptionStatusOptions(BaseModel):
-    """Optional parameters for update_user_notification_page_subscription_status."""
-    sso: Optional[StrictStr] = None
-
-
-from pydantic import BaseModel
-
-
-class ApiUpdateUserNotificationStatusOptions(BaseModel):
-    """Optional parameters for update_user_notification_status."""
     sso: Optional[StrictStr] = None
 
 
@@ -517,7 +365,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         public_block_from_comment_params: PublicBlockFromCommentParams,
-        options: Optional[ApiBlockFromCommentPublicOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -540,8 +388,8 @@ class PublicApi:
         :type comment_id: str
         :param public_block_from_comment_params: (required)
         :type public_block_from_comment_params: PublicBlockFromCommentParams
-        :param options: Optional parameters for this operation.
-        :type options: ApiBlockFromCommentPublicOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -568,7 +416,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             public_block_from_comment_params=public_block_from_comment_params,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -595,7 +443,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         public_block_from_comment_params: PublicBlockFromCommentParams,
-        options: Optional[ApiBlockFromCommentPublicOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -618,8 +466,8 @@ class PublicApi:
         :type comment_id: str
         :param public_block_from_comment_params: (required)
         :type public_block_from_comment_params: PublicBlockFromCommentParams
-        :param options: Optional parameters for this operation.
-        :type options: ApiBlockFromCommentPublicOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -646,7 +494,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             public_block_from_comment_params=public_block_from_comment_params,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -673,7 +521,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         public_block_from_comment_params: PublicBlockFromCommentParams,
-        options: Optional[ApiBlockFromCommentPublicOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -696,8 +544,8 @@ class PublicApi:
         :type comment_id: str
         :param public_block_from_comment_params: (required)
         :type public_block_from_comment_params: PublicBlockFromCommentParams
-        :param options: Optional parameters for this operation.
-        :type options: ApiBlockFromCommentPublicOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -724,7 +572,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             public_block_from_comment_params=public_block_from_comment_params,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -835,7 +683,7 @@ class PublicApi:
         self,
         tenant_id: StrictStr,
         comment_ids: Annotated[StrictStr, Field(description="A comma separated list of comment ids.")],
-        options: Optional[ApiCheckedCommentsForBlockedOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -856,8 +704,8 @@ class PublicApi:
         :type tenant_id: str
         :param comment_ids: A comma separated list of comment ids. (required)
         :type comment_ids: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiCheckedCommentsForBlockedOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -883,7 +731,7 @@ class PublicApi:
         _param = self._checked_comments_for_blocked_serialize(
             tenant_id=tenant_id,
             comment_ids=comment_ids,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -909,7 +757,7 @@ class PublicApi:
         self,
         tenant_id: StrictStr,
         comment_ids: Annotated[StrictStr, Field(description="A comma separated list of comment ids.")],
-        options: Optional[ApiCheckedCommentsForBlockedOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -930,8 +778,8 @@ class PublicApi:
         :type tenant_id: str
         :param comment_ids: A comma separated list of comment ids. (required)
         :type comment_ids: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiCheckedCommentsForBlockedOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -957,7 +805,7 @@ class PublicApi:
         _param = self._checked_comments_for_blocked_serialize(
             tenant_id=tenant_id,
             comment_ids=comment_ids,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -983,7 +831,7 @@ class PublicApi:
         self,
         tenant_id: StrictStr,
         comment_ids: Annotated[StrictStr, Field(description="A comma separated list of comment ids.")],
-        options: Optional[ApiCheckedCommentsForBlockedOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1004,8 +852,8 @@ class PublicApi:
         :type tenant_id: str
         :param comment_ids: A comma separated list of comment ids. (required)
         :type comment_ids: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiCheckedCommentsForBlockedOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1031,7 +879,7 @@ class PublicApi:
         _param = self._checked_comments_for_blocked_serialize(
             tenant_id=tenant_id,
             comment_ids=comment_ids,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1782,7 +1630,7 @@ class PublicApi:
         self,
         tenant_id: StrictStr,
         url_id: StrictStr,
-        options: Optional[ApiCreateV1PageReactOptions] = None,
+        title: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1803,8 +1651,8 @@ class PublicApi:
         :type tenant_id: str
         :param url_id: (required)
         :type url_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiCreateV1PageReactOptions, optional
+        :param title: (optional)
+        :type title: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1830,7 +1678,7 @@ class PublicApi:
         _param = self._create_v1_page_react_serialize(
             tenant_id=tenant_id,
             url_id=url_id,
-            title=options.title if options is not None else None,
+            title=title,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1856,7 +1704,7 @@ class PublicApi:
         self,
         tenant_id: StrictStr,
         url_id: StrictStr,
-        options: Optional[ApiCreateV1PageReactOptions] = None,
+        title: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1877,8 +1725,8 @@ class PublicApi:
         :type tenant_id: str
         :param url_id: (required)
         :type url_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiCreateV1PageReactOptions, optional
+        :param title: (optional)
+        :type title: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1904,7 +1752,7 @@ class PublicApi:
         _param = self._create_v1_page_react_serialize(
             tenant_id=tenant_id,
             url_id=url_id,
-            title=options.title if options is not None else None,
+            title=title,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1930,7 +1778,7 @@ class PublicApi:
         self,
         tenant_id: StrictStr,
         url_id: StrictStr,
-        options: Optional[ApiCreateV1PageReactOptions] = None,
+        title: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1951,8 +1799,8 @@ class PublicApi:
         :type tenant_id: str
         :param url_id: (required)
         :type url_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiCreateV1PageReactOptions, optional
+        :param title: (optional)
+        :type title: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1978,7 +1826,7 @@ class PublicApi:
         _param = self._create_v1_page_react_serialize(
             tenant_id=tenant_id,
             url_id=url_id,
-            title=options.title if options is not None else None,
+            title=title,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2074,7 +1922,7 @@ class PublicApi:
         tenant_id: StrictStr,
         url_id: StrictStr,
         id: StrictStr,
-        options: Optional[ApiCreateV2PageReactOptions] = None,
+        title: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2097,8 +1945,8 @@ class PublicApi:
         :type url_id: str
         :param id: (required)
         :type id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiCreateV2PageReactOptions, optional
+        :param title: (optional)
+        :type title: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2125,7 +1973,7 @@ class PublicApi:
             tenant_id=tenant_id,
             url_id=url_id,
             id=id,
-            title=options.title if options is not None else None,
+            title=title,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2152,7 +2000,7 @@ class PublicApi:
         tenant_id: StrictStr,
         url_id: StrictStr,
         id: StrictStr,
-        options: Optional[ApiCreateV2PageReactOptions] = None,
+        title: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2175,8 +2023,8 @@ class PublicApi:
         :type url_id: str
         :param id: (required)
         :type id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiCreateV2PageReactOptions, optional
+        :param title: (optional)
+        :type title: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2203,7 +2051,7 @@ class PublicApi:
             tenant_id=tenant_id,
             url_id=url_id,
             id=id,
-            title=options.title if options is not None else None,
+            title=title,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2230,7 +2078,7 @@ class PublicApi:
         tenant_id: StrictStr,
         url_id: StrictStr,
         id: StrictStr,
-        options: Optional[ApiCreateV2PageReactOptions] = None,
+        title: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2253,8 +2101,8 @@ class PublicApi:
         :type url_id: str
         :param id: (required)
         :type id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiCreateV2PageReactOptions, optional
+        :param title: (optional)
+        :type title: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2281,7 +2129,7 @@ class PublicApi:
             tenant_id=tenant_id,
             url_id=url_id,
             id=id,
-            title=options.title if options is not None else None,
+            title=title,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3904,7 +3752,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         is_flagged: StrictBool,
-        options: Optional[ApiFlagCommentPublicOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3927,8 +3775,8 @@ class PublicApi:
         :type comment_id: str
         :param is_flagged: (required)
         :type is_flagged: bool
-        :param options: Optional parameters for this operation.
-        :type options: ApiFlagCommentPublicOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3955,7 +3803,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             is_flagged=is_flagged,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3982,7 +3830,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         is_flagged: StrictBool,
-        options: Optional[ApiFlagCommentPublicOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4005,8 +3853,8 @@ class PublicApi:
         :type comment_id: str
         :param is_flagged: (required)
         :type is_flagged: bool
-        :param options: Optional parameters for this operation.
-        :type options: ApiFlagCommentPublicOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4033,7 +3881,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             is_flagged=is_flagged,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4060,7 +3908,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         is_flagged: StrictBool,
-        options: Optional[ApiFlagCommentPublicOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4083,8 +3931,8 @@ class PublicApi:
         :type comment_id: str
         :param is_flagged: (required)
         :type is_flagged: bool
-        :param options: Optional parameters for this operation.
-        :type options: ApiFlagCommentPublicOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4111,7 +3959,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             is_flagged=is_flagged,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4509,7 +4357,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         dir: StrictInt,
-        options: Optional[ApiGetCommentVoteUserNamesOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4532,8 +4380,8 @@ class PublicApi:
         :type comment_id: str
         :param dir: (required)
         :type dir: int
-        :param options: Optional parameters for this operation.
-        :type options: ApiGetCommentVoteUserNamesOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4560,7 +4408,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             dir=dir,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4587,7 +4435,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         dir: StrictInt,
-        options: Optional[ApiGetCommentVoteUserNamesOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4610,8 +4458,8 @@ class PublicApi:
         :type comment_id: str
         :param dir: (required)
         :type dir: int
-        :param options: Optional parameters for this operation.
-        :type options: ApiGetCommentVoteUserNamesOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4638,7 +4486,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             dir=dir,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4665,7 +4513,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         dir: StrictInt,
-        options: Optional[ApiGetCommentVoteUserNamesOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4688,8 +4536,8 @@ class PublicApi:
         :type comment_id: str
         :param dir: (required)
         :type dir: int
-        :param options: Optional parameters for this operation.
-        :type options: ApiGetCommentVoteUserNamesOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4716,7 +4564,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             dir=dir,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5618,7 +5466,7 @@ class PublicApi:
         url_id: StrictStr,
         user_id_ws: StrictStr,
         start_time: StrictInt,
-        options: Optional[ApiGetEventLogOptions] = None,
+        end_time: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5644,8 +5492,8 @@ class PublicApi:
         :type user_id_ws: str
         :param start_time: (required)
         :type start_time: int
-        :param options: Optional parameters for this operation.
-        :type options: ApiGetEventLogOptions, optional
+        :param end_time: (optional)
+        :type end_time: int, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5673,7 +5521,7 @@ class PublicApi:
             url_id=url_id,
             user_id_ws=user_id_ws,
             start_time=start_time,
-            end_time=options.end_time if options is not None else None,
+            end_time=end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5701,7 +5549,7 @@ class PublicApi:
         url_id: StrictStr,
         user_id_ws: StrictStr,
         start_time: StrictInt,
-        options: Optional[ApiGetEventLogOptions] = None,
+        end_time: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5727,8 +5575,8 @@ class PublicApi:
         :type user_id_ws: str
         :param start_time: (required)
         :type start_time: int
-        :param options: Optional parameters for this operation.
-        :type options: ApiGetEventLogOptions, optional
+        :param end_time: (optional)
+        :type end_time: int, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5756,7 +5604,7 @@ class PublicApi:
             url_id=url_id,
             user_id_ws=user_id_ws,
             start_time=start_time,
-            end_time=options.end_time if options is not None else None,
+            end_time=end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5784,7 +5632,7 @@ class PublicApi:
         url_id: StrictStr,
         user_id_ws: StrictStr,
         start_time: StrictInt,
-        options: Optional[ApiGetEventLogOptions] = None,
+        end_time: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5810,8 +5658,8 @@ class PublicApi:
         :type user_id_ws: str
         :param start_time: (required)
         :type start_time: int
-        :param options: Optional parameters for this operation.
-        :type options: ApiGetEventLogOptions, optional
+        :param end_time: (optional)
+        :type end_time: int, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5839,7 +5687,7 @@ class PublicApi:
             url_id=url_id,
             user_id_ws=user_id_ws,
             start_time=start_time,
-            end_time=options.end_time if options is not None else None,
+            end_time=end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6262,7 +6110,7 @@ class PublicApi:
         self,
         tenant_id: StrictStr,
         post_ids: List[StrictStr],
-        options: Optional[ApiGetFeedPostsStatsOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6283,8 +6131,8 @@ class PublicApi:
         :type tenant_id: str
         :param post_ids: (required)
         :type post_ids: List[str]
-        :param options: Optional parameters for this operation.
-        :type options: ApiGetFeedPostsStatsOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6310,7 +6158,7 @@ class PublicApi:
         _param = self._get_feed_posts_stats_serialize(
             tenant_id=tenant_id,
             post_ids=post_ids,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6336,7 +6184,7 @@ class PublicApi:
         self,
         tenant_id: StrictStr,
         post_ids: List[StrictStr],
-        options: Optional[ApiGetFeedPostsStatsOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6357,8 +6205,8 @@ class PublicApi:
         :type tenant_id: str
         :param post_ids: (required)
         :type post_ids: List[str]
-        :param options: Optional parameters for this operation.
-        :type options: ApiGetFeedPostsStatsOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6384,7 +6232,7 @@ class PublicApi:
         _param = self._get_feed_posts_stats_serialize(
             tenant_id=tenant_id,
             post_ids=post_ids,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6410,7 +6258,7 @@ class PublicApi:
         self,
         tenant_id: StrictStr,
         post_ids: List[StrictStr],
-        options: Optional[ApiGetFeedPostsStatsOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6431,8 +6279,8 @@ class PublicApi:
         :type tenant_id: str
         :param post_ids: (required)
         :type post_ids: List[str]
-        :param options: Optional parameters for this operation.
-        :type options: ApiGetFeedPostsStatsOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6458,7 +6306,7 @@ class PublicApi:
         _param = self._get_feed_posts_stats_serialize(
             tenant_id=tenant_id,
             post_ids=post_ids,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7433,7 +7281,7 @@ class PublicApi:
         url_id: StrictStr,
         user_id_ws: StrictStr,
         start_time: StrictInt,
-        options: Optional[ApiGetGlobalEventLogOptions] = None,
+        end_time: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7459,8 +7307,8 @@ class PublicApi:
         :type user_id_ws: str
         :param start_time: (required)
         :type start_time: int
-        :param options: Optional parameters for this operation.
-        :type options: ApiGetGlobalEventLogOptions, optional
+        :param end_time: (optional)
+        :type end_time: int, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7488,7 +7336,7 @@ class PublicApi:
             url_id=url_id,
             user_id_ws=user_id_ws,
             start_time=start_time,
-            end_time=options.end_time if options is not None else None,
+            end_time=end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7516,7 +7364,7 @@ class PublicApi:
         url_id: StrictStr,
         user_id_ws: StrictStr,
         start_time: StrictInt,
-        options: Optional[ApiGetGlobalEventLogOptions] = None,
+        end_time: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7542,8 +7390,8 @@ class PublicApi:
         :type user_id_ws: str
         :param start_time: (required)
         :type start_time: int
-        :param options: Optional parameters for this operation.
-        :type options: ApiGetGlobalEventLogOptions, optional
+        :param end_time: (optional)
+        :type end_time: int, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7571,7 +7419,7 @@ class PublicApi:
             url_id=url_id,
             user_id_ws=user_id_ws,
             start_time=start_time,
-            end_time=options.end_time if options is not None else None,
+            end_time=end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7599,7 +7447,7 @@ class PublicApi:
         url_id: StrictStr,
         user_id_ws: StrictStr,
         start_time: StrictInt,
-        options: Optional[ApiGetGlobalEventLogOptions] = None,
+        end_time: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7625,8 +7473,8 @@ class PublicApi:
         :type user_id_ws: str
         :param start_time: (required)
         :type start_time: int
-        :param options: Optional parameters for this operation.
-        :type options: ApiGetGlobalEventLogOptions, optional
+        :param end_time: (optional)
+        :type end_time: int, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7654,7 +7502,7 @@ class PublicApi:
             url_id=url_id,
             user_id_ws=user_id_ws,
             start_time=start_time,
-            end_time=options.end_time if options is not None else None,
+            end_time=end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8986,7 +8834,7 @@ class PublicApi:
     def get_user_notification_count(
         self,
         tenant_id: StrictStr,
-        options: Optional[ApiGetUserNotificationCountOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9005,8 +8853,8 @@ class PublicApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiGetUserNotificationCountOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9031,7 +8879,7 @@ class PublicApi:
 
         _param = self._get_user_notification_count_serialize(
             tenant_id=tenant_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9056,7 +8904,7 @@ class PublicApi:
     def get_user_notification_count_with_http_info(
         self,
         tenant_id: StrictStr,
-        options: Optional[ApiGetUserNotificationCountOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9075,8 +8923,8 @@ class PublicApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiGetUserNotificationCountOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9101,7 +8949,7 @@ class PublicApi:
 
         _param = self._get_user_notification_count_serialize(
             tenant_id=tenant_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9126,7 +8974,7 @@ class PublicApi:
     def get_user_notification_count_without_preload_content(
         self,
         tenant_id: StrictStr,
-        options: Optional[ApiGetUserNotificationCountOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9145,8 +8993,8 @@ class PublicApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiGetUserNotificationCountOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9171,7 +9019,7 @@ class PublicApi:
 
         _param = self._get_user_notification_count_serialize(
             tenant_id=tenant_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11318,7 +11166,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         broadcast_id: StrictStr,
-        options: Optional[ApiLockCommentOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11341,8 +11189,8 @@ class PublicApi:
         :type comment_id: str
         :param broadcast_id: (required)
         :type broadcast_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiLockCommentOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11369,7 +11217,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11396,7 +11244,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         broadcast_id: StrictStr,
-        options: Optional[ApiLockCommentOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11419,8 +11267,8 @@ class PublicApi:
         :type comment_id: str
         :param broadcast_id: (required)
         :type broadcast_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiLockCommentOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11447,7 +11295,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11474,7 +11322,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         broadcast_id: StrictStr,
-        options: Optional[ApiLockCommentOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11497,8 +11345,8 @@ class PublicApi:
         :type comment_id: str
         :param broadcast_id: (required)
         :type broadcast_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiLockCommentOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11525,7 +11373,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11866,7 +11714,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         broadcast_id: StrictStr,
-        options: Optional[ApiPinCommentOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11889,8 +11737,8 @@ class PublicApi:
         :type comment_id: str
         :param broadcast_id: (required)
         :type broadcast_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiPinCommentOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11917,7 +11765,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11944,7 +11792,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         broadcast_id: StrictStr,
-        options: Optional[ApiPinCommentOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11967,8 +11815,8 @@ class PublicApi:
         :type comment_id: str
         :param broadcast_id: (required)
         :type broadcast_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiPinCommentOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11995,7 +11843,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12022,7 +11870,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         broadcast_id: StrictStr,
-        options: Optional[ApiPinCommentOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12045,8 +11893,8 @@ class PublicApi:
         :type comment_id: str
         :param broadcast_id: (required)
         :type broadcast_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiPinCommentOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12073,7 +11921,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12503,7 +12351,7 @@ class PublicApi:
     def reset_user_notification_count(
         self,
         tenant_id: StrictStr,
-        options: Optional[ApiResetUserNotificationCountOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12522,8 +12370,8 @@ class PublicApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiResetUserNotificationCountOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12548,7 +12396,7 @@ class PublicApi:
 
         _param = self._reset_user_notification_count_serialize(
             tenant_id=tenant_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12573,7 +12421,7 @@ class PublicApi:
     def reset_user_notification_count_with_http_info(
         self,
         tenant_id: StrictStr,
-        options: Optional[ApiResetUserNotificationCountOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12592,8 +12440,8 @@ class PublicApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiResetUserNotificationCountOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12618,7 +12466,7 @@ class PublicApi:
 
         _param = self._reset_user_notification_count_serialize(
             tenant_id=tenant_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12643,7 +12491,7 @@ class PublicApi:
     def reset_user_notification_count_without_preload_content(
         self,
         tenant_id: StrictStr,
-        options: Optional[ApiResetUserNotificationCountOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12662,8 +12510,8 @@ class PublicApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiResetUserNotificationCountOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12688,7 +12536,7 @@ class PublicApi:
 
         _param = self._reset_user_notification_count_serialize(
             tenant_id=tenant_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13755,7 +13603,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         public_block_from_comment_params: PublicBlockFromCommentParams,
-        options: Optional[ApiUnBlockCommentPublicOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13778,8 +13626,8 @@ class PublicApi:
         :type comment_id: str
         :param public_block_from_comment_params: (required)
         :type public_block_from_comment_params: PublicBlockFromCommentParams
-        :param options: Optional parameters for this operation.
-        :type options: ApiUnBlockCommentPublicOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13806,7 +13654,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             public_block_from_comment_params=public_block_from_comment_params,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13833,7 +13681,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         public_block_from_comment_params: PublicBlockFromCommentParams,
-        options: Optional[ApiUnBlockCommentPublicOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13856,8 +13704,8 @@ class PublicApi:
         :type comment_id: str
         :param public_block_from_comment_params: (required)
         :type public_block_from_comment_params: PublicBlockFromCommentParams
-        :param options: Optional parameters for this operation.
-        :type options: ApiUnBlockCommentPublicOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13884,7 +13732,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             public_block_from_comment_params=public_block_from_comment_params,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13911,7 +13759,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         public_block_from_comment_params: PublicBlockFromCommentParams,
-        options: Optional[ApiUnBlockCommentPublicOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13934,8 +13782,8 @@ class PublicApi:
         :type comment_id: str
         :param public_block_from_comment_params: (required)
         :type public_block_from_comment_params: PublicBlockFromCommentParams
-        :param options: Optional parameters for this operation.
-        :type options: ApiUnBlockCommentPublicOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13962,7 +13810,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             public_block_from_comment_params=public_block_from_comment_params,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14074,7 +13922,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         broadcast_id: StrictStr,
-        options: Optional[ApiUnLockCommentOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14097,8 +13945,8 @@ class PublicApi:
         :type comment_id: str
         :param broadcast_id: (required)
         :type broadcast_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiUnLockCommentOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14125,7 +13973,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14152,7 +14000,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         broadcast_id: StrictStr,
-        options: Optional[ApiUnLockCommentOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14175,8 +14023,8 @@ class PublicApi:
         :type comment_id: str
         :param broadcast_id: (required)
         :type broadcast_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiUnLockCommentOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14203,7 +14051,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14230,7 +14078,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         broadcast_id: StrictStr,
-        options: Optional[ApiUnLockCommentOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14253,8 +14101,8 @@ class PublicApi:
         :type comment_id: str
         :param broadcast_id: (required)
         :type broadcast_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiUnLockCommentOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14281,7 +14129,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14380,7 +14228,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         broadcast_id: StrictStr,
-        options: Optional[ApiUnPinCommentOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14403,8 +14251,8 @@ class PublicApi:
         :type comment_id: str
         :param broadcast_id: (required)
         :type broadcast_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiUnPinCommentOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14431,7 +14279,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14458,7 +14306,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         broadcast_id: StrictStr,
-        options: Optional[ApiUnPinCommentOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14481,8 +14329,8 @@ class PublicApi:
         :type comment_id: str
         :param broadcast_id: (required)
         :type broadcast_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiUnPinCommentOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14509,7 +14357,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14536,7 +14384,7 @@ class PublicApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         broadcast_id: StrictStr,
-        options: Optional[ApiUnPinCommentOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14559,8 +14407,8 @@ class PublicApi:
         :type comment_id: str
         :param broadcast_id: (required)
         :type broadcast_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiUnPinCommentOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14587,7 +14435,7 @@ class PublicApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             broadcast_id=broadcast_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15012,7 +14860,7 @@ class PublicApi:
         notification_id: StrictStr,
         opted_in_or_out: StrictStr,
         comment_id: StrictStr,
-        options: Optional[ApiUpdateUserNotificationCommentSubscriptionStatusOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15038,8 +14886,8 @@ class PublicApi:
         :type opted_in_or_out: str
         :param comment_id: (required)
         :type comment_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiUpdateUserNotificationCommentSubscriptionStatusOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15067,7 +14915,7 @@ class PublicApi:
             notification_id=notification_id,
             opted_in_or_out=opted_in_or_out,
             comment_id=comment_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15095,7 +14943,7 @@ class PublicApi:
         notification_id: StrictStr,
         opted_in_or_out: StrictStr,
         comment_id: StrictStr,
-        options: Optional[ApiUpdateUserNotificationCommentSubscriptionStatusOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15121,8 +14969,8 @@ class PublicApi:
         :type opted_in_or_out: str
         :param comment_id: (required)
         :type comment_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiUpdateUserNotificationCommentSubscriptionStatusOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15150,7 +14998,7 @@ class PublicApi:
             notification_id=notification_id,
             opted_in_or_out=opted_in_or_out,
             comment_id=comment_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15178,7 +15026,7 @@ class PublicApi:
         notification_id: StrictStr,
         opted_in_or_out: StrictStr,
         comment_id: StrictStr,
-        options: Optional[ApiUpdateUserNotificationCommentSubscriptionStatusOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15204,8 +15052,8 @@ class PublicApi:
         :type opted_in_or_out: str
         :param comment_id: (required)
         :type comment_id: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiUpdateUserNotificationCommentSubscriptionStatusOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15233,7 +15081,7 @@ class PublicApi:
             notification_id=notification_id,
             opted_in_or_out=opted_in_or_out,
             comment_id=comment_id,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15339,7 +15187,7 @@ class PublicApi:
         url: StrictStr,
         page_title: StrictStr,
         subscribed_or_unsubscribed: StrictStr,
-        options: Optional[ApiUpdateUserNotificationPageSubscriptionStatusOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15367,8 +15215,8 @@ class PublicApi:
         :type page_title: str
         :param subscribed_or_unsubscribed: (required)
         :type subscribed_or_unsubscribed: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiUpdateUserNotificationPageSubscriptionStatusOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15397,7 +15245,7 @@ class PublicApi:
             url=url,
             page_title=page_title,
             subscribed_or_unsubscribed=subscribed_or_unsubscribed,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15426,7 +15274,7 @@ class PublicApi:
         url: StrictStr,
         page_title: StrictStr,
         subscribed_or_unsubscribed: StrictStr,
-        options: Optional[ApiUpdateUserNotificationPageSubscriptionStatusOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15454,8 +15302,8 @@ class PublicApi:
         :type page_title: str
         :param subscribed_or_unsubscribed: (required)
         :type subscribed_or_unsubscribed: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiUpdateUserNotificationPageSubscriptionStatusOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15484,7 +15332,7 @@ class PublicApi:
             url=url,
             page_title=page_title,
             subscribed_or_unsubscribed=subscribed_or_unsubscribed,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15513,7 +15361,7 @@ class PublicApi:
         url: StrictStr,
         page_title: StrictStr,
         subscribed_or_unsubscribed: StrictStr,
-        options: Optional[ApiUpdateUserNotificationPageSubscriptionStatusOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15541,8 +15389,8 @@ class PublicApi:
         :type page_title: str
         :param subscribed_or_unsubscribed: (required)
         :type subscribed_or_unsubscribed: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiUpdateUserNotificationPageSubscriptionStatusOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15571,7 +15419,7 @@ class PublicApi:
             url=url,
             page_title=page_title,
             subscribed_or_unsubscribed=subscribed_or_unsubscribed,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15682,7 +15530,7 @@ class PublicApi:
         tenant_id: StrictStr,
         notification_id: StrictStr,
         new_status: StrictStr,
-        options: Optional[ApiUpdateUserNotificationStatusOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15705,8 +15553,8 @@ class PublicApi:
         :type notification_id: str
         :param new_status: (required)
         :type new_status: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiUpdateUserNotificationStatusOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15733,7 +15581,7 @@ class PublicApi:
             tenant_id=tenant_id,
             notification_id=notification_id,
             new_status=new_status,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15760,7 +15608,7 @@ class PublicApi:
         tenant_id: StrictStr,
         notification_id: StrictStr,
         new_status: StrictStr,
-        options: Optional[ApiUpdateUserNotificationStatusOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15783,8 +15631,8 @@ class PublicApi:
         :type notification_id: str
         :param new_status: (required)
         :type new_status: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiUpdateUserNotificationStatusOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15811,7 +15659,7 @@ class PublicApi:
             tenant_id=tenant_id,
             notification_id=notification_id,
             new_status=new_status,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15838,7 +15686,7 @@ class PublicApi:
         tenant_id: StrictStr,
         notification_id: StrictStr,
         new_status: StrictStr,
-        options: Optional[ApiUpdateUserNotificationStatusOptions] = None,
+        sso: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15861,8 +15709,8 @@ class PublicApi:
         :type notification_id: str
         :param new_status: (required)
         :type new_status: str
-        :param options: Optional parameters for this operation.
-        :type options: ApiUpdateUserNotificationStatusOptions, optional
+        :param sso: (optional)
+        :type sso: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15889,7 +15737,7 @@ class PublicApi:
             tenant_id=tenant_id,
             notification_id=notification_id,
             new_status=new_status,
-            sso=options.sso if options is not None else None,
+            sso=sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
