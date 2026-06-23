@@ -18,10 +18,10 @@ try:
 
     from client import ApiClient, Configuration, PublicApi, DefaultApi
     from client.api.public_api import (
-        ApiGetCommentsPublicRequest,
-        ApiCreateCommentPublicRequest,
+        ApiGetCommentsPublicOptions,
+        ApiCreateCommentPublicOptions,
     )
-    from client.api.default_api import ApiGetCommentsRequest
+    from client.api.default_api import ApiGetCommentsOptions
     HAS_CLIENT = True
 except ImportError as e:
     HAS_CLIENT = False
@@ -87,11 +87,9 @@ class TestSecureSSOAPIIntegration:
             # This depends on the actual API signature from the generated client
             # You may need to adjust the method call based on the generated code
             response = public_api.get_comments_public(
-                ApiGetCommentsPublicRequest(
-                    tenant_id=TENANT_ID,
-                    url_id="sdk-test-page-secure",
-                    sso=sso_token
-                )
+                TENANT_ID,
+                "sdk-test-page-secure",
+                ApiGetCommentsPublicOptions(sso=sso_token)
             )
 
             assert response is not None
@@ -117,8 +115,8 @@ class TestSecureSSOAPIIntegration:
         """Test getting comments using DefaultApi with authentication."""
         try:
             response = default_api.get_comments(
-                ApiGetCommentsRequest(
-                    tenant_id=TENANT_ID,
+                TENANT_ID,
+                ApiGetCommentsOptions(
                     url_id="sdk-test-page-secure-admin",
                     context_user_id=mock_secure_user.user_id
                 )
@@ -141,19 +139,17 @@ class TestSecureSSOAPIIntegration:
 
         try:
             response = public_api.create_comment_public(
-                ApiCreateCommentPublicRequest(
-                    tenant_id=TENANT_ID,
-                    url_id="sdk-test-page-secure-comment",
-                    broadcast_id=f"test-{timestamp}",
-                    comment_data={
-                        "comment": "Test comment with secure SSO from Python SDK",
-                        "date": timestamp,
-                        "commenterName": mock_secure_user.username,
-                        "url": "https://example.com/test-page",
-                        "urlId": "sdk-test-page-secure-comment"
-                    },
-                    sso=sso_token
-                )
+                TENANT_ID,
+                "sdk-test-page-secure-comment",
+                f"test-{timestamp}",
+                {
+                    "comment": "Test comment with secure SSO from Python SDK",
+                    "date": timestamp,
+                    "commenterName": mock_secure_user.username,
+                    "url": "https://example.com/test-page",
+                    "urlId": "sdk-test-page-secure-comment"
+                },
+                ApiCreateCommentPublicOptions(sso=sso_token)
             )
 
             assert response is not None
@@ -181,11 +177,9 @@ class TestSimpleSSOAPIIntegration:
 
         try:
             response = public_api.get_comments_public(
-                ApiGetCommentsPublicRequest(
-                    tenant_id=TENANT_ID,
-                    url_id="sdk-test-page-simple",
-                    sso=sso_token
-                )
+                TENANT_ID,
+                "sdk-test-page-simple",
+                ApiGetCommentsPublicOptions(sso=sso_token)
             )
 
             assert response is not None
@@ -205,20 +199,18 @@ class TestSimpleSSOAPIIntegration:
 
         try:
             response = public_api.create_comment_public(
-                ApiCreateCommentPublicRequest(
-                    tenant_id=TENANT_ID,
-                    url_id="sdk-test-page-simple-comment",
-                    broadcast_id=f"simple-test-{timestamp}",
-                    comment_data={
-                        "comment": "Test comment with simple SSO from Python SDK",
-                        "date": timestamp,
-                        "commenterName": mock_simple_user.user_id,
-                        "commenterEmail": mock_simple_user.email,
-                        "url": "https://example.com/test-page",
-                        "urlId": "sdk-test-page-simple-comment"
-                    },
-                    sso=sso_token
-                )
+                TENANT_ID,
+                "sdk-test-page-simple-comment",
+                f"simple-test-{timestamp}",
+                {
+                    "comment": "Test comment with simple SSO from Python SDK",
+                    "date": timestamp,
+                    "commenterName": mock_simple_user.user_id,
+                    "commenterEmail": mock_simple_user.email,
+                    "url": "https://example.com/test-page",
+                    "urlId": "sdk-test-page-simple-comment"
+                },
+                ApiCreateCommentPublicOptions(sso=sso_token)
             )
 
             assert response is not None
@@ -244,11 +236,9 @@ class TestErrorHandling:
 
         with pytest.raises(Exception) as exc_info:
             public_api.get_comments_public(
-                ApiGetCommentsPublicRequest(
-                    tenant_id="invalid-tenant-id",
-                    url_id="test-page",
-                    sso=sso_token
-                )
+                "invalid-tenant-id",
+                "test-page",
+                ApiGetCommentsPublicOptions(sso=sso_token)
             )
 
         # Check that it's an HTTP error with status >= 400
@@ -260,11 +250,9 @@ class TestErrorHandling:
         """Test that malformed SSO data raises an appropriate error."""
         with pytest.raises(Exception) as exc_info:
             public_api.get_comments_public(
-                ApiGetCommentsPublicRequest(
-                    tenant_id=TENANT_ID,
-                    url_id="test-page",
-                    sso="invalid-sso-data"
-                )
+                TENANT_ID,
+                "test-page",
+                ApiGetCommentsPublicOptions(sso="invalid-sso-data")
             )
 
         error = exc_info.value
