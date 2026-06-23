@@ -23,6 +23,7 @@ from client.models.api_status import APIStatus
 from client.models.tenant_package import TenantPackage
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class GetTenantPackagesResponse(BaseModel):
     """
@@ -33,7 +34,8 @@ class GetTenantPackagesResponse(BaseModel):
     __properties: ClassVar[List[str]] = ["status", "tenantPackages"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -45,8 +47,7 @@ class GetTenantPackagesResponse(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

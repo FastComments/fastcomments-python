@@ -6,10 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**APIStatus**](APIStatus.md) |  | 
-**data** | [**List[AggregationItem]**](AggregationItem.md) |  | 
+**data** | [**List[AggregationItem]**](AggregationItem.md) |  | [optional] 
 **stats** | [**AggregationResponseStats**](AggregationResponseStats.md) |  | [optional] 
-**reason** | **str** |  | 
-**code** | **str** |  | 
+**reason** | **str** |  | [optional] 
+**code** | **str** |  | [optional] 
 **valid_resource_names** | **List[str]** |  | [optional] 
 
 ## Example

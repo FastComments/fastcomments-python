@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     fastcomments
 
@@ -10,6 +8,7 @@
 
     Do not edit the class manually.
 """  # noqa: E501
+
 
 import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
@@ -64,6 +63,498 @@ from client.api_response import ApiResponse
 from client.rest import RESTResponseType
 
 
+from pydantic import BaseModel
+
+
+class ApiDeleteModerationVoteRequest(BaseModel):
+    """Request object for delete_moderation_vote."""
+    comment_id: StrictStr
+    vote_id: StrictStr
+    tenant_id: Optional[StrictStr] = None
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetApiCommentsRequest(BaseModel):
+    """Request object for get_api_comments."""
+    page: Optional[Union[StrictFloat, StrictInt]] = None
+    count: Optional[Union[StrictFloat, StrictInt]] = None
+    text_search: Optional[StrictStr] = None
+    by_ip_from_comment: Optional[StrictStr] = None
+    filters: Optional[StrictStr] = None
+    search_filters: Optional[StrictStr] = None
+    sorts: Optional[StrictStr] = None
+    demo: Optional[StrictBool] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetApiExportStatusRequest(BaseModel):
+    """Request object for get_api_export_status."""
+    batch_job_id: Optional[StrictStr] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetApiIdsRequest(BaseModel):
+    """Request object for get_api_ids."""
+    text_search: Optional[StrictStr] = None
+    by_ip_from_comment: Optional[StrictStr] = None
+    filters: Optional[StrictStr] = None
+    search_filters: Optional[StrictStr] = None
+    after_id: Optional[StrictStr] = None
+    demo: Optional[StrictBool] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetBanUsersFromCommentRequest(BaseModel):
+    """Request object for get_ban_users_from_comment."""
+    comment_id: StrictStr
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetCommentBanStatusRequest(BaseModel):
+    """Request object for get_comment_ban_status."""
+    comment_id: StrictStr
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetCommentChildrenRequest(BaseModel):
+    """Request object for get_comment_children."""
+    comment_id: StrictStr
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetCountRequest(BaseModel):
+    """Request object for get_count."""
+    text_search: Optional[StrictStr] = None
+    by_ip_from_comment: Optional[StrictStr] = None
+    filter: Optional[StrictStr] = None
+    search_filters: Optional[StrictStr] = None
+    demo: Optional[StrictBool] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetCountsRequest(BaseModel):
+    """Request object for get_counts."""
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetLogsRequest(BaseModel):
+    """Request object for get_logs."""
+    comment_id: StrictStr
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetManualBadgesRequest(BaseModel):
+    """Request object for get_manual_badges."""
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetManualBadgesForUserRequest(BaseModel):
+    """Request object for get_manual_badges_for_user."""
+    badges_user_id: Optional[StrictStr] = None
+    comment_id: Optional[StrictStr] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetModerationCommentRequest(BaseModel):
+    """Request object for get_moderation_comment."""
+    comment_id: StrictStr
+    include_email: Optional[StrictBool] = None
+    include_ip: Optional[StrictBool] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetModerationCommentTextRequest(BaseModel):
+    """Request object for get_moderation_comment_text."""
+    comment_id: StrictStr
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetPreBanSummaryRequest(BaseModel):
+    """Request object for get_pre_ban_summary."""
+    comment_id: StrictStr
+    include_by_user_id_and_email: Optional[StrictBool] = None
+    include_by_ip: Optional[StrictBool] = None
+    include_by_email_domain: Optional[StrictBool] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetSearchCommentsSummaryRequest(BaseModel):
+    """Request object for get_search_comments_summary."""
+    value: Optional[StrictStr] = None
+    filters: Optional[StrictStr] = None
+    search_filters: Optional[StrictStr] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetSearchPagesRequest(BaseModel):
+    """Request object for get_search_pages."""
+    value: Optional[StrictStr] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetSearchSitesRequest(BaseModel):
+    """Request object for get_search_sites."""
+    value: Optional[StrictStr] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetSearchSuggestRequest(BaseModel):
+    """Request object for get_search_suggest."""
+    text_search: Optional[StrictStr] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetSearchUsersRequest(BaseModel):
+    """Request object for get_search_users."""
+    value: Optional[StrictStr] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetTrustFactorRequest(BaseModel):
+    """Request object for get_trust_factor."""
+    user_id: Optional[StrictStr] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetUserBanPreferenceRequest(BaseModel):
+    """Request object for get_user_ban_preference."""
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetUserInternalProfileRequest(BaseModel):
+    """Request object for get_user_internal_profile."""
+    comment_id: Optional[StrictStr] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPostAdjustCommentVotesRequest(BaseModel):
+    """Request object for post_adjust_comment_votes."""
+    comment_id: StrictStr
+    adjust_comment_votes_params: AdjustCommentVotesParams
+    tenant_id: Optional[StrictStr] = None
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPostApiExportRequest(BaseModel):
+    """Request object for post_api_export."""
+    text_search: Optional[StrictStr] = None
+    by_ip_from_comment: Optional[StrictStr] = None
+    filters: Optional[StrictStr] = None
+    search_filters: Optional[StrictStr] = None
+    sorts: Optional[StrictStr] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPostBanUserFromCommentRequest(BaseModel):
+    """Request object for post_ban_user_from_comment."""
+    comment_id: StrictStr
+    ban_email: Optional[StrictBool] = None
+    ban_email_domain: Optional[StrictBool] = None
+    ban_ip: Optional[StrictBool] = None
+    delete_all_users_comments: Optional[StrictBool] = None
+    banned_until: Optional[StrictStr] = None
+    is_shadow_ban: Optional[StrictBool] = None
+    update_id: Optional[StrictStr] = None
+    ban_reason: Optional[StrictStr] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPostBanUserUndoRequest(BaseModel):
+    """Request object for post_ban_user_undo."""
+    ban_user_undo_params: BanUserUndoParams
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPostBulkPreBanSummaryRequest(BaseModel):
+    """Request object for post_bulk_pre_ban_summary."""
+    bulk_pre_ban_params: BulkPreBanParams
+    include_by_user_id_and_email: Optional[StrictBool] = None
+    include_by_ip: Optional[StrictBool] = None
+    include_by_email_domain: Optional[StrictBool] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPostCommentsByIdsRequest(BaseModel):
+    """Request object for post_comments_by_ids."""
+    comments_by_ids_params: CommentsByIdsParams
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPostFlagCommentRequest(BaseModel):
+    """Request object for post_flag_comment."""
+    comment_id: StrictStr
+    tenant_id: Optional[StrictStr] = None
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPostRemoveCommentRequest(BaseModel):
+    """Request object for post_remove_comment."""
+    comment_id: StrictStr
+    tenant_id: Optional[StrictStr] = None
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPostRestoreDeletedCommentRequest(BaseModel):
+    """Request object for post_restore_deleted_comment."""
+    comment_id: StrictStr
+    tenant_id: Optional[StrictStr] = None
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPostSetCommentApprovalStatusRequest(BaseModel):
+    """Request object for post_set_comment_approval_status."""
+    comment_id: StrictStr
+    approved: Optional[StrictBool] = None
+    tenant_id: Optional[StrictStr] = None
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPostSetCommentReviewStatusRequest(BaseModel):
+    """Request object for post_set_comment_review_status."""
+    comment_id: StrictStr
+    reviewed: Optional[StrictBool] = None
+    tenant_id: Optional[StrictStr] = None
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPostSetCommentSpamStatusRequest(BaseModel):
+    """Request object for post_set_comment_spam_status."""
+    comment_id: StrictStr
+    spam: Optional[StrictBool] = None
+    perm_not_spam: Optional[StrictBool] = None
+    tenant_id: Optional[StrictStr] = None
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPostSetCommentTextRequest(BaseModel):
+    """Request object for post_set_comment_text."""
+    comment_id: StrictStr
+    set_comment_text_params: SetCommentTextParams
+    tenant_id: Optional[StrictStr] = None
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPostUnFlagCommentRequest(BaseModel):
+    """Request object for post_un_flag_comment."""
+    comment_id: StrictStr
+    tenant_id: Optional[StrictStr] = None
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPostVoteRequest(BaseModel):
+    """Request object for post_vote."""
+    comment_id: StrictStr
+    direction: Optional[StrictStr] = None
+    tenant_id: Optional[StrictStr] = None
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPutAwardBadgeRequest(BaseModel):
+    """Request object for put_award_badge."""
+    badge_id: StrictStr
+    user_id: Optional[StrictStr] = None
+    comment_id: Optional[StrictStr] = None
+    tenant_id: Optional[StrictStr] = None
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPutCloseThreadRequest(BaseModel):
+    """Request object for put_close_thread."""
+    url_id: StrictStr
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPutRemoveBadgeRequest(BaseModel):
+    """Request object for put_remove_badge."""
+    badge_id: StrictStr
+    user_id: Optional[StrictStr] = None
+    comment_id: Optional[StrictStr] = None
+    tenant_id: Optional[StrictStr] = None
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiPutReopenThreadRequest(BaseModel):
+    """Request object for put_reopen_thread."""
+    url_id: StrictStr
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiSetTrustFactorRequest(BaseModel):
+    """Request object for set_trust_factor."""
+    user_id: Optional[StrictStr] = None
+    trust_factor: Optional[StrictStr] = None
+    tenant_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
 class ModerationApi:
     """NOTE: This class is auto generated by OpenAPI Generator
     Ref: https://openapi-generator.tech
@@ -80,11 +571,7 @@ class ModerationApi:
     @validate_call
     def delete_moderation_vote(
         self,
-        comment_id: StrictStr,
-        vote_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        DeleteModerationVote_request: ApiDeleteModerationVoteRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -101,16 +588,8 @@ class ModerationApi:
         """delete_moderation_vote
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param vote_id: (required)
-        :type vote_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param DeleteModerationVote_request: The request object containing all parameters for this operation. (required)
+        :type DeleteModerationVote_request: ApiDeleteModerationVoteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -134,11 +613,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._delete_moderation_vote_serialize(
-            comment_id=comment_id,
-            vote_id=vote_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=DeleteModerationVote_request.comment_id,
+            vote_id=DeleteModerationVote_request.vote_id,
+            tenant_id=DeleteModerationVote_request.tenant_id,
+            broadcast_id=DeleteModerationVote_request.broadcast_id,
+            sso=DeleteModerationVote_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -162,11 +641,7 @@ class ModerationApi:
     @validate_call
     def delete_moderation_vote_with_http_info(
         self,
-        comment_id: StrictStr,
-        vote_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        DeleteModerationVote_request: ApiDeleteModerationVoteRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -183,16 +658,8 @@ class ModerationApi:
         """delete_moderation_vote
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param vote_id: (required)
-        :type vote_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param DeleteModerationVote_request: The request object containing all parameters for this operation. (required)
+        :type DeleteModerationVote_request: ApiDeleteModerationVoteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -216,11 +683,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._delete_moderation_vote_serialize(
-            comment_id=comment_id,
-            vote_id=vote_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=DeleteModerationVote_request.comment_id,
+            vote_id=DeleteModerationVote_request.vote_id,
+            tenant_id=DeleteModerationVote_request.tenant_id,
+            broadcast_id=DeleteModerationVote_request.broadcast_id,
+            sso=DeleteModerationVote_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -244,11 +711,7 @@ class ModerationApi:
     @validate_call
     def delete_moderation_vote_without_preload_content(
         self,
-        comment_id: StrictStr,
-        vote_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        DeleteModerationVote_request: ApiDeleteModerationVoteRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -265,16 +728,8 @@ class ModerationApi:
         """delete_moderation_vote
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param vote_id: (required)
-        :type vote_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param DeleteModerationVote_request: The request object containing all parameters for this operation. (required)
+        :type DeleteModerationVote_request: ApiDeleteModerationVoteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -298,11 +753,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._delete_moderation_vote_serialize(
-            comment_id=comment_id,
-            vote_id=vote_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=DeleteModerationVote_request.comment_id,
+            vote_id=DeleteModerationVote_request.vote_id,
+            tenant_id=DeleteModerationVote_request.tenant_id,
+            broadcast_id=DeleteModerationVote_request.broadcast_id,
+            sso=DeleteModerationVote_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -323,8 +778,8 @@ class ModerationApi:
         self,
         comment_id,
         vote_id,
-        broadcast_id,
         tenant_id,
+        broadcast_id,
         sso,
         _request_auth,
         _content_type,
@@ -352,13 +807,13 @@ class ModerationApi:
         if vote_id is not None:
             _path_params['voteId'] = vote_id
         # process the query parameters
-        if broadcast_id is not None:
-            
-            _query_params.append(('broadcastId', broadcast_id))
-            
         if tenant_id is not None:
             
             _query_params.append(('tenantId', tenant_id))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
             
         if sso is not None:
             
@@ -403,16 +858,7 @@ class ModerationApi:
     @validate_call
     def get_api_comments(
         self,
-        page: Optional[Union[StrictFloat, StrictInt]] = None,
-        count: Optional[Union[StrictFloat, StrictInt]] = None,
-        text_search: Optional[StrictStr] = None,
-        by_ip_from_comment: Optional[StrictStr] = None,
-        filters: Optional[StrictStr] = None,
-        search_filters: Optional[StrictStr] = None,
-        sorts: Optional[StrictStr] = None,
-        demo: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetApiComments_request: ApiGetApiCommentsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -429,26 +875,8 @@ class ModerationApi:
         """get_api_comments
 
 
-        :param page:
-        :type page: float
-        :param count:
-        :type count: float
-        :param text_search:
-        :type text_search: str
-        :param by_ip_from_comment:
-        :type by_ip_from_comment: str
-        :param filters:
-        :type filters: str
-        :param search_filters:
-        :type search_filters: str
-        :param sorts:
-        :type sorts: str
-        :param demo:
-        :type demo: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetApiComments_request: The request object containing all parameters for this operation. (required)
+        :type GetApiComments_request: ApiGetApiCommentsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -472,16 +900,16 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_api_comments_serialize(
-            page=page,
-            count=count,
-            text_search=text_search,
-            by_ip_from_comment=by_ip_from_comment,
-            filters=filters,
-            search_filters=search_filters,
-            sorts=sorts,
-            demo=demo,
-            tenant_id=tenant_id,
-            sso=sso,
+            page=GetApiComments_request.page,
+            count=GetApiComments_request.count,
+            text_search=GetApiComments_request.text_search,
+            by_ip_from_comment=GetApiComments_request.by_ip_from_comment,
+            filters=GetApiComments_request.filters,
+            search_filters=GetApiComments_request.search_filters,
+            sorts=GetApiComments_request.sorts,
+            demo=GetApiComments_request.demo,
+            tenant_id=GetApiComments_request.tenant_id,
+            sso=GetApiComments_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -505,16 +933,7 @@ class ModerationApi:
     @validate_call
     def get_api_comments_with_http_info(
         self,
-        page: Optional[Union[StrictFloat, StrictInt]] = None,
-        count: Optional[Union[StrictFloat, StrictInt]] = None,
-        text_search: Optional[StrictStr] = None,
-        by_ip_from_comment: Optional[StrictStr] = None,
-        filters: Optional[StrictStr] = None,
-        search_filters: Optional[StrictStr] = None,
-        sorts: Optional[StrictStr] = None,
-        demo: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetApiComments_request: ApiGetApiCommentsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -531,26 +950,8 @@ class ModerationApi:
         """get_api_comments
 
 
-        :param page:
-        :type page: float
-        :param count:
-        :type count: float
-        :param text_search:
-        :type text_search: str
-        :param by_ip_from_comment:
-        :type by_ip_from_comment: str
-        :param filters:
-        :type filters: str
-        :param search_filters:
-        :type search_filters: str
-        :param sorts:
-        :type sorts: str
-        :param demo:
-        :type demo: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetApiComments_request: The request object containing all parameters for this operation. (required)
+        :type GetApiComments_request: ApiGetApiCommentsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -574,16 +975,16 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_api_comments_serialize(
-            page=page,
-            count=count,
-            text_search=text_search,
-            by_ip_from_comment=by_ip_from_comment,
-            filters=filters,
-            search_filters=search_filters,
-            sorts=sorts,
-            demo=demo,
-            tenant_id=tenant_id,
-            sso=sso,
+            page=GetApiComments_request.page,
+            count=GetApiComments_request.count,
+            text_search=GetApiComments_request.text_search,
+            by_ip_from_comment=GetApiComments_request.by_ip_from_comment,
+            filters=GetApiComments_request.filters,
+            search_filters=GetApiComments_request.search_filters,
+            sorts=GetApiComments_request.sorts,
+            demo=GetApiComments_request.demo,
+            tenant_id=GetApiComments_request.tenant_id,
+            sso=GetApiComments_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -607,16 +1008,7 @@ class ModerationApi:
     @validate_call
     def get_api_comments_without_preload_content(
         self,
-        page: Optional[Union[StrictFloat, StrictInt]] = None,
-        count: Optional[Union[StrictFloat, StrictInt]] = None,
-        text_search: Optional[StrictStr] = None,
-        by_ip_from_comment: Optional[StrictStr] = None,
-        filters: Optional[StrictStr] = None,
-        search_filters: Optional[StrictStr] = None,
-        sorts: Optional[StrictStr] = None,
-        demo: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetApiComments_request: ApiGetApiCommentsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -633,26 +1025,8 @@ class ModerationApi:
         """get_api_comments
 
 
-        :param page:
-        :type page: float
-        :param count:
-        :type count: float
-        :param text_search:
-        :type text_search: str
-        :param by_ip_from_comment:
-        :type by_ip_from_comment: str
-        :param filters:
-        :type filters: str
-        :param search_filters:
-        :type search_filters: str
-        :param sorts:
-        :type sorts: str
-        :param demo:
-        :type demo: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetApiComments_request: The request object containing all parameters for this operation. (required)
+        :type GetApiComments_request: ApiGetApiCommentsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -676,16 +1050,16 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_api_comments_serialize(
-            page=page,
-            count=count,
-            text_search=text_search,
-            by_ip_from_comment=by_ip_from_comment,
-            filters=filters,
-            search_filters=search_filters,
-            sorts=sorts,
-            demo=demo,
-            tenant_id=tenant_id,
-            sso=sso,
+            page=GetApiComments_request.page,
+            count=GetApiComments_request.count,
+            text_search=GetApiComments_request.text_search,
+            by_ip_from_comment=GetApiComments_request.by_ip_from_comment,
+            filters=GetApiComments_request.filters,
+            search_filters=GetApiComments_request.search_filters,
+            sorts=GetApiComments_request.sorts,
+            demo=GetApiComments_request.demo,
+            tenant_id=GetApiComments_request.tenant_id,
+            sso=GetApiComments_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -815,9 +1189,7 @@ class ModerationApi:
     @validate_call
     def get_api_export_status(
         self,
-        batch_job_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetApiExportStatus_request: ApiGetApiExportStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -834,12 +1206,8 @@ class ModerationApi:
         """get_api_export_status
 
 
-        :param batch_job_id:
-        :type batch_job_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetApiExportStatus_request: The request object containing all parameters for this operation. (required)
+        :type GetApiExportStatus_request: ApiGetApiExportStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -863,9 +1231,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_api_export_status_serialize(
-            batch_job_id=batch_job_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            batch_job_id=GetApiExportStatus_request.batch_job_id,
+            tenant_id=GetApiExportStatus_request.tenant_id,
+            sso=GetApiExportStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -889,9 +1257,7 @@ class ModerationApi:
     @validate_call
     def get_api_export_status_with_http_info(
         self,
-        batch_job_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetApiExportStatus_request: ApiGetApiExportStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -908,12 +1274,8 @@ class ModerationApi:
         """get_api_export_status
 
 
-        :param batch_job_id:
-        :type batch_job_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetApiExportStatus_request: The request object containing all parameters for this operation. (required)
+        :type GetApiExportStatus_request: ApiGetApiExportStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -937,9 +1299,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_api_export_status_serialize(
-            batch_job_id=batch_job_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            batch_job_id=GetApiExportStatus_request.batch_job_id,
+            tenant_id=GetApiExportStatus_request.tenant_id,
+            sso=GetApiExportStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -963,9 +1325,7 @@ class ModerationApi:
     @validate_call
     def get_api_export_status_without_preload_content(
         self,
-        batch_job_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetApiExportStatus_request: ApiGetApiExportStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -982,12 +1342,8 @@ class ModerationApi:
         """get_api_export_status
 
 
-        :param batch_job_id:
-        :type batch_job_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetApiExportStatus_request: The request object containing all parameters for this operation. (required)
+        :type GetApiExportStatus_request: ApiGetApiExportStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1011,9 +1367,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_api_export_status_serialize(
-            batch_job_id=batch_job_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            batch_job_id=GetApiExportStatus_request.batch_job_id,
+            tenant_id=GetApiExportStatus_request.tenant_id,
+            sso=GetApiExportStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1108,14 +1464,7 @@ class ModerationApi:
     @validate_call
     def get_api_ids(
         self,
-        text_search: Optional[StrictStr] = None,
-        by_ip_from_comment: Optional[StrictStr] = None,
-        filters: Optional[StrictStr] = None,
-        search_filters: Optional[StrictStr] = None,
-        after_id: Optional[StrictStr] = None,
-        demo: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetApiIds_request: ApiGetApiIdsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1132,22 +1481,8 @@ class ModerationApi:
         """get_api_ids
 
 
-        :param text_search:
-        :type text_search: str
-        :param by_ip_from_comment:
-        :type by_ip_from_comment: str
-        :param filters:
-        :type filters: str
-        :param search_filters:
-        :type search_filters: str
-        :param after_id:
-        :type after_id: str
-        :param demo:
-        :type demo: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetApiIds_request: The request object containing all parameters for this operation. (required)
+        :type GetApiIds_request: ApiGetApiIdsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1171,14 +1506,14 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_api_ids_serialize(
-            text_search=text_search,
-            by_ip_from_comment=by_ip_from_comment,
-            filters=filters,
-            search_filters=search_filters,
-            after_id=after_id,
-            demo=demo,
-            tenant_id=tenant_id,
-            sso=sso,
+            text_search=GetApiIds_request.text_search,
+            by_ip_from_comment=GetApiIds_request.by_ip_from_comment,
+            filters=GetApiIds_request.filters,
+            search_filters=GetApiIds_request.search_filters,
+            after_id=GetApiIds_request.after_id,
+            demo=GetApiIds_request.demo,
+            tenant_id=GetApiIds_request.tenant_id,
+            sso=GetApiIds_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1202,14 +1537,7 @@ class ModerationApi:
     @validate_call
     def get_api_ids_with_http_info(
         self,
-        text_search: Optional[StrictStr] = None,
-        by_ip_from_comment: Optional[StrictStr] = None,
-        filters: Optional[StrictStr] = None,
-        search_filters: Optional[StrictStr] = None,
-        after_id: Optional[StrictStr] = None,
-        demo: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetApiIds_request: ApiGetApiIdsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1226,22 +1554,8 @@ class ModerationApi:
         """get_api_ids
 
 
-        :param text_search:
-        :type text_search: str
-        :param by_ip_from_comment:
-        :type by_ip_from_comment: str
-        :param filters:
-        :type filters: str
-        :param search_filters:
-        :type search_filters: str
-        :param after_id:
-        :type after_id: str
-        :param demo:
-        :type demo: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetApiIds_request: The request object containing all parameters for this operation. (required)
+        :type GetApiIds_request: ApiGetApiIdsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1265,14 +1579,14 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_api_ids_serialize(
-            text_search=text_search,
-            by_ip_from_comment=by_ip_from_comment,
-            filters=filters,
-            search_filters=search_filters,
-            after_id=after_id,
-            demo=demo,
-            tenant_id=tenant_id,
-            sso=sso,
+            text_search=GetApiIds_request.text_search,
+            by_ip_from_comment=GetApiIds_request.by_ip_from_comment,
+            filters=GetApiIds_request.filters,
+            search_filters=GetApiIds_request.search_filters,
+            after_id=GetApiIds_request.after_id,
+            demo=GetApiIds_request.demo,
+            tenant_id=GetApiIds_request.tenant_id,
+            sso=GetApiIds_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1296,14 +1610,7 @@ class ModerationApi:
     @validate_call
     def get_api_ids_without_preload_content(
         self,
-        text_search: Optional[StrictStr] = None,
-        by_ip_from_comment: Optional[StrictStr] = None,
-        filters: Optional[StrictStr] = None,
-        search_filters: Optional[StrictStr] = None,
-        after_id: Optional[StrictStr] = None,
-        demo: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetApiIds_request: ApiGetApiIdsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1320,22 +1627,8 @@ class ModerationApi:
         """get_api_ids
 
 
-        :param text_search:
-        :type text_search: str
-        :param by_ip_from_comment:
-        :type by_ip_from_comment: str
-        :param filters:
-        :type filters: str
-        :param search_filters:
-        :type search_filters: str
-        :param after_id:
-        :type after_id: str
-        :param demo:
-        :type demo: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetApiIds_request: The request object containing all parameters for this operation. (required)
+        :type GetApiIds_request: ApiGetApiIdsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1359,14 +1652,14 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_api_ids_serialize(
-            text_search=text_search,
-            by_ip_from_comment=by_ip_from_comment,
-            filters=filters,
-            search_filters=search_filters,
-            after_id=after_id,
-            demo=demo,
-            tenant_id=tenant_id,
-            sso=sso,
+            text_search=GetApiIds_request.text_search,
+            by_ip_from_comment=GetApiIds_request.by_ip_from_comment,
+            filters=GetApiIds_request.filters,
+            search_filters=GetApiIds_request.search_filters,
+            after_id=GetApiIds_request.after_id,
+            demo=GetApiIds_request.demo,
+            tenant_id=GetApiIds_request.tenant_id,
+            sso=GetApiIds_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1486,9 +1779,7 @@ class ModerationApi:
     @validate_call
     def get_ban_users_from_comment(
         self,
-        comment_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetBanUsersFromComment_request: ApiGetBanUsersFromCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1505,12 +1796,8 @@ class ModerationApi:
         """get_ban_users_from_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetBanUsersFromComment_request: The request object containing all parameters for this operation. (required)
+        :type GetBanUsersFromComment_request: ApiGetBanUsersFromCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1534,9 +1821,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_ban_users_from_comment_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetBanUsersFromComment_request.comment_id,
+            tenant_id=GetBanUsersFromComment_request.tenant_id,
+            sso=GetBanUsersFromComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1560,9 +1847,7 @@ class ModerationApi:
     @validate_call
     def get_ban_users_from_comment_with_http_info(
         self,
-        comment_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetBanUsersFromComment_request: ApiGetBanUsersFromCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1579,12 +1864,8 @@ class ModerationApi:
         """get_ban_users_from_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetBanUsersFromComment_request: The request object containing all parameters for this operation. (required)
+        :type GetBanUsersFromComment_request: ApiGetBanUsersFromCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1608,9 +1889,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_ban_users_from_comment_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetBanUsersFromComment_request.comment_id,
+            tenant_id=GetBanUsersFromComment_request.tenant_id,
+            sso=GetBanUsersFromComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1634,9 +1915,7 @@ class ModerationApi:
     @validate_call
     def get_ban_users_from_comment_without_preload_content(
         self,
-        comment_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetBanUsersFromComment_request: ApiGetBanUsersFromCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1653,12 +1932,8 @@ class ModerationApi:
         """get_ban_users_from_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetBanUsersFromComment_request: The request object containing all parameters for this operation. (required)
+        :type GetBanUsersFromComment_request: ApiGetBanUsersFromCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1682,9 +1957,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_ban_users_from_comment_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetBanUsersFromComment_request.comment_id,
+            tenant_id=GetBanUsersFromComment_request.tenant_id,
+            sso=GetBanUsersFromComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1777,9 +2052,7 @@ class ModerationApi:
     @validate_call
     def get_comment_ban_status(
         self,
-        comment_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetCommentBanStatus_request: ApiGetCommentBanStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1796,12 +2069,8 @@ class ModerationApi:
         """get_comment_ban_status
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetCommentBanStatus_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentBanStatus_request: ApiGetCommentBanStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1825,9 +2094,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_comment_ban_status_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetCommentBanStatus_request.comment_id,
+            tenant_id=GetCommentBanStatus_request.tenant_id,
+            sso=GetCommentBanStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1851,9 +2120,7 @@ class ModerationApi:
     @validate_call
     def get_comment_ban_status_with_http_info(
         self,
-        comment_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetCommentBanStatus_request: ApiGetCommentBanStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1870,12 +2137,8 @@ class ModerationApi:
         """get_comment_ban_status
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetCommentBanStatus_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentBanStatus_request: ApiGetCommentBanStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1899,9 +2162,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_comment_ban_status_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetCommentBanStatus_request.comment_id,
+            tenant_id=GetCommentBanStatus_request.tenant_id,
+            sso=GetCommentBanStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1925,9 +2188,7 @@ class ModerationApi:
     @validate_call
     def get_comment_ban_status_without_preload_content(
         self,
-        comment_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetCommentBanStatus_request: ApiGetCommentBanStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1944,12 +2205,8 @@ class ModerationApi:
         """get_comment_ban_status
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetCommentBanStatus_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentBanStatus_request: ApiGetCommentBanStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1973,9 +2230,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_comment_ban_status_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetCommentBanStatus_request.comment_id,
+            tenant_id=GetCommentBanStatus_request.tenant_id,
+            sso=GetCommentBanStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2068,9 +2325,7 @@ class ModerationApi:
     @validate_call
     def get_comment_children(
         self,
-        comment_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetCommentChildren_request: ApiGetCommentChildrenRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2087,12 +2342,8 @@ class ModerationApi:
         """get_comment_children
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetCommentChildren_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentChildren_request: ApiGetCommentChildrenRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2116,9 +2367,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_comment_children_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetCommentChildren_request.comment_id,
+            tenant_id=GetCommentChildren_request.tenant_id,
+            sso=GetCommentChildren_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2142,9 +2393,7 @@ class ModerationApi:
     @validate_call
     def get_comment_children_with_http_info(
         self,
-        comment_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetCommentChildren_request: ApiGetCommentChildrenRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2161,12 +2410,8 @@ class ModerationApi:
         """get_comment_children
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetCommentChildren_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentChildren_request: ApiGetCommentChildrenRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2190,9 +2435,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_comment_children_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetCommentChildren_request.comment_id,
+            tenant_id=GetCommentChildren_request.tenant_id,
+            sso=GetCommentChildren_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2216,9 +2461,7 @@ class ModerationApi:
     @validate_call
     def get_comment_children_without_preload_content(
         self,
-        comment_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetCommentChildren_request: ApiGetCommentChildrenRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2235,12 +2478,8 @@ class ModerationApi:
         """get_comment_children
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetCommentChildren_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentChildren_request: ApiGetCommentChildrenRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2264,9 +2503,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_comment_children_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetCommentChildren_request.comment_id,
+            tenant_id=GetCommentChildren_request.tenant_id,
+            sso=GetCommentChildren_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2359,13 +2598,7 @@ class ModerationApi:
     @validate_call
     def get_count(
         self,
-        text_search: Optional[StrictStr] = None,
-        by_ip_from_comment: Optional[StrictStr] = None,
-        filter: Optional[StrictStr] = None,
-        search_filters: Optional[StrictStr] = None,
-        demo: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetCount_request: ApiGetCountRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2382,20 +2615,8 @@ class ModerationApi:
         """get_count
 
 
-        :param text_search:
-        :type text_search: str
-        :param by_ip_from_comment:
-        :type by_ip_from_comment: str
-        :param filter:
-        :type filter: str
-        :param search_filters:
-        :type search_filters: str
-        :param demo:
-        :type demo: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetCount_request: The request object containing all parameters for this operation. (required)
+        :type GetCount_request: ApiGetCountRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2419,13 +2640,13 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_count_serialize(
-            text_search=text_search,
-            by_ip_from_comment=by_ip_from_comment,
-            filter=filter,
-            search_filters=search_filters,
-            demo=demo,
-            tenant_id=tenant_id,
-            sso=sso,
+            text_search=GetCount_request.text_search,
+            by_ip_from_comment=GetCount_request.by_ip_from_comment,
+            filter=GetCount_request.filter,
+            search_filters=GetCount_request.search_filters,
+            demo=GetCount_request.demo,
+            tenant_id=GetCount_request.tenant_id,
+            sso=GetCount_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2449,13 +2670,7 @@ class ModerationApi:
     @validate_call
     def get_count_with_http_info(
         self,
-        text_search: Optional[StrictStr] = None,
-        by_ip_from_comment: Optional[StrictStr] = None,
-        filter: Optional[StrictStr] = None,
-        search_filters: Optional[StrictStr] = None,
-        demo: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetCount_request: ApiGetCountRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2472,20 +2687,8 @@ class ModerationApi:
         """get_count
 
 
-        :param text_search:
-        :type text_search: str
-        :param by_ip_from_comment:
-        :type by_ip_from_comment: str
-        :param filter:
-        :type filter: str
-        :param search_filters:
-        :type search_filters: str
-        :param demo:
-        :type demo: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetCount_request: The request object containing all parameters for this operation. (required)
+        :type GetCount_request: ApiGetCountRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2509,13 +2712,13 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_count_serialize(
-            text_search=text_search,
-            by_ip_from_comment=by_ip_from_comment,
-            filter=filter,
-            search_filters=search_filters,
-            demo=demo,
-            tenant_id=tenant_id,
-            sso=sso,
+            text_search=GetCount_request.text_search,
+            by_ip_from_comment=GetCount_request.by_ip_from_comment,
+            filter=GetCount_request.filter,
+            search_filters=GetCount_request.search_filters,
+            demo=GetCount_request.demo,
+            tenant_id=GetCount_request.tenant_id,
+            sso=GetCount_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2539,13 +2742,7 @@ class ModerationApi:
     @validate_call
     def get_count_without_preload_content(
         self,
-        text_search: Optional[StrictStr] = None,
-        by_ip_from_comment: Optional[StrictStr] = None,
-        filter: Optional[StrictStr] = None,
-        search_filters: Optional[StrictStr] = None,
-        demo: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetCount_request: ApiGetCountRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2562,20 +2759,8 @@ class ModerationApi:
         """get_count
 
 
-        :param text_search:
-        :type text_search: str
-        :param by_ip_from_comment:
-        :type by_ip_from_comment: str
-        :param filter:
-        :type filter: str
-        :param search_filters:
-        :type search_filters: str
-        :param demo:
-        :type demo: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetCount_request: The request object containing all parameters for this operation. (required)
+        :type GetCount_request: ApiGetCountRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2599,13 +2784,13 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_count_serialize(
-            text_search=text_search,
-            by_ip_from_comment=by_ip_from_comment,
-            filter=filter,
-            search_filters=search_filters,
-            demo=demo,
-            tenant_id=tenant_id,
-            sso=sso,
+            text_search=GetCount_request.text_search,
+            by_ip_from_comment=GetCount_request.by_ip_from_comment,
+            filter=GetCount_request.filter,
+            search_filters=GetCount_request.search_filters,
+            demo=GetCount_request.demo,
+            tenant_id=GetCount_request.tenant_id,
+            sso=GetCount_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2720,8 +2905,7 @@ class ModerationApi:
     @validate_call
     def get_counts(
         self,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetCounts_request: ApiGetCountsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2738,10 +2922,8 @@ class ModerationApi:
         """get_counts
 
 
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetCounts_request: The request object containing all parameters for this operation. (required)
+        :type GetCounts_request: ApiGetCountsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2765,8 +2947,8 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_counts_serialize(
-            tenant_id=tenant_id,
-            sso=sso,
+            tenant_id=GetCounts_request.tenant_id,
+            sso=GetCounts_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2790,8 +2972,7 @@ class ModerationApi:
     @validate_call
     def get_counts_with_http_info(
         self,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetCounts_request: ApiGetCountsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2808,10 +2989,8 @@ class ModerationApi:
         """get_counts
 
 
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetCounts_request: The request object containing all parameters for this operation. (required)
+        :type GetCounts_request: ApiGetCountsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2835,8 +3014,8 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_counts_serialize(
-            tenant_id=tenant_id,
-            sso=sso,
+            tenant_id=GetCounts_request.tenant_id,
+            sso=GetCounts_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2860,8 +3039,7 @@ class ModerationApi:
     @validate_call
     def get_counts_without_preload_content(
         self,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetCounts_request: ApiGetCountsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2878,10 +3056,8 @@ class ModerationApi:
         """get_counts
 
 
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetCounts_request: The request object containing all parameters for this operation. (required)
+        :type GetCounts_request: ApiGetCountsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2905,8 +3081,8 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_counts_serialize(
-            tenant_id=tenant_id,
-            sso=sso,
+            tenant_id=GetCounts_request.tenant_id,
+            sso=GetCounts_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2996,9 +3172,7 @@ class ModerationApi:
     @validate_call
     def get_logs(
         self,
-        comment_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetLogs_request: ApiGetLogsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3015,12 +3189,8 @@ class ModerationApi:
         """get_logs
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetLogs_request: The request object containing all parameters for this operation. (required)
+        :type GetLogs_request: ApiGetLogsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3044,9 +3214,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_logs_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetLogs_request.comment_id,
+            tenant_id=GetLogs_request.tenant_id,
+            sso=GetLogs_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3070,9 +3240,7 @@ class ModerationApi:
     @validate_call
     def get_logs_with_http_info(
         self,
-        comment_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetLogs_request: ApiGetLogsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3089,12 +3257,8 @@ class ModerationApi:
         """get_logs
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetLogs_request: The request object containing all parameters for this operation. (required)
+        :type GetLogs_request: ApiGetLogsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3118,9 +3282,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_logs_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetLogs_request.comment_id,
+            tenant_id=GetLogs_request.tenant_id,
+            sso=GetLogs_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3144,9 +3308,7 @@ class ModerationApi:
     @validate_call
     def get_logs_without_preload_content(
         self,
-        comment_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetLogs_request: ApiGetLogsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3163,12 +3325,8 @@ class ModerationApi:
         """get_logs
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetLogs_request: The request object containing all parameters for this operation. (required)
+        :type GetLogs_request: ApiGetLogsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3192,9 +3350,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_logs_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetLogs_request.comment_id,
+            tenant_id=GetLogs_request.tenant_id,
+            sso=GetLogs_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3287,8 +3445,7 @@ class ModerationApi:
     @validate_call
     def get_manual_badges(
         self,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetManualBadges_request: ApiGetManualBadgesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3305,10 +3462,8 @@ class ModerationApi:
         """get_manual_badges
 
 
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetManualBadges_request: The request object containing all parameters for this operation. (required)
+        :type GetManualBadges_request: ApiGetManualBadgesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3332,8 +3487,8 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_manual_badges_serialize(
-            tenant_id=tenant_id,
-            sso=sso,
+            tenant_id=GetManualBadges_request.tenant_id,
+            sso=GetManualBadges_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3357,8 +3512,7 @@ class ModerationApi:
     @validate_call
     def get_manual_badges_with_http_info(
         self,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetManualBadges_request: ApiGetManualBadgesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3375,10 +3529,8 @@ class ModerationApi:
         """get_manual_badges
 
 
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetManualBadges_request: The request object containing all parameters for this operation. (required)
+        :type GetManualBadges_request: ApiGetManualBadgesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3402,8 +3554,8 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_manual_badges_serialize(
-            tenant_id=tenant_id,
-            sso=sso,
+            tenant_id=GetManualBadges_request.tenant_id,
+            sso=GetManualBadges_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3427,8 +3579,7 @@ class ModerationApi:
     @validate_call
     def get_manual_badges_without_preload_content(
         self,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetManualBadges_request: ApiGetManualBadgesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3445,10 +3596,8 @@ class ModerationApi:
         """get_manual_badges
 
 
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetManualBadges_request: The request object containing all parameters for this operation. (required)
+        :type GetManualBadges_request: ApiGetManualBadgesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3472,8 +3621,8 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_manual_badges_serialize(
-            tenant_id=tenant_id,
-            sso=sso,
+            tenant_id=GetManualBadges_request.tenant_id,
+            sso=GetManualBadges_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3563,10 +3712,7 @@ class ModerationApi:
     @validate_call
     def get_manual_badges_for_user(
         self,
-        badges_user_id: Optional[StrictStr] = None,
-        comment_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetManualBadgesForUser_request: ApiGetManualBadgesForUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3583,14 +3729,8 @@ class ModerationApi:
         """get_manual_badges_for_user
 
 
-        :param badges_user_id:
-        :type badges_user_id: str
-        :param comment_id:
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetManualBadgesForUser_request: The request object containing all parameters for this operation. (required)
+        :type GetManualBadgesForUser_request: ApiGetManualBadgesForUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3614,10 +3754,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_manual_badges_for_user_serialize(
-            badges_user_id=badges_user_id,
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            badges_user_id=GetManualBadgesForUser_request.badges_user_id,
+            comment_id=GetManualBadgesForUser_request.comment_id,
+            tenant_id=GetManualBadgesForUser_request.tenant_id,
+            sso=GetManualBadgesForUser_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3641,10 +3781,7 @@ class ModerationApi:
     @validate_call
     def get_manual_badges_for_user_with_http_info(
         self,
-        badges_user_id: Optional[StrictStr] = None,
-        comment_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetManualBadgesForUser_request: ApiGetManualBadgesForUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3661,14 +3798,8 @@ class ModerationApi:
         """get_manual_badges_for_user
 
 
-        :param badges_user_id:
-        :type badges_user_id: str
-        :param comment_id:
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetManualBadgesForUser_request: The request object containing all parameters for this operation. (required)
+        :type GetManualBadgesForUser_request: ApiGetManualBadgesForUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3692,10 +3823,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_manual_badges_for_user_serialize(
-            badges_user_id=badges_user_id,
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            badges_user_id=GetManualBadgesForUser_request.badges_user_id,
+            comment_id=GetManualBadgesForUser_request.comment_id,
+            tenant_id=GetManualBadgesForUser_request.tenant_id,
+            sso=GetManualBadgesForUser_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3719,10 +3850,7 @@ class ModerationApi:
     @validate_call
     def get_manual_badges_for_user_without_preload_content(
         self,
-        badges_user_id: Optional[StrictStr] = None,
-        comment_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetManualBadgesForUser_request: ApiGetManualBadgesForUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3739,14 +3867,8 @@ class ModerationApi:
         """get_manual_badges_for_user
 
 
-        :param badges_user_id:
-        :type badges_user_id: str
-        :param comment_id:
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetManualBadgesForUser_request: The request object containing all parameters for this operation. (required)
+        :type GetManualBadgesForUser_request: ApiGetManualBadgesForUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3770,10 +3892,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_manual_badges_for_user_serialize(
-            badges_user_id=badges_user_id,
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            badges_user_id=GetManualBadgesForUser_request.badges_user_id,
+            comment_id=GetManualBadgesForUser_request.comment_id,
+            tenant_id=GetManualBadgesForUser_request.tenant_id,
+            sso=GetManualBadgesForUser_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3873,11 +3995,7 @@ class ModerationApi:
     @validate_call
     def get_moderation_comment(
         self,
-        comment_id: StrictStr,
-        include_email: Optional[StrictBool] = None,
-        include_ip: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetModerationComment_request: ApiGetModerationCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3894,16 +4012,8 @@ class ModerationApi:
         """get_moderation_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param include_email:
-        :type include_email: bool
-        :param include_ip:
-        :type include_ip: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetModerationComment_request: The request object containing all parameters for this operation. (required)
+        :type GetModerationComment_request: ApiGetModerationCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3927,11 +4037,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_moderation_comment_serialize(
-            comment_id=comment_id,
-            include_email=include_email,
-            include_ip=include_ip,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetModerationComment_request.comment_id,
+            include_email=GetModerationComment_request.include_email,
+            include_ip=GetModerationComment_request.include_ip,
+            tenant_id=GetModerationComment_request.tenant_id,
+            sso=GetModerationComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3955,11 +4065,7 @@ class ModerationApi:
     @validate_call
     def get_moderation_comment_with_http_info(
         self,
-        comment_id: StrictStr,
-        include_email: Optional[StrictBool] = None,
-        include_ip: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetModerationComment_request: ApiGetModerationCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3976,16 +4082,8 @@ class ModerationApi:
         """get_moderation_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param include_email:
-        :type include_email: bool
-        :param include_ip:
-        :type include_ip: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetModerationComment_request: The request object containing all parameters for this operation. (required)
+        :type GetModerationComment_request: ApiGetModerationCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4009,11 +4107,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_moderation_comment_serialize(
-            comment_id=comment_id,
-            include_email=include_email,
-            include_ip=include_ip,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetModerationComment_request.comment_id,
+            include_email=GetModerationComment_request.include_email,
+            include_ip=GetModerationComment_request.include_ip,
+            tenant_id=GetModerationComment_request.tenant_id,
+            sso=GetModerationComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4037,11 +4135,7 @@ class ModerationApi:
     @validate_call
     def get_moderation_comment_without_preload_content(
         self,
-        comment_id: StrictStr,
-        include_email: Optional[StrictBool] = None,
-        include_ip: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetModerationComment_request: ApiGetModerationCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4058,16 +4152,8 @@ class ModerationApi:
         """get_moderation_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param include_email:
-        :type include_email: bool
-        :param include_ip:
-        :type include_ip: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetModerationComment_request: The request object containing all parameters for this operation. (required)
+        :type GetModerationComment_request: ApiGetModerationCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4091,11 +4177,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_moderation_comment_serialize(
-            comment_id=comment_id,
-            include_email=include_email,
-            include_ip=include_ip,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetModerationComment_request.comment_id,
+            include_email=GetModerationComment_request.include_email,
+            include_ip=GetModerationComment_request.include_ip,
+            tenant_id=GetModerationComment_request.tenant_id,
+            sso=GetModerationComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4198,9 +4284,7 @@ class ModerationApi:
     @validate_call
     def get_moderation_comment_text(
         self,
-        comment_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetModerationCommentText_request: ApiGetModerationCommentTextRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4217,12 +4301,8 @@ class ModerationApi:
         """get_moderation_comment_text
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetModerationCommentText_request: The request object containing all parameters for this operation. (required)
+        :type GetModerationCommentText_request: ApiGetModerationCommentTextRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4246,9 +4326,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_moderation_comment_text_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetModerationCommentText_request.comment_id,
+            tenant_id=GetModerationCommentText_request.tenant_id,
+            sso=GetModerationCommentText_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4272,9 +4352,7 @@ class ModerationApi:
     @validate_call
     def get_moderation_comment_text_with_http_info(
         self,
-        comment_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetModerationCommentText_request: ApiGetModerationCommentTextRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4291,12 +4369,8 @@ class ModerationApi:
         """get_moderation_comment_text
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetModerationCommentText_request: The request object containing all parameters for this operation. (required)
+        :type GetModerationCommentText_request: ApiGetModerationCommentTextRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4320,9 +4394,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_moderation_comment_text_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetModerationCommentText_request.comment_id,
+            tenant_id=GetModerationCommentText_request.tenant_id,
+            sso=GetModerationCommentText_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4346,9 +4420,7 @@ class ModerationApi:
     @validate_call
     def get_moderation_comment_text_without_preload_content(
         self,
-        comment_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetModerationCommentText_request: ApiGetModerationCommentTextRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4365,12 +4437,8 @@ class ModerationApi:
         """get_moderation_comment_text
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetModerationCommentText_request: The request object containing all parameters for this operation. (required)
+        :type GetModerationCommentText_request: ApiGetModerationCommentTextRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4394,9 +4462,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_moderation_comment_text_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetModerationCommentText_request.comment_id,
+            tenant_id=GetModerationCommentText_request.tenant_id,
+            sso=GetModerationCommentText_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4489,12 +4557,7 @@ class ModerationApi:
     @validate_call
     def get_pre_ban_summary(
         self,
-        comment_id: StrictStr,
-        include_by_user_id_and_email: Optional[StrictBool] = None,
-        include_by_ip: Optional[StrictBool] = None,
-        include_by_email_domain: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetPreBanSummary_request: ApiGetPreBanSummaryRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4511,18 +4574,8 @@ class ModerationApi:
         """get_pre_ban_summary
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param include_by_user_id_and_email:
-        :type include_by_user_id_and_email: bool
-        :param include_by_ip:
-        :type include_by_ip: bool
-        :param include_by_email_domain:
-        :type include_by_email_domain: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetPreBanSummary_request: The request object containing all parameters for this operation. (required)
+        :type GetPreBanSummary_request: ApiGetPreBanSummaryRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4546,12 +4599,12 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_pre_ban_summary_serialize(
-            comment_id=comment_id,
-            include_by_user_id_and_email=include_by_user_id_and_email,
-            include_by_ip=include_by_ip,
-            include_by_email_domain=include_by_email_domain,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetPreBanSummary_request.comment_id,
+            include_by_user_id_and_email=GetPreBanSummary_request.include_by_user_id_and_email,
+            include_by_ip=GetPreBanSummary_request.include_by_ip,
+            include_by_email_domain=GetPreBanSummary_request.include_by_email_domain,
+            tenant_id=GetPreBanSummary_request.tenant_id,
+            sso=GetPreBanSummary_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4575,12 +4628,7 @@ class ModerationApi:
     @validate_call
     def get_pre_ban_summary_with_http_info(
         self,
-        comment_id: StrictStr,
-        include_by_user_id_and_email: Optional[StrictBool] = None,
-        include_by_ip: Optional[StrictBool] = None,
-        include_by_email_domain: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetPreBanSummary_request: ApiGetPreBanSummaryRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4597,18 +4645,8 @@ class ModerationApi:
         """get_pre_ban_summary
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param include_by_user_id_and_email:
-        :type include_by_user_id_and_email: bool
-        :param include_by_ip:
-        :type include_by_ip: bool
-        :param include_by_email_domain:
-        :type include_by_email_domain: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetPreBanSummary_request: The request object containing all parameters for this operation. (required)
+        :type GetPreBanSummary_request: ApiGetPreBanSummaryRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4632,12 +4670,12 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_pre_ban_summary_serialize(
-            comment_id=comment_id,
-            include_by_user_id_and_email=include_by_user_id_and_email,
-            include_by_ip=include_by_ip,
-            include_by_email_domain=include_by_email_domain,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetPreBanSummary_request.comment_id,
+            include_by_user_id_and_email=GetPreBanSummary_request.include_by_user_id_and_email,
+            include_by_ip=GetPreBanSummary_request.include_by_ip,
+            include_by_email_domain=GetPreBanSummary_request.include_by_email_domain,
+            tenant_id=GetPreBanSummary_request.tenant_id,
+            sso=GetPreBanSummary_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4661,12 +4699,7 @@ class ModerationApi:
     @validate_call
     def get_pre_ban_summary_without_preload_content(
         self,
-        comment_id: StrictStr,
-        include_by_user_id_and_email: Optional[StrictBool] = None,
-        include_by_ip: Optional[StrictBool] = None,
-        include_by_email_domain: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetPreBanSummary_request: ApiGetPreBanSummaryRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4683,18 +4716,8 @@ class ModerationApi:
         """get_pre_ban_summary
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param include_by_user_id_and_email:
-        :type include_by_user_id_and_email: bool
-        :param include_by_ip:
-        :type include_by_ip: bool
-        :param include_by_email_domain:
-        :type include_by_email_domain: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetPreBanSummary_request: The request object containing all parameters for this operation. (required)
+        :type GetPreBanSummary_request: ApiGetPreBanSummaryRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4718,12 +4741,12 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_pre_ban_summary_serialize(
-            comment_id=comment_id,
-            include_by_user_id_and_email=include_by_user_id_and_email,
-            include_by_ip=include_by_ip,
-            include_by_email_domain=include_by_email_domain,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetPreBanSummary_request.comment_id,
+            include_by_user_id_and_email=GetPreBanSummary_request.include_by_user_id_and_email,
+            include_by_ip=GetPreBanSummary_request.include_by_ip,
+            include_by_email_domain=GetPreBanSummary_request.include_by_email_domain,
+            tenant_id=GetPreBanSummary_request.tenant_id,
+            sso=GetPreBanSummary_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4831,11 +4854,7 @@ class ModerationApi:
     @validate_call
     def get_search_comments_summary(
         self,
-        value: Optional[StrictStr] = None,
-        filters: Optional[StrictStr] = None,
-        search_filters: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetSearchCommentsSummary_request: ApiGetSearchCommentsSummaryRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4852,16 +4871,8 @@ class ModerationApi:
         """get_search_comments_summary
 
 
-        :param value:
-        :type value: str
-        :param filters:
-        :type filters: str
-        :param search_filters:
-        :type search_filters: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetSearchCommentsSummary_request: The request object containing all parameters for this operation. (required)
+        :type GetSearchCommentsSummary_request: ApiGetSearchCommentsSummaryRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4885,11 +4896,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_search_comments_summary_serialize(
-            value=value,
-            filters=filters,
-            search_filters=search_filters,
-            tenant_id=tenant_id,
-            sso=sso,
+            value=GetSearchCommentsSummary_request.value,
+            filters=GetSearchCommentsSummary_request.filters,
+            search_filters=GetSearchCommentsSummary_request.search_filters,
+            tenant_id=GetSearchCommentsSummary_request.tenant_id,
+            sso=GetSearchCommentsSummary_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4913,11 +4924,7 @@ class ModerationApi:
     @validate_call
     def get_search_comments_summary_with_http_info(
         self,
-        value: Optional[StrictStr] = None,
-        filters: Optional[StrictStr] = None,
-        search_filters: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetSearchCommentsSummary_request: ApiGetSearchCommentsSummaryRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4934,16 +4941,8 @@ class ModerationApi:
         """get_search_comments_summary
 
 
-        :param value:
-        :type value: str
-        :param filters:
-        :type filters: str
-        :param search_filters:
-        :type search_filters: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetSearchCommentsSummary_request: The request object containing all parameters for this operation. (required)
+        :type GetSearchCommentsSummary_request: ApiGetSearchCommentsSummaryRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4967,11 +4966,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_search_comments_summary_serialize(
-            value=value,
-            filters=filters,
-            search_filters=search_filters,
-            tenant_id=tenant_id,
-            sso=sso,
+            value=GetSearchCommentsSummary_request.value,
+            filters=GetSearchCommentsSummary_request.filters,
+            search_filters=GetSearchCommentsSummary_request.search_filters,
+            tenant_id=GetSearchCommentsSummary_request.tenant_id,
+            sso=GetSearchCommentsSummary_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4995,11 +4994,7 @@ class ModerationApi:
     @validate_call
     def get_search_comments_summary_without_preload_content(
         self,
-        value: Optional[StrictStr] = None,
-        filters: Optional[StrictStr] = None,
-        search_filters: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetSearchCommentsSummary_request: ApiGetSearchCommentsSummaryRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5016,16 +5011,8 @@ class ModerationApi:
         """get_search_comments_summary
 
 
-        :param value:
-        :type value: str
-        :param filters:
-        :type filters: str
-        :param search_filters:
-        :type search_filters: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetSearchCommentsSummary_request: The request object containing all parameters for this operation. (required)
+        :type GetSearchCommentsSummary_request: ApiGetSearchCommentsSummaryRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5049,11 +5036,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_search_comments_summary_serialize(
-            value=value,
-            filters=filters,
-            search_filters=search_filters,
-            tenant_id=tenant_id,
-            sso=sso,
+            value=GetSearchCommentsSummary_request.value,
+            filters=GetSearchCommentsSummary_request.filters,
+            search_filters=GetSearchCommentsSummary_request.search_filters,
+            tenant_id=GetSearchCommentsSummary_request.tenant_id,
+            sso=GetSearchCommentsSummary_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5158,9 +5145,7 @@ class ModerationApi:
     @validate_call
     def get_search_pages(
         self,
-        value: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetSearchPages_request: ApiGetSearchPagesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5177,12 +5162,8 @@ class ModerationApi:
         """get_search_pages
 
 
-        :param value:
-        :type value: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetSearchPages_request: The request object containing all parameters for this operation. (required)
+        :type GetSearchPages_request: ApiGetSearchPagesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5206,9 +5187,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_search_pages_serialize(
-            value=value,
-            tenant_id=tenant_id,
-            sso=sso,
+            value=GetSearchPages_request.value,
+            tenant_id=GetSearchPages_request.tenant_id,
+            sso=GetSearchPages_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5232,9 +5213,7 @@ class ModerationApi:
     @validate_call
     def get_search_pages_with_http_info(
         self,
-        value: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetSearchPages_request: ApiGetSearchPagesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5251,12 +5230,8 @@ class ModerationApi:
         """get_search_pages
 
 
-        :param value:
-        :type value: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetSearchPages_request: The request object containing all parameters for this operation. (required)
+        :type GetSearchPages_request: ApiGetSearchPagesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5280,9 +5255,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_search_pages_serialize(
-            value=value,
-            tenant_id=tenant_id,
-            sso=sso,
+            value=GetSearchPages_request.value,
+            tenant_id=GetSearchPages_request.tenant_id,
+            sso=GetSearchPages_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5306,9 +5281,7 @@ class ModerationApi:
     @validate_call
     def get_search_pages_without_preload_content(
         self,
-        value: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetSearchPages_request: ApiGetSearchPagesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5325,12 +5298,8 @@ class ModerationApi:
         """get_search_pages
 
 
-        :param value:
-        :type value: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetSearchPages_request: The request object containing all parameters for this operation. (required)
+        :type GetSearchPages_request: ApiGetSearchPagesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5354,9 +5323,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_search_pages_serialize(
-            value=value,
-            tenant_id=tenant_id,
-            sso=sso,
+            value=GetSearchPages_request.value,
+            tenant_id=GetSearchPages_request.tenant_id,
+            sso=GetSearchPages_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5451,9 +5420,7 @@ class ModerationApi:
     @validate_call
     def get_search_sites(
         self,
-        value: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetSearchSites_request: ApiGetSearchSitesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5470,12 +5437,8 @@ class ModerationApi:
         """get_search_sites
 
 
-        :param value:
-        :type value: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetSearchSites_request: The request object containing all parameters for this operation. (required)
+        :type GetSearchSites_request: ApiGetSearchSitesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5499,9 +5462,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_search_sites_serialize(
-            value=value,
-            tenant_id=tenant_id,
-            sso=sso,
+            value=GetSearchSites_request.value,
+            tenant_id=GetSearchSites_request.tenant_id,
+            sso=GetSearchSites_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5525,9 +5488,7 @@ class ModerationApi:
     @validate_call
     def get_search_sites_with_http_info(
         self,
-        value: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetSearchSites_request: ApiGetSearchSitesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5544,12 +5505,8 @@ class ModerationApi:
         """get_search_sites
 
 
-        :param value:
-        :type value: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetSearchSites_request: The request object containing all parameters for this operation. (required)
+        :type GetSearchSites_request: ApiGetSearchSitesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5573,9 +5530,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_search_sites_serialize(
-            value=value,
-            tenant_id=tenant_id,
-            sso=sso,
+            value=GetSearchSites_request.value,
+            tenant_id=GetSearchSites_request.tenant_id,
+            sso=GetSearchSites_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5599,9 +5556,7 @@ class ModerationApi:
     @validate_call
     def get_search_sites_without_preload_content(
         self,
-        value: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetSearchSites_request: ApiGetSearchSitesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5618,12 +5573,8 @@ class ModerationApi:
         """get_search_sites
 
 
-        :param value:
-        :type value: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetSearchSites_request: The request object containing all parameters for this operation. (required)
+        :type GetSearchSites_request: ApiGetSearchSitesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5647,9 +5598,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_search_sites_serialize(
-            value=value,
-            tenant_id=tenant_id,
-            sso=sso,
+            value=GetSearchSites_request.value,
+            tenant_id=GetSearchSites_request.tenant_id,
+            sso=GetSearchSites_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5744,9 +5695,7 @@ class ModerationApi:
     @validate_call
     def get_search_suggest(
         self,
-        text_search: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetSearchSuggest_request: ApiGetSearchSuggestRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5763,12 +5712,8 @@ class ModerationApi:
         """get_search_suggest
 
 
-        :param text_search:
-        :type text_search: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetSearchSuggest_request: The request object containing all parameters for this operation. (required)
+        :type GetSearchSuggest_request: ApiGetSearchSuggestRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5792,9 +5737,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_search_suggest_serialize(
-            text_search=text_search,
-            tenant_id=tenant_id,
-            sso=sso,
+            text_search=GetSearchSuggest_request.text_search,
+            tenant_id=GetSearchSuggest_request.tenant_id,
+            sso=GetSearchSuggest_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5818,9 +5763,7 @@ class ModerationApi:
     @validate_call
     def get_search_suggest_with_http_info(
         self,
-        text_search: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetSearchSuggest_request: ApiGetSearchSuggestRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5837,12 +5780,8 @@ class ModerationApi:
         """get_search_suggest
 
 
-        :param text_search:
-        :type text_search: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetSearchSuggest_request: The request object containing all parameters for this operation. (required)
+        :type GetSearchSuggest_request: ApiGetSearchSuggestRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5866,9 +5805,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_search_suggest_serialize(
-            text_search=text_search,
-            tenant_id=tenant_id,
-            sso=sso,
+            text_search=GetSearchSuggest_request.text_search,
+            tenant_id=GetSearchSuggest_request.tenant_id,
+            sso=GetSearchSuggest_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5892,9 +5831,7 @@ class ModerationApi:
     @validate_call
     def get_search_suggest_without_preload_content(
         self,
-        text_search: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetSearchSuggest_request: ApiGetSearchSuggestRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5911,12 +5848,8 @@ class ModerationApi:
         """get_search_suggest
 
 
-        :param text_search:
-        :type text_search: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetSearchSuggest_request: The request object containing all parameters for this operation. (required)
+        :type GetSearchSuggest_request: ApiGetSearchSuggestRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5940,9 +5873,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_search_suggest_serialize(
-            text_search=text_search,
-            tenant_id=tenant_id,
-            sso=sso,
+            text_search=GetSearchSuggest_request.text_search,
+            tenant_id=GetSearchSuggest_request.tenant_id,
+            sso=GetSearchSuggest_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6037,9 +5970,7 @@ class ModerationApi:
     @validate_call
     def get_search_users(
         self,
-        value: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetSearchUsers_request: ApiGetSearchUsersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6056,12 +5987,8 @@ class ModerationApi:
         """get_search_users
 
 
-        :param value:
-        :type value: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetSearchUsers_request: The request object containing all parameters for this operation. (required)
+        :type GetSearchUsers_request: ApiGetSearchUsersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6085,9 +6012,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_search_users_serialize(
-            value=value,
-            tenant_id=tenant_id,
-            sso=sso,
+            value=GetSearchUsers_request.value,
+            tenant_id=GetSearchUsers_request.tenant_id,
+            sso=GetSearchUsers_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6111,9 +6038,7 @@ class ModerationApi:
     @validate_call
     def get_search_users_with_http_info(
         self,
-        value: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetSearchUsers_request: ApiGetSearchUsersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6130,12 +6055,8 @@ class ModerationApi:
         """get_search_users
 
 
-        :param value:
-        :type value: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetSearchUsers_request: The request object containing all parameters for this operation. (required)
+        :type GetSearchUsers_request: ApiGetSearchUsersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6159,9 +6080,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_search_users_serialize(
-            value=value,
-            tenant_id=tenant_id,
-            sso=sso,
+            value=GetSearchUsers_request.value,
+            tenant_id=GetSearchUsers_request.tenant_id,
+            sso=GetSearchUsers_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6185,9 +6106,7 @@ class ModerationApi:
     @validate_call
     def get_search_users_without_preload_content(
         self,
-        value: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetSearchUsers_request: ApiGetSearchUsersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6204,12 +6123,8 @@ class ModerationApi:
         """get_search_users
 
 
-        :param value:
-        :type value: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetSearchUsers_request: The request object containing all parameters for this operation. (required)
+        :type GetSearchUsers_request: ApiGetSearchUsersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6233,9 +6148,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_search_users_serialize(
-            value=value,
-            tenant_id=tenant_id,
-            sso=sso,
+            value=GetSearchUsers_request.value,
+            tenant_id=GetSearchUsers_request.tenant_id,
+            sso=GetSearchUsers_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6330,9 +6245,7 @@ class ModerationApi:
     @validate_call
     def get_trust_factor(
         self,
-        user_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetTrustFactor_request: ApiGetTrustFactorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6349,12 +6262,8 @@ class ModerationApi:
         """get_trust_factor
 
 
-        :param user_id:
-        :type user_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetTrustFactor_request: The request object containing all parameters for this operation. (required)
+        :type GetTrustFactor_request: ApiGetTrustFactorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6378,9 +6287,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_trust_factor_serialize(
-            user_id=user_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            user_id=GetTrustFactor_request.user_id,
+            tenant_id=GetTrustFactor_request.tenant_id,
+            sso=GetTrustFactor_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6404,9 +6313,7 @@ class ModerationApi:
     @validate_call
     def get_trust_factor_with_http_info(
         self,
-        user_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetTrustFactor_request: ApiGetTrustFactorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6423,12 +6330,8 @@ class ModerationApi:
         """get_trust_factor
 
 
-        :param user_id:
-        :type user_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetTrustFactor_request: The request object containing all parameters for this operation. (required)
+        :type GetTrustFactor_request: ApiGetTrustFactorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6452,9 +6355,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_trust_factor_serialize(
-            user_id=user_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            user_id=GetTrustFactor_request.user_id,
+            tenant_id=GetTrustFactor_request.tenant_id,
+            sso=GetTrustFactor_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6478,9 +6381,7 @@ class ModerationApi:
     @validate_call
     def get_trust_factor_without_preload_content(
         self,
-        user_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetTrustFactor_request: ApiGetTrustFactorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6497,12 +6398,8 @@ class ModerationApi:
         """get_trust_factor
 
 
-        :param user_id:
-        :type user_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetTrustFactor_request: The request object containing all parameters for this operation. (required)
+        :type GetTrustFactor_request: ApiGetTrustFactorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6526,9 +6423,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_trust_factor_serialize(
-            user_id=user_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            user_id=GetTrustFactor_request.user_id,
+            tenant_id=GetTrustFactor_request.tenant_id,
+            sso=GetTrustFactor_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6623,8 +6520,7 @@ class ModerationApi:
     @validate_call
     def get_user_ban_preference(
         self,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetUserBanPreference_request: ApiGetUserBanPreferenceRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6641,10 +6537,8 @@ class ModerationApi:
         """get_user_ban_preference
 
 
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetUserBanPreference_request: The request object containing all parameters for this operation. (required)
+        :type GetUserBanPreference_request: ApiGetUserBanPreferenceRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6668,8 +6562,8 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_user_ban_preference_serialize(
-            tenant_id=tenant_id,
-            sso=sso,
+            tenant_id=GetUserBanPreference_request.tenant_id,
+            sso=GetUserBanPreference_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6693,8 +6587,7 @@ class ModerationApi:
     @validate_call
     def get_user_ban_preference_with_http_info(
         self,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetUserBanPreference_request: ApiGetUserBanPreferenceRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6711,10 +6604,8 @@ class ModerationApi:
         """get_user_ban_preference
 
 
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetUserBanPreference_request: The request object containing all parameters for this operation. (required)
+        :type GetUserBanPreference_request: ApiGetUserBanPreferenceRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6738,8 +6629,8 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_user_ban_preference_serialize(
-            tenant_id=tenant_id,
-            sso=sso,
+            tenant_id=GetUserBanPreference_request.tenant_id,
+            sso=GetUserBanPreference_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6763,8 +6654,7 @@ class ModerationApi:
     @validate_call
     def get_user_ban_preference_without_preload_content(
         self,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetUserBanPreference_request: ApiGetUserBanPreferenceRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6781,10 +6671,8 @@ class ModerationApi:
         """get_user_ban_preference
 
 
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetUserBanPreference_request: The request object containing all parameters for this operation. (required)
+        :type GetUserBanPreference_request: ApiGetUserBanPreferenceRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6808,8 +6696,8 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_user_ban_preference_serialize(
-            tenant_id=tenant_id,
-            sso=sso,
+            tenant_id=GetUserBanPreference_request.tenant_id,
+            sso=GetUserBanPreference_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6899,9 +6787,7 @@ class ModerationApi:
     @validate_call
     def get_user_internal_profile(
         self,
-        comment_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetUserInternalProfile_request: ApiGetUserInternalProfileRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6918,12 +6804,8 @@ class ModerationApi:
         """get_user_internal_profile
 
 
-        :param comment_id:
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetUserInternalProfile_request: The request object containing all parameters for this operation. (required)
+        :type GetUserInternalProfile_request: ApiGetUserInternalProfileRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6947,9 +6829,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_user_internal_profile_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetUserInternalProfile_request.comment_id,
+            tenant_id=GetUserInternalProfile_request.tenant_id,
+            sso=GetUserInternalProfile_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6973,9 +6855,7 @@ class ModerationApi:
     @validate_call
     def get_user_internal_profile_with_http_info(
         self,
-        comment_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetUserInternalProfile_request: ApiGetUserInternalProfileRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6992,12 +6872,8 @@ class ModerationApi:
         """get_user_internal_profile
 
 
-        :param comment_id:
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetUserInternalProfile_request: The request object containing all parameters for this operation. (required)
+        :type GetUserInternalProfile_request: ApiGetUserInternalProfileRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7021,9 +6897,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_user_internal_profile_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetUserInternalProfile_request.comment_id,
+            tenant_id=GetUserInternalProfile_request.tenant_id,
+            sso=GetUserInternalProfile_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7047,9 +6923,7 @@ class ModerationApi:
     @validate_call
     def get_user_internal_profile_without_preload_content(
         self,
-        comment_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetUserInternalProfile_request: ApiGetUserInternalProfileRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7066,12 +6940,8 @@ class ModerationApi:
         """get_user_internal_profile
 
 
-        :param comment_id:
-        :type comment_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetUserInternalProfile_request: The request object containing all parameters for this operation. (required)
+        :type GetUserInternalProfile_request: ApiGetUserInternalProfileRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7095,9 +6965,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._get_user_internal_profile_serialize(
-            comment_id=comment_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=GetUserInternalProfile_request.comment_id,
+            tenant_id=GetUserInternalProfile_request.tenant_id,
+            sso=GetUserInternalProfile_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7192,11 +7062,7 @@ class ModerationApi:
     @validate_call
     def post_adjust_comment_votes(
         self,
-        comment_id: StrictStr,
-        adjust_comment_votes_params: AdjustCommentVotesParams,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostAdjustCommentVotes_request: ApiPostAdjustCommentVotesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7213,16 +7079,8 @@ class ModerationApi:
         """post_adjust_comment_votes
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param adjust_comment_votes_params: (required)
-        :type adjust_comment_votes_params: AdjustCommentVotesParams
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostAdjustCommentVotes_request: The request object containing all parameters for this operation. (required)
+        :type PostAdjustCommentVotes_request: ApiPostAdjustCommentVotesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7246,11 +7104,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_adjust_comment_votes_serialize(
-            comment_id=comment_id,
-            adjust_comment_votes_params=adjust_comment_votes_params,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostAdjustCommentVotes_request.comment_id,
+            adjust_comment_votes_params=PostAdjustCommentVotes_request.adjust_comment_votes_params,
+            tenant_id=PostAdjustCommentVotes_request.tenant_id,
+            broadcast_id=PostAdjustCommentVotes_request.broadcast_id,
+            sso=PostAdjustCommentVotes_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7274,11 +7132,7 @@ class ModerationApi:
     @validate_call
     def post_adjust_comment_votes_with_http_info(
         self,
-        comment_id: StrictStr,
-        adjust_comment_votes_params: AdjustCommentVotesParams,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostAdjustCommentVotes_request: ApiPostAdjustCommentVotesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7295,16 +7149,8 @@ class ModerationApi:
         """post_adjust_comment_votes
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param adjust_comment_votes_params: (required)
-        :type adjust_comment_votes_params: AdjustCommentVotesParams
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostAdjustCommentVotes_request: The request object containing all parameters for this operation. (required)
+        :type PostAdjustCommentVotes_request: ApiPostAdjustCommentVotesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7328,11 +7174,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_adjust_comment_votes_serialize(
-            comment_id=comment_id,
-            adjust_comment_votes_params=adjust_comment_votes_params,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostAdjustCommentVotes_request.comment_id,
+            adjust_comment_votes_params=PostAdjustCommentVotes_request.adjust_comment_votes_params,
+            tenant_id=PostAdjustCommentVotes_request.tenant_id,
+            broadcast_id=PostAdjustCommentVotes_request.broadcast_id,
+            sso=PostAdjustCommentVotes_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7356,11 +7202,7 @@ class ModerationApi:
     @validate_call
     def post_adjust_comment_votes_without_preload_content(
         self,
-        comment_id: StrictStr,
-        adjust_comment_votes_params: AdjustCommentVotesParams,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostAdjustCommentVotes_request: ApiPostAdjustCommentVotesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7377,16 +7219,8 @@ class ModerationApi:
         """post_adjust_comment_votes
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param adjust_comment_votes_params: (required)
-        :type adjust_comment_votes_params: AdjustCommentVotesParams
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostAdjustCommentVotes_request: The request object containing all parameters for this operation. (required)
+        :type PostAdjustCommentVotes_request: ApiPostAdjustCommentVotesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7410,11 +7244,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_adjust_comment_votes_serialize(
-            comment_id=comment_id,
-            adjust_comment_votes_params=adjust_comment_votes_params,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostAdjustCommentVotes_request.comment_id,
+            adjust_comment_votes_params=PostAdjustCommentVotes_request.adjust_comment_votes_params,
+            tenant_id=PostAdjustCommentVotes_request.tenant_id,
+            broadcast_id=PostAdjustCommentVotes_request.broadcast_id,
+            sso=PostAdjustCommentVotes_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7435,8 +7269,8 @@ class ModerationApi:
         self,
         comment_id,
         adjust_comment_votes_params,
-        broadcast_id,
         tenant_id,
+        broadcast_id,
         sso,
         _request_auth,
         _content_type,
@@ -7462,13 +7296,13 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
-        if broadcast_id is not None:
-            
-            _query_params.append(('broadcastId', broadcast_id))
-            
         if tenant_id is not None:
             
             _query_params.append(('tenantId', tenant_id))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
             
         if sso is not None:
             
@@ -7528,13 +7362,7 @@ class ModerationApi:
     @validate_call
     def post_api_export(
         self,
-        text_search: Optional[StrictStr] = None,
-        by_ip_from_comment: Optional[StrictStr] = None,
-        filters: Optional[StrictStr] = None,
-        search_filters: Optional[StrictStr] = None,
-        sorts: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostApiExport_request: ApiPostApiExportRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7551,20 +7379,8 @@ class ModerationApi:
         """post_api_export
 
 
-        :param text_search:
-        :type text_search: str
-        :param by_ip_from_comment:
-        :type by_ip_from_comment: str
-        :param filters:
-        :type filters: str
-        :param search_filters:
-        :type search_filters: str
-        :param sorts:
-        :type sorts: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostApiExport_request: The request object containing all parameters for this operation. (required)
+        :type PostApiExport_request: ApiPostApiExportRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7588,13 +7404,13 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_api_export_serialize(
-            text_search=text_search,
-            by_ip_from_comment=by_ip_from_comment,
-            filters=filters,
-            search_filters=search_filters,
-            sorts=sorts,
-            tenant_id=tenant_id,
-            sso=sso,
+            text_search=PostApiExport_request.text_search,
+            by_ip_from_comment=PostApiExport_request.by_ip_from_comment,
+            filters=PostApiExport_request.filters,
+            search_filters=PostApiExport_request.search_filters,
+            sorts=PostApiExport_request.sorts,
+            tenant_id=PostApiExport_request.tenant_id,
+            sso=PostApiExport_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7618,13 +7434,7 @@ class ModerationApi:
     @validate_call
     def post_api_export_with_http_info(
         self,
-        text_search: Optional[StrictStr] = None,
-        by_ip_from_comment: Optional[StrictStr] = None,
-        filters: Optional[StrictStr] = None,
-        search_filters: Optional[StrictStr] = None,
-        sorts: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostApiExport_request: ApiPostApiExportRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7641,20 +7451,8 @@ class ModerationApi:
         """post_api_export
 
 
-        :param text_search:
-        :type text_search: str
-        :param by_ip_from_comment:
-        :type by_ip_from_comment: str
-        :param filters:
-        :type filters: str
-        :param search_filters:
-        :type search_filters: str
-        :param sorts:
-        :type sorts: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostApiExport_request: The request object containing all parameters for this operation. (required)
+        :type PostApiExport_request: ApiPostApiExportRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7678,13 +7476,13 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_api_export_serialize(
-            text_search=text_search,
-            by_ip_from_comment=by_ip_from_comment,
-            filters=filters,
-            search_filters=search_filters,
-            sorts=sorts,
-            tenant_id=tenant_id,
-            sso=sso,
+            text_search=PostApiExport_request.text_search,
+            by_ip_from_comment=PostApiExport_request.by_ip_from_comment,
+            filters=PostApiExport_request.filters,
+            search_filters=PostApiExport_request.search_filters,
+            sorts=PostApiExport_request.sorts,
+            tenant_id=PostApiExport_request.tenant_id,
+            sso=PostApiExport_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7708,13 +7506,7 @@ class ModerationApi:
     @validate_call
     def post_api_export_without_preload_content(
         self,
-        text_search: Optional[StrictStr] = None,
-        by_ip_from_comment: Optional[StrictStr] = None,
-        filters: Optional[StrictStr] = None,
-        search_filters: Optional[StrictStr] = None,
-        sorts: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostApiExport_request: ApiPostApiExportRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7731,20 +7523,8 @@ class ModerationApi:
         """post_api_export
 
 
-        :param text_search:
-        :type text_search: str
-        :param by_ip_from_comment:
-        :type by_ip_from_comment: str
-        :param filters:
-        :type filters: str
-        :param search_filters:
-        :type search_filters: str
-        :param sorts:
-        :type sorts: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostApiExport_request: The request object containing all parameters for this operation. (required)
+        :type PostApiExport_request: ApiPostApiExportRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7768,13 +7548,13 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_api_export_serialize(
-            text_search=text_search,
-            by_ip_from_comment=by_ip_from_comment,
-            filters=filters,
-            search_filters=search_filters,
-            sorts=sorts,
-            tenant_id=tenant_id,
-            sso=sso,
+            text_search=PostApiExport_request.text_search,
+            by_ip_from_comment=PostApiExport_request.by_ip_from_comment,
+            filters=PostApiExport_request.filters,
+            search_filters=PostApiExport_request.search_filters,
+            sorts=PostApiExport_request.sorts,
+            tenant_id=PostApiExport_request.tenant_id,
+            sso=PostApiExport_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7889,17 +7669,7 @@ class ModerationApi:
     @validate_call
     def post_ban_user_from_comment(
         self,
-        comment_id: StrictStr,
-        ban_email: Optional[StrictBool] = None,
-        ban_email_domain: Optional[StrictBool] = None,
-        ban_ip: Optional[StrictBool] = None,
-        delete_all_users_comments: Optional[StrictBool] = None,
-        banned_until: Optional[StrictStr] = None,
-        is_shadow_ban: Optional[StrictBool] = None,
-        update_id: Optional[StrictStr] = None,
-        ban_reason: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostBanUserFromComment_request: ApiPostBanUserFromCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7916,28 +7686,8 @@ class ModerationApi:
         """post_ban_user_from_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param ban_email:
-        :type ban_email: bool
-        :param ban_email_domain:
-        :type ban_email_domain: bool
-        :param ban_ip:
-        :type ban_ip: bool
-        :param delete_all_users_comments:
-        :type delete_all_users_comments: bool
-        :param banned_until:
-        :type banned_until: str
-        :param is_shadow_ban:
-        :type is_shadow_ban: bool
-        :param update_id:
-        :type update_id: str
-        :param ban_reason:
-        :type ban_reason: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostBanUserFromComment_request: The request object containing all parameters for this operation. (required)
+        :type PostBanUserFromComment_request: ApiPostBanUserFromCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7961,17 +7711,17 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_ban_user_from_comment_serialize(
-            comment_id=comment_id,
-            ban_email=ban_email,
-            ban_email_domain=ban_email_domain,
-            ban_ip=ban_ip,
-            delete_all_users_comments=delete_all_users_comments,
-            banned_until=banned_until,
-            is_shadow_ban=is_shadow_ban,
-            update_id=update_id,
-            ban_reason=ban_reason,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostBanUserFromComment_request.comment_id,
+            ban_email=PostBanUserFromComment_request.ban_email,
+            ban_email_domain=PostBanUserFromComment_request.ban_email_domain,
+            ban_ip=PostBanUserFromComment_request.ban_ip,
+            delete_all_users_comments=PostBanUserFromComment_request.delete_all_users_comments,
+            banned_until=PostBanUserFromComment_request.banned_until,
+            is_shadow_ban=PostBanUserFromComment_request.is_shadow_ban,
+            update_id=PostBanUserFromComment_request.update_id,
+            ban_reason=PostBanUserFromComment_request.ban_reason,
+            tenant_id=PostBanUserFromComment_request.tenant_id,
+            sso=PostBanUserFromComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7995,17 +7745,7 @@ class ModerationApi:
     @validate_call
     def post_ban_user_from_comment_with_http_info(
         self,
-        comment_id: StrictStr,
-        ban_email: Optional[StrictBool] = None,
-        ban_email_domain: Optional[StrictBool] = None,
-        ban_ip: Optional[StrictBool] = None,
-        delete_all_users_comments: Optional[StrictBool] = None,
-        banned_until: Optional[StrictStr] = None,
-        is_shadow_ban: Optional[StrictBool] = None,
-        update_id: Optional[StrictStr] = None,
-        ban_reason: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostBanUserFromComment_request: ApiPostBanUserFromCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8022,28 +7762,8 @@ class ModerationApi:
         """post_ban_user_from_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param ban_email:
-        :type ban_email: bool
-        :param ban_email_domain:
-        :type ban_email_domain: bool
-        :param ban_ip:
-        :type ban_ip: bool
-        :param delete_all_users_comments:
-        :type delete_all_users_comments: bool
-        :param banned_until:
-        :type banned_until: str
-        :param is_shadow_ban:
-        :type is_shadow_ban: bool
-        :param update_id:
-        :type update_id: str
-        :param ban_reason:
-        :type ban_reason: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostBanUserFromComment_request: The request object containing all parameters for this operation. (required)
+        :type PostBanUserFromComment_request: ApiPostBanUserFromCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8067,17 +7787,17 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_ban_user_from_comment_serialize(
-            comment_id=comment_id,
-            ban_email=ban_email,
-            ban_email_domain=ban_email_domain,
-            ban_ip=ban_ip,
-            delete_all_users_comments=delete_all_users_comments,
-            banned_until=banned_until,
-            is_shadow_ban=is_shadow_ban,
-            update_id=update_id,
-            ban_reason=ban_reason,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostBanUserFromComment_request.comment_id,
+            ban_email=PostBanUserFromComment_request.ban_email,
+            ban_email_domain=PostBanUserFromComment_request.ban_email_domain,
+            ban_ip=PostBanUserFromComment_request.ban_ip,
+            delete_all_users_comments=PostBanUserFromComment_request.delete_all_users_comments,
+            banned_until=PostBanUserFromComment_request.banned_until,
+            is_shadow_ban=PostBanUserFromComment_request.is_shadow_ban,
+            update_id=PostBanUserFromComment_request.update_id,
+            ban_reason=PostBanUserFromComment_request.ban_reason,
+            tenant_id=PostBanUserFromComment_request.tenant_id,
+            sso=PostBanUserFromComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8101,17 +7821,7 @@ class ModerationApi:
     @validate_call
     def post_ban_user_from_comment_without_preload_content(
         self,
-        comment_id: StrictStr,
-        ban_email: Optional[StrictBool] = None,
-        ban_email_domain: Optional[StrictBool] = None,
-        ban_ip: Optional[StrictBool] = None,
-        delete_all_users_comments: Optional[StrictBool] = None,
-        banned_until: Optional[StrictStr] = None,
-        is_shadow_ban: Optional[StrictBool] = None,
-        update_id: Optional[StrictStr] = None,
-        ban_reason: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostBanUserFromComment_request: ApiPostBanUserFromCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8128,28 +7838,8 @@ class ModerationApi:
         """post_ban_user_from_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param ban_email:
-        :type ban_email: bool
-        :param ban_email_domain:
-        :type ban_email_domain: bool
-        :param ban_ip:
-        :type ban_ip: bool
-        :param delete_all_users_comments:
-        :type delete_all_users_comments: bool
-        :param banned_until:
-        :type banned_until: str
-        :param is_shadow_ban:
-        :type is_shadow_ban: bool
-        :param update_id:
-        :type update_id: str
-        :param ban_reason:
-        :type ban_reason: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostBanUserFromComment_request: The request object containing all parameters for this operation. (required)
+        :type PostBanUserFromComment_request: ApiPostBanUserFromCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8173,17 +7863,17 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_ban_user_from_comment_serialize(
-            comment_id=comment_id,
-            ban_email=ban_email,
-            ban_email_domain=ban_email_domain,
-            ban_ip=ban_ip,
-            delete_all_users_comments=delete_all_users_comments,
-            banned_until=banned_until,
-            is_shadow_ban=is_shadow_ban,
-            update_id=update_id,
-            ban_reason=ban_reason,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostBanUserFromComment_request.comment_id,
+            ban_email=PostBanUserFromComment_request.ban_email,
+            ban_email_domain=PostBanUserFromComment_request.ban_email_domain,
+            ban_ip=PostBanUserFromComment_request.ban_ip,
+            delete_all_users_comments=PostBanUserFromComment_request.delete_all_users_comments,
+            banned_until=PostBanUserFromComment_request.banned_until,
+            is_shadow_ban=PostBanUserFromComment_request.is_shadow_ban,
+            update_id=PostBanUserFromComment_request.update_id,
+            ban_reason=PostBanUserFromComment_request.ban_reason,
+            tenant_id=PostBanUserFromComment_request.tenant_id,
+            sso=PostBanUserFromComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8316,9 +8006,7 @@ class ModerationApi:
     @validate_call
     def post_ban_user_undo(
         self,
-        ban_user_undo_params: BanUserUndoParams,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostBanUserUndo_request: ApiPostBanUserUndoRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8335,12 +8023,8 @@ class ModerationApi:
         """post_ban_user_undo
 
 
-        :param ban_user_undo_params: (required)
-        :type ban_user_undo_params: BanUserUndoParams
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostBanUserUndo_request: The request object containing all parameters for this operation. (required)
+        :type PostBanUserUndo_request: ApiPostBanUserUndoRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8364,9 +8048,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_ban_user_undo_serialize(
-            ban_user_undo_params=ban_user_undo_params,
-            tenant_id=tenant_id,
-            sso=sso,
+            ban_user_undo_params=PostBanUserUndo_request.ban_user_undo_params,
+            tenant_id=PostBanUserUndo_request.tenant_id,
+            sso=PostBanUserUndo_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8390,9 +8074,7 @@ class ModerationApi:
     @validate_call
     def post_ban_user_undo_with_http_info(
         self,
-        ban_user_undo_params: BanUserUndoParams,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostBanUserUndo_request: ApiPostBanUserUndoRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8409,12 +8091,8 @@ class ModerationApi:
         """post_ban_user_undo
 
 
-        :param ban_user_undo_params: (required)
-        :type ban_user_undo_params: BanUserUndoParams
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostBanUserUndo_request: The request object containing all parameters for this operation. (required)
+        :type PostBanUserUndo_request: ApiPostBanUserUndoRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8438,9 +8116,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_ban_user_undo_serialize(
-            ban_user_undo_params=ban_user_undo_params,
-            tenant_id=tenant_id,
-            sso=sso,
+            ban_user_undo_params=PostBanUserUndo_request.ban_user_undo_params,
+            tenant_id=PostBanUserUndo_request.tenant_id,
+            sso=PostBanUserUndo_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8464,9 +8142,7 @@ class ModerationApi:
     @validate_call
     def post_ban_user_undo_without_preload_content(
         self,
-        ban_user_undo_params: BanUserUndoParams,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostBanUserUndo_request: ApiPostBanUserUndoRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8483,12 +8159,8 @@ class ModerationApi:
         """post_ban_user_undo
 
 
-        :param ban_user_undo_params: (required)
-        :type ban_user_undo_params: BanUserUndoParams
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostBanUserUndo_request: The request object containing all parameters for this operation. (required)
+        :type PostBanUserUndo_request: ApiPostBanUserUndoRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8512,9 +8184,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_ban_user_undo_serialize(
-            ban_user_undo_params=ban_user_undo_params,
-            tenant_id=tenant_id,
-            sso=sso,
+            ban_user_undo_params=PostBanUserUndo_request.ban_user_undo_params,
+            tenant_id=PostBanUserUndo_request.tenant_id,
+            sso=PostBanUserUndo_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8620,12 +8292,7 @@ class ModerationApi:
     @validate_call
     def post_bulk_pre_ban_summary(
         self,
-        bulk_pre_ban_params: BulkPreBanParams,
-        include_by_user_id_and_email: Optional[StrictBool] = None,
-        include_by_ip: Optional[StrictBool] = None,
-        include_by_email_domain: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostBulkPreBanSummary_request: ApiPostBulkPreBanSummaryRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8642,18 +8309,8 @@ class ModerationApi:
         """post_bulk_pre_ban_summary
 
 
-        :param bulk_pre_ban_params: (required)
-        :type bulk_pre_ban_params: BulkPreBanParams
-        :param include_by_user_id_and_email:
-        :type include_by_user_id_and_email: bool
-        :param include_by_ip:
-        :type include_by_ip: bool
-        :param include_by_email_domain:
-        :type include_by_email_domain: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostBulkPreBanSummary_request: The request object containing all parameters for this operation. (required)
+        :type PostBulkPreBanSummary_request: ApiPostBulkPreBanSummaryRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8677,12 +8334,12 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_bulk_pre_ban_summary_serialize(
-            bulk_pre_ban_params=bulk_pre_ban_params,
-            include_by_user_id_and_email=include_by_user_id_and_email,
-            include_by_ip=include_by_ip,
-            include_by_email_domain=include_by_email_domain,
-            tenant_id=tenant_id,
-            sso=sso,
+            bulk_pre_ban_params=PostBulkPreBanSummary_request.bulk_pre_ban_params,
+            include_by_user_id_and_email=PostBulkPreBanSummary_request.include_by_user_id_and_email,
+            include_by_ip=PostBulkPreBanSummary_request.include_by_ip,
+            include_by_email_domain=PostBulkPreBanSummary_request.include_by_email_domain,
+            tenant_id=PostBulkPreBanSummary_request.tenant_id,
+            sso=PostBulkPreBanSummary_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8706,12 +8363,7 @@ class ModerationApi:
     @validate_call
     def post_bulk_pre_ban_summary_with_http_info(
         self,
-        bulk_pre_ban_params: BulkPreBanParams,
-        include_by_user_id_and_email: Optional[StrictBool] = None,
-        include_by_ip: Optional[StrictBool] = None,
-        include_by_email_domain: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostBulkPreBanSummary_request: ApiPostBulkPreBanSummaryRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8728,18 +8380,8 @@ class ModerationApi:
         """post_bulk_pre_ban_summary
 
 
-        :param bulk_pre_ban_params: (required)
-        :type bulk_pre_ban_params: BulkPreBanParams
-        :param include_by_user_id_and_email:
-        :type include_by_user_id_and_email: bool
-        :param include_by_ip:
-        :type include_by_ip: bool
-        :param include_by_email_domain:
-        :type include_by_email_domain: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostBulkPreBanSummary_request: The request object containing all parameters for this operation. (required)
+        :type PostBulkPreBanSummary_request: ApiPostBulkPreBanSummaryRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8763,12 +8405,12 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_bulk_pre_ban_summary_serialize(
-            bulk_pre_ban_params=bulk_pre_ban_params,
-            include_by_user_id_and_email=include_by_user_id_and_email,
-            include_by_ip=include_by_ip,
-            include_by_email_domain=include_by_email_domain,
-            tenant_id=tenant_id,
-            sso=sso,
+            bulk_pre_ban_params=PostBulkPreBanSummary_request.bulk_pre_ban_params,
+            include_by_user_id_and_email=PostBulkPreBanSummary_request.include_by_user_id_and_email,
+            include_by_ip=PostBulkPreBanSummary_request.include_by_ip,
+            include_by_email_domain=PostBulkPreBanSummary_request.include_by_email_domain,
+            tenant_id=PostBulkPreBanSummary_request.tenant_id,
+            sso=PostBulkPreBanSummary_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8792,12 +8434,7 @@ class ModerationApi:
     @validate_call
     def post_bulk_pre_ban_summary_without_preload_content(
         self,
-        bulk_pre_ban_params: BulkPreBanParams,
-        include_by_user_id_and_email: Optional[StrictBool] = None,
-        include_by_ip: Optional[StrictBool] = None,
-        include_by_email_domain: Optional[StrictBool] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostBulkPreBanSummary_request: ApiPostBulkPreBanSummaryRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8814,18 +8451,8 @@ class ModerationApi:
         """post_bulk_pre_ban_summary
 
 
-        :param bulk_pre_ban_params: (required)
-        :type bulk_pre_ban_params: BulkPreBanParams
-        :param include_by_user_id_and_email:
-        :type include_by_user_id_and_email: bool
-        :param include_by_ip:
-        :type include_by_ip: bool
-        :param include_by_email_domain:
-        :type include_by_email_domain: bool
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostBulkPreBanSummary_request: The request object containing all parameters for this operation. (required)
+        :type PostBulkPreBanSummary_request: ApiPostBulkPreBanSummaryRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8849,12 +8476,12 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_bulk_pre_ban_summary_serialize(
-            bulk_pre_ban_params=bulk_pre_ban_params,
-            include_by_user_id_and_email=include_by_user_id_and_email,
-            include_by_ip=include_by_ip,
-            include_by_email_domain=include_by_email_domain,
-            tenant_id=tenant_id,
-            sso=sso,
+            bulk_pre_ban_params=PostBulkPreBanSummary_request.bulk_pre_ban_params,
+            include_by_user_id_and_email=PostBulkPreBanSummary_request.include_by_user_id_and_email,
+            include_by_ip=PostBulkPreBanSummary_request.include_by_ip,
+            include_by_email_domain=PostBulkPreBanSummary_request.include_by_email_domain,
+            tenant_id=PostBulkPreBanSummary_request.tenant_id,
+            sso=PostBulkPreBanSummary_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8975,9 +8602,7 @@ class ModerationApi:
     @validate_call
     def post_comments_by_ids(
         self,
-        comments_by_ids_params: CommentsByIdsParams,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostCommentsByIds_request: ApiPostCommentsByIdsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8994,12 +8619,8 @@ class ModerationApi:
         """post_comments_by_ids
 
 
-        :param comments_by_ids_params: (required)
-        :type comments_by_ids_params: CommentsByIdsParams
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostCommentsByIds_request: The request object containing all parameters for this operation. (required)
+        :type PostCommentsByIds_request: ApiPostCommentsByIdsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9023,9 +8644,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_comments_by_ids_serialize(
-            comments_by_ids_params=comments_by_ids_params,
-            tenant_id=tenant_id,
-            sso=sso,
+            comments_by_ids_params=PostCommentsByIds_request.comments_by_ids_params,
+            tenant_id=PostCommentsByIds_request.tenant_id,
+            sso=PostCommentsByIds_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9049,9 +8670,7 @@ class ModerationApi:
     @validate_call
     def post_comments_by_ids_with_http_info(
         self,
-        comments_by_ids_params: CommentsByIdsParams,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostCommentsByIds_request: ApiPostCommentsByIdsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9068,12 +8687,8 @@ class ModerationApi:
         """post_comments_by_ids
 
 
-        :param comments_by_ids_params: (required)
-        :type comments_by_ids_params: CommentsByIdsParams
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostCommentsByIds_request: The request object containing all parameters for this operation. (required)
+        :type PostCommentsByIds_request: ApiPostCommentsByIdsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9097,9 +8712,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_comments_by_ids_serialize(
-            comments_by_ids_params=comments_by_ids_params,
-            tenant_id=tenant_id,
-            sso=sso,
+            comments_by_ids_params=PostCommentsByIds_request.comments_by_ids_params,
+            tenant_id=PostCommentsByIds_request.tenant_id,
+            sso=PostCommentsByIds_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9123,9 +8738,7 @@ class ModerationApi:
     @validate_call
     def post_comments_by_ids_without_preload_content(
         self,
-        comments_by_ids_params: CommentsByIdsParams,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostCommentsByIds_request: ApiPostCommentsByIdsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9142,12 +8755,8 @@ class ModerationApi:
         """post_comments_by_ids
 
 
-        :param comments_by_ids_params: (required)
-        :type comments_by_ids_params: CommentsByIdsParams
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostCommentsByIds_request: The request object containing all parameters for this operation. (required)
+        :type PostCommentsByIds_request: ApiPostCommentsByIdsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9171,9 +8780,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_comments_by_ids_serialize(
-            comments_by_ids_params=comments_by_ids_params,
-            tenant_id=tenant_id,
-            sso=sso,
+            comments_by_ids_params=PostCommentsByIds_request.comments_by_ids_params,
+            tenant_id=PostCommentsByIds_request.tenant_id,
+            sso=PostCommentsByIds_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9279,10 +8888,7 @@ class ModerationApi:
     @validate_call
     def post_flag_comment(
         self,
-        comment_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostFlagComment_request: ApiPostFlagCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9299,14 +8905,8 @@ class ModerationApi:
         """post_flag_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostFlagComment_request: The request object containing all parameters for this operation. (required)
+        :type PostFlagComment_request: ApiPostFlagCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9330,10 +8930,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_flag_comment_serialize(
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostFlagComment_request.comment_id,
+            tenant_id=PostFlagComment_request.tenant_id,
+            broadcast_id=PostFlagComment_request.broadcast_id,
+            sso=PostFlagComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9357,10 +8957,7 @@ class ModerationApi:
     @validate_call
     def post_flag_comment_with_http_info(
         self,
-        comment_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostFlagComment_request: ApiPostFlagCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9377,14 +8974,8 @@ class ModerationApi:
         """post_flag_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostFlagComment_request: The request object containing all parameters for this operation. (required)
+        :type PostFlagComment_request: ApiPostFlagCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9408,10 +8999,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_flag_comment_serialize(
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostFlagComment_request.comment_id,
+            tenant_id=PostFlagComment_request.tenant_id,
+            broadcast_id=PostFlagComment_request.broadcast_id,
+            sso=PostFlagComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9435,10 +9026,7 @@ class ModerationApi:
     @validate_call
     def post_flag_comment_without_preload_content(
         self,
-        comment_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostFlagComment_request: ApiPostFlagCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9455,14 +9043,8 @@ class ModerationApi:
         """post_flag_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostFlagComment_request: The request object containing all parameters for this operation. (required)
+        :type PostFlagComment_request: ApiPostFlagCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9486,10 +9068,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_flag_comment_serialize(
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostFlagComment_request.comment_id,
+            tenant_id=PostFlagComment_request.tenant_id,
+            broadcast_id=PostFlagComment_request.broadcast_id,
+            sso=PostFlagComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9509,8 +9091,8 @@ class ModerationApi:
     def _post_flag_comment_serialize(
         self,
         comment_id,
-        broadcast_id,
         tenant_id,
+        broadcast_id,
         sso,
         _request_auth,
         _content_type,
@@ -9536,13 +9118,13 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
-        if broadcast_id is not None:
-            
-            _query_params.append(('broadcastId', broadcast_id))
-            
         if tenant_id is not None:
             
             _query_params.append(('tenantId', tenant_id))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
             
         if sso is not None:
             
@@ -9587,10 +9169,7 @@ class ModerationApi:
     @validate_call
     def post_remove_comment(
         self,
-        comment_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostRemoveComment_request: ApiPostRemoveCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9607,14 +9186,8 @@ class ModerationApi:
         """post_remove_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostRemoveComment_request: The request object containing all parameters for this operation. (required)
+        :type PostRemoveComment_request: ApiPostRemoveCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9638,10 +9211,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_remove_comment_serialize(
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostRemoveComment_request.comment_id,
+            tenant_id=PostRemoveComment_request.tenant_id,
+            broadcast_id=PostRemoveComment_request.broadcast_id,
+            sso=PostRemoveComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9665,10 +9238,7 @@ class ModerationApi:
     @validate_call
     def post_remove_comment_with_http_info(
         self,
-        comment_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostRemoveComment_request: ApiPostRemoveCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9685,14 +9255,8 @@ class ModerationApi:
         """post_remove_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostRemoveComment_request: The request object containing all parameters for this operation. (required)
+        :type PostRemoveComment_request: ApiPostRemoveCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9716,10 +9280,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_remove_comment_serialize(
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostRemoveComment_request.comment_id,
+            tenant_id=PostRemoveComment_request.tenant_id,
+            broadcast_id=PostRemoveComment_request.broadcast_id,
+            sso=PostRemoveComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9743,10 +9307,7 @@ class ModerationApi:
     @validate_call
     def post_remove_comment_without_preload_content(
         self,
-        comment_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostRemoveComment_request: ApiPostRemoveCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9763,14 +9324,8 @@ class ModerationApi:
         """post_remove_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostRemoveComment_request: The request object containing all parameters for this operation. (required)
+        :type PostRemoveComment_request: ApiPostRemoveCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9794,10 +9349,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_remove_comment_serialize(
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostRemoveComment_request.comment_id,
+            tenant_id=PostRemoveComment_request.tenant_id,
+            broadcast_id=PostRemoveComment_request.broadcast_id,
+            sso=PostRemoveComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9817,8 +9372,8 @@ class ModerationApi:
     def _post_remove_comment_serialize(
         self,
         comment_id,
-        broadcast_id,
         tenant_id,
+        broadcast_id,
         sso,
         _request_auth,
         _content_type,
@@ -9844,13 +9399,13 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
-        if broadcast_id is not None:
-            
-            _query_params.append(('broadcastId', broadcast_id))
-            
         if tenant_id is not None:
             
             _query_params.append(('tenantId', tenant_id))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
             
         if sso is not None:
             
@@ -9895,10 +9450,7 @@ class ModerationApi:
     @validate_call
     def post_restore_deleted_comment(
         self,
-        comment_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostRestoreDeletedComment_request: ApiPostRestoreDeletedCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9915,14 +9467,8 @@ class ModerationApi:
         """post_restore_deleted_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostRestoreDeletedComment_request: The request object containing all parameters for this operation. (required)
+        :type PostRestoreDeletedComment_request: ApiPostRestoreDeletedCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9946,10 +9492,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_restore_deleted_comment_serialize(
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostRestoreDeletedComment_request.comment_id,
+            tenant_id=PostRestoreDeletedComment_request.tenant_id,
+            broadcast_id=PostRestoreDeletedComment_request.broadcast_id,
+            sso=PostRestoreDeletedComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9973,10 +9519,7 @@ class ModerationApi:
     @validate_call
     def post_restore_deleted_comment_with_http_info(
         self,
-        comment_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostRestoreDeletedComment_request: ApiPostRestoreDeletedCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9993,14 +9536,8 @@ class ModerationApi:
         """post_restore_deleted_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostRestoreDeletedComment_request: The request object containing all parameters for this operation. (required)
+        :type PostRestoreDeletedComment_request: ApiPostRestoreDeletedCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10024,10 +9561,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_restore_deleted_comment_serialize(
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostRestoreDeletedComment_request.comment_id,
+            tenant_id=PostRestoreDeletedComment_request.tenant_id,
+            broadcast_id=PostRestoreDeletedComment_request.broadcast_id,
+            sso=PostRestoreDeletedComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10051,10 +9588,7 @@ class ModerationApi:
     @validate_call
     def post_restore_deleted_comment_without_preload_content(
         self,
-        comment_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostRestoreDeletedComment_request: ApiPostRestoreDeletedCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10071,14 +9605,8 @@ class ModerationApi:
         """post_restore_deleted_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostRestoreDeletedComment_request: The request object containing all parameters for this operation. (required)
+        :type PostRestoreDeletedComment_request: ApiPostRestoreDeletedCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10102,10 +9630,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_restore_deleted_comment_serialize(
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostRestoreDeletedComment_request.comment_id,
+            tenant_id=PostRestoreDeletedComment_request.tenant_id,
+            broadcast_id=PostRestoreDeletedComment_request.broadcast_id,
+            sso=PostRestoreDeletedComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10125,8 +9653,8 @@ class ModerationApi:
     def _post_restore_deleted_comment_serialize(
         self,
         comment_id,
-        broadcast_id,
         tenant_id,
+        broadcast_id,
         sso,
         _request_auth,
         _content_type,
@@ -10152,13 +9680,13 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
-        if broadcast_id is not None:
-            
-            _query_params.append(('broadcastId', broadcast_id))
-            
         if tenant_id is not None:
             
             _query_params.append(('tenantId', tenant_id))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
             
         if sso is not None:
             
@@ -10203,11 +9731,7 @@ class ModerationApi:
     @validate_call
     def post_set_comment_approval_status(
         self,
-        comment_id: StrictStr,
-        approved: Optional[StrictBool] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostSetCommentApprovalStatus_request: ApiPostSetCommentApprovalStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10224,16 +9748,8 @@ class ModerationApi:
         """post_set_comment_approval_status
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param approved:
-        :type approved: bool
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostSetCommentApprovalStatus_request: The request object containing all parameters for this operation. (required)
+        :type PostSetCommentApprovalStatus_request: ApiPostSetCommentApprovalStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10257,11 +9773,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_set_comment_approval_status_serialize(
-            comment_id=comment_id,
-            approved=approved,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostSetCommentApprovalStatus_request.comment_id,
+            approved=PostSetCommentApprovalStatus_request.approved,
+            tenant_id=PostSetCommentApprovalStatus_request.tenant_id,
+            broadcast_id=PostSetCommentApprovalStatus_request.broadcast_id,
+            sso=PostSetCommentApprovalStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10285,11 +9801,7 @@ class ModerationApi:
     @validate_call
     def post_set_comment_approval_status_with_http_info(
         self,
-        comment_id: StrictStr,
-        approved: Optional[StrictBool] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostSetCommentApprovalStatus_request: ApiPostSetCommentApprovalStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10306,16 +9818,8 @@ class ModerationApi:
         """post_set_comment_approval_status
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param approved:
-        :type approved: bool
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostSetCommentApprovalStatus_request: The request object containing all parameters for this operation. (required)
+        :type PostSetCommentApprovalStatus_request: ApiPostSetCommentApprovalStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10339,11 +9843,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_set_comment_approval_status_serialize(
-            comment_id=comment_id,
-            approved=approved,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostSetCommentApprovalStatus_request.comment_id,
+            approved=PostSetCommentApprovalStatus_request.approved,
+            tenant_id=PostSetCommentApprovalStatus_request.tenant_id,
+            broadcast_id=PostSetCommentApprovalStatus_request.broadcast_id,
+            sso=PostSetCommentApprovalStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10367,11 +9871,7 @@ class ModerationApi:
     @validate_call
     def post_set_comment_approval_status_without_preload_content(
         self,
-        comment_id: StrictStr,
-        approved: Optional[StrictBool] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostSetCommentApprovalStatus_request: ApiPostSetCommentApprovalStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10388,16 +9888,8 @@ class ModerationApi:
         """post_set_comment_approval_status
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param approved:
-        :type approved: bool
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostSetCommentApprovalStatus_request: The request object containing all parameters for this operation. (required)
+        :type PostSetCommentApprovalStatus_request: ApiPostSetCommentApprovalStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10421,11 +9913,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_set_comment_approval_status_serialize(
-            comment_id=comment_id,
-            approved=approved,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostSetCommentApprovalStatus_request.comment_id,
+            approved=PostSetCommentApprovalStatus_request.approved,
+            tenant_id=PostSetCommentApprovalStatus_request.tenant_id,
+            broadcast_id=PostSetCommentApprovalStatus_request.broadcast_id,
+            sso=PostSetCommentApprovalStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10446,8 +9938,8 @@ class ModerationApi:
         self,
         comment_id,
         approved,
-        broadcast_id,
         tenant_id,
+        broadcast_id,
         sso,
         _request_auth,
         _content_type,
@@ -10477,13 +9969,13 @@ class ModerationApi:
             
             _query_params.append(('approved', approved))
             
-        if broadcast_id is not None:
-            
-            _query_params.append(('broadcastId', broadcast_id))
-            
         if tenant_id is not None:
             
             _query_params.append(('tenantId', tenant_id))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
             
         if sso is not None:
             
@@ -10528,11 +10020,7 @@ class ModerationApi:
     @validate_call
     def post_set_comment_review_status(
         self,
-        comment_id: StrictStr,
-        reviewed: Optional[StrictBool] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostSetCommentReviewStatus_request: ApiPostSetCommentReviewStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10549,16 +10037,8 @@ class ModerationApi:
         """post_set_comment_review_status
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param reviewed:
-        :type reviewed: bool
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostSetCommentReviewStatus_request: The request object containing all parameters for this operation. (required)
+        :type PostSetCommentReviewStatus_request: ApiPostSetCommentReviewStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10582,11 +10062,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_set_comment_review_status_serialize(
-            comment_id=comment_id,
-            reviewed=reviewed,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostSetCommentReviewStatus_request.comment_id,
+            reviewed=PostSetCommentReviewStatus_request.reviewed,
+            tenant_id=PostSetCommentReviewStatus_request.tenant_id,
+            broadcast_id=PostSetCommentReviewStatus_request.broadcast_id,
+            sso=PostSetCommentReviewStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10610,11 +10090,7 @@ class ModerationApi:
     @validate_call
     def post_set_comment_review_status_with_http_info(
         self,
-        comment_id: StrictStr,
-        reviewed: Optional[StrictBool] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostSetCommentReviewStatus_request: ApiPostSetCommentReviewStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10631,16 +10107,8 @@ class ModerationApi:
         """post_set_comment_review_status
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param reviewed:
-        :type reviewed: bool
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostSetCommentReviewStatus_request: The request object containing all parameters for this operation. (required)
+        :type PostSetCommentReviewStatus_request: ApiPostSetCommentReviewStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10664,11 +10132,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_set_comment_review_status_serialize(
-            comment_id=comment_id,
-            reviewed=reviewed,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostSetCommentReviewStatus_request.comment_id,
+            reviewed=PostSetCommentReviewStatus_request.reviewed,
+            tenant_id=PostSetCommentReviewStatus_request.tenant_id,
+            broadcast_id=PostSetCommentReviewStatus_request.broadcast_id,
+            sso=PostSetCommentReviewStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10692,11 +10160,7 @@ class ModerationApi:
     @validate_call
     def post_set_comment_review_status_without_preload_content(
         self,
-        comment_id: StrictStr,
-        reviewed: Optional[StrictBool] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostSetCommentReviewStatus_request: ApiPostSetCommentReviewStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10713,16 +10177,8 @@ class ModerationApi:
         """post_set_comment_review_status
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param reviewed:
-        :type reviewed: bool
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostSetCommentReviewStatus_request: The request object containing all parameters for this operation. (required)
+        :type PostSetCommentReviewStatus_request: ApiPostSetCommentReviewStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10746,11 +10202,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_set_comment_review_status_serialize(
-            comment_id=comment_id,
-            reviewed=reviewed,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostSetCommentReviewStatus_request.comment_id,
+            reviewed=PostSetCommentReviewStatus_request.reviewed,
+            tenant_id=PostSetCommentReviewStatus_request.tenant_id,
+            broadcast_id=PostSetCommentReviewStatus_request.broadcast_id,
+            sso=PostSetCommentReviewStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10771,8 +10227,8 @@ class ModerationApi:
         self,
         comment_id,
         reviewed,
-        broadcast_id,
         tenant_id,
+        broadcast_id,
         sso,
         _request_auth,
         _content_type,
@@ -10802,13 +10258,13 @@ class ModerationApi:
             
             _query_params.append(('reviewed', reviewed))
             
-        if broadcast_id is not None:
-            
-            _query_params.append(('broadcastId', broadcast_id))
-            
         if tenant_id is not None:
             
             _query_params.append(('tenantId', tenant_id))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
             
         if sso is not None:
             
@@ -10853,12 +10309,7 @@ class ModerationApi:
     @validate_call
     def post_set_comment_spam_status(
         self,
-        comment_id: StrictStr,
-        spam: Optional[StrictBool] = None,
-        perm_not_spam: Optional[StrictBool] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostSetCommentSpamStatus_request: ApiPostSetCommentSpamStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10875,18 +10326,8 @@ class ModerationApi:
         """post_set_comment_spam_status
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param spam:
-        :type spam: bool
-        :param perm_not_spam:
-        :type perm_not_spam: bool
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostSetCommentSpamStatus_request: The request object containing all parameters for this operation. (required)
+        :type PostSetCommentSpamStatus_request: ApiPostSetCommentSpamStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10910,12 +10351,12 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_set_comment_spam_status_serialize(
-            comment_id=comment_id,
-            spam=spam,
-            perm_not_spam=perm_not_spam,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostSetCommentSpamStatus_request.comment_id,
+            spam=PostSetCommentSpamStatus_request.spam,
+            perm_not_spam=PostSetCommentSpamStatus_request.perm_not_spam,
+            tenant_id=PostSetCommentSpamStatus_request.tenant_id,
+            broadcast_id=PostSetCommentSpamStatus_request.broadcast_id,
+            sso=PostSetCommentSpamStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10939,12 +10380,7 @@ class ModerationApi:
     @validate_call
     def post_set_comment_spam_status_with_http_info(
         self,
-        comment_id: StrictStr,
-        spam: Optional[StrictBool] = None,
-        perm_not_spam: Optional[StrictBool] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostSetCommentSpamStatus_request: ApiPostSetCommentSpamStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10961,18 +10397,8 @@ class ModerationApi:
         """post_set_comment_spam_status
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param spam:
-        :type spam: bool
-        :param perm_not_spam:
-        :type perm_not_spam: bool
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostSetCommentSpamStatus_request: The request object containing all parameters for this operation. (required)
+        :type PostSetCommentSpamStatus_request: ApiPostSetCommentSpamStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10996,12 +10422,12 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_set_comment_spam_status_serialize(
-            comment_id=comment_id,
-            spam=spam,
-            perm_not_spam=perm_not_spam,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostSetCommentSpamStatus_request.comment_id,
+            spam=PostSetCommentSpamStatus_request.spam,
+            perm_not_spam=PostSetCommentSpamStatus_request.perm_not_spam,
+            tenant_id=PostSetCommentSpamStatus_request.tenant_id,
+            broadcast_id=PostSetCommentSpamStatus_request.broadcast_id,
+            sso=PostSetCommentSpamStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11025,12 +10451,7 @@ class ModerationApi:
     @validate_call
     def post_set_comment_spam_status_without_preload_content(
         self,
-        comment_id: StrictStr,
-        spam: Optional[StrictBool] = None,
-        perm_not_spam: Optional[StrictBool] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostSetCommentSpamStatus_request: ApiPostSetCommentSpamStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11047,18 +10468,8 @@ class ModerationApi:
         """post_set_comment_spam_status
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param spam:
-        :type spam: bool
-        :param perm_not_spam:
-        :type perm_not_spam: bool
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostSetCommentSpamStatus_request: The request object containing all parameters for this operation. (required)
+        :type PostSetCommentSpamStatus_request: ApiPostSetCommentSpamStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11082,12 +10493,12 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_set_comment_spam_status_serialize(
-            comment_id=comment_id,
-            spam=spam,
-            perm_not_spam=perm_not_spam,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostSetCommentSpamStatus_request.comment_id,
+            spam=PostSetCommentSpamStatus_request.spam,
+            perm_not_spam=PostSetCommentSpamStatus_request.perm_not_spam,
+            tenant_id=PostSetCommentSpamStatus_request.tenant_id,
+            broadcast_id=PostSetCommentSpamStatus_request.broadcast_id,
+            sso=PostSetCommentSpamStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11109,8 +10520,8 @@ class ModerationApi:
         comment_id,
         spam,
         perm_not_spam,
-        broadcast_id,
         tenant_id,
+        broadcast_id,
         sso,
         _request_auth,
         _content_type,
@@ -11144,13 +10555,13 @@ class ModerationApi:
             
             _query_params.append(('permNotSpam', perm_not_spam))
             
-        if broadcast_id is not None:
-            
-            _query_params.append(('broadcastId', broadcast_id))
-            
         if tenant_id is not None:
             
             _query_params.append(('tenantId', tenant_id))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
             
         if sso is not None:
             
@@ -11195,11 +10606,7 @@ class ModerationApi:
     @validate_call
     def post_set_comment_text(
         self,
-        comment_id: StrictStr,
-        set_comment_text_params: SetCommentTextParams,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostSetCommentText_request: ApiPostSetCommentTextRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11216,16 +10623,8 @@ class ModerationApi:
         """post_set_comment_text
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param set_comment_text_params: (required)
-        :type set_comment_text_params: SetCommentTextParams
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostSetCommentText_request: The request object containing all parameters for this operation. (required)
+        :type PostSetCommentText_request: ApiPostSetCommentTextRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11249,11 +10648,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_set_comment_text_serialize(
-            comment_id=comment_id,
-            set_comment_text_params=set_comment_text_params,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostSetCommentText_request.comment_id,
+            set_comment_text_params=PostSetCommentText_request.set_comment_text_params,
+            tenant_id=PostSetCommentText_request.tenant_id,
+            broadcast_id=PostSetCommentText_request.broadcast_id,
+            sso=PostSetCommentText_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11277,11 +10676,7 @@ class ModerationApi:
     @validate_call
     def post_set_comment_text_with_http_info(
         self,
-        comment_id: StrictStr,
-        set_comment_text_params: SetCommentTextParams,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostSetCommentText_request: ApiPostSetCommentTextRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11298,16 +10693,8 @@ class ModerationApi:
         """post_set_comment_text
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param set_comment_text_params: (required)
-        :type set_comment_text_params: SetCommentTextParams
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostSetCommentText_request: The request object containing all parameters for this operation. (required)
+        :type PostSetCommentText_request: ApiPostSetCommentTextRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11331,11 +10718,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_set_comment_text_serialize(
-            comment_id=comment_id,
-            set_comment_text_params=set_comment_text_params,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostSetCommentText_request.comment_id,
+            set_comment_text_params=PostSetCommentText_request.set_comment_text_params,
+            tenant_id=PostSetCommentText_request.tenant_id,
+            broadcast_id=PostSetCommentText_request.broadcast_id,
+            sso=PostSetCommentText_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11359,11 +10746,7 @@ class ModerationApi:
     @validate_call
     def post_set_comment_text_without_preload_content(
         self,
-        comment_id: StrictStr,
-        set_comment_text_params: SetCommentTextParams,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostSetCommentText_request: ApiPostSetCommentTextRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11380,16 +10763,8 @@ class ModerationApi:
         """post_set_comment_text
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param set_comment_text_params: (required)
-        :type set_comment_text_params: SetCommentTextParams
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostSetCommentText_request: The request object containing all parameters for this operation. (required)
+        :type PostSetCommentText_request: ApiPostSetCommentTextRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11413,11 +10788,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_set_comment_text_serialize(
-            comment_id=comment_id,
-            set_comment_text_params=set_comment_text_params,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostSetCommentText_request.comment_id,
+            set_comment_text_params=PostSetCommentText_request.set_comment_text_params,
+            tenant_id=PostSetCommentText_request.tenant_id,
+            broadcast_id=PostSetCommentText_request.broadcast_id,
+            sso=PostSetCommentText_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11438,8 +10813,8 @@ class ModerationApi:
         self,
         comment_id,
         set_comment_text_params,
-        broadcast_id,
         tenant_id,
+        broadcast_id,
         sso,
         _request_auth,
         _content_type,
@@ -11465,13 +10840,13 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
-        if broadcast_id is not None:
-            
-            _query_params.append(('broadcastId', broadcast_id))
-            
         if tenant_id is not None:
             
             _query_params.append(('tenantId', tenant_id))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
             
         if sso is not None:
             
@@ -11531,10 +10906,7 @@ class ModerationApi:
     @validate_call
     def post_un_flag_comment(
         self,
-        comment_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostUnFlagComment_request: ApiPostUnFlagCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11551,14 +10923,8 @@ class ModerationApi:
         """post_un_flag_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostUnFlagComment_request: The request object containing all parameters for this operation. (required)
+        :type PostUnFlagComment_request: ApiPostUnFlagCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11582,10 +10948,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_un_flag_comment_serialize(
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostUnFlagComment_request.comment_id,
+            tenant_id=PostUnFlagComment_request.tenant_id,
+            broadcast_id=PostUnFlagComment_request.broadcast_id,
+            sso=PostUnFlagComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11609,10 +10975,7 @@ class ModerationApi:
     @validate_call
     def post_un_flag_comment_with_http_info(
         self,
-        comment_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostUnFlagComment_request: ApiPostUnFlagCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11629,14 +10992,8 @@ class ModerationApi:
         """post_un_flag_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostUnFlagComment_request: The request object containing all parameters for this operation. (required)
+        :type PostUnFlagComment_request: ApiPostUnFlagCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11660,10 +11017,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_un_flag_comment_serialize(
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostUnFlagComment_request.comment_id,
+            tenant_id=PostUnFlagComment_request.tenant_id,
+            broadcast_id=PostUnFlagComment_request.broadcast_id,
+            sso=PostUnFlagComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11687,10 +11044,7 @@ class ModerationApi:
     @validate_call
     def post_un_flag_comment_without_preload_content(
         self,
-        comment_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostUnFlagComment_request: ApiPostUnFlagCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11707,14 +11061,8 @@ class ModerationApi:
         """post_un_flag_comment
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostUnFlagComment_request: The request object containing all parameters for this operation. (required)
+        :type PostUnFlagComment_request: ApiPostUnFlagCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11738,10 +11086,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_un_flag_comment_serialize(
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostUnFlagComment_request.comment_id,
+            tenant_id=PostUnFlagComment_request.tenant_id,
+            broadcast_id=PostUnFlagComment_request.broadcast_id,
+            sso=PostUnFlagComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11761,8 +11109,8 @@ class ModerationApi:
     def _post_un_flag_comment_serialize(
         self,
         comment_id,
-        broadcast_id,
         tenant_id,
+        broadcast_id,
         sso,
         _request_auth,
         _content_type,
@@ -11788,13 +11136,13 @@ class ModerationApi:
         if comment_id is not None:
             _path_params['commentId'] = comment_id
         # process the query parameters
-        if broadcast_id is not None:
-            
-            _query_params.append(('broadcastId', broadcast_id))
-            
         if tenant_id is not None:
             
             _query_params.append(('tenantId', tenant_id))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
             
         if sso is not None:
             
@@ -11839,11 +11187,7 @@ class ModerationApi:
     @validate_call
     def post_vote(
         self,
-        comment_id: StrictStr,
-        direction: Optional[StrictStr] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostVote_request: ApiPostVoteRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11860,16 +11204,8 @@ class ModerationApi:
         """post_vote
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param direction:
-        :type direction: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostVote_request: The request object containing all parameters for this operation. (required)
+        :type PostVote_request: ApiPostVoteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11893,11 +11229,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_vote_serialize(
-            comment_id=comment_id,
-            direction=direction,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostVote_request.comment_id,
+            direction=PostVote_request.direction,
+            tenant_id=PostVote_request.tenant_id,
+            broadcast_id=PostVote_request.broadcast_id,
+            sso=PostVote_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11921,11 +11257,7 @@ class ModerationApi:
     @validate_call
     def post_vote_with_http_info(
         self,
-        comment_id: StrictStr,
-        direction: Optional[StrictStr] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostVote_request: ApiPostVoteRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11942,16 +11274,8 @@ class ModerationApi:
         """post_vote
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param direction:
-        :type direction: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostVote_request: The request object containing all parameters for this operation. (required)
+        :type PostVote_request: ApiPostVoteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11975,11 +11299,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_vote_serialize(
-            comment_id=comment_id,
-            direction=direction,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostVote_request.comment_id,
+            direction=PostVote_request.direction,
+            tenant_id=PostVote_request.tenant_id,
+            broadcast_id=PostVote_request.broadcast_id,
+            sso=PostVote_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12003,11 +11327,7 @@ class ModerationApi:
     @validate_call
     def post_vote_without_preload_content(
         self,
-        comment_id: StrictStr,
-        direction: Optional[StrictStr] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PostVote_request: ApiPostVoteRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12024,16 +11344,8 @@ class ModerationApi:
         """post_vote
 
 
-        :param comment_id: (required)
-        :type comment_id: str
-        :param direction:
-        :type direction: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PostVote_request: The request object containing all parameters for this operation. (required)
+        :type PostVote_request: ApiPostVoteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12057,11 +11369,11 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._post_vote_serialize(
-            comment_id=comment_id,
-            direction=direction,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            comment_id=PostVote_request.comment_id,
+            direction=PostVote_request.direction,
+            tenant_id=PostVote_request.tenant_id,
+            broadcast_id=PostVote_request.broadcast_id,
+            sso=PostVote_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12082,8 +11394,8 @@ class ModerationApi:
         self,
         comment_id,
         direction,
-        broadcast_id,
         tenant_id,
+        broadcast_id,
         sso,
         _request_auth,
         _content_type,
@@ -12113,13 +11425,13 @@ class ModerationApi:
             
             _query_params.append(('direction', direction))
             
-        if broadcast_id is not None:
-            
-            _query_params.append(('broadcastId', broadcast_id))
-            
         if tenant_id is not None:
             
             _query_params.append(('tenantId', tenant_id))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
             
         if sso is not None:
             
@@ -12164,12 +11476,7 @@ class ModerationApi:
     @validate_call
     def put_award_badge(
         self,
-        badge_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        comment_id: Optional[StrictStr] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PutAwardBadge_request: ApiPutAwardBadgeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12186,18 +11493,8 @@ class ModerationApi:
         """put_award_badge
 
 
-        :param badge_id: (required)
-        :type badge_id: str
-        :param user_id:
-        :type user_id: str
-        :param comment_id:
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PutAwardBadge_request: The request object containing all parameters for this operation. (required)
+        :type PutAwardBadge_request: ApiPutAwardBadgeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12221,12 +11518,12 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._put_award_badge_serialize(
-            badge_id=badge_id,
-            user_id=user_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            badge_id=PutAwardBadge_request.badge_id,
+            user_id=PutAwardBadge_request.user_id,
+            comment_id=PutAwardBadge_request.comment_id,
+            tenant_id=PutAwardBadge_request.tenant_id,
+            broadcast_id=PutAwardBadge_request.broadcast_id,
+            sso=PutAwardBadge_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12250,12 +11547,7 @@ class ModerationApi:
     @validate_call
     def put_award_badge_with_http_info(
         self,
-        badge_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        comment_id: Optional[StrictStr] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PutAwardBadge_request: ApiPutAwardBadgeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12272,18 +11564,8 @@ class ModerationApi:
         """put_award_badge
 
 
-        :param badge_id: (required)
-        :type badge_id: str
-        :param user_id:
-        :type user_id: str
-        :param comment_id:
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PutAwardBadge_request: The request object containing all parameters for this operation. (required)
+        :type PutAwardBadge_request: ApiPutAwardBadgeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12307,12 +11589,12 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._put_award_badge_serialize(
-            badge_id=badge_id,
-            user_id=user_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            badge_id=PutAwardBadge_request.badge_id,
+            user_id=PutAwardBadge_request.user_id,
+            comment_id=PutAwardBadge_request.comment_id,
+            tenant_id=PutAwardBadge_request.tenant_id,
+            broadcast_id=PutAwardBadge_request.broadcast_id,
+            sso=PutAwardBadge_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12336,12 +11618,7 @@ class ModerationApi:
     @validate_call
     def put_award_badge_without_preload_content(
         self,
-        badge_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        comment_id: Optional[StrictStr] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PutAwardBadge_request: ApiPutAwardBadgeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12358,18 +11635,8 @@ class ModerationApi:
         """put_award_badge
 
 
-        :param badge_id: (required)
-        :type badge_id: str
-        :param user_id:
-        :type user_id: str
-        :param comment_id:
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PutAwardBadge_request: The request object containing all parameters for this operation. (required)
+        :type PutAwardBadge_request: ApiPutAwardBadgeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12393,12 +11660,12 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._put_award_badge_serialize(
-            badge_id=badge_id,
-            user_id=user_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            badge_id=PutAwardBadge_request.badge_id,
+            user_id=PutAwardBadge_request.user_id,
+            comment_id=PutAwardBadge_request.comment_id,
+            tenant_id=PutAwardBadge_request.tenant_id,
+            broadcast_id=PutAwardBadge_request.broadcast_id,
+            sso=PutAwardBadge_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12420,8 +11687,8 @@ class ModerationApi:
         badge_id,
         user_id,
         comment_id,
-        broadcast_id,
         tenant_id,
+        broadcast_id,
         sso,
         _request_auth,
         _content_type,
@@ -12457,13 +11724,13 @@ class ModerationApi:
             
             _query_params.append(('commentId', comment_id))
             
-        if broadcast_id is not None:
-            
-            _query_params.append(('broadcastId', broadcast_id))
-            
         if tenant_id is not None:
             
             _query_params.append(('tenantId', tenant_id))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
             
         if sso is not None:
             
@@ -12508,9 +11775,7 @@ class ModerationApi:
     @validate_call
     def put_close_thread(
         self,
-        url_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PutCloseThread_request: ApiPutCloseThreadRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12527,12 +11792,8 @@ class ModerationApi:
         """put_close_thread
 
 
-        :param url_id: (required)
-        :type url_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PutCloseThread_request: The request object containing all parameters for this operation. (required)
+        :type PutCloseThread_request: ApiPutCloseThreadRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12556,9 +11817,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._put_close_thread_serialize(
-            url_id=url_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            url_id=PutCloseThread_request.url_id,
+            tenant_id=PutCloseThread_request.tenant_id,
+            sso=PutCloseThread_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12582,9 +11843,7 @@ class ModerationApi:
     @validate_call
     def put_close_thread_with_http_info(
         self,
-        url_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PutCloseThread_request: ApiPutCloseThreadRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12601,12 +11860,8 @@ class ModerationApi:
         """put_close_thread
 
 
-        :param url_id: (required)
-        :type url_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PutCloseThread_request: The request object containing all parameters for this operation. (required)
+        :type PutCloseThread_request: ApiPutCloseThreadRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12630,9 +11885,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._put_close_thread_serialize(
-            url_id=url_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            url_id=PutCloseThread_request.url_id,
+            tenant_id=PutCloseThread_request.tenant_id,
+            sso=PutCloseThread_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12656,9 +11911,7 @@ class ModerationApi:
     @validate_call
     def put_close_thread_without_preload_content(
         self,
-        url_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PutCloseThread_request: ApiPutCloseThreadRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12675,12 +11928,8 @@ class ModerationApi:
         """put_close_thread
 
 
-        :param url_id: (required)
-        :type url_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PutCloseThread_request: The request object containing all parameters for this operation. (required)
+        :type PutCloseThread_request: ApiPutCloseThreadRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12704,9 +11953,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._put_close_thread_serialize(
-            url_id=url_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            url_id=PutCloseThread_request.url_id,
+            tenant_id=PutCloseThread_request.tenant_id,
+            sso=PutCloseThread_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12801,12 +12050,7 @@ class ModerationApi:
     @validate_call
     def put_remove_badge(
         self,
-        badge_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        comment_id: Optional[StrictStr] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PutRemoveBadge_request: ApiPutRemoveBadgeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12823,18 +12067,8 @@ class ModerationApi:
         """put_remove_badge
 
 
-        :param badge_id: (required)
-        :type badge_id: str
-        :param user_id:
-        :type user_id: str
-        :param comment_id:
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PutRemoveBadge_request: The request object containing all parameters for this operation. (required)
+        :type PutRemoveBadge_request: ApiPutRemoveBadgeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12858,12 +12092,12 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._put_remove_badge_serialize(
-            badge_id=badge_id,
-            user_id=user_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            badge_id=PutRemoveBadge_request.badge_id,
+            user_id=PutRemoveBadge_request.user_id,
+            comment_id=PutRemoveBadge_request.comment_id,
+            tenant_id=PutRemoveBadge_request.tenant_id,
+            broadcast_id=PutRemoveBadge_request.broadcast_id,
+            sso=PutRemoveBadge_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12887,12 +12121,7 @@ class ModerationApi:
     @validate_call
     def put_remove_badge_with_http_info(
         self,
-        badge_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        comment_id: Optional[StrictStr] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PutRemoveBadge_request: ApiPutRemoveBadgeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12909,18 +12138,8 @@ class ModerationApi:
         """put_remove_badge
 
 
-        :param badge_id: (required)
-        :type badge_id: str
-        :param user_id:
-        :type user_id: str
-        :param comment_id:
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PutRemoveBadge_request: The request object containing all parameters for this operation. (required)
+        :type PutRemoveBadge_request: ApiPutRemoveBadgeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12944,12 +12163,12 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._put_remove_badge_serialize(
-            badge_id=badge_id,
-            user_id=user_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            badge_id=PutRemoveBadge_request.badge_id,
+            user_id=PutRemoveBadge_request.user_id,
+            comment_id=PutRemoveBadge_request.comment_id,
+            tenant_id=PutRemoveBadge_request.tenant_id,
+            broadcast_id=PutRemoveBadge_request.broadcast_id,
+            sso=PutRemoveBadge_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12973,12 +12192,7 @@ class ModerationApi:
     @validate_call
     def put_remove_badge_without_preload_content(
         self,
-        badge_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        comment_id: Optional[StrictStr] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PutRemoveBadge_request: ApiPutRemoveBadgeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12995,18 +12209,8 @@ class ModerationApi:
         """put_remove_badge
 
 
-        :param badge_id: (required)
-        :type badge_id: str
-        :param user_id:
-        :type user_id: str
-        :param comment_id:
-        :type comment_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PutRemoveBadge_request: The request object containing all parameters for this operation. (required)
+        :type PutRemoveBadge_request: ApiPutRemoveBadgeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13030,12 +12234,12 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._put_remove_badge_serialize(
-            badge_id=badge_id,
-            user_id=user_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            badge_id=PutRemoveBadge_request.badge_id,
+            user_id=PutRemoveBadge_request.user_id,
+            comment_id=PutRemoveBadge_request.comment_id,
+            tenant_id=PutRemoveBadge_request.tenant_id,
+            broadcast_id=PutRemoveBadge_request.broadcast_id,
+            sso=PutRemoveBadge_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13057,8 +12261,8 @@ class ModerationApi:
         badge_id,
         user_id,
         comment_id,
-        broadcast_id,
         tenant_id,
+        broadcast_id,
         sso,
         _request_auth,
         _content_type,
@@ -13094,13 +12298,13 @@ class ModerationApi:
             
             _query_params.append(('commentId', comment_id))
             
-        if broadcast_id is not None:
-            
-            _query_params.append(('broadcastId', broadcast_id))
-            
         if tenant_id is not None:
             
             _query_params.append(('tenantId', tenant_id))
+            
+        if broadcast_id is not None:
+            
+            _query_params.append(('broadcastId', broadcast_id))
             
         if sso is not None:
             
@@ -13145,9 +12349,7 @@ class ModerationApi:
     @validate_call
     def put_reopen_thread(
         self,
-        url_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PutReopenThread_request: ApiPutReopenThreadRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13164,12 +12366,8 @@ class ModerationApi:
         """put_reopen_thread
 
 
-        :param url_id: (required)
-        :type url_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PutReopenThread_request: The request object containing all parameters for this operation. (required)
+        :type PutReopenThread_request: ApiPutReopenThreadRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13193,9 +12391,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._put_reopen_thread_serialize(
-            url_id=url_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            url_id=PutReopenThread_request.url_id,
+            tenant_id=PutReopenThread_request.tenant_id,
+            sso=PutReopenThread_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13219,9 +12417,7 @@ class ModerationApi:
     @validate_call
     def put_reopen_thread_with_http_info(
         self,
-        url_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PutReopenThread_request: ApiPutReopenThreadRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13238,12 +12434,8 @@ class ModerationApi:
         """put_reopen_thread
 
 
-        :param url_id: (required)
-        :type url_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PutReopenThread_request: The request object containing all parameters for this operation. (required)
+        :type PutReopenThread_request: ApiPutReopenThreadRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13267,9 +12459,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._put_reopen_thread_serialize(
-            url_id=url_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            url_id=PutReopenThread_request.url_id,
+            tenant_id=PutReopenThread_request.tenant_id,
+            sso=PutReopenThread_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13293,9 +12485,7 @@ class ModerationApi:
     @validate_call
     def put_reopen_thread_without_preload_content(
         self,
-        url_id: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        PutReopenThread_request: ApiPutReopenThreadRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13312,12 +12502,8 @@ class ModerationApi:
         """put_reopen_thread
 
 
-        :param url_id: (required)
-        :type url_id: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param PutReopenThread_request: The request object containing all parameters for this operation. (required)
+        :type PutReopenThread_request: ApiPutReopenThreadRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13341,9 +12527,9 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._put_reopen_thread_serialize(
-            url_id=url_id,
-            tenant_id=tenant_id,
-            sso=sso,
+            url_id=PutReopenThread_request.url_id,
+            tenant_id=PutReopenThread_request.tenant_id,
+            sso=PutReopenThread_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13438,10 +12624,7 @@ class ModerationApi:
     @validate_call
     def set_trust_factor(
         self,
-        user_id: Optional[StrictStr] = None,
-        trust_factor: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        SetTrustFactor_request: ApiSetTrustFactorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13458,14 +12641,8 @@ class ModerationApi:
         """set_trust_factor
 
 
-        :param user_id:
-        :type user_id: str
-        :param trust_factor:
-        :type trust_factor: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param SetTrustFactor_request: The request object containing all parameters for this operation. (required)
+        :type SetTrustFactor_request: ApiSetTrustFactorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13489,10 +12666,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._set_trust_factor_serialize(
-            user_id=user_id,
-            trust_factor=trust_factor,
-            tenant_id=tenant_id,
-            sso=sso,
+            user_id=SetTrustFactor_request.user_id,
+            trust_factor=SetTrustFactor_request.trust_factor,
+            tenant_id=SetTrustFactor_request.tenant_id,
+            sso=SetTrustFactor_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13516,10 +12693,7 @@ class ModerationApi:
     @validate_call
     def set_trust_factor_with_http_info(
         self,
-        user_id: Optional[StrictStr] = None,
-        trust_factor: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        SetTrustFactor_request: ApiSetTrustFactorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13536,14 +12710,8 @@ class ModerationApi:
         """set_trust_factor
 
 
-        :param user_id:
-        :type user_id: str
-        :param trust_factor:
-        :type trust_factor: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param SetTrustFactor_request: The request object containing all parameters for this operation. (required)
+        :type SetTrustFactor_request: ApiSetTrustFactorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13567,10 +12735,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._set_trust_factor_serialize(
-            user_id=user_id,
-            trust_factor=trust_factor,
-            tenant_id=tenant_id,
-            sso=sso,
+            user_id=SetTrustFactor_request.user_id,
+            trust_factor=SetTrustFactor_request.trust_factor,
+            tenant_id=SetTrustFactor_request.tenant_id,
+            sso=SetTrustFactor_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13594,10 +12762,7 @@ class ModerationApi:
     @validate_call
     def set_trust_factor_without_preload_content(
         self,
-        user_id: Optional[StrictStr] = None,
-        trust_factor: Optional[StrictStr] = None,
-        tenant_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        SetTrustFactor_request: ApiSetTrustFactorRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13614,14 +12779,8 @@ class ModerationApi:
         """set_trust_factor
 
 
-        :param user_id:
-        :type user_id: str
-        :param trust_factor:
-        :type trust_factor: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param SetTrustFactor_request: The request object containing all parameters for this operation. (required)
+        :type SetTrustFactor_request: ApiSetTrustFactorRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13645,10 +12804,10 @@ class ModerationApi:
         """ # noqa: E501
 
         _param = self._set_trust_factor_serialize(
-            user_id=user_id,
-            trust_factor=trust_factor,
-            tenant_id=tenant_id,
-            sso=sso,
+            user_id=SetTrustFactor_request.user_id,
+            trust_factor=SetTrustFactor_request.trust_factor,
+            tenant_id=SetTrustFactor_request.tenant_id,
+            sso=SetTrustFactor_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,

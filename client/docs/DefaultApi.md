@@ -123,8 +123,6 @@ Method | HTTP request | Description
 # **add_domain_config**
 > AddDomainConfigResponse add_domain_config(tenant_id, add_domain_config_params)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -201,8 +199,6 @@ Name | Type | Description  | Notes
 
 # **add_hash_tag**
 > CreateHashTagResponse add_hash_tag(tenant_id=tenant_id, create_hash_tag_body=create_hash_tag_body)
-
-
 
 ### Example
 
@@ -282,8 +278,6 @@ Name | Type | Description  | Notes
 # **add_hash_tags_bulk**
 > BulkCreateHashTagsResponse add_hash_tags_bulk(tenant_id=tenant_id, bulk_create_hash_tags_body=bulk_create_hash_tags_body)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -362,8 +356,6 @@ Name | Type | Description  | Notes
 # **add_page**
 > AddPageAPIResponse add_page(tenant_id, create_api_page_data)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -440,8 +432,6 @@ Name | Type | Description  | Notes
 
 # **add_sso_user**
 > AddSSOUserAPIResponse add_sso_user(tenant_id, create_apisso_user_data)
-
-
 
 ### Example
 
@@ -520,9 +510,8 @@ Name | Type | Description  | Notes
 # **aggregate**
 > AggregateResponse aggregate(tenant_id, aggregation_request, parent_tenant_id=parent_tenant_id, include_stats=include_stats)
 
-
-
-Aggregates documents by grouping them (if groupBy is provided) and applying multiple operations. Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
+Aggregates documents by grouping them (if groupBy is provided) and applying multiple operations.
+Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
 
 ### Example
 
@@ -604,8 +593,6 @@ Name | Type | Description  | Notes
 
 # **aggregate_question_results**
 > AggregateQuestionResultsResponse aggregate_question_results(tenant_id, question_id=question_id, question_ids=question_ids, url_id=url_id, time_bucket=time_bucket, start_date=start_date, force_recalculate=force_recalculate)
-
-
 
 ### Example
 
@@ -695,8 +682,6 @@ Name | Type | Description  | Notes
 # **block_user_from_comment**
 > BlockSuccess block_user_from_comment(tenant_id, id, block_from_comment_params, user_id=user_id, anon_user_id=anon_user_id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -781,8 +766,6 @@ Name | Type | Description  | Notes
 # **bulk_aggregate_question_results**
 > BulkAggregateQuestionResultsResponse bulk_aggregate_question_results(tenant_id, bulk_aggregate_question_results_request, force_recalculate=force_recalculate)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -862,8 +845,6 @@ Name | Type | Description  | Notes
 
 # **change_ticket_state**
 > ChangeTicketStateResponse change_ticket_state(tenant_id, user_id, id, change_ticket_state_body)
-
-
 
 ### Example
 
@@ -946,8 +927,6 @@ Name | Type | Description  | Notes
 
 # **combine_comments_with_question_results**
 > CombineQuestionResultsWithCommentsResponse combine_comments_with_question_results(tenant_id, question_id=question_id, question_ids=question_ids, url_id=url_id, start_date=start_date, force_recalculate=force_recalculate, min_value=min_value, max_value=max_value, limit=limit)
-
-
 
 ### Example
 
@@ -1040,8 +1019,6 @@ Name | Type | Description  | Notes
 # **create_email_template**
 > CreateEmailTemplateResponse create_email_template(tenant_id, create_email_template_body)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -1119,8 +1096,6 @@ Name | Type | Description  | Notes
 
 # **create_feed_post**
 > CreateFeedPostsResponse create_feed_post(tenant_id, create_feed_post_params, broadcast_id=broadcast_id, is_live=is_live, do_spam_check=do_spam_check, skip_dup_check=skip_dup_check)
-
-
 
 ### Example
 
@@ -1208,8 +1183,6 @@ Name | Type | Description  | Notes
 # **create_moderator**
 > CreateModeratorResponse create_moderator(tenant_id, create_moderator_body)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -1287,8 +1260,6 @@ Name | Type | Description  | Notes
 
 # **create_question_config**
 > CreateQuestionConfigResponse create_question_config(tenant_id, create_question_config_body)
-
-
 
 ### Example
 
@@ -1368,8 +1339,6 @@ Name | Type | Description  | Notes
 # **create_question_result**
 > CreateQuestionResultResponse create_question_result(tenant_id, create_question_result_body)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -1448,8 +1417,6 @@ Name | Type | Description  | Notes
 # **create_subscription**
 > CreateSubscriptionAPIResponse create_subscription(tenant_id, create_api_user_subscription_data)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -1526,8 +1493,6 @@ Name | Type | Description  | Notes
 
 # **create_tenant**
 > CreateTenantResponse create_tenant(tenant_id, create_tenant_body)
-
-
 
 ### Example
 
@@ -1607,8 +1572,6 @@ Name | Type | Description  | Notes
 # **create_tenant_package**
 > CreateTenantPackageResponse create_tenant_package(tenant_id, create_tenant_package_body)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -1687,8 +1650,6 @@ Name | Type | Description  | Notes
 # **create_tenant_user**
 > CreateTenantUserResponse create_tenant_user(tenant_id, create_tenant_user_body)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -1766,8 +1727,6 @@ Name | Type | Description  | Notes
 
 # **create_ticket**
 > CreateTicketResponse create_ticket(tenant_id, user_id, create_ticket_body)
-
-
 
 ### Example
 
@@ -1849,8 +1808,6 @@ Name | Type | Description  | Notes
 # **create_user_badge**
 > APICreateUserBadgeResponse create_user_badge(tenant_id, create_user_badge_params)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -1928,8 +1885,6 @@ Name | Type | Description  | Notes
 
 # **create_vote**
 > VoteResponse create_vote(tenant_id, comment_id, direction, user_id=user_id, anon_user_id=anon_user_id)
-
-
 
 ### Example
 
@@ -2014,8 +1969,6 @@ Name | Type | Description  | Notes
 # **delete_comment**
 > DeleteCommentResult delete_comment(tenant_id, id, context_user_id=context_user_id, is_live=is_live)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -2097,8 +2050,6 @@ Name | Type | Description  | Notes
 # **delete_domain_config**
 > DeleteDomainConfigResponse delete_domain_config(tenant_id, domain)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -2174,8 +2125,6 @@ Name | Type | Description  | Notes
 
 # **delete_email_template**
 > APIEmptyResponse delete_email_template(tenant_id, id)
-
-
 
 ### Example
 
@@ -2253,8 +2202,6 @@ Name | Type | Description  | Notes
 
 # **delete_email_template_render_error**
 > APIEmptyResponse delete_email_template_render_error(tenant_id, id, error_id)
-
-
 
 ### Example
 
@@ -2334,8 +2281,6 @@ Name | Type | Description  | Notes
 
 # **delete_hash_tag**
 > APIEmptyResponse delete_hash_tag(tag, tenant_id=tenant_id, delete_hash_tag_request_body=delete_hash_tag_request_body)
-
-
 
 ### Example
 
@@ -2417,8 +2362,6 @@ Name | Type | Description  | Notes
 # **delete_moderator**
 > APIEmptyResponse delete_moderator(tenant_id, id, send_email=send_email)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -2498,8 +2441,6 @@ Name | Type | Description  | Notes
 # **delete_notification_count**
 > APIEmptyResponse delete_notification_count(tenant_id, id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -2577,8 +2518,6 @@ Name | Type | Description  | Notes
 # **delete_page**
 > DeletePageAPIResponse delete_page(tenant_id, id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -2654,8 +2593,6 @@ Name | Type | Description  | Notes
 
 # **delete_pending_webhook_event**
 > APIEmptyResponse delete_pending_webhook_event(tenant_id, id)
-
-
 
 ### Example
 
@@ -2734,8 +2671,6 @@ Name | Type | Description  | Notes
 # **delete_question_config**
 > APIEmptyResponse delete_question_config(tenant_id, id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -2813,8 +2748,6 @@ Name | Type | Description  | Notes
 # **delete_question_result**
 > APIEmptyResponse delete_question_result(tenant_id, id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -2891,8 +2824,6 @@ Name | Type | Description  | Notes
 
 # **delete_sso_user**
 > DeleteSSOUserAPIResponse delete_sso_user(tenant_id, id, delete_comments=delete_comments, comment_delete_mode=comment_delete_mode)
-
-
 
 ### Example
 
@@ -2974,8 +2905,6 @@ Name | Type | Description  | Notes
 # **delete_subscription**
 > DeleteSubscriptionAPIResponse delete_subscription(tenant_id, id, user_id=user_id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -3053,8 +2982,6 @@ Name | Type | Description  | Notes
 
 # **delete_tenant**
 > APIEmptyResponse delete_tenant(tenant_id, id, sure=sure)
-
-
 
 ### Example
 
@@ -3135,8 +3062,6 @@ Name | Type | Description  | Notes
 # **delete_tenant_package**
 > APIEmptyResponse delete_tenant_package(tenant_id, id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -3213,8 +3138,6 @@ Name | Type | Description  | Notes
 
 # **delete_tenant_user**
 > APIEmptyResponse delete_tenant_user(tenant_id, id, delete_comments=delete_comments, comment_delete_mode=comment_delete_mode)
-
-
 
 ### Example
 
@@ -3297,8 +3220,6 @@ Name | Type | Description  | Notes
 # **delete_user_badge**
 > APIEmptySuccessResponse delete_user_badge(tenant_id, id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -3375,8 +3296,6 @@ Name | Type | Description  | Notes
 
 # **delete_vote**
 > VoteDeleteResponse delete_vote(tenant_id, id, edit_key=edit_key)
-
-
 
 ### Example
 
@@ -3456,8 +3375,6 @@ Name | Type | Description  | Notes
 
 # **flag_comment**
 > FlagCommentResponse flag_comment(tenant_id, id, user_id=user_id, anon_user_id=anon_user_id)
-
-
 
 ### Example
 
@@ -3539,8 +3456,6 @@ Name | Type | Description  | Notes
 
 # **get_audit_logs**
 > GetAuditLogsResponse get_audit_logs(tenant_id, limit=limit, skip=skip, order=order, after=after, before=before)
-
-
 
 ### Example
 
@@ -3628,8 +3543,6 @@ Name | Type | Description  | Notes
 # **get_cached_notification_count**
 > GetCachedNotificationCountResponse get_cached_notification_count(tenant_id, id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -3707,8 +3620,6 @@ Name | Type | Description  | Notes
 # **get_comment**
 > APIGetCommentResponse get_comment(tenant_id, id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -3785,8 +3696,6 @@ Name | Type | Description  | Notes
 
 # **get_comments**
 > APIGetCommentsResponse get_comments(tenant_id, page=page, limit=limit, skip=skip, as_tree=as_tree, skip_children=skip_children, limit_children=limit_children, max_tree_depth=max_tree_depth, url_id=url_id, user_id=user_id, anon_user_id=anon_user_id, context_user_id=context_user_id, hash_tag=hash_tag, parent_id=parent_id, direction=direction, from_date=from_date, to_date=to_date)
-
-
 
 ### Example
 
@@ -3896,8 +3805,6 @@ Name | Type | Description  | Notes
 # **get_domain_config**
 > GetDomainConfigResponse get_domain_config(tenant_id, domain)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -3974,8 +3881,6 @@ Name | Type | Description  | Notes
 # **get_domain_configs**
 > GetDomainConfigsResponse get_domain_configs(tenant_id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -4049,8 +3954,6 @@ Name | Type | Description  | Notes
 
 # **get_email_template**
 > GetEmailTemplateResponse get_email_template(tenant_id, id)
-
-
 
 ### Example
 
@@ -4129,8 +4032,6 @@ Name | Type | Description  | Notes
 # **get_email_template_definitions**
 > GetEmailTemplateDefinitionsResponse get_email_template_definitions(tenant_id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -4205,8 +4106,6 @@ Name | Type | Description  | Notes
 
 # **get_email_template_render_errors**
 > GetEmailTemplateRenderErrorsResponse get_email_template_render_errors(tenant_id, id, skip=skip)
-
-
 
 ### Example
 
@@ -4287,8 +4186,6 @@ Name | Type | Description  | Notes
 # **get_email_templates**
 > GetEmailTemplatesResponse get_email_templates(tenant_id, skip=skip)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -4367,8 +4264,9 @@ Name | Type | Description  | Notes
 > GetFeedPostsResponse get_feed_posts(tenant_id, after_id=after_id, limit=limit, tags=tags)
 
 
-
- req tenantId afterId
+req
+tenantId
+afterId
 
 ### Example
 
@@ -4451,8 +4349,6 @@ Name | Type | Description  | Notes
 # **get_hash_tags**
 > GetHashTagsResponse get_hash_tags(tenant_id, page=page)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -4529,8 +4425,6 @@ Name | Type | Description  | Notes
 
 # **get_moderator**
 > GetModeratorResponse get_moderator(tenant_id, id)
-
-
 
 ### Example
 
@@ -4609,8 +4503,6 @@ Name | Type | Description  | Notes
 # **get_moderators**
 > GetModeratorsResponse get_moderators(tenant_id, skip=skip)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -4687,8 +4579,6 @@ Name | Type | Description  | Notes
 
 # **get_notification_count**
 > GetNotificationCountResponse get_notification_count(tenant_id, user_id=user_id, url_id=url_id, from_comment_id=from_comment_id, viewed=viewed, type=type)
-
-
 
 ### Example
 
@@ -4774,8 +4664,6 @@ Name | Type | Description  | Notes
 
 # **get_notifications**
 > GetNotificationsResponse get_notifications(tenant_id, user_id=user_id, url_id=url_id, from_comment_id=from_comment_id, viewed=viewed, type=type, skip=skip)
-
-
 
 ### Example
 
@@ -4864,8 +4752,6 @@ Name | Type | Description  | Notes
 # **get_page_by_urlid**
 > GetPageByURLIdAPIResponse get_page_by_urlid(tenant_id, url_id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -4942,8 +4828,6 @@ Name | Type | Description  | Notes
 # **get_pages**
 > GetPagesAPIResponse get_pages(tenant_id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -5017,8 +4901,6 @@ Name | Type | Description  | Notes
 
 # **get_pending_webhook_event_count**
 > GetPendingWebhookEventCountResponse get_pending_webhook_event_count(tenant_id, comment_id=comment_id, external_id=external_id, event_type=event_type, type=type, domain=domain, attempt_count_gt=attempt_count_gt)
-
-
 
 ### Example
 
@@ -5106,8 +4988,6 @@ Name | Type | Description  | Notes
 
 # **get_pending_webhook_events**
 > GetPendingWebhookEventsResponse get_pending_webhook_events(tenant_id, comment_id=comment_id, external_id=external_id, event_type=event_type, type=type, domain=domain, attempt_count_gt=attempt_count_gt, skip=skip)
-
-
 
 ### Example
 
@@ -5198,8 +5078,6 @@ Name | Type | Description  | Notes
 # **get_question_config**
 > GetQuestionConfigResponse get_question_config(tenant_id, id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -5276,8 +5154,6 @@ Name | Type | Description  | Notes
 
 # **get_question_configs**
 > GetQuestionConfigsResponse get_question_configs(tenant_id, skip=skip)
-
-
 
 ### Example
 
@@ -5356,8 +5232,6 @@ Name | Type | Description  | Notes
 # **get_question_result**
 > GetQuestionResultResponse get_question_result(tenant_id, id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -5434,8 +5308,6 @@ Name | Type | Description  | Notes
 
 # **get_question_results**
 > GetQuestionResultsResponse get_question_results(tenant_id, url_id=url_id, user_id=user_id, start_date=start_date, question_id=question_id, question_ids=question_ids, skip=skip)
-
-
 
 ### Example
 
@@ -5524,8 +5396,6 @@ Name | Type | Description  | Notes
 # **get_sso_user_by_email**
 > GetSSOUserByEmailAPIResponse get_sso_user_by_email(tenant_id, email)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -5601,8 +5471,6 @@ Name | Type | Description  | Notes
 
 # **get_sso_user_by_id**
 > GetSSOUserByIdAPIResponse get_sso_user_by_id(tenant_id, id)
-
-
 
 ### Example
 
@@ -5680,8 +5548,6 @@ Name | Type | Description  | Notes
 # **get_sso_users**
 > GetSSOUsersResponse get_sso_users(tenant_id, skip=skip)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -5757,8 +5623,6 @@ Name | Type | Description  | Notes
 
 # **get_subscriptions**
 > GetSubscriptionsAPIResponse get_subscriptions(tenant_id, user_id=user_id)
-
-
 
 ### Example
 
@@ -5836,8 +5700,6 @@ Name | Type | Description  | Notes
 # **get_tenant**
 > GetTenantResponse get_tenant(tenant_id, id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -5914,8 +5776,6 @@ Name | Type | Description  | Notes
 
 # **get_tenant_daily_usages**
 > GetTenantDailyUsagesResponse get_tenant_daily_usages(tenant_id, year_number=year_number, month_number=month_number, day_number=day_number, skip=skip)
-
-
 
 ### Example
 
@@ -6000,8 +5860,6 @@ Name | Type | Description  | Notes
 # **get_tenant_package**
 > GetTenantPackageResponse get_tenant_package(tenant_id, id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -6078,8 +5936,6 @@ Name | Type | Description  | Notes
 
 # **get_tenant_packages**
 > GetTenantPackagesResponse get_tenant_packages(tenant_id, skip=skip)
-
-
 
 ### Example
 
@@ -6158,8 +6014,6 @@ Name | Type | Description  | Notes
 # **get_tenant_user**
 > GetTenantUserResponse get_tenant_user(tenant_id, id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -6237,8 +6091,6 @@ Name | Type | Description  | Notes
 # **get_tenant_users**
 > GetTenantUsersResponse get_tenant_users(tenant_id, skip=skip)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -6315,8 +6167,6 @@ Name | Type | Description  | Notes
 
 # **get_tenants**
 > GetTenantsResponse get_tenants(tenant_id, meta=meta, skip=skip)
-
-
 
 ### Example
 
@@ -6397,8 +6247,6 @@ Name | Type | Description  | Notes
 # **get_ticket**
 > GetTicketResponse get_ticket(tenant_id, id, user_id=user_id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -6477,8 +6325,6 @@ Name | Type | Description  | Notes
 
 # **get_tickets**
 > GetTicketsResponse get_tickets(tenant_id, user_id=user_id, state=state, skip=skip, limit=limit)
-
-
 
 ### Example
 
@@ -6563,8 +6409,6 @@ Name | Type | Description  | Notes
 # **get_user**
 > GetUserResponse get_user(tenant_id, id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -6641,8 +6485,6 @@ Name | Type | Description  | Notes
 
 # **get_user_badge**
 > APIGetUserBadgeResponse get_user_badge(tenant_id, id)
-
-
 
 ### Example
 
@@ -6721,8 +6563,6 @@ Name | Type | Description  | Notes
 # **get_user_badge_progress_by_id**
 > APIGetUserBadgeProgressResponse get_user_badge_progress_by_id(tenant_id, id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -6800,8 +6640,6 @@ Name | Type | Description  | Notes
 # **get_user_badge_progress_by_user_id**
 > APIGetUserBadgeProgressResponse get_user_badge_progress_by_user_id(tenant_id, user_id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -6878,8 +6716,6 @@ Name | Type | Description  | Notes
 
 # **get_user_badge_progress_list**
 > APIGetUserBadgeProgressListResponse get_user_badge_progress_list(tenant_id, user_id=user_id, limit=limit, skip=skip)
-
-
 
 ### Example
 
@@ -6961,8 +6797,6 @@ Name | Type | Description  | Notes
 
 # **get_user_badges**
 > APIGetUserBadgesResponse get_user_badges(tenant_id, user_id=user_id, badge_id=badge_id, type=type, displayed_on_comments=displayed_on_comments, limit=limit, skip=skip)
-
-
 
 ### Example
 
@@ -7051,8 +6885,6 @@ Name | Type | Description  | Notes
 # **get_votes**
 > GetVotesResponse get_votes(tenant_id, url_id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -7129,8 +6961,6 @@ Name | Type | Description  | Notes
 
 # **get_votes_for_user**
 > GetVotesForUserResponse get_votes_for_user(tenant_id, url_id, user_id=user_id, anon_user_id=anon_user_id)
-
-
 
 ### Example
 
@@ -7213,8 +7043,6 @@ Name | Type | Description  | Notes
 # **patch_domain_config**
 > PatchDomainConfigResponse patch_domain_config(tenant_id, domain_to_update, patch_domain_config_params)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -7293,8 +7121,6 @@ Name | Type | Description  | Notes
 
 # **patch_hash_tag**
 > UpdateHashTagResponse patch_hash_tag(tag, tenant_id=tenant_id, update_hash_tag_body=update_hash_tag_body)
-
-
 
 ### Example
 
@@ -7376,8 +7202,6 @@ Name | Type | Description  | Notes
 # **patch_page**
 > PatchPageAPIResponse patch_page(tenant_id, id, update_api_page_data)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -7456,8 +7280,6 @@ Name | Type | Description  | Notes
 
 # **patch_sso_user**
 > PatchSSOUserAPIResponse patch_sso_user(tenant_id, id, update_apisso_user_data, update_comments=update_comments)
-
-
 
 ### Example
 
@@ -7540,8 +7362,6 @@ Name | Type | Description  | Notes
 # **put_domain_config**
 > PutDomainConfigResponse put_domain_config(tenant_id, domain_to_update, update_domain_config_params)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -7620,8 +7440,6 @@ Name | Type | Description  | Notes
 
 # **put_sso_user**
 > PutSSOUserAPIResponse put_sso_user(tenant_id, id, update_apisso_user_data, update_comments=update_comments)
-
-
 
 ### Example
 
@@ -7704,8 +7522,6 @@ Name | Type | Description  | Notes
 # **render_email_template**
 > RenderEmailTemplateResponse render_email_template(tenant_id, render_email_template_body, locale=locale)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -7786,8 +7602,6 @@ Name | Type | Description  | Notes
 # **replace_tenant_package**
 > APIEmptyResponse replace_tenant_package(tenant_id, id, replace_tenant_package_body)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -7867,8 +7681,6 @@ Name | Type | Description  | Notes
 
 # **replace_tenant_user**
 > APIEmptyResponse replace_tenant_user(tenant_id, id, replace_tenant_user_body, update_comments=update_comments)
-
-
 
 ### Example
 
@@ -7951,8 +7763,6 @@ Name | Type | Description  | Notes
 
 # **save_comment**
 > APISaveCommentResponse save_comment(tenant_id, create_comment_params, is_live=is_live, do_spam_check=do_spam_check, send_emails=send_emails, populate_notifications=populate_notifications)
-
-
 
 ### Example
 
@@ -8040,8 +7850,6 @@ Name | Type | Description  | Notes
 # **save_comments_bulk**
 > List[SaveCommentsBulkResponse] save_comments_bulk(tenant_id, create_comment_params, is_live=is_live, do_spam_check=do_spam_check, send_emails=send_emails, populate_notifications=populate_notifications)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -8127,8 +7935,6 @@ Name | Type | Description  | Notes
 # **send_invite**
 > APIEmptyResponse send_invite(tenant_id, id, from_name)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -8208,8 +8014,6 @@ Name | Type | Description  | Notes
 # **send_login_link**
 > APIEmptyResponse send_login_link(tenant_id, id, redirect_url=redirect_url)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -8288,8 +8092,6 @@ Name | Type | Description  | Notes
 
 # **un_block_user_from_comment**
 > UnblockSuccess un_block_user_from_comment(tenant_id, id, un_block_from_comment_params, user_id=user_id, anon_user_id=anon_user_id)
-
-
 
 ### Example
 
@@ -8375,8 +8177,6 @@ Name | Type | Description  | Notes
 # **un_flag_comment**
 > FlagCommentResponse un_flag_comment(tenant_id, id, user_id=user_id, anon_user_id=anon_user_id)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -8457,8 +8257,6 @@ Name | Type | Description  | Notes
 
 # **update_comment**
 > APIEmptyResponse update_comment(tenant_id, id, updatable_comment_params, context_user_id=context_user_id, do_spam_check=do_spam_check, is_live=is_live)
-
-
 
 ### Example
 
@@ -8546,8 +8344,6 @@ Name | Type | Description  | Notes
 # **update_email_template**
 > APIEmptyResponse update_email_template(tenant_id, id, update_email_template_body)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -8627,8 +8423,6 @@ Name | Type | Description  | Notes
 
 # **update_feed_post**
 > APIEmptyResponse update_feed_post(tenant_id, id, feed_post)
-
-
 
 ### Example
 
@@ -8710,8 +8504,6 @@ Name | Type | Description  | Notes
 # **update_moderator**
 > APIEmptyResponse update_moderator(tenant_id, id, update_moderator_body)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -8791,8 +8583,6 @@ Name | Type | Description  | Notes
 
 # **update_notification**
 > APIEmptyResponse update_notification(tenant_id, id, update_notification_body, user_id=user_id)
-
-
 
 ### Example
 
@@ -8876,8 +8666,6 @@ Name | Type | Description  | Notes
 # **update_question_config**
 > APIEmptyResponse update_question_config(tenant_id, id, update_question_config_body)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -8958,8 +8746,6 @@ Name | Type | Description  | Notes
 # **update_question_result**
 > APIEmptyResponse update_question_result(tenant_id, id, update_question_result_body)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -9039,8 +8825,6 @@ Name | Type | Description  | Notes
 
 # **update_subscription**
 > UpdateSubscriptionAPIResponse update_subscription(tenant_id, id, update_api_user_subscription_data, user_id=user_id)
-
-
 
 ### Example
 
@@ -9123,8 +8907,6 @@ Name | Type | Description  | Notes
 # **update_tenant**
 > APIEmptyResponse update_tenant(tenant_id, id, update_tenant_body)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -9205,8 +8987,6 @@ Name | Type | Description  | Notes
 # **update_tenant_package**
 > APIEmptyResponse update_tenant_package(tenant_id, id, update_tenant_package_body)
 
-
-
 ### Example
 
 * Api Key Authentication (api_key):
@@ -9286,8 +9066,6 @@ Name | Type | Description  | Notes
 
 # **update_tenant_user**
 > APIEmptyResponse update_tenant_user(tenant_id, id, update_tenant_user_body, update_comments=update_comments)
-
-
 
 ### Example
 
@@ -9370,8 +9148,6 @@ Name | Type | Description  | Notes
 
 # **update_user_badge**
 > APIEmptySuccessResponse update_user_badge(tenant_id, id, update_user_badge_params)
-
-
 
 ### Example
 

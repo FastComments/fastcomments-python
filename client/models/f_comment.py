@@ -27,6 +27,7 @@ from client.models.comment_user_mention_info import CommentUserMentionInfo
 from client.models.f_comment_meta import FCommentMeta
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class FComment(BaseModel):
     """
@@ -108,7 +109,8 @@ class FComment(BaseModel):
     __properties: ClassVar[List[str]] = ["_id", "tenantId", "urlId", "urlIdRaw", "url", "pageTitle", "userId", "anonUserId", "commenterEmail", "commenterName", "commenterLink", "comment", "commentHTML", "parentId", "date", "localDateString", "localDateHours", "votes", "votesUp", "votesDown", "expireAt", "verified", "verifiedDate", "verificationId", "notificationSentForParent", "notificationSentForParentTenant", "reviewed", "imported", "externalId", "externalParentId", "avatarSrc", "isSpam", "permNotSpam", "aiDeterminedSpam", "hasImages", "pageNumber", "pageNumberOF", "pageNumberNF", "hasLinks", "hasCode", "approved", "locale", "isDeleted", "isDeletedUser", "isBannedUser", "isByAdmin", "isByModerator", "isPinned", "isLocked", "flagCount", "rating", "displayLabel", "fromProductId", "meta", "ipHash", "mentions", "hashTags", "badges", "domain", "veteranBadgeProcessed", "moderationGroupIds", "didProcessBadges", "fromOfflineRestore", "autoplayJobId", "autoplayDelayMS", "feedbackIds", "logs", "groupIds", "viewCount", "requiresVerification", "editKey", "tosAcceptedAt", "botId"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -120,8 +122,7 @@ class FComment(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

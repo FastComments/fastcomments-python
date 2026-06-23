@@ -61,8 +61,6 @@ Method | HTTP request | Description
 # **block_from_comment_public**
 > BlockSuccess block_from_comment_public(tenant_id, comment_id, public_block_from_comment_params, sso=sso)
 
-
-
 ### Example
 
 
@@ -134,8 +132,6 @@ No authorization required
 # **checked_comments_for_blocked**
 > CheckBlockedCommentsResponse checked_comments_for_blocked(tenant_id, comment_ids, sso=sso)
 
-
-
 ### Example
 
 
@@ -203,8 +199,6 @@ No authorization required
 
 # **create_comment_public**
 > SaveCommentsResponseWithPresence create_comment_public(tenant_id, url_id, broadcast_id, comment_data, session_id=session_id, sso=sso)
-
-
 
 ### Example
 
@@ -281,8 +275,6 @@ No authorization required
 # **create_feed_post_public**
 > CreateFeedPostResponse create_feed_post_public(tenant_id, create_feed_post_params, broadcast_id=broadcast_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -354,8 +346,6 @@ No authorization required
 # **create_v1_page_react**
 > CreateV1PageReact create_v1_page_react(tenant_id, url_id, title=title)
 
-
-
 ### Example
 
 
@@ -423,8 +413,6 @@ No authorization required
 
 # **create_v2_page_react**
 > CreateV1PageReact create_v2_page_react(tenant_id, url_id, id, title=title)
-
-
 
 ### Example
 
@@ -495,8 +483,6 @@ No authorization required
 
 # **delete_comment_public**
 > PublicAPIDeleteCommentResponse delete_comment_public(tenant_id, comment_id, broadcast_id, edit_key=edit_key, sso=sso)
-
-
 
 ### Example
 
@@ -569,8 +555,6 @@ No authorization required
 
 # **delete_comment_vote**
 > VoteDeleteResponse delete_comment_vote(tenant_id, comment_id, vote_id, url_id, broadcast_id, edit_key=edit_key, sso=sso)
-
-
 
 ### Example
 
@@ -648,8 +632,6 @@ No authorization required
 # **delete_feed_post_public**
 > DeleteFeedPostPublicResponse delete_feed_post_public(tenant_id, post_id, broadcast_id=broadcast_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -720,8 +702,6 @@ No authorization required
 # **delete_v1_page_react**
 > CreateV1PageReact delete_v1_page_react(tenant_id, url_id)
 
-
-
 ### Example
 
 
@@ -787,8 +767,6 @@ No authorization required
 
 # **delete_v2_page_react**
 > CreateV1PageReact delete_v2_page_react(tenant_id, url_id, id)
-
-
 
 ### Example
 
@@ -857,8 +835,6 @@ No authorization required
 
 # **flag_comment_public**
 > APIEmptyResponse flag_comment_public(tenant_id, comment_id, is_flagged, sso=sso)
-
-
 
 ### Example
 
@@ -930,8 +906,6 @@ No authorization required
 # **get_comment_text**
 > PublicAPIGetCommentTextResponse get_comment_text(tenant_id, comment_id, edit_key=edit_key, sso=sso)
 
-
-
 ### Example
 
 
@@ -1002,8 +976,6 @@ No authorization required
 # **get_comment_vote_user_names**
 > GetCommentVoteUserNamesSuccessResponse get_comment_vote_user_names(tenant_id, comment_id, dir, sso=sso)
 
-
-
 ### Example
 
 
@@ -1073,8 +1045,6 @@ No authorization required
 
 # **get_comments_for_user**
 > GetCommentsForUserResponse get_comments_for_user(user_id=user_id, direction=direction, replies_to_user_id=replies_to_user_id, page=page, includei10n=includei10n, locale=locale, is_crawler=is_crawler)
-
-
 
 ### Example
 
@@ -1154,8 +1124,9 @@ No authorization required
 > GetCommentsResponseWithPresencePublicComment get_comments_public(tenant_id, url_id, page=page, direction=direction, sso=sso, skip=skip, skip_children=skip_children, limit=limit, limit_children=limit_children, count_children=count_children, fetch_page_for_comment_id=fetch_page_for_comment_id, include_config=include_config, count_all=count_all, includei10n=includei10n, locale=locale, modules=modules, is_crawler=is_crawler, include_notification_count=include_notification_count, as_tree=as_tree, max_tree_depth=max_tree_depth, use_full_translation_ids=use_full_translation_ids, parent_id=parent_id, search_text=search_text, hash_tags=hash_tags, user_id=user_id, custom_config_str=custom_config_str, after_comment_id=after_comment_id, before_comment_id=before_comment_id)
 
 
-
- req tenantId urlId
+req
+tenantId
+urlId
 
 ### Example
 
@@ -1277,8 +1248,10 @@ No authorization required
 > GetEventLogResponse get_event_log(tenant_id, url_id, user_id_ws, start_time, end_time=end_time)
 
 
-
- req tenantId urlId userIdWS
+req
+tenantId
+urlId
+userIdWS
 
 ### Example
 
@@ -1353,8 +1326,9 @@ No authorization required
 > PublicFeedPostsResponse get_feed_posts_public(tenant_id, after_id=after_id, limit=limit, tags=tags, sso=sso, is_crawler=is_crawler, include_user_info=include_user_info)
 
 
-
- req tenantId afterId
+req
+tenantId
+afterId
 
 ### Example
 
@@ -1432,8 +1406,6 @@ No authorization required
 # **get_feed_posts_stats**
 > FeedPostsStatsResponse get_feed_posts_stats(tenant_id, post_ids, sso=sso)
 
-
-
 ### Example
 
 
@@ -1502,8 +1474,6 @@ No authorization required
 # **get_gif_large**
 > GifGetLargeResponse get_gif_large(tenant_id, large_internal_url_sanitized)
 
-
-
 ### Example
 
 
@@ -1570,8 +1540,6 @@ No authorization required
 
 # **get_gifs_search**
 > GetGifsSearchResponse get_gifs_search(tenant_id, search, locale=locale, rating=rating, page=page)
-
-
 
 ### Example
 
@@ -1646,8 +1614,6 @@ No authorization required
 # **get_gifs_trending**
 > GetGifsTrendingResponse get_gifs_trending(tenant_id, locale=locale, rating=rating, page=page)
 
-
-
 ### Example
 
 
@@ -1718,8 +1684,10 @@ No authorization required
 > GetEventLogResponse get_global_event_log(tenant_id, url_id, user_id_ws, start_time, end_time=end_time)
 
 
-
- req tenantId urlId userIdWS
+req
+tenantId
+urlId
+userIdWS
 
 ### Example
 
@@ -1793,9 +1761,10 @@ No authorization required
 # **get_offline_users**
 > PageUsersOfflineResponse get_offline_users(tenant_id, url_id, after_name=after_name, after_user_id=after_user_id)
 
-
-
-Past commenters on the page who are NOT currently online. Sorted by displayName. Use this after exhausting /users/online to render a \"Members\" section. Cursor pagination on commenterName: server walks the partial {tenantId, urlId, commenterName} index from afterName forward via $gt, no $skip cost.
+Past commenters on the page who are NOT currently online. Sorted by displayName.
+Use this after exhausting /users/online to render a "Members" section.
+Cursor pagination on commenterName: server walks the partial {tenantId, urlId, commenterName}
+index from afterName forward via $gt, no $skip cost.
 
 ### Example
 
@@ -1869,9 +1838,8 @@ No authorization required
 # **get_online_users**
 > PageUsersOnlineResponse get_online_users(tenant_id, url_id, after_name=after_name, after_user_id=after_user_id)
 
-
-
-Currently-online viewers of a page: people whose websocket session is subscribed to the page right now. Returns anonCount + totalCount (room-wide subscribers, including anon viewers we don't enumerate).
+Currently-online viewers of a page: people whose websocket session is subscribed to the page right now.
+Returns anonCount + totalCount (room-wide subscribers, including anon viewers we don't enumerate).
 
 ### Example
 
@@ -1945,9 +1913,9 @@ No authorization required
 # **get_pages_public**
 > GetPublicPagesResponse get_pages_public(tenant_id, cursor=cursor, limit=limit, q=q, sort_by=sort_by, has_comments=has_comments)
 
-
-
-List pages for a tenant. Used by the FChat desktop client to populate its room list. Requires `enableFChat` to be true on the resolved custom config for each page. Pages that require SSO are filtered against the requesting user's group access.
+List pages for a tenant. Used by the FChat desktop client to populate its room list.
+Requires `enableFChat` to be true on the resolved custom config for each page.
+Pages that require SSO are filtered against the requesting user's group access.
 
 ### Example
 
@@ -2024,8 +1992,6 @@ No authorization required
 # **get_translations**
 > GetTranslationsResponse get_translations(namespace, component, locale=locale, use_full_translation_ids=use_full_translation_ids)
 
-
-
 ### Example
 
 
@@ -2098,8 +2064,6 @@ No authorization required
 # **get_user_notification_count**
 > GetUserNotificationCountResponse get_user_notification_count(tenant_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -2165,8 +2129,6 @@ No authorization required
 
 # **get_user_notifications**
 > GetMyNotificationsResponse get_user_notifications(tenant_id, url_id=url_id, page_size=page_size, after_id=after_id, include_context=include_context, after_created_at=after_created_at, unread_only=unread_only, dm_only=dm_only, no_dm=no_dm, include_translations=include_translations, include_tenant_notifications=include_tenant_notifications, sso=sso)
-
-
 
 ### Example
 
@@ -2254,8 +2216,6 @@ No authorization required
 # **get_user_presence_statuses**
 > GetUserPresenceStatusesResponse get_user_presence_statuses(tenant_id, url_id_ws, user_ids)
 
-
-
 ### Example
 
 
@@ -2325,8 +2285,6 @@ No authorization required
 # **get_user_reacts_public**
 > UserReactsResponse get_user_reacts_public(tenant_id, post_ids=post_ids, sso=sso)
 
-
-
 ### Example
 
 
@@ -2395,9 +2353,9 @@ No authorization required
 # **get_users_info**
 > PageUsersInfoResponse get_users_info(tenant_id, ids)
 
-
-
-Bulk user info for a tenant. Given userIds, return display info from User / SSOUser. Used by the comment widget to enrich users that just appeared via a presence event. No page context: privacy is enforced uniformly (private profiles are masked).
+Bulk user info for a tenant. Given userIds, return display info from User / SSOUser.
+Used by the comment widget to enrich users that just appeared via a presence event.
+No page context: privacy is enforced uniformly (private profiles are masked).
 
 ### Example
 
@@ -2466,8 +2424,6 @@ No authorization required
 # **get_v1_page_likes**
 > GetV1PageLikes get_v1_page_likes(tenant_id, url_id)
 
-
-
 ### Example
 
 
@@ -2533,8 +2489,6 @@ No authorization required
 
 # **get_v2_page_react_users**
 > GetV2PageReactUsersResponse get_v2_page_react_users(tenant_id, url_id, id)
-
-
 
 ### Example
 
@@ -2604,8 +2558,6 @@ No authorization required
 # **get_v2_page_reacts**
 > GetV2PageReacts get_v2_page_reacts(tenant_id, url_id)
 
-
-
 ### Example
 
 
@@ -2671,8 +2623,6 @@ No authorization required
 
 # **lock_comment**
 > APIEmptyResponse lock_comment(tenant_id, comment_id, broadcast_id, sso=sso)
-
-
 
 ### Example
 
@@ -2744,8 +2694,6 @@ No authorization required
 # **logout_public**
 > APIEmptyResponse logout_public()
 
-
-
 ### Example
 
 
@@ -2804,8 +2752,6 @@ No authorization required
 
 # **pin_comment**
 > ChangeCommentPinStatusResponse pin_comment(tenant_id, comment_id, broadcast_id, sso=sso)
-
-
 
 ### Example
 
@@ -2876,8 +2822,6 @@ No authorization required
 
 # **react_feed_post_public**
 > ReactFeedPostResponse react_feed_post_public(tenant_id, post_id, react_body_params, is_undo=is_undo, broadcast_id=broadcast_id, sso=sso)
-
-
 
 ### Example
 
@@ -2954,8 +2898,6 @@ No authorization required
 # **reset_user_notification_count**
 > ResetUserNotificationsResponse reset_user_notification_count(tenant_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -3021,8 +2963,6 @@ No authorization required
 
 # **reset_user_notifications**
 > ResetUserNotificationsResponse reset_user_notifications(tenant_id, after_id=after_id, after_created_at=after_created_at, unread_only=unread_only, dm_only=dm_only, no_dm=no_dm, sso=sso)
-
-
 
 ### Example
 
@@ -3100,8 +3040,6 @@ No authorization required
 # **search_users**
 > SearchUsersResult search_users(tenant_id, url_id, username_starts_with=username_starts_with, mention_group_ids=mention_group_ids, sso=sso, search_section=search_section)
 
-
-
 ### Example
 
 
@@ -3175,8 +3113,6 @@ No authorization required
 
 # **set_comment_text**
 > PublicAPISetCommentTextResponse set_comment_text(tenant_id, comment_id, broadcast_id, comment_text_update_request, edit_key=edit_key, sso=sso)
-
-
 
 ### Example
 
@@ -3253,8 +3189,6 @@ No authorization required
 # **un_block_comment_public**
 > UnblockSuccess un_block_comment_public(tenant_id, comment_id, public_block_from_comment_params, sso=sso)
 
-
-
 ### Example
 
 
@@ -3326,8 +3260,6 @@ No authorization required
 # **un_lock_comment**
 > APIEmptyResponse un_lock_comment(tenant_id, comment_id, broadcast_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -3398,8 +3330,6 @@ No authorization required
 # **un_pin_comment**
 > ChangeCommentPinStatusResponse un_pin_comment(tenant_id, comment_id, broadcast_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -3469,8 +3399,6 @@ No authorization required
 
 # **update_feed_post_public**
 > CreateFeedPostResponse update_feed_post_public(tenant_id, post_id, update_feed_post_params, broadcast_id=broadcast_id, sso=sso)
-
-
 
 ### Example
 
@@ -3544,8 +3472,6 @@ No authorization required
 
 # **update_user_notification_comment_subscription_status**
 > UpdateUserNotificationCommentSubscriptionStatusResponse update_user_notification_comment_subscription_status(tenant_id, notification_id, opted_in_or_out, comment_id, sso=sso)
-
-
 
 Enable or disable notifications for a specific comment.
 
@@ -3621,9 +3547,8 @@ No authorization required
 # **update_user_notification_page_subscription_status**
 > UpdateUserNotificationPageSubscriptionStatusResponse update_user_notification_page_subscription_status(tenant_id, url_id, url, page_title, subscribed_or_unsubscribed, sso=sso)
 
-
-
-Enable or disable notifications for a page. When users are subscribed to a page, notifications are created for new root comments, and also
+Enable or disable notifications for a page. When users are subscribed to a page, notifications are created
+for new root comments, and also
 
 ### Example
 
@@ -3699,8 +3624,6 @@ No authorization required
 # **update_user_notification_status**
 > UpdateUserNotificationStatusResponse update_user_notification_status(tenant_id, notification_id, new_status, sso=sso)
 
-
-
 ### Example
 
 
@@ -3771,8 +3694,6 @@ No authorization required
 # **upload_image**
 > UploadImageResponse upload_image(tenant_id, file, size_preset=size_preset, url_id=url_id)
 
-
-
 Upload and resize an image
 
 ### Example
@@ -3797,7 +3718,7 @@ with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = client.PublicApi(api_client)
     tenant_id = 'tenant_id_example' # str | 
-    file = None # bytearray | 
+    file = None # bytes | 
     size_preset = client.SizePreset() # SizePreset | Size preset: \"Default\" (1000x1000px) or \"CrossPlatform\" (creates sizes for popular devices) (optional)
     url_id = 'url_id_example' # str | Page id that upload is happening from, to configure (optional)
 
@@ -3817,7 +3738,7 @@ with client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tenant_id** | **str**|  | 
- **file** | **bytearray**|  | 
+ **file** | **bytes**|  | 
  **size_preset** | [**SizePreset**](.md)| Size preset: \&quot;Default\&quot; (1000x1000px) or \&quot;CrossPlatform\&quot; (creates sizes for popular devices) | [optional] 
  **url_id** | **str**| Page id that upload is happening from, to configure | [optional] 
 
@@ -3844,8 +3765,6 @@ No authorization required
 
 # **vote_comment**
 > VoteResponse vote_comment(tenant_id, comment_id, url_id, broadcast_id, vote_body_params, session_id=session_id, sso=sso)
-
-
 
 ### Example
 

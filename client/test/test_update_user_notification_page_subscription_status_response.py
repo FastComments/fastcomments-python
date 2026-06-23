@@ -43,9 +43,6 @@ class TestUpdateUserNotificationPageSubscriptionStatusResponse(unittest.TestCase
         else:
             return UpdateUserNotificationPageSubscriptionStatusResponse(
                 status = 'success',
-                matched_count = 56,
-                modified_count = 56,
-                note = 'ignored-since-impersonated',
         )
         """
 

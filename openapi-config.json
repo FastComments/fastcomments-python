@@ -5,5 +5,6 @@
   "packageUrl": "https://github.com/fastcomments/fastcomments-python",
   "authorName": "FastComments",
   "authorEmail": "support@fastcomments.com",
-  "licenseName": "MIT"
+  "licenseName": "MIT",
+  "useSingleRequestParameter": true
 }

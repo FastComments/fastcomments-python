@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     fastcomments
 
@@ -10,6 +8,7 @@
 
     Do not edit the class manually.
 """  # noqa: E501
+
 
 import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
@@ -77,6 +76,619 @@ from client.api_response import ApiResponse
 from client.rest import RESTResponseType
 
 
+from pydantic import BaseModel
+
+
+class ApiBlockFromCommentPublicRequest(BaseModel):
+    """Request object for block_from_comment_public."""
+    tenant_id: StrictStr
+    comment_id: StrictStr
+    public_block_from_comment_params: PublicBlockFromCommentParams
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiCheckedCommentsForBlockedRequest(BaseModel):
+    """Request object for checked_comments_for_blocked."""
+    tenant_id: StrictStr
+    comment_ids: Annotated[StrictStr, Field(description="A comma separated list of comment ids.")]
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiCreateCommentPublicRequest(BaseModel):
+    """Request object for create_comment_public."""
+    tenant_id: StrictStr
+    url_id: StrictStr
+    broadcast_id: StrictStr
+    comment_data: CommentData
+    session_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiCreateFeedPostPublicRequest(BaseModel):
+    """Request object for create_feed_post_public."""
+    tenant_id: StrictStr
+    create_feed_post_params: CreateFeedPostParams
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiCreateV1PageReactRequest(BaseModel):
+    """Request object for create_v1_page_react."""
+    tenant_id: StrictStr
+    url_id: StrictStr
+    title: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiCreateV2PageReactRequest(BaseModel):
+    """Request object for create_v2_page_react."""
+    tenant_id: StrictStr
+    url_id: StrictStr
+    id: StrictStr
+    title: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiDeleteCommentPublicRequest(BaseModel):
+    """Request object for delete_comment_public."""
+    tenant_id: StrictStr
+    comment_id: StrictStr
+    broadcast_id: StrictStr
+    edit_key: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiDeleteCommentVoteRequest(BaseModel):
+    """Request object for delete_comment_vote."""
+    tenant_id: StrictStr
+    comment_id: StrictStr
+    vote_id: StrictStr
+    url_id: StrictStr
+    broadcast_id: StrictStr
+    edit_key: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiDeleteFeedPostPublicRequest(BaseModel):
+    """Request object for delete_feed_post_public."""
+    tenant_id: StrictStr
+    post_id: StrictStr
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiDeleteV1PageReactRequest(BaseModel):
+    """Request object for delete_v1_page_react."""
+    tenant_id: StrictStr
+    url_id: StrictStr
+
+
+from pydantic import BaseModel
+
+
+class ApiDeleteV2PageReactRequest(BaseModel):
+    """Request object for delete_v2_page_react."""
+    tenant_id: StrictStr
+    url_id: StrictStr
+    id: StrictStr
+
+
+from pydantic import BaseModel
+
+
+class ApiFlagCommentPublicRequest(BaseModel):
+    """Request object for flag_comment_public."""
+    tenant_id: StrictStr
+    comment_id: StrictStr
+    is_flagged: StrictBool
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetCommentTextRequest(BaseModel):
+    """Request object for get_comment_text."""
+    tenant_id: StrictStr
+    comment_id: StrictStr
+    edit_key: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetCommentVoteUserNamesRequest(BaseModel):
+    """Request object for get_comment_vote_user_names."""
+    tenant_id: StrictStr
+    comment_id: StrictStr
+    dir: StrictInt
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetCommentsForUserRequest(BaseModel):
+    """Request object for get_comments_for_user."""
+    user_id: Optional[StrictStr] = None
+    direction: Optional[SortDirections] = None
+    replies_to_user_id: Optional[StrictStr] = None
+    page: Optional[Union[StrictFloat, StrictInt]] = None
+    includei10n: Optional[StrictBool] = None
+    locale: Optional[StrictStr] = None
+    is_crawler: Optional[StrictBool] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetCommentsPublicRequest(BaseModel):
+    """Request object for get_comments_public."""
+    tenant_id: StrictStr
+    url_id: StrictStr
+    page: Optional[StrictInt] = None
+    direction: Optional[SortDirections] = None
+    sso: Optional[StrictStr] = None
+    skip: Optional[StrictInt] = None
+    skip_children: Optional[StrictInt] = None
+    limit: Optional[StrictInt] = None
+    limit_children: Optional[StrictInt] = None
+    count_children: Optional[StrictBool] = None
+    fetch_page_for_comment_id: Optional[StrictStr] = None
+    include_config: Optional[StrictBool] = None
+    count_all: Optional[StrictBool] = None
+    includei10n: Optional[StrictBool] = None
+    locale: Optional[StrictStr] = None
+    modules: Optional[StrictStr] = None
+    is_crawler: Optional[StrictBool] = None
+    include_notification_count: Optional[StrictBool] = None
+    as_tree: Optional[StrictBool] = None
+    max_tree_depth: Optional[StrictInt] = None
+    use_full_translation_ids: Optional[StrictBool] = None
+    parent_id: Optional[StrictStr] = None
+    search_text: Optional[StrictStr] = None
+    hash_tags: Optional[List[StrictStr]] = None
+    user_id: Optional[StrictStr] = None
+    custom_config_str: Optional[StrictStr] = None
+    after_comment_id: Optional[StrictStr] = None
+    before_comment_id: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetEventLogRequest(BaseModel):
+    """Request object for get_event_log."""
+    tenant_id: StrictStr
+    url_id: StrictStr
+    user_id_ws: StrictStr
+    start_time: StrictInt
+    end_time: Optional[StrictInt] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetFeedPostsPublicRequest(BaseModel):
+    """Request object for get_feed_posts_public."""
+    tenant_id: StrictStr
+    after_id: Optional[StrictStr] = None
+    limit: Optional[StrictInt] = None
+    tags: Optional[List[StrictStr]] = None
+    sso: Optional[StrictStr] = None
+    is_crawler: Optional[StrictBool] = None
+    include_user_info: Optional[StrictBool] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetFeedPostsStatsRequest(BaseModel):
+    """Request object for get_feed_posts_stats."""
+    tenant_id: StrictStr
+    post_ids: List[StrictStr]
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetGifLargeRequest(BaseModel):
+    """Request object for get_gif_large."""
+    tenant_id: StrictStr
+    large_internal_url_sanitized: StrictStr
+
+
+from pydantic import BaseModel
+
+
+class ApiGetGifsSearchRequest(BaseModel):
+    """Request object for get_gifs_search."""
+    tenant_id: StrictStr
+    search: StrictStr
+    locale: Optional[StrictStr] = None
+    rating: Optional[StrictStr] = None
+    page: Optional[Union[StrictFloat, StrictInt]] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetGifsTrendingRequest(BaseModel):
+    """Request object for get_gifs_trending."""
+    tenant_id: StrictStr
+    locale: Optional[StrictStr] = None
+    rating: Optional[StrictStr] = None
+    page: Optional[Union[StrictFloat, StrictInt]] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetGlobalEventLogRequest(BaseModel):
+    """Request object for get_global_event_log."""
+    tenant_id: StrictStr
+    url_id: StrictStr
+    user_id_ws: StrictStr
+    start_time: StrictInt
+    end_time: Optional[StrictInt] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetOfflineUsersRequest(BaseModel):
+    """Request object for get_offline_users."""
+    tenant_id: StrictStr
+    url_id: Annotated[StrictStr, Field(description="Page URL identifier (cleaned server-side).")]
+    after_name: Annotated[Optional[StrictStr], Field(description="Cursor: pass nextAfterName from the previous response.")] = None
+    after_user_id: Annotated[Optional[StrictStr], Field(description="Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.")] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetOnlineUsersRequest(BaseModel):
+    """Request object for get_online_users."""
+    tenant_id: StrictStr
+    url_id: Annotated[StrictStr, Field(description="Page URL identifier (cleaned server-side).")]
+    after_name: Annotated[Optional[StrictStr], Field(description="Cursor: pass nextAfterName from the previous response.")] = None
+    after_user_id: Annotated[Optional[StrictStr], Field(description="Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.")] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetPagesPublicRequest(BaseModel):
+    """Request object for get_pages_public."""
+    tenant_id: StrictStr
+    cursor: Annotated[Optional[StrictStr], Field(description="Opaque pagination cursor returned as `nextCursor` from a prior request. Tied to the same `sortBy`.")] = None
+    limit: Annotated[Optional[StrictInt], Field(description="1..200, default 50")] = None
+    q: Annotated[Optional[StrictStr], Field(description="Optional case-insensitive title prefix filter.")] = None
+    sort_by: Annotated[Optional[PagesSortBy], Field(description="Sort order. `updatedAt` (default, newest first), `commentCount` (most comments first), or `title` (alphabetical).")] = None
+    has_comments: Annotated[Optional[StrictBool], Field(description="If true, only return pages with at least one comment.")] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetTranslationsRequest(BaseModel):
+    """Request object for get_translations."""
+    namespace: StrictStr
+    component: StrictStr
+    locale: Optional[StrictStr] = None
+    use_full_translation_ids: Optional[StrictBool] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetUserNotificationCountRequest(BaseModel):
+    """Request object for get_user_notification_count."""
+    tenant_id: StrictStr
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetUserNotificationsRequest(BaseModel):
+    """Request object for get_user_notifications."""
+    tenant_id: StrictStr
+    url_id: Annotated[Optional[StrictStr], Field(description="Used to determine whether the current page is subscribed.")] = None
+    page_size: Optional[StrictInt] = None
+    after_id: Optional[StrictStr] = None
+    include_context: Optional[StrictBool] = None
+    after_created_at: Optional[StrictInt] = None
+    unread_only: Optional[StrictBool] = None
+    dm_only: Optional[StrictBool] = None
+    no_dm: Optional[StrictBool] = None
+    include_translations: Optional[StrictBool] = None
+    include_tenant_notifications: Optional[StrictBool] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetUserPresenceStatusesRequest(BaseModel):
+    """Request object for get_user_presence_statuses."""
+    tenant_id: StrictStr
+    url_id_ws: StrictStr
+    user_ids: StrictStr
+
+
+from pydantic import BaseModel
+
+
+class ApiGetUserReactsPublicRequest(BaseModel):
+    """Request object for get_user_reacts_public."""
+    tenant_id: StrictStr
+    post_ids: Optional[List[StrictStr]] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiGetUsersInfoRequest(BaseModel):
+    """Request object for get_users_info."""
+    tenant_id: StrictStr
+    ids: Annotated[StrictStr, Field(description="Comma-delimited userIds.")]
+
+
+from pydantic import BaseModel
+
+
+class ApiGetV1PageLikesRequest(BaseModel):
+    """Request object for get_v1_page_likes."""
+    tenant_id: StrictStr
+    url_id: StrictStr
+
+
+from pydantic import BaseModel
+
+
+class ApiGetV2PageReactUsersRequest(BaseModel):
+    """Request object for get_v2_page_react_users."""
+    tenant_id: StrictStr
+    url_id: StrictStr
+    id: StrictStr
+
+
+from pydantic import BaseModel
+
+
+class ApiGetV2PageReactsRequest(BaseModel):
+    """Request object for get_v2_page_reacts."""
+    tenant_id: StrictStr
+    url_id: StrictStr
+
+
+from pydantic import BaseModel
+
+
+class ApiLockCommentRequest(BaseModel):
+    """Request object for lock_comment."""
+    tenant_id: StrictStr
+    comment_id: StrictStr
+    broadcast_id: StrictStr
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiLogoutPublicRequest(BaseModel):
+    """Request object for logout_public."""
+    pass
+
+
+from pydantic import BaseModel
+
+
+class ApiPinCommentRequest(BaseModel):
+    """Request object for pin_comment."""
+    tenant_id: StrictStr
+    comment_id: StrictStr
+    broadcast_id: StrictStr
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiReactFeedPostPublicRequest(BaseModel):
+    """Request object for react_feed_post_public."""
+    tenant_id: StrictStr
+    post_id: StrictStr
+    react_body_params: ReactBodyParams
+    is_undo: Optional[StrictBool] = None
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiResetUserNotificationCountRequest(BaseModel):
+    """Request object for reset_user_notification_count."""
+    tenant_id: StrictStr
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiResetUserNotificationsRequest(BaseModel):
+    """Request object for reset_user_notifications."""
+    tenant_id: StrictStr
+    after_id: Optional[StrictStr] = None
+    after_created_at: Optional[StrictInt] = None
+    unread_only: Optional[StrictBool] = None
+    dm_only: Optional[StrictBool] = None
+    no_dm: Optional[StrictBool] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiSearchUsersRequest(BaseModel):
+    """Request object for search_users."""
+    tenant_id: StrictStr
+    url_id: StrictStr
+    username_starts_with: Optional[StrictStr] = None
+    mention_group_ids: Optional[List[StrictStr]] = None
+    sso: Optional[StrictStr] = None
+    search_section: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiSetCommentTextRequest(BaseModel):
+    """Request object for set_comment_text."""
+    tenant_id: StrictStr
+    comment_id: StrictStr
+    broadcast_id: StrictStr
+    comment_text_update_request: CommentTextUpdateRequest
+    edit_key: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiUnBlockCommentPublicRequest(BaseModel):
+    """Request object for un_block_comment_public."""
+    tenant_id: StrictStr
+    comment_id: StrictStr
+    public_block_from_comment_params: PublicBlockFromCommentParams
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiUnLockCommentRequest(BaseModel):
+    """Request object for un_lock_comment."""
+    tenant_id: StrictStr
+    comment_id: StrictStr
+    broadcast_id: StrictStr
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiUnPinCommentRequest(BaseModel):
+    """Request object for un_pin_comment."""
+    tenant_id: StrictStr
+    comment_id: StrictStr
+    broadcast_id: StrictStr
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiUpdateFeedPostPublicRequest(BaseModel):
+    """Request object for update_feed_post_public."""
+    tenant_id: StrictStr
+    post_id: StrictStr
+    update_feed_post_params: UpdateFeedPostParams
+    broadcast_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiUpdateUserNotificationCommentSubscriptionStatusRequest(BaseModel):
+    """Request object for update_user_notification_comment_subscription_status."""
+    tenant_id: StrictStr
+    notification_id: StrictStr
+    opted_in_or_out: StrictStr
+    comment_id: StrictStr
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiUpdateUserNotificationPageSubscriptionStatusRequest(BaseModel):
+    """Request object for update_user_notification_page_subscription_status."""
+    tenant_id: StrictStr
+    url_id: StrictStr
+    url: StrictStr
+    page_title: StrictStr
+    subscribed_or_unsubscribed: StrictStr
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiUpdateUserNotificationStatusRequest(BaseModel):
+    """Request object for update_user_notification_status."""
+    tenant_id: StrictStr
+    notification_id: StrictStr
+    new_status: StrictStr
+    sso: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiUploadImageRequest(BaseModel):
+    """Request object for upload_image."""
+    tenant_id: StrictStr
+    file: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]
+    size_preset: Annotated[Optional[SizePreset], Field(description="Size preset: \"Default\" (1000x1000px) or \"CrossPlatform\" (creates sizes for popular devices)")] = None
+    url_id: Annotated[Optional[StrictStr], Field(description="Page id that upload is happening from, to configure")] = None
+
+
+from pydantic import BaseModel
+
+
+class ApiVoteCommentRequest(BaseModel):
+    """Request object for vote_comment."""
+    tenant_id: StrictStr
+    comment_id: StrictStr
+    url_id: StrictStr
+    broadcast_id: StrictStr
+    vote_body_params: VoteBodyParams
+    session_id: Optional[StrictStr] = None
+    sso: Optional[StrictStr] = None
+
+
 class PublicApi:
     """NOTE: This class is auto generated by OpenAPI Generator
     Ref: https://openapi-generator.tech
@@ -93,10 +705,7 @@ class PublicApi:
     @validate_call
     def block_from_comment_public(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        public_block_from_comment_params: PublicBlockFromCommentParams,
-        sso: Optional[StrictStr] = None,
+        BlockFromCommentPublic_request: ApiBlockFromCommentPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -113,14 +722,8 @@ class PublicApi:
         """block_from_comment_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param public_block_from_comment_params: (required)
-        :type public_block_from_comment_params: PublicBlockFromCommentParams
-        :param sso:
-        :type sso: str
+        :param BlockFromCommentPublic_request: The request object containing all parameters for this operation. (required)
+        :type BlockFromCommentPublic_request: ApiBlockFromCommentPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -144,10 +747,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._block_from_comment_public_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            public_block_from_comment_params=public_block_from_comment_params,
-            sso=sso,
+            tenant_id=BlockFromCommentPublic_request.tenant_id,
+            comment_id=BlockFromCommentPublic_request.comment_id,
+            public_block_from_comment_params=BlockFromCommentPublic_request.public_block_from_comment_params,
+            sso=BlockFromCommentPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -171,10 +774,7 @@ class PublicApi:
     @validate_call
     def block_from_comment_public_with_http_info(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        public_block_from_comment_params: PublicBlockFromCommentParams,
-        sso: Optional[StrictStr] = None,
+        BlockFromCommentPublic_request: ApiBlockFromCommentPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -191,14 +791,8 @@ class PublicApi:
         """block_from_comment_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param public_block_from_comment_params: (required)
-        :type public_block_from_comment_params: PublicBlockFromCommentParams
-        :param sso:
-        :type sso: str
+        :param BlockFromCommentPublic_request: The request object containing all parameters for this operation. (required)
+        :type BlockFromCommentPublic_request: ApiBlockFromCommentPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -222,10 +816,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._block_from_comment_public_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            public_block_from_comment_params=public_block_from_comment_params,
-            sso=sso,
+            tenant_id=BlockFromCommentPublic_request.tenant_id,
+            comment_id=BlockFromCommentPublic_request.comment_id,
+            public_block_from_comment_params=BlockFromCommentPublic_request.public_block_from_comment_params,
+            sso=BlockFromCommentPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -249,10 +843,7 @@ class PublicApi:
     @validate_call
     def block_from_comment_public_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        public_block_from_comment_params: PublicBlockFromCommentParams,
-        sso: Optional[StrictStr] = None,
+        BlockFromCommentPublic_request: ApiBlockFromCommentPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -269,14 +860,8 @@ class PublicApi:
         """block_from_comment_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param public_block_from_comment_params: (required)
-        :type public_block_from_comment_params: PublicBlockFromCommentParams
-        :param sso:
-        :type sso: str
+        :param BlockFromCommentPublic_request: The request object containing all parameters for this operation. (required)
+        :type BlockFromCommentPublic_request: ApiBlockFromCommentPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -300,10 +885,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._block_from_comment_public_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            public_block_from_comment_params=public_block_from_comment_params,
-            sso=sso,
+            tenant_id=BlockFromCommentPublic_request.tenant_id,
+            comment_id=BlockFromCommentPublic_request.comment_id,
+            public_block_from_comment_params=BlockFromCommentPublic_request.public_block_from_comment_params,
+            sso=BlockFromCommentPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -412,9 +997,7 @@ class PublicApi:
     @validate_call
     def checked_comments_for_blocked(
         self,
-        tenant_id: StrictStr,
-        comment_ids: Annotated[StrictStr, Field(description="A comma separated list of comment ids.")],
-        sso: Optional[StrictStr] = None,
+        CheckedCommentsForBlocked_request: ApiCheckedCommentsForBlockedRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -431,12 +1014,8 @@ class PublicApi:
         """checked_comments_for_blocked
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_ids: A comma separated list of comment ids. (required)
-        :type comment_ids: str
-        :param sso:
-        :type sso: str
+        :param CheckedCommentsForBlocked_request: The request object containing all parameters for this operation. (required)
+        :type CheckedCommentsForBlocked_request: ApiCheckedCommentsForBlockedRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -460,9 +1039,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._checked_comments_for_blocked_serialize(
-            tenant_id=tenant_id,
-            comment_ids=comment_ids,
-            sso=sso,
+            tenant_id=CheckedCommentsForBlocked_request.tenant_id,
+            comment_ids=CheckedCommentsForBlocked_request.comment_ids,
+            sso=CheckedCommentsForBlocked_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -486,9 +1065,7 @@ class PublicApi:
     @validate_call
     def checked_comments_for_blocked_with_http_info(
         self,
-        tenant_id: StrictStr,
-        comment_ids: Annotated[StrictStr, Field(description="A comma separated list of comment ids.")],
-        sso: Optional[StrictStr] = None,
+        CheckedCommentsForBlocked_request: ApiCheckedCommentsForBlockedRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -505,12 +1082,8 @@ class PublicApi:
         """checked_comments_for_blocked
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_ids: A comma separated list of comment ids. (required)
-        :type comment_ids: str
-        :param sso:
-        :type sso: str
+        :param CheckedCommentsForBlocked_request: The request object containing all parameters for this operation. (required)
+        :type CheckedCommentsForBlocked_request: ApiCheckedCommentsForBlockedRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -534,9 +1107,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._checked_comments_for_blocked_serialize(
-            tenant_id=tenant_id,
-            comment_ids=comment_ids,
-            sso=sso,
+            tenant_id=CheckedCommentsForBlocked_request.tenant_id,
+            comment_ids=CheckedCommentsForBlocked_request.comment_ids,
+            sso=CheckedCommentsForBlocked_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -560,9 +1133,7 @@ class PublicApi:
     @validate_call
     def checked_comments_for_blocked_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        comment_ids: Annotated[StrictStr, Field(description="A comma separated list of comment ids.")],
-        sso: Optional[StrictStr] = None,
+        CheckedCommentsForBlocked_request: ApiCheckedCommentsForBlockedRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -579,12 +1150,8 @@ class PublicApi:
         """checked_comments_for_blocked
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_ids: A comma separated list of comment ids. (required)
-        :type comment_ids: str
-        :param sso:
-        :type sso: str
+        :param CheckedCommentsForBlocked_request: The request object containing all parameters for this operation. (required)
+        :type CheckedCommentsForBlocked_request: ApiCheckedCommentsForBlockedRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -608,9 +1175,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._checked_comments_for_blocked_serialize(
-            tenant_id=tenant_id,
-            comment_ids=comment_ids,
-            sso=sso,
+            tenant_id=CheckedCommentsForBlocked_request.tenant_id,
+            comment_ids=CheckedCommentsForBlocked_request.comment_ids,
+            sso=CheckedCommentsForBlocked_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -705,12 +1272,7 @@ class PublicApi:
     @validate_call
     def create_comment_public(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        broadcast_id: StrictStr,
-        comment_data: CommentData,
-        session_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        CreateCommentPublic_request: ApiCreateCommentPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -727,18 +1289,8 @@ class PublicApi:
         """create_comment_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param comment_data: (required)
-        :type comment_data: CommentData
-        :param session_id:
-        :type session_id: str
-        :param sso:
-        :type sso: str
+        :param CreateCommentPublic_request: The request object containing all parameters for this operation. (required)
+        :type CreateCommentPublic_request: ApiCreateCommentPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -762,12 +1314,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._create_comment_public_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            broadcast_id=broadcast_id,
-            comment_data=comment_data,
-            session_id=session_id,
-            sso=sso,
+            tenant_id=CreateCommentPublic_request.tenant_id,
+            url_id=CreateCommentPublic_request.url_id,
+            broadcast_id=CreateCommentPublic_request.broadcast_id,
+            comment_data=CreateCommentPublic_request.comment_data,
+            session_id=CreateCommentPublic_request.session_id,
+            sso=CreateCommentPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -791,12 +1343,7 @@ class PublicApi:
     @validate_call
     def create_comment_public_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        broadcast_id: StrictStr,
-        comment_data: CommentData,
-        session_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        CreateCommentPublic_request: ApiCreateCommentPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -813,18 +1360,8 @@ class PublicApi:
         """create_comment_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param comment_data: (required)
-        :type comment_data: CommentData
-        :param session_id:
-        :type session_id: str
-        :param sso:
-        :type sso: str
+        :param CreateCommentPublic_request: The request object containing all parameters for this operation. (required)
+        :type CreateCommentPublic_request: ApiCreateCommentPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -848,12 +1385,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._create_comment_public_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            broadcast_id=broadcast_id,
-            comment_data=comment_data,
-            session_id=session_id,
-            sso=sso,
+            tenant_id=CreateCommentPublic_request.tenant_id,
+            url_id=CreateCommentPublic_request.url_id,
+            broadcast_id=CreateCommentPublic_request.broadcast_id,
+            comment_data=CreateCommentPublic_request.comment_data,
+            session_id=CreateCommentPublic_request.session_id,
+            sso=CreateCommentPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -877,12 +1414,7 @@ class PublicApi:
     @validate_call
     def create_comment_public_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        broadcast_id: StrictStr,
-        comment_data: CommentData,
-        session_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        CreateCommentPublic_request: ApiCreateCommentPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -899,18 +1431,8 @@ class PublicApi:
         """create_comment_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param comment_data: (required)
-        :type comment_data: CommentData
-        :param session_id:
-        :type session_id: str
-        :param sso:
-        :type sso: str
+        :param CreateCommentPublic_request: The request object containing all parameters for this operation. (required)
+        :type CreateCommentPublic_request: ApiCreateCommentPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -934,12 +1456,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._create_comment_public_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            broadcast_id=broadcast_id,
-            comment_data=comment_data,
-            session_id=session_id,
-            sso=sso,
+            tenant_id=CreateCommentPublic_request.tenant_id,
+            url_id=CreateCommentPublic_request.url_id,
+            broadcast_id=CreateCommentPublic_request.broadcast_id,
+            comment_data=CreateCommentPublic_request.comment_data,
+            session_id=CreateCommentPublic_request.session_id,
+            sso=CreateCommentPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1058,10 +1580,7 @@ class PublicApi:
     @validate_call
     def create_feed_post_public(
         self,
-        tenant_id: StrictStr,
-        create_feed_post_params: CreateFeedPostParams,
-        broadcast_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        CreateFeedPostPublic_request: ApiCreateFeedPostPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1078,14 +1597,8 @@ class PublicApi:
         """create_feed_post_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param create_feed_post_params: (required)
-        :type create_feed_post_params: CreateFeedPostParams
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param CreateFeedPostPublic_request: The request object containing all parameters for this operation. (required)
+        :type CreateFeedPostPublic_request: ApiCreateFeedPostPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1109,10 +1622,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._create_feed_post_public_serialize(
-            tenant_id=tenant_id,
-            create_feed_post_params=create_feed_post_params,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=CreateFeedPostPublic_request.tenant_id,
+            create_feed_post_params=CreateFeedPostPublic_request.create_feed_post_params,
+            broadcast_id=CreateFeedPostPublic_request.broadcast_id,
+            sso=CreateFeedPostPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1136,10 +1649,7 @@ class PublicApi:
     @validate_call
     def create_feed_post_public_with_http_info(
         self,
-        tenant_id: StrictStr,
-        create_feed_post_params: CreateFeedPostParams,
-        broadcast_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        CreateFeedPostPublic_request: ApiCreateFeedPostPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1156,14 +1666,8 @@ class PublicApi:
         """create_feed_post_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param create_feed_post_params: (required)
-        :type create_feed_post_params: CreateFeedPostParams
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param CreateFeedPostPublic_request: The request object containing all parameters for this operation. (required)
+        :type CreateFeedPostPublic_request: ApiCreateFeedPostPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1187,10 +1691,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._create_feed_post_public_serialize(
-            tenant_id=tenant_id,
-            create_feed_post_params=create_feed_post_params,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=CreateFeedPostPublic_request.tenant_id,
+            create_feed_post_params=CreateFeedPostPublic_request.create_feed_post_params,
+            broadcast_id=CreateFeedPostPublic_request.broadcast_id,
+            sso=CreateFeedPostPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1214,10 +1718,7 @@ class PublicApi:
     @validate_call
     def create_feed_post_public_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        create_feed_post_params: CreateFeedPostParams,
-        broadcast_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        CreateFeedPostPublic_request: ApiCreateFeedPostPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1234,14 +1735,8 @@ class PublicApi:
         """create_feed_post_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param create_feed_post_params: (required)
-        :type create_feed_post_params: CreateFeedPostParams
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param CreateFeedPostPublic_request: The request object containing all parameters for this operation. (required)
+        :type CreateFeedPostPublic_request: ApiCreateFeedPostPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1265,10 +1760,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._create_feed_post_public_serialize(
-            tenant_id=tenant_id,
-            create_feed_post_params=create_feed_post_params,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=CreateFeedPostPublic_request.tenant_id,
+            create_feed_post_params=CreateFeedPostPublic_request.create_feed_post_params,
+            broadcast_id=CreateFeedPostPublic_request.broadcast_id,
+            sso=CreateFeedPostPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1377,9 +1872,7 @@ class PublicApi:
     @validate_call
     def create_v1_page_react(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        title: Optional[StrictStr] = None,
+        CreateV1PageReact_request: ApiCreateV1PageReactRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1396,12 +1889,8 @@ class PublicApi:
         """create_v1_page_react
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param title:
-        :type title: str
+        :param CreateV1PageReact_request: The request object containing all parameters for this operation. (required)
+        :type CreateV1PageReact_request: ApiCreateV1PageReactRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1425,9 +1914,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._create_v1_page_react_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            title=title,
+            tenant_id=CreateV1PageReact_request.tenant_id,
+            url_id=CreateV1PageReact_request.url_id,
+            title=CreateV1PageReact_request.title,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1451,9 +1940,7 @@ class PublicApi:
     @validate_call
     def create_v1_page_react_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        title: Optional[StrictStr] = None,
+        CreateV1PageReact_request: ApiCreateV1PageReactRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1470,12 +1957,8 @@ class PublicApi:
         """create_v1_page_react
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param title:
-        :type title: str
+        :param CreateV1PageReact_request: The request object containing all parameters for this operation. (required)
+        :type CreateV1PageReact_request: ApiCreateV1PageReactRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1499,9 +1982,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._create_v1_page_react_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            title=title,
+            tenant_id=CreateV1PageReact_request.tenant_id,
+            url_id=CreateV1PageReact_request.url_id,
+            title=CreateV1PageReact_request.title,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1525,9 +2008,7 @@ class PublicApi:
     @validate_call
     def create_v1_page_react_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        title: Optional[StrictStr] = None,
+        CreateV1PageReact_request: ApiCreateV1PageReactRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1544,12 +2025,8 @@ class PublicApi:
         """create_v1_page_react
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param title:
-        :type title: str
+        :param CreateV1PageReact_request: The request object containing all parameters for this operation. (required)
+        :type CreateV1PageReact_request: ApiCreateV1PageReactRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1573,9 +2050,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._create_v1_page_react_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            title=title,
+            tenant_id=CreateV1PageReact_request.tenant_id,
+            url_id=CreateV1PageReact_request.url_id,
+            title=CreateV1PageReact_request.title,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1668,10 +2145,7 @@ class PublicApi:
     @validate_call
     def create_v2_page_react(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        id: StrictStr,
-        title: Optional[StrictStr] = None,
+        CreateV2PageReact_request: ApiCreateV2PageReactRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1688,14 +2162,8 @@ class PublicApi:
         """create_v2_page_react
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param id: (required)
-        :type id: str
-        :param title:
-        :type title: str
+        :param CreateV2PageReact_request: The request object containing all parameters for this operation. (required)
+        :type CreateV2PageReact_request: ApiCreateV2PageReactRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1719,10 +2187,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._create_v2_page_react_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            id=id,
-            title=title,
+            tenant_id=CreateV2PageReact_request.tenant_id,
+            url_id=CreateV2PageReact_request.url_id,
+            id=CreateV2PageReact_request.id,
+            title=CreateV2PageReact_request.title,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1746,10 +2214,7 @@ class PublicApi:
     @validate_call
     def create_v2_page_react_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        id: StrictStr,
-        title: Optional[StrictStr] = None,
+        CreateV2PageReact_request: ApiCreateV2PageReactRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1766,14 +2231,8 @@ class PublicApi:
         """create_v2_page_react
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param id: (required)
-        :type id: str
-        :param title:
-        :type title: str
+        :param CreateV2PageReact_request: The request object containing all parameters for this operation. (required)
+        :type CreateV2PageReact_request: ApiCreateV2PageReactRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1797,10 +2256,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._create_v2_page_react_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            id=id,
-            title=title,
+            tenant_id=CreateV2PageReact_request.tenant_id,
+            url_id=CreateV2PageReact_request.url_id,
+            id=CreateV2PageReact_request.id,
+            title=CreateV2PageReact_request.title,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1824,10 +2283,7 @@ class PublicApi:
     @validate_call
     def create_v2_page_react_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        id: StrictStr,
-        title: Optional[StrictStr] = None,
+        CreateV2PageReact_request: ApiCreateV2PageReactRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1844,14 +2300,8 @@ class PublicApi:
         """create_v2_page_react
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param id: (required)
-        :type id: str
-        :param title:
-        :type title: str
+        :param CreateV2PageReact_request: The request object containing all parameters for this operation. (required)
+        :type CreateV2PageReact_request: ApiCreateV2PageReactRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1875,10 +2325,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._create_v2_page_react_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            id=id,
-            title=title,
+            tenant_id=CreateV2PageReact_request.tenant_id,
+            url_id=CreateV2PageReact_request.url_id,
+            id=CreateV2PageReact_request.id,
+            title=CreateV2PageReact_request.title,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1976,11 +2426,7 @@ class PublicApi:
     @validate_call
     def delete_comment_public(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        edit_key: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        DeleteCommentPublic_request: ApiDeleteCommentPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1997,16 +2443,8 @@ class PublicApi:
         """delete_comment_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param edit_key:
-        :type edit_key: str
-        :param sso:
-        :type sso: str
+        :param DeleteCommentPublic_request: The request object containing all parameters for this operation. (required)
+        :type DeleteCommentPublic_request: ApiDeleteCommentPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2030,11 +2468,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._delete_comment_public_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            edit_key=edit_key,
-            sso=sso,
+            tenant_id=DeleteCommentPublic_request.tenant_id,
+            comment_id=DeleteCommentPublic_request.comment_id,
+            broadcast_id=DeleteCommentPublic_request.broadcast_id,
+            edit_key=DeleteCommentPublic_request.edit_key,
+            sso=DeleteCommentPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2058,11 +2496,7 @@ class PublicApi:
     @validate_call
     def delete_comment_public_with_http_info(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        edit_key: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        DeleteCommentPublic_request: ApiDeleteCommentPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2079,16 +2513,8 @@ class PublicApi:
         """delete_comment_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param edit_key:
-        :type edit_key: str
-        :param sso:
-        :type sso: str
+        :param DeleteCommentPublic_request: The request object containing all parameters for this operation. (required)
+        :type DeleteCommentPublic_request: ApiDeleteCommentPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2112,11 +2538,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._delete_comment_public_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            edit_key=edit_key,
-            sso=sso,
+            tenant_id=DeleteCommentPublic_request.tenant_id,
+            comment_id=DeleteCommentPublic_request.comment_id,
+            broadcast_id=DeleteCommentPublic_request.broadcast_id,
+            edit_key=DeleteCommentPublic_request.edit_key,
+            sso=DeleteCommentPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2140,11 +2566,7 @@ class PublicApi:
     @validate_call
     def delete_comment_public_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        edit_key: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        DeleteCommentPublic_request: ApiDeleteCommentPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2161,16 +2583,8 @@ class PublicApi:
         """delete_comment_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param edit_key:
-        :type edit_key: str
-        :param sso:
-        :type sso: str
+        :param DeleteCommentPublic_request: The request object containing all parameters for this operation. (required)
+        :type DeleteCommentPublic_request: ApiDeleteCommentPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2194,11 +2608,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._delete_comment_public_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            edit_key=edit_key,
-            sso=sso,
+            tenant_id=DeleteCommentPublic_request.tenant_id,
+            comment_id=DeleteCommentPublic_request.comment_id,
+            broadcast_id=DeleteCommentPublic_request.broadcast_id,
+            edit_key=DeleteCommentPublic_request.edit_key,
+            sso=DeleteCommentPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2299,13 +2713,7 @@ class PublicApi:
     @validate_call
     def delete_comment_vote(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        vote_id: StrictStr,
-        url_id: StrictStr,
-        broadcast_id: StrictStr,
-        edit_key: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        DeleteCommentVote_request: ApiDeleteCommentVoteRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2322,20 +2730,8 @@ class PublicApi:
         """delete_comment_vote
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param vote_id: (required)
-        :type vote_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param edit_key:
-        :type edit_key: str
-        :param sso:
-        :type sso: str
+        :param DeleteCommentVote_request: The request object containing all parameters for this operation. (required)
+        :type DeleteCommentVote_request: ApiDeleteCommentVoteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2359,13 +2755,13 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._delete_comment_vote_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            vote_id=vote_id,
-            url_id=url_id,
-            broadcast_id=broadcast_id,
-            edit_key=edit_key,
-            sso=sso,
+            tenant_id=DeleteCommentVote_request.tenant_id,
+            comment_id=DeleteCommentVote_request.comment_id,
+            vote_id=DeleteCommentVote_request.vote_id,
+            url_id=DeleteCommentVote_request.url_id,
+            broadcast_id=DeleteCommentVote_request.broadcast_id,
+            edit_key=DeleteCommentVote_request.edit_key,
+            sso=DeleteCommentVote_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2389,13 +2785,7 @@ class PublicApi:
     @validate_call
     def delete_comment_vote_with_http_info(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        vote_id: StrictStr,
-        url_id: StrictStr,
-        broadcast_id: StrictStr,
-        edit_key: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        DeleteCommentVote_request: ApiDeleteCommentVoteRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2412,20 +2802,8 @@ class PublicApi:
         """delete_comment_vote
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param vote_id: (required)
-        :type vote_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param edit_key:
-        :type edit_key: str
-        :param sso:
-        :type sso: str
+        :param DeleteCommentVote_request: The request object containing all parameters for this operation. (required)
+        :type DeleteCommentVote_request: ApiDeleteCommentVoteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2449,13 +2827,13 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._delete_comment_vote_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            vote_id=vote_id,
-            url_id=url_id,
-            broadcast_id=broadcast_id,
-            edit_key=edit_key,
-            sso=sso,
+            tenant_id=DeleteCommentVote_request.tenant_id,
+            comment_id=DeleteCommentVote_request.comment_id,
+            vote_id=DeleteCommentVote_request.vote_id,
+            url_id=DeleteCommentVote_request.url_id,
+            broadcast_id=DeleteCommentVote_request.broadcast_id,
+            edit_key=DeleteCommentVote_request.edit_key,
+            sso=DeleteCommentVote_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2479,13 +2857,7 @@ class PublicApi:
     @validate_call
     def delete_comment_vote_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        vote_id: StrictStr,
-        url_id: StrictStr,
-        broadcast_id: StrictStr,
-        edit_key: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        DeleteCommentVote_request: ApiDeleteCommentVoteRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2502,20 +2874,8 @@ class PublicApi:
         """delete_comment_vote
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param vote_id: (required)
-        :type vote_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param edit_key:
-        :type edit_key: str
-        :param sso:
-        :type sso: str
+        :param DeleteCommentVote_request: The request object containing all parameters for this operation. (required)
+        :type DeleteCommentVote_request: ApiDeleteCommentVoteRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2539,13 +2899,13 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._delete_comment_vote_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            vote_id=vote_id,
-            url_id=url_id,
-            broadcast_id=broadcast_id,
-            edit_key=edit_key,
-            sso=sso,
+            tenant_id=DeleteCommentVote_request.tenant_id,
+            comment_id=DeleteCommentVote_request.comment_id,
+            vote_id=DeleteCommentVote_request.vote_id,
+            url_id=DeleteCommentVote_request.url_id,
+            broadcast_id=DeleteCommentVote_request.broadcast_id,
+            edit_key=DeleteCommentVote_request.edit_key,
+            sso=DeleteCommentVote_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2654,10 +3014,7 @@ class PublicApi:
     @validate_call
     def delete_feed_post_public(
         self,
-        tenant_id: StrictStr,
-        post_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        DeleteFeedPostPublic_request: ApiDeleteFeedPostPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2674,14 +3031,8 @@ class PublicApi:
         """delete_feed_post_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param post_id: (required)
-        :type post_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param DeleteFeedPostPublic_request: The request object containing all parameters for this operation. (required)
+        :type DeleteFeedPostPublic_request: ApiDeleteFeedPostPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2705,10 +3056,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._delete_feed_post_public_serialize(
-            tenant_id=tenant_id,
-            post_id=post_id,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=DeleteFeedPostPublic_request.tenant_id,
+            post_id=DeleteFeedPostPublic_request.post_id,
+            broadcast_id=DeleteFeedPostPublic_request.broadcast_id,
+            sso=DeleteFeedPostPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2732,10 +3083,7 @@ class PublicApi:
     @validate_call
     def delete_feed_post_public_with_http_info(
         self,
-        tenant_id: StrictStr,
-        post_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        DeleteFeedPostPublic_request: ApiDeleteFeedPostPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2752,14 +3100,8 @@ class PublicApi:
         """delete_feed_post_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param post_id: (required)
-        :type post_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param DeleteFeedPostPublic_request: The request object containing all parameters for this operation. (required)
+        :type DeleteFeedPostPublic_request: ApiDeleteFeedPostPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2783,10 +3125,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._delete_feed_post_public_serialize(
-            tenant_id=tenant_id,
-            post_id=post_id,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=DeleteFeedPostPublic_request.tenant_id,
+            post_id=DeleteFeedPostPublic_request.post_id,
+            broadcast_id=DeleteFeedPostPublic_request.broadcast_id,
+            sso=DeleteFeedPostPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2810,10 +3152,7 @@ class PublicApi:
     @validate_call
     def delete_feed_post_public_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        post_id: StrictStr,
-        broadcast_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        DeleteFeedPostPublic_request: ApiDeleteFeedPostPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2830,14 +3169,8 @@ class PublicApi:
         """delete_feed_post_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param post_id: (required)
-        :type post_id: str
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param DeleteFeedPostPublic_request: The request object containing all parameters for this operation. (required)
+        :type DeleteFeedPostPublic_request: ApiDeleteFeedPostPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2861,10 +3194,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._delete_feed_post_public_serialize(
-            tenant_id=tenant_id,
-            post_id=post_id,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=DeleteFeedPostPublic_request.tenant_id,
+            post_id=DeleteFeedPostPublic_request.post_id,
+            broadcast_id=DeleteFeedPostPublic_request.broadcast_id,
+            sso=DeleteFeedPostPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2960,8 +3293,7 @@ class PublicApi:
     @validate_call
     def delete_v1_page_react(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
+        DeleteV1PageReact_request: ApiDeleteV1PageReactRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2978,10 +3310,8 @@ class PublicApi:
         """delete_v1_page_react
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
+        :param DeleteV1PageReact_request: The request object containing all parameters for this operation. (required)
+        :type DeleteV1PageReact_request: ApiDeleteV1PageReactRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3005,8 +3335,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._delete_v1_page_react_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
+            tenant_id=DeleteV1PageReact_request.tenant_id,
+            url_id=DeleteV1PageReact_request.url_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3030,8 +3360,7 @@ class PublicApi:
     @validate_call
     def delete_v1_page_react_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
+        DeleteV1PageReact_request: ApiDeleteV1PageReactRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3048,10 +3377,8 @@ class PublicApi:
         """delete_v1_page_react
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
+        :param DeleteV1PageReact_request: The request object containing all parameters for this operation. (required)
+        :type DeleteV1PageReact_request: ApiDeleteV1PageReactRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3075,8 +3402,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._delete_v1_page_react_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
+            tenant_id=DeleteV1PageReact_request.tenant_id,
+            url_id=DeleteV1PageReact_request.url_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3100,8 +3427,7 @@ class PublicApi:
     @validate_call
     def delete_v1_page_react_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
+        DeleteV1PageReact_request: ApiDeleteV1PageReactRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3118,10 +3444,8 @@ class PublicApi:
         """delete_v1_page_react
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
+        :param DeleteV1PageReact_request: The request object containing all parameters for this operation. (required)
+        :type DeleteV1PageReact_request: ApiDeleteV1PageReactRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3145,8 +3469,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._delete_v1_page_react_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
+            tenant_id=DeleteV1PageReact_request.tenant_id,
+            url_id=DeleteV1PageReact_request.url_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3234,9 +3558,7 @@ class PublicApi:
     @validate_call
     def delete_v2_page_react(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        id: StrictStr,
+        DeleteV2PageReact_request: ApiDeleteV2PageReactRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3253,12 +3575,8 @@ class PublicApi:
         """delete_v2_page_react
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param id: (required)
-        :type id: str
+        :param DeleteV2PageReact_request: The request object containing all parameters for this operation. (required)
+        :type DeleteV2PageReact_request: ApiDeleteV2PageReactRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3282,9 +3600,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._delete_v2_page_react_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            id=id,
+            tenant_id=DeleteV2PageReact_request.tenant_id,
+            url_id=DeleteV2PageReact_request.url_id,
+            id=DeleteV2PageReact_request.id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3308,9 +3626,7 @@ class PublicApi:
     @validate_call
     def delete_v2_page_react_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        id: StrictStr,
+        DeleteV2PageReact_request: ApiDeleteV2PageReactRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3327,12 +3643,8 @@ class PublicApi:
         """delete_v2_page_react
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param id: (required)
-        :type id: str
+        :param DeleteV2PageReact_request: The request object containing all parameters for this operation. (required)
+        :type DeleteV2PageReact_request: ApiDeleteV2PageReactRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3356,9 +3668,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._delete_v2_page_react_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            id=id,
+            tenant_id=DeleteV2PageReact_request.tenant_id,
+            url_id=DeleteV2PageReact_request.url_id,
+            id=DeleteV2PageReact_request.id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3382,9 +3694,7 @@ class PublicApi:
     @validate_call
     def delete_v2_page_react_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        id: StrictStr,
+        DeleteV2PageReact_request: ApiDeleteV2PageReactRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3401,12 +3711,8 @@ class PublicApi:
         """delete_v2_page_react
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param id: (required)
-        :type id: str
+        :param DeleteV2PageReact_request: The request object containing all parameters for this operation. (required)
+        :type DeleteV2PageReact_request: ApiDeleteV2PageReactRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3430,9 +3736,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._delete_v2_page_react_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            id=id,
+            tenant_id=DeleteV2PageReact_request.tenant_id,
+            url_id=DeleteV2PageReact_request.url_id,
+            id=DeleteV2PageReact_request.id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3525,10 +3831,7 @@ class PublicApi:
     @validate_call
     def flag_comment_public(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        is_flagged: StrictBool,
-        sso: Optional[StrictStr] = None,
+        FlagCommentPublic_request: ApiFlagCommentPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3545,14 +3848,8 @@ class PublicApi:
         """flag_comment_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param is_flagged: (required)
-        :type is_flagged: bool
-        :param sso:
-        :type sso: str
+        :param FlagCommentPublic_request: The request object containing all parameters for this operation. (required)
+        :type FlagCommentPublic_request: ApiFlagCommentPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3576,10 +3873,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._flag_comment_public_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            is_flagged=is_flagged,
-            sso=sso,
+            tenant_id=FlagCommentPublic_request.tenant_id,
+            comment_id=FlagCommentPublic_request.comment_id,
+            is_flagged=FlagCommentPublic_request.is_flagged,
+            sso=FlagCommentPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3603,10 +3900,7 @@ class PublicApi:
     @validate_call
     def flag_comment_public_with_http_info(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        is_flagged: StrictBool,
-        sso: Optional[StrictStr] = None,
+        FlagCommentPublic_request: ApiFlagCommentPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3623,14 +3917,8 @@ class PublicApi:
         """flag_comment_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param is_flagged: (required)
-        :type is_flagged: bool
-        :param sso:
-        :type sso: str
+        :param FlagCommentPublic_request: The request object containing all parameters for this operation. (required)
+        :type FlagCommentPublic_request: ApiFlagCommentPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3654,10 +3942,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._flag_comment_public_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            is_flagged=is_flagged,
-            sso=sso,
+            tenant_id=FlagCommentPublic_request.tenant_id,
+            comment_id=FlagCommentPublic_request.comment_id,
+            is_flagged=FlagCommentPublic_request.is_flagged,
+            sso=FlagCommentPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3681,10 +3969,7 @@ class PublicApi:
     @validate_call
     def flag_comment_public_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        is_flagged: StrictBool,
-        sso: Optional[StrictStr] = None,
+        FlagCommentPublic_request: ApiFlagCommentPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3701,14 +3986,8 @@ class PublicApi:
         """flag_comment_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param is_flagged: (required)
-        :type is_flagged: bool
-        :param sso:
-        :type sso: str
+        :param FlagCommentPublic_request: The request object containing all parameters for this operation. (required)
+        :type FlagCommentPublic_request: ApiFlagCommentPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3732,10 +4011,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._flag_comment_public_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            is_flagged=is_flagged,
-            sso=sso,
+            tenant_id=FlagCommentPublic_request.tenant_id,
+            comment_id=FlagCommentPublic_request.comment_id,
+            is_flagged=FlagCommentPublic_request.is_flagged,
+            sso=FlagCommentPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3833,10 +4112,7 @@ class PublicApi:
     @validate_call
     def get_comment_text(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        edit_key: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetCommentText_request: ApiGetCommentTextRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3853,14 +4129,8 @@ class PublicApi:
         """get_comment_text
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param edit_key:
-        :type edit_key: str
-        :param sso:
-        :type sso: str
+        :param GetCommentText_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentText_request: ApiGetCommentTextRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3884,10 +4154,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_comment_text_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            edit_key=edit_key,
-            sso=sso,
+            tenant_id=GetCommentText_request.tenant_id,
+            comment_id=GetCommentText_request.comment_id,
+            edit_key=GetCommentText_request.edit_key,
+            sso=GetCommentText_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3911,10 +4181,7 @@ class PublicApi:
     @validate_call
     def get_comment_text_with_http_info(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        edit_key: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetCommentText_request: ApiGetCommentTextRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3931,14 +4198,8 @@ class PublicApi:
         """get_comment_text
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param edit_key:
-        :type edit_key: str
-        :param sso:
-        :type sso: str
+        :param GetCommentText_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentText_request: ApiGetCommentTextRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3962,10 +4223,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_comment_text_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            edit_key=edit_key,
-            sso=sso,
+            tenant_id=GetCommentText_request.tenant_id,
+            comment_id=GetCommentText_request.comment_id,
+            edit_key=GetCommentText_request.edit_key,
+            sso=GetCommentText_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3989,10 +4250,7 @@ class PublicApi:
     @validate_call
     def get_comment_text_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        edit_key: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        GetCommentText_request: ApiGetCommentTextRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4009,14 +4267,8 @@ class PublicApi:
         """get_comment_text
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param edit_key:
-        :type edit_key: str
-        :param sso:
-        :type sso: str
+        :param GetCommentText_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentText_request: ApiGetCommentTextRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4040,10 +4292,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_comment_text_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            edit_key=edit_key,
-            sso=sso,
+            tenant_id=GetCommentText_request.tenant_id,
+            comment_id=GetCommentText_request.comment_id,
+            edit_key=GetCommentText_request.edit_key,
+            sso=GetCommentText_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4139,10 +4391,7 @@ class PublicApi:
     @validate_call
     def get_comment_vote_user_names(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        dir: StrictInt,
-        sso: Optional[StrictStr] = None,
+        GetCommentVoteUserNames_request: ApiGetCommentVoteUserNamesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4159,14 +4408,8 @@ class PublicApi:
         """get_comment_vote_user_names
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param dir: (required)
-        :type dir: int
-        :param sso:
-        :type sso: str
+        :param GetCommentVoteUserNames_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentVoteUserNames_request: ApiGetCommentVoteUserNamesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4190,10 +4433,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_comment_vote_user_names_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            dir=dir,
-            sso=sso,
+            tenant_id=GetCommentVoteUserNames_request.tenant_id,
+            comment_id=GetCommentVoteUserNames_request.comment_id,
+            dir=GetCommentVoteUserNames_request.dir,
+            sso=GetCommentVoteUserNames_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4217,10 +4460,7 @@ class PublicApi:
     @validate_call
     def get_comment_vote_user_names_with_http_info(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        dir: StrictInt,
-        sso: Optional[StrictStr] = None,
+        GetCommentVoteUserNames_request: ApiGetCommentVoteUserNamesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4237,14 +4477,8 @@ class PublicApi:
         """get_comment_vote_user_names
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param dir: (required)
-        :type dir: int
-        :param sso:
-        :type sso: str
+        :param GetCommentVoteUserNames_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentVoteUserNames_request: ApiGetCommentVoteUserNamesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4268,10 +4502,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_comment_vote_user_names_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            dir=dir,
-            sso=sso,
+            tenant_id=GetCommentVoteUserNames_request.tenant_id,
+            comment_id=GetCommentVoteUserNames_request.comment_id,
+            dir=GetCommentVoteUserNames_request.dir,
+            sso=GetCommentVoteUserNames_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4295,10 +4529,7 @@ class PublicApi:
     @validate_call
     def get_comment_vote_user_names_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        dir: StrictInt,
-        sso: Optional[StrictStr] = None,
+        GetCommentVoteUserNames_request: ApiGetCommentVoteUserNamesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4315,14 +4546,8 @@ class PublicApi:
         """get_comment_vote_user_names
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param dir: (required)
-        :type dir: int
-        :param sso:
-        :type sso: str
+        :param GetCommentVoteUserNames_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentVoteUserNames_request: ApiGetCommentVoteUserNamesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4346,10 +4571,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_comment_vote_user_names_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            dir=dir,
-            sso=sso,
+            tenant_id=GetCommentVoteUserNames_request.tenant_id,
+            comment_id=GetCommentVoteUserNames_request.comment_id,
+            dir=GetCommentVoteUserNames_request.dir,
+            sso=GetCommentVoteUserNames_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4445,13 +4670,7 @@ class PublicApi:
     @validate_call
     def get_comments_for_user(
         self,
-        user_id: Optional[StrictStr] = None,
-        direction: Optional[SortDirections] = None,
-        replies_to_user_id: Optional[StrictStr] = None,
-        page: Optional[Union[StrictFloat, StrictInt]] = None,
-        includei10n: Optional[StrictBool] = None,
-        locale: Optional[StrictStr] = None,
-        is_crawler: Optional[StrictBool] = None,
+        GetCommentsForUser_request: ApiGetCommentsForUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4468,20 +4687,8 @@ class PublicApi:
         """get_comments_for_user
 
 
-        :param user_id:
-        :type user_id: str
-        :param direction:
-        :type direction: SortDirections
-        :param replies_to_user_id:
-        :type replies_to_user_id: str
-        :param page:
-        :type page: float
-        :param includei10n:
-        :type includei10n: bool
-        :param locale:
-        :type locale: str
-        :param is_crawler:
-        :type is_crawler: bool
+        :param GetCommentsForUser_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentsForUser_request: ApiGetCommentsForUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4505,13 +4712,13 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_comments_for_user_serialize(
-            user_id=user_id,
-            direction=direction,
-            replies_to_user_id=replies_to_user_id,
-            page=page,
-            includei10n=includei10n,
-            locale=locale,
-            is_crawler=is_crawler,
+            user_id=GetCommentsForUser_request.user_id,
+            direction=GetCommentsForUser_request.direction,
+            replies_to_user_id=GetCommentsForUser_request.replies_to_user_id,
+            page=GetCommentsForUser_request.page,
+            includei10n=GetCommentsForUser_request.includei10n,
+            locale=GetCommentsForUser_request.locale,
+            is_crawler=GetCommentsForUser_request.is_crawler,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4535,13 +4742,7 @@ class PublicApi:
     @validate_call
     def get_comments_for_user_with_http_info(
         self,
-        user_id: Optional[StrictStr] = None,
-        direction: Optional[SortDirections] = None,
-        replies_to_user_id: Optional[StrictStr] = None,
-        page: Optional[Union[StrictFloat, StrictInt]] = None,
-        includei10n: Optional[StrictBool] = None,
-        locale: Optional[StrictStr] = None,
-        is_crawler: Optional[StrictBool] = None,
+        GetCommentsForUser_request: ApiGetCommentsForUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4558,20 +4759,8 @@ class PublicApi:
         """get_comments_for_user
 
 
-        :param user_id:
-        :type user_id: str
-        :param direction:
-        :type direction: SortDirections
-        :param replies_to_user_id:
-        :type replies_to_user_id: str
-        :param page:
-        :type page: float
-        :param includei10n:
-        :type includei10n: bool
-        :param locale:
-        :type locale: str
-        :param is_crawler:
-        :type is_crawler: bool
+        :param GetCommentsForUser_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentsForUser_request: ApiGetCommentsForUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4595,13 +4784,13 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_comments_for_user_serialize(
-            user_id=user_id,
-            direction=direction,
-            replies_to_user_id=replies_to_user_id,
-            page=page,
-            includei10n=includei10n,
-            locale=locale,
-            is_crawler=is_crawler,
+            user_id=GetCommentsForUser_request.user_id,
+            direction=GetCommentsForUser_request.direction,
+            replies_to_user_id=GetCommentsForUser_request.replies_to_user_id,
+            page=GetCommentsForUser_request.page,
+            includei10n=GetCommentsForUser_request.includei10n,
+            locale=GetCommentsForUser_request.locale,
+            is_crawler=GetCommentsForUser_request.is_crawler,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4625,13 +4814,7 @@ class PublicApi:
     @validate_call
     def get_comments_for_user_without_preload_content(
         self,
-        user_id: Optional[StrictStr] = None,
-        direction: Optional[SortDirections] = None,
-        replies_to_user_id: Optional[StrictStr] = None,
-        page: Optional[Union[StrictFloat, StrictInt]] = None,
-        includei10n: Optional[StrictBool] = None,
-        locale: Optional[StrictStr] = None,
-        is_crawler: Optional[StrictBool] = None,
+        GetCommentsForUser_request: ApiGetCommentsForUserRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4648,20 +4831,8 @@ class PublicApi:
         """get_comments_for_user
 
 
-        :param user_id:
-        :type user_id: str
-        :param direction:
-        :type direction: SortDirections
-        :param replies_to_user_id:
-        :type replies_to_user_id: str
-        :param page:
-        :type page: float
-        :param includei10n:
-        :type includei10n: bool
-        :param locale:
-        :type locale: str
-        :param is_crawler:
-        :type is_crawler: bool
+        :param GetCommentsForUser_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentsForUser_request: ApiGetCommentsForUserRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4685,13 +4856,13 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_comments_for_user_serialize(
-            user_id=user_id,
-            direction=direction,
-            replies_to_user_id=replies_to_user_id,
-            page=page,
-            includei10n=includei10n,
-            locale=locale,
-            is_crawler=is_crawler,
+            user_id=GetCommentsForUser_request.user_id,
+            direction=GetCommentsForUser_request.direction,
+            replies_to_user_id=GetCommentsForUser_request.replies_to_user_id,
+            page=GetCommentsForUser_request.page,
+            includei10n=GetCommentsForUser_request.includei10n,
+            locale=GetCommentsForUser_request.locale,
+            is_crawler=GetCommentsForUser_request.is_crawler,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4806,34 +4977,7 @@ class PublicApi:
     @validate_call
     def get_comments_public(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        page: Optional[StrictInt] = None,
-        direction: Optional[SortDirections] = None,
-        sso: Optional[StrictStr] = None,
-        skip: Optional[StrictInt] = None,
-        skip_children: Optional[StrictInt] = None,
-        limit: Optional[StrictInt] = None,
-        limit_children: Optional[StrictInt] = None,
-        count_children: Optional[StrictBool] = None,
-        fetch_page_for_comment_id: Optional[StrictStr] = None,
-        include_config: Optional[StrictBool] = None,
-        count_all: Optional[StrictBool] = None,
-        includei10n: Optional[StrictBool] = None,
-        locale: Optional[StrictStr] = None,
-        modules: Optional[StrictStr] = None,
-        is_crawler: Optional[StrictBool] = None,
-        include_notification_count: Optional[StrictBool] = None,
-        as_tree: Optional[StrictBool] = None,
-        max_tree_depth: Optional[StrictInt] = None,
-        use_full_translation_ids: Optional[StrictBool] = None,
-        parent_id: Optional[StrictStr] = None,
-        search_text: Optional[StrictStr] = None,
-        hash_tags: Optional[List[StrictStr]] = None,
-        user_id: Optional[StrictStr] = None,
-        custom_config_str: Optional[StrictStr] = None,
-        after_comment_id: Optional[StrictStr] = None,
-        before_comment_id: Optional[StrictStr] = None,
+        GetCommentsPublic_request: ApiGetCommentsPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4851,62 +4995,8 @@ class PublicApi:
 
          req tenantId urlId
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param page:
-        :type page: int
-        :param direction:
-        :type direction: SortDirections
-        :param sso:
-        :type sso: str
-        :param skip:
-        :type skip: int
-        :param skip_children:
-        :type skip_children: int
-        :param limit:
-        :type limit: int
-        :param limit_children:
-        :type limit_children: int
-        :param count_children:
-        :type count_children: bool
-        :param fetch_page_for_comment_id:
-        :type fetch_page_for_comment_id: str
-        :param include_config:
-        :type include_config: bool
-        :param count_all:
-        :type count_all: bool
-        :param includei10n:
-        :type includei10n: bool
-        :param locale:
-        :type locale: str
-        :param modules:
-        :type modules: str
-        :param is_crawler:
-        :type is_crawler: bool
-        :param include_notification_count:
-        :type include_notification_count: bool
-        :param as_tree:
-        :type as_tree: bool
-        :param max_tree_depth:
-        :type max_tree_depth: int
-        :param use_full_translation_ids:
-        :type use_full_translation_ids: bool
-        :param parent_id:
-        :type parent_id: str
-        :param search_text:
-        :type search_text: str
-        :param hash_tags:
-        :type hash_tags: List[str]
-        :param user_id:
-        :type user_id: str
-        :param custom_config_str:
-        :type custom_config_str: str
-        :param after_comment_id:
-        :type after_comment_id: str
-        :param before_comment_id:
-        :type before_comment_id: str
+        :param GetCommentsPublic_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentsPublic_request: ApiGetCommentsPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4930,34 +5020,34 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_comments_public_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            page=page,
-            direction=direction,
-            sso=sso,
-            skip=skip,
-            skip_children=skip_children,
-            limit=limit,
-            limit_children=limit_children,
-            count_children=count_children,
-            fetch_page_for_comment_id=fetch_page_for_comment_id,
-            include_config=include_config,
-            count_all=count_all,
-            includei10n=includei10n,
-            locale=locale,
-            modules=modules,
-            is_crawler=is_crawler,
-            include_notification_count=include_notification_count,
-            as_tree=as_tree,
-            max_tree_depth=max_tree_depth,
-            use_full_translation_ids=use_full_translation_ids,
-            parent_id=parent_id,
-            search_text=search_text,
-            hash_tags=hash_tags,
-            user_id=user_id,
-            custom_config_str=custom_config_str,
-            after_comment_id=after_comment_id,
-            before_comment_id=before_comment_id,
+            tenant_id=GetCommentsPublic_request.tenant_id,
+            url_id=GetCommentsPublic_request.url_id,
+            page=GetCommentsPublic_request.page,
+            direction=GetCommentsPublic_request.direction,
+            sso=GetCommentsPublic_request.sso,
+            skip=GetCommentsPublic_request.skip,
+            skip_children=GetCommentsPublic_request.skip_children,
+            limit=GetCommentsPublic_request.limit,
+            limit_children=GetCommentsPublic_request.limit_children,
+            count_children=GetCommentsPublic_request.count_children,
+            fetch_page_for_comment_id=GetCommentsPublic_request.fetch_page_for_comment_id,
+            include_config=GetCommentsPublic_request.include_config,
+            count_all=GetCommentsPublic_request.count_all,
+            includei10n=GetCommentsPublic_request.includei10n,
+            locale=GetCommentsPublic_request.locale,
+            modules=GetCommentsPublic_request.modules,
+            is_crawler=GetCommentsPublic_request.is_crawler,
+            include_notification_count=GetCommentsPublic_request.include_notification_count,
+            as_tree=GetCommentsPublic_request.as_tree,
+            max_tree_depth=GetCommentsPublic_request.max_tree_depth,
+            use_full_translation_ids=GetCommentsPublic_request.use_full_translation_ids,
+            parent_id=GetCommentsPublic_request.parent_id,
+            search_text=GetCommentsPublic_request.search_text,
+            hash_tags=GetCommentsPublic_request.hash_tags,
+            user_id=GetCommentsPublic_request.user_id,
+            custom_config_str=GetCommentsPublic_request.custom_config_str,
+            after_comment_id=GetCommentsPublic_request.after_comment_id,
+            before_comment_id=GetCommentsPublic_request.before_comment_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4981,34 +5071,7 @@ class PublicApi:
     @validate_call
     def get_comments_public_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        page: Optional[StrictInt] = None,
-        direction: Optional[SortDirections] = None,
-        sso: Optional[StrictStr] = None,
-        skip: Optional[StrictInt] = None,
-        skip_children: Optional[StrictInt] = None,
-        limit: Optional[StrictInt] = None,
-        limit_children: Optional[StrictInt] = None,
-        count_children: Optional[StrictBool] = None,
-        fetch_page_for_comment_id: Optional[StrictStr] = None,
-        include_config: Optional[StrictBool] = None,
-        count_all: Optional[StrictBool] = None,
-        includei10n: Optional[StrictBool] = None,
-        locale: Optional[StrictStr] = None,
-        modules: Optional[StrictStr] = None,
-        is_crawler: Optional[StrictBool] = None,
-        include_notification_count: Optional[StrictBool] = None,
-        as_tree: Optional[StrictBool] = None,
-        max_tree_depth: Optional[StrictInt] = None,
-        use_full_translation_ids: Optional[StrictBool] = None,
-        parent_id: Optional[StrictStr] = None,
-        search_text: Optional[StrictStr] = None,
-        hash_tags: Optional[List[StrictStr]] = None,
-        user_id: Optional[StrictStr] = None,
-        custom_config_str: Optional[StrictStr] = None,
-        after_comment_id: Optional[StrictStr] = None,
-        before_comment_id: Optional[StrictStr] = None,
+        GetCommentsPublic_request: ApiGetCommentsPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5026,62 +5089,8 @@ class PublicApi:
 
          req tenantId urlId
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param page:
-        :type page: int
-        :param direction:
-        :type direction: SortDirections
-        :param sso:
-        :type sso: str
-        :param skip:
-        :type skip: int
-        :param skip_children:
-        :type skip_children: int
-        :param limit:
-        :type limit: int
-        :param limit_children:
-        :type limit_children: int
-        :param count_children:
-        :type count_children: bool
-        :param fetch_page_for_comment_id:
-        :type fetch_page_for_comment_id: str
-        :param include_config:
-        :type include_config: bool
-        :param count_all:
-        :type count_all: bool
-        :param includei10n:
-        :type includei10n: bool
-        :param locale:
-        :type locale: str
-        :param modules:
-        :type modules: str
-        :param is_crawler:
-        :type is_crawler: bool
-        :param include_notification_count:
-        :type include_notification_count: bool
-        :param as_tree:
-        :type as_tree: bool
-        :param max_tree_depth:
-        :type max_tree_depth: int
-        :param use_full_translation_ids:
-        :type use_full_translation_ids: bool
-        :param parent_id:
-        :type parent_id: str
-        :param search_text:
-        :type search_text: str
-        :param hash_tags:
-        :type hash_tags: List[str]
-        :param user_id:
-        :type user_id: str
-        :param custom_config_str:
-        :type custom_config_str: str
-        :param after_comment_id:
-        :type after_comment_id: str
-        :param before_comment_id:
-        :type before_comment_id: str
+        :param GetCommentsPublic_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentsPublic_request: ApiGetCommentsPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5105,34 +5114,34 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_comments_public_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            page=page,
-            direction=direction,
-            sso=sso,
-            skip=skip,
-            skip_children=skip_children,
-            limit=limit,
-            limit_children=limit_children,
-            count_children=count_children,
-            fetch_page_for_comment_id=fetch_page_for_comment_id,
-            include_config=include_config,
-            count_all=count_all,
-            includei10n=includei10n,
-            locale=locale,
-            modules=modules,
-            is_crawler=is_crawler,
-            include_notification_count=include_notification_count,
-            as_tree=as_tree,
-            max_tree_depth=max_tree_depth,
-            use_full_translation_ids=use_full_translation_ids,
-            parent_id=parent_id,
-            search_text=search_text,
-            hash_tags=hash_tags,
-            user_id=user_id,
-            custom_config_str=custom_config_str,
-            after_comment_id=after_comment_id,
-            before_comment_id=before_comment_id,
+            tenant_id=GetCommentsPublic_request.tenant_id,
+            url_id=GetCommentsPublic_request.url_id,
+            page=GetCommentsPublic_request.page,
+            direction=GetCommentsPublic_request.direction,
+            sso=GetCommentsPublic_request.sso,
+            skip=GetCommentsPublic_request.skip,
+            skip_children=GetCommentsPublic_request.skip_children,
+            limit=GetCommentsPublic_request.limit,
+            limit_children=GetCommentsPublic_request.limit_children,
+            count_children=GetCommentsPublic_request.count_children,
+            fetch_page_for_comment_id=GetCommentsPublic_request.fetch_page_for_comment_id,
+            include_config=GetCommentsPublic_request.include_config,
+            count_all=GetCommentsPublic_request.count_all,
+            includei10n=GetCommentsPublic_request.includei10n,
+            locale=GetCommentsPublic_request.locale,
+            modules=GetCommentsPublic_request.modules,
+            is_crawler=GetCommentsPublic_request.is_crawler,
+            include_notification_count=GetCommentsPublic_request.include_notification_count,
+            as_tree=GetCommentsPublic_request.as_tree,
+            max_tree_depth=GetCommentsPublic_request.max_tree_depth,
+            use_full_translation_ids=GetCommentsPublic_request.use_full_translation_ids,
+            parent_id=GetCommentsPublic_request.parent_id,
+            search_text=GetCommentsPublic_request.search_text,
+            hash_tags=GetCommentsPublic_request.hash_tags,
+            user_id=GetCommentsPublic_request.user_id,
+            custom_config_str=GetCommentsPublic_request.custom_config_str,
+            after_comment_id=GetCommentsPublic_request.after_comment_id,
+            before_comment_id=GetCommentsPublic_request.before_comment_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5156,34 +5165,7 @@ class PublicApi:
     @validate_call
     def get_comments_public_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        page: Optional[StrictInt] = None,
-        direction: Optional[SortDirections] = None,
-        sso: Optional[StrictStr] = None,
-        skip: Optional[StrictInt] = None,
-        skip_children: Optional[StrictInt] = None,
-        limit: Optional[StrictInt] = None,
-        limit_children: Optional[StrictInt] = None,
-        count_children: Optional[StrictBool] = None,
-        fetch_page_for_comment_id: Optional[StrictStr] = None,
-        include_config: Optional[StrictBool] = None,
-        count_all: Optional[StrictBool] = None,
-        includei10n: Optional[StrictBool] = None,
-        locale: Optional[StrictStr] = None,
-        modules: Optional[StrictStr] = None,
-        is_crawler: Optional[StrictBool] = None,
-        include_notification_count: Optional[StrictBool] = None,
-        as_tree: Optional[StrictBool] = None,
-        max_tree_depth: Optional[StrictInt] = None,
-        use_full_translation_ids: Optional[StrictBool] = None,
-        parent_id: Optional[StrictStr] = None,
-        search_text: Optional[StrictStr] = None,
-        hash_tags: Optional[List[StrictStr]] = None,
-        user_id: Optional[StrictStr] = None,
-        custom_config_str: Optional[StrictStr] = None,
-        after_comment_id: Optional[StrictStr] = None,
-        before_comment_id: Optional[StrictStr] = None,
+        GetCommentsPublic_request: ApiGetCommentsPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5201,62 +5183,8 @@ class PublicApi:
 
          req tenantId urlId
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param page:
-        :type page: int
-        :param direction:
-        :type direction: SortDirections
-        :param sso:
-        :type sso: str
-        :param skip:
-        :type skip: int
-        :param skip_children:
-        :type skip_children: int
-        :param limit:
-        :type limit: int
-        :param limit_children:
-        :type limit_children: int
-        :param count_children:
-        :type count_children: bool
-        :param fetch_page_for_comment_id:
-        :type fetch_page_for_comment_id: str
-        :param include_config:
-        :type include_config: bool
-        :param count_all:
-        :type count_all: bool
-        :param includei10n:
-        :type includei10n: bool
-        :param locale:
-        :type locale: str
-        :param modules:
-        :type modules: str
-        :param is_crawler:
-        :type is_crawler: bool
-        :param include_notification_count:
-        :type include_notification_count: bool
-        :param as_tree:
-        :type as_tree: bool
-        :param max_tree_depth:
-        :type max_tree_depth: int
-        :param use_full_translation_ids:
-        :type use_full_translation_ids: bool
-        :param parent_id:
-        :type parent_id: str
-        :param search_text:
-        :type search_text: str
-        :param hash_tags:
-        :type hash_tags: List[str]
-        :param user_id:
-        :type user_id: str
-        :param custom_config_str:
-        :type custom_config_str: str
-        :param after_comment_id:
-        :type after_comment_id: str
-        :param before_comment_id:
-        :type before_comment_id: str
+        :param GetCommentsPublic_request: The request object containing all parameters for this operation. (required)
+        :type GetCommentsPublic_request: ApiGetCommentsPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5280,34 +5208,34 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_comments_public_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            page=page,
-            direction=direction,
-            sso=sso,
-            skip=skip,
-            skip_children=skip_children,
-            limit=limit,
-            limit_children=limit_children,
-            count_children=count_children,
-            fetch_page_for_comment_id=fetch_page_for_comment_id,
-            include_config=include_config,
-            count_all=count_all,
-            includei10n=includei10n,
-            locale=locale,
-            modules=modules,
-            is_crawler=is_crawler,
-            include_notification_count=include_notification_count,
-            as_tree=as_tree,
-            max_tree_depth=max_tree_depth,
-            use_full_translation_ids=use_full_translation_ids,
-            parent_id=parent_id,
-            search_text=search_text,
-            hash_tags=hash_tags,
-            user_id=user_id,
-            custom_config_str=custom_config_str,
-            after_comment_id=after_comment_id,
-            before_comment_id=before_comment_id,
+            tenant_id=GetCommentsPublic_request.tenant_id,
+            url_id=GetCommentsPublic_request.url_id,
+            page=GetCommentsPublic_request.page,
+            direction=GetCommentsPublic_request.direction,
+            sso=GetCommentsPublic_request.sso,
+            skip=GetCommentsPublic_request.skip,
+            skip_children=GetCommentsPublic_request.skip_children,
+            limit=GetCommentsPublic_request.limit,
+            limit_children=GetCommentsPublic_request.limit_children,
+            count_children=GetCommentsPublic_request.count_children,
+            fetch_page_for_comment_id=GetCommentsPublic_request.fetch_page_for_comment_id,
+            include_config=GetCommentsPublic_request.include_config,
+            count_all=GetCommentsPublic_request.count_all,
+            includei10n=GetCommentsPublic_request.includei10n,
+            locale=GetCommentsPublic_request.locale,
+            modules=GetCommentsPublic_request.modules,
+            is_crawler=GetCommentsPublic_request.is_crawler,
+            include_notification_count=GetCommentsPublic_request.include_notification_count,
+            as_tree=GetCommentsPublic_request.as_tree,
+            max_tree_depth=GetCommentsPublic_request.max_tree_depth,
+            use_full_translation_ids=GetCommentsPublic_request.use_full_translation_ids,
+            parent_id=GetCommentsPublic_request.parent_id,
+            search_text=GetCommentsPublic_request.search_text,
+            hash_tags=GetCommentsPublic_request.hash_tags,
+            user_id=GetCommentsPublic_request.user_id,
+            custom_config_str=GetCommentsPublic_request.custom_config_str,
+            after_comment_id=GetCommentsPublic_request.after_comment_id,
+            before_comment_id=GetCommentsPublic_request.before_comment_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5526,11 +5454,7 @@ class PublicApi:
     @validate_call
     def get_event_log(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        user_id_ws: StrictStr,
-        start_time: StrictInt,
-        end_time: Optional[StrictInt] = None,
+        GetEventLog_request: ApiGetEventLogRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5548,16 +5472,8 @@ class PublicApi:
 
          req tenantId urlId userIdWS
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param user_id_ws: (required)
-        :type user_id_ws: str
-        :param start_time: (required)
-        :type start_time: int
-        :param end_time:
-        :type end_time: int
+        :param GetEventLog_request: The request object containing all parameters for this operation. (required)
+        :type GetEventLog_request: ApiGetEventLogRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5581,11 +5497,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_event_log_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            user_id_ws=user_id_ws,
-            start_time=start_time,
-            end_time=end_time,
+            tenant_id=GetEventLog_request.tenant_id,
+            url_id=GetEventLog_request.url_id,
+            user_id_ws=GetEventLog_request.user_id_ws,
+            start_time=GetEventLog_request.start_time,
+            end_time=GetEventLog_request.end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5609,11 +5525,7 @@ class PublicApi:
     @validate_call
     def get_event_log_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        user_id_ws: StrictStr,
-        start_time: StrictInt,
-        end_time: Optional[StrictInt] = None,
+        GetEventLog_request: ApiGetEventLogRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5631,16 +5543,8 @@ class PublicApi:
 
          req tenantId urlId userIdWS
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param user_id_ws: (required)
-        :type user_id_ws: str
-        :param start_time: (required)
-        :type start_time: int
-        :param end_time:
-        :type end_time: int
+        :param GetEventLog_request: The request object containing all parameters for this operation. (required)
+        :type GetEventLog_request: ApiGetEventLogRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5664,11 +5568,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_event_log_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            user_id_ws=user_id_ws,
-            start_time=start_time,
-            end_time=end_time,
+            tenant_id=GetEventLog_request.tenant_id,
+            url_id=GetEventLog_request.url_id,
+            user_id_ws=GetEventLog_request.user_id_ws,
+            start_time=GetEventLog_request.start_time,
+            end_time=GetEventLog_request.end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5692,11 +5596,7 @@ class PublicApi:
     @validate_call
     def get_event_log_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        user_id_ws: StrictStr,
-        start_time: StrictInt,
-        end_time: Optional[StrictInt] = None,
+        GetEventLog_request: ApiGetEventLogRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5714,16 +5614,8 @@ class PublicApi:
 
          req tenantId urlId userIdWS
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param user_id_ws: (required)
-        :type user_id_ws: str
-        :param start_time: (required)
-        :type start_time: int
-        :param end_time:
-        :type end_time: int
+        :param GetEventLog_request: The request object containing all parameters for this operation. (required)
+        :type GetEventLog_request: ApiGetEventLogRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5747,11 +5639,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_event_log_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            user_id_ws=user_id_ws,
-            start_time=start_time,
-            end_time=end_time,
+            tenant_id=GetEventLog_request.tenant_id,
+            url_id=GetEventLog_request.url_id,
+            user_id_ws=GetEventLog_request.user_id_ws,
+            start_time=GetEventLog_request.start_time,
+            end_time=GetEventLog_request.end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5854,13 +5746,7 @@ class PublicApi:
     @validate_call
     def get_feed_posts_public(
         self,
-        tenant_id: StrictStr,
-        after_id: Optional[StrictStr] = None,
-        limit: Optional[StrictInt] = None,
-        tags: Optional[List[StrictStr]] = None,
-        sso: Optional[StrictStr] = None,
-        is_crawler: Optional[StrictBool] = None,
-        include_user_info: Optional[StrictBool] = None,
+        GetFeedPostsPublic_request: ApiGetFeedPostsPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5878,20 +5764,8 @@ class PublicApi:
 
          req tenantId afterId
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param after_id:
-        :type after_id: str
-        :param limit:
-        :type limit: int
-        :param tags:
-        :type tags: List[str]
-        :param sso:
-        :type sso: str
-        :param is_crawler:
-        :type is_crawler: bool
-        :param include_user_info:
-        :type include_user_info: bool
+        :param GetFeedPostsPublic_request: The request object containing all parameters for this operation. (required)
+        :type GetFeedPostsPublic_request: ApiGetFeedPostsPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -5915,13 +5789,13 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_feed_posts_public_serialize(
-            tenant_id=tenant_id,
-            after_id=after_id,
-            limit=limit,
-            tags=tags,
-            sso=sso,
-            is_crawler=is_crawler,
-            include_user_info=include_user_info,
+            tenant_id=GetFeedPostsPublic_request.tenant_id,
+            after_id=GetFeedPostsPublic_request.after_id,
+            limit=GetFeedPostsPublic_request.limit,
+            tags=GetFeedPostsPublic_request.tags,
+            sso=GetFeedPostsPublic_request.sso,
+            is_crawler=GetFeedPostsPublic_request.is_crawler,
+            include_user_info=GetFeedPostsPublic_request.include_user_info,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -5945,13 +5819,7 @@ class PublicApi:
     @validate_call
     def get_feed_posts_public_with_http_info(
         self,
-        tenant_id: StrictStr,
-        after_id: Optional[StrictStr] = None,
-        limit: Optional[StrictInt] = None,
-        tags: Optional[List[StrictStr]] = None,
-        sso: Optional[StrictStr] = None,
-        is_crawler: Optional[StrictBool] = None,
-        include_user_info: Optional[StrictBool] = None,
+        GetFeedPostsPublic_request: ApiGetFeedPostsPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5969,20 +5837,8 @@ class PublicApi:
 
          req tenantId afterId
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param after_id:
-        :type after_id: str
-        :param limit:
-        :type limit: int
-        :param tags:
-        :type tags: List[str]
-        :param sso:
-        :type sso: str
-        :param is_crawler:
-        :type is_crawler: bool
-        :param include_user_info:
-        :type include_user_info: bool
+        :param GetFeedPostsPublic_request: The request object containing all parameters for this operation. (required)
+        :type GetFeedPostsPublic_request: ApiGetFeedPostsPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6006,13 +5862,13 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_feed_posts_public_serialize(
-            tenant_id=tenant_id,
-            after_id=after_id,
-            limit=limit,
-            tags=tags,
-            sso=sso,
-            is_crawler=is_crawler,
-            include_user_info=include_user_info,
+            tenant_id=GetFeedPostsPublic_request.tenant_id,
+            after_id=GetFeedPostsPublic_request.after_id,
+            limit=GetFeedPostsPublic_request.limit,
+            tags=GetFeedPostsPublic_request.tags,
+            sso=GetFeedPostsPublic_request.sso,
+            is_crawler=GetFeedPostsPublic_request.is_crawler,
+            include_user_info=GetFeedPostsPublic_request.include_user_info,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6036,13 +5892,7 @@ class PublicApi:
     @validate_call
     def get_feed_posts_public_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        after_id: Optional[StrictStr] = None,
-        limit: Optional[StrictInt] = None,
-        tags: Optional[List[StrictStr]] = None,
-        sso: Optional[StrictStr] = None,
-        is_crawler: Optional[StrictBool] = None,
-        include_user_info: Optional[StrictBool] = None,
+        GetFeedPostsPublic_request: ApiGetFeedPostsPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6060,20 +5910,8 @@ class PublicApi:
 
          req tenantId afterId
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param after_id:
-        :type after_id: str
-        :param limit:
-        :type limit: int
-        :param tags:
-        :type tags: List[str]
-        :param sso:
-        :type sso: str
-        :param is_crawler:
-        :type is_crawler: bool
-        :param include_user_info:
-        :type include_user_info: bool
+        :param GetFeedPostsPublic_request: The request object containing all parameters for this operation. (required)
+        :type GetFeedPostsPublic_request: ApiGetFeedPostsPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6097,13 +5935,13 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_feed_posts_public_serialize(
-            tenant_id=tenant_id,
-            after_id=after_id,
-            limit=limit,
-            tags=tags,
-            sso=sso,
-            is_crawler=is_crawler,
-            include_user_info=include_user_info,
+            tenant_id=GetFeedPostsPublic_request.tenant_id,
+            after_id=GetFeedPostsPublic_request.after_id,
+            limit=GetFeedPostsPublic_request.limit,
+            tags=GetFeedPostsPublic_request.tags,
+            sso=GetFeedPostsPublic_request.sso,
+            is_crawler=GetFeedPostsPublic_request.is_crawler,
+            include_user_info=GetFeedPostsPublic_request.include_user_info,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6217,9 +6055,7 @@ class PublicApi:
     @validate_call
     def get_feed_posts_stats(
         self,
-        tenant_id: StrictStr,
-        post_ids: List[StrictStr],
-        sso: Optional[StrictStr] = None,
+        GetFeedPostsStats_request: ApiGetFeedPostsStatsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6236,12 +6072,8 @@ class PublicApi:
         """get_feed_posts_stats
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param post_ids: (required)
-        :type post_ids: List[str]
-        :param sso:
-        :type sso: str
+        :param GetFeedPostsStats_request: The request object containing all parameters for this operation. (required)
+        :type GetFeedPostsStats_request: ApiGetFeedPostsStatsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6265,9 +6097,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_feed_posts_stats_serialize(
-            tenant_id=tenant_id,
-            post_ids=post_ids,
-            sso=sso,
+            tenant_id=GetFeedPostsStats_request.tenant_id,
+            post_ids=GetFeedPostsStats_request.post_ids,
+            sso=GetFeedPostsStats_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6291,9 +6123,7 @@ class PublicApi:
     @validate_call
     def get_feed_posts_stats_with_http_info(
         self,
-        tenant_id: StrictStr,
-        post_ids: List[StrictStr],
-        sso: Optional[StrictStr] = None,
+        GetFeedPostsStats_request: ApiGetFeedPostsStatsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6310,12 +6140,8 @@ class PublicApi:
         """get_feed_posts_stats
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param post_ids: (required)
-        :type post_ids: List[str]
-        :param sso:
-        :type sso: str
+        :param GetFeedPostsStats_request: The request object containing all parameters for this operation. (required)
+        :type GetFeedPostsStats_request: ApiGetFeedPostsStatsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6339,9 +6165,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_feed_posts_stats_serialize(
-            tenant_id=tenant_id,
-            post_ids=post_ids,
-            sso=sso,
+            tenant_id=GetFeedPostsStats_request.tenant_id,
+            post_ids=GetFeedPostsStats_request.post_ids,
+            sso=GetFeedPostsStats_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6365,9 +6191,7 @@ class PublicApi:
     @validate_call
     def get_feed_posts_stats_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        post_ids: List[StrictStr],
-        sso: Optional[StrictStr] = None,
+        GetFeedPostsStats_request: ApiGetFeedPostsStatsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6384,12 +6208,8 @@ class PublicApi:
         """get_feed_posts_stats
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param post_ids: (required)
-        :type post_ids: List[str]
-        :param sso:
-        :type sso: str
+        :param GetFeedPostsStats_request: The request object containing all parameters for this operation. (required)
+        :type GetFeedPostsStats_request: ApiGetFeedPostsStatsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6413,9 +6233,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_feed_posts_stats_serialize(
-            tenant_id=tenant_id,
-            post_ids=post_ids,
-            sso=sso,
+            tenant_id=GetFeedPostsStats_request.tenant_id,
+            post_ids=GetFeedPostsStats_request.post_ids,
+            sso=GetFeedPostsStats_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6509,8 +6329,7 @@ class PublicApi:
     @validate_call
     def get_gif_large(
         self,
-        tenant_id: StrictStr,
-        large_internal_url_sanitized: StrictStr,
+        GetGifLarge_request: ApiGetGifLargeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6527,10 +6346,8 @@ class PublicApi:
         """get_gif_large
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param large_internal_url_sanitized: (required)
-        :type large_internal_url_sanitized: str
+        :param GetGifLarge_request: The request object containing all parameters for this operation. (required)
+        :type GetGifLarge_request: ApiGetGifLargeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6554,8 +6371,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_gif_large_serialize(
-            tenant_id=tenant_id,
-            large_internal_url_sanitized=large_internal_url_sanitized,
+            tenant_id=GetGifLarge_request.tenant_id,
+            large_internal_url_sanitized=GetGifLarge_request.large_internal_url_sanitized,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6580,8 +6397,7 @@ class PublicApi:
     @validate_call
     def get_gif_large_with_http_info(
         self,
-        tenant_id: StrictStr,
-        large_internal_url_sanitized: StrictStr,
+        GetGifLarge_request: ApiGetGifLargeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6598,10 +6414,8 @@ class PublicApi:
         """get_gif_large
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param large_internal_url_sanitized: (required)
-        :type large_internal_url_sanitized: str
+        :param GetGifLarge_request: The request object containing all parameters for this operation. (required)
+        :type GetGifLarge_request: ApiGetGifLargeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6625,8 +6439,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_gif_large_serialize(
-            tenant_id=tenant_id,
-            large_internal_url_sanitized=large_internal_url_sanitized,
+            tenant_id=GetGifLarge_request.tenant_id,
+            large_internal_url_sanitized=GetGifLarge_request.large_internal_url_sanitized,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6651,8 +6465,7 @@ class PublicApi:
     @validate_call
     def get_gif_large_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        large_internal_url_sanitized: StrictStr,
+        GetGifLarge_request: ApiGetGifLargeRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6669,10 +6482,8 @@ class PublicApi:
         """get_gif_large
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param large_internal_url_sanitized: (required)
-        :type large_internal_url_sanitized: str
+        :param GetGifLarge_request: The request object containing all parameters for this operation. (required)
+        :type GetGifLarge_request: ApiGetGifLargeRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6696,8 +6507,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_gif_large_serialize(
-            tenant_id=tenant_id,
-            large_internal_url_sanitized=large_internal_url_sanitized,
+            tenant_id=GetGifLarge_request.tenant_id,
+            large_internal_url_sanitized=GetGifLarge_request.large_internal_url_sanitized,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6786,11 +6597,7 @@ class PublicApi:
     @validate_call
     def get_gifs_search(
         self,
-        tenant_id: StrictStr,
-        search: StrictStr,
-        locale: Optional[StrictStr] = None,
-        rating: Optional[StrictStr] = None,
-        page: Optional[Union[StrictFloat, StrictInt]] = None,
+        GetGifsSearch_request: ApiGetGifsSearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6807,16 +6614,8 @@ class PublicApi:
         """get_gifs_search
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param search: (required)
-        :type search: str
-        :param locale:
-        :type locale: str
-        :param rating:
-        :type rating: str
-        :param page:
-        :type page: float
+        :param GetGifsSearch_request: The request object containing all parameters for this operation. (required)
+        :type GetGifsSearch_request: ApiGetGifsSearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6840,11 +6639,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_gifs_search_serialize(
-            tenant_id=tenant_id,
-            search=search,
-            locale=locale,
-            rating=rating,
-            page=page,
+            tenant_id=GetGifsSearch_request.tenant_id,
+            search=GetGifsSearch_request.search,
+            locale=GetGifsSearch_request.locale,
+            rating=GetGifsSearch_request.rating,
+            page=GetGifsSearch_request.page,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6869,11 +6668,7 @@ class PublicApi:
     @validate_call
     def get_gifs_search_with_http_info(
         self,
-        tenant_id: StrictStr,
-        search: StrictStr,
-        locale: Optional[StrictStr] = None,
-        rating: Optional[StrictStr] = None,
-        page: Optional[Union[StrictFloat, StrictInt]] = None,
+        GetGifsSearch_request: ApiGetGifsSearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6890,16 +6685,8 @@ class PublicApi:
         """get_gifs_search
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param search: (required)
-        :type search: str
-        :param locale:
-        :type locale: str
-        :param rating:
-        :type rating: str
-        :param page:
-        :type page: float
+        :param GetGifsSearch_request: The request object containing all parameters for this operation. (required)
+        :type GetGifsSearch_request: ApiGetGifsSearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6923,11 +6710,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_gifs_search_serialize(
-            tenant_id=tenant_id,
-            search=search,
-            locale=locale,
-            rating=rating,
-            page=page,
+            tenant_id=GetGifsSearch_request.tenant_id,
+            search=GetGifsSearch_request.search,
+            locale=GetGifsSearch_request.locale,
+            rating=GetGifsSearch_request.rating,
+            page=GetGifsSearch_request.page,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6952,11 +6739,7 @@ class PublicApi:
     @validate_call
     def get_gifs_search_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        search: StrictStr,
-        locale: Optional[StrictStr] = None,
-        rating: Optional[StrictStr] = None,
-        page: Optional[Union[StrictFloat, StrictInt]] = None,
+        GetGifsSearch_request: ApiGetGifsSearchRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6973,16 +6756,8 @@ class PublicApi:
         """get_gifs_search
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param search: (required)
-        :type search: str
-        :param locale:
-        :type locale: str
-        :param rating:
-        :type rating: str
-        :param page:
-        :type page: float
+        :param GetGifsSearch_request: The request object containing all parameters for this operation. (required)
+        :type GetGifsSearch_request: ApiGetGifsSearchRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7006,11 +6781,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_gifs_search_serialize(
-            tenant_id=tenant_id,
-            search=search,
-            locale=locale,
-            rating=rating,
-            page=page,
+            tenant_id=GetGifsSearch_request.tenant_id,
+            search=GetGifsSearch_request.search,
+            locale=GetGifsSearch_request.locale,
+            rating=GetGifsSearch_request.rating,
+            page=GetGifsSearch_request.page,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7114,10 +6889,7 @@ class PublicApi:
     @validate_call
     def get_gifs_trending(
         self,
-        tenant_id: StrictStr,
-        locale: Optional[StrictStr] = None,
-        rating: Optional[StrictStr] = None,
-        page: Optional[Union[StrictFloat, StrictInt]] = None,
+        GetGifsTrending_request: ApiGetGifsTrendingRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7134,14 +6906,8 @@ class PublicApi:
         """get_gifs_trending
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param locale:
-        :type locale: str
-        :param rating:
-        :type rating: str
-        :param page:
-        :type page: float
+        :param GetGifsTrending_request: The request object containing all parameters for this operation. (required)
+        :type GetGifsTrending_request: ApiGetGifsTrendingRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7165,10 +6931,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_gifs_trending_serialize(
-            tenant_id=tenant_id,
-            locale=locale,
-            rating=rating,
-            page=page,
+            tenant_id=GetGifsTrending_request.tenant_id,
+            locale=GetGifsTrending_request.locale,
+            rating=GetGifsTrending_request.rating,
+            page=GetGifsTrending_request.page,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7192,10 +6958,7 @@ class PublicApi:
     @validate_call
     def get_gifs_trending_with_http_info(
         self,
-        tenant_id: StrictStr,
-        locale: Optional[StrictStr] = None,
-        rating: Optional[StrictStr] = None,
-        page: Optional[Union[StrictFloat, StrictInt]] = None,
+        GetGifsTrending_request: ApiGetGifsTrendingRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7212,14 +6975,8 @@ class PublicApi:
         """get_gifs_trending
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param locale:
-        :type locale: str
-        :param rating:
-        :type rating: str
-        :param page:
-        :type page: float
+        :param GetGifsTrending_request: The request object containing all parameters for this operation. (required)
+        :type GetGifsTrending_request: ApiGetGifsTrendingRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7243,10 +7000,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_gifs_trending_serialize(
-            tenant_id=tenant_id,
-            locale=locale,
-            rating=rating,
-            page=page,
+            tenant_id=GetGifsTrending_request.tenant_id,
+            locale=GetGifsTrending_request.locale,
+            rating=GetGifsTrending_request.rating,
+            page=GetGifsTrending_request.page,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7270,10 +7027,7 @@ class PublicApi:
     @validate_call
     def get_gifs_trending_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        locale: Optional[StrictStr] = None,
-        rating: Optional[StrictStr] = None,
-        page: Optional[Union[StrictFloat, StrictInt]] = None,
+        GetGifsTrending_request: ApiGetGifsTrendingRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7290,14 +7044,8 @@ class PublicApi:
         """get_gifs_trending
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param locale:
-        :type locale: str
-        :param rating:
-        :type rating: str
-        :param page:
-        :type page: float
+        :param GetGifsTrending_request: The request object containing all parameters for this operation. (required)
+        :type GetGifsTrending_request: ApiGetGifsTrendingRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7321,10 +7069,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_gifs_trending_serialize(
-            tenant_id=tenant_id,
-            locale=locale,
-            rating=rating,
-            page=page,
+            tenant_id=GetGifsTrending_request.tenant_id,
+            locale=GetGifsTrending_request.locale,
+            rating=GetGifsTrending_request.rating,
+            page=GetGifsTrending_request.page,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7422,11 +7170,7 @@ class PublicApi:
     @validate_call
     def get_global_event_log(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        user_id_ws: StrictStr,
-        start_time: StrictInt,
-        end_time: Optional[StrictInt] = None,
+        GetGlobalEventLog_request: ApiGetGlobalEventLogRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7444,16 +7188,8 @@ class PublicApi:
 
          req tenantId urlId userIdWS
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param user_id_ws: (required)
-        :type user_id_ws: str
-        :param start_time: (required)
-        :type start_time: int
-        :param end_time:
-        :type end_time: int
+        :param GetGlobalEventLog_request: The request object containing all parameters for this operation. (required)
+        :type GetGlobalEventLog_request: ApiGetGlobalEventLogRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7477,11 +7213,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_global_event_log_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            user_id_ws=user_id_ws,
-            start_time=start_time,
-            end_time=end_time,
+            tenant_id=GetGlobalEventLog_request.tenant_id,
+            url_id=GetGlobalEventLog_request.url_id,
+            user_id_ws=GetGlobalEventLog_request.user_id_ws,
+            start_time=GetGlobalEventLog_request.start_time,
+            end_time=GetGlobalEventLog_request.end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7505,11 +7241,7 @@ class PublicApi:
     @validate_call
     def get_global_event_log_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        user_id_ws: StrictStr,
-        start_time: StrictInt,
-        end_time: Optional[StrictInt] = None,
+        GetGlobalEventLog_request: ApiGetGlobalEventLogRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7527,16 +7259,8 @@ class PublicApi:
 
          req tenantId urlId userIdWS
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param user_id_ws: (required)
-        :type user_id_ws: str
-        :param start_time: (required)
-        :type start_time: int
-        :param end_time:
-        :type end_time: int
+        :param GetGlobalEventLog_request: The request object containing all parameters for this operation. (required)
+        :type GetGlobalEventLog_request: ApiGetGlobalEventLogRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7560,11 +7284,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_global_event_log_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            user_id_ws=user_id_ws,
-            start_time=start_time,
-            end_time=end_time,
+            tenant_id=GetGlobalEventLog_request.tenant_id,
+            url_id=GetGlobalEventLog_request.url_id,
+            user_id_ws=GetGlobalEventLog_request.user_id_ws,
+            start_time=GetGlobalEventLog_request.start_time,
+            end_time=GetGlobalEventLog_request.end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7588,11 +7312,7 @@ class PublicApi:
     @validate_call
     def get_global_event_log_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        user_id_ws: StrictStr,
-        start_time: StrictInt,
-        end_time: Optional[StrictInt] = None,
+        GetGlobalEventLog_request: ApiGetGlobalEventLogRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7610,16 +7330,8 @@ class PublicApi:
 
          req tenantId urlId userIdWS
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param user_id_ws: (required)
-        :type user_id_ws: str
-        :param start_time: (required)
-        :type start_time: int
-        :param end_time:
-        :type end_time: int
+        :param GetGlobalEventLog_request: The request object containing all parameters for this operation. (required)
+        :type GetGlobalEventLog_request: ApiGetGlobalEventLogRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7643,11 +7355,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_global_event_log_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            user_id_ws=user_id_ws,
-            start_time=start_time,
-            end_time=end_time,
+            tenant_id=GetGlobalEventLog_request.tenant_id,
+            url_id=GetGlobalEventLog_request.url_id,
+            user_id_ws=GetGlobalEventLog_request.user_id_ws,
+            start_time=GetGlobalEventLog_request.start_time,
+            end_time=GetGlobalEventLog_request.end_time,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7750,10 +7462,7 @@ class PublicApi:
     @validate_call
     def get_offline_users(
         self,
-        tenant_id: StrictStr,
-        url_id: Annotated[StrictStr, Field(description="Page URL identifier (cleaned server-side).")],
-        after_name: Annotated[Optional[StrictStr], Field(description="Cursor: pass nextAfterName from the previous response.")] = None,
-        after_user_id: Annotated[Optional[StrictStr], Field(description="Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.")] = None,
+        GetOfflineUsers_request: ApiGetOfflineUsersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7771,14 +7480,8 @@ class PublicApi:
 
         Past commenters on the page who are NOT currently online. Sorted by displayName. Use this after exhausting /users/online to render a \"Members\" section. Cursor pagination on commenterName: server walks the partial {tenantId, urlId, commenterName} index from afterName forward via $gt, no $skip cost.
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: Page URL identifier (cleaned server-side). (required)
-        :type url_id: str
-        :param after_name: Cursor: pass nextAfterName from the previous response.
-        :type after_name: str
-        :param after_user_id: Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.
-        :type after_user_id: str
+        :param GetOfflineUsers_request: The request object containing all parameters for this operation. (required)
+        :type GetOfflineUsers_request: ApiGetOfflineUsersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7802,10 +7505,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_offline_users_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            after_name=after_name,
-            after_user_id=after_user_id,
+            tenant_id=GetOfflineUsers_request.tenant_id,
+            url_id=GetOfflineUsers_request.url_id,
+            after_name=GetOfflineUsers_request.after_name,
+            after_user_id=GetOfflineUsers_request.after_user_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7831,10 +7534,7 @@ class PublicApi:
     @validate_call
     def get_offline_users_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id: Annotated[StrictStr, Field(description="Page URL identifier (cleaned server-side).")],
-        after_name: Annotated[Optional[StrictStr], Field(description="Cursor: pass nextAfterName from the previous response.")] = None,
-        after_user_id: Annotated[Optional[StrictStr], Field(description="Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.")] = None,
+        GetOfflineUsers_request: ApiGetOfflineUsersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7852,14 +7552,8 @@ class PublicApi:
 
         Past commenters on the page who are NOT currently online. Sorted by displayName. Use this after exhausting /users/online to render a \"Members\" section. Cursor pagination on commenterName: server walks the partial {tenantId, urlId, commenterName} index from afterName forward via $gt, no $skip cost.
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: Page URL identifier (cleaned server-side). (required)
-        :type url_id: str
-        :param after_name: Cursor: pass nextAfterName from the previous response.
-        :type after_name: str
-        :param after_user_id: Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.
-        :type after_user_id: str
+        :param GetOfflineUsers_request: The request object containing all parameters for this operation. (required)
+        :type GetOfflineUsers_request: ApiGetOfflineUsersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7883,10 +7577,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_offline_users_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            after_name=after_name,
-            after_user_id=after_user_id,
+            tenant_id=GetOfflineUsers_request.tenant_id,
+            url_id=GetOfflineUsers_request.url_id,
+            after_name=GetOfflineUsers_request.after_name,
+            after_user_id=GetOfflineUsers_request.after_user_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7912,10 +7606,7 @@ class PublicApi:
     @validate_call
     def get_offline_users_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id: Annotated[StrictStr, Field(description="Page URL identifier (cleaned server-side).")],
-        after_name: Annotated[Optional[StrictStr], Field(description="Cursor: pass nextAfterName from the previous response.")] = None,
-        after_user_id: Annotated[Optional[StrictStr], Field(description="Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.")] = None,
+        GetOfflineUsers_request: ApiGetOfflineUsersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7933,14 +7624,8 @@ class PublicApi:
 
         Past commenters on the page who are NOT currently online. Sorted by displayName. Use this after exhausting /users/online to render a \"Members\" section. Cursor pagination on commenterName: server walks the partial {tenantId, urlId, commenterName} index from afterName forward via $gt, no $skip cost.
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: Page URL identifier (cleaned server-side). (required)
-        :type url_id: str
-        :param after_name: Cursor: pass nextAfterName from the previous response.
-        :type after_name: str
-        :param after_user_id: Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.
-        :type after_user_id: str
+        :param GetOfflineUsers_request: The request object containing all parameters for this operation. (required)
+        :type GetOfflineUsers_request: ApiGetOfflineUsersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7964,10 +7649,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_offline_users_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            after_name=after_name,
-            after_user_id=after_user_id,
+            tenant_id=GetOfflineUsers_request.tenant_id,
+            url_id=GetOfflineUsers_request.url_id,
+            after_name=GetOfflineUsers_request.after_name,
+            after_user_id=GetOfflineUsers_request.after_user_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8067,10 +7752,7 @@ class PublicApi:
     @validate_call
     def get_online_users(
         self,
-        tenant_id: StrictStr,
-        url_id: Annotated[StrictStr, Field(description="Page URL identifier (cleaned server-side).")],
-        after_name: Annotated[Optional[StrictStr], Field(description="Cursor: pass nextAfterName from the previous response.")] = None,
-        after_user_id: Annotated[Optional[StrictStr], Field(description="Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.")] = None,
+        GetOnlineUsers_request: ApiGetOnlineUsersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8088,14 +7770,8 @@ class PublicApi:
 
         Currently-online viewers of a page: people whose websocket session is subscribed to the page right now. Returns anonCount + totalCount (room-wide subscribers, including anon viewers we don't enumerate).
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: Page URL identifier (cleaned server-side). (required)
-        :type url_id: str
-        :param after_name: Cursor: pass nextAfterName from the previous response.
-        :type after_name: str
-        :param after_user_id: Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.
-        :type after_user_id: str
+        :param GetOnlineUsers_request: The request object containing all parameters for this operation. (required)
+        :type GetOnlineUsers_request: ApiGetOnlineUsersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8119,10 +7795,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_online_users_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            after_name=after_name,
-            after_user_id=after_user_id,
+            tenant_id=GetOnlineUsers_request.tenant_id,
+            url_id=GetOnlineUsers_request.url_id,
+            after_name=GetOnlineUsers_request.after_name,
+            after_user_id=GetOnlineUsers_request.after_user_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8148,10 +7824,7 @@ class PublicApi:
     @validate_call
     def get_online_users_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id: Annotated[StrictStr, Field(description="Page URL identifier (cleaned server-side).")],
-        after_name: Annotated[Optional[StrictStr], Field(description="Cursor: pass nextAfterName from the previous response.")] = None,
-        after_user_id: Annotated[Optional[StrictStr], Field(description="Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.")] = None,
+        GetOnlineUsers_request: ApiGetOnlineUsersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8169,14 +7842,8 @@ class PublicApi:
 
         Currently-online viewers of a page: people whose websocket session is subscribed to the page right now. Returns anonCount + totalCount (room-wide subscribers, including anon viewers we don't enumerate).
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: Page URL identifier (cleaned server-side). (required)
-        :type url_id: str
-        :param after_name: Cursor: pass nextAfterName from the previous response.
-        :type after_name: str
-        :param after_user_id: Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.
-        :type after_user_id: str
+        :param GetOnlineUsers_request: The request object containing all parameters for this operation. (required)
+        :type GetOnlineUsers_request: ApiGetOnlineUsersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8200,10 +7867,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_online_users_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            after_name=after_name,
-            after_user_id=after_user_id,
+            tenant_id=GetOnlineUsers_request.tenant_id,
+            url_id=GetOnlineUsers_request.url_id,
+            after_name=GetOnlineUsers_request.after_name,
+            after_user_id=GetOnlineUsers_request.after_user_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8229,10 +7896,7 @@ class PublicApi:
     @validate_call
     def get_online_users_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id: Annotated[StrictStr, Field(description="Page URL identifier (cleaned server-side).")],
-        after_name: Annotated[Optional[StrictStr], Field(description="Cursor: pass nextAfterName from the previous response.")] = None,
-        after_user_id: Annotated[Optional[StrictStr], Field(description="Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.")] = None,
+        GetOnlineUsers_request: ApiGetOnlineUsersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8250,14 +7914,8 @@ class PublicApi:
 
         Currently-online viewers of a page: people whose websocket session is subscribed to the page right now. Returns anonCount + totalCount (room-wide subscribers, including anon viewers we don't enumerate).
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: Page URL identifier (cleaned server-side). (required)
-        :type url_id: str
-        :param after_name: Cursor: pass nextAfterName from the previous response.
-        :type after_name: str
-        :param after_user_id: Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.
-        :type after_user_id: str
+        :param GetOnlineUsers_request: The request object containing all parameters for this operation. (required)
+        :type GetOnlineUsers_request: ApiGetOnlineUsersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8281,10 +7939,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_online_users_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            after_name=after_name,
-            after_user_id=after_user_id,
+            tenant_id=GetOnlineUsers_request.tenant_id,
+            url_id=GetOnlineUsers_request.url_id,
+            after_name=GetOnlineUsers_request.after_name,
+            after_user_id=GetOnlineUsers_request.after_user_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8384,12 +8042,7 @@ class PublicApi:
     @validate_call
     def get_pages_public(
         self,
-        tenant_id: StrictStr,
-        cursor: Annotated[Optional[StrictStr], Field(description="Opaque pagination cursor returned as `nextCursor` from a prior request. Tied to the same `sortBy`.")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="1..200, default 50")] = None,
-        q: Annotated[Optional[StrictStr], Field(description="Optional case-insensitive title prefix filter.")] = None,
-        sort_by: Annotated[Optional[PagesSortBy], Field(description="Sort order. `updatedAt` (default, newest first), `commentCount` (most comments first), or `title` (alphabetical).")] = None,
-        has_comments: Annotated[Optional[StrictBool], Field(description="If true, only return pages with at least one comment.")] = None,
+        GetPagesPublic_request: ApiGetPagesPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8407,18 +8060,8 @@ class PublicApi:
 
         List pages for a tenant. Used by the FChat desktop client to populate its room list. Requires `enableFChat` to be true on the resolved custom config for each page. Pages that require SSO are filtered against the requesting user's group access.
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param cursor: Opaque pagination cursor returned as `nextCursor` from a prior request. Tied to the same `sortBy`.
-        :type cursor: str
-        :param limit: 1..200, default 50
-        :type limit: int
-        :param q: Optional case-insensitive title prefix filter.
-        :type q: str
-        :param sort_by: Sort order. `updatedAt` (default, newest first), `commentCount` (most comments first), or `title` (alphabetical).
-        :type sort_by: PagesSortBy
-        :param has_comments: If true, only return pages with at least one comment.
-        :type has_comments: bool
+        :param GetPagesPublic_request: The request object containing all parameters for this operation. (required)
+        :type GetPagesPublic_request: ApiGetPagesPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8442,12 +8085,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_pages_public_serialize(
-            tenant_id=tenant_id,
-            cursor=cursor,
-            limit=limit,
-            q=q,
-            sort_by=sort_by,
-            has_comments=has_comments,
+            tenant_id=GetPagesPublic_request.tenant_id,
+            cursor=GetPagesPublic_request.cursor,
+            limit=GetPagesPublic_request.limit,
+            q=GetPagesPublic_request.q,
+            sort_by=GetPagesPublic_request.sort_by,
+            has_comments=GetPagesPublic_request.has_comments,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8471,12 +8114,7 @@ class PublicApi:
     @validate_call
     def get_pages_public_with_http_info(
         self,
-        tenant_id: StrictStr,
-        cursor: Annotated[Optional[StrictStr], Field(description="Opaque pagination cursor returned as `nextCursor` from a prior request. Tied to the same `sortBy`.")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="1..200, default 50")] = None,
-        q: Annotated[Optional[StrictStr], Field(description="Optional case-insensitive title prefix filter.")] = None,
-        sort_by: Annotated[Optional[PagesSortBy], Field(description="Sort order. `updatedAt` (default, newest first), `commentCount` (most comments first), or `title` (alphabetical).")] = None,
-        has_comments: Annotated[Optional[StrictBool], Field(description="If true, only return pages with at least one comment.")] = None,
+        GetPagesPublic_request: ApiGetPagesPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8494,18 +8132,8 @@ class PublicApi:
 
         List pages for a tenant. Used by the FChat desktop client to populate its room list. Requires `enableFChat` to be true on the resolved custom config for each page. Pages that require SSO are filtered against the requesting user's group access.
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param cursor: Opaque pagination cursor returned as `nextCursor` from a prior request. Tied to the same `sortBy`.
-        :type cursor: str
-        :param limit: 1..200, default 50
-        :type limit: int
-        :param q: Optional case-insensitive title prefix filter.
-        :type q: str
-        :param sort_by: Sort order. `updatedAt` (default, newest first), `commentCount` (most comments first), or `title` (alphabetical).
-        :type sort_by: PagesSortBy
-        :param has_comments: If true, only return pages with at least one comment.
-        :type has_comments: bool
+        :param GetPagesPublic_request: The request object containing all parameters for this operation. (required)
+        :type GetPagesPublic_request: ApiGetPagesPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8529,12 +8157,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_pages_public_serialize(
-            tenant_id=tenant_id,
-            cursor=cursor,
-            limit=limit,
-            q=q,
-            sort_by=sort_by,
-            has_comments=has_comments,
+            tenant_id=GetPagesPublic_request.tenant_id,
+            cursor=GetPagesPublic_request.cursor,
+            limit=GetPagesPublic_request.limit,
+            q=GetPagesPublic_request.q,
+            sort_by=GetPagesPublic_request.sort_by,
+            has_comments=GetPagesPublic_request.has_comments,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8558,12 +8186,7 @@ class PublicApi:
     @validate_call
     def get_pages_public_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        cursor: Annotated[Optional[StrictStr], Field(description="Opaque pagination cursor returned as `nextCursor` from a prior request. Tied to the same `sortBy`.")] = None,
-        limit: Annotated[Optional[StrictInt], Field(description="1..200, default 50")] = None,
-        q: Annotated[Optional[StrictStr], Field(description="Optional case-insensitive title prefix filter.")] = None,
-        sort_by: Annotated[Optional[PagesSortBy], Field(description="Sort order. `updatedAt` (default, newest first), `commentCount` (most comments first), or `title` (alphabetical).")] = None,
-        has_comments: Annotated[Optional[StrictBool], Field(description="If true, only return pages with at least one comment.")] = None,
+        GetPagesPublic_request: ApiGetPagesPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8581,18 +8204,8 @@ class PublicApi:
 
         List pages for a tenant. Used by the FChat desktop client to populate its room list. Requires `enableFChat` to be true on the resolved custom config for each page. Pages that require SSO are filtered against the requesting user's group access.
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param cursor: Opaque pagination cursor returned as `nextCursor` from a prior request. Tied to the same `sortBy`.
-        :type cursor: str
-        :param limit: 1..200, default 50
-        :type limit: int
-        :param q: Optional case-insensitive title prefix filter.
-        :type q: str
-        :param sort_by: Sort order. `updatedAt` (default, newest first), `commentCount` (most comments first), or `title` (alphabetical).
-        :type sort_by: PagesSortBy
-        :param has_comments: If true, only return pages with at least one comment.
-        :type has_comments: bool
+        :param GetPagesPublic_request: The request object containing all parameters for this operation. (required)
+        :type GetPagesPublic_request: ApiGetPagesPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8616,12 +8229,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_pages_public_serialize(
-            tenant_id=tenant_id,
-            cursor=cursor,
-            limit=limit,
-            q=q,
-            sort_by=sort_by,
-            has_comments=has_comments,
+            tenant_id=GetPagesPublic_request.tenant_id,
+            cursor=GetPagesPublic_request.cursor,
+            limit=GetPagesPublic_request.limit,
+            q=GetPagesPublic_request.q,
+            sort_by=GetPagesPublic_request.sort_by,
+            has_comments=GetPagesPublic_request.has_comments,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8729,10 +8342,7 @@ class PublicApi:
     @validate_call
     def get_translations(
         self,
-        namespace: StrictStr,
-        component: StrictStr,
-        locale: Optional[StrictStr] = None,
-        use_full_translation_ids: Optional[StrictBool] = None,
+        GetTranslations_request: ApiGetTranslationsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8749,14 +8359,8 @@ class PublicApi:
         """get_translations
 
 
-        :param namespace: (required)
-        :type namespace: str
-        :param component: (required)
-        :type component: str
-        :param locale:
-        :type locale: str
-        :param use_full_translation_ids:
-        :type use_full_translation_ids: bool
+        :param GetTranslations_request: The request object containing all parameters for this operation. (required)
+        :type GetTranslations_request: ApiGetTranslationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8780,10 +8384,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_translations_serialize(
-            namespace=namespace,
-            component=component,
-            locale=locale,
-            use_full_translation_ids=use_full_translation_ids,
+            namespace=GetTranslations_request.namespace,
+            component=GetTranslations_request.component,
+            locale=GetTranslations_request.locale,
+            use_full_translation_ids=GetTranslations_request.use_full_translation_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8809,10 +8413,7 @@ class PublicApi:
     @validate_call
     def get_translations_with_http_info(
         self,
-        namespace: StrictStr,
-        component: StrictStr,
-        locale: Optional[StrictStr] = None,
-        use_full_translation_ids: Optional[StrictBool] = None,
+        GetTranslations_request: ApiGetTranslationsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8829,14 +8430,8 @@ class PublicApi:
         """get_translations
 
 
-        :param namespace: (required)
-        :type namespace: str
-        :param component: (required)
-        :type component: str
-        :param locale:
-        :type locale: str
-        :param use_full_translation_ids:
-        :type use_full_translation_ids: bool
+        :param GetTranslations_request: The request object containing all parameters for this operation. (required)
+        :type GetTranslations_request: ApiGetTranslationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8860,10 +8455,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_translations_serialize(
-            namespace=namespace,
-            component=component,
-            locale=locale,
-            use_full_translation_ids=use_full_translation_ids,
+            namespace=GetTranslations_request.namespace,
+            component=GetTranslations_request.component,
+            locale=GetTranslations_request.locale,
+            use_full_translation_ids=GetTranslations_request.use_full_translation_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8889,10 +8484,7 @@ class PublicApi:
     @validate_call
     def get_translations_without_preload_content(
         self,
-        namespace: StrictStr,
-        component: StrictStr,
-        locale: Optional[StrictStr] = None,
-        use_full_translation_ids: Optional[StrictBool] = None,
+        GetTranslations_request: ApiGetTranslationsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8909,14 +8501,8 @@ class PublicApi:
         """get_translations
 
 
-        :param namespace: (required)
-        :type namespace: str
-        :param component: (required)
-        :type component: str
-        :param locale:
-        :type locale: str
-        :param use_full_translation_ids:
-        :type use_full_translation_ids: bool
+        :param GetTranslations_request: The request object containing all parameters for this operation. (required)
+        :type GetTranslations_request: ApiGetTranslationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8940,10 +8526,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_translations_serialize(
-            namespace=namespace,
-            component=component,
-            locale=locale,
-            use_full_translation_ids=use_full_translation_ids,
+            namespace=GetTranslations_request.namespace,
+            component=GetTranslations_request.component,
+            locale=GetTranslations_request.locale,
+            use_full_translation_ids=GetTranslations_request.use_full_translation_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9041,8 +8627,7 @@ class PublicApi:
     @validate_call
     def get_user_notification_count(
         self,
-        tenant_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        GetUserNotificationCount_request: ApiGetUserNotificationCountRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9059,10 +8644,8 @@ class PublicApi:
         """get_user_notification_count
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetUserNotificationCount_request: The request object containing all parameters for this operation. (required)
+        :type GetUserNotificationCount_request: ApiGetUserNotificationCountRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9086,8 +8669,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_user_notification_count_serialize(
-            tenant_id=tenant_id,
-            sso=sso,
+            tenant_id=GetUserNotificationCount_request.tenant_id,
+            sso=GetUserNotificationCount_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9111,8 +8694,7 @@ class PublicApi:
     @validate_call
     def get_user_notification_count_with_http_info(
         self,
-        tenant_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        GetUserNotificationCount_request: ApiGetUserNotificationCountRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9129,10 +8711,8 @@ class PublicApi:
         """get_user_notification_count
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetUserNotificationCount_request: The request object containing all parameters for this operation. (required)
+        :type GetUserNotificationCount_request: ApiGetUserNotificationCountRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9156,8 +8736,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_user_notification_count_serialize(
-            tenant_id=tenant_id,
-            sso=sso,
+            tenant_id=GetUserNotificationCount_request.tenant_id,
+            sso=GetUserNotificationCount_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9181,8 +8761,7 @@ class PublicApi:
     @validate_call
     def get_user_notification_count_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        GetUserNotificationCount_request: ApiGetUserNotificationCountRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9199,10 +8778,8 @@ class PublicApi:
         """get_user_notification_count
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param GetUserNotificationCount_request: The request object containing all parameters for this operation. (required)
+        :type GetUserNotificationCount_request: ApiGetUserNotificationCountRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9226,8 +8803,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_user_notification_count_serialize(
-            tenant_id=tenant_id,
-            sso=sso,
+            tenant_id=GetUserNotificationCount_request.tenant_id,
+            sso=GetUserNotificationCount_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9317,18 +8894,7 @@ class PublicApi:
     @validate_call
     def get_user_notifications(
         self,
-        tenant_id: StrictStr,
-        url_id: Annotated[Optional[StrictStr], Field(description="Used to determine whether the current page is subscribed.")] = None,
-        page_size: Optional[StrictInt] = None,
-        after_id: Optional[StrictStr] = None,
-        include_context: Optional[StrictBool] = None,
-        after_created_at: Optional[StrictInt] = None,
-        unread_only: Optional[StrictBool] = None,
-        dm_only: Optional[StrictBool] = None,
-        no_dm: Optional[StrictBool] = None,
-        include_translations: Optional[StrictBool] = None,
-        include_tenant_notifications: Optional[StrictBool] = None,
-        sso: Optional[StrictStr] = None,
+        GetUserNotifications_request: ApiGetUserNotificationsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9345,30 +8911,8 @@ class PublicApi:
         """get_user_notifications
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: Used to determine whether the current page is subscribed.
-        :type url_id: str
-        :param page_size:
-        :type page_size: int
-        :param after_id:
-        :type after_id: str
-        :param include_context:
-        :type include_context: bool
-        :param after_created_at:
-        :type after_created_at: int
-        :param unread_only:
-        :type unread_only: bool
-        :param dm_only:
-        :type dm_only: bool
-        :param no_dm:
-        :type no_dm: bool
-        :param include_translations:
-        :type include_translations: bool
-        :param include_tenant_notifications:
-        :type include_tenant_notifications: bool
-        :param sso:
-        :type sso: str
+        :param GetUserNotifications_request: The request object containing all parameters for this operation. (required)
+        :type GetUserNotifications_request: ApiGetUserNotificationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9392,18 +8936,18 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_user_notifications_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            page_size=page_size,
-            after_id=after_id,
-            include_context=include_context,
-            after_created_at=after_created_at,
-            unread_only=unread_only,
-            dm_only=dm_only,
-            no_dm=no_dm,
-            include_translations=include_translations,
-            include_tenant_notifications=include_tenant_notifications,
-            sso=sso,
+            tenant_id=GetUserNotifications_request.tenant_id,
+            url_id=GetUserNotifications_request.url_id,
+            page_size=GetUserNotifications_request.page_size,
+            after_id=GetUserNotifications_request.after_id,
+            include_context=GetUserNotifications_request.include_context,
+            after_created_at=GetUserNotifications_request.after_created_at,
+            unread_only=GetUserNotifications_request.unread_only,
+            dm_only=GetUserNotifications_request.dm_only,
+            no_dm=GetUserNotifications_request.no_dm,
+            include_translations=GetUserNotifications_request.include_translations,
+            include_tenant_notifications=GetUserNotifications_request.include_tenant_notifications,
+            sso=GetUserNotifications_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9427,18 +8971,7 @@ class PublicApi:
     @validate_call
     def get_user_notifications_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id: Annotated[Optional[StrictStr], Field(description="Used to determine whether the current page is subscribed.")] = None,
-        page_size: Optional[StrictInt] = None,
-        after_id: Optional[StrictStr] = None,
-        include_context: Optional[StrictBool] = None,
-        after_created_at: Optional[StrictInt] = None,
-        unread_only: Optional[StrictBool] = None,
-        dm_only: Optional[StrictBool] = None,
-        no_dm: Optional[StrictBool] = None,
-        include_translations: Optional[StrictBool] = None,
-        include_tenant_notifications: Optional[StrictBool] = None,
-        sso: Optional[StrictStr] = None,
+        GetUserNotifications_request: ApiGetUserNotificationsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9455,30 +8988,8 @@ class PublicApi:
         """get_user_notifications
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: Used to determine whether the current page is subscribed.
-        :type url_id: str
-        :param page_size:
-        :type page_size: int
-        :param after_id:
-        :type after_id: str
-        :param include_context:
-        :type include_context: bool
-        :param after_created_at:
-        :type after_created_at: int
-        :param unread_only:
-        :type unread_only: bool
-        :param dm_only:
-        :type dm_only: bool
-        :param no_dm:
-        :type no_dm: bool
-        :param include_translations:
-        :type include_translations: bool
-        :param include_tenant_notifications:
-        :type include_tenant_notifications: bool
-        :param sso:
-        :type sso: str
+        :param GetUserNotifications_request: The request object containing all parameters for this operation. (required)
+        :type GetUserNotifications_request: ApiGetUserNotificationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9502,18 +9013,18 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_user_notifications_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            page_size=page_size,
-            after_id=after_id,
-            include_context=include_context,
-            after_created_at=after_created_at,
-            unread_only=unread_only,
-            dm_only=dm_only,
-            no_dm=no_dm,
-            include_translations=include_translations,
-            include_tenant_notifications=include_tenant_notifications,
-            sso=sso,
+            tenant_id=GetUserNotifications_request.tenant_id,
+            url_id=GetUserNotifications_request.url_id,
+            page_size=GetUserNotifications_request.page_size,
+            after_id=GetUserNotifications_request.after_id,
+            include_context=GetUserNotifications_request.include_context,
+            after_created_at=GetUserNotifications_request.after_created_at,
+            unread_only=GetUserNotifications_request.unread_only,
+            dm_only=GetUserNotifications_request.dm_only,
+            no_dm=GetUserNotifications_request.no_dm,
+            include_translations=GetUserNotifications_request.include_translations,
+            include_tenant_notifications=GetUserNotifications_request.include_tenant_notifications,
+            sso=GetUserNotifications_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9537,18 +9048,7 @@ class PublicApi:
     @validate_call
     def get_user_notifications_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id: Annotated[Optional[StrictStr], Field(description="Used to determine whether the current page is subscribed.")] = None,
-        page_size: Optional[StrictInt] = None,
-        after_id: Optional[StrictStr] = None,
-        include_context: Optional[StrictBool] = None,
-        after_created_at: Optional[StrictInt] = None,
-        unread_only: Optional[StrictBool] = None,
-        dm_only: Optional[StrictBool] = None,
-        no_dm: Optional[StrictBool] = None,
-        include_translations: Optional[StrictBool] = None,
-        include_tenant_notifications: Optional[StrictBool] = None,
-        sso: Optional[StrictStr] = None,
+        GetUserNotifications_request: ApiGetUserNotificationsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9565,30 +9065,8 @@ class PublicApi:
         """get_user_notifications
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: Used to determine whether the current page is subscribed.
-        :type url_id: str
-        :param page_size:
-        :type page_size: int
-        :param after_id:
-        :type after_id: str
-        :param include_context:
-        :type include_context: bool
-        :param after_created_at:
-        :type after_created_at: int
-        :param unread_only:
-        :type unread_only: bool
-        :param dm_only:
-        :type dm_only: bool
-        :param no_dm:
-        :type no_dm: bool
-        :param include_translations:
-        :type include_translations: bool
-        :param include_tenant_notifications:
-        :type include_tenant_notifications: bool
-        :param sso:
-        :type sso: str
+        :param GetUserNotifications_request: The request object containing all parameters for this operation. (required)
+        :type GetUserNotifications_request: ApiGetUserNotificationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9612,18 +9090,18 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_user_notifications_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            page_size=page_size,
-            after_id=after_id,
-            include_context=include_context,
-            after_created_at=after_created_at,
-            unread_only=unread_only,
-            dm_only=dm_only,
-            no_dm=no_dm,
-            include_translations=include_translations,
-            include_tenant_notifications=include_tenant_notifications,
-            sso=sso,
+            tenant_id=GetUserNotifications_request.tenant_id,
+            url_id=GetUserNotifications_request.url_id,
+            page_size=GetUserNotifications_request.page_size,
+            after_id=GetUserNotifications_request.after_id,
+            include_context=GetUserNotifications_request.include_context,
+            after_created_at=GetUserNotifications_request.after_created_at,
+            unread_only=GetUserNotifications_request.unread_only,
+            dm_only=GetUserNotifications_request.dm_only,
+            no_dm=GetUserNotifications_request.no_dm,
+            include_translations=GetUserNotifications_request.include_translations,
+            include_tenant_notifications=GetUserNotifications_request.include_tenant_notifications,
+            sso=GetUserNotifications_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9763,9 +9241,7 @@ class PublicApi:
     @validate_call
     def get_user_presence_statuses(
         self,
-        tenant_id: StrictStr,
-        url_id_ws: StrictStr,
-        user_ids: StrictStr,
+        GetUserPresenceStatuses_request: ApiGetUserPresenceStatusesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9782,12 +9258,8 @@ class PublicApi:
         """get_user_presence_statuses
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id_ws: (required)
-        :type url_id_ws: str
-        :param user_ids: (required)
-        :type user_ids: str
+        :param GetUserPresenceStatuses_request: The request object containing all parameters for this operation. (required)
+        :type GetUserPresenceStatuses_request: ApiGetUserPresenceStatusesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9811,9 +9283,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_user_presence_statuses_serialize(
-            tenant_id=tenant_id,
-            url_id_ws=url_id_ws,
-            user_ids=user_ids,
+            tenant_id=GetUserPresenceStatuses_request.tenant_id,
+            url_id_ws=GetUserPresenceStatuses_request.url_id_ws,
+            user_ids=GetUserPresenceStatuses_request.user_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9838,9 +9310,7 @@ class PublicApi:
     @validate_call
     def get_user_presence_statuses_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id_ws: StrictStr,
-        user_ids: StrictStr,
+        GetUserPresenceStatuses_request: ApiGetUserPresenceStatusesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9857,12 +9327,8 @@ class PublicApi:
         """get_user_presence_statuses
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id_ws: (required)
-        :type url_id_ws: str
-        :param user_ids: (required)
-        :type user_ids: str
+        :param GetUserPresenceStatuses_request: The request object containing all parameters for this operation. (required)
+        :type GetUserPresenceStatuses_request: ApiGetUserPresenceStatusesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9886,9 +9352,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_user_presence_statuses_serialize(
-            tenant_id=tenant_id,
-            url_id_ws=url_id_ws,
-            user_ids=user_ids,
+            tenant_id=GetUserPresenceStatuses_request.tenant_id,
+            url_id_ws=GetUserPresenceStatuses_request.url_id_ws,
+            user_ids=GetUserPresenceStatuses_request.user_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -9913,9 +9379,7 @@ class PublicApi:
     @validate_call
     def get_user_presence_statuses_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id_ws: StrictStr,
-        user_ids: StrictStr,
+        GetUserPresenceStatuses_request: ApiGetUserPresenceStatusesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9932,12 +9396,8 @@ class PublicApi:
         """get_user_presence_statuses
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id_ws: (required)
-        :type url_id_ws: str
-        :param user_ids: (required)
-        :type user_ids: str
+        :param GetUserPresenceStatuses_request: The request object containing all parameters for this operation. (required)
+        :type GetUserPresenceStatuses_request: ApiGetUserPresenceStatusesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -9961,9 +9421,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_user_presence_statuses_serialize(
-            tenant_id=tenant_id,
-            url_id_ws=url_id_ws,
-            user_ids=user_ids,
+            tenant_id=GetUserPresenceStatuses_request.tenant_id,
+            url_id_ws=GetUserPresenceStatuses_request.url_id_ws,
+            user_ids=GetUserPresenceStatuses_request.user_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10059,9 +9519,7 @@ class PublicApi:
     @validate_call
     def get_user_reacts_public(
         self,
-        tenant_id: StrictStr,
-        post_ids: Optional[List[StrictStr]] = None,
-        sso: Optional[StrictStr] = None,
+        GetUserReactsPublic_request: ApiGetUserReactsPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10078,12 +9536,8 @@ class PublicApi:
         """get_user_reacts_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param post_ids:
-        :type post_ids: List[str]
-        :param sso:
-        :type sso: str
+        :param GetUserReactsPublic_request: The request object containing all parameters for this operation. (required)
+        :type GetUserReactsPublic_request: ApiGetUserReactsPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10107,9 +9561,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_user_reacts_public_serialize(
-            tenant_id=tenant_id,
-            post_ids=post_ids,
-            sso=sso,
+            tenant_id=GetUserReactsPublic_request.tenant_id,
+            post_ids=GetUserReactsPublic_request.post_ids,
+            sso=GetUserReactsPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10133,9 +9587,7 @@ class PublicApi:
     @validate_call
     def get_user_reacts_public_with_http_info(
         self,
-        tenant_id: StrictStr,
-        post_ids: Optional[List[StrictStr]] = None,
-        sso: Optional[StrictStr] = None,
+        GetUserReactsPublic_request: ApiGetUserReactsPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10152,12 +9604,8 @@ class PublicApi:
         """get_user_reacts_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param post_ids:
-        :type post_ids: List[str]
-        :param sso:
-        :type sso: str
+        :param GetUserReactsPublic_request: The request object containing all parameters for this operation. (required)
+        :type GetUserReactsPublic_request: ApiGetUserReactsPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10181,9 +9629,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_user_reacts_public_serialize(
-            tenant_id=tenant_id,
-            post_ids=post_ids,
-            sso=sso,
+            tenant_id=GetUserReactsPublic_request.tenant_id,
+            post_ids=GetUserReactsPublic_request.post_ids,
+            sso=GetUserReactsPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10207,9 +9655,7 @@ class PublicApi:
     @validate_call
     def get_user_reacts_public_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        post_ids: Optional[List[StrictStr]] = None,
-        sso: Optional[StrictStr] = None,
+        GetUserReactsPublic_request: ApiGetUserReactsPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10226,12 +9672,8 @@ class PublicApi:
         """get_user_reacts_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param post_ids:
-        :type post_ids: List[str]
-        :param sso:
-        :type sso: str
+        :param GetUserReactsPublic_request: The request object containing all parameters for this operation. (required)
+        :type GetUserReactsPublic_request: ApiGetUserReactsPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10255,9 +9697,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_user_reacts_public_serialize(
-            tenant_id=tenant_id,
-            post_ids=post_ids,
-            sso=sso,
+            tenant_id=GetUserReactsPublic_request.tenant_id,
+            post_ids=GetUserReactsPublic_request.post_ids,
+            sso=GetUserReactsPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10351,8 +9793,7 @@ class PublicApi:
     @validate_call
     def get_users_info(
         self,
-        tenant_id: StrictStr,
-        ids: Annotated[StrictStr, Field(description="Comma-delimited userIds.")],
+        GetUsersInfo_request: ApiGetUsersInfoRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10370,10 +9811,8 @@ class PublicApi:
 
         Bulk user info for a tenant. Given userIds, return display info from User / SSOUser. Used by the comment widget to enrich users that just appeared via a presence event. No page context: privacy is enforced uniformly (private profiles are masked).
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param ids: Comma-delimited userIds. (required)
-        :type ids: str
+        :param GetUsersInfo_request: The request object containing all parameters for this operation. (required)
+        :type GetUsersInfo_request: ApiGetUsersInfoRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10397,8 +9836,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_users_info_serialize(
-            tenant_id=tenant_id,
-            ids=ids,
+            tenant_id=GetUsersInfo_request.tenant_id,
+            ids=GetUsersInfo_request.ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10423,8 +9862,7 @@ class PublicApi:
     @validate_call
     def get_users_info_with_http_info(
         self,
-        tenant_id: StrictStr,
-        ids: Annotated[StrictStr, Field(description="Comma-delimited userIds.")],
+        GetUsersInfo_request: ApiGetUsersInfoRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10442,10 +9880,8 @@ class PublicApi:
 
         Bulk user info for a tenant. Given userIds, return display info from User / SSOUser. Used by the comment widget to enrich users that just appeared via a presence event. No page context: privacy is enforced uniformly (private profiles are masked).
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param ids: Comma-delimited userIds. (required)
-        :type ids: str
+        :param GetUsersInfo_request: The request object containing all parameters for this operation. (required)
+        :type GetUsersInfo_request: ApiGetUsersInfoRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10469,8 +9905,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_users_info_serialize(
-            tenant_id=tenant_id,
-            ids=ids,
+            tenant_id=GetUsersInfo_request.tenant_id,
+            ids=GetUsersInfo_request.ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10495,8 +9931,7 @@ class PublicApi:
     @validate_call
     def get_users_info_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        ids: Annotated[StrictStr, Field(description="Comma-delimited userIds.")],
+        GetUsersInfo_request: ApiGetUsersInfoRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10514,10 +9949,8 @@ class PublicApi:
 
         Bulk user info for a tenant. Given userIds, return display info from User / SSOUser. Used by the comment widget to enrich users that just appeared via a presence event. No page context: privacy is enforced uniformly (private profiles are masked).
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param ids: Comma-delimited userIds. (required)
-        :type ids: str
+        :param GetUsersInfo_request: The request object containing all parameters for this operation. (required)
+        :type GetUsersInfo_request: ApiGetUsersInfoRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10541,8 +9974,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_users_info_serialize(
-            tenant_id=tenant_id,
-            ids=ids,
+            tenant_id=GetUsersInfo_request.tenant_id,
+            ids=GetUsersInfo_request.ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10631,8 +10064,7 @@ class PublicApi:
     @validate_call
     def get_v1_page_likes(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
+        GetV1PageLikes_request: ApiGetV1PageLikesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10649,10 +10081,8 @@ class PublicApi:
         """get_v1_page_likes
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
+        :param GetV1PageLikes_request: The request object containing all parameters for this operation. (required)
+        :type GetV1PageLikes_request: ApiGetV1PageLikesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10676,8 +10106,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_v1_page_likes_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
+            tenant_id=GetV1PageLikes_request.tenant_id,
+            url_id=GetV1PageLikes_request.url_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10701,8 +10131,7 @@ class PublicApi:
     @validate_call
     def get_v1_page_likes_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
+        GetV1PageLikes_request: ApiGetV1PageLikesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10719,10 +10148,8 @@ class PublicApi:
         """get_v1_page_likes
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
+        :param GetV1PageLikes_request: The request object containing all parameters for this operation. (required)
+        :type GetV1PageLikes_request: ApiGetV1PageLikesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10746,8 +10173,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_v1_page_likes_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
+            tenant_id=GetV1PageLikes_request.tenant_id,
+            url_id=GetV1PageLikes_request.url_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10771,8 +10198,7 @@ class PublicApi:
     @validate_call
     def get_v1_page_likes_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
+        GetV1PageLikes_request: ApiGetV1PageLikesRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10789,10 +10215,8 @@ class PublicApi:
         """get_v1_page_likes
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
+        :param GetV1PageLikes_request: The request object containing all parameters for this operation. (required)
+        :type GetV1PageLikes_request: ApiGetV1PageLikesRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10816,8 +10240,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_v1_page_likes_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
+            tenant_id=GetV1PageLikes_request.tenant_id,
+            url_id=GetV1PageLikes_request.url_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10905,9 +10329,7 @@ class PublicApi:
     @validate_call
     def get_v2_page_react_users(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        id: StrictStr,
+        GetV2PageReactUsers_request: ApiGetV2PageReactUsersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10924,12 +10346,8 @@ class PublicApi:
         """get_v2_page_react_users
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param id: (required)
-        :type id: str
+        :param GetV2PageReactUsers_request: The request object containing all parameters for this operation. (required)
+        :type GetV2PageReactUsers_request: ApiGetV2PageReactUsersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10953,9 +10371,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_v2_page_react_users_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            id=id,
+            tenant_id=GetV2PageReactUsers_request.tenant_id,
+            url_id=GetV2PageReactUsers_request.url_id,
+            id=GetV2PageReactUsers_request.id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10979,9 +10397,7 @@ class PublicApi:
     @validate_call
     def get_v2_page_react_users_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        id: StrictStr,
+        GetV2PageReactUsers_request: ApiGetV2PageReactUsersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10998,12 +10414,8 @@ class PublicApi:
         """get_v2_page_react_users
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param id: (required)
-        :type id: str
+        :param GetV2PageReactUsers_request: The request object containing all parameters for this operation. (required)
+        :type GetV2PageReactUsers_request: ApiGetV2PageReactUsersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11027,9 +10439,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_v2_page_react_users_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            id=id,
+            tenant_id=GetV2PageReactUsers_request.tenant_id,
+            url_id=GetV2PageReactUsers_request.url_id,
+            id=GetV2PageReactUsers_request.id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11053,9 +10465,7 @@ class PublicApi:
     @validate_call
     def get_v2_page_react_users_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        id: StrictStr,
+        GetV2PageReactUsers_request: ApiGetV2PageReactUsersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11072,12 +10482,8 @@ class PublicApi:
         """get_v2_page_react_users
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param id: (required)
-        :type id: str
+        :param GetV2PageReactUsers_request: The request object containing all parameters for this operation. (required)
+        :type GetV2PageReactUsers_request: ApiGetV2PageReactUsersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11101,9 +10507,9 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_v2_page_react_users_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            id=id,
+            tenant_id=GetV2PageReactUsers_request.tenant_id,
+            url_id=GetV2PageReactUsers_request.url_id,
+            id=GetV2PageReactUsers_request.id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11196,8 +10602,7 @@ class PublicApi:
     @validate_call
     def get_v2_page_reacts(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
+        GetV2PageReacts_request: ApiGetV2PageReactsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11214,10 +10619,8 @@ class PublicApi:
         """get_v2_page_reacts
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
+        :param GetV2PageReacts_request: The request object containing all parameters for this operation. (required)
+        :type GetV2PageReacts_request: ApiGetV2PageReactsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11241,8 +10644,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_v2_page_reacts_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
+            tenant_id=GetV2PageReacts_request.tenant_id,
+            url_id=GetV2PageReacts_request.url_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11266,8 +10669,7 @@ class PublicApi:
     @validate_call
     def get_v2_page_reacts_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
+        GetV2PageReacts_request: ApiGetV2PageReactsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11284,10 +10686,8 @@ class PublicApi:
         """get_v2_page_reacts
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
+        :param GetV2PageReacts_request: The request object containing all parameters for this operation. (required)
+        :type GetV2PageReacts_request: ApiGetV2PageReactsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11311,8 +10711,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_v2_page_reacts_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
+            tenant_id=GetV2PageReacts_request.tenant_id,
+            url_id=GetV2PageReacts_request.url_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11336,8 +10736,7 @@ class PublicApi:
     @validate_call
     def get_v2_page_reacts_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
+        GetV2PageReacts_request: ApiGetV2PageReactsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11354,10 +10753,8 @@ class PublicApi:
         """get_v2_page_reacts
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
+        :param GetV2PageReacts_request: The request object containing all parameters for this operation. (required)
+        :type GetV2PageReacts_request: ApiGetV2PageReactsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11381,8 +10778,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._get_v2_page_reacts_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
+            tenant_id=GetV2PageReacts_request.tenant_id,
+            url_id=GetV2PageReacts_request.url_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11470,10 +10867,7 @@ class PublicApi:
     @validate_call
     def lock_comment(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        LockComment_request: ApiLockCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11490,14 +10884,8 @@ class PublicApi:
         """lock_comment
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param LockComment_request: The request object containing all parameters for this operation. (required)
+        :type LockComment_request: ApiLockCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11521,10 +10909,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._lock_comment_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=LockComment_request.tenant_id,
+            comment_id=LockComment_request.comment_id,
+            broadcast_id=LockComment_request.broadcast_id,
+            sso=LockComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11548,10 +10936,7 @@ class PublicApi:
     @validate_call
     def lock_comment_with_http_info(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        LockComment_request: ApiLockCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11568,14 +10953,8 @@ class PublicApi:
         """lock_comment
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param LockComment_request: The request object containing all parameters for this operation. (required)
+        :type LockComment_request: ApiLockCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11599,10 +10978,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._lock_comment_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=LockComment_request.tenant_id,
+            comment_id=LockComment_request.comment_id,
+            broadcast_id=LockComment_request.broadcast_id,
+            sso=LockComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11626,10 +11005,7 @@ class PublicApi:
     @validate_call
     def lock_comment_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        LockComment_request: ApiLockCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11646,14 +11022,8 @@ class PublicApi:
         """lock_comment
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param LockComment_request: The request object containing all parameters for this operation. (required)
+        :type LockComment_request: ApiLockCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11677,10 +11047,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._lock_comment_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=LockComment_request.tenant_id,
+            comment_id=LockComment_request.comment_id,
+            broadcast_id=LockComment_request.broadcast_id,
+            sso=LockComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11776,6 +11146,7 @@ class PublicApi:
     @validate_call
     def logout_public(
         self,
+        LogoutPublic_request: ApiLogoutPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11792,6 +11163,8 @@ class PublicApi:
         """logout_public
 
 
+        :param LogoutPublic_request: The request object containing all parameters for this operation. (required)
+        :type LogoutPublic_request: ApiLogoutPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11838,6 +11211,7 @@ class PublicApi:
     @validate_call
     def logout_public_with_http_info(
         self,
+        LogoutPublic_request: ApiLogoutPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11854,6 +11228,8 @@ class PublicApi:
         """logout_public
 
 
+        :param LogoutPublic_request: The request object containing all parameters for this operation. (required)
+        :type LogoutPublic_request: ApiLogoutPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11900,6 +11276,7 @@ class PublicApi:
     @validate_call
     def logout_public_without_preload_content(
         self,
+        LogoutPublic_request: ApiLogoutPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11916,6 +11293,8 @@ class PublicApi:
         """logout_public
 
 
+        :param LogoutPublic_request: The request object containing all parameters for this operation. (required)
+        :type LogoutPublic_request: ApiLogoutPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12018,10 +11397,7 @@ class PublicApi:
     @validate_call
     def pin_comment(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        PinComment_request: ApiPinCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12038,14 +11414,8 @@ class PublicApi:
         """pin_comment
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param PinComment_request: The request object containing all parameters for this operation. (required)
+        :type PinComment_request: ApiPinCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12069,10 +11439,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._pin_comment_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=PinComment_request.tenant_id,
+            comment_id=PinComment_request.comment_id,
+            broadcast_id=PinComment_request.broadcast_id,
+            sso=PinComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12096,10 +11466,7 @@ class PublicApi:
     @validate_call
     def pin_comment_with_http_info(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        PinComment_request: ApiPinCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12116,14 +11483,8 @@ class PublicApi:
         """pin_comment
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param PinComment_request: The request object containing all parameters for this operation. (required)
+        :type PinComment_request: ApiPinCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12147,10 +11508,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._pin_comment_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=PinComment_request.tenant_id,
+            comment_id=PinComment_request.comment_id,
+            broadcast_id=PinComment_request.broadcast_id,
+            sso=PinComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12174,10 +11535,7 @@ class PublicApi:
     @validate_call
     def pin_comment_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        PinComment_request: ApiPinCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12194,14 +11552,8 @@ class PublicApi:
         """pin_comment
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param PinComment_request: The request object containing all parameters for this operation. (required)
+        :type PinComment_request: ApiPinCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12225,10 +11577,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._pin_comment_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=PinComment_request.tenant_id,
+            comment_id=PinComment_request.comment_id,
+            broadcast_id=PinComment_request.broadcast_id,
+            sso=PinComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12324,12 +11676,7 @@ class PublicApi:
     @validate_call
     def react_feed_post_public(
         self,
-        tenant_id: StrictStr,
-        post_id: StrictStr,
-        react_body_params: ReactBodyParams,
-        is_undo: Optional[StrictBool] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        ReactFeedPostPublic_request: ApiReactFeedPostPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12346,18 +11693,8 @@ class PublicApi:
         """react_feed_post_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param post_id: (required)
-        :type post_id: str
-        :param react_body_params: (required)
-        :type react_body_params: ReactBodyParams
-        :param is_undo:
-        :type is_undo: bool
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param ReactFeedPostPublic_request: The request object containing all parameters for this operation. (required)
+        :type ReactFeedPostPublic_request: ApiReactFeedPostPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12381,12 +11718,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._react_feed_post_public_serialize(
-            tenant_id=tenant_id,
-            post_id=post_id,
-            react_body_params=react_body_params,
-            is_undo=is_undo,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=ReactFeedPostPublic_request.tenant_id,
+            post_id=ReactFeedPostPublic_request.post_id,
+            react_body_params=ReactFeedPostPublic_request.react_body_params,
+            is_undo=ReactFeedPostPublic_request.is_undo,
+            broadcast_id=ReactFeedPostPublic_request.broadcast_id,
+            sso=ReactFeedPostPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12410,12 +11747,7 @@ class PublicApi:
     @validate_call
     def react_feed_post_public_with_http_info(
         self,
-        tenant_id: StrictStr,
-        post_id: StrictStr,
-        react_body_params: ReactBodyParams,
-        is_undo: Optional[StrictBool] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        ReactFeedPostPublic_request: ApiReactFeedPostPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12432,18 +11764,8 @@ class PublicApi:
         """react_feed_post_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param post_id: (required)
-        :type post_id: str
-        :param react_body_params: (required)
-        :type react_body_params: ReactBodyParams
-        :param is_undo:
-        :type is_undo: bool
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param ReactFeedPostPublic_request: The request object containing all parameters for this operation. (required)
+        :type ReactFeedPostPublic_request: ApiReactFeedPostPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12467,12 +11789,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._react_feed_post_public_serialize(
-            tenant_id=tenant_id,
-            post_id=post_id,
-            react_body_params=react_body_params,
-            is_undo=is_undo,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=ReactFeedPostPublic_request.tenant_id,
+            post_id=ReactFeedPostPublic_request.post_id,
+            react_body_params=ReactFeedPostPublic_request.react_body_params,
+            is_undo=ReactFeedPostPublic_request.is_undo,
+            broadcast_id=ReactFeedPostPublic_request.broadcast_id,
+            sso=ReactFeedPostPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12496,12 +11818,7 @@ class PublicApi:
     @validate_call
     def react_feed_post_public_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        post_id: StrictStr,
-        react_body_params: ReactBodyParams,
-        is_undo: Optional[StrictBool] = None,
-        broadcast_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        ReactFeedPostPublic_request: ApiReactFeedPostPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12518,18 +11835,8 @@ class PublicApi:
         """react_feed_post_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param post_id: (required)
-        :type post_id: str
-        :param react_body_params: (required)
-        :type react_body_params: ReactBodyParams
-        :param is_undo:
-        :type is_undo: bool
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param ReactFeedPostPublic_request: The request object containing all parameters for this operation. (required)
+        :type ReactFeedPostPublic_request: ApiReactFeedPostPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12553,12 +11860,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._react_feed_post_public_serialize(
-            tenant_id=tenant_id,
-            post_id=post_id,
-            react_body_params=react_body_params,
-            is_undo=is_undo,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=ReactFeedPostPublic_request.tenant_id,
+            post_id=ReactFeedPostPublic_request.post_id,
+            react_body_params=ReactFeedPostPublic_request.react_body_params,
+            is_undo=ReactFeedPostPublic_request.is_undo,
+            broadcast_id=ReactFeedPostPublic_request.broadcast_id,
+            sso=ReactFeedPostPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12675,8 +11982,7 @@ class PublicApi:
     @validate_call
     def reset_user_notification_count(
         self,
-        tenant_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        ResetUserNotificationCount_request: ApiResetUserNotificationCountRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12693,10 +11999,8 @@ class PublicApi:
         """reset_user_notification_count
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param ResetUserNotificationCount_request: The request object containing all parameters for this operation. (required)
+        :type ResetUserNotificationCount_request: ApiResetUserNotificationCountRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12720,8 +12024,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._reset_user_notification_count_serialize(
-            tenant_id=tenant_id,
-            sso=sso,
+            tenant_id=ResetUserNotificationCount_request.tenant_id,
+            sso=ResetUserNotificationCount_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12745,8 +12049,7 @@ class PublicApi:
     @validate_call
     def reset_user_notification_count_with_http_info(
         self,
-        tenant_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        ResetUserNotificationCount_request: ApiResetUserNotificationCountRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12763,10 +12066,8 @@ class PublicApi:
         """reset_user_notification_count
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param ResetUserNotificationCount_request: The request object containing all parameters for this operation. (required)
+        :type ResetUserNotificationCount_request: ApiResetUserNotificationCountRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12790,8 +12091,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._reset_user_notification_count_serialize(
-            tenant_id=tenant_id,
-            sso=sso,
+            tenant_id=ResetUserNotificationCount_request.tenant_id,
+            sso=ResetUserNotificationCount_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12815,8 +12116,7 @@ class PublicApi:
     @validate_call
     def reset_user_notification_count_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        ResetUserNotificationCount_request: ApiResetUserNotificationCountRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12833,10 +12133,8 @@ class PublicApi:
         """reset_user_notification_count
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param sso:
-        :type sso: str
+        :param ResetUserNotificationCount_request: The request object containing all parameters for this operation. (required)
+        :type ResetUserNotificationCount_request: ApiResetUserNotificationCountRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12860,8 +12158,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._reset_user_notification_count_serialize(
-            tenant_id=tenant_id,
-            sso=sso,
+            tenant_id=ResetUserNotificationCount_request.tenant_id,
+            sso=ResetUserNotificationCount_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12951,13 +12249,7 @@ class PublicApi:
     @validate_call
     def reset_user_notifications(
         self,
-        tenant_id: StrictStr,
-        after_id: Optional[StrictStr] = None,
-        after_created_at: Optional[StrictInt] = None,
-        unread_only: Optional[StrictBool] = None,
-        dm_only: Optional[StrictBool] = None,
-        no_dm: Optional[StrictBool] = None,
-        sso: Optional[StrictStr] = None,
+        ResetUserNotifications_request: ApiResetUserNotificationsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12974,20 +12266,8 @@ class PublicApi:
         """reset_user_notifications
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param after_id:
-        :type after_id: str
-        :param after_created_at:
-        :type after_created_at: int
-        :param unread_only:
-        :type unread_only: bool
-        :param dm_only:
-        :type dm_only: bool
-        :param no_dm:
-        :type no_dm: bool
-        :param sso:
-        :type sso: str
+        :param ResetUserNotifications_request: The request object containing all parameters for this operation. (required)
+        :type ResetUserNotifications_request: ApiResetUserNotificationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13011,13 +12291,13 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._reset_user_notifications_serialize(
-            tenant_id=tenant_id,
-            after_id=after_id,
-            after_created_at=after_created_at,
-            unread_only=unread_only,
-            dm_only=dm_only,
-            no_dm=no_dm,
-            sso=sso,
+            tenant_id=ResetUserNotifications_request.tenant_id,
+            after_id=ResetUserNotifications_request.after_id,
+            after_created_at=ResetUserNotifications_request.after_created_at,
+            unread_only=ResetUserNotifications_request.unread_only,
+            dm_only=ResetUserNotifications_request.dm_only,
+            no_dm=ResetUserNotifications_request.no_dm,
+            sso=ResetUserNotifications_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13041,13 +12321,7 @@ class PublicApi:
     @validate_call
     def reset_user_notifications_with_http_info(
         self,
-        tenant_id: StrictStr,
-        after_id: Optional[StrictStr] = None,
-        after_created_at: Optional[StrictInt] = None,
-        unread_only: Optional[StrictBool] = None,
-        dm_only: Optional[StrictBool] = None,
-        no_dm: Optional[StrictBool] = None,
-        sso: Optional[StrictStr] = None,
+        ResetUserNotifications_request: ApiResetUserNotificationsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13064,20 +12338,8 @@ class PublicApi:
         """reset_user_notifications
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param after_id:
-        :type after_id: str
-        :param after_created_at:
-        :type after_created_at: int
-        :param unread_only:
-        :type unread_only: bool
-        :param dm_only:
-        :type dm_only: bool
-        :param no_dm:
-        :type no_dm: bool
-        :param sso:
-        :type sso: str
+        :param ResetUserNotifications_request: The request object containing all parameters for this operation. (required)
+        :type ResetUserNotifications_request: ApiResetUserNotificationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13101,13 +12363,13 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._reset_user_notifications_serialize(
-            tenant_id=tenant_id,
-            after_id=after_id,
-            after_created_at=after_created_at,
-            unread_only=unread_only,
-            dm_only=dm_only,
-            no_dm=no_dm,
-            sso=sso,
+            tenant_id=ResetUserNotifications_request.tenant_id,
+            after_id=ResetUserNotifications_request.after_id,
+            after_created_at=ResetUserNotifications_request.after_created_at,
+            unread_only=ResetUserNotifications_request.unread_only,
+            dm_only=ResetUserNotifications_request.dm_only,
+            no_dm=ResetUserNotifications_request.no_dm,
+            sso=ResetUserNotifications_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13131,13 +12393,7 @@ class PublicApi:
     @validate_call
     def reset_user_notifications_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        after_id: Optional[StrictStr] = None,
-        after_created_at: Optional[StrictInt] = None,
-        unread_only: Optional[StrictBool] = None,
-        dm_only: Optional[StrictBool] = None,
-        no_dm: Optional[StrictBool] = None,
-        sso: Optional[StrictStr] = None,
+        ResetUserNotifications_request: ApiResetUserNotificationsRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13154,20 +12410,8 @@ class PublicApi:
         """reset_user_notifications
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param after_id:
-        :type after_id: str
-        :param after_created_at:
-        :type after_created_at: int
-        :param unread_only:
-        :type unread_only: bool
-        :param dm_only:
-        :type dm_only: bool
-        :param no_dm:
-        :type no_dm: bool
-        :param sso:
-        :type sso: str
+        :param ResetUserNotifications_request: The request object containing all parameters for this operation. (required)
+        :type ResetUserNotifications_request: ApiResetUserNotificationsRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13191,13 +12435,13 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._reset_user_notifications_serialize(
-            tenant_id=tenant_id,
-            after_id=after_id,
-            after_created_at=after_created_at,
-            unread_only=unread_only,
-            dm_only=dm_only,
-            no_dm=no_dm,
-            sso=sso,
+            tenant_id=ResetUserNotifications_request.tenant_id,
+            after_id=ResetUserNotifications_request.after_id,
+            after_created_at=ResetUserNotifications_request.after_created_at,
+            unread_only=ResetUserNotifications_request.unread_only,
+            dm_only=ResetUserNotifications_request.dm_only,
+            no_dm=ResetUserNotifications_request.no_dm,
+            sso=ResetUserNotifications_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13312,12 +12556,7 @@ class PublicApi:
     @validate_call
     def search_users(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        username_starts_with: Optional[StrictStr] = None,
-        mention_group_ids: Optional[List[StrictStr]] = None,
-        sso: Optional[StrictStr] = None,
-        search_section: Optional[StrictStr] = None,
+        SearchUsers_request: ApiSearchUsersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13334,18 +12573,8 @@ class PublicApi:
         """search_users
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param username_starts_with:
-        :type username_starts_with: str
-        :param mention_group_ids:
-        :type mention_group_ids: List[str]
-        :param sso:
-        :type sso: str
-        :param search_section:
-        :type search_section: str
+        :param SearchUsers_request: The request object containing all parameters for this operation. (required)
+        :type SearchUsers_request: ApiSearchUsersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13369,12 +12598,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._search_users_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            username_starts_with=username_starts_with,
-            mention_group_ids=mention_group_ids,
-            sso=sso,
-            search_section=search_section,
+            tenant_id=SearchUsers_request.tenant_id,
+            url_id=SearchUsers_request.url_id,
+            username_starts_with=SearchUsers_request.username_starts_with,
+            mention_group_ids=SearchUsers_request.mention_group_ids,
+            sso=SearchUsers_request.sso,
+            search_section=SearchUsers_request.search_section,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13398,12 +12627,7 @@ class PublicApi:
     @validate_call
     def search_users_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        username_starts_with: Optional[StrictStr] = None,
-        mention_group_ids: Optional[List[StrictStr]] = None,
-        sso: Optional[StrictStr] = None,
-        search_section: Optional[StrictStr] = None,
+        SearchUsers_request: ApiSearchUsersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13420,18 +12644,8 @@ class PublicApi:
         """search_users
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param username_starts_with:
-        :type username_starts_with: str
-        :param mention_group_ids:
-        :type mention_group_ids: List[str]
-        :param sso:
-        :type sso: str
-        :param search_section:
-        :type search_section: str
+        :param SearchUsers_request: The request object containing all parameters for this operation. (required)
+        :type SearchUsers_request: ApiSearchUsersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13455,12 +12669,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._search_users_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            username_starts_with=username_starts_with,
-            mention_group_ids=mention_group_ids,
-            sso=sso,
-            search_section=search_section,
+            tenant_id=SearchUsers_request.tenant_id,
+            url_id=SearchUsers_request.url_id,
+            username_starts_with=SearchUsers_request.username_starts_with,
+            mention_group_ids=SearchUsers_request.mention_group_ids,
+            sso=SearchUsers_request.sso,
+            search_section=SearchUsers_request.search_section,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13484,12 +12698,7 @@ class PublicApi:
     @validate_call
     def search_users_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        username_starts_with: Optional[StrictStr] = None,
-        mention_group_ids: Optional[List[StrictStr]] = None,
-        sso: Optional[StrictStr] = None,
-        search_section: Optional[StrictStr] = None,
+        SearchUsers_request: ApiSearchUsersRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13506,18 +12715,8 @@ class PublicApi:
         """search_users
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param username_starts_with:
-        :type username_starts_with: str
-        :param mention_group_ids:
-        :type mention_group_ids: List[str]
-        :param sso:
-        :type sso: str
-        :param search_section:
-        :type search_section: str
+        :param SearchUsers_request: The request object containing all parameters for this operation. (required)
+        :type SearchUsers_request: ApiSearchUsersRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13541,12 +12740,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._search_users_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            username_starts_with=username_starts_with,
-            mention_group_ids=mention_group_ids,
-            sso=sso,
-            search_section=search_section,
+            tenant_id=SearchUsers_request.tenant_id,
+            url_id=SearchUsers_request.url_id,
+            username_starts_with=SearchUsers_request.username_starts_with,
+            mention_group_ids=SearchUsers_request.mention_group_ids,
+            sso=SearchUsers_request.sso,
+            search_section=SearchUsers_request.search_section,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13655,12 +12854,7 @@ class PublicApi:
     @validate_call
     def set_comment_text(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        comment_text_update_request: CommentTextUpdateRequest,
-        edit_key: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        SetCommentText_request: ApiSetCommentTextRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13677,18 +12871,8 @@ class PublicApi:
         """set_comment_text
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param comment_text_update_request: (required)
-        :type comment_text_update_request: CommentTextUpdateRequest
-        :param edit_key:
-        :type edit_key: str
-        :param sso:
-        :type sso: str
+        :param SetCommentText_request: The request object containing all parameters for this operation. (required)
+        :type SetCommentText_request: ApiSetCommentTextRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13712,12 +12896,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._set_comment_text_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            comment_text_update_request=comment_text_update_request,
-            edit_key=edit_key,
-            sso=sso,
+            tenant_id=SetCommentText_request.tenant_id,
+            comment_id=SetCommentText_request.comment_id,
+            broadcast_id=SetCommentText_request.broadcast_id,
+            comment_text_update_request=SetCommentText_request.comment_text_update_request,
+            edit_key=SetCommentText_request.edit_key,
+            sso=SetCommentText_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13741,12 +12925,7 @@ class PublicApi:
     @validate_call
     def set_comment_text_with_http_info(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        comment_text_update_request: CommentTextUpdateRequest,
-        edit_key: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        SetCommentText_request: ApiSetCommentTextRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13763,18 +12942,8 @@ class PublicApi:
         """set_comment_text
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param comment_text_update_request: (required)
-        :type comment_text_update_request: CommentTextUpdateRequest
-        :param edit_key:
-        :type edit_key: str
-        :param sso:
-        :type sso: str
+        :param SetCommentText_request: The request object containing all parameters for this operation. (required)
+        :type SetCommentText_request: ApiSetCommentTextRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13798,12 +12967,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._set_comment_text_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            comment_text_update_request=comment_text_update_request,
-            edit_key=edit_key,
-            sso=sso,
+            tenant_id=SetCommentText_request.tenant_id,
+            comment_id=SetCommentText_request.comment_id,
+            broadcast_id=SetCommentText_request.broadcast_id,
+            comment_text_update_request=SetCommentText_request.comment_text_update_request,
+            edit_key=SetCommentText_request.edit_key,
+            sso=SetCommentText_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13827,12 +12996,7 @@ class PublicApi:
     @validate_call
     def set_comment_text_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        comment_text_update_request: CommentTextUpdateRequest,
-        edit_key: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        SetCommentText_request: ApiSetCommentTextRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13849,18 +13013,8 @@ class PublicApi:
         """set_comment_text
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param comment_text_update_request: (required)
-        :type comment_text_update_request: CommentTextUpdateRequest
-        :param edit_key:
-        :type edit_key: str
-        :param sso:
-        :type sso: str
+        :param SetCommentText_request: The request object containing all parameters for this operation. (required)
+        :type SetCommentText_request: ApiSetCommentTextRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13884,12 +13038,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._set_comment_text_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            comment_text_update_request=comment_text_update_request,
-            edit_key=edit_key,
-            sso=sso,
+            tenant_id=SetCommentText_request.tenant_id,
+            comment_id=SetCommentText_request.comment_id,
+            broadcast_id=SetCommentText_request.broadcast_id,
+            comment_text_update_request=SetCommentText_request.comment_text_update_request,
+            edit_key=SetCommentText_request.edit_key,
+            sso=SetCommentText_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14006,10 +13160,7 @@ class PublicApi:
     @validate_call
     def un_block_comment_public(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        public_block_from_comment_params: PublicBlockFromCommentParams,
-        sso: Optional[StrictStr] = None,
+        UnBlockCommentPublic_request: ApiUnBlockCommentPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14026,14 +13177,8 @@ class PublicApi:
         """un_block_comment_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param public_block_from_comment_params: (required)
-        :type public_block_from_comment_params: PublicBlockFromCommentParams
-        :param sso:
-        :type sso: str
+        :param UnBlockCommentPublic_request: The request object containing all parameters for this operation. (required)
+        :type UnBlockCommentPublic_request: ApiUnBlockCommentPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14057,10 +13202,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._un_block_comment_public_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            public_block_from_comment_params=public_block_from_comment_params,
-            sso=sso,
+            tenant_id=UnBlockCommentPublic_request.tenant_id,
+            comment_id=UnBlockCommentPublic_request.comment_id,
+            public_block_from_comment_params=UnBlockCommentPublic_request.public_block_from_comment_params,
+            sso=UnBlockCommentPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14084,10 +13229,7 @@ class PublicApi:
     @validate_call
     def un_block_comment_public_with_http_info(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        public_block_from_comment_params: PublicBlockFromCommentParams,
-        sso: Optional[StrictStr] = None,
+        UnBlockCommentPublic_request: ApiUnBlockCommentPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14104,14 +13246,8 @@ class PublicApi:
         """un_block_comment_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param public_block_from_comment_params: (required)
-        :type public_block_from_comment_params: PublicBlockFromCommentParams
-        :param sso:
-        :type sso: str
+        :param UnBlockCommentPublic_request: The request object containing all parameters for this operation. (required)
+        :type UnBlockCommentPublic_request: ApiUnBlockCommentPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14135,10 +13271,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._un_block_comment_public_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            public_block_from_comment_params=public_block_from_comment_params,
-            sso=sso,
+            tenant_id=UnBlockCommentPublic_request.tenant_id,
+            comment_id=UnBlockCommentPublic_request.comment_id,
+            public_block_from_comment_params=UnBlockCommentPublic_request.public_block_from_comment_params,
+            sso=UnBlockCommentPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14162,10 +13298,7 @@ class PublicApi:
     @validate_call
     def un_block_comment_public_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        public_block_from_comment_params: PublicBlockFromCommentParams,
-        sso: Optional[StrictStr] = None,
+        UnBlockCommentPublic_request: ApiUnBlockCommentPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14182,14 +13315,8 @@ class PublicApi:
         """un_block_comment_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param public_block_from_comment_params: (required)
-        :type public_block_from_comment_params: PublicBlockFromCommentParams
-        :param sso:
-        :type sso: str
+        :param UnBlockCommentPublic_request: The request object containing all parameters for this operation. (required)
+        :type UnBlockCommentPublic_request: ApiUnBlockCommentPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14213,10 +13340,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._un_block_comment_public_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            public_block_from_comment_params=public_block_from_comment_params,
-            sso=sso,
+            tenant_id=UnBlockCommentPublic_request.tenant_id,
+            comment_id=UnBlockCommentPublic_request.comment_id,
+            public_block_from_comment_params=UnBlockCommentPublic_request.public_block_from_comment_params,
+            sso=UnBlockCommentPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14325,10 +13452,7 @@ class PublicApi:
     @validate_call
     def un_lock_comment(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        UnLockComment_request: ApiUnLockCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14345,14 +13469,8 @@ class PublicApi:
         """un_lock_comment
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param UnLockComment_request: The request object containing all parameters for this operation. (required)
+        :type UnLockComment_request: ApiUnLockCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14376,10 +13494,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._un_lock_comment_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=UnLockComment_request.tenant_id,
+            comment_id=UnLockComment_request.comment_id,
+            broadcast_id=UnLockComment_request.broadcast_id,
+            sso=UnLockComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14403,10 +13521,7 @@ class PublicApi:
     @validate_call
     def un_lock_comment_with_http_info(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        UnLockComment_request: ApiUnLockCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14423,14 +13538,8 @@ class PublicApi:
         """un_lock_comment
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param UnLockComment_request: The request object containing all parameters for this operation. (required)
+        :type UnLockComment_request: ApiUnLockCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14454,10 +13563,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._un_lock_comment_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=UnLockComment_request.tenant_id,
+            comment_id=UnLockComment_request.comment_id,
+            broadcast_id=UnLockComment_request.broadcast_id,
+            sso=UnLockComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14481,10 +13590,7 @@ class PublicApi:
     @validate_call
     def un_lock_comment_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        UnLockComment_request: ApiUnLockCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14501,14 +13607,8 @@ class PublicApi:
         """un_lock_comment
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param UnLockComment_request: The request object containing all parameters for this operation. (required)
+        :type UnLockComment_request: ApiUnLockCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14532,10 +13632,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._un_lock_comment_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=UnLockComment_request.tenant_id,
+            comment_id=UnLockComment_request.comment_id,
+            broadcast_id=UnLockComment_request.broadcast_id,
+            sso=UnLockComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14631,10 +13731,7 @@ class PublicApi:
     @validate_call
     def un_pin_comment(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        UnPinComment_request: ApiUnPinCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14651,14 +13748,8 @@ class PublicApi:
         """un_pin_comment
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param UnPinComment_request: The request object containing all parameters for this operation. (required)
+        :type UnPinComment_request: ApiUnPinCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14682,10 +13773,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._un_pin_comment_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=UnPinComment_request.tenant_id,
+            comment_id=UnPinComment_request.comment_id,
+            broadcast_id=UnPinComment_request.broadcast_id,
+            sso=UnPinComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14709,10 +13800,7 @@ class PublicApi:
     @validate_call
     def un_pin_comment_with_http_info(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        UnPinComment_request: ApiUnPinCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14729,14 +13817,8 @@ class PublicApi:
         """un_pin_comment
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param UnPinComment_request: The request object containing all parameters for this operation. (required)
+        :type UnPinComment_request: ApiUnPinCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14760,10 +13842,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._un_pin_comment_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=UnPinComment_request.tenant_id,
+            comment_id=UnPinComment_request.comment_id,
+            broadcast_id=UnPinComment_request.broadcast_id,
+            sso=UnPinComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14787,10 +13869,7 @@ class PublicApi:
     @validate_call
     def un_pin_comment_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        broadcast_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        UnPinComment_request: ApiUnPinCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14807,14 +13886,8 @@ class PublicApi:
         """un_pin_comment
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param UnPinComment_request: The request object containing all parameters for this operation. (required)
+        :type UnPinComment_request: ApiUnPinCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14838,10 +13911,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._un_pin_comment_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=UnPinComment_request.tenant_id,
+            comment_id=UnPinComment_request.comment_id,
+            broadcast_id=UnPinComment_request.broadcast_id,
+            sso=UnPinComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14937,11 +14010,7 @@ class PublicApi:
     @validate_call
     def update_feed_post_public(
         self,
-        tenant_id: StrictStr,
-        post_id: StrictStr,
-        update_feed_post_params: UpdateFeedPostParams,
-        broadcast_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        UpdateFeedPostPublic_request: ApiUpdateFeedPostPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14958,16 +14027,8 @@ class PublicApi:
         """update_feed_post_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param post_id: (required)
-        :type post_id: str
-        :param update_feed_post_params: (required)
-        :type update_feed_post_params: UpdateFeedPostParams
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param UpdateFeedPostPublic_request: The request object containing all parameters for this operation. (required)
+        :type UpdateFeedPostPublic_request: ApiUpdateFeedPostPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14991,11 +14052,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._update_feed_post_public_serialize(
-            tenant_id=tenant_id,
-            post_id=post_id,
-            update_feed_post_params=update_feed_post_params,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=UpdateFeedPostPublic_request.tenant_id,
+            post_id=UpdateFeedPostPublic_request.post_id,
+            update_feed_post_params=UpdateFeedPostPublic_request.update_feed_post_params,
+            broadcast_id=UpdateFeedPostPublic_request.broadcast_id,
+            sso=UpdateFeedPostPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15019,11 +14080,7 @@ class PublicApi:
     @validate_call
     def update_feed_post_public_with_http_info(
         self,
-        tenant_id: StrictStr,
-        post_id: StrictStr,
-        update_feed_post_params: UpdateFeedPostParams,
-        broadcast_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        UpdateFeedPostPublic_request: ApiUpdateFeedPostPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15040,16 +14097,8 @@ class PublicApi:
         """update_feed_post_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param post_id: (required)
-        :type post_id: str
-        :param update_feed_post_params: (required)
-        :type update_feed_post_params: UpdateFeedPostParams
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param UpdateFeedPostPublic_request: The request object containing all parameters for this operation. (required)
+        :type UpdateFeedPostPublic_request: ApiUpdateFeedPostPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15073,11 +14122,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._update_feed_post_public_serialize(
-            tenant_id=tenant_id,
-            post_id=post_id,
-            update_feed_post_params=update_feed_post_params,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=UpdateFeedPostPublic_request.tenant_id,
+            post_id=UpdateFeedPostPublic_request.post_id,
+            update_feed_post_params=UpdateFeedPostPublic_request.update_feed_post_params,
+            broadcast_id=UpdateFeedPostPublic_request.broadcast_id,
+            sso=UpdateFeedPostPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15101,11 +14150,7 @@ class PublicApi:
     @validate_call
     def update_feed_post_public_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        post_id: StrictStr,
-        update_feed_post_params: UpdateFeedPostParams,
-        broadcast_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        UpdateFeedPostPublic_request: ApiUpdateFeedPostPublicRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15122,16 +14167,8 @@ class PublicApi:
         """update_feed_post_public
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param post_id: (required)
-        :type post_id: str
-        :param update_feed_post_params: (required)
-        :type update_feed_post_params: UpdateFeedPostParams
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param sso:
-        :type sso: str
+        :param UpdateFeedPostPublic_request: The request object containing all parameters for this operation. (required)
+        :type UpdateFeedPostPublic_request: ApiUpdateFeedPostPublicRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15155,11 +14192,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._update_feed_post_public_serialize(
-            tenant_id=tenant_id,
-            post_id=post_id,
-            update_feed_post_params=update_feed_post_params,
-            broadcast_id=broadcast_id,
-            sso=sso,
+            tenant_id=UpdateFeedPostPublic_request.tenant_id,
+            post_id=UpdateFeedPostPublic_request.post_id,
+            update_feed_post_params=UpdateFeedPostPublic_request.update_feed_post_params,
+            broadcast_id=UpdateFeedPostPublic_request.broadcast_id,
+            sso=UpdateFeedPostPublic_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15271,11 +14308,7 @@ class PublicApi:
     @validate_call
     def update_user_notification_comment_subscription_status(
         self,
-        tenant_id: StrictStr,
-        notification_id: StrictStr,
-        opted_in_or_out: StrictStr,
-        comment_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        UpdateUserNotificationCommentSubscriptionStatus_request: ApiUpdateUserNotificationCommentSubscriptionStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15293,16 +14326,8 @@ class PublicApi:
 
         Enable or disable notifications for a specific comment.
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param notification_id: (required)
-        :type notification_id: str
-        :param opted_in_or_out: (required)
-        :type opted_in_or_out: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param sso:
-        :type sso: str
+        :param UpdateUserNotificationCommentSubscriptionStatus_request: The request object containing all parameters for this operation. (required)
+        :type UpdateUserNotificationCommentSubscriptionStatus_request: ApiUpdateUserNotificationCommentSubscriptionStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15326,11 +14351,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._update_user_notification_comment_subscription_status_serialize(
-            tenant_id=tenant_id,
-            notification_id=notification_id,
-            opted_in_or_out=opted_in_or_out,
-            comment_id=comment_id,
-            sso=sso,
+            tenant_id=UpdateUserNotificationCommentSubscriptionStatus_request.tenant_id,
+            notification_id=UpdateUserNotificationCommentSubscriptionStatus_request.notification_id,
+            opted_in_or_out=UpdateUserNotificationCommentSubscriptionStatus_request.opted_in_or_out,
+            comment_id=UpdateUserNotificationCommentSubscriptionStatus_request.comment_id,
+            sso=UpdateUserNotificationCommentSubscriptionStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15354,11 +14379,7 @@ class PublicApi:
     @validate_call
     def update_user_notification_comment_subscription_status_with_http_info(
         self,
-        tenant_id: StrictStr,
-        notification_id: StrictStr,
-        opted_in_or_out: StrictStr,
-        comment_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        UpdateUserNotificationCommentSubscriptionStatus_request: ApiUpdateUserNotificationCommentSubscriptionStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15376,16 +14397,8 @@ class PublicApi:
 
         Enable or disable notifications for a specific comment.
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param notification_id: (required)
-        :type notification_id: str
-        :param opted_in_or_out: (required)
-        :type opted_in_or_out: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param sso:
-        :type sso: str
+        :param UpdateUserNotificationCommentSubscriptionStatus_request: The request object containing all parameters for this operation. (required)
+        :type UpdateUserNotificationCommentSubscriptionStatus_request: ApiUpdateUserNotificationCommentSubscriptionStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15409,11 +14422,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._update_user_notification_comment_subscription_status_serialize(
-            tenant_id=tenant_id,
-            notification_id=notification_id,
-            opted_in_or_out=opted_in_or_out,
-            comment_id=comment_id,
-            sso=sso,
+            tenant_id=UpdateUserNotificationCommentSubscriptionStatus_request.tenant_id,
+            notification_id=UpdateUserNotificationCommentSubscriptionStatus_request.notification_id,
+            opted_in_or_out=UpdateUserNotificationCommentSubscriptionStatus_request.opted_in_or_out,
+            comment_id=UpdateUserNotificationCommentSubscriptionStatus_request.comment_id,
+            sso=UpdateUserNotificationCommentSubscriptionStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15437,11 +14450,7 @@ class PublicApi:
     @validate_call
     def update_user_notification_comment_subscription_status_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        notification_id: StrictStr,
-        opted_in_or_out: StrictStr,
-        comment_id: StrictStr,
-        sso: Optional[StrictStr] = None,
+        UpdateUserNotificationCommentSubscriptionStatus_request: ApiUpdateUserNotificationCommentSubscriptionStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15459,16 +14468,8 @@ class PublicApi:
 
         Enable or disable notifications for a specific comment.
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param notification_id: (required)
-        :type notification_id: str
-        :param opted_in_or_out: (required)
-        :type opted_in_or_out: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param sso:
-        :type sso: str
+        :param UpdateUserNotificationCommentSubscriptionStatus_request: The request object containing all parameters for this operation. (required)
+        :type UpdateUserNotificationCommentSubscriptionStatus_request: ApiUpdateUserNotificationCommentSubscriptionStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15492,11 +14493,11 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._update_user_notification_comment_subscription_status_serialize(
-            tenant_id=tenant_id,
-            notification_id=notification_id,
-            opted_in_or_out=opted_in_or_out,
-            comment_id=comment_id,
-            sso=sso,
+            tenant_id=UpdateUserNotificationCommentSubscriptionStatus_request.tenant_id,
+            notification_id=UpdateUserNotificationCommentSubscriptionStatus_request.notification_id,
+            opted_in_or_out=UpdateUserNotificationCommentSubscriptionStatus_request.opted_in_or_out,
+            comment_id=UpdateUserNotificationCommentSubscriptionStatus_request.comment_id,
+            sso=UpdateUserNotificationCommentSubscriptionStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15597,12 +14598,7 @@ class PublicApi:
     @validate_call
     def update_user_notification_page_subscription_status(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        url: StrictStr,
-        page_title: StrictStr,
-        subscribed_or_unsubscribed: StrictStr,
-        sso: Optional[StrictStr] = None,
+        UpdateUserNotificationPageSubscriptionStatus_request: ApiUpdateUserNotificationPageSubscriptionStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15620,18 +14616,8 @@ class PublicApi:
 
         Enable or disable notifications for a page. When users are subscribed to a page, notifications are created for new root comments, and also
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param url: (required)
-        :type url: str
-        :param page_title: (required)
-        :type page_title: str
-        :param subscribed_or_unsubscribed: (required)
-        :type subscribed_or_unsubscribed: str
-        :param sso:
-        :type sso: str
+        :param UpdateUserNotificationPageSubscriptionStatus_request: The request object containing all parameters for this operation. (required)
+        :type UpdateUserNotificationPageSubscriptionStatus_request: ApiUpdateUserNotificationPageSubscriptionStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15655,12 +14641,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._update_user_notification_page_subscription_status_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            url=url,
-            page_title=page_title,
-            subscribed_or_unsubscribed=subscribed_or_unsubscribed,
-            sso=sso,
+            tenant_id=UpdateUserNotificationPageSubscriptionStatus_request.tenant_id,
+            url_id=UpdateUserNotificationPageSubscriptionStatus_request.url_id,
+            url=UpdateUserNotificationPageSubscriptionStatus_request.url,
+            page_title=UpdateUserNotificationPageSubscriptionStatus_request.page_title,
+            subscribed_or_unsubscribed=UpdateUserNotificationPageSubscriptionStatus_request.subscribed_or_unsubscribed,
+            sso=UpdateUserNotificationPageSubscriptionStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15684,12 +14670,7 @@ class PublicApi:
     @validate_call
     def update_user_notification_page_subscription_status_with_http_info(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        url: StrictStr,
-        page_title: StrictStr,
-        subscribed_or_unsubscribed: StrictStr,
-        sso: Optional[StrictStr] = None,
+        UpdateUserNotificationPageSubscriptionStatus_request: ApiUpdateUserNotificationPageSubscriptionStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15707,18 +14688,8 @@ class PublicApi:
 
         Enable or disable notifications for a page. When users are subscribed to a page, notifications are created for new root comments, and also
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param url: (required)
-        :type url: str
-        :param page_title: (required)
-        :type page_title: str
-        :param subscribed_or_unsubscribed: (required)
-        :type subscribed_or_unsubscribed: str
-        :param sso:
-        :type sso: str
+        :param UpdateUserNotificationPageSubscriptionStatus_request: The request object containing all parameters for this operation. (required)
+        :type UpdateUserNotificationPageSubscriptionStatus_request: ApiUpdateUserNotificationPageSubscriptionStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15742,12 +14713,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._update_user_notification_page_subscription_status_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            url=url,
-            page_title=page_title,
-            subscribed_or_unsubscribed=subscribed_or_unsubscribed,
-            sso=sso,
+            tenant_id=UpdateUserNotificationPageSubscriptionStatus_request.tenant_id,
+            url_id=UpdateUserNotificationPageSubscriptionStatus_request.url_id,
+            url=UpdateUserNotificationPageSubscriptionStatus_request.url,
+            page_title=UpdateUserNotificationPageSubscriptionStatus_request.page_title,
+            subscribed_or_unsubscribed=UpdateUserNotificationPageSubscriptionStatus_request.subscribed_or_unsubscribed,
+            sso=UpdateUserNotificationPageSubscriptionStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15771,12 +14742,7 @@ class PublicApi:
     @validate_call
     def update_user_notification_page_subscription_status_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        url_id: StrictStr,
-        url: StrictStr,
-        page_title: StrictStr,
-        subscribed_or_unsubscribed: StrictStr,
-        sso: Optional[StrictStr] = None,
+        UpdateUserNotificationPageSubscriptionStatus_request: ApiUpdateUserNotificationPageSubscriptionStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15794,18 +14760,8 @@ class PublicApi:
 
         Enable or disable notifications for a page. When users are subscribed to a page, notifications are created for new root comments, and also
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param url: (required)
-        :type url: str
-        :param page_title: (required)
-        :type page_title: str
-        :param subscribed_or_unsubscribed: (required)
-        :type subscribed_or_unsubscribed: str
-        :param sso:
-        :type sso: str
+        :param UpdateUserNotificationPageSubscriptionStatus_request: The request object containing all parameters for this operation. (required)
+        :type UpdateUserNotificationPageSubscriptionStatus_request: ApiUpdateUserNotificationPageSubscriptionStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15829,12 +14785,12 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._update_user_notification_page_subscription_status_serialize(
-            tenant_id=tenant_id,
-            url_id=url_id,
-            url=url,
-            page_title=page_title,
-            subscribed_or_unsubscribed=subscribed_or_unsubscribed,
-            sso=sso,
+            tenant_id=UpdateUserNotificationPageSubscriptionStatus_request.tenant_id,
+            url_id=UpdateUserNotificationPageSubscriptionStatus_request.url_id,
+            url=UpdateUserNotificationPageSubscriptionStatus_request.url,
+            page_title=UpdateUserNotificationPageSubscriptionStatus_request.page_title,
+            subscribed_or_unsubscribed=UpdateUserNotificationPageSubscriptionStatus_request.subscribed_or_unsubscribed,
+            sso=UpdateUserNotificationPageSubscriptionStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15942,10 +14898,7 @@ class PublicApi:
     @validate_call
     def update_user_notification_status(
         self,
-        tenant_id: StrictStr,
-        notification_id: StrictStr,
-        new_status: StrictStr,
-        sso: Optional[StrictStr] = None,
+        UpdateUserNotificationStatus_request: ApiUpdateUserNotificationStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15962,14 +14915,8 @@ class PublicApi:
         """update_user_notification_status
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param notification_id: (required)
-        :type notification_id: str
-        :param new_status: (required)
-        :type new_status: str
-        :param sso:
-        :type sso: str
+        :param UpdateUserNotificationStatus_request: The request object containing all parameters for this operation. (required)
+        :type UpdateUserNotificationStatus_request: ApiUpdateUserNotificationStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15993,10 +14940,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._update_user_notification_status_serialize(
-            tenant_id=tenant_id,
-            notification_id=notification_id,
-            new_status=new_status,
-            sso=sso,
+            tenant_id=UpdateUserNotificationStatus_request.tenant_id,
+            notification_id=UpdateUserNotificationStatus_request.notification_id,
+            new_status=UpdateUserNotificationStatus_request.new_status,
+            sso=UpdateUserNotificationStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -16020,10 +14967,7 @@ class PublicApi:
     @validate_call
     def update_user_notification_status_with_http_info(
         self,
-        tenant_id: StrictStr,
-        notification_id: StrictStr,
-        new_status: StrictStr,
-        sso: Optional[StrictStr] = None,
+        UpdateUserNotificationStatus_request: ApiUpdateUserNotificationStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16040,14 +14984,8 @@ class PublicApi:
         """update_user_notification_status
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param notification_id: (required)
-        :type notification_id: str
-        :param new_status: (required)
-        :type new_status: str
-        :param sso:
-        :type sso: str
+        :param UpdateUserNotificationStatus_request: The request object containing all parameters for this operation. (required)
+        :type UpdateUserNotificationStatus_request: ApiUpdateUserNotificationStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16071,10 +15009,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._update_user_notification_status_serialize(
-            tenant_id=tenant_id,
-            notification_id=notification_id,
-            new_status=new_status,
-            sso=sso,
+            tenant_id=UpdateUserNotificationStatus_request.tenant_id,
+            notification_id=UpdateUserNotificationStatus_request.notification_id,
+            new_status=UpdateUserNotificationStatus_request.new_status,
+            sso=UpdateUserNotificationStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -16098,10 +15036,7 @@ class PublicApi:
     @validate_call
     def update_user_notification_status_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        notification_id: StrictStr,
-        new_status: StrictStr,
-        sso: Optional[StrictStr] = None,
+        UpdateUserNotificationStatus_request: ApiUpdateUserNotificationStatusRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16118,14 +15053,8 @@ class PublicApi:
         """update_user_notification_status
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param notification_id: (required)
-        :type notification_id: str
-        :param new_status: (required)
-        :type new_status: str
-        :param sso:
-        :type sso: str
+        :param UpdateUserNotificationStatus_request: The request object containing all parameters for this operation. (required)
+        :type UpdateUserNotificationStatus_request: ApiUpdateUserNotificationStatusRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16149,10 +15078,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._update_user_notification_status_serialize(
-            tenant_id=tenant_id,
-            notification_id=notification_id,
-            new_status=new_status,
-            sso=sso,
+            tenant_id=UpdateUserNotificationStatus_request.tenant_id,
+            notification_id=UpdateUserNotificationStatus_request.notification_id,
+            new_status=UpdateUserNotificationStatus_request.new_status,
+            sso=UpdateUserNotificationStatus_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -16248,10 +15177,7 @@ class PublicApi:
     @validate_call
     def upload_image(
         self,
-        tenant_id: StrictStr,
-        file: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
-        size_preset: Annotated[Optional[SizePreset], Field(description="Size preset: \"Default\" (1000x1000px) or \"CrossPlatform\" (creates sizes for popular devices)")] = None,
-        url_id: Annotated[Optional[StrictStr], Field(description="Page id that upload is happening from, to configure")] = None,
+        UploadImage_request: ApiUploadImageRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16269,14 +15195,8 @@ class PublicApi:
 
         Upload and resize an image
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param file: (required)
-        :type file: bytearray
-        :param size_preset: Size preset: \"Default\" (1000x1000px) or \"CrossPlatform\" (creates sizes for popular devices)
-        :type size_preset: SizePreset
-        :param url_id: Page id that upload is happening from, to configure
-        :type url_id: str
+        :param UploadImage_request: The request object containing all parameters for this operation. (required)
+        :type UploadImage_request: ApiUploadImageRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16300,10 +15220,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._upload_image_serialize(
-            tenant_id=tenant_id,
-            file=file,
-            size_preset=size_preset,
-            url_id=url_id,
+            tenant_id=UploadImage_request.tenant_id,
+            file=UploadImage_request.file,
+            size_preset=UploadImage_request.size_preset,
+            url_id=UploadImage_request.url_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -16327,10 +15247,7 @@ class PublicApi:
     @validate_call
     def upload_image_with_http_info(
         self,
-        tenant_id: StrictStr,
-        file: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
-        size_preset: Annotated[Optional[SizePreset], Field(description="Size preset: \"Default\" (1000x1000px) or \"CrossPlatform\" (creates sizes for popular devices)")] = None,
-        url_id: Annotated[Optional[StrictStr], Field(description="Page id that upload is happening from, to configure")] = None,
+        UploadImage_request: ApiUploadImageRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16348,14 +15265,8 @@ class PublicApi:
 
         Upload and resize an image
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param file: (required)
-        :type file: bytearray
-        :param size_preset: Size preset: \"Default\" (1000x1000px) or \"CrossPlatform\" (creates sizes for popular devices)
-        :type size_preset: SizePreset
-        :param url_id: Page id that upload is happening from, to configure
-        :type url_id: str
+        :param UploadImage_request: The request object containing all parameters for this operation. (required)
+        :type UploadImage_request: ApiUploadImageRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16379,10 +15290,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._upload_image_serialize(
-            tenant_id=tenant_id,
-            file=file,
-            size_preset=size_preset,
-            url_id=url_id,
+            tenant_id=UploadImage_request.tenant_id,
+            file=UploadImage_request.file,
+            size_preset=UploadImage_request.size_preset,
+            url_id=UploadImage_request.url_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -16406,10 +15317,7 @@ class PublicApi:
     @validate_call
     def upload_image_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        file: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
-        size_preset: Annotated[Optional[SizePreset], Field(description="Size preset: \"Default\" (1000x1000px) or \"CrossPlatform\" (creates sizes for popular devices)")] = None,
-        url_id: Annotated[Optional[StrictStr], Field(description="Page id that upload is happening from, to configure")] = None,
+        UploadImage_request: ApiUploadImageRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16427,14 +15335,8 @@ class PublicApi:
 
         Upload and resize an image
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param file: (required)
-        :type file: bytearray
-        :param size_preset: Size preset: \"Default\" (1000x1000px) or \"CrossPlatform\" (creates sizes for popular devices)
-        :type size_preset: SizePreset
-        :param url_id: Page id that upload is happening from, to configure
-        :type url_id: str
+        :param UploadImage_request: The request object containing all parameters for this operation. (required)
+        :type UploadImage_request: ApiUploadImageRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16458,10 +15360,10 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._upload_image_serialize(
-            tenant_id=tenant_id,
-            file=file,
-            size_preset=size_preset,
-            url_id=url_id,
+            tenant_id=UploadImage_request.tenant_id,
+            file=UploadImage_request.file,
+            size_preset=UploadImage_request.size_preset,
+            url_id=UploadImage_request.url_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -16570,13 +15472,7 @@ class PublicApi:
     @validate_call
     def vote_comment(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        url_id: StrictStr,
-        broadcast_id: StrictStr,
-        vote_body_params: VoteBodyParams,
-        session_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        VoteComment_request: ApiVoteCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16593,20 +15489,8 @@ class PublicApi:
         """vote_comment
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param vote_body_params: (required)
-        :type vote_body_params: VoteBodyParams
-        :param session_id:
-        :type session_id: str
-        :param sso:
-        :type sso: str
+        :param VoteComment_request: The request object containing all parameters for this operation. (required)
+        :type VoteComment_request: ApiVoteCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16630,13 +15514,13 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._vote_comment_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            url_id=url_id,
-            broadcast_id=broadcast_id,
-            vote_body_params=vote_body_params,
-            session_id=session_id,
-            sso=sso,
+            tenant_id=VoteComment_request.tenant_id,
+            comment_id=VoteComment_request.comment_id,
+            url_id=VoteComment_request.url_id,
+            broadcast_id=VoteComment_request.broadcast_id,
+            vote_body_params=VoteComment_request.vote_body_params,
+            session_id=VoteComment_request.session_id,
+            sso=VoteComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -16660,13 +15544,7 @@ class PublicApi:
     @validate_call
     def vote_comment_with_http_info(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        url_id: StrictStr,
-        broadcast_id: StrictStr,
-        vote_body_params: VoteBodyParams,
-        session_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        VoteComment_request: ApiVoteCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16683,20 +15561,8 @@ class PublicApi:
         """vote_comment
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param vote_body_params: (required)
-        :type vote_body_params: VoteBodyParams
-        :param session_id:
-        :type session_id: str
-        :param sso:
-        :type sso: str
+        :param VoteComment_request: The request object containing all parameters for this operation. (required)
+        :type VoteComment_request: ApiVoteCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16720,13 +15586,13 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._vote_comment_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            url_id=url_id,
-            broadcast_id=broadcast_id,
-            vote_body_params=vote_body_params,
-            session_id=session_id,
-            sso=sso,
+            tenant_id=VoteComment_request.tenant_id,
+            comment_id=VoteComment_request.comment_id,
+            url_id=VoteComment_request.url_id,
+            broadcast_id=VoteComment_request.broadcast_id,
+            vote_body_params=VoteComment_request.vote_body_params,
+            session_id=VoteComment_request.session_id,
+            sso=VoteComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -16750,13 +15616,7 @@ class PublicApi:
     @validate_call
     def vote_comment_without_preload_content(
         self,
-        tenant_id: StrictStr,
-        comment_id: StrictStr,
-        url_id: StrictStr,
-        broadcast_id: StrictStr,
-        vote_body_params: VoteBodyParams,
-        session_id: Optional[StrictStr] = None,
-        sso: Optional[StrictStr] = None,
+        VoteComment_request: ApiVoteCommentRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16773,20 +15633,8 @@ class PublicApi:
         """vote_comment
 
 
-        :param tenant_id: (required)
-        :type tenant_id: str
-        :param comment_id: (required)
-        :type comment_id: str
-        :param url_id: (required)
-        :type url_id: str
-        :param broadcast_id: (required)
-        :type broadcast_id: str
-        :param vote_body_params: (required)
-        :type vote_body_params: VoteBodyParams
-        :param session_id:
-        :type session_id: str
-        :param sso:
-        :type sso: str
+        :param VoteComment_request: The request object containing all parameters for this operation. (required)
+        :type VoteComment_request: ApiVoteCommentRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16810,13 +15658,13 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._vote_comment_serialize(
-            tenant_id=tenant_id,
-            comment_id=comment_id,
-            url_id=url_id,
-            broadcast_id=broadcast_id,
-            vote_body_params=vote_body_params,
-            session_id=session_id,
-            sso=sso,
+            tenant_id=VoteComment_request.tenant_id,
+            comment_id=VoteComment_request.comment_id,
+            url_id=VoteComment_request.url_id,
+            broadcast_id=VoteComment_request.broadcast_id,
+            vote_body_params=VoteComment_request.vote_body_params,
+            session_id=VoteComment_request.session_id,
+            sso=VoteComment_request.sso,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,

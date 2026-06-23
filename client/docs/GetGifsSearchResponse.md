@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**images** | **List[List[GifSearchResponseImagesInnerInner]]** |  | 
+**images** | **List[List[GifSearchResponseImagesInnerInner]]** |  | [optional] 
 **status** | [**APIStatus**](APIStatus.md) |  | 
-**code** | **str** |  | 
+**code** | **str** |  | [optional] 
 
 ## Example
 

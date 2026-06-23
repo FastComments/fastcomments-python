@@ -6,9 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**APIStatus**](APIStatus.md) |  | 
-**matched_count** | **int** |  | 
-**modified_count** | **int** |  | 
-**note** | **str** |  | 
+**matched_count** | **int** |  | [optional] 
+**modified_count** | **int** |  | [optional] 
+**note** | **str** |  | [optional] 
 
 ## Example
 

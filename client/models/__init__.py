@@ -12,7 +12,6 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
 # import models into model package
 from client.models.api_audit_log import APIAuditLog
 from client.models.api_ban_user_change_log import APIBanUserChangeLog
@@ -372,6 +371,6 @@ from client.models.users_list_location import UsersListLocation
 from client.models.vote_body_params import VoteBodyParams
 from client.models.vote_delete_response import VoteDeleteResponse
 from client.models.vote_response import VoteResponse
-from client.models.vote_response_status import VoteResponseStatus
 from client.models.vote_response_user import VoteResponseUser
 from client.models.vote_style import VoteStyle
+

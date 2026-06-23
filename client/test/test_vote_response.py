@@ -35,7 +35,7 @@ class TestVoteResponse(unittest.TestCase):
         model = VoteResponse()
         if include_optional:
             return VoteResponse(
-                status = None,
+                status = 'success',
                 vote_id = '',
                 is_verified = True,
                 user = client.models.vote_response_user.VoteResponseUser(
@@ -44,7 +44,7 @@ class TestVoteResponse(unittest.TestCase):
             )
         else:
             return VoteResponse(
-                status = None,
+                status = 'success',
         )
         """
 

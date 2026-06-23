@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# Install/update dependencies
-pip install -q openapi-generator-cli 2>/dev/null || echo "Skipping openapi-generator-cli pip install (using npx)"
+# FastComments openapi-generator build (fork). The stock generator ignores
+# useSingleRequestParameter for python; this build wires it. Just a jar; downloaded on demand.
+JAR_URL="https://github.com/winrid/openapi-generator/releases/download/fastcomments-build-20260619/openapi-generator-cli.jar"
+JAR_FILE="./openapi-generator-cli.jar"
+[ -f "$JAR_FILE" ] || wget -q "$JAR_URL" -O "$JAR_FILE"
 
 # Remove previously generated code
 rm -rvf ./client
@@ -15,9 +18,8 @@ else
     SPEC_FILE="./openapi.yaml"
 fi
 
-# Generate the Python client using openapi-generator
-# Using npx to ensure consistent version with JS SDK
-npx @openapitools/openapi-generator-cli generate \
+# Generate the Python client using the FastComments openapi-generator fork
+java -jar "$JAR_FILE" generate \
     -i "$SPEC_FILE" \
     -g python \
     -o ./client \

@@ -23,6 +23,7 @@ from client.models.notification_object_type import NotificationObjectType
 from client.models.notification_type import NotificationType
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class RenderableUserNotification(BaseModel):
     """
@@ -52,7 +53,8 @@ class RenderableUserNotification(BaseModel):
     __properties: ClassVar[List[str]] = ["conversationId", "contextHTML", "fromUserNames", "fromUserIds", "relatedIds", "count", "optedOut", "fromUserAvatarSrc", "fromUserId", "fromUserName", "fromCommentId", "type", "createdAt", "sent", "viewed", "relatedObjectId", "relatedObjectType", "pageTitle", "url", "urlId", "_id"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -64,8 +66,7 @@ class RenderableUserNotification(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

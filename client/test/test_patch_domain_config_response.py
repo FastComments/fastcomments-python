@@ -42,10 +42,7 @@ class TestPatchDomainConfigResponse(unittest.TestCase):
             )
         else:
             return PatchDomainConfigResponse(
-                configuration = client.models.configuration.configuration(),
                 status = client.models.status.status(),
-                reason = '',
-                code = '',
         )
         """
 

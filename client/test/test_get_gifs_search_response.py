@@ -45,13 +45,7 @@ class TestGetGifsSearchResponse(unittest.TestCase):
             )
         else:
             return GetGifsSearchResponse(
-                images = [
-                    [
-                        null
-                        ]
-                    ],
                 status = 'success',
-                code = '',
         )
         """
 

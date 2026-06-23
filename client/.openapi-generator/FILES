@@ -372,7 +372,6 @@ client/models/users_list_location.py
 client/models/vote_body_params.py
 client/models/vote_delete_response.py
 client/models/vote_response.py
-client/models/vote_response_status.py
 client/models/vote_response_user.py
 client/models/vote_style.py
 client/py.typed
@@ -738,7 +737,6 @@ docs/UsersListLocation.md
 docs/VoteBodyParams.md
 docs/VoteDeleteResponse.md
 docs/VoteResponse.md
-docs/VoteResponseStatus.md
 docs/VoteResponseUser.md
 docs/VoteStyle.md
 git_push.sh
@@ -1109,7 +1107,6 @@ test/test_users_list_location.py
 test/test_vote_body_params.py
 test/test_vote_delete_response.py
 test/test_vote_response.py
-test/test_vote_response_status.py
 test/test_vote_response_user.py
 test/test_vote_style.py
 tox.ini

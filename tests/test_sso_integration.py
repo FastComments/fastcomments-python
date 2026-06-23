@@ -17,6 +17,11 @@ try:
     sys.path.insert(0, str(client_path))
 
     from client import ApiClient, Configuration, PublicApi, DefaultApi
+    from client.api.public_api import (
+        ApiGetCommentsPublicRequest,
+        ApiCreateCommentPublicRequest,
+    )
+    from client.api.default_api import ApiGetCommentsRequest
     HAS_CLIENT = True
 except ImportError as e:
     HAS_CLIENT = False
@@ -82,9 +87,11 @@ class TestSecureSSOAPIIntegration:
             # This depends on the actual API signature from the generated client
             # You may need to adjust the method call based on the generated code
             response = public_api.get_comments_public(
-                tenant_id=TENANT_ID,
-                url_id="sdk-test-page-secure",
-                sso=sso_token
+                ApiGetCommentsPublicRequest(
+                    tenant_id=TENANT_ID,
+                    url_id="sdk-test-page-secure",
+                    sso=sso_token
+                )
             )
 
             assert response is not None
@@ -110,9 +117,11 @@ class TestSecureSSOAPIIntegration:
         """Test getting comments using DefaultApi with authentication."""
         try:
             response = default_api.get_comments(
-                tenant_id=TENANT_ID,
-                url_id="sdk-test-page-secure-admin",
-                context_user_id=mock_secure_user.user_id
+                ApiGetCommentsRequest(
+                    tenant_id=TENANT_ID,
+                    url_id="sdk-test-page-secure-admin",
+                    context_user_id=mock_secure_user.user_id
+                )
             )
 
             assert response is not None
@@ -132,17 +141,19 @@ class TestSecureSSOAPIIntegration:
 
         try:
             response = public_api.create_comment_public(
-                tenant_id=TENANT_ID,
-                url_id="sdk-test-page-secure-comment",
-                broadcast_id=f"test-{timestamp}",
-                comment_data={
-                    "comment": "Test comment with secure SSO from Python SDK",
-                    "date": timestamp,
-                    "commenterName": mock_secure_user.username,
-                    "url": "https://example.com/test-page",
-                    "urlId": "sdk-test-page-secure-comment"
-                },
-                sso=sso_token
+                ApiCreateCommentPublicRequest(
+                    tenant_id=TENANT_ID,
+                    url_id="sdk-test-page-secure-comment",
+                    broadcast_id=f"test-{timestamp}",
+                    comment_data={
+                        "comment": "Test comment with secure SSO from Python SDK",
+                        "date": timestamp,
+                        "commenterName": mock_secure_user.username,
+                        "url": "https://example.com/test-page",
+                        "urlId": "sdk-test-page-secure-comment"
+                    },
+                    sso=sso_token
+                )
             )
 
             assert response is not None
@@ -170,9 +181,11 @@ class TestSimpleSSOAPIIntegration:
 
         try:
             response = public_api.get_comments_public(
-                tenant_id=TENANT_ID,
-                url_id="sdk-test-page-simple",
-                sso=sso_token
+                ApiGetCommentsPublicRequest(
+                    tenant_id=TENANT_ID,
+                    url_id="sdk-test-page-simple",
+                    sso=sso_token
+                )
             )
 
             assert response is not None
@@ -192,18 +205,20 @@ class TestSimpleSSOAPIIntegration:
 
         try:
             response = public_api.create_comment_public(
-                tenant_id=TENANT_ID,
-                url_id="sdk-test-page-simple-comment",
-                broadcast_id=f"simple-test-{timestamp}",
-                comment_data={
-                    "comment": "Test comment with simple SSO from Python SDK",
-                    "date": timestamp,
-                    "commenterName": mock_simple_user.user_id,
-                    "commenterEmail": mock_simple_user.email,
-                    "url": "https://example.com/test-page",
-                    "urlId": "sdk-test-page-simple-comment"
-                },
-                sso=sso_token
+                ApiCreateCommentPublicRequest(
+                    tenant_id=TENANT_ID,
+                    url_id="sdk-test-page-simple-comment",
+                    broadcast_id=f"simple-test-{timestamp}",
+                    comment_data={
+                        "comment": "Test comment with simple SSO from Python SDK",
+                        "date": timestamp,
+                        "commenterName": mock_simple_user.user_id,
+                        "commenterEmail": mock_simple_user.email,
+                        "url": "https://example.com/test-page",
+                        "urlId": "sdk-test-page-simple-comment"
+                    },
+                    sso=sso_token
+                )
             )
 
             assert response is not None
@@ -229,9 +244,11 @@ class TestErrorHandling:
 
         with pytest.raises(Exception) as exc_info:
             public_api.get_comments_public(
-                tenant_id="invalid-tenant-id",
-                url_id="test-page",
-                sso=sso_token
+                ApiGetCommentsPublicRequest(
+                    tenant_id="invalid-tenant-id",
+                    url_id="test-page",
+                    sso=sso_token
+                )
             )
 
         # Check that it's an HTTP error with status >= 400
@@ -243,9 +260,11 @@ class TestErrorHandling:
         """Test that malformed SSO data raises an appropriate error."""
         with pytest.raises(Exception) as exc_info:
             public_api.get_comments_public(
-                tenant_id=TENANT_ID,
-                url_id="test-page",
-                sso="invalid-sso-data"
+                ApiGetCommentsPublicRequest(
+                    tenant_id=TENANT_ID,
+                    url_id="test-page",
+                    sso="invalid-sso-data"
+                )
             )
 
         error = exc_info.value

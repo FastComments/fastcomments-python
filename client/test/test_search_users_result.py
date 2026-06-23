@@ -60,26 +60,6 @@ class TestSearchUsersResult(unittest.TestCase):
         else:
             return SearchUsersResult(
                 status = 'success',
-                sections = [
-                    client.models.user_search_section_result.UserSearchSectionResult(
-                        section = 'moderators', 
-                        users = [
-                            client.models.user_search_result.UserSearchResult(
-                                id = '', 
-                                name = '', 
-                                display_name = '', 
-                                avatar_src = '', 
-                                type = 'user', )
-                            ], )
-                    ],
-                users = [
-                    client.models.user_search_result.UserSearchResult(
-                        id = '', 
-                        name = '', 
-                        display_name = '', 
-                        avatar_src = '', 
-                        type = 'user', )
-                    ],
         )
         """
 

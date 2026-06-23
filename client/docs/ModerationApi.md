@@ -50,9 +50,7 @@ Method | HTTP request | Description
 
 
 # **delete_moderation_vote**
-> VoteDeleteResponse delete_moderation_vote(comment_id, vote_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
-
-
+> VoteDeleteResponse delete_moderation_vote(comment_id, vote_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
 
 ### Example
 
@@ -76,12 +74,12 @@ with client.ApiClient(configuration) as api_client:
     api_instance = client.ModerationApi(api_client)
     comment_id = 'comment_id_example' # str | 
     vote_id = 'vote_id_example' # str | 
-    broadcast_id = 'broadcast_id_example' # str |  (optional)
     tenant_id = 'tenant_id_example' # str |  (optional)
+    broadcast_id = 'broadcast_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.delete_moderation_vote(comment_id, vote_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.delete_moderation_vote(comment_id, vote_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
         print("The response of ModerationApi->delete_moderation_vote:\n")
         pprint(api_response)
     except Exception as e:
@@ -97,8 +95,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **comment_id** | **str**|  | 
  **vote_id** | **str**|  | 
- **broadcast_id** | **str**|  | [optional] 
  **tenant_id** | **str**|  | [optional] 
+ **broadcast_id** | **str**|  | [optional] 
  **sso** | **str**|  | [optional] 
 
 ### Return type
@@ -125,8 +123,6 @@ No authorization required
 
 # **get_api_comments**
 > ModerationAPIGetCommentsResponse get_api_comments(page=page, count=count, text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, sorts=sorts, demo=demo, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 
@@ -210,8 +206,6 @@ No authorization required
 # **get_api_export_status**
 > ModerationExportStatusResponse get_api_export_status(batch_job_id=batch_job_id, tenant_id=tenant_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -279,8 +273,6 @@ No authorization required
 
 # **get_api_ids**
 > ModerationAPIGetCommentIdsResponse get_api_ids(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, after_id=after_id, demo=demo, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 
@@ -360,8 +352,6 @@ No authorization required
 # **get_ban_users_from_comment**
 > GetBannedUsersFromCommentResponse get_ban_users_from_comment(comment_id, tenant_id=tenant_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -429,8 +419,6 @@ No authorization required
 
 # **get_comment_ban_status**
 > GetCommentBanStatusResponse get_comment_ban_status(comment_id, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 
@@ -500,8 +488,6 @@ No authorization required
 # **get_comment_children**
 > ModerationAPIChildCommentsResponse get_comment_children(comment_id, tenant_id=tenant_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -569,8 +555,6 @@ No authorization required
 
 # **get_count**
 > ModerationAPICountCommentsResponse get_count(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filter=filter, search_filters=search_filters, demo=demo, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 
@@ -648,8 +632,6 @@ No authorization required
 # **get_counts**
 > GetBannedUsersCountResponse get_counts(tenant_id=tenant_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -715,8 +697,6 @@ No authorization required
 
 # **get_logs**
 > ModerationAPIGetLogsResponse get_logs(comment_id, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 
@@ -786,8 +766,6 @@ No authorization required
 # **get_manual_badges**
 > GetTenantManualBadgesResponse get_manual_badges(tenant_id=tenant_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -853,8 +831,6 @@ No authorization required
 
 # **get_manual_badges_for_user**
 > GetUserManualBadgesResponse get_manual_badges_for_user(badges_user_id=badges_user_id, comment_id=comment_id, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 
@@ -925,8 +901,6 @@ No authorization required
 
 # **get_moderation_comment**
 > ModerationAPICommentResponse get_moderation_comment(comment_id, include_email=include_email, include_ip=include_ip, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 
@@ -1000,8 +974,6 @@ No authorization required
 # **get_moderation_comment_text**
 > GetCommentTextResponse get_moderation_comment_text(comment_id, tenant_id=tenant_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -1069,8 +1041,6 @@ No authorization required
 
 # **get_pre_ban_summary**
 > PreBanSummary get_pre_ban_summary(comment_id, include_by_user_id_and_email=include_by_user_id_and_email, include_by_ip=include_by_ip, include_by_email_domain=include_by_email_domain, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 
@@ -1146,8 +1116,6 @@ No authorization required
 # **get_search_comments_summary**
 > ModerationCommentSearchResponse get_search_comments_summary(value=value, filters=filters, search_filters=search_filters, tenant_id=tenant_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -1220,8 +1188,6 @@ No authorization required
 # **get_search_pages**
 > ModerationPageSearchResponse get_search_pages(value=value, tenant_id=tenant_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -1289,8 +1255,6 @@ No authorization required
 
 # **get_search_sites**
 > ModerationSiteSearchResponse get_search_sites(value=value, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 
@@ -1360,8 +1324,6 @@ No authorization required
 # **get_search_suggest**
 > ModerationSuggestResponse get_search_suggest(text_search=text_search, tenant_id=tenant_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -1429,8 +1391,6 @@ No authorization required
 
 # **get_search_users**
 > ModerationUserSearchResponse get_search_users(value=value, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 
@@ -1500,8 +1460,6 @@ No authorization required
 # **get_trust_factor**
 > GetUserTrustFactorResponse get_trust_factor(user_id=user_id, tenant_id=tenant_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -1570,8 +1528,6 @@ No authorization required
 # **get_user_ban_preference**
 > APIModerateGetUserBanPreferencesResponse get_user_ban_preference(tenant_id=tenant_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -1637,8 +1593,6 @@ No authorization required
 
 # **get_user_internal_profile**
 > GetUserInternalProfileResponse get_user_internal_profile(comment_id=comment_id, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 
@@ -1706,9 +1660,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_adjust_comment_votes**
-> AdjustVotesResponse post_adjust_comment_votes(comment_id, adjust_comment_votes_params, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
-
-
+> AdjustVotesResponse post_adjust_comment_votes(comment_id, adjust_comment_votes_params, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
 
 ### Example
 
@@ -1733,12 +1685,12 @@ with client.ApiClient(configuration) as api_client:
     api_instance = client.ModerationApi(api_client)
     comment_id = 'comment_id_example' # str | 
     adjust_comment_votes_params = client.AdjustCommentVotesParams() # AdjustCommentVotesParams | 
-    broadcast_id = 'broadcast_id_example' # str |  (optional)
     tenant_id = 'tenant_id_example' # str |  (optional)
+    broadcast_id = 'broadcast_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_adjust_comment_votes(comment_id, adjust_comment_votes_params, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.post_adjust_comment_votes(comment_id, adjust_comment_votes_params, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
         print("The response of ModerationApi->post_adjust_comment_votes:\n")
         pprint(api_response)
     except Exception as e:
@@ -1754,8 +1706,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **comment_id** | **str**|  | 
  **adjust_comment_votes_params** | [**AdjustCommentVotesParams**](AdjustCommentVotesParams.md)|  | 
- **broadcast_id** | **str**|  | [optional] 
  **tenant_id** | **str**|  | [optional] 
+ **broadcast_id** | **str**|  | [optional] 
  **sso** | **str**|  | [optional] 
 
 ### Return type
@@ -1782,8 +1734,6 @@ No authorization required
 
 # **post_api_export**
 > ModerationExportResponse post_api_export(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, sorts=sorts, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 
@@ -1860,8 +1810,6 @@ No authorization required
 
 # **post_ban_user_from_comment**
 > BanUserFromCommentResult post_ban_user_from_comment(comment_id, ban_email=ban_email, ban_email_domain=ban_email_domain, ban_ip=ban_ip, delete_all_users_comments=delete_all_users_comments, banned_until=banned_until, is_shadow_ban=is_shadow_ban, update_id=update_id, ban_reason=ban_reason, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 
@@ -1947,8 +1895,6 @@ No authorization required
 # **post_ban_user_undo**
 > APIEmptyResponse post_ban_user_undo(ban_user_undo_params, tenant_id=tenant_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -2017,8 +1963,6 @@ No authorization required
 
 # **post_bulk_pre_ban_summary**
 > BulkPreBanSummary post_bulk_pre_ban_summary(bulk_pre_ban_params, include_by_user_id_and_email=include_by_user_id_and_email, include_by_ip=include_by_ip, include_by_email_domain=include_by_email_domain, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 
@@ -2095,8 +2039,6 @@ No authorization required
 # **post_comments_by_ids**
 > ModerationAPIChildCommentsResponse post_comments_by_ids(comments_by_ids_params, tenant_id=tenant_id, sso=sso)
 
-
-
 ### Example
 
 
@@ -2164,9 +2106,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_flag_comment**
-> APIEmptyResponse post_flag_comment(comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
-
-
+> APIEmptyResponse post_flag_comment(comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
 
 ### Example
 
@@ -2189,12 +2129,12 @@ with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = client.ModerationApi(api_client)
     comment_id = 'comment_id_example' # str | 
-    broadcast_id = 'broadcast_id_example' # str |  (optional)
     tenant_id = 'tenant_id_example' # str |  (optional)
+    broadcast_id = 'broadcast_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_flag_comment(comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.post_flag_comment(comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
         print("The response of ModerationApi->post_flag_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -2209,8 +2149,8 @@ with client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **comment_id** | **str**|  | 
- **broadcast_id** | **str**|  | [optional] 
  **tenant_id** | **str**|  | [optional] 
+ **broadcast_id** | **str**|  | [optional] 
  **sso** | **str**|  | [optional] 
 
 ### Return type
@@ -2236,9 +2176,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_remove_comment**
-> PostRemoveCommentResponse post_remove_comment(comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
-
-
+> PostRemoveCommentResponse post_remove_comment(comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
 
 ### Example
 
@@ -2261,12 +2199,12 @@ with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = client.ModerationApi(api_client)
     comment_id = 'comment_id_example' # str | 
-    broadcast_id = 'broadcast_id_example' # str |  (optional)
     tenant_id = 'tenant_id_example' # str |  (optional)
+    broadcast_id = 'broadcast_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_remove_comment(comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.post_remove_comment(comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
         print("The response of ModerationApi->post_remove_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -2281,8 +2219,8 @@ with client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **comment_id** | **str**|  | 
- **broadcast_id** | **str**|  | [optional] 
  **tenant_id** | **str**|  | [optional] 
+ **broadcast_id** | **str**|  | [optional] 
  **sso** | **str**|  | [optional] 
 
 ### Return type
@@ -2308,9 +2246,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_restore_deleted_comment**
-> APIEmptyResponse post_restore_deleted_comment(comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
-
-
+> APIEmptyResponse post_restore_deleted_comment(comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
 
 ### Example
 
@@ -2333,12 +2269,12 @@ with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = client.ModerationApi(api_client)
     comment_id = 'comment_id_example' # str | 
-    broadcast_id = 'broadcast_id_example' # str |  (optional)
     tenant_id = 'tenant_id_example' # str |  (optional)
+    broadcast_id = 'broadcast_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_restore_deleted_comment(comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.post_restore_deleted_comment(comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
         print("The response of ModerationApi->post_restore_deleted_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -2353,8 +2289,8 @@ with client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **comment_id** | **str**|  | 
- **broadcast_id** | **str**|  | [optional] 
  **tenant_id** | **str**|  | [optional] 
+ **broadcast_id** | **str**|  | [optional] 
  **sso** | **str**|  | [optional] 
 
 ### Return type
@@ -2380,9 +2316,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_set_comment_approval_status**
-> SetCommentApprovedResponse post_set_comment_approval_status(comment_id, approved=approved, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
-
-
+> SetCommentApprovedResponse post_set_comment_approval_status(comment_id, approved=approved, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
 
 ### Example
 
@@ -2406,12 +2340,12 @@ with client.ApiClient(configuration) as api_client:
     api_instance = client.ModerationApi(api_client)
     comment_id = 'comment_id_example' # str | 
     approved = True # bool |  (optional)
-    broadcast_id = 'broadcast_id_example' # str |  (optional)
     tenant_id = 'tenant_id_example' # str |  (optional)
+    broadcast_id = 'broadcast_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_set_comment_approval_status(comment_id, approved=approved, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.post_set_comment_approval_status(comment_id, approved=approved, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
         print("The response of ModerationApi->post_set_comment_approval_status:\n")
         pprint(api_response)
     except Exception as e:
@@ -2427,8 +2361,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **comment_id** | **str**|  | 
  **approved** | **bool**|  | [optional] 
- **broadcast_id** | **str**|  | [optional] 
  **tenant_id** | **str**|  | [optional] 
+ **broadcast_id** | **str**|  | [optional] 
  **sso** | **str**|  | [optional] 
 
 ### Return type
@@ -2454,9 +2388,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_set_comment_review_status**
-> APIEmptyResponse post_set_comment_review_status(comment_id, reviewed=reviewed, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
-
-
+> APIEmptyResponse post_set_comment_review_status(comment_id, reviewed=reviewed, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
 
 ### Example
 
@@ -2480,12 +2412,12 @@ with client.ApiClient(configuration) as api_client:
     api_instance = client.ModerationApi(api_client)
     comment_id = 'comment_id_example' # str | 
     reviewed = True # bool |  (optional)
-    broadcast_id = 'broadcast_id_example' # str |  (optional)
     tenant_id = 'tenant_id_example' # str |  (optional)
+    broadcast_id = 'broadcast_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_set_comment_review_status(comment_id, reviewed=reviewed, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.post_set_comment_review_status(comment_id, reviewed=reviewed, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
         print("The response of ModerationApi->post_set_comment_review_status:\n")
         pprint(api_response)
     except Exception as e:
@@ -2501,8 +2433,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **comment_id** | **str**|  | 
  **reviewed** | **bool**|  | [optional] 
- **broadcast_id** | **str**|  | [optional] 
  **tenant_id** | **str**|  | [optional] 
+ **broadcast_id** | **str**|  | [optional] 
  **sso** | **str**|  | [optional] 
 
 ### Return type
@@ -2528,9 +2460,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_set_comment_spam_status**
-> APIEmptyResponse post_set_comment_spam_status(comment_id, spam=spam, perm_not_spam=perm_not_spam, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
-
-
+> APIEmptyResponse post_set_comment_spam_status(comment_id, spam=spam, perm_not_spam=perm_not_spam, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
 
 ### Example
 
@@ -2555,12 +2485,12 @@ with client.ApiClient(configuration) as api_client:
     comment_id = 'comment_id_example' # str | 
     spam = True # bool |  (optional)
     perm_not_spam = True # bool |  (optional)
-    broadcast_id = 'broadcast_id_example' # str |  (optional)
     tenant_id = 'tenant_id_example' # str |  (optional)
+    broadcast_id = 'broadcast_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_set_comment_spam_status(comment_id, spam=spam, perm_not_spam=perm_not_spam, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.post_set_comment_spam_status(comment_id, spam=spam, perm_not_spam=perm_not_spam, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
         print("The response of ModerationApi->post_set_comment_spam_status:\n")
         pprint(api_response)
     except Exception as e:
@@ -2577,8 +2507,8 @@ Name | Type | Description  | Notes
  **comment_id** | **str**|  | 
  **spam** | **bool**|  | [optional] 
  **perm_not_spam** | **bool**|  | [optional] 
- **broadcast_id** | **str**|  | [optional] 
  **tenant_id** | **str**|  | [optional] 
+ **broadcast_id** | **str**|  | [optional] 
  **sso** | **str**|  | [optional] 
 
 ### Return type
@@ -2604,9 +2534,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_set_comment_text**
-> SetCommentTextResponse post_set_comment_text(comment_id, set_comment_text_params, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
-
-
+> SetCommentTextResponse post_set_comment_text(comment_id, set_comment_text_params, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
 
 ### Example
 
@@ -2631,12 +2559,12 @@ with client.ApiClient(configuration) as api_client:
     api_instance = client.ModerationApi(api_client)
     comment_id = 'comment_id_example' # str | 
     set_comment_text_params = client.SetCommentTextParams() # SetCommentTextParams | 
-    broadcast_id = 'broadcast_id_example' # str |  (optional)
     tenant_id = 'tenant_id_example' # str |  (optional)
+    broadcast_id = 'broadcast_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_set_comment_text(comment_id, set_comment_text_params, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.post_set_comment_text(comment_id, set_comment_text_params, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
         print("The response of ModerationApi->post_set_comment_text:\n")
         pprint(api_response)
     except Exception as e:
@@ -2652,8 +2580,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **comment_id** | **str**|  | 
  **set_comment_text_params** | [**SetCommentTextParams**](SetCommentTextParams.md)|  | 
- **broadcast_id** | **str**|  | [optional] 
  **tenant_id** | **str**|  | [optional] 
+ **broadcast_id** | **str**|  | [optional] 
  **sso** | **str**|  | [optional] 
 
 ### Return type
@@ -2679,9 +2607,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_un_flag_comment**
-> APIEmptyResponse post_un_flag_comment(comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
-
-
+> APIEmptyResponse post_un_flag_comment(comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
 
 ### Example
 
@@ -2704,12 +2630,12 @@ with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = client.ModerationApi(api_client)
     comment_id = 'comment_id_example' # str | 
-    broadcast_id = 'broadcast_id_example' # str |  (optional)
     tenant_id = 'tenant_id_example' # str |  (optional)
+    broadcast_id = 'broadcast_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_un_flag_comment(comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.post_un_flag_comment(comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
         print("The response of ModerationApi->post_un_flag_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -2724,8 +2650,8 @@ with client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **comment_id** | **str**|  | 
- **broadcast_id** | **str**|  | [optional] 
  **tenant_id** | **str**|  | [optional] 
+ **broadcast_id** | **str**|  | [optional] 
  **sso** | **str**|  | [optional] 
 
 ### Return type
@@ -2751,9 +2677,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_vote**
-> VoteResponse post_vote(comment_id, direction=direction, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
-
-
+> VoteResponse post_vote(comment_id, direction=direction, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
 
 ### Example
 
@@ -2777,12 +2701,12 @@ with client.ApiClient(configuration) as api_client:
     api_instance = client.ModerationApi(api_client)
     comment_id = 'comment_id_example' # str | 
     direction = 'direction_example' # str |  (optional)
-    broadcast_id = 'broadcast_id_example' # str |  (optional)
     tenant_id = 'tenant_id_example' # str |  (optional)
+    broadcast_id = 'broadcast_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_vote(comment_id, direction=direction, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.post_vote(comment_id, direction=direction, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
         print("The response of ModerationApi->post_vote:\n")
         pprint(api_response)
     except Exception as e:
@@ -2798,8 +2722,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **comment_id** | **str**|  | 
  **direction** | **str**|  | [optional] 
- **broadcast_id** | **str**|  | [optional] 
  **tenant_id** | **str**|  | [optional] 
+ **broadcast_id** | **str**|  | [optional] 
  **sso** | **str**|  | [optional] 
 
 ### Return type
@@ -2825,9 +2749,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_award_badge**
-> AwardUserBadgeResponse put_award_badge(badge_id, user_id=user_id, comment_id=comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
-
-
+> AwardUserBadgeResponse put_award_badge(badge_id, user_id=user_id, comment_id=comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
 
 ### Example
 
@@ -2852,12 +2774,12 @@ with client.ApiClient(configuration) as api_client:
     badge_id = 'badge_id_example' # str | 
     user_id = 'user_id_example' # str |  (optional)
     comment_id = 'comment_id_example' # str |  (optional)
-    broadcast_id = 'broadcast_id_example' # str |  (optional)
     tenant_id = 'tenant_id_example' # str |  (optional)
+    broadcast_id = 'broadcast_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.put_award_badge(badge_id, user_id=user_id, comment_id=comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.put_award_badge(badge_id, user_id=user_id, comment_id=comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
         print("The response of ModerationApi->put_award_badge:\n")
         pprint(api_response)
     except Exception as e:
@@ -2874,8 +2796,8 @@ Name | Type | Description  | Notes
  **badge_id** | **str**|  | 
  **user_id** | **str**|  | [optional] 
  **comment_id** | **str**|  | [optional] 
- **broadcast_id** | **str**|  | [optional] 
  **tenant_id** | **str**|  | [optional] 
+ **broadcast_id** | **str**|  | [optional] 
  **sso** | **str**|  | [optional] 
 
 ### Return type
@@ -2902,8 +2824,6 @@ No authorization required
 
 # **put_close_thread**
 > APIEmptyResponse put_close_thread(url_id, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 
@@ -2971,9 +2891,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_remove_badge**
-> RemoveUserBadgeResponse put_remove_badge(badge_id, user_id=user_id, comment_id=comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
-
-
+> RemoveUserBadgeResponse put_remove_badge(badge_id, user_id=user_id, comment_id=comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
 
 ### Example
 
@@ -2998,12 +2916,12 @@ with client.ApiClient(configuration) as api_client:
     badge_id = 'badge_id_example' # str | 
     user_id = 'user_id_example' # str |  (optional)
     comment_id = 'comment_id_example' # str |  (optional)
-    broadcast_id = 'broadcast_id_example' # str |  (optional)
     tenant_id = 'tenant_id_example' # str |  (optional)
+    broadcast_id = 'broadcast_id_example' # str |  (optional)
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.put_remove_badge(badge_id, user_id=user_id, comment_id=comment_id, broadcast_id=broadcast_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.put_remove_badge(badge_id, user_id=user_id, comment_id=comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
         print("The response of ModerationApi->put_remove_badge:\n")
         pprint(api_response)
     except Exception as e:
@@ -3020,8 +2938,8 @@ Name | Type | Description  | Notes
  **badge_id** | **str**|  | 
  **user_id** | **str**|  | [optional] 
  **comment_id** | **str**|  | [optional] 
- **broadcast_id** | **str**|  | [optional] 
  **tenant_id** | **str**|  | [optional] 
+ **broadcast_id** | **str**|  | [optional] 
  **sso** | **str**|  | [optional] 
 
 ### Return type
@@ -3048,8 +2966,6 @@ No authorization required
 
 # **put_reopen_thread**
 > APIEmptyResponse put_reopen_thread(url_id, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 
@@ -3118,8 +3034,6 @@ No authorization required
 
 # **set_trust_factor**
 > SetUserTrustFactorResponse set_trust_factor(user_id=user_id, trust_factor=trust_factor, tenant_id=tenant_id, sso=sso)
-
-
 
 ### Example
 

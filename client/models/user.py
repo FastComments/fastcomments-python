@@ -24,6 +24,7 @@ from client.models.digest_email_frequency import DigestEmailFrequency
 from client.models.imported_agent_approval_notification_frequency import ImportedAgentApprovalNotificationFrequency
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class User(BaseModel):
     """
@@ -92,7 +93,8 @@ class User(BaseModel):
     __properties: ClassVar[List[str]] = ["_id", "tenantId", "username", "displayName", "websiteUrl", "email", "pendingEmail", "backupEmail", "pendingBackupEmail", "signUpDate", "createdFromUrlId", "createdFromTenantId", "createdFromIpHashed", "verified", "loginId", "loginIdDate", "loginCount", "optedInNotifications", "optedInTenantNotifications", "hideAccountCode", "avatarSrc", "isFastCommentsHelpRequestAdmin", "isHelpRequestAdmin", "isAccountOwner", "isAdminAdmin", "isBillingAdmin", "isAnalyticsAdmin", "isCustomizationAdmin", "isManageDataAdmin", "isCommentModeratorAdmin", "isAPIAdmin", "isSiteAdmin", "moderatorIds", "isImpersonator", "isCouponManager", "locale", "digestEmailFrequency", "notificationFrequency", "adminNotificationFrequency", "agentApprovalNotificationFrequency", "lastTenantNotificationSentDate", "lastReplyNotificationSentDate", "ignoredAddToMySiteMessages", "lastLoginDate", "displayLabel", "isProfileActivityPrivate", "isProfileCommentsPrivate", "isProfileDMDisabled", "profileCommentApprovalMode", "karma", "passwordHash", "averageTicketAckTimeMS", "hasBlockedUsers", "bio", "headerBackgroundSrc", "countryCode", "countryFlag", "socialLinks", "hasTwoFactor", "isEmailSuppressed"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -104,8 +106,7 @@ class User(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

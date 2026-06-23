@@ -51,11 +51,6 @@ class TestAggregateResponse(unittest.TestCase):
         else:
             return AggregateResponse(
                 status = 'success',
-                data = [
-                    null
-                    ],
-                reason = '',
-                code = '',
         )
         """
 

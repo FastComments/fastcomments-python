@@ -24,6 +24,7 @@ from client.models.public_comment import PublicComment
 from client.models.user_session_info import UserSessionInfo
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class GetCommentsResponsePublicComment(BaseModel):
     """
@@ -56,7 +57,8 @@ class GetCommentsResponsePublicComment(BaseModel):
     __properties: ClassVar[List[str]] = ["statusCode", "status", "code", "reason", "translatedWarning", "comments", "user", "urlIdClean", "lastGenDate", "includesPastPages", "isDemo", "commentCount", "isSiteAdmin", "hasBillingIssue", "moduleData", "pageNumber", "isWhiteLabeled", "isProd", "isCrawler", "notificationCount", "hasMore", "isClosed", "presencePollState", "customConfig"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -68,8 +70,7 @@ class GetCommentsResponsePublicComment(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

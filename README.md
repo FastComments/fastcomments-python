@@ -28,6 +28,7 @@ For the API client, there are three classes, `DefaultApi`, `PublicApi`, and `Mod
 
 ```python
 from client import ApiClient, Configuration, DefaultApi
+from client.api.default_api import ApiAddSsoUserRequest
 from client.models import CreateAPISSOUserData
 
 # Create and configure the API client
@@ -51,8 +52,10 @@ try:
     )
 
     response = api.add_sso_user(
-        tenant_id="YOUR_TENANT_ID",
-        create_apisso_user_data=user_data
+        ApiAddSsoUserRequest(
+            tenant_id="YOUR_TENANT_ID",
+            create_apisso_user_data=user_data
+        )
     )
     print(f"User created: {response}")
 
@@ -69,6 +72,7 @@ Public endpoints don't require authentication:
 
 ```python
 from client import ApiClient, Configuration, PublicApi
+from client.api.public_api import ApiGetCommentsPublicRequest
 
 config = Configuration()
 config.host = "https://fastcomments.com/api"
@@ -78,8 +82,10 @@ public_api = PublicApi(api_client)
 
 try:
     response = public_api.get_comments_public(
-        tenant_id="YOUR_TENANT_ID",
-        url_id="page-url-id"
+        ApiGetCommentsPublicRequest(
+            tenant_id="YOUR_TENANT_ID",
+            url_id="page-url-id"
+        )
     )
     print(response)
 except Exception as e:
@@ -92,6 +98,7 @@ The `ModerationApi` powers the moderator dashboard. Methods are called on behalf
 
 ```python
 from client import ApiClient, Configuration, ModerationApi
+from client.api.moderation_api import ApiGetCountRequest
 
 config = Configuration()
 config.host = "https://fastcomments.com/api"
@@ -101,7 +108,7 @@ moderation_api = ModerationApi(api_client)
 
 try:
     # Count the comments awaiting moderation
-    response = moderation_api.get_count(sso="SSO_TOKEN")
+    response = moderation_api.get_count(ApiGetCountRequest(sso="SSO_TOKEN"))
     print(response)
 except Exception as e:
     print(f"Error: {e}")
