@@ -59,13 +59,14 @@ Method | HTTP request | Description
 
 
 # **block_from_comment_public**
-> BlockSuccess block_from_comment_public(tenant_id, comment_id, public_block_from_comment_params, sso=sso)
+> BlockSuccess block_from_comment_public(ApiBlockFromCommentPublicRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiBlockFromCommentPublicRequest
 from client.models.block_success import BlockSuccess
 from client.models.public_block_from_comment_params import PublicBlockFromCommentParams
 from client.rest import ApiException
@@ -88,7 +89,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.block_from_comment_public(tenant_id, comment_id, public_block_from_comment_params, sso=sso)
+        api_response = api_instance.block_from_comment_public(ApiBlockFromCommentPublicRequest(tenant_id=tenant_id, comment_id=comment_id, public_block_from_comment_params=public_block_from_comment_params, sso=sso))
         print("The response of PublicApi->block_from_comment_public:\n")
         pprint(api_response)
     except Exception as e:
@@ -130,13 +131,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **checked_comments_for_blocked**
-> CheckBlockedCommentsResponse checked_comments_for_blocked(tenant_id, comment_ids, sso=sso)
+> CheckBlockedCommentsResponse checked_comments_for_blocked(ApiCheckedCommentsForBlockedRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiCheckedCommentsForBlockedRequest
 from client.models.check_blocked_comments_response import CheckBlockedCommentsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -157,7 +159,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.checked_comments_for_blocked(tenant_id, comment_ids, sso=sso)
+        api_response = api_instance.checked_comments_for_blocked(ApiCheckedCommentsForBlockedRequest(tenant_id=tenant_id, comment_ids=comment_ids, sso=sso))
         print("The response of PublicApi->checked_comments_for_blocked:\n")
         pprint(api_response)
     except Exception as e:
@@ -198,13 +200,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_comment_public**
-> SaveCommentsResponseWithPresence create_comment_public(tenant_id, url_id, broadcast_id, comment_data, session_id=session_id, sso=sso)
+> SaveCommentsResponseWithPresence create_comment_public(ApiCreateCommentPublicRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiCreateCommentPublicRequest
 from client.models.comment_data import CommentData
 from client.models.save_comments_response_with_presence import SaveCommentsResponseWithPresence
 from client.rest import ApiException
@@ -229,7 +232,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.create_comment_public(tenant_id, url_id, broadcast_id, comment_data, session_id=session_id, sso=sso)
+        api_response = api_instance.create_comment_public(ApiCreateCommentPublicRequest(tenant_id=tenant_id, url_id=url_id, broadcast_id=broadcast_id, comment_data=comment_data, session_id=session_id, sso=sso))
         print("The response of PublicApi->create_comment_public:\n")
         pprint(api_response)
     except Exception as e:
@@ -273,13 +276,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_feed_post_public**
-> CreateFeedPostResponse create_feed_post_public(tenant_id, create_feed_post_params, broadcast_id=broadcast_id, sso=sso)
+> CreateFeedPostResponse create_feed_post_public(ApiCreateFeedPostPublicRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiCreateFeedPostPublicRequest
 from client.models.create_feed_post_params import CreateFeedPostParams
 from client.models.create_feed_post_response import CreateFeedPostResponse
 from client.rest import ApiException
@@ -302,7 +306,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.create_feed_post_public(tenant_id, create_feed_post_params, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.create_feed_post_public(ApiCreateFeedPostPublicRequest(tenant_id=tenant_id, create_feed_post_params=create_feed_post_params, broadcast_id=broadcast_id, sso=sso))
         print("The response of PublicApi->create_feed_post_public:\n")
         pprint(api_response)
     except Exception as e:
@@ -344,13 +348,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_v1_page_react**
-> CreateV1PageReact create_v1_page_react(tenant_id, url_id, title=title)
+> CreateV1PageReact create_v1_page_react(ApiCreateV1PageReactRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiCreateV1PageReactRequest
 from client.models.create_v1_page_react import CreateV1PageReact
 from client.rest import ApiException
 from pprint import pprint
@@ -371,7 +376,7 @@ with client.ApiClient(configuration) as api_client:
     title = 'title_example' # str |  (optional)
 
     try:
-        api_response = api_instance.create_v1_page_react(tenant_id, url_id, title=title)
+        api_response = api_instance.create_v1_page_react(ApiCreateV1PageReactRequest(tenant_id=tenant_id, url_id=url_id, title=title))
         print("The response of PublicApi->create_v1_page_react:\n")
         pprint(api_response)
     except Exception as e:
@@ -412,13 +417,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_v2_page_react**
-> CreateV1PageReact create_v2_page_react(tenant_id, url_id, id, title=title)
+> CreateV1PageReact create_v2_page_react(ApiCreateV2PageReactRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiCreateV2PageReactRequest
 from client.models.create_v1_page_react import CreateV1PageReact
 from client.rest import ApiException
 from pprint import pprint
@@ -440,7 +446,7 @@ with client.ApiClient(configuration) as api_client:
     title = 'title_example' # str |  (optional)
 
     try:
-        api_response = api_instance.create_v2_page_react(tenant_id, url_id, id, title=title)
+        api_response = api_instance.create_v2_page_react(ApiCreateV2PageReactRequest(tenant_id=tenant_id, url_id=url_id, id=id, title=title))
         print("The response of PublicApi->create_v2_page_react:\n")
         pprint(api_response)
     except Exception as e:
@@ -482,13 +488,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_comment_public**
-> PublicAPIDeleteCommentResponse delete_comment_public(tenant_id, comment_id, broadcast_id, edit_key=edit_key, sso=sso)
+> PublicAPIDeleteCommentResponse delete_comment_public(ApiDeleteCommentPublicRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiDeleteCommentPublicRequest
 from client.models.public_api_delete_comment_response import PublicAPIDeleteCommentResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -511,7 +518,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.delete_comment_public(tenant_id, comment_id, broadcast_id, edit_key=edit_key, sso=sso)
+        api_response = api_instance.delete_comment_public(ApiDeleteCommentPublicRequest(tenant_id=tenant_id, comment_id=comment_id, broadcast_id=broadcast_id, edit_key=edit_key, sso=sso))
         print("The response of PublicApi->delete_comment_public:\n")
         pprint(api_response)
     except Exception as e:
@@ -554,13 +561,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_comment_vote**
-> VoteDeleteResponse delete_comment_vote(tenant_id, comment_id, vote_id, url_id, broadcast_id, edit_key=edit_key, sso=sso)
+> VoteDeleteResponse delete_comment_vote(ApiDeleteCommentVoteRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiDeleteCommentVoteRequest
 from client.models.vote_delete_response import VoteDeleteResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -585,7 +593,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.delete_comment_vote(tenant_id, comment_id, vote_id, url_id, broadcast_id, edit_key=edit_key, sso=sso)
+        api_response = api_instance.delete_comment_vote(ApiDeleteCommentVoteRequest(tenant_id=tenant_id, comment_id=comment_id, vote_id=vote_id, url_id=url_id, broadcast_id=broadcast_id, edit_key=edit_key, sso=sso))
         print("The response of PublicApi->delete_comment_vote:\n")
         pprint(api_response)
     except Exception as e:
@@ -630,13 +638,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_feed_post_public**
-> DeleteFeedPostPublicResponse delete_feed_post_public(tenant_id, post_id, broadcast_id=broadcast_id, sso=sso)
+> DeleteFeedPostPublicResponse delete_feed_post_public(ApiDeleteFeedPostPublicRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiDeleteFeedPostPublicRequest
 from client.models.delete_feed_post_public_response import DeleteFeedPostPublicResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -658,7 +667,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.delete_feed_post_public(tenant_id, post_id, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.delete_feed_post_public(ApiDeleteFeedPostPublicRequest(tenant_id=tenant_id, post_id=post_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of PublicApi->delete_feed_post_public:\n")
         pprint(api_response)
     except Exception as e:
@@ -700,13 +709,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_v1_page_react**
-> CreateV1PageReact delete_v1_page_react(tenant_id, url_id)
+> CreateV1PageReact delete_v1_page_react(ApiDeleteV1PageReactRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiDeleteV1PageReactRequest
 from client.models.create_v1_page_react import CreateV1PageReact
 from client.rest import ApiException
 from pprint import pprint
@@ -726,7 +736,7 @@ with client.ApiClient(configuration) as api_client:
     url_id = 'url_id_example' # str | 
 
     try:
-        api_response = api_instance.delete_v1_page_react(tenant_id, url_id)
+        api_response = api_instance.delete_v1_page_react(ApiDeleteV1PageReactRequest(tenant_id=tenant_id, url_id=url_id))
         print("The response of PublicApi->delete_v1_page_react:\n")
         pprint(api_response)
     except Exception as e:
@@ -766,13 +776,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_v2_page_react**
-> CreateV1PageReact delete_v2_page_react(tenant_id, url_id, id)
+> CreateV1PageReact delete_v2_page_react(ApiDeleteV2PageReactRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiDeleteV2PageReactRequest
 from client.models.create_v1_page_react import CreateV1PageReact
 from client.rest import ApiException
 from pprint import pprint
@@ -793,7 +804,7 @@ with client.ApiClient(configuration) as api_client:
     id = 'id_example' # str | 
 
     try:
-        api_response = api_instance.delete_v2_page_react(tenant_id, url_id, id)
+        api_response = api_instance.delete_v2_page_react(ApiDeleteV2PageReactRequest(tenant_id=tenant_id, url_id=url_id, id=id))
         print("The response of PublicApi->delete_v2_page_react:\n")
         pprint(api_response)
     except Exception as e:
@@ -834,13 +845,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **flag_comment_public**
-> APIEmptyResponse flag_comment_public(tenant_id, comment_id, is_flagged, sso=sso)
+> APIEmptyResponse flag_comment_public(ApiFlagCommentPublicRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiFlagCommentPublicRequest
 from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -862,7 +874,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.flag_comment_public(tenant_id, comment_id, is_flagged, sso=sso)
+        api_response = api_instance.flag_comment_public(ApiFlagCommentPublicRequest(tenant_id=tenant_id, comment_id=comment_id, is_flagged=is_flagged, sso=sso))
         print("The response of PublicApi->flag_comment_public:\n")
         pprint(api_response)
     except Exception as e:
@@ -904,13 +916,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comment_text**
-> PublicAPIGetCommentTextResponse get_comment_text(tenant_id, comment_id, edit_key=edit_key, sso=sso)
+> PublicAPIGetCommentTextResponse get_comment_text(ApiGetCommentTextRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiGetCommentTextRequest
 from client.models.public_api_get_comment_text_response import PublicAPIGetCommentTextResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -932,7 +945,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_comment_text(tenant_id, comment_id, edit_key=edit_key, sso=sso)
+        api_response = api_instance.get_comment_text(ApiGetCommentTextRequest(tenant_id=tenant_id, comment_id=comment_id, edit_key=edit_key, sso=sso))
         print("The response of PublicApi->get_comment_text:\n")
         pprint(api_response)
     except Exception as e:
@@ -974,13 +987,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comment_vote_user_names**
-> GetCommentVoteUserNamesSuccessResponse get_comment_vote_user_names(tenant_id, comment_id, dir, sso=sso)
+> GetCommentVoteUserNamesSuccessResponse get_comment_vote_user_names(ApiGetCommentVoteUserNamesRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiGetCommentVoteUserNamesRequest
 from client.models.get_comment_vote_user_names_success_response import GetCommentVoteUserNamesSuccessResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1002,7 +1016,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_comment_vote_user_names(tenant_id, comment_id, dir, sso=sso)
+        api_response = api_instance.get_comment_vote_user_names(ApiGetCommentVoteUserNamesRequest(tenant_id=tenant_id, comment_id=comment_id, dir=dir, sso=sso))
         print("The response of PublicApi->get_comment_vote_user_names:\n")
         pprint(api_response)
     except Exception as e:
@@ -1044,13 +1058,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comments_for_user**
-> GetCommentsForUserResponse get_comments_for_user(user_id=user_id, direction=direction, replies_to_user_id=replies_to_user_id, page=page, includei10n=includei10n, locale=locale, is_crawler=is_crawler)
+> GetCommentsForUserResponse get_comments_for_user(ApiGetCommentsForUserRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiGetCommentsForUserRequest
 from client.models.get_comments_for_user_response import GetCommentsForUserResponse
 from client.models.sort_directions import SortDirections
 from client.rest import ApiException
@@ -1076,7 +1091,7 @@ with client.ApiClient(configuration) as api_client:
     is_crawler = True # bool |  (optional)
 
     try:
-        api_response = api_instance.get_comments_for_user(user_id=user_id, direction=direction, replies_to_user_id=replies_to_user_id, page=page, includei10n=includei10n, locale=locale, is_crawler=is_crawler)
+        api_response = api_instance.get_comments_for_user(ApiGetCommentsForUserRequest(user_id=user_id, direction=direction, replies_to_user_id=replies_to_user_id, page=page, includei10n=includei10n, locale=locale, is_crawler=is_crawler))
         print("The response of PublicApi->get_comments_for_user:\n")
         pprint(api_response)
     except Exception as e:
@@ -1121,7 +1136,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comments_public**
-> GetCommentsResponseWithPresencePublicComment get_comments_public(tenant_id, url_id, page=page, direction=direction, sso=sso, skip=skip, skip_children=skip_children, limit=limit, limit_children=limit_children, count_children=count_children, fetch_page_for_comment_id=fetch_page_for_comment_id, include_config=include_config, count_all=count_all, includei10n=includei10n, locale=locale, modules=modules, is_crawler=is_crawler, include_notification_count=include_notification_count, as_tree=as_tree, max_tree_depth=max_tree_depth, use_full_translation_ids=use_full_translation_ids, parent_id=parent_id, search_text=search_text, hash_tags=hash_tags, user_id=user_id, custom_config_str=custom_config_str, after_comment_id=after_comment_id, before_comment_id=before_comment_id)
+> GetCommentsResponseWithPresencePublicComment get_comments_public(ApiGetCommentsPublicRequest)
 
 
 req
@@ -1133,6 +1148,7 @@ urlId
 
 ```python
 import client
+from client.api.public_api import ApiGetCommentsPublicRequest
 from client.models.get_comments_response_with_presence_public_comment import GetCommentsResponseWithPresencePublicComment
 from client.models.sort_directions import SortDirections
 from client.rest import ApiException
@@ -1179,7 +1195,7 @@ with client.ApiClient(configuration) as api_client:
     before_comment_id = 'before_comment_id_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_comments_public(tenant_id, url_id, page=page, direction=direction, sso=sso, skip=skip, skip_children=skip_children, limit=limit, limit_children=limit_children, count_children=count_children, fetch_page_for_comment_id=fetch_page_for_comment_id, include_config=include_config, count_all=count_all, includei10n=includei10n, locale=locale, modules=modules, is_crawler=is_crawler, include_notification_count=include_notification_count, as_tree=as_tree, max_tree_depth=max_tree_depth, use_full_translation_ids=use_full_translation_ids, parent_id=parent_id, search_text=search_text, hash_tags=hash_tags, user_id=user_id, custom_config_str=custom_config_str, after_comment_id=after_comment_id, before_comment_id=before_comment_id)
+        api_response = api_instance.get_comments_public(ApiGetCommentsPublicRequest(tenant_id=tenant_id, url_id=url_id, page=page, direction=direction, sso=sso, skip=skip, skip_children=skip_children, limit=limit, limit_children=limit_children, count_children=count_children, fetch_page_for_comment_id=fetch_page_for_comment_id, include_config=include_config, count_all=count_all, includei10n=includei10n, locale=locale, modules=modules, is_crawler=is_crawler, include_notification_count=include_notification_count, as_tree=as_tree, max_tree_depth=max_tree_depth, use_full_translation_ids=use_full_translation_ids, parent_id=parent_id, search_text=search_text, hash_tags=hash_tags, user_id=user_id, custom_config_str=custom_config_str, after_comment_id=after_comment_id, before_comment_id=before_comment_id))
         print("The response of PublicApi->get_comments_public:\n")
         pprint(api_response)
     except Exception as e:
@@ -1245,7 +1261,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_event_log**
-> GetEventLogResponse get_event_log(tenant_id, url_id, user_id_ws, start_time, end_time=end_time)
+> GetEventLogResponse get_event_log(ApiGetEventLogRequest)
 
 
 req
@@ -1258,6 +1274,7 @@ userIdWS
 
 ```python
 import client
+from client.api.public_api import ApiGetEventLogRequest
 from client.models.get_event_log_response import GetEventLogResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1280,7 +1297,7 @@ with client.ApiClient(configuration) as api_client:
     end_time = 56 # int |  (optional)
 
     try:
-        api_response = api_instance.get_event_log(tenant_id, url_id, user_id_ws, start_time, end_time=end_time)
+        api_response = api_instance.get_event_log(ApiGetEventLogRequest(tenant_id=tenant_id, url_id=url_id, user_id_ws=user_id_ws, start_time=start_time, end_time=end_time))
         print("The response of PublicApi->get_event_log:\n")
         pprint(api_response)
     except Exception as e:
@@ -1323,7 +1340,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_feed_posts_public**
-> PublicFeedPostsResponse get_feed_posts_public(tenant_id, after_id=after_id, limit=limit, tags=tags, sso=sso, is_crawler=is_crawler, include_user_info=include_user_info)
+> PublicFeedPostsResponse get_feed_posts_public(ApiGetFeedPostsPublicRequest)
 
 
 req
@@ -1335,6 +1352,7 @@ afterId
 
 ```python
 import client
+from client.api.public_api import ApiGetFeedPostsPublicRequest
 from client.models.public_feed_posts_response import PublicFeedPostsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1359,7 +1377,7 @@ with client.ApiClient(configuration) as api_client:
     include_user_info = True # bool |  (optional)
 
     try:
-        api_response = api_instance.get_feed_posts_public(tenant_id, after_id=after_id, limit=limit, tags=tags, sso=sso, is_crawler=is_crawler, include_user_info=include_user_info)
+        api_response = api_instance.get_feed_posts_public(ApiGetFeedPostsPublicRequest(tenant_id=tenant_id, after_id=after_id, limit=limit, tags=tags, sso=sso, is_crawler=is_crawler, include_user_info=include_user_info))
         print("The response of PublicApi->get_feed_posts_public:\n")
         pprint(api_response)
     except Exception as e:
@@ -1404,13 +1422,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_feed_posts_stats**
-> FeedPostsStatsResponse get_feed_posts_stats(tenant_id, post_ids, sso=sso)
+> FeedPostsStatsResponse get_feed_posts_stats(ApiGetFeedPostsStatsRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiGetFeedPostsStatsRequest
 from client.models.feed_posts_stats_response import FeedPostsStatsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1431,7 +1450,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_feed_posts_stats(tenant_id, post_ids, sso=sso)
+        api_response = api_instance.get_feed_posts_stats(ApiGetFeedPostsStatsRequest(tenant_id=tenant_id, post_ids=post_ids, sso=sso))
         print("The response of PublicApi->get_feed_posts_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -1472,13 +1491,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_gif_large**
-> GifGetLargeResponse get_gif_large(tenant_id, large_internal_url_sanitized)
+> GifGetLargeResponse get_gif_large(ApiGetGifLargeRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiGetGifLargeRequest
 from client.models.gif_get_large_response import GifGetLargeResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1498,7 +1518,7 @@ with client.ApiClient(configuration) as api_client:
     large_internal_url_sanitized = 'large_internal_url_sanitized_example' # str | 
 
     try:
-        api_response = api_instance.get_gif_large(tenant_id, large_internal_url_sanitized)
+        api_response = api_instance.get_gif_large(ApiGetGifLargeRequest(tenant_id=tenant_id, large_internal_url_sanitized=large_internal_url_sanitized))
         print("The response of PublicApi->get_gif_large:\n")
         pprint(api_response)
     except Exception as e:
@@ -1539,13 +1559,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_gifs_search**
-> GetGifsSearchResponse get_gifs_search(tenant_id, search, locale=locale, rating=rating, page=page)
+> GetGifsSearchResponse get_gifs_search(ApiGetGifsSearchRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiGetGifsSearchRequest
 from client.models.get_gifs_search_response import GetGifsSearchResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1568,7 +1589,7 @@ with client.ApiClient(configuration) as api_client:
     page = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_gifs_search(tenant_id, search, locale=locale, rating=rating, page=page)
+        api_response = api_instance.get_gifs_search(ApiGetGifsSearchRequest(tenant_id=tenant_id, search=search, locale=locale, rating=rating, page=page))
         print("The response of PublicApi->get_gifs_search:\n")
         pprint(api_response)
     except Exception as e:
@@ -1612,13 +1633,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_gifs_trending**
-> GetGifsTrendingResponse get_gifs_trending(tenant_id, locale=locale, rating=rating, page=page)
+> GetGifsTrendingResponse get_gifs_trending(ApiGetGifsTrendingRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiGetGifsTrendingRequest
 from client.models.get_gifs_trending_response import GetGifsTrendingResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1640,7 +1662,7 @@ with client.ApiClient(configuration) as api_client:
     page = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_gifs_trending(tenant_id, locale=locale, rating=rating, page=page)
+        api_response = api_instance.get_gifs_trending(ApiGetGifsTrendingRequest(tenant_id=tenant_id, locale=locale, rating=rating, page=page))
         print("The response of PublicApi->get_gifs_trending:\n")
         pprint(api_response)
     except Exception as e:
@@ -1681,7 +1703,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_global_event_log**
-> GetEventLogResponse get_global_event_log(tenant_id, url_id, user_id_ws, start_time, end_time=end_time)
+> GetEventLogResponse get_global_event_log(ApiGetGlobalEventLogRequest)
 
 
 req
@@ -1694,6 +1716,7 @@ userIdWS
 
 ```python
 import client
+from client.api.public_api import ApiGetGlobalEventLogRequest
 from client.models.get_event_log_response import GetEventLogResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1716,7 +1739,7 @@ with client.ApiClient(configuration) as api_client:
     end_time = 56 # int |  (optional)
 
     try:
-        api_response = api_instance.get_global_event_log(tenant_id, url_id, user_id_ws, start_time, end_time=end_time)
+        api_response = api_instance.get_global_event_log(ApiGetGlobalEventLogRequest(tenant_id=tenant_id, url_id=url_id, user_id_ws=user_id_ws, start_time=start_time, end_time=end_time))
         print("The response of PublicApi->get_global_event_log:\n")
         pprint(api_response)
     except Exception as e:
@@ -1759,7 +1782,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_offline_users**
-> PageUsersOfflineResponse get_offline_users(tenant_id, url_id, after_name=after_name, after_user_id=after_user_id)
+> PageUsersOfflineResponse get_offline_users(ApiGetOfflineUsersRequest)
 
 Past commenters on the page who are NOT currently online. Sorted by displayName.
 Use this after exhausting /users/online to render a "Members" section.
@@ -1771,6 +1794,7 @@ index from afterName forward via $gt, no $skip cost.
 
 ```python
 import client
+from client.api.public_api import ApiGetOfflineUsersRequest
 from client.models.page_users_offline_response import PageUsersOfflineResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1792,7 +1816,7 @@ with client.ApiClient(configuration) as api_client:
     after_user_id = 'after_user_id_example' # str | Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries. (optional)
 
     try:
-        api_response = api_instance.get_offline_users(tenant_id, url_id, after_name=after_name, after_user_id=after_user_id)
+        api_response = api_instance.get_offline_users(ApiGetOfflineUsersRequest(tenant_id=tenant_id, url_id=url_id, after_name=after_name, after_user_id=after_user_id))
         print("The response of PublicApi->get_offline_users:\n")
         pprint(api_response)
     except Exception as e:
@@ -1836,7 +1860,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_online_users**
-> PageUsersOnlineResponse get_online_users(tenant_id, url_id, after_name=after_name, after_user_id=after_user_id)
+> PageUsersOnlineResponse get_online_users(ApiGetOnlineUsersRequest)
 
 Currently-online viewers of a page: people whose websocket session is subscribed to the page right now.
 Returns anonCount + totalCount (room-wide subscribers, including anon viewers we don't enumerate).
@@ -1846,6 +1870,7 @@ Returns anonCount + totalCount (room-wide subscribers, including anon viewers we
 
 ```python
 import client
+from client.api.public_api import ApiGetOnlineUsersRequest
 from client.models.page_users_online_response import PageUsersOnlineResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1867,7 +1892,7 @@ with client.ApiClient(configuration) as api_client:
     after_user_id = 'after_user_id_example' # str | Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries. (optional)
 
     try:
-        api_response = api_instance.get_online_users(tenant_id, url_id, after_name=after_name, after_user_id=after_user_id)
+        api_response = api_instance.get_online_users(ApiGetOnlineUsersRequest(tenant_id=tenant_id, url_id=url_id, after_name=after_name, after_user_id=after_user_id))
         print("The response of PublicApi->get_online_users:\n")
         pprint(api_response)
     except Exception as e:
@@ -1911,7 +1936,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_pages_public**
-> GetPublicPagesResponse get_pages_public(tenant_id, cursor=cursor, limit=limit, q=q, sort_by=sort_by, has_comments=has_comments)
+> GetPublicPagesResponse get_pages_public(ApiGetPagesPublicRequest)
 
 List pages for a tenant. Used by the FChat desktop client to populate its room list.
 Requires `enableFChat` to be true on the resolved custom config for each page.
@@ -1922,6 +1947,7 @@ Pages that require SSO are filtered against the requesting user's group access.
 
 ```python
 import client
+from client.api.public_api import ApiGetPagesPublicRequest
 from client.models.get_public_pages_response import GetPublicPagesResponse
 from client.models.pages_sort_by import PagesSortBy
 from client.rest import ApiException
@@ -1946,7 +1972,7 @@ with client.ApiClient(configuration) as api_client:
     has_comments = True # bool | If true, only return pages with at least one comment. (optional)
 
     try:
-        api_response = api_instance.get_pages_public(tenant_id, cursor=cursor, limit=limit, q=q, sort_by=sort_by, has_comments=has_comments)
+        api_response = api_instance.get_pages_public(ApiGetPagesPublicRequest(tenant_id=tenant_id, cursor=cursor, limit=limit, q=q, sort_by=sort_by, has_comments=has_comments))
         print("The response of PublicApi->get_pages_public:\n")
         pprint(api_response)
     except Exception as e:
@@ -1990,13 +2016,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_translations**
-> GetTranslationsResponse get_translations(namespace, component, locale=locale, use_full_translation_ids=use_full_translation_ids)
+> GetTranslationsResponse get_translations(ApiGetTranslationsRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiGetTranslationsRequest
 from client.models.get_translations_response import GetTranslationsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2018,7 +2045,7 @@ with client.ApiClient(configuration) as api_client:
     use_full_translation_ids = True # bool |  (optional)
 
     try:
-        api_response = api_instance.get_translations(namespace, component, locale=locale, use_full_translation_ids=use_full_translation_ids)
+        api_response = api_instance.get_translations(ApiGetTranslationsRequest(namespace=namespace, component=component, locale=locale, use_full_translation_ids=use_full_translation_ids))
         print("The response of PublicApi->get_translations:\n")
         pprint(api_response)
     except Exception as e:
@@ -2062,13 +2089,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_notification_count**
-> GetUserNotificationCountResponse get_user_notification_count(tenant_id, sso=sso)
+> GetUserNotificationCountResponse get_user_notification_count(ApiGetUserNotificationCountRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiGetUserNotificationCountRequest
 from client.models.get_user_notification_count_response import GetUserNotificationCountResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2088,7 +2116,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_user_notification_count(tenant_id, sso=sso)
+        api_response = api_instance.get_user_notification_count(ApiGetUserNotificationCountRequest(tenant_id=tenant_id, sso=sso))
         print("The response of PublicApi->get_user_notification_count:\n")
         pprint(api_response)
     except Exception as e:
@@ -2128,13 +2156,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_notifications**
-> GetMyNotificationsResponse get_user_notifications(tenant_id, url_id=url_id, page_size=page_size, after_id=after_id, include_context=include_context, after_created_at=after_created_at, unread_only=unread_only, dm_only=dm_only, no_dm=no_dm, include_translations=include_translations, include_tenant_notifications=include_tenant_notifications, sso=sso)
+> GetMyNotificationsResponse get_user_notifications(ApiGetUserNotificationsRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiGetUserNotificationsRequest
 from client.models.get_my_notifications_response import GetMyNotificationsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2164,7 +2193,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_user_notifications(tenant_id, url_id=url_id, page_size=page_size, after_id=after_id, include_context=include_context, after_created_at=after_created_at, unread_only=unread_only, dm_only=dm_only, no_dm=no_dm, include_translations=include_translations, include_tenant_notifications=include_tenant_notifications, sso=sso)
+        api_response = api_instance.get_user_notifications(ApiGetUserNotificationsRequest(tenant_id=tenant_id, url_id=url_id, page_size=page_size, after_id=after_id, include_context=include_context, after_created_at=after_created_at, unread_only=unread_only, dm_only=dm_only, no_dm=no_dm, include_translations=include_translations, include_tenant_notifications=include_tenant_notifications, sso=sso))
         print("The response of PublicApi->get_user_notifications:\n")
         pprint(api_response)
     except Exception as e:
@@ -2214,13 +2243,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_presence_statuses**
-> GetUserPresenceStatusesResponse get_user_presence_statuses(tenant_id, url_id_ws, user_ids)
+> GetUserPresenceStatusesResponse get_user_presence_statuses(ApiGetUserPresenceStatusesRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiGetUserPresenceStatusesRequest
 from client.models.get_user_presence_statuses_response import GetUserPresenceStatusesResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2241,7 +2271,7 @@ with client.ApiClient(configuration) as api_client:
     user_ids = 'user_ids_example' # str | 
 
     try:
-        api_response = api_instance.get_user_presence_statuses(tenant_id, url_id_ws, user_ids)
+        api_response = api_instance.get_user_presence_statuses(ApiGetUserPresenceStatusesRequest(tenant_id=tenant_id, url_id_ws=url_id_ws, user_ids=user_ids))
         print("The response of PublicApi->get_user_presence_statuses:\n")
         pprint(api_response)
     except Exception as e:
@@ -2283,13 +2313,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_reacts_public**
-> UserReactsResponse get_user_reacts_public(tenant_id, post_ids=post_ids, sso=sso)
+> UserReactsResponse get_user_reacts_public(ApiGetUserReactsPublicRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiGetUserReactsPublicRequest
 from client.models.user_reacts_response import UserReactsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2310,7 +2341,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_user_reacts_public(tenant_id, post_ids=post_ids, sso=sso)
+        api_response = api_instance.get_user_reacts_public(ApiGetUserReactsPublicRequest(tenant_id=tenant_id, post_ids=post_ids, sso=sso))
         print("The response of PublicApi->get_user_reacts_public:\n")
         pprint(api_response)
     except Exception as e:
@@ -2351,7 +2382,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_users_info**
-> PageUsersInfoResponse get_users_info(tenant_id, ids)
+> PageUsersInfoResponse get_users_info(ApiGetUsersInfoRequest)
 
 Bulk user info for a tenant. Given userIds, return display info from User / SSOUser.
 Used by the comment widget to enrich users that just appeared via a presence event.
@@ -2362,6 +2393,7 @@ No page context: privacy is enforced uniformly (private profiles are masked).
 
 ```python
 import client
+from client.api.public_api import ApiGetUsersInfoRequest
 from client.models.page_users_info_response import PageUsersInfoResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2381,7 +2413,7 @@ with client.ApiClient(configuration) as api_client:
     ids = 'ids_example' # str | Comma-delimited userIds.
 
     try:
-        api_response = api_instance.get_users_info(tenant_id, ids)
+        api_response = api_instance.get_users_info(ApiGetUsersInfoRequest(tenant_id=tenant_id, ids=ids))
         print("The response of PublicApi->get_users_info:\n")
         pprint(api_response)
     except Exception as e:
@@ -2422,13 +2454,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_v1_page_likes**
-> GetV1PageLikes get_v1_page_likes(tenant_id, url_id)
+> GetV1PageLikes get_v1_page_likes(ApiGetV1PageLikesRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiGetV1PageLikesRequest
 from client.models.get_v1_page_likes import GetV1PageLikes
 from client.rest import ApiException
 from pprint import pprint
@@ -2448,7 +2481,7 @@ with client.ApiClient(configuration) as api_client:
     url_id = 'url_id_example' # str | 
 
     try:
-        api_response = api_instance.get_v1_page_likes(tenant_id, url_id)
+        api_response = api_instance.get_v1_page_likes(ApiGetV1PageLikesRequest(tenant_id=tenant_id, url_id=url_id))
         print("The response of PublicApi->get_v1_page_likes:\n")
         pprint(api_response)
     except Exception as e:
@@ -2488,13 +2521,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_v2_page_react_users**
-> GetV2PageReactUsersResponse get_v2_page_react_users(tenant_id, url_id, id)
+> GetV2PageReactUsersResponse get_v2_page_react_users(ApiGetV2PageReactUsersRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiGetV2PageReactUsersRequest
 from client.models.get_v2_page_react_users_response import GetV2PageReactUsersResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2515,7 +2549,7 @@ with client.ApiClient(configuration) as api_client:
     id = 'id_example' # str | 
 
     try:
-        api_response = api_instance.get_v2_page_react_users(tenant_id, url_id, id)
+        api_response = api_instance.get_v2_page_react_users(ApiGetV2PageReactUsersRequest(tenant_id=tenant_id, url_id=url_id, id=id))
         print("The response of PublicApi->get_v2_page_react_users:\n")
         pprint(api_response)
     except Exception as e:
@@ -2556,13 +2590,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_v2_page_reacts**
-> GetV2PageReacts get_v2_page_reacts(tenant_id, url_id)
+> GetV2PageReacts get_v2_page_reacts(ApiGetV2PageReactsRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiGetV2PageReactsRequest
 from client.models.get_v2_page_reacts import GetV2PageReacts
 from client.rest import ApiException
 from pprint import pprint
@@ -2582,7 +2617,7 @@ with client.ApiClient(configuration) as api_client:
     url_id = 'url_id_example' # str | 
 
     try:
-        api_response = api_instance.get_v2_page_reacts(tenant_id, url_id)
+        api_response = api_instance.get_v2_page_reacts(ApiGetV2PageReactsRequest(tenant_id=tenant_id, url_id=url_id))
         print("The response of PublicApi->get_v2_page_reacts:\n")
         pprint(api_response)
     except Exception as e:
@@ -2622,13 +2657,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **lock_comment**
-> APIEmptyResponse lock_comment(tenant_id, comment_id, broadcast_id, sso=sso)
+> APIEmptyResponse lock_comment(ApiLockCommentRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiLockCommentRequest
 from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2650,7 +2686,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.lock_comment(tenant_id, comment_id, broadcast_id, sso=sso)
+        api_response = api_instance.lock_comment(ApiLockCommentRequest(tenant_id=tenant_id, comment_id=comment_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of PublicApi->lock_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -2692,13 +2728,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **logout_public**
-> APIEmptyResponse logout_public()
+> APIEmptyResponse logout_public(ApiLogoutPublicRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiLogoutPublicRequest
 from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2716,7 +2753,7 @@ with client.ApiClient(configuration) as api_client:
     api_instance = client.PublicApi(api_client)
 
     try:
-        api_response = api_instance.logout_public()
+        api_response = api_instance.logout_public(ApiLogoutPublicRequest())
         print("The response of PublicApi->logout_public:\n")
         pprint(api_response)
     except Exception as e:
@@ -2751,13 +2788,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **pin_comment**
-> ChangeCommentPinStatusResponse pin_comment(tenant_id, comment_id, broadcast_id, sso=sso)
+> ChangeCommentPinStatusResponse pin_comment(ApiPinCommentRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiPinCommentRequest
 from client.models.change_comment_pin_status_response import ChangeCommentPinStatusResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2779,7 +2817,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.pin_comment(tenant_id, comment_id, broadcast_id, sso=sso)
+        api_response = api_instance.pin_comment(ApiPinCommentRequest(tenant_id=tenant_id, comment_id=comment_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of PublicApi->pin_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -2821,13 +2859,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **react_feed_post_public**
-> ReactFeedPostResponse react_feed_post_public(tenant_id, post_id, react_body_params, is_undo=is_undo, broadcast_id=broadcast_id, sso=sso)
+> ReactFeedPostResponse react_feed_post_public(ApiReactFeedPostPublicRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiReactFeedPostPublicRequest
 from client.models.react_body_params import ReactBodyParams
 from client.models.react_feed_post_response import ReactFeedPostResponse
 from client.rest import ApiException
@@ -2852,7 +2891,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.react_feed_post_public(tenant_id, post_id, react_body_params, is_undo=is_undo, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.react_feed_post_public(ApiReactFeedPostPublicRequest(tenant_id=tenant_id, post_id=post_id, react_body_params=react_body_params, is_undo=is_undo, broadcast_id=broadcast_id, sso=sso))
         print("The response of PublicApi->react_feed_post_public:\n")
         pprint(api_response)
     except Exception as e:
@@ -2896,13 +2935,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reset_user_notification_count**
-> ResetUserNotificationsResponse reset_user_notification_count(tenant_id, sso=sso)
+> ResetUserNotificationsResponse reset_user_notification_count(ApiResetUserNotificationCountRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiResetUserNotificationCountRequest
 from client.models.reset_user_notifications_response import ResetUserNotificationsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2922,7 +2962,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.reset_user_notification_count(tenant_id, sso=sso)
+        api_response = api_instance.reset_user_notification_count(ApiResetUserNotificationCountRequest(tenant_id=tenant_id, sso=sso))
         print("The response of PublicApi->reset_user_notification_count:\n")
         pprint(api_response)
     except Exception as e:
@@ -2962,13 +3002,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reset_user_notifications**
-> ResetUserNotificationsResponse reset_user_notifications(tenant_id, after_id=after_id, after_created_at=after_created_at, unread_only=unread_only, dm_only=dm_only, no_dm=no_dm, sso=sso)
+> ResetUserNotificationsResponse reset_user_notifications(ApiResetUserNotificationsRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiResetUserNotificationsRequest
 from client.models.reset_user_notifications_response import ResetUserNotificationsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2993,7 +3034,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.reset_user_notifications(tenant_id, after_id=after_id, after_created_at=after_created_at, unread_only=unread_only, dm_only=dm_only, no_dm=no_dm, sso=sso)
+        api_response = api_instance.reset_user_notifications(ApiResetUserNotificationsRequest(tenant_id=tenant_id, after_id=after_id, after_created_at=after_created_at, unread_only=unread_only, dm_only=dm_only, no_dm=no_dm, sso=sso))
         print("The response of PublicApi->reset_user_notifications:\n")
         pprint(api_response)
     except Exception as e:
@@ -3038,13 +3079,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_users**
-> SearchUsersResult search_users(tenant_id, url_id, username_starts_with=username_starts_with, mention_group_ids=mention_group_ids, sso=sso, search_section=search_section)
+> SearchUsersResult search_users(ApiSearchUsersRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiSearchUsersRequest
 from client.models.search_users_result import SearchUsersResult
 from client.rest import ApiException
 from pprint import pprint
@@ -3068,7 +3110,7 @@ with client.ApiClient(configuration) as api_client:
     search_section = 'search_section_example' # str |  (optional)
 
     try:
-        api_response = api_instance.search_users(tenant_id, url_id, username_starts_with=username_starts_with, mention_group_ids=mention_group_ids, sso=sso, search_section=search_section)
+        api_response = api_instance.search_users(ApiSearchUsersRequest(tenant_id=tenant_id, url_id=url_id, username_starts_with=username_starts_with, mention_group_ids=mention_group_ids, sso=sso, search_section=search_section))
         print("The response of PublicApi->search_users:\n")
         pprint(api_response)
     except Exception as e:
@@ -3112,13 +3154,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_comment_text**
-> PublicAPISetCommentTextResponse set_comment_text(tenant_id, comment_id, broadcast_id, comment_text_update_request, edit_key=edit_key, sso=sso)
+> PublicAPISetCommentTextResponse set_comment_text(ApiSetCommentTextRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiSetCommentTextRequest
 from client.models.comment_text_update_request import CommentTextUpdateRequest
 from client.models.public_api_set_comment_text_response import PublicAPISetCommentTextResponse
 from client.rest import ApiException
@@ -3143,7 +3186,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.set_comment_text(tenant_id, comment_id, broadcast_id, comment_text_update_request, edit_key=edit_key, sso=sso)
+        api_response = api_instance.set_comment_text(ApiSetCommentTextRequest(tenant_id=tenant_id, comment_id=comment_id, broadcast_id=broadcast_id, comment_text_update_request=comment_text_update_request, edit_key=edit_key, sso=sso))
         print("The response of PublicApi->set_comment_text:\n")
         pprint(api_response)
     except Exception as e:
@@ -3187,13 +3230,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **un_block_comment_public**
-> UnblockSuccess un_block_comment_public(tenant_id, comment_id, public_block_from_comment_params, sso=sso)
+> UnblockSuccess un_block_comment_public(ApiUnBlockCommentPublicRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiUnBlockCommentPublicRequest
 from client.models.public_block_from_comment_params import PublicBlockFromCommentParams
 from client.models.unblock_success import UnblockSuccess
 from client.rest import ApiException
@@ -3216,7 +3260,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.un_block_comment_public(tenant_id, comment_id, public_block_from_comment_params, sso=sso)
+        api_response = api_instance.un_block_comment_public(ApiUnBlockCommentPublicRequest(tenant_id=tenant_id, comment_id=comment_id, public_block_from_comment_params=public_block_from_comment_params, sso=sso))
         print("The response of PublicApi->un_block_comment_public:\n")
         pprint(api_response)
     except Exception as e:
@@ -3258,13 +3302,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **un_lock_comment**
-> APIEmptyResponse un_lock_comment(tenant_id, comment_id, broadcast_id, sso=sso)
+> APIEmptyResponse un_lock_comment(ApiUnLockCommentRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiUnLockCommentRequest
 from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -3286,7 +3331,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.un_lock_comment(tenant_id, comment_id, broadcast_id, sso=sso)
+        api_response = api_instance.un_lock_comment(ApiUnLockCommentRequest(tenant_id=tenant_id, comment_id=comment_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of PublicApi->un_lock_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -3328,13 +3373,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **un_pin_comment**
-> ChangeCommentPinStatusResponse un_pin_comment(tenant_id, comment_id, broadcast_id, sso=sso)
+> ChangeCommentPinStatusResponse un_pin_comment(ApiUnPinCommentRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiUnPinCommentRequest
 from client.models.change_comment_pin_status_response import ChangeCommentPinStatusResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -3356,7 +3402,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.un_pin_comment(tenant_id, comment_id, broadcast_id, sso=sso)
+        api_response = api_instance.un_pin_comment(ApiUnPinCommentRequest(tenant_id=tenant_id, comment_id=comment_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of PublicApi->un_pin_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -3398,13 +3444,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_feed_post_public**
-> CreateFeedPostResponse update_feed_post_public(tenant_id, post_id, update_feed_post_params, broadcast_id=broadcast_id, sso=sso)
+> CreateFeedPostResponse update_feed_post_public(ApiUpdateFeedPostPublicRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiUpdateFeedPostPublicRequest
 from client.models.create_feed_post_response import CreateFeedPostResponse
 from client.models.update_feed_post_params import UpdateFeedPostParams
 from client.rest import ApiException
@@ -3428,7 +3475,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.update_feed_post_public(tenant_id, post_id, update_feed_post_params, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.update_feed_post_public(ApiUpdateFeedPostPublicRequest(tenant_id=tenant_id, post_id=post_id, update_feed_post_params=update_feed_post_params, broadcast_id=broadcast_id, sso=sso))
         print("The response of PublicApi->update_feed_post_public:\n")
         pprint(api_response)
     except Exception as e:
@@ -3471,7 +3518,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_user_notification_comment_subscription_status**
-> UpdateUserNotificationCommentSubscriptionStatusResponse update_user_notification_comment_subscription_status(tenant_id, notification_id, opted_in_or_out, comment_id, sso=sso)
+> UpdateUserNotificationCommentSubscriptionStatusResponse update_user_notification_comment_subscription_status(ApiUpdateUserNotificationCommentSubscriptionStatusRequest)
 
 Enable or disable notifications for a specific comment.
 
@@ -3480,6 +3527,7 @@ Enable or disable notifications for a specific comment.
 
 ```python
 import client
+from client.api.public_api import ApiUpdateUserNotificationCommentSubscriptionStatusRequest
 from client.models.update_user_notification_comment_subscription_status_response import UpdateUserNotificationCommentSubscriptionStatusResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -3502,7 +3550,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.update_user_notification_comment_subscription_status(tenant_id, notification_id, opted_in_or_out, comment_id, sso=sso)
+        api_response = api_instance.update_user_notification_comment_subscription_status(ApiUpdateUserNotificationCommentSubscriptionStatusRequest(tenant_id=tenant_id, notification_id=notification_id, opted_in_or_out=opted_in_or_out, comment_id=comment_id, sso=sso))
         print("The response of PublicApi->update_user_notification_comment_subscription_status:\n")
         pprint(api_response)
     except Exception as e:
@@ -3545,7 +3593,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_user_notification_page_subscription_status**
-> UpdateUserNotificationPageSubscriptionStatusResponse update_user_notification_page_subscription_status(tenant_id, url_id, url, page_title, subscribed_or_unsubscribed, sso=sso)
+> UpdateUserNotificationPageSubscriptionStatusResponse update_user_notification_page_subscription_status(ApiUpdateUserNotificationPageSubscriptionStatusRequest)
 
 Enable or disable notifications for a page. When users are subscribed to a page, notifications are created
 for new root comments, and also
@@ -3555,6 +3603,7 @@ for new root comments, and also
 
 ```python
 import client
+from client.api.public_api import ApiUpdateUserNotificationPageSubscriptionStatusRequest
 from client.models.update_user_notification_page_subscription_status_response import UpdateUserNotificationPageSubscriptionStatusResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -3578,7 +3627,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.update_user_notification_page_subscription_status(tenant_id, url_id, url, page_title, subscribed_or_unsubscribed, sso=sso)
+        api_response = api_instance.update_user_notification_page_subscription_status(ApiUpdateUserNotificationPageSubscriptionStatusRequest(tenant_id=tenant_id, url_id=url_id, url=url, page_title=page_title, subscribed_or_unsubscribed=subscribed_or_unsubscribed, sso=sso))
         print("The response of PublicApi->update_user_notification_page_subscription_status:\n")
         pprint(api_response)
     except Exception as e:
@@ -3622,13 +3671,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_user_notification_status**
-> UpdateUserNotificationStatusResponse update_user_notification_status(tenant_id, notification_id, new_status, sso=sso)
+> UpdateUserNotificationStatusResponse update_user_notification_status(ApiUpdateUserNotificationStatusRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiUpdateUserNotificationStatusRequest
 from client.models.update_user_notification_status_response import UpdateUserNotificationStatusResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -3650,7 +3700,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.update_user_notification_status(tenant_id, notification_id, new_status, sso=sso)
+        api_response = api_instance.update_user_notification_status(ApiUpdateUserNotificationStatusRequest(tenant_id=tenant_id, notification_id=notification_id, new_status=new_status, sso=sso))
         print("The response of PublicApi->update_user_notification_status:\n")
         pprint(api_response)
     except Exception as e:
@@ -3692,7 +3742,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upload_image**
-> UploadImageResponse upload_image(tenant_id, file, size_preset=size_preset, url_id=url_id)
+> UploadImageResponse upload_image(ApiUploadImageRequest)
 
 Upload and resize an image
 
@@ -3701,6 +3751,7 @@ Upload and resize an image
 
 ```python
 import client
+from client.api.public_api import ApiUploadImageRequest
 from client.models.size_preset import SizePreset
 from client.models.upload_image_response import UploadImageResponse
 from client.rest import ApiException
@@ -3723,7 +3774,7 @@ with client.ApiClient(configuration) as api_client:
     url_id = 'url_id_example' # str | Page id that upload is happening from, to configure (optional)
 
     try:
-        api_response = api_instance.upload_image(tenant_id, file, size_preset=size_preset, url_id=url_id)
+        api_response = api_instance.upload_image(ApiUploadImageRequest(tenant_id=tenant_id, file=file, size_preset=size_preset, url_id=url_id))
         print("The response of PublicApi->upload_image:\n")
         pprint(api_response)
     except Exception as e:
@@ -3764,13 +3815,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **vote_comment**
-> VoteResponse vote_comment(tenant_id, comment_id, url_id, broadcast_id, vote_body_params, session_id=session_id, sso=sso)
+> VoteResponse vote_comment(ApiVoteCommentRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.public_api import ApiVoteCommentRequest
 from client.models.vote_body_params import VoteBodyParams
 from client.models.vote_response import VoteResponse
 from client.rest import ApiException
@@ -3796,7 +3848,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.vote_comment(tenant_id, comment_id, url_id, broadcast_id, vote_body_params, session_id=session_id, sso=sso)
+        api_response = api_instance.vote_comment(ApiVoteCommentRequest(tenant_id=tenant_id, comment_id=comment_id, url_id=url_id, broadcast_id=broadcast_id, vote_body_params=vote_body_params, session_id=session_id, sso=sso))
         print("The response of PublicApi->vote_comment:\n")
         pprint(api_response)
     except Exception as e:

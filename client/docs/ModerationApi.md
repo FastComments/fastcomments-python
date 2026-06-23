@@ -50,13 +50,14 @@ Method | HTTP request | Description
 
 
 # **delete_moderation_vote**
-> VoteDeleteResponse delete_moderation_vote(comment_id, vote_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+> VoteDeleteResponse delete_moderation_vote(ApiDeleteModerationVoteRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiDeleteModerationVoteRequest
 from client.models.vote_delete_response import VoteDeleteResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -79,7 +80,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.delete_moderation_vote(comment_id, vote_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.delete_moderation_vote(ApiDeleteModerationVoteRequest(comment_id=comment_id, vote_id=vote_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of ModerationApi->delete_moderation_vote:\n")
         pprint(api_response)
     except Exception as e:
@@ -122,13 +123,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_api_comments**
-> ModerationAPIGetCommentsResponse get_api_comments(page=page, count=count, text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, sorts=sorts, demo=demo, tenant_id=tenant_id, sso=sso)
+> ModerationAPIGetCommentsResponse get_api_comments(ApiGetApiCommentsRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetApiCommentsRequest
 from client.models.moderation_api_get_comments_response import ModerationAPIGetCommentsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -156,7 +158,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_api_comments(page=page, count=count, text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, sorts=sorts, demo=demo, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_api_comments(ApiGetApiCommentsRequest(page=page, count=count, text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, sorts=sorts, demo=demo, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_api_comments:\n")
         pprint(api_response)
     except Exception as e:
@@ -204,13 +206,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_api_export_status**
-> ModerationExportStatusResponse get_api_export_status(batch_job_id=batch_job_id, tenant_id=tenant_id, sso=sso)
+> ModerationExportStatusResponse get_api_export_status(ApiGetApiExportStatusRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetApiExportStatusRequest
 from client.models.moderation_export_status_response import ModerationExportStatusResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -231,7 +234,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_api_export_status(batch_job_id=batch_job_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_api_export_status(ApiGetApiExportStatusRequest(batch_job_id=batch_job_id, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_api_export_status:\n")
         pprint(api_response)
     except Exception as e:
@@ -272,13 +275,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_api_ids**
-> ModerationAPIGetCommentIdsResponse get_api_ids(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, after_id=after_id, demo=demo, tenant_id=tenant_id, sso=sso)
+> ModerationAPIGetCommentIdsResponse get_api_ids(ApiGetApiIdsRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetApiIdsRequest
 from client.models.moderation_api_get_comment_ids_response import ModerationAPIGetCommentIdsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -304,7 +308,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_api_ids(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, after_id=after_id, demo=demo, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_api_ids(ApiGetApiIdsRequest(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, after_id=after_id, demo=demo, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_api_ids:\n")
         pprint(api_response)
     except Exception as e:
@@ -350,13 +354,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_ban_users_from_comment**
-> GetBannedUsersFromCommentResponse get_ban_users_from_comment(comment_id, tenant_id=tenant_id, sso=sso)
+> GetBannedUsersFromCommentResponse get_ban_users_from_comment(ApiGetBanUsersFromCommentRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetBanUsersFromCommentRequest
 from client.models.get_banned_users_from_comment_response import GetBannedUsersFromCommentResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -377,7 +382,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_ban_users_from_comment(comment_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_ban_users_from_comment(ApiGetBanUsersFromCommentRequest(comment_id=comment_id, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_ban_users_from_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -418,13 +423,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comment_ban_status**
-> GetCommentBanStatusResponse get_comment_ban_status(comment_id, tenant_id=tenant_id, sso=sso)
+> GetCommentBanStatusResponse get_comment_ban_status(ApiGetCommentBanStatusRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetCommentBanStatusRequest
 from client.models.get_comment_ban_status_response import GetCommentBanStatusResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -445,7 +451,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_comment_ban_status(comment_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_comment_ban_status(ApiGetCommentBanStatusRequest(comment_id=comment_id, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_comment_ban_status:\n")
         pprint(api_response)
     except Exception as e:
@@ -486,13 +492,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comment_children**
-> ModerationAPIChildCommentsResponse get_comment_children(comment_id, tenant_id=tenant_id, sso=sso)
+> ModerationAPIChildCommentsResponse get_comment_children(ApiGetCommentChildrenRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetCommentChildrenRequest
 from client.models.moderation_api_child_comments_response import ModerationAPIChildCommentsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -513,7 +520,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_comment_children(comment_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_comment_children(ApiGetCommentChildrenRequest(comment_id=comment_id, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_comment_children:\n")
         pprint(api_response)
     except Exception as e:
@@ -554,13 +561,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_count**
-> ModerationAPICountCommentsResponse get_count(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filter=filter, search_filters=search_filters, demo=demo, tenant_id=tenant_id, sso=sso)
+> ModerationAPICountCommentsResponse get_count(ApiGetCountRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetCountRequest
 from client.models.moderation_api_count_comments_response import ModerationAPICountCommentsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -585,7 +593,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_count(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filter=filter, search_filters=search_filters, demo=demo, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_count(ApiGetCountRequest(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filter=filter, search_filters=search_filters, demo=demo, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_count:\n")
         pprint(api_response)
     except Exception as e:
@@ -630,13 +638,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_counts**
-> GetBannedUsersCountResponse get_counts(tenant_id=tenant_id, sso=sso)
+> GetBannedUsersCountResponse get_counts(ApiGetCountsRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetCountsRequest
 from client.models.get_banned_users_count_response import GetBannedUsersCountResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -656,7 +665,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_counts(tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_counts(ApiGetCountsRequest(tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_counts:\n")
         pprint(api_response)
     except Exception as e:
@@ -696,13 +705,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_logs**
-> ModerationAPIGetLogsResponse get_logs(comment_id, tenant_id=tenant_id, sso=sso)
+> ModerationAPIGetLogsResponse get_logs(ApiGetLogsRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetLogsRequest
 from client.models.moderation_api_get_logs_response import ModerationAPIGetLogsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -723,7 +733,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_logs(comment_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_logs(ApiGetLogsRequest(comment_id=comment_id, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_logs:\n")
         pprint(api_response)
     except Exception as e:
@@ -764,13 +774,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_manual_badges**
-> GetTenantManualBadgesResponse get_manual_badges(tenant_id=tenant_id, sso=sso)
+> GetTenantManualBadgesResponse get_manual_badges(ApiGetManualBadgesRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetManualBadgesRequest
 from client.models.get_tenant_manual_badges_response import GetTenantManualBadgesResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -790,7 +801,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_manual_badges(tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_manual_badges(ApiGetManualBadgesRequest(tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_manual_badges:\n")
         pprint(api_response)
     except Exception as e:
@@ -830,13 +841,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_manual_badges_for_user**
-> GetUserManualBadgesResponse get_manual_badges_for_user(badges_user_id=badges_user_id, comment_id=comment_id, tenant_id=tenant_id, sso=sso)
+> GetUserManualBadgesResponse get_manual_badges_for_user(ApiGetManualBadgesForUserRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetManualBadgesForUserRequest
 from client.models.get_user_manual_badges_response import GetUserManualBadgesResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -858,7 +870,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_manual_badges_for_user(badges_user_id=badges_user_id, comment_id=comment_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_manual_badges_for_user(ApiGetManualBadgesForUserRequest(badges_user_id=badges_user_id, comment_id=comment_id, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_manual_badges_for_user:\n")
         pprint(api_response)
     except Exception as e:
@@ -900,13 +912,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_moderation_comment**
-> ModerationAPICommentResponse get_moderation_comment(comment_id, include_email=include_email, include_ip=include_ip, tenant_id=tenant_id, sso=sso)
+> ModerationAPICommentResponse get_moderation_comment(ApiGetModerationCommentRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetModerationCommentRequest
 from client.models.moderation_api_comment_response import ModerationAPICommentResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -929,7 +942,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_moderation_comment(comment_id, include_email=include_email, include_ip=include_ip, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_moderation_comment(ApiGetModerationCommentRequest(comment_id=comment_id, include_email=include_email, include_ip=include_ip, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_moderation_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -972,13 +985,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_moderation_comment_text**
-> GetCommentTextResponse get_moderation_comment_text(comment_id, tenant_id=tenant_id, sso=sso)
+> GetCommentTextResponse get_moderation_comment_text(ApiGetModerationCommentTextRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetModerationCommentTextRequest
 from client.models.get_comment_text_response import GetCommentTextResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -999,7 +1013,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_moderation_comment_text(comment_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_moderation_comment_text(ApiGetModerationCommentTextRequest(comment_id=comment_id, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_moderation_comment_text:\n")
         pprint(api_response)
     except Exception as e:
@@ -1040,13 +1054,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_pre_ban_summary**
-> PreBanSummary get_pre_ban_summary(comment_id, include_by_user_id_and_email=include_by_user_id_and_email, include_by_ip=include_by_ip, include_by_email_domain=include_by_email_domain, tenant_id=tenant_id, sso=sso)
+> PreBanSummary get_pre_ban_summary(ApiGetPreBanSummaryRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetPreBanSummaryRequest
 from client.models.pre_ban_summary import PreBanSummary
 from client.rest import ApiException
 from pprint import pprint
@@ -1070,7 +1085,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_pre_ban_summary(comment_id, include_by_user_id_and_email=include_by_user_id_and_email, include_by_ip=include_by_ip, include_by_email_domain=include_by_email_domain, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_pre_ban_summary(ApiGetPreBanSummaryRequest(comment_id=comment_id, include_by_user_id_and_email=include_by_user_id_and_email, include_by_ip=include_by_ip, include_by_email_domain=include_by_email_domain, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_pre_ban_summary:\n")
         pprint(api_response)
     except Exception as e:
@@ -1114,13 +1129,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_search_comments_summary**
-> ModerationCommentSearchResponse get_search_comments_summary(value=value, filters=filters, search_filters=search_filters, tenant_id=tenant_id, sso=sso)
+> ModerationCommentSearchResponse get_search_comments_summary(ApiGetSearchCommentsSummaryRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetSearchCommentsSummaryRequest
 from client.models.moderation_comment_search_response import ModerationCommentSearchResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1143,7 +1159,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_search_comments_summary(value=value, filters=filters, search_filters=search_filters, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_search_comments_summary(ApiGetSearchCommentsSummaryRequest(value=value, filters=filters, search_filters=search_filters, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_search_comments_summary:\n")
         pprint(api_response)
     except Exception as e:
@@ -1186,13 +1202,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_search_pages**
-> ModerationPageSearchResponse get_search_pages(value=value, tenant_id=tenant_id, sso=sso)
+> ModerationPageSearchResponse get_search_pages(ApiGetSearchPagesRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetSearchPagesRequest
 from client.models.moderation_page_search_response import ModerationPageSearchResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1213,7 +1230,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_search_pages(value=value, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_search_pages(ApiGetSearchPagesRequest(value=value, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_search_pages:\n")
         pprint(api_response)
     except Exception as e:
@@ -1254,13 +1271,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_search_sites**
-> ModerationSiteSearchResponse get_search_sites(value=value, tenant_id=tenant_id, sso=sso)
+> ModerationSiteSearchResponse get_search_sites(ApiGetSearchSitesRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetSearchSitesRequest
 from client.models.moderation_site_search_response import ModerationSiteSearchResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1281,7 +1299,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_search_sites(value=value, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_search_sites(ApiGetSearchSitesRequest(value=value, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_search_sites:\n")
         pprint(api_response)
     except Exception as e:
@@ -1322,13 +1340,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_search_suggest**
-> ModerationSuggestResponse get_search_suggest(text_search=text_search, tenant_id=tenant_id, sso=sso)
+> ModerationSuggestResponse get_search_suggest(ApiGetSearchSuggestRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetSearchSuggestRequest
 from client.models.moderation_suggest_response import ModerationSuggestResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1349,7 +1368,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_search_suggest(text_search=text_search, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_search_suggest(ApiGetSearchSuggestRequest(text_search=text_search, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_search_suggest:\n")
         pprint(api_response)
     except Exception as e:
@@ -1390,13 +1409,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_search_users**
-> ModerationUserSearchResponse get_search_users(value=value, tenant_id=tenant_id, sso=sso)
+> ModerationUserSearchResponse get_search_users(ApiGetSearchUsersRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetSearchUsersRequest
 from client.models.moderation_user_search_response import ModerationUserSearchResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1417,7 +1437,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_search_users(value=value, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_search_users(ApiGetSearchUsersRequest(value=value, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_search_users:\n")
         pprint(api_response)
     except Exception as e:
@@ -1458,13 +1478,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_trust_factor**
-> GetUserTrustFactorResponse get_trust_factor(user_id=user_id, tenant_id=tenant_id, sso=sso)
+> GetUserTrustFactorResponse get_trust_factor(ApiGetTrustFactorRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetTrustFactorRequest
 from client.models.get_user_trust_factor_response import GetUserTrustFactorResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1485,7 +1506,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_trust_factor(user_id=user_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_trust_factor(ApiGetTrustFactorRequest(user_id=user_id, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_trust_factor:\n")
         pprint(api_response)
     except Exception as e:
@@ -1526,13 +1547,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_ban_preference**
-> APIModerateGetUserBanPreferencesResponse get_user_ban_preference(tenant_id=tenant_id, sso=sso)
+> APIModerateGetUserBanPreferencesResponse get_user_ban_preference(ApiGetUserBanPreferenceRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetUserBanPreferenceRequest
 from client.models.api_moderate_get_user_ban_preferences_response import APIModerateGetUserBanPreferencesResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1552,7 +1574,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_user_ban_preference(tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_user_ban_preference(ApiGetUserBanPreferenceRequest(tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_user_ban_preference:\n")
         pprint(api_response)
     except Exception as e:
@@ -1592,13 +1614,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_internal_profile**
-> GetUserInternalProfileResponse get_user_internal_profile(comment_id=comment_id, tenant_id=tenant_id, sso=sso)
+> GetUserInternalProfileResponse get_user_internal_profile(ApiGetUserInternalProfileRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiGetUserInternalProfileRequest
 from client.models.get_user_internal_profile_response import GetUserInternalProfileResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1619,7 +1642,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_user_internal_profile(comment_id=comment_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.get_user_internal_profile(ApiGetUserInternalProfileRequest(comment_id=comment_id, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->get_user_internal_profile:\n")
         pprint(api_response)
     except Exception as e:
@@ -1660,13 +1683,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_adjust_comment_votes**
-> AdjustVotesResponse post_adjust_comment_votes(comment_id, adjust_comment_votes_params, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+> AdjustVotesResponse post_adjust_comment_votes(ApiPostAdjustCommentVotesRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPostAdjustCommentVotesRequest
 from client.models.adjust_comment_votes_params import AdjustCommentVotesParams
 from client.models.adjust_votes_response import AdjustVotesResponse
 from client.rest import ApiException
@@ -1690,7 +1714,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_adjust_comment_votes(comment_id, adjust_comment_votes_params, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.post_adjust_comment_votes(ApiPostAdjustCommentVotesRequest(comment_id=comment_id, adjust_comment_votes_params=adjust_comment_votes_params, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of ModerationApi->post_adjust_comment_votes:\n")
         pprint(api_response)
     except Exception as e:
@@ -1733,13 +1757,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_api_export**
-> ModerationExportResponse post_api_export(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, sorts=sorts, tenant_id=tenant_id, sso=sso)
+> ModerationExportResponse post_api_export(ApiPostApiExportRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPostApiExportRequest
 from client.models.moderation_export_response import ModerationExportResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1764,7 +1789,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_api_export(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, sorts=sorts, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.post_api_export(ApiPostApiExportRequest(text_search=text_search, by_ip_from_comment=by_ip_from_comment, filters=filters, search_filters=search_filters, sorts=sorts, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->post_api_export:\n")
         pprint(api_response)
     except Exception as e:
@@ -1809,13 +1834,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_ban_user_from_comment**
-> BanUserFromCommentResult post_ban_user_from_comment(comment_id, ban_email=ban_email, ban_email_domain=ban_email_domain, ban_ip=ban_ip, delete_all_users_comments=delete_all_users_comments, banned_until=banned_until, is_shadow_ban=is_shadow_ban, update_id=update_id, ban_reason=ban_reason, tenant_id=tenant_id, sso=sso)
+> BanUserFromCommentResult post_ban_user_from_comment(ApiPostBanUserFromCommentRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPostBanUserFromCommentRequest
 from client.models.ban_user_from_comment_result import BanUserFromCommentResult
 from client.rest import ApiException
 from pprint import pprint
@@ -1844,7 +1870,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_ban_user_from_comment(comment_id, ban_email=ban_email, ban_email_domain=ban_email_domain, ban_ip=ban_ip, delete_all_users_comments=delete_all_users_comments, banned_until=banned_until, is_shadow_ban=is_shadow_ban, update_id=update_id, ban_reason=ban_reason, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.post_ban_user_from_comment(ApiPostBanUserFromCommentRequest(comment_id=comment_id, ban_email=ban_email, ban_email_domain=ban_email_domain, ban_ip=ban_ip, delete_all_users_comments=delete_all_users_comments, banned_until=banned_until, is_shadow_ban=is_shadow_ban, update_id=update_id, ban_reason=ban_reason, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->post_ban_user_from_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -1893,13 +1919,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_ban_user_undo**
-> APIEmptyResponse post_ban_user_undo(ban_user_undo_params, tenant_id=tenant_id, sso=sso)
+> APIEmptyResponse post_ban_user_undo(ApiPostBanUserUndoRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPostBanUserUndoRequest
 from client.models.api_empty_response import APIEmptyResponse
 from client.models.ban_user_undo_params import BanUserUndoParams
 from client.rest import ApiException
@@ -1921,7 +1948,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_ban_user_undo(ban_user_undo_params, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.post_ban_user_undo(ApiPostBanUserUndoRequest(ban_user_undo_params=ban_user_undo_params, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->post_ban_user_undo:\n")
         pprint(api_response)
     except Exception as e:
@@ -1962,13 +1989,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_bulk_pre_ban_summary**
-> BulkPreBanSummary post_bulk_pre_ban_summary(bulk_pre_ban_params, include_by_user_id_and_email=include_by_user_id_and_email, include_by_ip=include_by_ip, include_by_email_domain=include_by_email_domain, tenant_id=tenant_id, sso=sso)
+> BulkPreBanSummary post_bulk_pre_ban_summary(ApiPostBulkPreBanSummaryRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPostBulkPreBanSummaryRequest
 from client.models.bulk_pre_ban_params import BulkPreBanParams
 from client.models.bulk_pre_ban_summary import BulkPreBanSummary
 from client.rest import ApiException
@@ -1993,7 +2021,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_bulk_pre_ban_summary(bulk_pre_ban_params, include_by_user_id_and_email=include_by_user_id_and_email, include_by_ip=include_by_ip, include_by_email_domain=include_by_email_domain, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.post_bulk_pre_ban_summary(ApiPostBulkPreBanSummaryRequest(bulk_pre_ban_params=bulk_pre_ban_params, include_by_user_id_and_email=include_by_user_id_and_email, include_by_ip=include_by_ip, include_by_email_domain=include_by_email_domain, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->post_bulk_pre_ban_summary:\n")
         pprint(api_response)
     except Exception as e:
@@ -2037,13 +2065,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_comments_by_ids**
-> ModerationAPIChildCommentsResponse post_comments_by_ids(comments_by_ids_params, tenant_id=tenant_id, sso=sso)
+> ModerationAPIChildCommentsResponse post_comments_by_ids(ApiPostCommentsByIdsRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPostCommentsByIdsRequest
 from client.models.comments_by_ids_params import CommentsByIdsParams
 from client.models.moderation_api_child_comments_response import ModerationAPIChildCommentsResponse
 from client.rest import ApiException
@@ -2065,7 +2094,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_comments_by_ids(comments_by_ids_params, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.post_comments_by_ids(ApiPostCommentsByIdsRequest(comments_by_ids_params=comments_by_ids_params, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->post_comments_by_ids:\n")
         pprint(api_response)
     except Exception as e:
@@ -2106,13 +2135,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_flag_comment**
-> APIEmptyResponse post_flag_comment(comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+> APIEmptyResponse post_flag_comment(ApiPostFlagCommentRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPostFlagCommentRequest
 from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2134,7 +2164,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_flag_comment(comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.post_flag_comment(ApiPostFlagCommentRequest(comment_id=comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of ModerationApi->post_flag_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -2176,13 +2206,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_remove_comment**
-> PostRemoveCommentResponse post_remove_comment(comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+> PostRemoveCommentResponse post_remove_comment(ApiPostRemoveCommentRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPostRemoveCommentRequest
 from client.models.post_remove_comment_response import PostRemoveCommentResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2204,7 +2235,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_remove_comment(comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.post_remove_comment(ApiPostRemoveCommentRequest(comment_id=comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of ModerationApi->post_remove_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -2246,13 +2277,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_restore_deleted_comment**
-> APIEmptyResponse post_restore_deleted_comment(comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+> APIEmptyResponse post_restore_deleted_comment(ApiPostRestoreDeletedCommentRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPostRestoreDeletedCommentRequest
 from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2274,7 +2306,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_restore_deleted_comment(comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.post_restore_deleted_comment(ApiPostRestoreDeletedCommentRequest(comment_id=comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of ModerationApi->post_restore_deleted_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -2316,13 +2348,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_set_comment_approval_status**
-> SetCommentApprovedResponse post_set_comment_approval_status(comment_id, approved=approved, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+> SetCommentApprovedResponse post_set_comment_approval_status(ApiPostSetCommentApprovalStatusRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPostSetCommentApprovalStatusRequest
 from client.models.set_comment_approved_response import SetCommentApprovedResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2345,7 +2378,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_set_comment_approval_status(comment_id, approved=approved, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.post_set_comment_approval_status(ApiPostSetCommentApprovalStatusRequest(comment_id=comment_id, approved=approved, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of ModerationApi->post_set_comment_approval_status:\n")
         pprint(api_response)
     except Exception as e:
@@ -2388,13 +2421,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_set_comment_review_status**
-> APIEmptyResponse post_set_comment_review_status(comment_id, reviewed=reviewed, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+> APIEmptyResponse post_set_comment_review_status(ApiPostSetCommentReviewStatusRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPostSetCommentReviewStatusRequest
 from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2417,7 +2451,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_set_comment_review_status(comment_id, reviewed=reviewed, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.post_set_comment_review_status(ApiPostSetCommentReviewStatusRequest(comment_id=comment_id, reviewed=reviewed, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of ModerationApi->post_set_comment_review_status:\n")
         pprint(api_response)
     except Exception as e:
@@ -2460,13 +2494,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_set_comment_spam_status**
-> APIEmptyResponse post_set_comment_spam_status(comment_id, spam=spam, perm_not_spam=perm_not_spam, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+> APIEmptyResponse post_set_comment_spam_status(ApiPostSetCommentSpamStatusRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPostSetCommentSpamStatusRequest
 from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2490,7 +2525,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_set_comment_spam_status(comment_id, spam=spam, perm_not_spam=perm_not_spam, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.post_set_comment_spam_status(ApiPostSetCommentSpamStatusRequest(comment_id=comment_id, spam=spam, perm_not_spam=perm_not_spam, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of ModerationApi->post_set_comment_spam_status:\n")
         pprint(api_response)
     except Exception as e:
@@ -2534,13 +2569,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_set_comment_text**
-> SetCommentTextResponse post_set_comment_text(comment_id, set_comment_text_params, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+> SetCommentTextResponse post_set_comment_text(ApiPostSetCommentTextRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPostSetCommentTextRequest
 from client.models.set_comment_text_params import SetCommentTextParams
 from client.models.set_comment_text_response import SetCommentTextResponse
 from client.rest import ApiException
@@ -2564,7 +2600,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_set_comment_text(comment_id, set_comment_text_params, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.post_set_comment_text(ApiPostSetCommentTextRequest(comment_id=comment_id, set_comment_text_params=set_comment_text_params, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of ModerationApi->post_set_comment_text:\n")
         pprint(api_response)
     except Exception as e:
@@ -2607,13 +2643,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_un_flag_comment**
-> APIEmptyResponse post_un_flag_comment(comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+> APIEmptyResponse post_un_flag_comment(ApiPostUnFlagCommentRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPostUnFlagCommentRequest
 from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2635,7 +2672,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_un_flag_comment(comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.post_un_flag_comment(ApiPostUnFlagCommentRequest(comment_id=comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of ModerationApi->post_un_flag_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -2677,13 +2714,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_vote**
-> VoteResponse post_vote(comment_id, direction=direction, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+> VoteResponse post_vote(ApiPostVoteRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPostVoteRequest
 from client.models.vote_response import VoteResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2706,7 +2744,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.post_vote(comment_id, direction=direction, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.post_vote(ApiPostVoteRequest(comment_id=comment_id, direction=direction, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of ModerationApi->post_vote:\n")
         pprint(api_response)
     except Exception as e:
@@ -2749,13 +2787,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_award_badge**
-> AwardUserBadgeResponse put_award_badge(badge_id, user_id=user_id, comment_id=comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+> AwardUserBadgeResponse put_award_badge(ApiPutAwardBadgeRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPutAwardBadgeRequest
 from client.models.award_user_badge_response import AwardUserBadgeResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2779,7 +2818,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.put_award_badge(badge_id, user_id=user_id, comment_id=comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.put_award_badge(ApiPutAwardBadgeRequest(badge_id=badge_id, user_id=user_id, comment_id=comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of ModerationApi->put_award_badge:\n")
         pprint(api_response)
     except Exception as e:
@@ -2823,13 +2862,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_close_thread**
-> APIEmptyResponse put_close_thread(url_id, tenant_id=tenant_id, sso=sso)
+> APIEmptyResponse put_close_thread(ApiPutCloseThreadRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPutCloseThreadRequest
 from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2850,7 +2890,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.put_close_thread(url_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.put_close_thread(ApiPutCloseThreadRequest(url_id=url_id, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->put_close_thread:\n")
         pprint(api_response)
     except Exception as e:
@@ -2891,13 +2931,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_remove_badge**
-> RemoveUserBadgeResponse put_remove_badge(badge_id, user_id=user_id, comment_id=comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+> RemoveUserBadgeResponse put_remove_badge(ApiPutRemoveBadgeRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPutRemoveBadgeRequest
 from client.models.remove_user_badge_response import RemoveUserBadgeResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2921,7 +2962,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.put_remove_badge(badge_id, user_id=user_id, comment_id=comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso)
+        api_response = api_instance.put_remove_badge(ApiPutRemoveBadgeRequest(badge_id=badge_id, user_id=user_id, comment_id=comment_id, tenant_id=tenant_id, broadcast_id=broadcast_id, sso=sso))
         print("The response of ModerationApi->put_remove_badge:\n")
         pprint(api_response)
     except Exception as e:
@@ -2965,13 +3006,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_reopen_thread**
-> APIEmptyResponse put_reopen_thread(url_id, tenant_id=tenant_id, sso=sso)
+> APIEmptyResponse put_reopen_thread(ApiPutReopenThreadRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiPutReopenThreadRequest
 from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2992,7 +3034,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.put_reopen_thread(url_id, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.put_reopen_thread(ApiPutReopenThreadRequest(url_id=url_id, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->put_reopen_thread:\n")
         pprint(api_response)
     except Exception as e:
@@ -3033,13 +3075,14 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_trust_factor**
-> SetUserTrustFactorResponse set_trust_factor(user_id=user_id, trust_factor=trust_factor, tenant_id=tenant_id, sso=sso)
+> SetUserTrustFactorResponse set_trust_factor(ApiSetTrustFactorRequest)
 
 ### Example
 
 
 ```python
 import client
+from client.api.moderation_api import ApiSetTrustFactorRequest
 from client.models.set_user_trust_factor_response import SetUserTrustFactorResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -3061,7 +3104,7 @@ with client.ApiClient(configuration) as api_client:
     sso = 'sso_example' # str |  (optional)
 
     try:
-        api_response = api_instance.set_trust_factor(user_id=user_id, trust_factor=trust_factor, tenant_id=tenant_id, sso=sso)
+        api_response = api_instance.set_trust_factor(ApiSetTrustFactorRequest(user_id=user_id, trust_factor=trust_factor, tenant_id=tenant_id, sso=sso))
         print("The response of ModerationApi->set_trust_factor:\n")
         pprint(api_response)
     except Exception as e:
