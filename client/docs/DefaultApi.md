@@ -508,7 +508,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **aggregate**
-> AggregateResponse aggregate(tenant_id, aggregation_request, options=)
+> AggregateResponse aggregate(tenant_id, aggregation_request, options)
 
 Aggregates documents by grouping them (if groupBy is provided) and applying multiple operations.
 Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
@@ -593,7 +593,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **aggregate_question_results**
-> AggregateQuestionResultsResponse aggregate_question_results(tenant_id, options=)
+> AggregateQuestionResultsResponse aggregate_question_results(tenant_id, options)
 
 ### Example
 
@@ -682,7 +682,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **block_user_from_comment**
-> BlockSuccess block_user_from_comment(tenant_id, id, block_from_comment_params, options=)
+> BlockSuccess block_user_from_comment(tenant_id, id, block_from_comment_params, options)
 
 ### Example
 
@@ -929,7 +929,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **combine_comments_with_question_results**
-> CombineQuestionResultsWithCommentsResponse combine_comments_with_question_results(tenant_id, options=)
+> CombineQuestionResultsWithCommentsResponse combine_comments_with_question_results(tenant_id, options)
 
 ### Example
 
@@ -1099,7 +1099,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_feed_post**
-> CreateFeedPostsResponse create_feed_post(tenant_id, create_feed_post_params, options=)
+> CreateFeedPostsResponse create_feed_post(tenant_id, create_feed_post_params, options)
 
 ### Example
 
@@ -1889,7 +1889,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_vote**
-> VoteResponse create_vote(tenant_id, comment_id, direction, options=)
+> VoteResponse create_vote(tenant_id, comment_id, direction, options)
 
 ### Example
 
@@ -1973,7 +1973,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_comment**
-> DeleteCommentResult delete_comment(tenant_id, id, options=)
+> DeleteCommentResult delete_comment(tenant_id, id, options)
 
 ### Example
 
@@ -2830,7 +2830,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_sso_user**
-> DeleteSSOUserAPIResponse delete_sso_user(tenant_id, id, options=)
+> DeleteSSOUserAPIResponse delete_sso_user(tenant_id, id, options)
 
 ### Example
 
@@ -3145,7 +3145,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_tenant_user**
-> APIEmptyResponse delete_tenant_user(tenant_id, id, options=)
+> APIEmptyResponse delete_tenant_user(tenant_id, id, options)
 
 ### Example
 
@@ -3383,7 +3383,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **flag_comment**
-> FlagCommentResponse flag_comment(tenant_id, id, options=)
+> FlagCommentResponse flag_comment(tenant_id, id, options)
 
 ### Example
 
@@ -3465,7 +3465,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audit_logs**
-> GetAuditLogsResponse get_audit_logs(tenant_id, options=)
+> GetAuditLogsResponse get_audit_logs(tenant_id, options)
 
 ### Example
 
@@ -3706,7 +3706,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comments**
-> APIGetCommentsResponse get_comments(tenant_id, options=)
+> APIGetCommentsResponse get_comments(tenant_id, options)
 
 ### Example
 
@@ -4273,7 +4273,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_feed_posts**
-> GetFeedPostsResponse get_feed_posts(tenant_id, options=)
+> GetFeedPostsResponse get_feed_posts(tenant_id, options)
 
 
 req
@@ -4591,7 +4591,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notification_count**
-> GetNotificationCountResponse get_notification_count(tenant_id, options=)
+> GetNotificationCountResponse get_notification_count(tenant_id, options)
 
 ### Example
 
@@ -4677,7 +4677,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_notifications**
-> GetNotificationsResponse get_notifications(tenant_id, options=)
+> GetNotificationsResponse get_notifications(tenant_id, options)
 
 ### Example
 
@@ -4915,7 +4915,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_pending_webhook_event_count**
-> GetPendingWebhookEventCountResponse get_pending_webhook_event_count(tenant_id, options=)
+> GetPendingWebhookEventCountResponse get_pending_webhook_event_count(tenant_id, options)
 
 ### Example
 
@@ -5003,7 +5003,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_pending_webhook_events**
-> GetPendingWebhookEventsResponse get_pending_webhook_events(tenant_id, options=)
+> GetPendingWebhookEventsResponse get_pending_webhook_events(tenant_id, options)
 
 ### Example
 
@@ -5324,7 +5324,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_question_results**
-> GetQuestionResultsResponse get_question_results(tenant_id, options=)
+> GetQuestionResultsResponse get_question_results(tenant_id, options)
 
 ### Example
 
@@ -5793,7 +5793,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tenant_daily_usages**
-> GetTenantDailyUsagesResponse get_tenant_daily_usages(tenant_id, options=)
+> GetTenantDailyUsagesResponse get_tenant_daily_usages(tenant_id, options)
 
 ### Example
 
@@ -6185,7 +6185,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tenants**
-> GetTenantsResponse get_tenants(tenant_id, options=)
+> GetTenantsResponse get_tenants(tenant_id, options)
 
 ### Example
 
@@ -6344,7 +6344,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tickets**
-> GetTicketsResponse get_tickets(tenant_id, options=)
+> GetTicketsResponse get_tickets(tenant_id, options)
 
 ### Example
 
@@ -6736,7 +6736,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_badge_progress_list**
-> APIGetUserBadgeProgressListResponse get_user_badge_progress_list(tenant_id, options=)
+> APIGetUserBadgeProgressListResponse get_user_badge_progress_list(tenant_id, options)
 
 ### Example
 
@@ -6818,7 +6818,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_badges**
-> APIGetUserBadgesResponse get_user_badges(tenant_id, options=)
+> APIGetUserBadgesResponse get_user_badges(tenant_id, options)
 
 ### Example
 
@@ -6983,7 +6983,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_votes_for_user**
-> GetVotesForUserResponse get_votes_for_user(tenant_id, url_id, options=)
+> GetVotesForUserResponse get_votes_for_user(tenant_id, url_id, options)
 
 ### Example
 
@@ -7786,7 +7786,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **save_comment**
-> APISaveCommentResponse save_comment(tenant_id, create_comment_params, options=)
+> APISaveCommentResponse save_comment(tenant_id, create_comment_params, options)
 
 ### Example
 
@@ -7873,7 +7873,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **save_comments_bulk**
-> List[SaveCommentsBulkResponse] save_comments_bulk(tenant_id, create_comment_params, options=)
+> List[SaveCommentsBulkResponse] save_comments_bulk(tenant_id, create_comment_params, options)
 
 ### Example
 
@@ -8117,7 +8117,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **un_block_user_from_comment**
-> UnblockSuccess un_block_user_from_comment(tenant_id, id, un_block_from_comment_params, options=)
+> UnblockSuccess un_block_user_from_comment(tenant_id, id, un_block_from_comment_params, options)
 
 ### Example
 
@@ -8202,7 +8202,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **un_flag_comment**
-> FlagCommentResponse un_flag_comment(tenant_id, id, options=)
+> FlagCommentResponse un_flag_comment(tenant_id, id, options)
 
 ### Example
 
@@ -8284,7 +8284,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_comment**
-> APIEmptyResponse update_comment(tenant_id, id, updatable_comment_params, options=)
+> APIEmptyResponse update_comment(tenant_id, id, updatable_comment_params, options)
 
 ### Example
 

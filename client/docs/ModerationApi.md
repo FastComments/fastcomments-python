@@ -50,7 +50,7 @@ Method | HTTP request | Description
 
 
 # **delete_moderation_vote**
-> VoteDeleteResponse delete_moderation_vote(tenant_id, comment_id, vote_id, options=)
+> VoteDeleteResponse delete_moderation_vote(tenant_id, comment_id, vote_id, options)
 
 ### Example
 
@@ -123,7 +123,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_api_comments**
-> ModerationAPIGetCommentsResponse get_api_comments(tenant_id, options=)
+> ModerationAPIGetCommentsResponse get_api_comments(tenant_id, options)
 
 ### Example
 
@@ -206,7 +206,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_api_export_status**
-> ModerationExportStatusResponse get_api_export_status(tenant_id, options=)
+> ModerationExportStatusResponse get_api_export_status(tenant_id, options)
 
 ### Example
 
@@ -275,7 +275,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_api_ids**
-> ModerationAPIGetCommentIdsResponse get_api_ids(tenant_id, options=)
+> ModerationAPIGetCommentIdsResponse get_api_ids(tenant_id, options)
 
 ### Example
 
@@ -558,7 +558,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_count**
-> ModerationAPICountCommentsResponse get_count(tenant_id, options=)
+> ModerationAPICountCommentsResponse get_count(tenant_id, options)
 
 ### Example
 
@@ -835,7 +835,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_manual_badges_for_user**
-> GetUserManualBadgesResponse get_manual_badges_for_user(tenant_id, options=)
+> GetUserManualBadgesResponse get_manual_badges_for_user(tenant_id, options)
 
 ### Example
 
@@ -906,7 +906,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_moderation_comment**
-> ModerationAPICommentResponse get_moderation_comment(tenant_id, comment_id, options=)
+> ModerationAPICommentResponse get_moderation_comment(tenant_id, comment_id, options)
 
 ### Example
 
@@ -1047,7 +1047,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_pre_ban_summary**
-> PreBanSummary get_pre_ban_summary(tenant_id, comment_id, options=)
+> PreBanSummary get_pre_ban_summary(tenant_id, comment_id, options)
 
 ### Example
 
@@ -1122,7 +1122,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_search_comments_summary**
-> ModerationCommentSearchResponse get_search_comments_summary(tenant_id, options=)
+> ModerationCommentSearchResponse get_search_comments_summary(tenant_id, options)
 
 ### Example
 
@@ -1195,7 +1195,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_search_pages**
-> ModerationPageSearchResponse get_search_pages(tenant_id, options=)
+> ModerationPageSearchResponse get_search_pages(tenant_id, options)
 
 ### Example
 
@@ -1264,7 +1264,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_search_sites**
-> ModerationSiteSearchResponse get_search_sites(tenant_id, options=)
+> ModerationSiteSearchResponse get_search_sites(tenant_id, options)
 
 ### Example
 
@@ -1333,7 +1333,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_search_suggest**
-> ModerationSuggestResponse get_search_suggest(tenant_id, options=)
+> ModerationSuggestResponse get_search_suggest(tenant_id, options)
 
 ### Example
 
@@ -1402,7 +1402,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_search_users**
-> ModerationUserSearchResponse get_search_users(tenant_id, options=)
+> ModerationUserSearchResponse get_search_users(tenant_id, options)
 
 ### Example
 
@@ -1471,7 +1471,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_trust_factor**
-> GetUserTrustFactorResponse get_trust_factor(tenant_id, options=)
+> GetUserTrustFactorResponse get_trust_factor(tenant_id, options)
 
 ### Example
 
@@ -1606,7 +1606,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_internal_profile**
-> GetUserInternalProfileResponse get_user_internal_profile(tenant_id, options=)
+> GetUserInternalProfileResponse get_user_internal_profile(tenant_id, options)
 
 ### Example
 
@@ -1675,7 +1675,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_adjust_comment_votes**
-> AdjustVotesResponse post_adjust_comment_votes(tenant_id, comment_id, adjust_comment_votes_params, options=)
+> AdjustVotesResponse post_adjust_comment_votes(tenant_id, comment_id, adjust_comment_votes_params, options)
 
 ### Example
 
@@ -1749,7 +1749,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_api_export**
-> ModerationExportResponse post_api_export(tenant_id, options=)
+> ModerationExportResponse post_api_export(tenant_id, options)
 
 ### Example
 
@@ -1826,7 +1826,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_ban_user_from_comment**
-> BanUserFromCommentResult post_ban_user_from_comment(tenant_id, comment_id, options=)
+> BanUserFromCommentResult post_ban_user_from_comment(tenant_id, comment_id, options)
 
 ### Example
 
@@ -1980,7 +1980,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_bulk_pre_ban_summary**
-> BulkPreBanSummary post_bulk_pre_ban_summary(tenant_id, bulk_pre_ban_params, options=)
+> BulkPreBanSummary post_bulk_pre_ban_summary(tenant_id, bulk_pre_ban_params, options)
 
 ### Example
 
@@ -2125,7 +2125,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_flag_comment**
-> APIEmptyResponse post_flag_comment(tenant_id, comment_id, options=)
+> APIEmptyResponse post_flag_comment(tenant_id, comment_id, options)
 
 ### Example
 
@@ -2196,7 +2196,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_remove_comment**
-> PostRemoveCommentApiResponse post_remove_comment(tenant_id, comment_id, options=)
+> PostRemoveCommentApiResponse post_remove_comment(tenant_id, comment_id, options)
 
 ### Example
 
@@ -2267,7 +2267,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_restore_deleted_comment**
-> APIEmptyResponse post_restore_deleted_comment(tenant_id, comment_id, options=)
+> APIEmptyResponse post_restore_deleted_comment(tenant_id, comment_id, options)
 
 ### Example
 
@@ -2338,7 +2338,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_set_comment_approval_status**
-> SetCommentApprovedResponse post_set_comment_approval_status(tenant_id, comment_id, options=)
+> SetCommentApprovedResponse post_set_comment_approval_status(tenant_id, comment_id, options)
 
 ### Example
 
@@ -2411,7 +2411,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_set_comment_review_status**
-> APIEmptyResponse post_set_comment_review_status(tenant_id, comment_id, options=)
+> APIEmptyResponse post_set_comment_review_status(tenant_id, comment_id, options)
 
 ### Example
 
@@ -2484,7 +2484,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_set_comment_spam_status**
-> APIEmptyResponse post_set_comment_spam_status(tenant_id, comment_id, options=)
+> APIEmptyResponse post_set_comment_spam_status(tenant_id, comment_id, options)
 
 ### Example
 
@@ -2559,7 +2559,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_set_comment_text**
-> SetCommentTextResponse post_set_comment_text(tenant_id, comment_id, set_comment_text_params, options=)
+> SetCommentTextResponse post_set_comment_text(tenant_id, comment_id, set_comment_text_params, options)
 
 ### Example
 
@@ -2633,7 +2633,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_un_flag_comment**
-> APIEmptyResponse post_un_flag_comment(tenant_id, comment_id, options=)
+> APIEmptyResponse post_un_flag_comment(tenant_id, comment_id, options)
 
 ### Example
 
@@ -2704,7 +2704,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_vote**
-> VoteResponse post_vote(tenant_id, comment_id, options=)
+> VoteResponse post_vote(tenant_id, comment_id, options)
 
 ### Example
 
@@ -2777,7 +2777,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_award_badge**
-> AwardUserBadgeResponse put_award_badge(tenant_id, badge_id, options=)
+> AwardUserBadgeResponse put_award_badge(tenant_id, badge_id, options)
 
 ### Example
 
@@ -2920,7 +2920,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_remove_badge**
-> RemoveUserBadgeResponse put_remove_badge(tenant_id, badge_id, options=)
+> RemoveUserBadgeResponse put_remove_badge(tenant_id, badge_id, options)
 
 ### Example
 
@@ -3063,7 +3063,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_trust_factor**
-> SetUserTrustFactorResponse set_trust_factor(tenant_id, options=)
+> SetUserTrustFactorResponse set_trust_factor(tenant_id, options)
 
 ### Example
 

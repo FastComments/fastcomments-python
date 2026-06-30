@@ -198,7 +198,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_comment_public**
-> SaveCommentsResponseWithPresence create_comment_public(tenant_id, url_id, broadcast_id, comment_data, options=)
+> SaveCommentsResponseWithPresence create_comment_public(tenant_id, url_id, broadcast_id, comment_data, options)
 
 ### Example
 
@@ -274,7 +274,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_feed_post_public**
-> CreateFeedPostResponse create_feed_post_public(tenant_id, create_feed_post_params, options=)
+> CreateFeedPostResponse create_feed_post_public(tenant_id, create_feed_post_params, options)
 
 ### Example
 
@@ -484,7 +484,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_comment_public**
-> PublicAPIDeleteCommentResponse delete_comment_public(tenant_id, comment_id, broadcast_id, options=)
+> PublicAPIDeleteCommentResponse delete_comment_public(tenant_id, comment_id, broadcast_id, options)
 
 ### Example
 
@@ -557,7 +557,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_comment_vote**
-> VoteDeleteResponse delete_comment_vote(tenant_id, comment_id, vote_id, url_id, broadcast_id, options=)
+> VoteDeleteResponse delete_comment_vote(tenant_id, comment_id, vote_id, url_id, broadcast_id, options)
 
 ### Example
 
@@ -634,7 +634,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_feed_post_public**
-> DeleteFeedPostPublicResponse delete_feed_post_public(tenant_id, post_id, options=)
+> DeleteFeedPostPublicResponse delete_feed_post_public(tenant_id, post_id, options)
 
 ### Example
 
@@ -909,7 +909,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comment_text**
-> PublicAPIGetCommentTextResponse get_comment_text(tenant_id, comment_id, options=)
+> PublicAPIGetCommentTextResponse get_comment_text(tenant_id, comment_id, options)
 
 ### Example
 
@@ -1050,7 +1050,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comments_for_user**
-> GetCommentsForUserResponse get_comments_for_user(options=)
+> GetCommentsForUserResponse get_comments_for_user(options)
 
 ### Example
 
@@ -1128,7 +1128,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_comments_public**
-> GetCommentsResponseWithPresencePublicComment get_comments_public(tenant_id, url_id, options=)
+> GetCommentsResponseWithPresencePublicComment get_comments_public(tenant_id, url_id, options)
 
 
 req
@@ -1331,7 +1331,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_feed_posts_public**
-> PublicFeedPostsResponse get_feed_posts_public(tenant_id, options=)
+> PublicFeedPostsResponse get_feed_posts_public(tenant_id, options)
 
 
 req
@@ -1548,7 +1548,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_gifs_search**
-> GetGifsSearchResponse get_gifs_search(tenant_id, search, options=)
+> GetGifsSearchResponse get_gifs_search(tenant_id, search, options)
 
 ### Example
 
@@ -1622,7 +1622,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_gifs_trending**
-> GetGifsTrendingResponse get_gifs_trending(tenant_id, options=)
+> GetGifsTrendingResponse get_gifs_trending(tenant_id, options)
 
 ### Example
 
@@ -1770,7 +1770,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_offline_users**
-> PageUsersOfflineResponse get_offline_users(tenant_id, url_id, options=)
+> PageUsersOfflineResponse get_offline_users(tenant_id, url_id, options)
 
 Past commenters on the page who are NOT currently online. Sorted by displayName.
 Use this after exhausting /users/online to render a "Members" section.
@@ -1848,7 +1848,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_online_users**
-> PageUsersOnlineResponse get_online_users(tenant_id, url_id, options=)
+> PageUsersOnlineResponse get_online_users(tenant_id, url_id, options)
 
 Currently-online viewers of a page: people whose websocket session is subscribed to the page right now.
 Returns anonCount + totalCount (room-wide subscribers, including anon viewers we don't enumerate).
@@ -1924,7 +1924,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_pages_public**
-> GetPublicPagesResponse get_pages_public(tenant_id, options=)
+> GetPublicPagesResponse get_pages_public(tenant_id, options)
 
 List pages for a tenant. Used by the FChat desktop client to populate its room list.
 Requires `enableFChat` to be true on the resolved custom config for each page.
@@ -2004,7 +2004,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_translations**
-> GetTranslationsResponse get_translations(namespace, component, options=)
+> GetTranslationsResponse get_translations(namespace, component, options)
 
 ### Example
 
@@ -2143,7 +2143,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_notifications**
-> GetMyNotificationsResponse get_user_notifications(tenant_id, options=)
+> GetMyNotificationsResponse get_user_notifications(tenant_id, options)
 
 ### Example
 
@@ -2299,7 +2299,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_reacts_public**
-> UserReactsResponse get_user_reacts_public(tenant_id, options=)
+> UserReactsResponse get_user_reacts_public(tenant_id, options)
 
 ### Example
 
@@ -2838,7 +2838,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **react_feed_post_public**
-> ReactFeedPostResponse react_feed_post_public(tenant_id, post_id, react_body_params, options=)
+> ReactFeedPostResponse react_feed_post_public(tenant_id, post_id, react_body_params, options)
 
 ### Example
 
@@ -2980,7 +2980,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reset_user_notifications**
-> ResetUserNotificationsResponse reset_user_notifications(tenant_id, options=)
+> ResetUserNotificationsResponse reset_user_notifications(tenant_id, options)
 
 ### Example
 
@@ -3057,7 +3057,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_users**
-> SearchUsersResult search_users(tenant_id, url_id, options=)
+> SearchUsersResult search_users(tenant_id, url_id, options)
 
 ### Example
 
@@ -3132,7 +3132,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_comment_text**
-> PublicAPISetCommentTextResponse set_comment_text(tenant_id, comment_id, broadcast_id, comment_text_update_request, options=)
+> PublicAPISetCommentTextResponse set_comment_text(tenant_id, comment_id, broadcast_id, comment_text_update_request, options)
 
 ### Example
 
@@ -3419,7 +3419,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_feed_post_public**
-> CreateFeedPostResponse update_feed_post_public(tenant_id, post_id, update_feed_post_params, options=)
+> CreateFeedPostResponse update_feed_post_public(tenant_id, post_id, update_feed_post_params, options)
 
 ### Example
 
@@ -3714,7 +3714,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **upload_image**
-> UploadImageResponse upload_image(tenant_id, file, options=)
+> UploadImageResponse upload_image(tenant_id, file, options)
 
 Upload and resize an image
 
@@ -3787,7 +3787,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **vote_comment**
-> VoteResponse vote_comment(tenant_id, comment_id, url_id, broadcast_id, vote_body_params, options=)
+> VoteResponse vote_comment(tenant_id, comment_id, url_id, broadcast_id, vote_body_params, options)
 
 ### Example
 
