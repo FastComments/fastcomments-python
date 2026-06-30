@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
     fastcomments
 
@@ -10,6 +8,7 @@
 
     Do not edit the class manually.
 """  # noqa: E501
+
 
 import warnings
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
@@ -156,6 +155,331 @@ from client.models.vote_response import VoteResponse
 from client.api_client import ApiClient, RequestSerialized
 from client.api_response import ApiResponse
 from client.rest import RESTResponseType
+
+
+from pydantic import BaseModel
+
+
+class AggregateOptions(BaseModel):
+    """Optional parameters for aggregate."""
+    parent_tenant_id: Optional[StrictStr] = None
+    include_stats: Optional[StrictBool] = None
+
+
+from pydantic import BaseModel
+
+
+class AggregateQuestionResultsOptions(BaseModel):
+    """Optional parameters for aggregate_question_results."""
+    question_id: Optional[StrictStr] = None
+    question_ids: Optional[List[StrictStr]] = None
+    url_id: Optional[StrictStr] = None
+    time_bucket: Optional[AggregateTimeBucket] = None
+    start_date: Optional[datetime] = None
+    force_recalculate: Optional[StrictBool] = None
+
+
+from pydantic import BaseModel
+
+
+class BlockUserFromCommentOptions(BaseModel):
+    """Optional parameters for block_user_from_comment."""
+    user_id: Optional[StrictStr] = None
+    anon_user_id: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class CombineCommentsWithQuestionResultsOptions(BaseModel):
+    """Optional parameters for combine_comments_with_question_results."""
+    question_id: Optional[StrictStr] = None
+    question_ids: Optional[List[StrictStr]] = None
+    url_id: Optional[StrictStr] = None
+    start_date: Optional[datetime] = None
+    force_recalculate: Optional[StrictBool] = None
+    min_value: Optional[Union[StrictFloat, StrictInt]] = None
+    max_value: Optional[Union[StrictFloat, StrictInt]] = None
+    limit: Optional[Union[StrictFloat, StrictInt]] = None
+
+
+from pydantic import BaseModel
+
+
+class CreateFeedPostOptions(BaseModel):
+    """Optional parameters for create_feed_post."""
+    broadcast_id: Optional[StrictStr] = None
+    is_live: Optional[StrictBool] = None
+    do_spam_check: Optional[StrictBool] = None
+    skip_dup_check: Optional[StrictBool] = None
+
+
+from pydantic import BaseModel
+
+
+class CreateVoteOptions(BaseModel):
+    """Optional parameters for create_vote."""
+    user_id: Optional[StrictStr] = None
+    anon_user_id: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class DeleteCommentOptions(BaseModel):
+    """Optional parameters for delete_comment."""
+    context_user_id: Optional[StrictStr] = None
+    is_live: Optional[StrictBool] = None
+
+
+from pydantic import BaseModel
+
+
+class DeleteSsoUserOptions(BaseModel):
+    """Optional parameters for delete_sso_user."""
+    delete_comments: Optional[StrictBool] = None
+    comment_delete_mode: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class DeleteTenantUserOptions(BaseModel):
+    """Optional parameters for delete_tenant_user."""
+    delete_comments: Optional[StrictStr] = None
+    comment_delete_mode: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class FlagCommentOptions(BaseModel):
+    """Optional parameters for flag_comment."""
+    user_id: Optional[StrictStr] = None
+    anon_user_id: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class GetAuditLogsOptions(BaseModel):
+    """Optional parameters for get_audit_logs."""
+    limit: Optional[Union[StrictFloat, StrictInt]] = None
+    skip: Optional[Union[StrictFloat, StrictInt]] = None
+    order: Optional[SORTDIR] = None
+    after: Optional[Union[StrictFloat, StrictInt]] = None
+    before: Optional[Union[StrictFloat, StrictInt]] = None
+
+
+from pydantic import BaseModel
+
+
+class GetCommentsOptions(BaseModel):
+    """Optional parameters for get_comments."""
+    page: Optional[StrictInt] = None
+    limit: Optional[StrictInt] = None
+    skip: Optional[StrictInt] = None
+    as_tree: Optional[StrictBool] = None
+    skip_children: Optional[StrictInt] = None
+    limit_children: Optional[StrictInt] = None
+    max_tree_depth: Optional[StrictInt] = None
+    url_id: Optional[StrictStr] = None
+    user_id: Optional[StrictStr] = None
+    anon_user_id: Optional[StrictStr] = None
+    context_user_id: Optional[StrictStr] = None
+    hash_tag: Optional[StrictStr] = None
+    parent_id: Optional[StrictStr] = None
+    direction: Optional[SortDirections] = None
+    from_date: Optional[StrictInt] = None
+    to_date: Optional[StrictInt] = None
+
+
+from pydantic import BaseModel
+
+
+class GetFeedPostsOptions(BaseModel):
+    """Optional parameters for get_feed_posts."""
+    after_id: Optional[StrictStr] = None
+    limit: Optional[StrictInt] = None
+    tags: Optional[List[StrictStr]] = None
+
+
+from pydantic import BaseModel
+
+
+class GetNotificationCountOptions(BaseModel):
+    """Optional parameters for get_notification_count."""
+    user_id: Optional[StrictStr] = None
+    url_id: Optional[StrictStr] = None
+    from_comment_id: Optional[StrictStr] = None
+    viewed: Optional[StrictBool] = None
+    type: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class GetNotificationsOptions(BaseModel):
+    """Optional parameters for get_notifications."""
+    user_id: Optional[StrictStr] = None
+    url_id: Optional[StrictStr] = None
+    from_comment_id: Optional[StrictStr] = None
+    viewed: Optional[StrictBool] = None
+    type: Optional[StrictStr] = None
+    skip: Optional[Union[StrictFloat, StrictInt]] = None
+
+
+from pydantic import BaseModel
+
+
+class GetPendingWebhookEventCountOptions(BaseModel):
+    """Optional parameters for get_pending_webhook_event_count."""
+    comment_id: Optional[StrictStr] = None
+    external_id: Optional[StrictStr] = None
+    event_type: Optional[StrictStr] = None
+    type: Optional[StrictStr] = None
+    domain: Optional[StrictStr] = None
+    attempt_count_gt: Optional[Union[StrictFloat, StrictInt]] = None
+
+
+from pydantic import BaseModel
+
+
+class GetPendingWebhookEventsOptions(BaseModel):
+    """Optional parameters for get_pending_webhook_events."""
+    comment_id: Optional[StrictStr] = None
+    external_id: Optional[StrictStr] = None
+    event_type: Optional[StrictStr] = None
+    type: Optional[StrictStr] = None
+    domain: Optional[StrictStr] = None
+    attempt_count_gt: Optional[Union[StrictFloat, StrictInt]] = None
+    skip: Optional[Union[StrictFloat, StrictInt]] = None
+
+
+from pydantic import BaseModel
+
+
+class GetQuestionResultsOptions(BaseModel):
+    """Optional parameters for get_question_results."""
+    url_id: Optional[StrictStr] = None
+    user_id: Optional[StrictStr] = None
+    start_date: Optional[StrictStr] = None
+    question_id: Optional[StrictStr] = None
+    question_ids: Optional[StrictStr] = None
+    skip: Optional[Union[StrictFloat, StrictInt]] = None
+
+
+from pydantic import BaseModel
+
+
+class GetTenantDailyUsagesOptions(BaseModel):
+    """Optional parameters for get_tenant_daily_usages."""
+    year_number: Optional[Union[StrictFloat, StrictInt]] = None
+    month_number: Optional[Union[StrictFloat, StrictInt]] = None
+    day_number: Optional[Union[StrictFloat, StrictInt]] = None
+    skip: Optional[Union[StrictFloat, StrictInt]] = None
+
+
+from pydantic import BaseModel
+
+
+class GetTenantsOptions(BaseModel):
+    """Optional parameters for get_tenants."""
+    meta: Optional[StrictStr] = None
+    skip: Optional[Union[StrictFloat, StrictInt]] = None
+
+
+from pydantic import BaseModel
+
+
+class GetTicketsOptions(BaseModel):
+    """Optional parameters for get_tickets."""
+    user_id: Optional[StrictStr] = None
+    state: Optional[Union[StrictFloat, StrictInt]] = None
+    skip: Optional[Union[StrictFloat, StrictInt]] = None
+    limit: Optional[Union[StrictFloat, StrictInt]] = None
+
+
+from pydantic import BaseModel
+
+
+class GetUserBadgeProgressListOptions(BaseModel):
+    """Optional parameters for get_user_badge_progress_list."""
+    user_id: Optional[StrictStr] = None
+    limit: Optional[Union[StrictFloat, StrictInt]] = None
+    skip: Optional[Union[StrictFloat, StrictInt]] = None
+
+
+from pydantic import BaseModel
+
+
+class GetUserBadgesOptions(BaseModel):
+    """Optional parameters for get_user_badges."""
+    user_id: Optional[StrictStr] = None
+    badge_id: Optional[StrictStr] = None
+    type: Optional[Union[StrictFloat, StrictInt]] = None
+    displayed_on_comments: Optional[StrictBool] = None
+    limit: Optional[Union[StrictFloat, StrictInt]] = None
+    skip: Optional[Union[StrictFloat, StrictInt]] = None
+
+
+from pydantic import BaseModel
+
+
+class GetVotesForUserOptions(BaseModel):
+    """Optional parameters for get_votes_for_user."""
+    user_id: Optional[StrictStr] = None
+    anon_user_id: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class SaveCommentOptions(BaseModel):
+    """Optional parameters for save_comment."""
+    is_live: Optional[StrictBool] = None
+    do_spam_check: Optional[StrictBool] = None
+    send_emails: Optional[StrictBool] = None
+    populate_notifications: Optional[StrictBool] = None
+
+
+from pydantic import BaseModel
+
+
+class SaveCommentsBulkOptions(BaseModel):
+    """Optional parameters for save_comments_bulk."""
+    is_live: Optional[StrictBool] = None
+    do_spam_check: Optional[StrictBool] = None
+    send_emails: Optional[StrictBool] = None
+    populate_notifications: Optional[StrictBool] = None
+
+
+from pydantic import BaseModel
+
+
+class UnBlockUserFromCommentOptions(BaseModel):
+    """Optional parameters for un_block_user_from_comment."""
+    user_id: Optional[StrictStr] = None
+    anon_user_id: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class UnFlagCommentOptions(BaseModel):
+    """Optional parameters for un_flag_comment."""
+    user_id: Optional[StrictStr] = None
+    anon_user_id: Optional[StrictStr] = None
+
+
+from pydantic import BaseModel
+
+
+class UpdateCommentOptions(BaseModel):
+    """Optional parameters for update_comment."""
+    context_user_id: Optional[StrictStr] = None
+    do_spam_check: Optional[StrictBool] = None
+    is_live: Optional[StrictBool] = None
 
 
 class DefaultApi:
@@ -462,7 +786,7 @@ class DefaultApi:
     @validate_call
     def add_hash_tag(
         self,
-        tenant_id: Optional[StrictStr] = None,
+        tenant_id: StrictStr,
         create_hash_tag_body: Optional[CreateHashTagBody] = None,
         _request_timeout: Union[
             None,
@@ -480,10 +804,10 @@ class DefaultApi:
         """add_hash_tag
 
 
-        :param tenant_id:
+        :param tenant_id: (required)
         :type tenant_id: str
-        :param create_hash_tag_body:
-        :type create_hash_tag_body: CreateHashTagBody
+        :param create_hash_tag_body: (optional)
+        :type create_hash_tag_body: CreateHashTagBody, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -532,7 +856,7 @@ class DefaultApi:
     @validate_call
     def add_hash_tag_with_http_info(
         self,
-        tenant_id: Optional[StrictStr] = None,
+        tenant_id: StrictStr,
         create_hash_tag_body: Optional[CreateHashTagBody] = None,
         _request_timeout: Union[
             None,
@@ -550,10 +874,10 @@ class DefaultApi:
         """add_hash_tag
 
 
-        :param tenant_id:
+        :param tenant_id: (required)
         :type tenant_id: str
-        :param create_hash_tag_body:
-        :type create_hash_tag_body: CreateHashTagBody
+        :param create_hash_tag_body: (optional)
+        :type create_hash_tag_body: CreateHashTagBody, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -602,7 +926,7 @@ class DefaultApi:
     @validate_call
     def add_hash_tag_without_preload_content(
         self,
-        tenant_id: Optional[StrictStr] = None,
+        tenant_id: StrictStr,
         create_hash_tag_body: Optional[CreateHashTagBody] = None,
         _request_timeout: Union[
             None,
@@ -620,10 +944,10 @@ class DefaultApi:
         """add_hash_tag
 
 
-        :param tenant_id:
+        :param tenant_id: (required)
         :type tenant_id: str
-        :param create_hash_tag_body:
-        :type create_hash_tag_body: CreateHashTagBody
+        :param create_hash_tag_body: (optional)
+        :type create_hash_tag_body: CreateHashTagBody, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -750,7 +1074,7 @@ class DefaultApi:
     @validate_call
     def add_hash_tags_bulk(
         self,
-        tenant_id: Optional[StrictStr] = None,
+        tenant_id: StrictStr,
         bulk_create_hash_tags_body: Optional[BulkCreateHashTagsBody] = None,
         _request_timeout: Union[
             None,
@@ -768,10 +1092,10 @@ class DefaultApi:
         """add_hash_tags_bulk
 
 
-        :param tenant_id:
+        :param tenant_id: (required)
         :type tenant_id: str
-        :param bulk_create_hash_tags_body:
-        :type bulk_create_hash_tags_body: BulkCreateHashTagsBody
+        :param bulk_create_hash_tags_body: (optional)
+        :type bulk_create_hash_tags_body: BulkCreateHashTagsBody, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -820,7 +1144,7 @@ class DefaultApi:
     @validate_call
     def add_hash_tags_bulk_with_http_info(
         self,
-        tenant_id: Optional[StrictStr] = None,
+        tenant_id: StrictStr,
         bulk_create_hash_tags_body: Optional[BulkCreateHashTagsBody] = None,
         _request_timeout: Union[
             None,
@@ -838,10 +1162,10 @@ class DefaultApi:
         """add_hash_tags_bulk
 
 
-        :param tenant_id:
+        :param tenant_id: (required)
         :type tenant_id: str
-        :param bulk_create_hash_tags_body:
-        :type bulk_create_hash_tags_body: BulkCreateHashTagsBody
+        :param bulk_create_hash_tags_body: (optional)
+        :type bulk_create_hash_tags_body: BulkCreateHashTagsBody, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -890,7 +1214,7 @@ class DefaultApi:
     @validate_call
     def add_hash_tags_bulk_without_preload_content(
         self,
-        tenant_id: Optional[StrictStr] = None,
+        tenant_id: StrictStr,
         bulk_create_hash_tags_body: Optional[BulkCreateHashTagsBody] = None,
         _request_timeout: Union[
             None,
@@ -908,10 +1232,10 @@ class DefaultApi:
         """add_hash_tags_bulk
 
 
-        :param tenant_id:
+        :param tenant_id: (required)
         :type tenant_id: str
-        :param bulk_create_hash_tags_body:
-        :type bulk_create_hash_tags_body: BulkCreateHashTagsBody
+        :param bulk_create_hash_tags_body: (optional)
+        :type bulk_create_hash_tags_body: BulkCreateHashTagsBody, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1616,8 +1940,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         aggregation_request: AggregationRequest,
-        parent_tenant_id: Optional[StrictStr] = None,
-        include_stats: Optional[StrictBool] = None,
+        options: Optional[AggregateOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1639,10 +1962,8 @@ class DefaultApi:
         :type tenant_id: str
         :param aggregation_request: (required)
         :type aggregation_request: AggregationRequest
-        :param parent_tenant_id:
-        :type parent_tenant_id: str
-        :param include_stats:
-        :type include_stats: bool
+        :param options: Optional parameters for this operation.
+        :type options: AggregateOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1668,8 +1989,8 @@ class DefaultApi:
         _param = self._aggregate_serialize(
             tenant_id=tenant_id,
             aggregation_request=aggregation_request,
-            parent_tenant_id=parent_tenant_id,
-            include_stats=include_stats,
+            parent_tenant_id=options.parent_tenant_id if options is not None else None,
+            include_stats=options.include_stats if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1695,8 +2016,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         aggregation_request: AggregationRequest,
-        parent_tenant_id: Optional[StrictStr] = None,
-        include_stats: Optional[StrictBool] = None,
+        options: Optional[AggregateOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1718,10 +2038,8 @@ class DefaultApi:
         :type tenant_id: str
         :param aggregation_request: (required)
         :type aggregation_request: AggregationRequest
-        :param parent_tenant_id:
-        :type parent_tenant_id: str
-        :param include_stats:
-        :type include_stats: bool
+        :param options: Optional parameters for this operation.
+        :type options: AggregateOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1747,8 +2065,8 @@ class DefaultApi:
         _param = self._aggregate_serialize(
             tenant_id=tenant_id,
             aggregation_request=aggregation_request,
-            parent_tenant_id=parent_tenant_id,
-            include_stats=include_stats,
+            parent_tenant_id=options.parent_tenant_id if options is not None else None,
+            include_stats=options.include_stats if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1774,8 +2092,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         aggregation_request: AggregationRequest,
-        parent_tenant_id: Optional[StrictStr] = None,
-        include_stats: Optional[StrictBool] = None,
+        options: Optional[AggregateOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1797,10 +2114,8 @@ class DefaultApi:
         :type tenant_id: str
         :param aggregation_request: (required)
         :type aggregation_request: AggregationRequest
-        :param parent_tenant_id:
-        :type parent_tenant_id: str
-        :param include_stats:
-        :type include_stats: bool
+        :param options: Optional parameters for this operation.
+        :type options: AggregateOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1826,8 +2141,8 @@ class DefaultApi:
         _param = self._aggregate_serialize(
             tenant_id=tenant_id,
             aggregation_request=aggregation_request,
-            parent_tenant_id=parent_tenant_id,
-            include_stats=include_stats,
+            parent_tenant_id=options.parent_tenant_id if options is not None else None,
+            include_stats=options.include_stats if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1940,12 +2255,7 @@ class DefaultApi:
     def aggregate_question_results(
         self,
         tenant_id: StrictStr,
-        question_id: Optional[StrictStr] = None,
-        question_ids: Optional[List[StrictStr]] = None,
-        url_id: Optional[StrictStr] = None,
-        time_bucket: Optional[AggregateTimeBucket] = None,
-        start_date: Optional[datetime] = None,
-        force_recalculate: Optional[StrictBool] = None,
+        options: Optional[AggregateQuestionResultsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1964,18 +2274,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param question_id:
-        :type question_id: str
-        :param question_ids:
-        :type question_ids: List[str]
-        :param url_id:
-        :type url_id: str
-        :param time_bucket:
-        :type time_bucket: AggregateTimeBucket
-        :param start_date:
-        :type start_date: datetime
-        :param force_recalculate:
-        :type force_recalculate: bool
+        :param options: Optional parameters for this operation.
+        :type options: AggregateQuestionResultsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2000,12 +2300,12 @@ class DefaultApi:
 
         _param = self._aggregate_question_results_serialize(
             tenant_id=tenant_id,
-            question_id=question_id,
-            question_ids=question_ids,
-            url_id=url_id,
-            time_bucket=time_bucket,
-            start_date=start_date,
-            force_recalculate=force_recalculate,
+            question_id=options.question_id if options is not None else None,
+            question_ids=options.question_ids if options is not None else None,
+            url_id=options.url_id if options is not None else None,
+            time_bucket=options.time_bucket if options is not None else None,
+            start_date=options.start_date if options is not None else None,
+            force_recalculate=options.force_recalculate if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2030,12 +2330,7 @@ class DefaultApi:
     def aggregate_question_results_with_http_info(
         self,
         tenant_id: StrictStr,
-        question_id: Optional[StrictStr] = None,
-        question_ids: Optional[List[StrictStr]] = None,
-        url_id: Optional[StrictStr] = None,
-        time_bucket: Optional[AggregateTimeBucket] = None,
-        start_date: Optional[datetime] = None,
-        force_recalculate: Optional[StrictBool] = None,
+        options: Optional[AggregateQuestionResultsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2054,18 +2349,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param question_id:
-        :type question_id: str
-        :param question_ids:
-        :type question_ids: List[str]
-        :param url_id:
-        :type url_id: str
-        :param time_bucket:
-        :type time_bucket: AggregateTimeBucket
-        :param start_date:
-        :type start_date: datetime
-        :param force_recalculate:
-        :type force_recalculate: bool
+        :param options: Optional parameters for this operation.
+        :type options: AggregateQuestionResultsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2090,12 +2375,12 @@ class DefaultApi:
 
         _param = self._aggregate_question_results_serialize(
             tenant_id=tenant_id,
-            question_id=question_id,
-            question_ids=question_ids,
-            url_id=url_id,
-            time_bucket=time_bucket,
-            start_date=start_date,
-            force_recalculate=force_recalculate,
+            question_id=options.question_id if options is not None else None,
+            question_ids=options.question_ids if options is not None else None,
+            url_id=options.url_id if options is not None else None,
+            time_bucket=options.time_bucket if options is not None else None,
+            start_date=options.start_date if options is not None else None,
+            force_recalculate=options.force_recalculate if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2120,12 +2405,7 @@ class DefaultApi:
     def aggregate_question_results_without_preload_content(
         self,
         tenant_id: StrictStr,
-        question_id: Optional[StrictStr] = None,
-        question_ids: Optional[List[StrictStr]] = None,
-        url_id: Optional[StrictStr] = None,
-        time_bucket: Optional[AggregateTimeBucket] = None,
-        start_date: Optional[datetime] = None,
-        force_recalculate: Optional[StrictBool] = None,
+        options: Optional[AggregateQuestionResultsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2144,18 +2424,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param question_id:
-        :type question_id: str
-        :param question_ids:
-        :type question_ids: List[str]
-        :param url_id:
-        :type url_id: str
-        :param time_bucket:
-        :type time_bucket: AggregateTimeBucket
-        :param start_date:
-        :type start_date: datetime
-        :param force_recalculate:
-        :type force_recalculate: bool
+        :param options: Optional parameters for this operation.
+        :type options: AggregateQuestionResultsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2180,12 +2450,12 @@ class DefaultApi:
 
         _param = self._aggregate_question_results_serialize(
             tenant_id=tenant_id,
-            question_id=question_id,
-            question_ids=question_ids,
-            url_id=url_id,
-            time_bucket=time_bucket,
-            start_date=start_date,
-            force_recalculate=force_recalculate,
+            question_id=options.question_id if options is not None else None,
+            question_ids=options.question_ids if options is not None else None,
+            url_id=options.url_id if options is not None else None,
+            time_bucket=options.time_bucket if options is not None else None,
+            start_date=options.start_date if options is not None else None,
+            force_recalculate=options.force_recalculate if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2314,8 +2584,7 @@ class DefaultApi:
         tenant_id: StrictStr,
         id: StrictStr,
         block_from_comment_params: BlockFromCommentParams,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[BlockUserFromCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2338,10 +2607,8 @@ class DefaultApi:
         :type id: str
         :param block_from_comment_params: (required)
         :type block_from_comment_params: BlockFromCommentParams
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: BlockUserFromCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2368,8 +2635,8 @@ class DefaultApi:
             tenant_id=tenant_id,
             id=id,
             block_from_comment_params=block_from_comment_params,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2396,8 +2663,7 @@ class DefaultApi:
         tenant_id: StrictStr,
         id: StrictStr,
         block_from_comment_params: BlockFromCommentParams,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[BlockUserFromCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2420,10 +2686,8 @@ class DefaultApi:
         :type id: str
         :param block_from_comment_params: (required)
         :type block_from_comment_params: BlockFromCommentParams
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: BlockUserFromCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2450,8 +2714,8 @@ class DefaultApi:
             tenant_id=tenant_id,
             id=id,
             block_from_comment_params=block_from_comment_params,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2478,8 +2742,7 @@ class DefaultApi:
         tenant_id: StrictStr,
         id: StrictStr,
         block_from_comment_params: BlockFromCommentParams,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[BlockUserFromCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2502,10 +2765,8 @@ class DefaultApi:
         :type id: str
         :param block_from_comment_params: (required)
         :type block_from_comment_params: BlockFromCommentParams
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: BlockUserFromCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2532,8 +2793,8 @@ class DefaultApi:
             tenant_id=tenant_id,
             id=id,
             block_from_comment_params=block_from_comment_params,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2671,8 +2932,8 @@ class DefaultApi:
         :type tenant_id: str
         :param bulk_aggregate_question_results_request: (required)
         :type bulk_aggregate_question_results_request: BulkAggregateQuestionResultsRequest
-        :param force_recalculate:
-        :type force_recalculate: bool
+        :param force_recalculate: (optional)
+        :type force_recalculate: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2745,8 +3006,8 @@ class DefaultApi:
         :type tenant_id: str
         :param bulk_aggregate_question_results_request: (required)
         :type bulk_aggregate_question_results_request: BulkAggregateQuestionResultsRequest
-        :param force_recalculate:
-        :type force_recalculate: bool
+        :param force_recalculate: (optional)
+        :type force_recalculate: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2819,8 +3080,8 @@ class DefaultApi:
         :type tenant_id: str
         :param bulk_aggregate_question_results_request: (required)
         :type bulk_aggregate_question_results_request: BulkAggregateQuestionResultsRequest
-        :param force_recalculate:
-        :type force_recalculate: bool
+        :param force_recalculate: (optional)
+        :type force_recalculate: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3274,14 +3535,7 @@ class DefaultApi:
     def combine_comments_with_question_results(
         self,
         tenant_id: StrictStr,
-        question_id: Optional[StrictStr] = None,
-        question_ids: Optional[List[StrictStr]] = None,
-        url_id: Optional[StrictStr] = None,
-        start_date: Optional[datetime] = None,
-        force_recalculate: Optional[StrictBool] = None,
-        min_value: Optional[Union[StrictFloat, StrictInt]] = None,
-        max_value: Optional[Union[StrictFloat, StrictInt]] = None,
-        limit: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[CombineCommentsWithQuestionResultsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3300,22 +3554,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param question_id:
-        :type question_id: str
-        :param question_ids:
-        :type question_ids: List[str]
-        :param url_id:
-        :type url_id: str
-        :param start_date:
-        :type start_date: datetime
-        :param force_recalculate:
-        :type force_recalculate: bool
-        :param min_value:
-        :type min_value: float
-        :param max_value:
-        :type max_value: float
-        :param limit:
-        :type limit: float
+        :param options: Optional parameters for this operation.
+        :type options: CombineCommentsWithQuestionResultsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3340,14 +3580,14 @@ class DefaultApi:
 
         _param = self._combine_comments_with_question_results_serialize(
             tenant_id=tenant_id,
-            question_id=question_id,
-            question_ids=question_ids,
-            url_id=url_id,
-            start_date=start_date,
-            force_recalculate=force_recalculate,
-            min_value=min_value,
-            max_value=max_value,
-            limit=limit,
+            question_id=options.question_id if options is not None else None,
+            question_ids=options.question_ids if options is not None else None,
+            url_id=options.url_id if options is not None else None,
+            start_date=options.start_date if options is not None else None,
+            force_recalculate=options.force_recalculate if options is not None else None,
+            min_value=options.min_value if options is not None else None,
+            max_value=options.max_value if options is not None else None,
+            limit=options.limit if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3372,14 +3612,7 @@ class DefaultApi:
     def combine_comments_with_question_results_with_http_info(
         self,
         tenant_id: StrictStr,
-        question_id: Optional[StrictStr] = None,
-        question_ids: Optional[List[StrictStr]] = None,
-        url_id: Optional[StrictStr] = None,
-        start_date: Optional[datetime] = None,
-        force_recalculate: Optional[StrictBool] = None,
-        min_value: Optional[Union[StrictFloat, StrictInt]] = None,
-        max_value: Optional[Union[StrictFloat, StrictInt]] = None,
-        limit: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[CombineCommentsWithQuestionResultsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3398,22 +3631,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param question_id:
-        :type question_id: str
-        :param question_ids:
-        :type question_ids: List[str]
-        :param url_id:
-        :type url_id: str
-        :param start_date:
-        :type start_date: datetime
-        :param force_recalculate:
-        :type force_recalculate: bool
-        :param min_value:
-        :type min_value: float
-        :param max_value:
-        :type max_value: float
-        :param limit:
-        :type limit: float
+        :param options: Optional parameters for this operation.
+        :type options: CombineCommentsWithQuestionResultsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3438,14 +3657,14 @@ class DefaultApi:
 
         _param = self._combine_comments_with_question_results_serialize(
             tenant_id=tenant_id,
-            question_id=question_id,
-            question_ids=question_ids,
-            url_id=url_id,
-            start_date=start_date,
-            force_recalculate=force_recalculate,
-            min_value=min_value,
-            max_value=max_value,
-            limit=limit,
+            question_id=options.question_id if options is not None else None,
+            question_ids=options.question_ids if options is not None else None,
+            url_id=options.url_id if options is not None else None,
+            start_date=options.start_date if options is not None else None,
+            force_recalculate=options.force_recalculate if options is not None else None,
+            min_value=options.min_value if options is not None else None,
+            max_value=options.max_value if options is not None else None,
+            limit=options.limit if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3470,14 +3689,7 @@ class DefaultApi:
     def combine_comments_with_question_results_without_preload_content(
         self,
         tenant_id: StrictStr,
-        question_id: Optional[StrictStr] = None,
-        question_ids: Optional[List[StrictStr]] = None,
-        url_id: Optional[StrictStr] = None,
-        start_date: Optional[datetime] = None,
-        force_recalculate: Optional[StrictBool] = None,
-        min_value: Optional[Union[StrictFloat, StrictInt]] = None,
-        max_value: Optional[Union[StrictFloat, StrictInt]] = None,
-        limit: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[CombineCommentsWithQuestionResultsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3496,22 +3708,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param question_id:
-        :type question_id: str
-        :param question_ids:
-        :type question_ids: List[str]
-        :param url_id:
-        :type url_id: str
-        :param start_date:
-        :type start_date: datetime
-        :param force_recalculate:
-        :type force_recalculate: bool
-        :param min_value:
-        :type min_value: float
-        :param max_value:
-        :type max_value: float
-        :param limit:
-        :type limit: float
+        :param options: Optional parameters for this operation.
+        :type options: CombineCommentsWithQuestionResultsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3536,14 +3734,14 @@ class DefaultApi:
 
         _param = self._combine_comments_with_question_results_serialize(
             tenant_id=tenant_id,
-            question_id=question_id,
-            question_ids=question_ids,
-            url_id=url_id,
-            start_date=start_date,
-            force_recalculate=force_recalculate,
-            min_value=min_value,
-            max_value=max_value,
-            limit=limit,
+            question_id=options.question_id if options is not None else None,
+            question_ids=options.question_ids if options is not None else None,
+            url_id=options.url_id if options is not None else None,
+            start_date=options.start_date if options is not None else None,
+            force_recalculate=options.force_recalculate if options is not None else None,
+            min_value=options.min_value if options is not None else None,
+            max_value=options.max_value if options is not None else None,
+            limit=options.limit if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3969,10 +4167,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         create_feed_post_params: CreateFeedPostParams,
-        broadcast_id: Optional[StrictStr] = None,
-        is_live: Optional[StrictBool] = None,
-        do_spam_check: Optional[StrictBool] = None,
-        skip_dup_check: Optional[StrictBool] = None,
+        options: Optional[CreateFeedPostOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3993,14 +4188,8 @@ class DefaultApi:
         :type tenant_id: str
         :param create_feed_post_params: (required)
         :type create_feed_post_params: CreateFeedPostParams
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param is_live:
-        :type is_live: bool
-        :param do_spam_check:
-        :type do_spam_check: bool
-        :param skip_dup_check:
-        :type skip_dup_check: bool
+        :param options: Optional parameters for this operation.
+        :type options: CreateFeedPostOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4026,10 +4215,10 @@ class DefaultApi:
         _param = self._create_feed_post_serialize(
             tenant_id=tenant_id,
             create_feed_post_params=create_feed_post_params,
-            broadcast_id=broadcast_id,
-            is_live=is_live,
-            do_spam_check=do_spam_check,
-            skip_dup_check=skip_dup_check,
+            broadcast_id=options.broadcast_id if options is not None else None,
+            is_live=options.is_live if options is not None else None,
+            do_spam_check=options.do_spam_check if options is not None else None,
+            skip_dup_check=options.skip_dup_check if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4055,10 +4244,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         create_feed_post_params: CreateFeedPostParams,
-        broadcast_id: Optional[StrictStr] = None,
-        is_live: Optional[StrictBool] = None,
-        do_spam_check: Optional[StrictBool] = None,
-        skip_dup_check: Optional[StrictBool] = None,
+        options: Optional[CreateFeedPostOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4079,14 +4265,8 @@ class DefaultApi:
         :type tenant_id: str
         :param create_feed_post_params: (required)
         :type create_feed_post_params: CreateFeedPostParams
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param is_live:
-        :type is_live: bool
-        :param do_spam_check:
-        :type do_spam_check: bool
-        :param skip_dup_check:
-        :type skip_dup_check: bool
+        :param options: Optional parameters for this operation.
+        :type options: CreateFeedPostOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4112,10 +4292,10 @@ class DefaultApi:
         _param = self._create_feed_post_serialize(
             tenant_id=tenant_id,
             create_feed_post_params=create_feed_post_params,
-            broadcast_id=broadcast_id,
-            is_live=is_live,
-            do_spam_check=do_spam_check,
-            skip_dup_check=skip_dup_check,
+            broadcast_id=options.broadcast_id if options is not None else None,
+            is_live=options.is_live if options is not None else None,
+            do_spam_check=options.do_spam_check if options is not None else None,
+            skip_dup_check=options.skip_dup_check if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4141,10 +4321,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         create_feed_post_params: CreateFeedPostParams,
-        broadcast_id: Optional[StrictStr] = None,
-        is_live: Optional[StrictBool] = None,
-        do_spam_check: Optional[StrictBool] = None,
-        skip_dup_check: Optional[StrictBool] = None,
+        options: Optional[CreateFeedPostOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4165,14 +4342,8 @@ class DefaultApi:
         :type tenant_id: str
         :param create_feed_post_params: (required)
         :type create_feed_post_params: CreateFeedPostParams
-        :param broadcast_id:
-        :type broadcast_id: str
-        :param is_live:
-        :type is_live: bool
-        :param do_spam_check:
-        :type do_spam_check: bool
-        :param skip_dup_check:
-        :type skip_dup_check: bool
+        :param options: Optional parameters for this operation.
+        :type options: CreateFeedPostOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4198,10 +4369,10 @@ class DefaultApi:
         _param = self._create_feed_post_serialize(
             tenant_id=tenant_id,
             create_feed_post_params=create_feed_post_params,
-            broadcast_id=broadcast_id,
-            is_live=is_live,
-            do_spam_check=do_spam_check,
-            skip_dup_check=skip_dup_check,
+            broadcast_id=options.broadcast_id if options is not None else None,
+            is_live=options.is_live if options is not None else None,
+            do_spam_check=options.do_spam_check if options is not None else None,
+            skip_dup_check=options.skip_dup_check if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6935,8 +7106,7 @@ class DefaultApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         direction: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[CreateVoteOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6959,10 +7129,8 @@ class DefaultApi:
         :type comment_id: str
         :param direction: (required)
         :type direction: str
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: CreateVoteOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6989,8 +7157,8 @@ class DefaultApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             direction=direction,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7017,8 +7185,7 @@ class DefaultApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         direction: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[CreateVoteOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7041,10 +7208,8 @@ class DefaultApi:
         :type comment_id: str
         :param direction: (required)
         :type direction: str
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: CreateVoteOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7071,8 +7236,8 @@ class DefaultApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             direction=direction,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7099,8 +7264,7 @@ class DefaultApi:
         tenant_id: StrictStr,
         comment_id: StrictStr,
         direction: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[CreateVoteOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7123,10 +7287,8 @@ class DefaultApi:
         :type comment_id: str
         :param direction: (required)
         :type direction: str
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: CreateVoteOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7153,8 +7315,8 @@ class DefaultApi:
             tenant_id=tenant_id,
             comment_id=comment_id,
             direction=direction,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7262,8 +7424,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        context_user_id: Optional[StrictStr] = None,
-        is_live: Optional[StrictBool] = None,
+        options: Optional[DeleteCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7284,10 +7445,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param context_user_id:
-        :type context_user_id: str
-        :param is_live:
-        :type is_live: bool
+        :param options: Optional parameters for this operation.
+        :type options: DeleteCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7313,8 +7472,8 @@ class DefaultApi:
         _param = self._delete_comment_serialize(
             tenant_id=tenant_id,
             id=id,
-            context_user_id=context_user_id,
-            is_live=is_live,
+            context_user_id=options.context_user_id if options is not None else None,
+            is_live=options.is_live if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7340,8 +7499,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        context_user_id: Optional[StrictStr] = None,
-        is_live: Optional[StrictBool] = None,
+        options: Optional[DeleteCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7362,10 +7520,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param context_user_id:
-        :type context_user_id: str
-        :param is_live:
-        :type is_live: bool
+        :param options: Optional parameters for this operation.
+        :type options: DeleteCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7391,8 +7547,8 @@ class DefaultApi:
         _param = self._delete_comment_serialize(
             tenant_id=tenant_id,
             id=id,
-            context_user_id=context_user_id,
-            is_live=is_live,
+            context_user_id=options.context_user_id if options is not None else None,
+            is_live=options.is_live if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7418,8 +7574,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        context_user_id: Optional[StrictStr] = None,
-        is_live: Optional[StrictBool] = None,
+        options: Optional[DeleteCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7440,10 +7595,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param context_user_id:
-        :type context_user_id: str
-        :param is_live:
-        :type is_live: bool
+        :param options: Optional parameters for this operation.
+        :type options: DeleteCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7469,8 +7622,8 @@ class DefaultApi:
         _param = self._delete_comment_serialize(
             tenant_id=tenant_id,
             id=id,
-            context_user_id=context_user_id,
-            is_live=is_live,
+            context_user_id=options.context_user_id if options is not None else None,
+            is_live=options.is_live if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8409,8 +8562,8 @@ class DefaultApi:
     @validate_call
     def delete_hash_tag(
         self,
+        tenant_id: StrictStr,
         tag: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
         delete_hash_tag_request_body: Optional[DeleteHashTagRequestBody] = None,
         _request_timeout: Union[
             None,
@@ -8428,12 +8581,12 @@ class DefaultApi:
         """delete_hash_tag
 
 
+        :param tenant_id: (required)
+        :type tenant_id: str
         :param tag: (required)
         :type tag: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param delete_hash_tag_request_body:
-        :type delete_hash_tag_request_body: DeleteHashTagRequestBody
+        :param delete_hash_tag_request_body: (optional)
+        :type delete_hash_tag_request_body: DeleteHashTagRequestBody, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8457,8 +8610,8 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._delete_hash_tag_serialize(
-            tag=tag,
             tenant_id=tenant_id,
+            tag=tag,
             delete_hash_tag_request_body=delete_hash_tag_request_body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8483,8 +8636,8 @@ class DefaultApi:
     @validate_call
     def delete_hash_tag_with_http_info(
         self,
+        tenant_id: StrictStr,
         tag: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
         delete_hash_tag_request_body: Optional[DeleteHashTagRequestBody] = None,
         _request_timeout: Union[
             None,
@@ -8502,12 +8655,12 @@ class DefaultApi:
         """delete_hash_tag
 
 
+        :param tenant_id: (required)
+        :type tenant_id: str
         :param tag: (required)
         :type tag: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param delete_hash_tag_request_body:
-        :type delete_hash_tag_request_body: DeleteHashTagRequestBody
+        :param delete_hash_tag_request_body: (optional)
+        :type delete_hash_tag_request_body: DeleteHashTagRequestBody, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8531,8 +8684,8 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._delete_hash_tag_serialize(
-            tag=tag,
             tenant_id=tenant_id,
+            tag=tag,
             delete_hash_tag_request_body=delete_hash_tag_request_body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8557,8 +8710,8 @@ class DefaultApi:
     @validate_call
     def delete_hash_tag_without_preload_content(
         self,
+        tenant_id: StrictStr,
         tag: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
         delete_hash_tag_request_body: Optional[DeleteHashTagRequestBody] = None,
         _request_timeout: Union[
             None,
@@ -8576,12 +8729,12 @@ class DefaultApi:
         """delete_hash_tag
 
 
+        :param tenant_id: (required)
+        :type tenant_id: str
         :param tag: (required)
         :type tag: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param delete_hash_tag_request_body:
-        :type delete_hash_tag_request_body: DeleteHashTagRequestBody
+        :param delete_hash_tag_request_body: (optional)
+        :type delete_hash_tag_request_body: DeleteHashTagRequestBody, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8605,8 +8758,8 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._delete_hash_tag_serialize(
-            tag=tag,
             tenant_id=tenant_id,
+            tag=tag,
             delete_hash_tag_request_body=delete_hash_tag_request_body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -8626,8 +8779,8 @@ class DefaultApi:
 
     def _delete_hash_tag_serialize(
         self,
-        tag,
         tenant_id,
+        tag,
         delete_hash_tag_request_body,
         _request_auth,
         _content_type,
@@ -8735,8 +8888,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param send_email:
-        :type send_email: str
+        :param send_email: (optional)
+        :type send_email: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8809,8 +8962,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param send_email:
-        :type send_email: str
+        :param send_email: (optional)
+        :type send_email: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8883,8 +9036,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param send_email:
-        :type send_email: str
+        :param send_email: (optional)
+        :type send_email: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10381,8 +10534,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        delete_comments: Optional[StrictBool] = None,
-        comment_delete_mode: Optional[StrictStr] = None,
+        options: Optional[DeleteSsoUserOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10403,10 +10555,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param delete_comments:
-        :type delete_comments: bool
-        :param comment_delete_mode:
-        :type comment_delete_mode: str
+        :param options: Optional parameters for this operation.
+        :type options: DeleteSsoUserOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10432,8 +10582,8 @@ class DefaultApi:
         _param = self._delete_sso_user_serialize(
             tenant_id=tenant_id,
             id=id,
-            delete_comments=delete_comments,
-            comment_delete_mode=comment_delete_mode,
+            delete_comments=options.delete_comments if options is not None else None,
+            comment_delete_mode=options.comment_delete_mode if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10459,8 +10609,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        delete_comments: Optional[StrictBool] = None,
-        comment_delete_mode: Optional[StrictStr] = None,
+        options: Optional[DeleteSsoUserOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10481,10 +10630,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param delete_comments:
-        :type delete_comments: bool
-        :param comment_delete_mode:
-        :type comment_delete_mode: str
+        :param options: Optional parameters for this operation.
+        :type options: DeleteSsoUserOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10510,8 +10657,8 @@ class DefaultApi:
         _param = self._delete_sso_user_serialize(
             tenant_id=tenant_id,
             id=id,
-            delete_comments=delete_comments,
-            comment_delete_mode=comment_delete_mode,
+            delete_comments=options.delete_comments if options is not None else None,
+            comment_delete_mode=options.comment_delete_mode if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10537,8 +10684,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        delete_comments: Optional[StrictBool] = None,
-        comment_delete_mode: Optional[StrictStr] = None,
+        options: Optional[DeleteSsoUserOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10559,10 +10705,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param delete_comments:
-        :type delete_comments: bool
-        :param comment_delete_mode:
-        :type comment_delete_mode: str
+        :param options: Optional parameters for this operation.
+        :type options: DeleteSsoUserOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10588,8 +10732,8 @@ class DefaultApi:
         _param = self._delete_sso_user_serialize(
             tenant_id=tenant_id,
             id=id,
-            delete_comments=delete_comments,
-            comment_delete_mode=comment_delete_mode,
+            delete_comments=options.delete_comments if options is not None else None,
+            comment_delete_mode=options.comment_delete_mode if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -10711,8 +10855,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param user_id:
-        :type user_id: str
+        :param user_id: (optional)
+        :type user_id: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10785,8 +10929,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param user_id:
-        :type user_id: str
+        :param user_id: (optional)
+        :type user_id: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -10859,8 +11003,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param user_id:
-        :type user_id: str
+        :param user_id: (optional)
+        :type user_id: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11003,8 +11147,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param sure:
-        :type sure: str
+        :param sure: (optional)
+        :type sure: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11077,8 +11221,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param sure:
-        :type sure: str
+        :param sure: (optional)
+        :type sure: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11151,8 +11295,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param sure:
-        :type sure: str
+        :param sure: (optional)
+        :type sure: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11549,8 +11693,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        delete_comments: Optional[StrictStr] = None,
-        comment_delete_mode: Optional[StrictStr] = None,
+        options: Optional[DeleteTenantUserOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11571,10 +11714,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param delete_comments:
-        :type delete_comments: str
-        :param comment_delete_mode:
-        :type comment_delete_mode: str
+        :param options: Optional parameters for this operation.
+        :type options: DeleteTenantUserOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11600,8 +11741,8 @@ class DefaultApi:
         _param = self._delete_tenant_user_serialize(
             tenant_id=tenant_id,
             id=id,
-            delete_comments=delete_comments,
-            comment_delete_mode=comment_delete_mode,
+            delete_comments=options.delete_comments if options is not None else None,
+            comment_delete_mode=options.comment_delete_mode if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11627,8 +11768,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        delete_comments: Optional[StrictStr] = None,
-        comment_delete_mode: Optional[StrictStr] = None,
+        options: Optional[DeleteTenantUserOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11649,10 +11789,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param delete_comments:
-        :type delete_comments: str
-        :param comment_delete_mode:
-        :type comment_delete_mode: str
+        :param options: Optional parameters for this operation.
+        :type options: DeleteTenantUserOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11678,8 +11816,8 @@ class DefaultApi:
         _param = self._delete_tenant_user_serialize(
             tenant_id=tenant_id,
             id=id,
-            delete_comments=delete_comments,
-            comment_delete_mode=comment_delete_mode,
+            delete_comments=options.delete_comments if options is not None else None,
+            comment_delete_mode=options.comment_delete_mode if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11705,8 +11843,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        delete_comments: Optional[StrictStr] = None,
-        comment_delete_mode: Optional[StrictStr] = None,
+        options: Optional[DeleteTenantUserOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11727,10 +11864,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param delete_comments:
-        :type delete_comments: str
-        :param comment_delete_mode:
-        :type comment_delete_mode: str
+        :param options: Optional parameters for this operation.
+        :type options: DeleteTenantUserOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11756,8 +11891,8 @@ class DefaultApi:
         _param = self._delete_tenant_user_serialize(
             tenant_id=tenant_id,
             id=id,
-            delete_comments=delete_comments,
-            comment_delete_mode=comment_delete_mode,
+            delete_comments=options.delete_comments if options is not None else None,
+            comment_delete_mode=options.comment_delete_mode if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12154,8 +12289,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param edit_key:
-        :type edit_key: str
+        :param edit_key: (optional)
+        :type edit_key: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12228,8 +12363,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param edit_key:
-        :type edit_key: str
+        :param edit_key: (optional)
+        :type edit_key: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12302,8 +12437,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param edit_key:
-        :type edit_key: str
+        :param edit_key: (optional)
+        :type edit_key: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12425,8 +12560,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[FlagCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12447,10 +12581,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: FlagCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12476,8 +12608,8 @@ class DefaultApi:
         _param = self._flag_comment_serialize(
             tenant_id=tenant_id,
             id=id,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12503,8 +12635,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[FlagCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12525,10 +12656,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: FlagCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12554,8 +12683,8 @@ class DefaultApi:
         _param = self._flag_comment_serialize(
             tenant_id=tenant_id,
             id=id,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12581,8 +12710,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[FlagCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12603,10 +12731,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: FlagCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12632,8 +12758,8 @@ class DefaultApi:
         _param = self._flag_comment_serialize(
             tenant_id=tenant_id,
             id=id,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12733,11 +12859,7 @@ class DefaultApi:
     def get_audit_logs(
         self,
         tenant_id: StrictStr,
-        limit: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
-        order: Optional[SORTDIR] = None,
-        after: Optional[Union[StrictFloat, StrictInt]] = None,
-        before: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetAuditLogsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12756,16 +12878,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param limit:
-        :type limit: float
-        :param skip:
-        :type skip: float
-        :param order:
-        :type order: SORTDIR
-        :param after:
-        :type after: float
-        :param before:
-        :type before: float
+        :param options: Optional parameters for this operation.
+        :type options: GetAuditLogsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12790,11 +12904,11 @@ class DefaultApi:
 
         _param = self._get_audit_logs_serialize(
             tenant_id=tenant_id,
-            limit=limit,
-            skip=skip,
-            order=order,
-            after=after,
-            before=before,
+            limit=options.limit if options is not None else None,
+            skip=options.skip if options is not None else None,
+            order=options.order if options is not None else None,
+            after=options.after if options is not None else None,
+            before=options.before if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12819,11 +12933,7 @@ class DefaultApi:
     def get_audit_logs_with_http_info(
         self,
         tenant_id: StrictStr,
-        limit: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
-        order: Optional[SORTDIR] = None,
-        after: Optional[Union[StrictFloat, StrictInt]] = None,
-        before: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetAuditLogsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12842,16 +12952,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param limit:
-        :type limit: float
-        :param skip:
-        :type skip: float
-        :param order:
-        :type order: SORTDIR
-        :param after:
-        :type after: float
-        :param before:
-        :type before: float
+        :param options: Optional parameters for this operation.
+        :type options: GetAuditLogsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12876,11 +12978,11 @@ class DefaultApi:
 
         _param = self._get_audit_logs_serialize(
             tenant_id=tenant_id,
-            limit=limit,
-            skip=skip,
-            order=order,
-            after=after,
-            before=before,
+            limit=options.limit if options is not None else None,
+            skip=options.skip if options is not None else None,
+            order=options.order if options is not None else None,
+            after=options.after if options is not None else None,
+            before=options.before if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -12905,11 +13007,7 @@ class DefaultApi:
     def get_audit_logs_without_preload_content(
         self,
         tenant_id: StrictStr,
-        limit: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
-        order: Optional[SORTDIR] = None,
-        after: Optional[Union[StrictFloat, StrictInt]] = None,
-        before: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetAuditLogsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12928,16 +13026,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param limit:
-        :type limit: float
-        :param skip:
-        :type skip: float
-        :param order:
-        :type order: SORTDIR
-        :param after:
-        :type after: float
-        :param before:
-        :type before: float
+        :param options: Optional parameters for this operation.
+        :type options: GetAuditLogsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -12962,11 +13052,11 @@ class DefaultApi:
 
         _param = self._get_audit_logs_serialize(
             tenant_id=tenant_id,
-            limit=limit,
-            skip=skip,
-            order=order,
-            after=after,
-            before=before,
+            limit=options.limit if options is not None else None,
+            skip=options.skip if options is not None else None,
+            order=options.order if options is not None else None,
+            after=options.after if options is not None else None,
+            before=options.before if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13628,22 +13718,7 @@ class DefaultApi:
     def get_comments(
         self,
         tenant_id: StrictStr,
-        page: Optional[StrictInt] = None,
-        limit: Optional[StrictInt] = None,
-        skip: Optional[StrictInt] = None,
-        as_tree: Optional[StrictBool] = None,
-        skip_children: Optional[StrictInt] = None,
-        limit_children: Optional[StrictInt] = None,
-        max_tree_depth: Optional[StrictInt] = None,
-        url_id: Optional[StrictStr] = None,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
-        context_user_id: Optional[StrictStr] = None,
-        hash_tag: Optional[StrictStr] = None,
-        parent_id: Optional[StrictStr] = None,
-        direction: Optional[SortDirections] = None,
-        from_date: Optional[StrictInt] = None,
-        to_date: Optional[StrictInt] = None,
+        options: Optional[GetCommentsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13662,38 +13737,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param page:
-        :type page: int
-        :param limit:
-        :type limit: int
-        :param skip:
-        :type skip: int
-        :param as_tree:
-        :type as_tree: bool
-        :param skip_children:
-        :type skip_children: int
-        :param limit_children:
-        :type limit_children: int
-        :param max_tree_depth:
-        :type max_tree_depth: int
-        :param url_id:
-        :type url_id: str
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
-        :param context_user_id:
-        :type context_user_id: str
-        :param hash_tag:
-        :type hash_tag: str
-        :param parent_id:
-        :type parent_id: str
-        :param direction:
-        :type direction: SortDirections
-        :param from_date:
-        :type from_date: int
-        :param to_date:
-        :type to_date: int
+        :param options: Optional parameters for this operation.
+        :type options: GetCommentsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13718,22 +13763,22 @@ class DefaultApi:
 
         _param = self._get_comments_serialize(
             tenant_id=tenant_id,
-            page=page,
-            limit=limit,
-            skip=skip,
-            as_tree=as_tree,
-            skip_children=skip_children,
-            limit_children=limit_children,
-            max_tree_depth=max_tree_depth,
-            url_id=url_id,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
-            context_user_id=context_user_id,
-            hash_tag=hash_tag,
-            parent_id=parent_id,
-            direction=direction,
-            from_date=from_date,
-            to_date=to_date,
+            page=options.page if options is not None else None,
+            limit=options.limit if options is not None else None,
+            skip=options.skip if options is not None else None,
+            as_tree=options.as_tree if options is not None else None,
+            skip_children=options.skip_children if options is not None else None,
+            limit_children=options.limit_children if options is not None else None,
+            max_tree_depth=options.max_tree_depth if options is not None else None,
+            url_id=options.url_id if options is not None else None,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
+            context_user_id=options.context_user_id if options is not None else None,
+            hash_tag=options.hash_tag if options is not None else None,
+            parent_id=options.parent_id if options is not None else None,
+            direction=options.direction if options is not None else None,
+            from_date=options.from_date if options is not None else None,
+            to_date=options.to_date if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13758,22 +13803,7 @@ class DefaultApi:
     def get_comments_with_http_info(
         self,
         tenant_id: StrictStr,
-        page: Optional[StrictInt] = None,
-        limit: Optional[StrictInt] = None,
-        skip: Optional[StrictInt] = None,
-        as_tree: Optional[StrictBool] = None,
-        skip_children: Optional[StrictInt] = None,
-        limit_children: Optional[StrictInt] = None,
-        max_tree_depth: Optional[StrictInt] = None,
-        url_id: Optional[StrictStr] = None,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
-        context_user_id: Optional[StrictStr] = None,
-        hash_tag: Optional[StrictStr] = None,
-        parent_id: Optional[StrictStr] = None,
-        direction: Optional[SortDirections] = None,
-        from_date: Optional[StrictInt] = None,
-        to_date: Optional[StrictInt] = None,
+        options: Optional[GetCommentsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13792,38 +13822,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param page:
-        :type page: int
-        :param limit:
-        :type limit: int
-        :param skip:
-        :type skip: int
-        :param as_tree:
-        :type as_tree: bool
-        :param skip_children:
-        :type skip_children: int
-        :param limit_children:
-        :type limit_children: int
-        :param max_tree_depth:
-        :type max_tree_depth: int
-        :param url_id:
-        :type url_id: str
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
-        :param context_user_id:
-        :type context_user_id: str
-        :param hash_tag:
-        :type hash_tag: str
-        :param parent_id:
-        :type parent_id: str
-        :param direction:
-        :type direction: SortDirections
-        :param from_date:
-        :type from_date: int
-        :param to_date:
-        :type to_date: int
+        :param options: Optional parameters for this operation.
+        :type options: GetCommentsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13848,22 +13848,22 @@ class DefaultApi:
 
         _param = self._get_comments_serialize(
             tenant_id=tenant_id,
-            page=page,
-            limit=limit,
-            skip=skip,
-            as_tree=as_tree,
-            skip_children=skip_children,
-            limit_children=limit_children,
-            max_tree_depth=max_tree_depth,
-            url_id=url_id,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
-            context_user_id=context_user_id,
-            hash_tag=hash_tag,
-            parent_id=parent_id,
-            direction=direction,
-            from_date=from_date,
-            to_date=to_date,
+            page=options.page if options is not None else None,
+            limit=options.limit if options is not None else None,
+            skip=options.skip if options is not None else None,
+            as_tree=options.as_tree if options is not None else None,
+            skip_children=options.skip_children if options is not None else None,
+            limit_children=options.limit_children if options is not None else None,
+            max_tree_depth=options.max_tree_depth if options is not None else None,
+            url_id=options.url_id if options is not None else None,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
+            context_user_id=options.context_user_id if options is not None else None,
+            hash_tag=options.hash_tag if options is not None else None,
+            parent_id=options.parent_id if options is not None else None,
+            direction=options.direction if options is not None else None,
+            from_date=options.from_date if options is not None else None,
+            to_date=options.to_date if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13888,22 +13888,7 @@ class DefaultApi:
     def get_comments_without_preload_content(
         self,
         tenant_id: StrictStr,
-        page: Optional[StrictInt] = None,
-        limit: Optional[StrictInt] = None,
-        skip: Optional[StrictInt] = None,
-        as_tree: Optional[StrictBool] = None,
-        skip_children: Optional[StrictInt] = None,
-        limit_children: Optional[StrictInt] = None,
-        max_tree_depth: Optional[StrictInt] = None,
-        url_id: Optional[StrictStr] = None,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
-        context_user_id: Optional[StrictStr] = None,
-        hash_tag: Optional[StrictStr] = None,
-        parent_id: Optional[StrictStr] = None,
-        direction: Optional[SortDirections] = None,
-        from_date: Optional[StrictInt] = None,
-        to_date: Optional[StrictInt] = None,
+        options: Optional[GetCommentsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13922,38 +13907,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param page:
-        :type page: int
-        :param limit:
-        :type limit: int
-        :param skip:
-        :type skip: int
-        :param as_tree:
-        :type as_tree: bool
-        :param skip_children:
-        :type skip_children: int
-        :param limit_children:
-        :type limit_children: int
-        :param max_tree_depth:
-        :type max_tree_depth: int
-        :param url_id:
-        :type url_id: str
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
-        :param context_user_id:
-        :type context_user_id: str
-        :param hash_tag:
-        :type hash_tag: str
-        :param parent_id:
-        :type parent_id: str
-        :param direction:
-        :type direction: SortDirections
-        :param from_date:
-        :type from_date: int
-        :param to_date:
-        :type to_date: int
+        :param options: Optional parameters for this operation.
+        :type options: GetCommentsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13978,22 +13933,22 @@ class DefaultApi:
 
         _param = self._get_comments_serialize(
             tenant_id=tenant_id,
-            page=page,
-            limit=limit,
-            skip=skip,
-            as_tree=as_tree,
-            skip_children=skip_children,
-            limit_children=limit_children,
-            max_tree_depth=max_tree_depth,
-            url_id=url_id,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
-            context_user_id=context_user_id,
-            hash_tag=hash_tag,
-            parent_id=parent_id,
-            direction=direction,
-            from_date=from_date,
-            to_date=to_date,
+            page=options.page if options is not None else None,
+            limit=options.limit if options is not None else None,
+            skip=options.skip if options is not None else None,
+            as_tree=options.as_tree if options is not None else None,
+            skip_children=options.skip_children if options is not None else None,
+            limit_children=options.limit_children if options is not None else None,
+            max_tree_depth=options.max_tree_depth if options is not None else None,
+            url_id=options.url_id if options is not None else None,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
+            context_user_id=options.context_user_id if options is not None else None,
+            hash_tag=options.hash_tag if options is not None else None,
+            parent_id=options.parent_id if options is not None else None,
+            direction=options.direction if options is not None else None,
+            from_date=options.from_date if options is not None else None,
+            to_date=options.to_date if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15252,8 +15207,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15326,8 +15281,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15400,8 +15355,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15541,8 +15496,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15611,8 +15566,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15681,8 +15636,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15799,9 +15754,7 @@ class DefaultApi:
     def get_feed_posts(
         self,
         tenant_id: StrictStr,
-        after_id: Optional[StrictStr] = None,
-        limit: Optional[StrictInt] = None,
-        tags: Optional[List[StrictStr]] = None,
+        options: Optional[GetFeedPostsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15821,12 +15774,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param after_id:
-        :type after_id: str
-        :param limit:
-        :type limit: int
-        :param tags:
-        :type tags: List[str]
+        :param options: Optional parameters for this operation.
+        :type options: GetFeedPostsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15851,9 +15800,9 @@ class DefaultApi:
 
         _param = self._get_feed_posts_serialize(
             tenant_id=tenant_id,
-            after_id=after_id,
-            limit=limit,
-            tags=tags,
+            after_id=options.after_id if options is not None else None,
+            limit=options.limit if options is not None else None,
+            tags=options.tags if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15878,9 +15827,7 @@ class DefaultApi:
     def get_feed_posts_with_http_info(
         self,
         tenant_id: StrictStr,
-        after_id: Optional[StrictStr] = None,
-        limit: Optional[StrictInt] = None,
-        tags: Optional[List[StrictStr]] = None,
+        options: Optional[GetFeedPostsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15900,12 +15847,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param after_id:
-        :type after_id: str
-        :param limit:
-        :type limit: int
-        :param tags:
-        :type tags: List[str]
+        :param options: Optional parameters for this operation.
+        :type options: GetFeedPostsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -15930,9 +15873,9 @@ class DefaultApi:
 
         _param = self._get_feed_posts_serialize(
             tenant_id=tenant_id,
-            after_id=after_id,
-            limit=limit,
-            tags=tags,
+            after_id=options.after_id if options is not None else None,
+            limit=options.limit if options is not None else None,
+            tags=options.tags if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -15957,9 +15900,7 @@ class DefaultApi:
     def get_feed_posts_without_preload_content(
         self,
         tenant_id: StrictStr,
-        after_id: Optional[StrictStr] = None,
-        limit: Optional[StrictInt] = None,
-        tags: Optional[List[StrictStr]] = None,
+        options: Optional[GetFeedPostsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15979,12 +15920,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param after_id:
-        :type after_id: str
-        :param limit:
-        :type limit: int
-        :param tags:
-        :type tags: List[str]
+        :param options: Optional parameters for this operation.
+        :type options: GetFeedPostsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16009,9 +15946,9 @@ class DefaultApi:
 
         _param = self._get_feed_posts_serialize(
             tenant_id=tenant_id,
-            after_id=after_id,
-            limit=limit,
-            tags=tags,
+            after_id=options.after_id if options is not None else None,
+            limit=options.limit if options is not None else None,
+            tags=options.tags if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -16133,8 +16070,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param page:
-        :type page: float
+        :param page: (optional)
+        :type page: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16203,8 +16140,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param page:
-        :type page: float
+        :param page: (optional)
+        :type page: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16273,8 +16210,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param page:
-        :type page: float
+        :param page: (optional)
+        :type page: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16685,8 +16622,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16755,8 +16692,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16825,8 +16762,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -16943,11 +16880,7 @@ class DefaultApi:
     def get_notification_count(
         self,
         tenant_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        url_id: Optional[StrictStr] = None,
-        from_comment_id: Optional[StrictStr] = None,
-        viewed: Optional[StrictBool] = None,
-        type: Optional[StrictStr] = None,
+        options: Optional[GetNotificationCountOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16966,16 +16899,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
-        :param url_id:
-        :type url_id: str
-        :param from_comment_id:
-        :type from_comment_id: str
-        :param viewed:
-        :type viewed: bool
-        :param type:
-        :type type: str
+        :param options: Optional parameters for this operation.
+        :type options: GetNotificationCountOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -17000,11 +16925,11 @@ class DefaultApi:
 
         _param = self._get_notification_count_serialize(
             tenant_id=tenant_id,
-            user_id=user_id,
-            url_id=url_id,
-            from_comment_id=from_comment_id,
-            viewed=viewed,
-            type=type,
+            user_id=options.user_id if options is not None else None,
+            url_id=options.url_id if options is not None else None,
+            from_comment_id=options.from_comment_id if options is not None else None,
+            viewed=options.viewed if options is not None else None,
+            type=options.type if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -17029,11 +16954,7 @@ class DefaultApi:
     def get_notification_count_with_http_info(
         self,
         tenant_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        url_id: Optional[StrictStr] = None,
-        from_comment_id: Optional[StrictStr] = None,
-        viewed: Optional[StrictBool] = None,
-        type: Optional[StrictStr] = None,
+        options: Optional[GetNotificationCountOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17052,16 +16973,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
-        :param url_id:
-        :type url_id: str
-        :param from_comment_id:
-        :type from_comment_id: str
-        :param viewed:
-        :type viewed: bool
-        :param type:
-        :type type: str
+        :param options: Optional parameters for this operation.
+        :type options: GetNotificationCountOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -17086,11 +16999,11 @@ class DefaultApi:
 
         _param = self._get_notification_count_serialize(
             tenant_id=tenant_id,
-            user_id=user_id,
-            url_id=url_id,
-            from_comment_id=from_comment_id,
-            viewed=viewed,
-            type=type,
+            user_id=options.user_id if options is not None else None,
+            url_id=options.url_id if options is not None else None,
+            from_comment_id=options.from_comment_id if options is not None else None,
+            viewed=options.viewed if options is not None else None,
+            type=options.type if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -17115,11 +17028,7 @@ class DefaultApi:
     def get_notification_count_without_preload_content(
         self,
         tenant_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        url_id: Optional[StrictStr] = None,
-        from_comment_id: Optional[StrictStr] = None,
-        viewed: Optional[StrictBool] = None,
-        type: Optional[StrictStr] = None,
+        options: Optional[GetNotificationCountOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17138,16 +17047,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
-        :param url_id:
-        :type url_id: str
-        :param from_comment_id:
-        :type from_comment_id: str
-        :param viewed:
-        :type viewed: bool
-        :param type:
-        :type type: str
+        :param options: Optional parameters for this operation.
+        :type options: GetNotificationCountOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -17172,11 +17073,11 @@ class DefaultApi:
 
         _param = self._get_notification_count_serialize(
             tenant_id=tenant_id,
-            user_id=user_id,
-            url_id=url_id,
-            from_comment_id=from_comment_id,
-            viewed=viewed,
-            type=type,
+            user_id=options.user_id if options is not None else None,
+            url_id=options.url_id if options is not None else None,
+            from_comment_id=options.from_comment_id if options is not None else None,
+            viewed=options.viewed if options is not None else None,
+            type=options.type if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -17288,12 +17189,7 @@ class DefaultApi:
     def get_notifications(
         self,
         tenant_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        url_id: Optional[StrictStr] = None,
-        from_comment_id: Optional[StrictStr] = None,
-        viewed: Optional[StrictBool] = None,
-        type: Optional[StrictStr] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetNotificationsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17312,18 +17208,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
-        :param url_id:
-        :type url_id: str
-        :param from_comment_id:
-        :type from_comment_id: str
-        :param viewed:
-        :type viewed: bool
-        :param type:
-        :type type: str
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetNotificationsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -17348,12 +17234,12 @@ class DefaultApi:
 
         _param = self._get_notifications_serialize(
             tenant_id=tenant_id,
-            user_id=user_id,
-            url_id=url_id,
-            from_comment_id=from_comment_id,
-            viewed=viewed,
-            type=type,
-            skip=skip,
+            user_id=options.user_id if options is not None else None,
+            url_id=options.url_id if options is not None else None,
+            from_comment_id=options.from_comment_id if options is not None else None,
+            viewed=options.viewed if options is not None else None,
+            type=options.type if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -17378,12 +17264,7 @@ class DefaultApi:
     def get_notifications_with_http_info(
         self,
         tenant_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        url_id: Optional[StrictStr] = None,
-        from_comment_id: Optional[StrictStr] = None,
-        viewed: Optional[StrictBool] = None,
-        type: Optional[StrictStr] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetNotificationsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17402,18 +17283,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
-        :param url_id:
-        :type url_id: str
-        :param from_comment_id:
-        :type from_comment_id: str
-        :param viewed:
-        :type viewed: bool
-        :param type:
-        :type type: str
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetNotificationsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -17438,12 +17309,12 @@ class DefaultApi:
 
         _param = self._get_notifications_serialize(
             tenant_id=tenant_id,
-            user_id=user_id,
-            url_id=url_id,
-            from_comment_id=from_comment_id,
-            viewed=viewed,
-            type=type,
-            skip=skip,
+            user_id=options.user_id if options is not None else None,
+            url_id=options.url_id if options is not None else None,
+            from_comment_id=options.from_comment_id if options is not None else None,
+            viewed=options.viewed if options is not None else None,
+            type=options.type if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -17468,12 +17339,7 @@ class DefaultApi:
     def get_notifications_without_preload_content(
         self,
         tenant_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        url_id: Optional[StrictStr] = None,
-        from_comment_id: Optional[StrictStr] = None,
-        viewed: Optional[StrictBool] = None,
-        type: Optional[StrictStr] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetNotificationsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17492,18 +17358,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
-        :param url_id:
-        :type url_id: str
-        :param from_comment_id:
-        :type from_comment_id: str
-        :param viewed:
-        :type viewed: bool
-        :param type:
-        :type type: str
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetNotificationsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -17528,12 +17384,12 @@ class DefaultApi:
 
         _param = self._get_notifications_serialize(
             tenant_id=tenant_id,
-            user_id=user_id,
-            url_id=url_id,
-            from_comment_id=from_comment_id,
-            viewed=viewed,
-            type=type,
-            skip=skip,
+            user_id=options.user_id if options is not None else None,
+            url_id=options.url_id if options is not None else None,
+            from_comment_id=options.from_comment_id if options is not None else None,
+            viewed=options.viewed if options is not None else None,
+            type=options.type if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -18187,12 +18043,7 @@ class DefaultApi:
     def get_pending_webhook_event_count(
         self,
         tenant_id: StrictStr,
-        comment_id: Optional[StrictStr] = None,
-        external_id: Optional[StrictStr] = None,
-        event_type: Optional[StrictStr] = None,
-        type: Optional[StrictStr] = None,
-        domain: Optional[StrictStr] = None,
-        attempt_count_gt: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetPendingWebhookEventCountOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18211,18 +18062,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param comment_id:
-        :type comment_id: str
-        :param external_id:
-        :type external_id: str
-        :param event_type:
-        :type event_type: str
-        :param type:
-        :type type: str
-        :param domain:
-        :type domain: str
-        :param attempt_count_gt:
-        :type attempt_count_gt: float
+        :param options: Optional parameters for this operation.
+        :type options: GetPendingWebhookEventCountOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -18247,12 +18088,12 @@ class DefaultApi:
 
         _param = self._get_pending_webhook_event_count_serialize(
             tenant_id=tenant_id,
-            comment_id=comment_id,
-            external_id=external_id,
-            event_type=event_type,
-            type=type,
-            domain=domain,
-            attempt_count_gt=attempt_count_gt,
+            comment_id=options.comment_id if options is not None else None,
+            external_id=options.external_id if options is not None else None,
+            event_type=options.event_type if options is not None else None,
+            type=options.type if options is not None else None,
+            domain=options.domain if options is not None else None,
+            attempt_count_gt=options.attempt_count_gt if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -18277,12 +18118,7 @@ class DefaultApi:
     def get_pending_webhook_event_count_with_http_info(
         self,
         tenant_id: StrictStr,
-        comment_id: Optional[StrictStr] = None,
-        external_id: Optional[StrictStr] = None,
-        event_type: Optional[StrictStr] = None,
-        type: Optional[StrictStr] = None,
-        domain: Optional[StrictStr] = None,
-        attempt_count_gt: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetPendingWebhookEventCountOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18301,18 +18137,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param comment_id:
-        :type comment_id: str
-        :param external_id:
-        :type external_id: str
-        :param event_type:
-        :type event_type: str
-        :param type:
-        :type type: str
-        :param domain:
-        :type domain: str
-        :param attempt_count_gt:
-        :type attempt_count_gt: float
+        :param options: Optional parameters for this operation.
+        :type options: GetPendingWebhookEventCountOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -18337,12 +18163,12 @@ class DefaultApi:
 
         _param = self._get_pending_webhook_event_count_serialize(
             tenant_id=tenant_id,
-            comment_id=comment_id,
-            external_id=external_id,
-            event_type=event_type,
-            type=type,
-            domain=domain,
-            attempt_count_gt=attempt_count_gt,
+            comment_id=options.comment_id if options is not None else None,
+            external_id=options.external_id if options is not None else None,
+            event_type=options.event_type if options is not None else None,
+            type=options.type if options is not None else None,
+            domain=options.domain if options is not None else None,
+            attempt_count_gt=options.attempt_count_gt if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -18367,12 +18193,7 @@ class DefaultApi:
     def get_pending_webhook_event_count_without_preload_content(
         self,
         tenant_id: StrictStr,
-        comment_id: Optional[StrictStr] = None,
-        external_id: Optional[StrictStr] = None,
-        event_type: Optional[StrictStr] = None,
-        type: Optional[StrictStr] = None,
-        domain: Optional[StrictStr] = None,
-        attempt_count_gt: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetPendingWebhookEventCountOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18391,18 +18212,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param comment_id:
-        :type comment_id: str
-        :param external_id:
-        :type external_id: str
-        :param event_type:
-        :type event_type: str
-        :param type:
-        :type type: str
-        :param domain:
-        :type domain: str
-        :param attempt_count_gt:
-        :type attempt_count_gt: float
+        :param options: Optional parameters for this operation.
+        :type options: GetPendingWebhookEventCountOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -18427,12 +18238,12 @@ class DefaultApi:
 
         _param = self._get_pending_webhook_event_count_serialize(
             tenant_id=tenant_id,
-            comment_id=comment_id,
-            external_id=external_id,
-            event_type=event_type,
-            type=type,
-            domain=domain,
-            attempt_count_gt=attempt_count_gt,
+            comment_id=options.comment_id if options is not None else None,
+            external_id=options.external_id if options is not None else None,
+            event_type=options.event_type if options is not None else None,
+            type=options.type if options is not None else None,
+            domain=options.domain if options is not None else None,
+            attempt_count_gt=options.attempt_count_gt if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -18549,13 +18360,7 @@ class DefaultApi:
     def get_pending_webhook_events(
         self,
         tenant_id: StrictStr,
-        comment_id: Optional[StrictStr] = None,
-        external_id: Optional[StrictStr] = None,
-        event_type: Optional[StrictStr] = None,
-        type: Optional[StrictStr] = None,
-        domain: Optional[StrictStr] = None,
-        attempt_count_gt: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetPendingWebhookEventsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18574,20 +18379,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param comment_id:
-        :type comment_id: str
-        :param external_id:
-        :type external_id: str
-        :param event_type:
-        :type event_type: str
-        :param type:
-        :type type: str
-        :param domain:
-        :type domain: str
-        :param attempt_count_gt:
-        :type attempt_count_gt: float
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetPendingWebhookEventsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -18612,13 +18405,13 @@ class DefaultApi:
 
         _param = self._get_pending_webhook_events_serialize(
             tenant_id=tenant_id,
-            comment_id=comment_id,
-            external_id=external_id,
-            event_type=event_type,
-            type=type,
-            domain=domain,
-            attempt_count_gt=attempt_count_gt,
-            skip=skip,
+            comment_id=options.comment_id if options is not None else None,
+            external_id=options.external_id if options is not None else None,
+            event_type=options.event_type if options is not None else None,
+            type=options.type if options is not None else None,
+            domain=options.domain if options is not None else None,
+            attempt_count_gt=options.attempt_count_gt if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -18643,13 +18436,7 @@ class DefaultApi:
     def get_pending_webhook_events_with_http_info(
         self,
         tenant_id: StrictStr,
-        comment_id: Optional[StrictStr] = None,
-        external_id: Optional[StrictStr] = None,
-        event_type: Optional[StrictStr] = None,
-        type: Optional[StrictStr] = None,
-        domain: Optional[StrictStr] = None,
-        attempt_count_gt: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetPendingWebhookEventsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18668,20 +18455,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param comment_id:
-        :type comment_id: str
-        :param external_id:
-        :type external_id: str
-        :param event_type:
-        :type event_type: str
-        :param type:
-        :type type: str
-        :param domain:
-        :type domain: str
-        :param attempt_count_gt:
-        :type attempt_count_gt: float
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetPendingWebhookEventsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -18706,13 +18481,13 @@ class DefaultApi:
 
         _param = self._get_pending_webhook_events_serialize(
             tenant_id=tenant_id,
-            comment_id=comment_id,
-            external_id=external_id,
-            event_type=event_type,
-            type=type,
-            domain=domain,
-            attempt_count_gt=attempt_count_gt,
-            skip=skip,
+            comment_id=options.comment_id if options is not None else None,
+            external_id=options.external_id if options is not None else None,
+            event_type=options.event_type if options is not None else None,
+            type=options.type if options is not None else None,
+            domain=options.domain if options is not None else None,
+            attempt_count_gt=options.attempt_count_gt if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -18737,13 +18512,7 @@ class DefaultApi:
     def get_pending_webhook_events_without_preload_content(
         self,
         tenant_id: StrictStr,
-        comment_id: Optional[StrictStr] = None,
-        external_id: Optional[StrictStr] = None,
-        event_type: Optional[StrictStr] = None,
-        type: Optional[StrictStr] = None,
-        domain: Optional[StrictStr] = None,
-        attempt_count_gt: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetPendingWebhookEventsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18762,20 +18531,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param comment_id:
-        :type comment_id: str
-        :param external_id:
-        :type external_id: str
-        :param event_type:
-        :type event_type: str
-        :param type:
-        :type type: str
-        :param domain:
-        :type domain: str
-        :param attempt_count_gt:
-        :type attempt_count_gt: float
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetPendingWebhookEventsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -18800,13 +18557,13 @@ class DefaultApi:
 
         _param = self._get_pending_webhook_events_serialize(
             tenant_id=tenant_id,
-            comment_id=comment_id,
-            external_id=external_id,
-            event_type=event_type,
-            type=type,
-            domain=domain,
-            attempt_count_gt=attempt_count_gt,
-            skip=skip,
+            comment_id=options.comment_id if options is not None else None,
+            external_id=options.external_id if options is not None else None,
+            event_type=options.event_type if options is not None else None,
+            type=options.type if options is not None else None,
+            domain=options.domain if options is not None else None,
+            attempt_count_gt=options.attempt_count_gt if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -19222,8 +18979,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -19292,8 +19049,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -19362,8 +19119,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -19755,12 +19512,7 @@ class DefaultApi:
     def get_question_results(
         self,
         tenant_id: StrictStr,
-        url_id: Optional[StrictStr] = None,
-        user_id: Optional[StrictStr] = None,
-        start_date: Optional[StrictStr] = None,
-        question_id: Optional[StrictStr] = None,
-        question_ids: Optional[StrictStr] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetQuestionResultsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19779,18 +19531,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param url_id:
-        :type url_id: str
-        :param user_id:
-        :type user_id: str
-        :param start_date:
-        :type start_date: str
-        :param question_id:
-        :type question_id: str
-        :param question_ids:
-        :type question_ids: str
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetQuestionResultsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -19815,12 +19557,12 @@ class DefaultApi:
 
         _param = self._get_question_results_serialize(
             tenant_id=tenant_id,
-            url_id=url_id,
-            user_id=user_id,
-            start_date=start_date,
-            question_id=question_id,
-            question_ids=question_ids,
-            skip=skip,
+            url_id=options.url_id if options is not None else None,
+            user_id=options.user_id if options is not None else None,
+            start_date=options.start_date if options is not None else None,
+            question_id=options.question_id if options is not None else None,
+            question_ids=options.question_ids if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -19845,12 +19587,7 @@ class DefaultApi:
     def get_question_results_with_http_info(
         self,
         tenant_id: StrictStr,
-        url_id: Optional[StrictStr] = None,
-        user_id: Optional[StrictStr] = None,
-        start_date: Optional[StrictStr] = None,
-        question_id: Optional[StrictStr] = None,
-        question_ids: Optional[StrictStr] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetQuestionResultsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19869,18 +19606,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param url_id:
-        :type url_id: str
-        :param user_id:
-        :type user_id: str
-        :param start_date:
-        :type start_date: str
-        :param question_id:
-        :type question_id: str
-        :param question_ids:
-        :type question_ids: str
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetQuestionResultsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -19905,12 +19632,12 @@ class DefaultApi:
 
         _param = self._get_question_results_serialize(
             tenant_id=tenant_id,
-            url_id=url_id,
-            user_id=user_id,
-            start_date=start_date,
-            question_id=question_id,
-            question_ids=question_ids,
-            skip=skip,
+            url_id=options.url_id if options is not None else None,
+            user_id=options.user_id if options is not None else None,
+            start_date=options.start_date if options is not None else None,
+            question_id=options.question_id if options is not None else None,
+            question_ids=options.question_ids if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -19935,12 +19662,7 @@ class DefaultApi:
     def get_question_results_without_preload_content(
         self,
         tenant_id: StrictStr,
-        url_id: Optional[StrictStr] = None,
-        user_id: Optional[StrictStr] = None,
-        start_date: Optional[StrictStr] = None,
-        question_id: Optional[StrictStr] = None,
-        question_ids: Optional[StrictStr] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetQuestionResultsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19959,18 +19681,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param url_id:
-        :type url_id: str
-        :param user_id:
-        :type user_id: str
-        :param start_date:
-        :type start_date: str
-        :param question_id:
-        :type question_id: str
-        :param question_ids:
-        :type question_ids: str
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetQuestionResultsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -19995,12 +19707,12 @@ class DefaultApi:
 
         _param = self._get_question_results_serialize(
             tenant_id=tenant_id,
-            url_id=url_id,
-            user_id=user_id,
-            start_date=start_date,
-            question_id=question_id,
-            question_ids=question_ids,
-            skip=skip,
+            url_id=options.url_id if options is not None else None,
+            user_id=options.user_id if options is not None else None,
+            start_date=options.start_date if options is not None else None,
+            question_id=options.question_id if options is not None else None,
+            question_ids=options.question_ids if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -20686,8 +20398,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: int
+        :param skip: (optional)
+        :type skip: int, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -20756,8 +20468,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: int
+        :param skip: (optional)
+        :type skip: int, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -20826,8 +20538,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: int
+        :param skip: (optional)
+        :type skip: int, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -20963,8 +20675,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
+        :param user_id: (optional)
+        :type user_id: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -21033,8 +20745,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
+        :param user_id: (optional)
+        :type user_id: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -21103,8 +20815,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
+        :param user_id: (optional)
+        :type user_id: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -21496,10 +21208,7 @@ class DefaultApi:
     def get_tenant_daily_usages(
         self,
         tenant_id: StrictStr,
-        year_number: Optional[Union[StrictFloat, StrictInt]] = None,
-        month_number: Optional[Union[StrictFloat, StrictInt]] = None,
-        day_number: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetTenantDailyUsagesOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21518,14 +21227,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param year_number:
-        :type year_number: float
-        :param month_number:
-        :type month_number: float
-        :param day_number:
-        :type day_number: float
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetTenantDailyUsagesOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -21550,10 +21253,10 @@ class DefaultApi:
 
         _param = self._get_tenant_daily_usages_serialize(
             tenant_id=tenant_id,
-            year_number=year_number,
-            month_number=month_number,
-            day_number=day_number,
-            skip=skip,
+            year_number=options.year_number if options is not None else None,
+            month_number=options.month_number if options is not None else None,
+            day_number=options.day_number if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -21578,10 +21281,7 @@ class DefaultApi:
     def get_tenant_daily_usages_with_http_info(
         self,
         tenant_id: StrictStr,
-        year_number: Optional[Union[StrictFloat, StrictInt]] = None,
-        month_number: Optional[Union[StrictFloat, StrictInt]] = None,
-        day_number: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetTenantDailyUsagesOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21600,14 +21300,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param year_number:
-        :type year_number: float
-        :param month_number:
-        :type month_number: float
-        :param day_number:
-        :type day_number: float
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetTenantDailyUsagesOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -21632,10 +21326,10 @@ class DefaultApi:
 
         _param = self._get_tenant_daily_usages_serialize(
             tenant_id=tenant_id,
-            year_number=year_number,
-            month_number=month_number,
-            day_number=day_number,
-            skip=skip,
+            year_number=options.year_number if options is not None else None,
+            month_number=options.month_number if options is not None else None,
+            day_number=options.day_number if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -21660,10 +21354,7 @@ class DefaultApi:
     def get_tenant_daily_usages_without_preload_content(
         self,
         tenant_id: StrictStr,
-        year_number: Optional[Union[StrictFloat, StrictInt]] = None,
-        month_number: Optional[Union[StrictFloat, StrictInt]] = None,
-        day_number: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetTenantDailyUsagesOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21682,14 +21373,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param year_number:
-        :type year_number: float
-        :param month_number:
-        :type month_number: float
-        :param day_number:
-        :type day_number: float
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetTenantDailyUsagesOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -21714,10 +21399,10 @@ class DefaultApi:
 
         _param = self._get_tenant_daily_usages_serialize(
             tenant_id=tenant_id,
-            year_number=year_number,
-            month_number=month_number,
-            day_number=day_number,
-            skip=skip,
+            year_number=options.year_number if options is not None else None,
+            month_number=options.month_number if options is not None else None,
+            day_number=options.day_number if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -22118,8 +21803,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -22188,8 +21873,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -22258,8 +21943,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -22670,8 +22355,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -22740,8 +22425,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -22810,8 +22495,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param skip:
-        :type skip: float
+        :param skip: (optional)
+        :type skip: float, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -22928,8 +22613,7 @@ class DefaultApi:
     def get_tenants(
         self,
         tenant_id: StrictStr,
-        meta: Optional[StrictStr] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetTenantsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -22948,10 +22632,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param meta:
-        :type meta: str
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetTenantsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -22976,8 +22658,8 @@ class DefaultApi:
 
         _param = self._get_tenants_serialize(
             tenant_id=tenant_id,
-            meta=meta,
-            skip=skip,
+            meta=options.meta if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -23002,8 +22684,7 @@ class DefaultApi:
     def get_tenants_with_http_info(
         self,
         tenant_id: StrictStr,
-        meta: Optional[StrictStr] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetTenantsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23022,10 +22703,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param meta:
-        :type meta: str
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetTenantsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -23050,8 +22729,8 @@ class DefaultApi:
 
         _param = self._get_tenants_serialize(
             tenant_id=tenant_id,
-            meta=meta,
-            skip=skip,
+            meta=options.meta if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -23076,8 +22755,7 @@ class DefaultApi:
     def get_tenants_without_preload_content(
         self,
         tenant_id: StrictStr,
-        meta: Optional[StrictStr] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetTenantsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23096,10 +22774,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param meta:
-        :type meta: str
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetTenantsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -23124,8 +22800,8 @@ class DefaultApi:
 
         _param = self._get_tenants_serialize(
             tenant_id=tenant_id,
-            meta=meta,
-            skip=skip,
+            meta=options.meta if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -23244,8 +22920,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param user_id:
-        :type user_id: str
+        :param user_id: (optional)
+        :type user_id: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -23318,8 +22994,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param user_id:
-        :type user_id: str
+        :param user_id: (optional)
+        :type user_id: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -23392,8 +23068,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param user_id:
-        :type user_id: str
+        :param user_id: (optional)
+        :type user_id: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -23514,10 +23190,7 @@ class DefaultApi:
     def get_tickets(
         self,
         tenant_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        state: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
-        limit: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetTicketsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23536,14 +23209,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
-        :param state:
-        :type state: float
-        :param skip:
-        :type skip: float
-        :param limit:
-        :type limit: float
+        :param options: Optional parameters for this operation.
+        :type options: GetTicketsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -23568,10 +23235,10 @@ class DefaultApi:
 
         _param = self._get_tickets_serialize(
             tenant_id=tenant_id,
-            user_id=user_id,
-            state=state,
-            skip=skip,
-            limit=limit,
+            user_id=options.user_id if options is not None else None,
+            state=options.state if options is not None else None,
+            skip=options.skip if options is not None else None,
+            limit=options.limit if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -23596,10 +23263,7 @@ class DefaultApi:
     def get_tickets_with_http_info(
         self,
         tenant_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        state: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
-        limit: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetTicketsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23618,14 +23282,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
-        :param state:
-        :type state: float
-        :param skip:
-        :type skip: float
-        :param limit:
-        :type limit: float
+        :param options: Optional parameters for this operation.
+        :type options: GetTicketsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -23650,10 +23308,10 @@ class DefaultApi:
 
         _param = self._get_tickets_serialize(
             tenant_id=tenant_id,
-            user_id=user_id,
-            state=state,
-            skip=skip,
-            limit=limit,
+            user_id=options.user_id if options is not None else None,
+            state=options.state if options is not None else None,
+            skip=options.skip if options is not None else None,
+            limit=options.limit if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -23678,10 +23336,7 @@ class DefaultApi:
     def get_tickets_without_preload_content(
         self,
         tenant_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        state: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
-        limit: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetTicketsOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23700,14 +23355,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
-        :param state:
-        :type state: float
-        :param skip:
-        :type skip: float
-        :param limit:
-        :type limit: float
+        :param options: Optional parameters for this operation.
+        :type options: GetTicketsOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -23732,10 +23381,10 @@ class DefaultApi:
 
         _param = self._get_tickets_serialize(
             tenant_id=tenant_id,
-            user_id=user_id,
-            state=state,
-            skip=skip,
-            limit=limit,
+            user_id=options.user_id if options is not None else None,
+            state=options.state if options is not None else None,
+            skip=options.skip if options is not None else None,
+            limit=options.limit if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -24942,9 +24591,7 @@ class DefaultApi:
     def get_user_badge_progress_list(
         self,
         tenant_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        limit: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetUserBadgeProgressListOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -24963,12 +24610,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
-        :param limit:
-        :type limit: float
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetUserBadgeProgressListOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -24993,9 +24636,9 @@ class DefaultApi:
 
         _param = self._get_user_badge_progress_list_serialize(
             tenant_id=tenant_id,
-            user_id=user_id,
-            limit=limit,
-            skip=skip,
+            user_id=options.user_id if options is not None else None,
+            limit=options.limit if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -25020,9 +24663,7 @@ class DefaultApi:
     def get_user_badge_progress_list_with_http_info(
         self,
         tenant_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        limit: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetUserBadgeProgressListOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25041,12 +24682,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
-        :param limit:
-        :type limit: float
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetUserBadgeProgressListOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -25071,9 +24708,9 @@ class DefaultApi:
 
         _param = self._get_user_badge_progress_list_serialize(
             tenant_id=tenant_id,
-            user_id=user_id,
-            limit=limit,
-            skip=skip,
+            user_id=options.user_id if options is not None else None,
+            limit=options.limit if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -25098,9 +24735,7 @@ class DefaultApi:
     def get_user_badge_progress_list_without_preload_content(
         self,
         tenant_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        limit: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetUserBadgeProgressListOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25119,12 +24754,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
-        :param limit:
-        :type limit: float
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetUserBadgeProgressListOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -25149,9 +24780,9 @@ class DefaultApi:
 
         _param = self._get_user_badge_progress_list_serialize(
             tenant_id=tenant_id,
-            user_id=user_id,
-            limit=limit,
-            skip=skip,
+            user_id=options.user_id if options is not None else None,
+            limit=options.limit if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -25253,12 +24884,7 @@ class DefaultApi:
     def get_user_badges(
         self,
         tenant_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        badge_id: Optional[StrictStr] = None,
-        type: Optional[Union[StrictFloat, StrictInt]] = None,
-        displayed_on_comments: Optional[StrictBool] = None,
-        limit: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetUserBadgesOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25277,18 +24903,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
-        :param badge_id:
-        :type badge_id: str
-        :param type:
-        :type type: float
-        :param displayed_on_comments:
-        :type displayed_on_comments: bool
-        :param limit:
-        :type limit: float
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetUserBadgesOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -25313,12 +24929,12 @@ class DefaultApi:
 
         _param = self._get_user_badges_serialize(
             tenant_id=tenant_id,
-            user_id=user_id,
-            badge_id=badge_id,
-            type=type,
-            displayed_on_comments=displayed_on_comments,
-            limit=limit,
-            skip=skip,
+            user_id=options.user_id if options is not None else None,
+            badge_id=options.badge_id if options is not None else None,
+            type=options.type if options is not None else None,
+            displayed_on_comments=options.displayed_on_comments if options is not None else None,
+            limit=options.limit if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -25343,12 +24959,7 @@ class DefaultApi:
     def get_user_badges_with_http_info(
         self,
         tenant_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        badge_id: Optional[StrictStr] = None,
-        type: Optional[Union[StrictFloat, StrictInt]] = None,
-        displayed_on_comments: Optional[StrictBool] = None,
-        limit: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetUserBadgesOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25367,18 +24978,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
-        :param badge_id:
-        :type badge_id: str
-        :param type:
-        :type type: float
-        :param displayed_on_comments:
-        :type displayed_on_comments: bool
-        :param limit:
-        :type limit: float
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetUserBadgesOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -25403,12 +25004,12 @@ class DefaultApi:
 
         _param = self._get_user_badges_serialize(
             tenant_id=tenant_id,
-            user_id=user_id,
-            badge_id=badge_id,
-            type=type,
-            displayed_on_comments=displayed_on_comments,
-            limit=limit,
-            skip=skip,
+            user_id=options.user_id if options is not None else None,
+            badge_id=options.badge_id if options is not None else None,
+            type=options.type if options is not None else None,
+            displayed_on_comments=options.displayed_on_comments if options is not None else None,
+            limit=options.limit if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -25433,12 +25034,7 @@ class DefaultApi:
     def get_user_badges_without_preload_content(
         self,
         tenant_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        badge_id: Optional[StrictStr] = None,
-        type: Optional[Union[StrictFloat, StrictInt]] = None,
-        displayed_on_comments: Optional[StrictBool] = None,
-        limit: Optional[Union[StrictFloat, StrictInt]] = None,
-        skip: Optional[Union[StrictFloat, StrictInt]] = None,
+        options: Optional[GetUserBadgesOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25457,18 +25053,8 @@ class DefaultApi:
 
         :param tenant_id: (required)
         :type tenant_id: str
-        :param user_id:
-        :type user_id: str
-        :param badge_id:
-        :type badge_id: str
-        :param type:
-        :type type: float
-        :param displayed_on_comments:
-        :type displayed_on_comments: bool
-        :param limit:
-        :type limit: float
-        :param skip:
-        :type skip: float
+        :param options: Optional parameters for this operation.
+        :type options: GetUserBadgesOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -25493,12 +25079,12 @@ class DefaultApi:
 
         _param = self._get_user_badges_serialize(
             tenant_id=tenant_id,
-            user_id=user_id,
-            badge_id=badge_id,
-            type=type,
-            displayed_on_comments=displayed_on_comments,
-            limit=limit,
-            skip=skip,
+            user_id=options.user_id if options is not None else None,
+            badge_id=options.badge_id if options is not None else None,
+            type=options.type if options is not None else None,
+            displayed_on_comments=options.displayed_on_comments if options is not None else None,
+            limit=options.limit if options is not None else None,
+            skip=options.skip if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -25893,8 +25479,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         url_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[GetVotesForUserOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25915,10 +25500,8 @@ class DefaultApi:
         :type tenant_id: str
         :param url_id: (required)
         :type url_id: str
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: GetVotesForUserOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -25944,8 +25527,8 @@ class DefaultApi:
         _param = self._get_votes_for_user_serialize(
             tenant_id=tenant_id,
             url_id=url_id,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -25971,8 +25554,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         url_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[GetVotesForUserOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25993,10 +25575,8 @@ class DefaultApi:
         :type tenant_id: str
         :param url_id: (required)
         :type url_id: str
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: GetVotesForUserOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -26022,8 +25602,8 @@ class DefaultApi:
         _param = self._get_votes_for_user_serialize(
             tenant_id=tenant_id,
             url_id=url_id,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -26049,8 +25629,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         url_id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[GetVotesForUserOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26071,10 +25650,8 @@ class DefaultApi:
         :type tenant_id: str
         :param url_id: (required)
         :type url_id: str
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: GetVotesForUserOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -26100,8 +25677,8 @@ class DefaultApi:
         _param = self._get_votes_for_user_serialize(
             tenant_id=tenant_id,
             url_id=url_id,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -26505,8 +26082,8 @@ class DefaultApi:
     @validate_call
     def patch_hash_tag(
         self,
+        tenant_id: StrictStr,
         tag: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
         update_hash_tag_body: Optional[UpdateHashTagBody] = None,
         _request_timeout: Union[
             None,
@@ -26524,12 +26101,12 @@ class DefaultApi:
         """patch_hash_tag
 
 
+        :param tenant_id: (required)
+        :type tenant_id: str
         :param tag: (required)
         :type tag: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param update_hash_tag_body:
-        :type update_hash_tag_body: UpdateHashTagBody
+        :param update_hash_tag_body: (optional)
+        :type update_hash_tag_body: UpdateHashTagBody, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -26553,8 +26130,8 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._patch_hash_tag_serialize(
-            tag=tag,
             tenant_id=tenant_id,
+            tag=tag,
             update_hash_tag_body=update_hash_tag_body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -26579,8 +26156,8 @@ class DefaultApi:
     @validate_call
     def patch_hash_tag_with_http_info(
         self,
+        tenant_id: StrictStr,
         tag: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
         update_hash_tag_body: Optional[UpdateHashTagBody] = None,
         _request_timeout: Union[
             None,
@@ -26598,12 +26175,12 @@ class DefaultApi:
         """patch_hash_tag
 
 
+        :param tenant_id: (required)
+        :type tenant_id: str
         :param tag: (required)
         :type tag: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param update_hash_tag_body:
-        :type update_hash_tag_body: UpdateHashTagBody
+        :param update_hash_tag_body: (optional)
+        :type update_hash_tag_body: UpdateHashTagBody, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -26627,8 +26204,8 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._patch_hash_tag_serialize(
-            tag=tag,
             tenant_id=tenant_id,
+            tag=tag,
             update_hash_tag_body=update_hash_tag_body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -26653,8 +26230,8 @@ class DefaultApi:
     @validate_call
     def patch_hash_tag_without_preload_content(
         self,
+        tenant_id: StrictStr,
         tag: StrictStr,
-        tenant_id: Optional[StrictStr] = None,
         update_hash_tag_body: Optional[UpdateHashTagBody] = None,
         _request_timeout: Union[
             None,
@@ -26672,12 +26249,12 @@ class DefaultApi:
         """patch_hash_tag
 
 
+        :param tenant_id: (required)
+        :type tenant_id: str
         :param tag: (required)
         :type tag: str
-        :param tenant_id:
-        :type tenant_id: str
-        :param update_hash_tag_body:
-        :type update_hash_tag_body: UpdateHashTagBody
+        :param update_hash_tag_body: (optional)
+        :type update_hash_tag_body: UpdateHashTagBody, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -26701,8 +26278,8 @@ class DefaultApi:
         """ # noqa: E501
 
         _param = self._patch_hash_tag_serialize(
-            tag=tag,
             tenant_id=tenant_id,
+            tag=tag,
             update_hash_tag_body=update_hash_tag_body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -26722,8 +26299,8 @@ class DefaultApi:
 
     def _patch_hash_tag_serialize(
         self,
-        tag,
         tenant_id,
+        tag,
         update_hash_tag_body,
         _request_auth,
         _content_type,
@@ -27137,8 +26714,8 @@ class DefaultApi:
         :type id: str
         :param update_apisso_user_data: (required)
         :type update_apisso_user_data: UpdateAPISSOUserData
-        :param update_comments:
-        :type update_comments: bool
+        :param update_comments: (optional)
+        :type update_comments: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -27215,8 +26792,8 @@ class DefaultApi:
         :type id: str
         :param update_apisso_user_data: (required)
         :type update_apisso_user_data: UpdateAPISSOUserData
-        :param update_comments:
-        :type update_comments: bool
+        :param update_comments: (optional)
+        :type update_comments: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -27293,8 +26870,8 @@ class DefaultApi:
         :type id: str
         :param update_apisso_user_data: (required)
         :type update_apisso_user_data: UpdateAPISSOUserData
-        :param update_comments:
-        :type update_comments: bool
+        :param update_comments: (optional)
+        :type update_comments: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -27760,8 +27337,8 @@ class DefaultApi:
         :type id: str
         :param update_apisso_user_data: (required)
         :type update_apisso_user_data: UpdateAPISSOUserData
-        :param update_comments:
-        :type update_comments: bool
+        :param update_comments: (optional)
+        :type update_comments: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -27838,8 +27415,8 @@ class DefaultApi:
         :type id: str
         :param update_apisso_user_data: (required)
         :type update_apisso_user_data: UpdateAPISSOUserData
-        :param update_comments:
-        :type update_comments: bool
+        :param update_comments: (optional)
+        :type update_comments: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -27916,8 +27493,8 @@ class DefaultApi:
         :type id: str
         :param update_apisso_user_data: (required)
         :type update_apisso_user_data: UpdateAPISSOUserData
-        :param update_comments:
-        :type update_comments: bool
+        :param update_comments: (optional)
+        :type update_comments: bool, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -28077,8 +27654,8 @@ class DefaultApi:
         :type tenant_id: str
         :param render_email_template_body: (required)
         :type render_email_template_body: RenderEmailTemplateBody
-        :param locale:
-        :type locale: str
+        :param locale: (optional)
+        :type locale: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -28151,8 +27728,8 @@ class DefaultApi:
         :type tenant_id: str
         :param render_email_template_body: (required)
         :type render_email_template_body: RenderEmailTemplateBody
-        :param locale:
-        :type locale: str
+        :param locale: (optional)
+        :type locale: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -28225,8 +27802,8 @@ class DefaultApi:
         :type tenant_id: str
         :param render_email_template_body: (required)
         :type render_email_template_body: RenderEmailTemplateBody
-        :param locale:
-        :type locale: str
+        :param locale: (optional)
+        :type locale: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -28688,8 +28265,8 @@ class DefaultApi:
         :type id: str
         :param replace_tenant_user_body: (required)
         :type replace_tenant_user_body: ReplaceTenantUserBody
-        :param update_comments:
-        :type update_comments: str
+        :param update_comments: (optional)
+        :type update_comments: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -28766,8 +28343,8 @@ class DefaultApi:
         :type id: str
         :param replace_tenant_user_body: (required)
         :type replace_tenant_user_body: ReplaceTenantUserBody
-        :param update_comments:
-        :type update_comments: str
+        :param update_comments: (optional)
+        :type update_comments: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -28844,8 +28421,8 @@ class DefaultApi:
         :type id: str
         :param replace_tenant_user_body: (required)
         :type replace_tenant_user_body: ReplaceTenantUserBody
-        :param update_comments:
-        :type update_comments: str
+        :param update_comments: (optional)
+        :type update_comments: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -28984,10 +28561,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         create_comment_params: CreateCommentParams,
-        is_live: Optional[StrictBool] = None,
-        do_spam_check: Optional[StrictBool] = None,
-        send_emails: Optional[StrictBool] = None,
-        populate_notifications: Optional[StrictBool] = None,
+        options: Optional[SaveCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29008,14 +28582,8 @@ class DefaultApi:
         :type tenant_id: str
         :param create_comment_params: (required)
         :type create_comment_params: CreateCommentParams
-        :param is_live:
-        :type is_live: bool
-        :param do_spam_check:
-        :type do_spam_check: bool
-        :param send_emails:
-        :type send_emails: bool
-        :param populate_notifications:
-        :type populate_notifications: bool
+        :param options: Optional parameters for this operation.
+        :type options: SaveCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -29041,10 +28609,10 @@ class DefaultApi:
         _param = self._save_comment_serialize(
             tenant_id=tenant_id,
             create_comment_params=create_comment_params,
-            is_live=is_live,
-            do_spam_check=do_spam_check,
-            send_emails=send_emails,
-            populate_notifications=populate_notifications,
+            is_live=options.is_live if options is not None else None,
+            do_spam_check=options.do_spam_check if options is not None else None,
+            send_emails=options.send_emails if options is not None else None,
+            populate_notifications=options.populate_notifications if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -29070,10 +28638,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         create_comment_params: CreateCommentParams,
-        is_live: Optional[StrictBool] = None,
-        do_spam_check: Optional[StrictBool] = None,
-        send_emails: Optional[StrictBool] = None,
-        populate_notifications: Optional[StrictBool] = None,
+        options: Optional[SaveCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29094,14 +28659,8 @@ class DefaultApi:
         :type tenant_id: str
         :param create_comment_params: (required)
         :type create_comment_params: CreateCommentParams
-        :param is_live:
-        :type is_live: bool
-        :param do_spam_check:
-        :type do_spam_check: bool
-        :param send_emails:
-        :type send_emails: bool
-        :param populate_notifications:
-        :type populate_notifications: bool
+        :param options: Optional parameters for this operation.
+        :type options: SaveCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -29127,10 +28686,10 @@ class DefaultApi:
         _param = self._save_comment_serialize(
             tenant_id=tenant_id,
             create_comment_params=create_comment_params,
-            is_live=is_live,
-            do_spam_check=do_spam_check,
-            send_emails=send_emails,
-            populate_notifications=populate_notifications,
+            is_live=options.is_live if options is not None else None,
+            do_spam_check=options.do_spam_check if options is not None else None,
+            send_emails=options.send_emails if options is not None else None,
+            populate_notifications=options.populate_notifications if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -29156,10 +28715,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         create_comment_params: CreateCommentParams,
-        is_live: Optional[StrictBool] = None,
-        do_spam_check: Optional[StrictBool] = None,
-        send_emails: Optional[StrictBool] = None,
-        populate_notifications: Optional[StrictBool] = None,
+        options: Optional[SaveCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29180,14 +28736,8 @@ class DefaultApi:
         :type tenant_id: str
         :param create_comment_params: (required)
         :type create_comment_params: CreateCommentParams
-        :param is_live:
-        :type is_live: bool
-        :param do_spam_check:
-        :type do_spam_check: bool
-        :param send_emails:
-        :type send_emails: bool
-        :param populate_notifications:
-        :type populate_notifications: bool
+        :param options: Optional parameters for this operation.
+        :type options: SaveCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -29213,10 +28763,10 @@ class DefaultApi:
         _param = self._save_comment_serialize(
             tenant_id=tenant_id,
             create_comment_params=create_comment_params,
-            is_live=is_live,
-            do_spam_check=do_spam_check,
-            send_emails=send_emails,
-            populate_notifications=populate_notifications,
+            is_live=options.is_live if options is not None else None,
+            do_spam_check=options.do_spam_check if options is not None else None,
+            send_emails=options.send_emails if options is not None else None,
+            populate_notifications=options.populate_notifications if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -29340,10 +28890,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         create_comment_params: List[CreateCommentParams],
-        is_live: Optional[StrictBool] = None,
-        do_spam_check: Optional[StrictBool] = None,
-        send_emails: Optional[StrictBool] = None,
-        populate_notifications: Optional[StrictBool] = None,
+        options: Optional[SaveCommentsBulkOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29364,14 +28911,8 @@ class DefaultApi:
         :type tenant_id: str
         :param create_comment_params: (required)
         :type create_comment_params: List[CreateCommentParams]
-        :param is_live:
-        :type is_live: bool
-        :param do_spam_check:
-        :type do_spam_check: bool
-        :param send_emails:
-        :type send_emails: bool
-        :param populate_notifications:
-        :type populate_notifications: bool
+        :param options: Optional parameters for this operation.
+        :type options: SaveCommentsBulkOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -29397,10 +28938,10 @@ class DefaultApi:
         _param = self._save_comments_bulk_serialize(
             tenant_id=tenant_id,
             create_comment_params=create_comment_params,
-            is_live=is_live,
-            do_spam_check=do_spam_check,
-            send_emails=send_emails,
-            populate_notifications=populate_notifications,
+            is_live=options.is_live if options is not None else None,
+            do_spam_check=options.do_spam_check if options is not None else None,
+            send_emails=options.send_emails if options is not None else None,
+            populate_notifications=options.populate_notifications if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -29426,10 +28967,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         create_comment_params: List[CreateCommentParams],
-        is_live: Optional[StrictBool] = None,
-        do_spam_check: Optional[StrictBool] = None,
-        send_emails: Optional[StrictBool] = None,
-        populate_notifications: Optional[StrictBool] = None,
+        options: Optional[SaveCommentsBulkOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29450,14 +28988,8 @@ class DefaultApi:
         :type tenant_id: str
         :param create_comment_params: (required)
         :type create_comment_params: List[CreateCommentParams]
-        :param is_live:
-        :type is_live: bool
-        :param do_spam_check:
-        :type do_spam_check: bool
-        :param send_emails:
-        :type send_emails: bool
-        :param populate_notifications:
-        :type populate_notifications: bool
+        :param options: Optional parameters for this operation.
+        :type options: SaveCommentsBulkOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -29483,10 +29015,10 @@ class DefaultApi:
         _param = self._save_comments_bulk_serialize(
             tenant_id=tenant_id,
             create_comment_params=create_comment_params,
-            is_live=is_live,
-            do_spam_check=do_spam_check,
-            send_emails=send_emails,
-            populate_notifications=populate_notifications,
+            is_live=options.is_live if options is not None else None,
+            do_spam_check=options.do_spam_check if options is not None else None,
+            send_emails=options.send_emails if options is not None else None,
+            populate_notifications=options.populate_notifications if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -29512,10 +29044,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         create_comment_params: List[CreateCommentParams],
-        is_live: Optional[StrictBool] = None,
-        do_spam_check: Optional[StrictBool] = None,
-        send_emails: Optional[StrictBool] = None,
-        populate_notifications: Optional[StrictBool] = None,
+        options: Optional[SaveCommentsBulkOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29536,14 +29065,8 @@ class DefaultApi:
         :type tenant_id: str
         :param create_comment_params: (required)
         :type create_comment_params: List[CreateCommentParams]
-        :param is_live:
-        :type is_live: bool
-        :param do_spam_check:
-        :type do_spam_check: bool
-        :param send_emails:
-        :type send_emails: bool
-        :param populate_notifications:
-        :type populate_notifications: bool
+        :param options: Optional parameters for this operation.
+        :type options: SaveCommentsBulkOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -29569,10 +29092,10 @@ class DefaultApi:
         _param = self._save_comments_bulk_serialize(
             tenant_id=tenant_id,
             create_comment_params=create_comment_params,
-            is_live=is_live,
-            do_spam_check=do_spam_check,
-            send_emails=send_emails,
-            populate_notifications=populate_notifications,
+            is_live=options.is_live if options is not None else None,
+            do_spam_check=options.do_spam_check if options is not None else None,
+            send_emails=options.send_emails if options is not None else None,
+            populate_notifications=options.populate_notifications if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -30010,8 +29533,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param redirect_url:
-        :type redirect_url: str
+        :param redirect_url: (optional)
+        :type redirect_url: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -30084,8 +29607,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param redirect_url:
-        :type redirect_url: str
+        :param redirect_url: (optional)
+        :type redirect_url: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -30158,8 +29681,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param redirect_url:
-        :type redirect_url: str
+        :param redirect_url: (optional)
+        :type redirect_url: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -30282,8 +29805,7 @@ class DefaultApi:
         tenant_id: StrictStr,
         id: StrictStr,
         un_block_from_comment_params: UnBlockFromCommentParams,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[UnBlockUserFromCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30306,10 +29828,8 @@ class DefaultApi:
         :type id: str
         :param un_block_from_comment_params: (required)
         :type un_block_from_comment_params: UnBlockFromCommentParams
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: UnBlockUserFromCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -30336,8 +29856,8 @@ class DefaultApi:
             tenant_id=tenant_id,
             id=id,
             un_block_from_comment_params=un_block_from_comment_params,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -30364,8 +29884,7 @@ class DefaultApi:
         tenant_id: StrictStr,
         id: StrictStr,
         un_block_from_comment_params: UnBlockFromCommentParams,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[UnBlockUserFromCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30388,10 +29907,8 @@ class DefaultApi:
         :type id: str
         :param un_block_from_comment_params: (required)
         :type un_block_from_comment_params: UnBlockFromCommentParams
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: UnBlockUserFromCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -30418,8 +29935,8 @@ class DefaultApi:
             tenant_id=tenant_id,
             id=id,
             un_block_from_comment_params=un_block_from_comment_params,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -30446,8 +29963,7 @@ class DefaultApi:
         tenant_id: StrictStr,
         id: StrictStr,
         un_block_from_comment_params: UnBlockFromCommentParams,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[UnBlockUserFromCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30470,10 +29986,8 @@ class DefaultApi:
         :type id: str
         :param un_block_from_comment_params: (required)
         :type un_block_from_comment_params: UnBlockFromCommentParams
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: UnBlockUserFromCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -30500,8 +30014,8 @@ class DefaultApi:
             tenant_id=tenant_id,
             id=id,
             un_block_from_comment_params=un_block_from_comment_params,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -30618,8 +30132,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[UnFlagCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30640,10 +30153,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: UnFlagCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -30669,8 +30180,8 @@ class DefaultApi:
         _param = self._un_flag_comment_serialize(
             tenant_id=tenant_id,
             id=id,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -30696,8 +30207,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[UnFlagCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30718,10 +30228,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: UnFlagCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -30747,8 +30255,8 @@ class DefaultApi:
         _param = self._un_flag_comment_serialize(
             tenant_id=tenant_id,
             id=id,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -30774,8 +30282,7 @@ class DefaultApi:
         self,
         tenant_id: StrictStr,
         id: StrictStr,
-        user_id: Optional[StrictStr] = None,
-        anon_user_id: Optional[StrictStr] = None,
+        options: Optional[UnFlagCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30796,10 +30303,8 @@ class DefaultApi:
         :type tenant_id: str
         :param id: (required)
         :type id: str
-        :param user_id:
-        :type user_id: str
-        :param anon_user_id:
-        :type anon_user_id: str
+        :param options: Optional parameters for this operation.
+        :type options: UnFlagCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -30825,8 +30330,8 @@ class DefaultApi:
         _param = self._un_flag_comment_serialize(
             tenant_id=tenant_id,
             id=id,
-            user_id=user_id,
-            anon_user_id=anon_user_id,
+            user_id=options.user_id if options is not None else None,
+            anon_user_id=options.anon_user_id if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -30928,9 +30433,7 @@ class DefaultApi:
         tenant_id: StrictStr,
         id: StrictStr,
         updatable_comment_params: UpdatableCommentParams,
-        context_user_id: Optional[StrictStr] = None,
-        do_spam_check: Optional[StrictBool] = None,
-        is_live: Optional[StrictBool] = None,
+        options: Optional[UpdateCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30953,12 +30456,8 @@ class DefaultApi:
         :type id: str
         :param updatable_comment_params: (required)
         :type updatable_comment_params: UpdatableCommentParams
-        :param context_user_id:
-        :type context_user_id: str
-        :param do_spam_check:
-        :type do_spam_check: bool
-        :param is_live:
-        :type is_live: bool
+        :param options: Optional parameters for this operation.
+        :type options: UpdateCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -30985,9 +30484,9 @@ class DefaultApi:
             tenant_id=tenant_id,
             id=id,
             updatable_comment_params=updatable_comment_params,
-            context_user_id=context_user_id,
-            do_spam_check=do_spam_check,
-            is_live=is_live,
+            context_user_id=options.context_user_id if options is not None else None,
+            do_spam_check=options.do_spam_check if options is not None else None,
+            is_live=options.is_live if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -31014,9 +30513,7 @@ class DefaultApi:
         tenant_id: StrictStr,
         id: StrictStr,
         updatable_comment_params: UpdatableCommentParams,
-        context_user_id: Optional[StrictStr] = None,
-        do_spam_check: Optional[StrictBool] = None,
-        is_live: Optional[StrictBool] = None,
+        options: Optional[UpdateCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31039,12 +30536,8 @@ class DefaultApi:
         :type id: str
         :param updatable_comment_params: (required)
         :type updatable_comment_params: UpdatableCommentParams
-        :param context_user_id:
-        :type context_user_id: str
-        :param do_spam_check:
-        :type do_spam_check: bool
-        :param is_live:
-        :type is_live: bool
+        :param options: Optional parameters for this operation.
+        :type options: UpdateCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -31071,9 +30564,9 @@ class DefaultApi:
             tenant_id=tenant_id,
             id=id,
             updatable_comment_params=updatable_comment_params,
-            context_user_id=context_user_id,
-            do_spam_check=do_spam_check,
-            is_live=is_live,
+            context_user_id=options.context_user_id if options is not None else None,
+            do_spam_check=options.do_spam_check if options is not None else None,
+            is_live=options.is_live if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -31100,9 +30593,7 @@ class DefaultApi:
         tenant_id: StrictStr,
         id: StrictStr,
         updatable_comment_params: UpdatableCommentParams,
-        context_user_id: Optional[StrictStr] = None,
-        do_spam_check: Optional[StrictBool] = None,
-        is_live: Optional[StrictBool] = None,
+        options: Optional[UpdateCommentOptions] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31125,12 +30616,8 @@ class DefaultApi:
         :type id: str
         :param updatable_comment_params: (required)
         :type updatable_comment_params: UpdatableCommentParams
-        :param context_user_id:
-        :type context_user_id: str
-        :param do_spam_check:
-        :type do_spam_check: bool
-        :param is_live:
-        :type is_live: bool
+        :param options: Optional parameters for this operation.
+        :type options: UpdateCommentOptions, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -31157,9 +30644,9 @@ class DefaultApi:
             tenant_id=tenant_id,
             id=id,
             updatable_comment_params=updatable_comment_params,
-            context_user_id=context_user_id,
-            do_spam_check=do_spam_check,
-            is_live=is_live,
+            context_user_id=options.context_user_id if options is not None else None,
+            do_spam_check=options.do_spam_check if options is not None else None,
+            is_live=options.is_live if options is not None else None,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -32214,8 +31701,8 @@ class DefaultApi:
         :type id: str
         :param update_notification_body: (required)
         :type update_notification_body: UpdateNotificationBody
-        :param user_id:
-        :type user_id: str
+        :param user_id: (optional)
+        :type user_id: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -32292,8 +31779,8 @@ class DefaultApi:
         :type id: str
         :param update_notification_body: (required)
         :type update_notification_body: UpdateNotificationBody
-        :param user_id:
-        :type user_id: str
+        :param user_id: (optional)
+        :type user_id: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -32370,8 +31857,8 @@ class DefaultApi:
         :type id: str
         :param update_notification_body: (required)
         :type update_notification_body: UpdateNotificationBody
-        :param user_id:
-        :type user_id: str
+        :param user_id: (optional)
+        :type user_id: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -33140,8 +32627,8 @@ class DefaultApi:
         :type id: str
         :param update_api_user_subscription_data: (required)
         :type update_api_user_subscription_data: UpdateAPIUserSubscriptionData
-        :param user_id:
-        :type user_id: str
+        :param user_id: (optional)
+        :type user_id: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -33218,8 +32705,8 @@ class DefaultApi:
         :type id: str
         :param update_api_user_subscription_data: (required)
         :type update_api_user_subscription_data: UpdateAPIUserSubscriptionData
-        :param user_id:
-        :type user_id: str
+        :param user_id: (optional)
+        :type user_id: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -33296,8 +32783,8 @@ class DefaultApi:
         :type id: str
         :param update_api_user_subscription_data: (required)
         :type update_api_user_subscription_data: UpdateAPIUserSubscriptionData
-        :param user_id:
-        :type user_id: str
+        :param user_id: (optional)
+        :type user_id: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -34066,8 +33553,8 @@ class DefaultApi:
         :type id: str
         :param update_tenant_user_body: (required)
         :type update_tenant_user_body: UpdateTenantUserBody
-        :param update_comments:
-        :type update_comments: str
+        :param update_comments: (optional)
+        :type update_comments: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -34144,8 +33631,8 @@ class DefaultApi:
         :type id: str
         :param update_tenant_user_body: (required)
         :type update_tenant_user_body: UpdateTenantUserBody
-        :param update_comments:
-        :type update_comments: str
+        :param update_comments: (optional)
+        :type update_comments: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -34222,8 +33709,8 @@ class DefaultApi:
         :type id: str
         :param update_tenant_user_body: (required)
         :type update_tenant_user_body: UpdateTenantUserBody
-        :param update_comments:
-        :type update_comments: str
+        :param update_comments: (optional)
+        :type update_comments: str, optional
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of

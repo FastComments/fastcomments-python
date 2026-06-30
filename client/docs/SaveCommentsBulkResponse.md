@@ -6,11 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**APIStatus**](APIStatus.md) |  | 
-**comment** | [**APIComment**](APIComment.md) |  | 
-**user** | [**UserSessionInfo**](UserSessionInfo.md) |  | 
+**comment** | [**APIComment**](APIComment.md) |  | [optional] 
+**user** | [**UserSessionInfo**](UserSessionInfo.md) |  | [optional] 
 **module_data** | **Dict[str, object]** | Construct a type with a set of properties K of type T | [optional] 
-**reason** | **str** |  | 
-**code** | **str** |  | 
+**reason** | **str** |  | [optional] 
+**code** | **str** |  | [optional] 
 **secondary_code** | **str** |  | [optional] 
 **banned_until** | **int** |  | [optional] 
 **max_character_length** | **int** |  | [optional] 

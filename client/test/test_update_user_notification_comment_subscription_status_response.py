@@ -43,9 +43,6 @@ class TestUpdateUserNotificationCommentSubscriptionStatusResponse(unittest.TestC
         else:
             return UpdateUserNotificationCommentSubscriptionStatusResponse(
                 status = 'success',
-                matched_count = 56,
-                modified_count = 56,
-                note = 'ignored-since-impersonated',
         )
         """
 

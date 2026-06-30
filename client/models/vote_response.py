@@ -17,26 +17,34 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from client.models.vote_response_status import VoteResponseStatus
 from client.models.vote_response_user import VoteResponseUser
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class VoteResponse(BaseModel):
     """
     VoteResponse
     """ # noqa: E501
-    status: VoteResponseStatus
+    status: StrictStr
     vote_id: Optional[StrictStr] = Field(default=None, alias="voteId")
     is_verified: Optional[StrictBool] = Field(default=None, alias="isVerified")
     user: Optional[VoteResponseUser] = None
     edit_key: Optional[StrictStr] = Field(default=None, alias="editKey")
     __properties: ClassVar[List[str]] = ["status", "voteId", "isVerified", "user", "editKey"]
 
+    @field_validator('status')
+    def status_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['success', 'failed', 'pending-verification']):
+            raise ValueError("must be one of enum values ('success', 'failed', 'pending-verification')")
+        return value
+
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -48,8 +56,7 @@ class VoteResponse(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -74,9 +81,6 @@ class VoteResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of status
-        if self.status:
-            _dict['status'] = self.status.to_dict()
         # override the default output from pydantic by calling `to_dict()` of user
         if self.user:
             _dict['user'] = self.user.to_dict()
@@ -92,7 +96,7 @@ class VoteResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "status": VoteResponseStatus.from_dict(obj["status"]) if obj.get("status") is not None else None,
+            "status": obj.get("status"),
             "voteId": obj.get("voteId"),
             "isVerified": obj.get("isVerified"),
             "user": VoteResponseUser.from_dict(obj["user"]) if obj.get("user") is not None else None,

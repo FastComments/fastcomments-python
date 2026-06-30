@@ -18,7 +18,7 @@ This library contains two modules: the generated API client and the core Python 
 
 ### Public vs Secured APIs
 
-For the API client, there are three classes, `DefaultApi`, `PublicApi`, and `ModerationApi`. The `DefaultApi` contains methods that require your API key, and `PublicApi` contains methods that can be made directly from a browser/mobile device/etc without authentication. The `ModerationApi` powers the moderator dashboard and contains methods for moderating comments (list, count, search, logs, export), moderation actions (remove/restore, flag, set review/spam/approval status, votes, reopen/close thread), bans (ban from comment, undo, pre-ban summaries, ban status/preferences, banned-user counts), and badges & trust (award/remove badge, manual badges, get/set trust factor, user internal profile). Every `ModerationApi` method accepts an `sso` parameter so it can be called on behalf of an SSO-authenticated moderator.
+For the API client, there are three classes, `DefaultApi`, `PublicApi`, and `ModerationApi`. The `DefaultApi` contains methods that require your API key, and `PublicApi` contains methods that can be made directly from a browser/mobile device/etc without authentication. The `ModerationApi` provides an extensive suite of live and fast moderation APIs. Every `ModerationApi` method accepts an `sso` parameter and can authenticate via SSO or a FastComments.com session cookie.
 
 ## Quick Start
 
@@ -50,10 +50,7 @@ try:
         display_name="John Doe"
     )
 
-    response = api.add_sso_user(
-        tenant_id="YOUR_TENANT_ID",
-        create_apisso_user_data=user_data
-    )
+    response = api.add_sso_user("YOUR_TENANT_ID", user_data)
     print(f"User created: {response}")
 
 except Exception as e:
@@ -77,10 +74,7 @@ api_client = ApiClient(configuration=config)
 public_api = PublicApi(api_client)
 
 try:
-    response = public_api.get_comments_public(
-        tenant_id="YOUR_TENANT_ID",
-        url_id="page-url-id"
-    )
+    response = public_api.get_comments_public("YOUR_TENANT_ID", "page-url-id")
     print(response)
 except Exception as e:
     print(f"Error: {e}")
@@ -92,6 +86,7 @@ The `ModerationApi` powers the moderator dashboard. Methods are called on behalf
 
 ```python
 from client import ApiClient, Configuration, ModerationApi
+from client.api.moderation_api import GetCountOptions
 
 config = Configuration()
 config.host = "https://fastcomments.com/api"
@@ -101,7 +96,7 @@ moderation_api = ModerationApi(api_client)
 
 try:
     # Count the comments awaiting moderation
-    response = moderation_api.get_count(sso="SSO_TOKEN")
+    response = moderation_api.get_count(GetCountOptions(sso="SSO_TOKEN"))
     print(response)
 except Exception as e:
     print(f"Error: {e}")

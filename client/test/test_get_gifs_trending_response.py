@@ -45,13 +45,7 @@ class TestGetGifsTrendingResponse(unittest.TestCase):
             )
         else:
             return GetGifsTrendingResponse(
-                images = [
-                    [
-                        null
-                        ]
-                    ],
                 status = 'success',
-                code = '',
         )
         """
 

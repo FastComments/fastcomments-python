@@ -22,6 +22,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, Stri
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class TenantPackage(BaseModel):
     """
@@ -91,7 +92,8 @@ class TenantPackage(BaseModel):
     __properties: ClassVar[List[str]] = ["_id", "name", "tenantId", "createdAt", "templateId", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing", "enableSAML", "enableCanvasLTI", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexSmallWidgetsCreditCostCents", "flexSmallWidgetsCreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexChatGPTCostCents", "flexChatGPTUnit", "flexLLMCostCents", "flexLLMUnit", "flexMinimumCostCents", "flexManagedTenantCostCents", "flexSSOAdminCostCents", "flexSSOAdminUnit", "flexSSOModeratorCostCents", "flexSSOModeratorUnit", "isSSOBillingMonthlyActiveUsers", "hasAIAgents", "maxAIAgents", "aiAgentDailyBudgetCents", "aiAgentMonthlyBudgetCents"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -103,8 +105,7 @@ class TenantPackage(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

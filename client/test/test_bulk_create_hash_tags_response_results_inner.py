@@ -160,14 +160,6 @@ class TestBulkCreateHashTagsResponseResultsInner(unittest.TestCase):
         else:
             return BulkCreateHashTagsResponseResultsInner(
                 status = 'success',
-                hash_tag = client.models.tenant_hash_tag.TenantHashTag(
-                    _id = '', 
-                    created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                    tenant_id = '', 
-                    tag = '', 
-                    url = '', ),
-                reason = '',
-                code = '',
         )
         """
 

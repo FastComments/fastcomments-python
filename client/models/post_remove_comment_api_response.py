@@ -25,11 +25,11 @@ from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-POSTREMOVECOMMENTRESPONSE_ANY_OF_SCHEMAS = ["DeleteCommentResult", "RemoveCommentActionResponse"]
+POSTREMOVECOMMENTAPIRESPONSE_ANY_OF_SCHEMAS = ["DeleteCommentResult", "RemoveCommentActionResponse"]
 
-class PostRemoveCommentResponse(BaseModel):
+class PostRemoveCommentApiResponse(BaseModel):
     """
-    PostRemoveCommentResponse
+    PostRemoveCommentApiResponse
     """
 
     # data type: DeleteCommentResult
@@ -59,7 +59,7 @@ class PostRemoveCommentResponse(BaseModel):
 
     @field_validator('actual_instance')
     def actual_instance_must_validate_anyof(cls, v):
-        instance = PostRemoveCommentResponse.model_construct()
+        instance = PostRemoveCommentApiResponse.model_construct()
         error_messages = []
         # validate data type: DeleteCommentResult
         if not isinstance(v, DeleteCommentResult):
@@ -75,7 +75,7 @@ class PostRemoveCommentResponse(BaseModel):
 
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in PostRemoveCommentResponse with anyOf schemas: DeleteCommentResult, RemoveCommentActionResponse. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in PostRemoveCommentApiResponse with anyOf schemas: DeleteCommentResult, RemoveCommentActionResponse. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -103,7 +103,7 @@ class PostRemoveCommentResponse(BaseModel):
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into PostRemoveCommentResponse with anyOf schemas: DeleteCommentResult, RemoveCommentActionResponse. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into PostRemoveCommentApiResponse with anyOf schemas: DeleteCommentResult, RemoveCommentActionResponse. Details: " + ", ".join(error_messages))
         else:
             return instance
 

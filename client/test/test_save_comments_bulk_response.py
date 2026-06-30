@@ -186,37 +186,6 @@ class TestSaveCommentsBulkResponse(unittest.TestCase):
         else:
             return SaveCommentsBulkResponse(
                 status = 'success',
-                comment = None,
-                user = client.models.user_session_info.UserSessionInfo(
-                    id = '', 
-                    authorized = True, 
-                    avatar_src = '', 
-                    badges = [
-                        client.models.comment_user_badge_info.CommentUserBadgeInfo(
-                            id = '', 
-                            type = 56, 
-                            description = '', 
-                            display_label = '', 
-                            display_src = '', 
-                            background_color = '', 
-                            border_color = '', 
-                            text_color = '', 
-                            css_class = '', )
-                        ], 
-                    display_label = '', 
-                    display_name = '', 
-                    email = '', 
-                    group_ids = [
-                        ''
-                        ], 
-                    has_blocked_users = True, 
-                    is_anon_session = True, 
-                    needs_tos = True, 
-                    session_id = '', 
-                    username = '', 
-                    website_url = '', ),
-                reason = '',
-                code = '',
         )
         """
 

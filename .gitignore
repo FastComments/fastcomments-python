@@ -158,3 +158,6 @@ Thumbs.db
 # Logs
 logs/
 *.log
+
+# Local fork generator jar (downloaded on demand by update.sh)
+openapi-generator-cli.jar

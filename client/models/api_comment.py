@@ -26,6 +26,7 @@ from client.models.comment_user_hash_tag_info import CommentUserHashTagInfo
 from client.models.comment_user_mention_info import CommentUserMentionInfo
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class APIComment(BaseModel):
     """
@@ -87,7 +88,8 @@ class APIComment(BaseModel):
     __properties: ClassVar[List[str]] = ["id", "aiDeterminedSpam", "anonUserId", "approved", "avatarSrc", "badges", "comment", "commentHTML", "commenterEmail", "commenterLink", "commenterName", "date", "displayLabel", "domain", "externalId", "externalParentId", "expireAt", "feedbackIds", "flagCount", "fromProductId", "hasCode", "hasImages", "hasLinks", "hashTags", "isByAdmin", "isByModerator", "isDeleted", "isDeletedUser", "isPinned", "isLocked", "isSpam", "localDateHours", "localDateString", "locale", "mentions", "meta", "moderationGroupIds", "notificationSentForParent", "notificationSentForParentTenant", "pageTitle", "parentId", "rating", "reviewed", "tenantId", "url", "urlId", "urlIdRaw", "userId", "verified", "verifiedDate", "votes", "votesDown", "votesUp"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -99,8 +101,7 @@ class APIComment(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

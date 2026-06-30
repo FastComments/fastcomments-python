@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**VoteResponseStatus**](VoteResponseStatus.md) |  | 
+**status** | **str** |  | 
 **vote_id** | **str** |  | [optional] 
 **is_verified** | **bool** |  | [optional] 
 **user** | [**VoteResponseUser**](VoteResponseUser.md) |  | [optional] 

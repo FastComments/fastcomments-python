@@ -6,9 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**APIStatus**](APIStatus.md) |  | 
-**hash_tag** | [**TenantHashTag**](TenantHashTag.md) |  | 
-**reason** | **str** |  | 
-**code** | **str** |  | 
+**hash_tag** | [**TenantHashTag**](TenantHashTag.md) |  | [optional] 
+**reason** | **str** |  | [optional] 
+**code** | **str** |  | [optional] 
 **secondary_code** | **str** |  | [optional] 
 **banned_until** | **int** |  | [optional] 
 **max_character_length** | **int** |  | [optional] 

@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**APIStatus**](APIStatus.md) |  | 
-**sections** | [**List[UserSearchSectionResult]**](UserSearchSectionResult.md) |  | 
-**users** | [**List[UserSearchResult]**](UserSearchResult.md) |  | 
+**sections** | [**List[UserSearchSectionResult]**](UserSearchSectionResult.md) |  | [optional] 
+**users** | [**List[UserSearchResult]**](UserSearchResult.md) |  | [optional] 
 
 ## Example
 

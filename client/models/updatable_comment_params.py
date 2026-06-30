@@ -23,6 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from client.models.api_comment_base_meta import APICommentBaseMeta
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class UpdatableCommentParams(BaseModel):
     """
@@ -70,7 +71,8 @@ class UpdatableCommentParams(BaseModel):
     __properties: ClassVar[List[str]] = ["urlId", "urlIdRaw", "url", "pageTitle", "userId", "commenterEmail", "commenterName", "commenterLink", "comment", "commentHTML", "parentId", "date", "localDateString", "localDateHours", "votes", "votesUp", "votesDown", "expireAt", "verified", "verifiedDate", "notificationSentForParent", "notificationSentForParentTenant", "reviewed", "externalId", "externalParentId", "avatarSrc", "isSpam", "approved", "isDeleted", "isDeletedUser", "isByAdmin", "isByModerator", "isPinned", "isLocked", "flagCount", "displayLabel", "meta", "moderationGroupIds", "feedbackIds"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -82,8 +84,7 @@ class UpdatableCommentParams(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

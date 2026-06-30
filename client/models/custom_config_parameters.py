@@ -38,6 +38,7 @@ from client.models.users_list_location import UsersListLocation
 from client.models.vote_style import VoteStyle
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class CustomConfigParameters(BaseModel):
     """
@@ -134,7 +135,8 @@ class CustomConfigParameters(BaseModel):
     __properties: ClassVar[List[str]] = ["absoluteAndRelativeDates", "absoluteDates", "allowAnon", "allowAnonFlag", "allowAnonVotes", "allowedLanguages", "collapseReplies", "commentCountFormat", "commentHTMLRenderingMode", "commentThreadDeleteMode", "commenterNameFormat", "countAboveToggle", "customCSS", "defaultAvatarSrc", "defaultSortDirection", "defaultUsername", "disableAutoAdminMigration", "disableAutoHashTagCreation", "disableBlocking", "disableCommenterCommentDelete", "disableCommenterCommentEdit", "disableEmailInputs", "disableLiveCommenting", "disableNotificationBell", "disableProfileComments", "disableProfileDirectMessages", "disableProfiles", "disableSuccessMessage", "disableToolbar", "disableUnverifiedLabel", "disableVoting", "enableCommenterLinks", "enableSearch", "enableSpoilers", "enableThirdPartyCookieBypass", "enableViewCounts", "enableVoteList", "enableWYSIWYG", "gifRating", "hasDarkBackground", "headerHTML", "hideAvatars", "hideCommentsUnderCountTextFormat", "imageContentProfanityLevel", "inputAfterComments", "limitCommentsByGroups", "locale", "maxCommentCharacterLength", "maxCommentCreatedCountPUPM", "noCustomConfig", "mentionAutoCompleteMode", "noImageUploads", "allowEmbeds", "allowedEmbedDomains", "noStyles", "pageSize", "readonly", "noNewRootComments", "requireSSO", "enableFChat", "enableResizeHandle", "restrictedLinkDomains", "showBadgesInTopBar", "showCommentSaveSuccess", "showLiveRightAway", "showQuestion", "spamRules", "ssoSecLvl", "translations", "useShowCommentsToggle", "useSingleLineCommentInput", "voteStyle", "widgetQuestionId", "widgetQuestionResultsStyle", "widgetQuestionShowBreakdown", "widgetQuestionStyle", "widgetQuestionWhenToSave", "widgetQuestionsRequired", "widgetSubQuestionVisibility", "wrap", "usersListLocation", "usersListIncludeOffline", "ticketBaseUrl", "ticketKBSearchEndpoint", "ticketFileUploadsEnabled", "ticketMaxFileSize", "ticketAutoAssignUserIds", "tos"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -146,8 +148,7 @@ class CustomConfigParameters(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

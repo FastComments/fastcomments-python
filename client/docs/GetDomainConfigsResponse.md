@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**configurations** | **object** |  | 
+**configurations** | **object** |  | [optional] 
 **status** | **object** |  | 
-**reason** | **str** |  | 
-**code** | **str** |  | 
+**reason** | **str** |  | [optional] 
+**code** | **str** |  | [optional] 
 
 ## Example
 
