@@ -18,10 +18,10 @@ try:
 
     from client import ApiClient, Configuration, PublicApi, DefaultApi
     from client.api.public_api import (
-        ApiGetCommentsPublicOptions,
-        ApiCreateCommentPublicOptions,
+        GetCommentsPublicOptions,
+        CreateCommentPublicOptions,
     )
-    from client.api.default_api import ApiGetCommentsOptions
+    from client.api.default_api import GetCommentsOptions
     HAS_CLIENT = True
 except ImportError as e:
     HAS_CLIENT = False
@@ -89,7 +89,7 @@ class TestSecureSSOAPIIntegration:
             response = public_api.get_comments_public(
                 TENANT_ID,
                 "sdk-test-page-secure",
-                ApiGetCommentsPublicOptions(sso=sso_token)
+                GetCommentsPublicOptions(sso=sso_token)
             )
 
             assert response is not None
@@ -116,7 +116,7 @@ class TestSecureSSOAPIIntegration:
         try:
             response = default_api.get_comments(
                 TENANT_ID,
-                ApiGetCommentsOptions(
+                GetCommentsOptions(
                     url_id="sdk-test-page-secure-admin",
                     context_user_id=mock_secure_user.user_id
                 )
@@ -149,7 +149,7 @@ class TestSecureSSOAPIIntegration:
                     "url": "https://example.com/test-page",
                     "urlId": "sdk-test-page-secure-comment"
                 },
-                ApiCreateCommentPublicOptions(sso=sso_token)
+                CreateCommentPublicOptions(sso=sso_token)
             )
 
             assert response is not None
@@ -179,7 +179,7 @@ class TestSimpleSSOAPIIntegration:
             response = public_api.get_comments_public(
                 TENANT_ID,
                 "sdk-test-page-simple",
-                ApiGetCommentsPublicOptions(sso=sso_token)
+                GetCommentsPublicOptions(sso=sso_token)
             )
 
             assert response is not None
@@ -210,7 +210,7 @@ class TestSimpleSSOAPIIntegration:
                     "url": "https://example.com/test-page",
                     "urlId": "sdk-test-page-simple-comment"
                 },
-                ApiCreateCommentPublicOptions(sso=sso_token)
+                CreateCommentPublicOptions(sso=sso_token)
             )
 
             assert response is not None
@@ -238,7 +238,7 @@ class TestErrorHandling:
             public_api.get_comments_public(
                 "invalid-tenant-id",
                 "test-page",
-                ApiGetCommentsPublicOptions(sso=sso_token)
+                GetCommentsPublicOptions(sso=sso_token)
             )
 
         # Check that it's an HTTP error with status >= 400
@@ -252,7 +252,7 @@ class TestErrorHandling:
             public_api.get_comments_public(
                 TENANT_ID,
                 "test-page",
-                ApiGetCommentsPublicOptions(sso="invalid-sso-data")
+                GetCommentsPublicOptions(sso="invalid-sso-data")
             )
 
         error = exc_info.value

@@ -86,7 +86,7 @@ The `ModerationApi` powers the moderator dashboard. Methods are called on behalf
 
 ```python
 from client import ApiClient, Configuration, ModerationApi
-from client.api.moderation_api import ApiGetCountOptions
+from client.api.moderation_api import GetCountOptions
 
 config = Configuration()
 config.host = "https://fastcomments.com/api"
@@ -96,7 +96,7 @@ moderation_api = ModerationApi(api_client)
 
 try:
     # Count the comments awaiting moderation
-    response = moderation_api.get_count(ApiGetCountOptions(sso="SSO_TOKEN"))
+    response = moderation_api.get_count(GetCountOptions(sso="SSO_TOKEN"))
     print(response)
 except Exception as e:
     print(f"Error: {e}")

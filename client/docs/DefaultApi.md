@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_hash_tag**
-> CreateHashTagResponse add_hash_tag(create_hash_tag_body, tenant_id=tenant_id)
+> CreateHashTagResponse add_hash_tag(tenant_id, create_hash_tag_body)
 
 ### Example
 
@@ -232,11 +232,11 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = client.DefaultApi(api_client)
-    tenant_id = 'tenant_id_example' # str |  (optional)
+    tenant_id = 'tenant_id_example' # str | 
     create_hash_tag_body = client.CreateHashTagBody() # CreateHashTagBody |  (optional)
 
     try:
-        api_response = api_instance.add_hash_tag(create_hash_tag_body, tenant_id=tenant_id)
+        api_response = api_instance.add_hash_tag(tenant_id, create_hash_tag_body)
         print("The response of DefaultApi->add_hash_tag:\n")
         pprint(api_response)
     except Exception as e:
@@ -250,7 +250,7 @@ with client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenant_id** | **str**|  | [optional] 
+ **tenant_id** | **str**|  | 
  **create_hash_tag_body** | [**CreateHashTagBody**](CreateHashTagBody.md)|  | [optional] 
 
 ### Return type
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_hash_tags_bulk**
-> BulkCreateHashTagsResponse add_hash_tags_bulk(bulk_create_hash_tags_body, tenant_id=tenant_id)
+> BulkCreateHashTagsResponse add_hash_tags_bulk(tenant_id, bulk_create_hash_tags_body)
 
 ### Example
 
@@ -310,11 +310,11 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = client.DefaultApi(api_client)
-    tenant_id = 'tenant_id_example' # str |  (optional)
+    tenant_id = 'tenant_id_example' # str | 
     bulk_create_hash_tags_body = client.BulkCreateHashTagsBody() # BulkCreateHashTagsBody |  (optional)
 
     try:
-        api_response = api_instance.add_hash_tags_bulk(bulk_create_hash_tags_body, tenant_id=tenant_id)
+        api_response = api_instance.add_hash_tags_bulk(tenant_id, bulk_create_hash_tags_body)
         print("The response of DefaultApi->add_hash_tags_bulk:\n")
         pprint(api_response)
     except Exception as e:
@@ -328,7 +328,7 @@ with client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenant_id** | **str**|  | [optional] 
+ **tenant_id** | **str**|  | 
  **bulk_create_hash_tags_body** | [**BulkCreateHashTagsBody**](BulkCreateHashTagsBody.md)|  | [optional] 
 
 ### Return type
@@ -519,7 +519,7 @@ Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
 
 ```python
 import client
-from client.api.default_api import ApiAggregateOptions
+from client.api.default_api import AggregateOptions
 from client.models.aggregate_response import AggregateResponse
 from client.models.aggregation_request import AggregationRequest
 from client.rest import ApiException
@@ -552,7 +552,7 @@ with client.ApiClient(configuration) as api_client:
     include_stats = True # bool |  (optional)
 
     try:
-        api_response = api_instance.aggregate(tenant_id, aggregation_request, ApiAggregateOptions(parent_tenant_id=parent_tenant_id, include_stats=include_stats))
+        api_response = api_instance.aggregate(tenant_id, aggregation_request, AggregateOptions(parent_tenant_id=parent_tenant_id, include_stats=include_stats))
         print("The response of DefaultApi->aggregate:\n")
         pprint(api_response)
     except Exception as e:
@@ -601,7 +601,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiAggregateQuestionResultsOptions
+from client.api.default_api import AggregateQuestionResultsOptions
 from client.models.aggregate_question_results_response import AggregateQuestionResultsResponse
 from client.models.aggregate_time_bucket import AggregateTimeBucket
 from client.rest import ApiException
@@ -637,7 +637,7 @@ with client.ApiClient(configuration) as api_client:
     force_recalculate = True # bool |  (optional)
 
     try:
-        api_response = api_instance.aggregate_question_results(tenant_id, ApiAggregateQuestionResultsOptions(question_id=question_id, question_ids=question_ids, url_id=url_id, time_bucket=time_bucket, start_date=start_date, force_recalculate=force_recalculate))
+        api_response = api_instance.aggregate_question_results(tenant_id, AggregateQuestionResultsOptions(question_id=question_id, question_ids=question_ids, url_id=url_id, time_bucket=time_bucket, start_date=start_date, force_recalculate=force_recalculate))
         print("The response of DefaultApi->aggregate_question_results:\n")
         pprint(api_response)
     except Exception as e:
@@ -690,7 +690,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiBlockUserFromCommentOptions
+from client.api.default_api import BlockUserFromCommentOptions
 from client.models.block_from_comment_params import BlockFromCommentParams
 from client.models.block_success import BlockSuccess
 from client.rest import ApiException
@@ -724,7 +724,7 @@ with client.ApiClient(configuration) as api_client:
     anon_user_id = 'anon_user_id_example' # str |  (optional)
 
     try:
-        api_response = api_instance.block_user_from_comment(tenant_id, id, block_from_comment_params, ApiBlockUserFromCommentOptions(user_id=user_id, anon_user_id=anon_user_id))
+        api_response = api_instance.block_user_from_comment(tenant_id, id, block_from_comment_params, BlockUserFromCommentOptions(user_id=user_id, anon_user_id=anon_user_id))
         print("The response of DefaultApi->block_user_from_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -937,7 +937,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiCombineCommentsWithQuestionResultsOptions
+from client.api.default_api import CombineCommentsWithQuestionResultsOptions
 from client.models.combine_question_results_with_comments_response import CombineQuestionResultsWithCommentsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -974,7 +974,7 @@ with client.ApiClient(configuration) as api_client:
     limit = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.combine_comments_with_question_results(tenant_id, ApiCombineCommentsWithQuestionResultsOptions(question_id=question_id, question_ids=question_ids, url_id=url_id, start_date=start_date, force_recalculate=force_recalculate, min_value=min_value, max_value=max_value, limit=limit))
+        api_response = api_instance.combine_comments_with_question_results(tenant_id, CombineCommentsWithQuestionResultsOptions(question_id=question_id, question_ids=question_ids, url_id=url_id, start_date=start_date, force_recalculate=force_recalculate, min_value=min_value, max_value=max_value, limit=limit))
         print("The response of DefaultApi->combine_comments_with_question_results:\n")
         pprint(api_response)
     except Exception as e:
@@ -1107,7 +1107,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiCreateFeedPostOptions
+from client.api.default_api import CreateFeedPostOptions
 from client.models.create_feed_post_params import CreateFeedPostParams
 from client.models.create_feed_posts_response import CreateFeedPostsResponse
 from client.rest import ApiException
@@ -1142,7 +1142,7 @@ with client.ApiClient(configuration) as api_client:
     skip_dup_check = True # bool |  (optional)
 
     try:
-        api_response = api_instance.create_feed_post(tenant_id, create_feed_post_params, ApiCreateFeedPostOptions(broadcast_id=broadcast_id, is_live=is_live, do_spam_check=do_spam_check, skip_dup_check=skip_dup_check))
+        api_response = api_instance.create_feed_post(tenant_id, create_feed_post_params, CreateFeedPostOptions(broadcast_id=broadcast_id, is_live=is_live, do_spam_check=do_spam_check, skip_dup_check=skip_dup_check))
         print("The response of DefaultApi->create_feed_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -1897,7 +1897,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiCreateVoteOptions
+from client.api.default_api import CreateVoteOptions
 from client.models.vote_response import VoteResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -1930,7 +1930,7 @@ with client.ApiClient(configuration) as api_client:
     anon_user_id = 'anon_user_id_example' # str |  (optional)
 
     try:
-        api_response = api_instance.create_vote(tenant_id, comment_id, direction, ApiCreateVoteOptions(user_id=user_id, anon_user_id=anon_user_id))
+        api_response = api_instance.create_vote(tenant_id, comment_id, direction, CreateVoteOptions(user_id=user_id, anon_user_id=anon_user_id))
         print("The response of DefaultApi->create_vote:\n")
         pprint(api_response)
     except Exception as e:
@@ -1981,7 +1981,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiDeleteCommentOptions
+from client.api.default_api import DeleteCommentOptions
 from client.models.delete_comment_result import DeleteCommentResult
 from client.rest import ApiException
 from pprint import pprint
@@ -2013,7 +2013,7 @@ with client.ApiClient(configuration) as api_client:
     is_live = True # bool |  (optional)
 
     try:
-        api_response = api_instance.delete_comment(tenant_id, id, ApiDeleteCommentOptions(context_user_id=context_user_id, is_live=is_live))
+        api_response = api_instance.delete_comment(tenant_id, id, DeleteCommentOptions(context_user_id=context_user_id, is_live=is_live))
         print("The response of DefaultApi->delete_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -2287,7 +2287,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_hash_tag**
-> APIEmptyResponse delete_hash_tag(tag, delete_hash_tag_request_body, tenant_id=tenant_id)
+> APIEmptyResponse delete_hash_tag(tenant_id, tag, delete_hash_tag_request_body)
 
 ### Example
 
@@ -2321,12 +2321,12 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = client.DefaultApi(api_client)
+    tenant_id = 'tenant_id_example' # str | 
     tag = 'tag_example' # str | 
-    tenant_id = 'tenant_id_example' # str |  (optional)
     delete_hash_tag_request_body = client.DeleteHashTagRequestBody() # DeleteHashTagRequestBody |  (optional)
 
     try:
-        api_response = api_instance.delete_hash_tag(tag, delete_hash_tag_request_body, tenant_id=tenant_id)
+        api_response = api_instance.delete_hash_tag(tenant_id, tag, delete_hash_tag_request_body)
         print("The response of DefaultApi->delete_hash_tag:\n")
         pprint(api_response)
     except Exception as e:
@@ -2340,8 +2340,8 @@ with client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenant_id** | **str**|  | 
  **tag** | **str**|  | 
- **tenant_id** | **str**|  | [optional] 
  **delete_hash_tag_request_body** | [**DeleteHashTagRequestBody**](DeleteHashTagRequestBody.md)|  | [optional] 
 
 ### Return type
@@ -2838,7 +2838,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiDeleteSsoUserOptions
+from client.api.default_api import DeleteSsoUserOptions
 from client.models.delete_sso_user_api_response import DeleteSSOUserAPIResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -2870,7 +2870,7 @@ with client.ApiClient(configuration) as api_client:
     comment_delete_mode = 'comment_delete_mode_example' # str |  (optional)
 
     try:
-        api_response = api_instance.delete_sso_user(tenant_id, id, ApiDeleteSsoUserOptions(delete_comments=delete_comments, comment_delete_mode=comment_delete_mode))
+        api_response = api_instance.delete_sso_user(tenant_id, id, DeleteSsoUserOptions(delete_comments=delete_comments, comment_delete_mode=comment_delete_mode))
         print("The response of DefaultApi->delete_sso_user:\n")
         pprint(api_response)
     except Exception as e:
@@ -3153,7 +3153,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiDeleteTenantUserOptions
+from client.api.default_api import DeleteTenantUserOptions
 from client.models.api_empty_response import APIEmptyResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -3185,7 +3185,7 @@ with client.ApiClient(configuration) as api_client:
     comment_delete_mode = 'comment_delete_mode_example' # str |  (optional)
 
     try:
-        api_response = api_instance.delete_tenant_user(tenant_id, id, ApiDeleteTenantUserOptions(delete_comments=delete_comments, comment_delete_mode=comment_delete_mode))
+        api_response = api_instance.delete_tenant_user(tenant_id, id, DeleteTenantUserOptions(delete_comments=delete_comments, comment_delete_mode=comment_delete_mode))
         print("The response of DefaultApi->delete_tenant_user:\n")
         pprint(api_response)
     except Exception as e:
@@ -3391,7 +3391,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiFlagCommentOptions
+from client.api.default_api import FlagCommentOptions
 from client.models.flag_comment_response import FlagCommentResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -3423,7 +3423,7 @@ with client.ApiClient(configuration) as api_client:
     anon_user_id = 'anon_user_id_example' # str |  (optional)
 
     try:
-        api_response = api_instance.flag_comment(tenant_id, id, ApiFlagCommentOptions(user_id=user_id, anon_user_id=anon_user_id))
+        api_response = api_instance.flag_comment(tenant_id, id, FlagCommentOptions(user_id=user_id, anon_user_id=anon_user_id))
         print("The response of DefaultApi->flag_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -3473,7 +3473,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetAuditLogsOptions
+from client.api.default_api import GetAuditLogsOptions
 from client.models.get_audit_logs_response import GetAuditLogsResponse
 from client.models.sortdir import SORTDIR
 from client.rest import ApiException
@@ -3508,7 +3508,7 @@ with client.ApiClient(configuration) as api_client:
     before = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_audit_logs(tenant_id, ApiGetAuditLogsOptions(limit=limit, skip=skip, order=order, after=after, before=before))
+        api_response = api_instance.get_audit_logs(tenant_id, GetAuditLogsOptions(limit=limit, skip=skip, order=order, after=after, before=before))
         print("The response of DefaultApi->get_audit_logs:\n")
         pprint(api_response)
     except Exception as e:
@@ -3714,7 +3714,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetCommentsOptions
+from client.api.default_api import GetCommentsOptions
 from client.models.api_get_comments_response import APIGetCommentsResponse
 from client.models.sort_directions import SortDirections
 from client.rest import ApiException
@@ -3760,7 +3760,7 @@ with client.ApiClient(configuration) as api_client:
     to_date = 56 # int |  (optional)
 
     try:
-        api_response = api_instance.get_comments(tenant_id, ApiGetCommentsOptions(page=page, limit=limit, skip=skip, as_tree=as_tree, skip_children=skip_children, limit_children=limit_children, max_tree_depth=max_tree_depth, url_id=url_id, user_id=user_id, anon_user_id=anon_user_id, context_user_id=context_user_id, hash_tag=hash_tag, parent_id=parent_id, direction=direction, from_date=from_date, to_date=to_date))
+        api_response = api_instance.get_comments(tenant_id, GetCommentsOptions(page=page, limit=limit, skip=skip, as_tree=as_tree, skip_children=skip_children, limit_children=limit_children, max_tree_depth=max_tree_depth, url_id=url_id, user_id=user_id, anon_user_id=anon_user_id, context_user_id=context_user_id, hash_tag=hash_tag, parent_id=parent_id, direction=direction, from_date=from_date, to_date=to_date))
         print("The response of DefaultApi->get_comments:\n")
         pprint(api_response)
     except Exception as e:
@@ -4286,7 +4286,7 @@ afterId
 
 ```python
 import client
-from client.api.default_api import ApiGetFeedPostsOptions
+from client.api.default_api import GetFeedPostsOptions
 from client.models.get_feed_posts_response import GetFeedPostsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -4318,7 +4318,7 @@ with client.ApiClient(configuration) as api_client:
     tags = ['tags_example'] # List[str] |  (optional)
 
     try:
-        api_response = api_instance.get_feed_posts(tenant_id, ApiGetFeedPostsOptions(after_id=after_id, limit=limit, tags=tags))
+        api_response = api_instance.get_feed_posts(tenant_id, GetFeedPostsOptions(after_id=after_id, limit=limit, tags=tags))
         print("The response of DefaultApi->get_feed_posts:\n")
         pprint(api_response)
     except Exception as e:
@@ -4599,7 +4599,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetNotificationCountOptions
+from client.api.default_api import GetNotificationCountOptions
 from client.models.get_notification_count_response import GetNotificationCountResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -4633,7 +4633,7 @@ with client.ApiClient(configuration) as api_client:
     type = 'type_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_notification_count(tenant_id, ApiGetNotificationCountOptions(user_id=user_id, url_id=url_id, from_comment_id=from_comment_id, viewed=viewed, type=type))
+        api_response = api_instance.get_notification_count(tenant_id, GetNotificationCountOptions(user_id=user_id, url_id=url_id, from_comment_id=from_comment_id, viewed=viewed, type=type))
         print("The response of DefaultApi->get_notification_count:\n")
         pprint(api_response)
     except Exception as e:
@@ -4685,7 +4685,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetNotificationsOptions
+from client.api.default_api import GetNotificationsOptions
 from client.models.get_notifications_response import GetNotificationsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -4720,7 +4720,7 @@ with client.ApiClient(configuration) as api_client:
     skip = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_notifications(tenant_id, ApiGetNotificationsOptions(user_id=user_id, url_id=url_id, from_comment_id=from_comment_id, viewed=viewed, type=type, skip=skip))
+        api_response = api_instance.get_notifications(tenant_id, GetNotificationsOptions(user_id=user_id, url_id=url_id, from_comment_id=from_comment_id, viewed=viewed, type=type, skip=skip))
         print("The response of DefaultApi->get_notifications:\n")
         pprint(api_response)
     except Exception as e:
@@ -4923,7 +4923,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetPendingWebhookEventCountOptions
+from client.api.default_api import GetPendingWebhookEventCountOptions
 from client.models.get_pending_webhook_event_count_response import GetPendingWebhookEventCountResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -4958,7 +4958,7 @@ with client.ApiClient(configuration) as api_client:
     attempt_count_gt = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_pending_webhook_event_count(tenant_id, ApiGetPendingWebhookEventCountOptions(comment_id=comment_id, external_id=external_id, event_type=event_type, type=type, domain=domain, attempt_count_gt=attempt_count_gt))
+        api_response = api_instance.get_pending_webhook_event_count(tenant_id, GetPendingWebhookEventCountOptions(comment_id=comment_id, external_id=external_id, event_type=event_type, type=type, domain=domain, attempt_count_gt=attempt_count_gt))
         print("The response of DefaultApi->get_pending_webhook_event_count:\n")
         pprint(api_response)
     except Exception as e:
@@ -5011,7 +5011,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetPendingWebhookEventsOptions
+from client.api.default_api import GetPendingWebhookEventsOptions
 from client.models.get_pending_webhook_events_response import GetPendingWebhookEventsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -5047,7 +5047,7 @@ with client.ApiClient(configuration) as api_client:
     skip = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_pending_webhook_events(tenant_id, ApiGetPendingWebhookEventsOptions(comment_id=comment_id, external_id=external_id, event_type=event_type, type=type, domain=domain, attempt_count_gt=attempt_count_gt, skip=skip))
+        api_response = api_instance.get_pending_webhook_events(tenant_id, GetPendingWebhookEventsOptions(comment_id=comment_id, external_id=external_id, event_type=event_type, type=type, domain=domain, attempt_count_gt=attempt_count_gt, skip=skip))
         print("The response of DefaultApi->get_pending_webhook_events:\n")
         pprint(api_response)
     except Exception as e:
@@ -5332,7 +5332,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetQuestionResultsOptions
+from client.api.default_api import GetQuestionResultsOptions
 from client.models.get_question_results_response import GetQuestionResultsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -5367,7 +5367,7 @@ with client.ApiClient(configuration) as api_client:
     skip = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_question_results(tenant_id, ApiGetQuestionResultsOptions(url_id=url_id, user_id=user_id, start_date=start_date, question_id=question_id, question_ids=question_ids, skip=skip))
+        api_response = api_instance.get_question_results(tenant_id, GetQuestionResultsOptions(url_id=url_id, user_id=user_id, start_date=start_date, question_id=question_id, question_ids=question_ids, skip=skip))
         print("The response of DefaultApi->get_question_results:\n")
         pprint(api_response)
     except Exception as e:
@@ -5801,7 +5801,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetTenantDailyUsagesOptions
+from client.api.default_api import GetTenantDailyUsagesOptions
 from client.models.get_tenant_daily_usages_response import GetTenantDailyUsagesResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -5834,7 +5834,7 @@ with client.ApiClient(configuration) as api_client:
     skip = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_tenant_daily_usages(tenant_id, ApiGetTenantDailyUsagesOptions(year_number=year_number, month_number=month_number, day_number=day_number, skip=skip))
+        api_response = api_instance.get_tenant_daily_usages(tenant_id, GetTenantDailyUsagesOptions(year_number=year_number, month_number=month_number, day_number=day_number, skip=skip))
         print("The response of DefaultApi->get_tenant_daily_usages:\n")
         pprint(api_response)
     except Exception as e:
@@ -6193,7 +6193,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetTenantsOptions
+from client.api.default_api import GetTenantsOptions
 from client.models.get_tenants_response import GetTenantsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -6224,7 +6224,7 @@ with client.ApiClient(configuration) as api_client:
     skip = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_tenants(tenant_id, ApiGetTenantsOptions(meta=meta, skip=skip))
+        api_response = api_instance.get_tenants(tenant_id, GetTenantsOptions(meta=meta, skip=skip))
         print("The response of DefaultApi->get_tenants:\n")
         pprint(api_response)
     except Exception as e:
@@ -6352,7 +6352,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetTicketsOptions
+from client.api.default_api import GetTicketsOptions
 from client.models.get_tickets_response import GetTicketsResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -6385,7 +6385,7 @@ with client.ApiClient(configuration) as api_client:
     limit = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_tickets(tenant_id, ApiGetTicketsOptions(user_id=user_id, state=state, skip=skip, limit=limit))
+        api_response = api_instance.get_tickets(tenant_id, GetTicketsOptions(user_id=user_id, state=state, skip=skip, limit=limit))
         print("The response of DefaultApi->get_tickets:\n")
         pprint(api_response)
     except Exception as e:
@@ -6744,7 +6744,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetUserBadgeProgressListOptions
+from client.api.default_api import GetUserBadgeProgressListOptions
 from client.models.api_get_user_badge_progress_list_response import APIGetUserBadgeProgressListResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -6776,7 +6776,7 @@ with client.ApiClient(configuration) as api_client:
     skip = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_user_badge_progress_list(tenant_id, ApiGetUserBadgeProgressListOptions(user_id=user_id, limit=limit, skip=skip))
+        api_response = api_instance.get_user_badge_progress_list(tenant_id, GetUserBadgeProgressListOptions(user_id=user_id, limit=limit, skip=skip))
         print("The response of DefaultApi->get_user_badge_progress_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -6826,7 +6826,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetUserBadgesOptions
+from client.api.default_api import GetUserBadgesOptions
 from client.models.api_get_user_badges_response import APIGetUserBadgesResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -6861,7 +6861,7 @@ with client.ApiClient(configuration) as api_client:
     skip = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.get_user_badges(tenant_id, ApiGetUserBadgesOptions(user_id=user_id, badge_id=badge_id, type=type, displayed_on_comments=displayed_on_comments, limit=limit, skip=skip))
+        api_response = api_instance.get_user_badges(tenant_id, GetUserBadgesOptions(user_id=user_id, badge_id=badge_id, type=type, displayed_on_comments=displayed_on_comments, limit=limit, skip=skip))
         print("The response of DefaultApi->get_user_badges:\n")
         pprint(api_response)
     except Exception as e:
@@ -6991,7 +6991,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiGetVotesForUserOptions
+from client.api.default_api import GetVotesForUserOptions
 from client.models.get_votes_for_user_response import GetVotesForUserResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -7023,7 +7023,7 @@ with client.ApiClient(configuration) as api_client:
     anon_user_id = 'anon_user_id_example' # str |  (optional)
 
     try:
-        api_response = api_instance.get_votes_for_user(tenant_id, url_id, ApiGetVotesForUserOptions(user_id=user_id, anon_user_id=anon_user_id))
+        api_response = api_instance.get_votes_for_user(tenant_id, url_id, GetVotesForUserOptions(user_id=user_id, anon_user_id=anon_user_id))
         print("The response of DefaultApi->get_votes_for_user:\n")
         pprint(api_response)
     except Exception as e:
@@ -7144,7 +7144,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patch_hash_tag**
-> UpdateHashTagResponse patch_hash_tag(tag, update_hash_tag_body, tenant_id=tenant_id)
+> UpdateHashTagResponse patch_hash_tag(tenant_id, tag, update_hash_tag_body)
 
 ### Example
 
@@ -7178,12 +7178,12 @@ configuration.api_key['api_key'] = os.environ["API_KEY"]
 with client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = client.DefaultApi(api_client)
+    tenant_id = 'tenant_id_example' # str | 
     tag = 'tag_example' # str | 
-    tenant_id = 'tenant_id_example' # str |  (optional)
     update_hash_tag_body = client.UpdateHashTagBody() # UpdateHashTagBody |  (optional)
 
     try:
-        api_response = api_instance.patch_hash_tag(tag, update_hash_tag_body, tenant_id=tenant_id)
+        api_response = api_instance.patch_hash_tag(tenant_id, tag, update_hash_tag_body)
         print("The response of DefaultApi->patch_hash_tag:\n")
         pprint(api_response)
     except Exception as e:
@@ -7197,8 +7197,8 @@ with client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tenant_id** | **str**|  | 
  **tag** | **str**|  | 
- **tenant_id** | **str**|  | [optional] 
  **update_hash_tag_body** | [**UpdateHashTagBody**](UpdateHashTagBody.md)|  | [optional] 
 
 ### Return type
@@ -7794,7 +7794,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiSaveCommentOptions
+from client.api.default_api import SaveCommentOptions
 from client.models.api_save_comment_response import APISaveCommentResponse
 from client.models.create_comment_params import CreateCommentParams
 from client.rest import ApiException
@@ -7829,7 +7829,7 @@ with client.ApiClient(configuration) as api_client:
     populate_notifications = True # bool |  (optional)
 
     try:
-        api_response = api_instance.save_comment(tenant_id, create_comment_params, ApiSaveCommentOptions(is_live=is_live, do_spam_check=do_spam_check, send_emails=send_emails, populate_notifications=populate_notifications))
+        api_response = api_instance.save_comment(tenant_id, create_comment_params, SaveCommentOptions(is_live=is_live, do_spam_check=do_spam_check, send_emails=send_emails, populate_notifications=populate_notifications))
         print("The response of DefaultApi->save_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -7881,7 +7881,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiSaveCommentsBulkOptions
+from client.api.default_api import SaveCommentsBulkOptions
 from client.models.create_comment_params import CreateCommentParams
 from client.models.save_comments_bulk_response import SaveCommentsBulkResponse
 from client.rest import ApiException
@@ -7916,7 +7916,7 @@ with client.ApiClient(configuration) as api_client:
     populate_notifications = True # bool |  (optional)
 
     try:
-        api_response = api_instance.save_comments_bulk(tenant_id, create_comment_params, ApiSaveCommentsBulkOptions(is_live=is_live, do_spam_check=do_spam_check, send_emails=send_emails, populate_notifications=populate_notifications))
+        api_response = api_instance.save_comments_bulk(tenant_id, create_comment_params, SaveCommentsBulkOptions(is_live=is_live, do_spam_check=do_spam_check, send_emails=send_emails, populate_notifications=populate_notifications))
         print("The response of DefaultApi->save_comments_bulk:\n")
         pprint(api_response)
     except Exception as e:
@@ -8125,7 +8125,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiUnBlockUserFromCommentOptions
+from client.api.default_api import UnBlockUserFromCommentOptions
 from client.models.un_block_from_comment_params import UnBlockFromCommentParams
 from client.models.unblock_success import UnblockSuccess
 from client.rest import ApiException
@@ -8159,7 +8159,7 @@ with client.ApiClient(configuration) as api_client:
     anon_user_id = 'anon_user_id_example' # str |  (optional)
 
     try:
-        api_response = api_instance.un_block_user_from_comment(tenant_id, id, un_block_from_comment_params, ApiUnBlockUserFromCommentOptions(user_id=user_id, anon_user_id=anon_user_id))
+        api_response = api_instance.un_block_user_from_comment(tenant_id, id, un_block_from_comment_params, UnBlockUserFromCommentOptions(user_id=user_id, anon_user_id=anon_user_id))
         print("The response of DefaultApi->un_block_user_from_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -8210,7 +8210,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiUnFlagCommentOptions
+from client.api.default_api import UnFlagCommentOptions
 from client.models.flag_comment_response import FlagCommentResponse
 from client.rest import ApiException
 from pprint import pprint
@@ -8242,7 +8242,7 @@ with client.ApiClient(configuration) as api_client:
     anon_user_id = 'anon_user_id_example' # str |  (optional)
 
     try:
-        api_response = api_instance.un_flag_comment(tenant_id, id, ApiUnFlagCommentOptions(user_id=user_id, anon_user_id=anon_user_id))
+        api_response = api_instance.un_flag_comment(tenant_id, id, UnFlagCommentOptions(user_id=user_id, anon_user_id=anon_user_id))
         print("The response of DefaultApi->un_flag_comment:\n")
         pprint(api_response)
     except Exception as e:
@@ -8292,7 +8292,7 @@ Name | Type | Description  | Notes
 
 ```python
 import client
-from client.api.default_api import ApiUpdateCommentOptions
+from client.api.default_api import UpdateCommentOptions
 from client.models.api_empty_response import APIEmptyResponse
 from client.models.updatable_comment_params import UpdatableCommentParams
 from client.rest import ApiException
@@ -8327,7 +8327,7 @@ with client.ApiClient(configuration) as api_client:
     is_live = True # bool |  (optional)
 
     try:
-        api_response = api_instance.update_comment(tenant_id, id, updatable_comment_params, ApiUpdateCommentOptions(context_user_id=context_user_id, do_spam_check=do_spam_check, is_live=is_live))
+        api_response = api_instance.update_comment(tenant_id, id, updatable_comment_params, UpdateCommentOptions(context_user_id=context_user_id, do_spam_check=do_spam_check, is_live=is_live))
         print("The response of DefaultApi->update_comment:\n")
         pprint(api_response)
     except Exception as e:

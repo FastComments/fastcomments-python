@@ -289,7 +289,7 @@ __all__ = [
     "PatchPageAPIResponse",
     "PatchSSOUserAPIResponse",
     "PendingCommentToSyncOutbound",
-    "PostRemoveCommentResponse",
+    "PostRemoveCommentApiResponse",
     "PreBanSummary",
     "PubSubComment",
     "PubSubCommentBase",
@@ -668,7 +668,7 @@ from client.models.patch_domain_config_response import PatchDomainConfigResponse
 from client.models.patch_page_api_response import PatchPageAPIResponse as PatchPageAPIResponse
 from client.models.patch_sso_user_api_response import PatchSSOUserAPIResponse as PatchSSOUserAPIResponse
 from client.models.pending_comment_to_sync_outbound import PendingCommentToSyncOutbound as PendingCommentToSyncOutbound
-from client.models.post_remove_comment_response import PostRemoveCommentResponse as PostRemoveCommentResponse
+from client.models.post_remove_comment_api_response import PostRemoveCommentApiResponse as PostRemoveCommentApiResponse
 from client.models.pre_ban_summary import PreBanSummary as PreBanSummary
 from client.models.pub_sub_comment import PubSubComment as PubSubComment
 from client.models.pub_sub_comment_base import PubSubCommentBase as PubSubCommentBase

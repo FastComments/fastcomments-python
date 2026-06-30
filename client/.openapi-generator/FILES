@@ -273,7 +273,7 @@ client/models/patch_domain_config_response.py
 client/models/patch_page_api_response.py
 client/models/patch_sso_user_api_response.py
 client/models/pending_comment_to_sync_outbound.py
-client/models/post_remove_comment_response.py
+client/models/post_remove_comment_api_response.py
 client/models/pre_ban_summary.py
 client/models/pub_sub_comment.py
 client/models/pub_sub_comment_base.py
@@ -637,7 +637,7 @@ docs/PatchDomainConfigResponse.md
 docs/PatchPageAPIResponse.md
 docs/PatchSSOUserAPIResponse.md
 docs/PendingCommentToSyncOutbound.md
-docs/PostRemoveCommentResponse.md
+docs/PostRemoveCommentApiResponse.md
 docs/PreBanSummary.md
 docs/PubSubComment.md
 docs/PubSubCommentBase.md
@@ -1007,7 +1007,7 @@ test/test_patch_domain_config_response.py
 test/test_patch_page_api_response.py
 test/test_patch_sso_user_api_response.py
 test/test_pending_comment_to_sync_outbound.py
-test/test_post_remove_comment_response.py
+test/test_post_remove_comment_api_response.py
 test/test_pre_ban_summary.py
 test/test_pub_sub_comment.py
 test/test_pub_sub_comment_base.py

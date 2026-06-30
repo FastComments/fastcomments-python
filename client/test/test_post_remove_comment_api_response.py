@@ -14,10 +14,10 @@
 
 import unittest
 
-from client.models.post_remove_comment_response import PostRemoveCommentResponse
+from client.models.post_remove_comment_api_response import PostRemoveCommentApiResponse
 
-class TestPostRemoveCommentResponse(unittest.TestCase):
-    """PostRemoveCommentResponse unit test stubs"""
+class TestPostRemoveCommentApiResponse(unittest.TestCase):
+    """PostRemoveCommentApiResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,28 +25,28 @@ class TestPostRemoveCommentResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> PostRemoveCommentResponse:
-        """Test PostRemoveCommentResponse
+    def make_instance(self, include_optional) -> PostRemoveCommentApiResponse:
+        """Test PostRemoveCommentApiResponse
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `PostRemoveCommentResponse`
+        # uncomment below to create an instance of `PostRemoveCommentApiResponse`
         """
-        model = PostRemoveCommentResponse()
+        model = PostRemoveCommentApiResponse()
         if include_optional:
-            return PostRemoveCommentResponse(
+            return PostRemoveCommentApiResponse(
                 action = '',
                 status = ''
             )
         else:
-            return PostRemoveCommentResponse(
+            return PostRemoveCommentApiResponse(
                 action = '',
                 status = '',
         )
         """
 
-    def testPostRemoveCommentResponse(self):
-        """Test PostRemoveCommentResponse"""
+    def testPostRemoveCommentApiResponse(self):
+        """Test PostRemoveCommentApiResponse"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

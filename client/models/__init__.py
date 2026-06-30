@@ -272,7 +272,7 @@ from client.models.patch_domain_config_response import PatchDomainConfigResponse
 from client.models.patch_page_api_response import PatchPageAPIResponse
 from client.models.patch_sso_user_api_response import PatchSSOUserAPIResponse
 from client.models.pending_comment_to_sync_outbound import PendingCommentToSyncOutbound
-from client.models.post_remove_comment_response import PostRemoveCommentResponse
+from client.models.post_remove_comment_api_response import PostRemoveCommentApiResponse
 from client.models.pre_ban_summary import PreBanSummary
 from client.models.pub_sub_comment import PubSubComment
 from client.models.pub_sub_comment_base import PubSubCommentBase
