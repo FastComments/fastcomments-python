@@ -3,11 +3,21 @@ The FastComments Python SDK. You can use this to build secure and scalable backe
 
 ## Installation
 
-### PyPI
+### Install from GitHub
+
+Install directly from a release tag (recommended, fully reproducible):
 
 ```bash
-pip install fastcomments
+pip install git+https://github.com/fastcomments/fastcomments-python.git@v3.0.0
 ```
+
+Pin the tag rather than a branch so builds are deterministic. The same form works in `requirements.txt`:
+
+```
+fastcomments @ git+https://github.com/fastcomments/fastcomments-python.git@v3.0.0
+```
+
+Each tagged [GitHub Release](https://github.com/fastcomments/fastcomments-python/releases) also has a built wheel attached if you prefer to install a binary artifact directly.
 
 ### Library Contents
 
