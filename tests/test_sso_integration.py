@@ -132,7 +132,10 @@ class TestSecureSSOAPIIntegration:
 
         except Exception as error:
             if hasattr(error, "status"):
-                assert error.status in [404, 401, 403], f"Unexpected error status: {error.status}"
+                # 422: the synthetic context_user_id is not a real user
+                # (invalid-user). Reaching that validation confirms the API key
+                # authenticated successfully.
+                assert error.status in [404, 401, 403, 422], f"Unexpected error status: {error.status}"
             else:
                 pytest.skip(f"API method signature may need updating: {str(error)}")
 
