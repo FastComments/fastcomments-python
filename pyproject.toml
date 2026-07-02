@@ -50,8 +50,14 @@ Documentation = "https://docs.fastcomments.com"
 Repository = "https://github.com/fastcomments/fastcomments-python"
 Issues = "https://github.com/fastcomments/fastcomments-python/issues"
 
-[tool.setuptools]
-packages = ["sso", "client"]
+# Discover subpackages too (client.api, client.models, ...). A bare
+# packages = ["sso", "client"] omits them, which breaks non-editable installs
+# with "No module named 'client.api'".
+[tool.setuptools.packages.find]
+include = ["sso*", "client*"]
+
+[tool.setuptools.package-data]
+client = ["py.typed"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
