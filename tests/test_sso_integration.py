@@ -5,7 +5,7 @@ import time
 import pytest
 
 from sso import FastCommentsSSO, SecureSSOUserData, SimpleSSOUserData
-from tests.env import API_KEY, TENANT_ID, BASE_URL
+from tests.env import API_KEY, TENANT_ID, BASE_URL, HAS_CREDENTIALS
 
 
 # Import the client API
@@ -25,7 +25,13 @@ try:
     HAS_CLIENT = True
 except ImportError as e:
     HAS_CLIENT = False
-    pytestmark = pytest.mark.skip(reason=f"Client not available: {e}. Run update.sh first.")
+
+# These tests hit the live API; skip unless the client is generated AND real
+# credentials are present in the environment.
+pytestmark = pytest.mark.skipif(
+    not HAS_CLIENT or not HAS_CREDENTIALS,
+    reason="Requires the generated client and real FASTCOMMENTS_API_KEY/TENANT_ID.",
+)
 
 
 @pytest.fixture
@@ -47,7 +53,7 @@ def default_api():
     """Create DefaultApi instance with API key authentication."""
     config = Configuration()
     config.host = BASE_URL
-    config.api_key = {"ApiKeyAuth": API_KEY}
+    config.api_key = {"api_key": API_KEY}
     client = ApiClient(configuration=config)
     return DefaultApi(client)
 
@@ -57,7 +63,7 @@ def mock_secure_user():
     """Create a mock secure SSO user with unique identifiers."""
     timestamp = int(time.time() * 1000)  # milliseconds
     return SecureSSOUserData(
-        user_id=f"test-user-{timestamp}",
+        id=f"test-user-{timestamp}",
         email=f"test-{timestamp}@example.com",
         username=f"testuser{timestamp}",
         avatar="https://example.com/avatar.jpg"
@@ -69,7 +75,7 @@ def mock_simple_user():
     """Create a mock simple SSO user with unique identifiers."""
     timestamp = int(time.time() * 1000)  # milliseconds
     return SimpleSSOUserData(
-        user_id=f"simple-user-{timestamp}",
+        username=f"simple-user-{timestamp}",
         email=f"simple-{timestamp}@example.com",
         avatar="https://example.com/simple-avatar.jpg"
     )
@@ -118,7 +124,7 @@ class TestSecureSSOAPIIntegration:
                 TENANT_ID,
                 GetCommentsOptions(
                     url_id="sdk-test-page-secure-admin",
-                    context_user_id=mock_secure_user.user_id
+                    context_user_id=mock_secure_user.id
                 )
             )
 
@@ -126,7 +132,10 @@ class TestSecureSSOAPIIntegration:
 
         except Exception as error:
             if hasattr(error, "status"):
-                assert error.status in [404, 401, 403], f"Unexpected error status: {error.status}"
+                # 422: the synthetic context_user_id is not a real user
+                # (invalid-user). Reaching that validation confirms the API key
+                # authenticated successfully.
+                assert error.status in [404, 401, 403, 422], f"Unexpected error status: {error.status}"
             else:
                 pytest.skip(f"API method signature may need updating: {str(error)}")
 
@@ -205,7 +214,7 @@ class TestSimpleSSOAPIIntegration:
                 {
                     "comment": "Test comment with simple SSO from Python SDK",
                     "date": timestamp,
-                    "commenterName": mock_simple_user.user_id,
+                    "commenterName": mock_simple_user.username,
                     "commenterEmail": mock_simple_user.email,
                     "url": "https://example.com/test-page",
                     "urlId": "sdk-test-page-simple-comment"

@@ -42,10 +42,10 @@ from client.models import CreateAPISSOUserData
 
 # Create and configure the API client
 config = Configuration()
-config.host = "https://fastcomments.com/api"
+config.host = "https://fastcomments.com"
 
 # REQUIRED: Set your API key (get this from your FastComments dashboard)
-config.api_key = {"ApiKeyAuth": "YOUR_API_KEY_HERE"}
+config.api_key = {"api_key": "YOUR_API_KEY_HERE"}
 
 # Create the API instance with the configured client
 api_client = ApiClient(configuration=config)
@@ -78,7 +78,7 @@ Public endpoints don't require authentication:
 from client import ApiClient, Configuration, PublicApi
 
 config = Configuration()
-config.host = "https://fastcomments.com/api"
+config.host = "https://fastcomments.com"
 
 api_client = ApiClient(configuration=config)
 public_api = PublicApi(api_client)
@@ -99,7 +99,7 @@ from client import ApiClient, Configuration, ModerationApi
 from client.api.moderation_api import GetCountOptions
 
 config = Configuration()
-config.host = "https://fastcomments.com/api"
+config.host = "https://fastcomments.com"
 
 api_client = ApiClient(configuration=config)
 moderation_api = ModerationApi(api_client)
@@ -119,21 +119,18 @@ The SDK includes utilities for generating secure SSO tokens:
 ```python
 from sso import FastCommentsSSO, SecureSSOUserData
 
-# Create user data
+# Create user data (id, email, and username are required)
 user_data = SecureSSOUserData(
-    user_id="user-123",
+    id="user-123",
     email="user@example.com",
     username="johndoe",
     avatar="https://example.com/avatar.jpg"
 )
 
-# Create SSO instance with your API secret
-sso = FastCommentsSSO.new_secure(
-    api_secret="YOUR_API_SECRET",
-    user_data=user_data
-)
+# Sign it with your API secret (HMAC-SHA256)
+sso = FastCommentsSSO.new_secure("YOUR_API_SECRET", user_data)
 
-# Generate the SSO token
+# Generate the SSO token to pass to the widget or an API call
 sso_token = sso.create_token()
 
 # Use this token in your frontend or pass to API calls
@@ -146,7 +143,7 @@ For simple SSO (less secure, for testing):
 from sso import FastCommentsSSO, SimpleSSOUserData
 
 user_data = SimpleSSOUserData(
-    user_id="user-123",
+    username="johndoe",
     email="user@example.com"
 )
 
@@ -156,7 +153,7 @@ sso_token = sso.create_token()
 
 ### Common Issues
 
-1. **401 "missing-api-key" error**: Make sure you set `config.api_key = {"ApiKeyAuth": "YOUR_KEY"}` before creating the DefaultApi instance.
+1. **401 "missing-api-key" error**: Make sure you set `config.api_key = {"api_key": "YOUR_KEY"}` before creating the DefaultApi instance.
 2. **Wrong API class**: Use `DefaultApi` for server-side authenticated requests, `PublicApi` for client-side/public requests, and `ModerationApi` for moderator dashboard requests.
 3. **Import errors**: Make sure you're importing from the correct module:
    - API client: `from client import ...`
@@ -198,10 +195,15 @@ You'll see you're supposed to pass a `broadcast_id` in some API calls. When you 
 ## Requirements
 
 - Python >= 3.8
-- urllib3 >= 1.25.3
-- python-dateutil >= 2.8.2
-- pydantic >= 2.0.0
-- typing-extensions >= 4.0.0
+
+The base install is pure-stdlib and provides the SSO utilities. The generated
+API client (`DefaultApi`/`PublicApi`/`ModerationApi`) needs the `client` extra,
+which pulls in `urllib3 >= 1.25.3`, `python-dateutil >= 2.8.2`,
+`pydantic >= 2.0.0`, and `typing-extensions >= 4.0.0`:
+
+```bash
+pip install "fastcomments[client] @ git+https://github.com/fastcomments/fastcomments-python.git@v3.0.0"
+```
 
 ## License
 

@@ -15,18 +15,41 @@ class FastCommentsSSO:
         self.cached_token = None
 
     @classmethod
-    def new_secure(cls, api_key: str, secure_sso_user_data: SecureSSOUserData):
-        timestamp = int(time.time())
+    def new_secure(
+        cls,
+        api_key: str,
+        secure_sso_user_data: SecureSSOUserData,
+        login_url: str | None = None,
+        logout_url: str | None = None,
+    ):
+        # Epoch MILLISECONDS. The server rejects payloads more than two days old
+        # and hashes this exact value, so seconds would fail verification.
+        timestamp = int(time.time() * 1000)
 
         user_data_str = secure_sso_user_data.as_json_base64()
         hash = create_verification_hash(api_key, timestamp, user_data_str)
 
-        payload = SecureSSOPayload(user_data_str, hash, timestamp)
-        return cls(secure_sso_payload = payload, simple_sso_user_data = None)
+        payload = SecureSSOPayload(user_data_str, hash, timestamp, login_url, logout_url)
+        return cls(
+            secure_sso_payload=payload,
+            simple_sso_user_data=None,
+            login_url=login_url,
+            logout_url=logout_url,
+        )
 
     @classmethod
-    def new_simple(cls, simple_sso_user_data: SimpleSSOUserData):
-        return cls(secure_sso_payload = None, simple_sso_user_data = simple_sso_user_data)
+    def new_simple(
+        cls,
+        simple_sso_user_data: SimpleSSOUserData,
+        login_url: str | None = None,
+        logout_url: str | None = None,
+    ):
+        return cls(
+            secure_sso_payload=None,
+            simple_sso_user_data=simple_sso_user_data,
+            login_url=login_url,
+            logout_url=logout_url,
+        )
 
     @classmethod
     def new_secure_with_urls(

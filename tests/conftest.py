@@ -32,7 +32,7 @@ def base_url():
 def test_user_data():
     """Provide sample user data for SSO tests."""
     return {
-        "user_id": "test-user-123",
+        "id": "test-user-123",
         "email": "test@example.com",
         "username": "testuser",
         "avatar": "https://example.com/avatar.jpg"
