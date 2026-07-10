@@ -8,13 +8,13 @@ The FastComments Python SDK. You can use this to build secure and scalable backe
 Install directly from a release tag (recommended, fully reproducible):
 
 ```bash
-pip install git+https://github.com/fastcomments/fastcomments-python.git@v3.0.0
+pip install git+https://github.com/fastcomments/fastcomments-python.git@v3.1.0
 ```
 
 Pin the tag rather than a branch so builds are deterministic. The same form works in `requirements.txt`:
 
 ```
-fastcomments @ git+https://github.com/fastcomments/fastcomments-python.git@v3.0.0
+fastcomments @ git+https://github.com/fastcomments/fastcomments-python.git@v3.1.0
 ```
 
 Each tagged [GitHub Release](https://github.com/fastcomments/fastcomments-python/releases) also has a built wheel attached if you prefer to install a binary artifact directly.
@@ -156,7 +156,7 @@ sso_token = sso.create_token()
 The `pubsub` module lets you subscribe to real-time comment events (new comments, votes, edits, notifications, etc.) over a WebSocket, mirroring the FastComments Java SDK's `LiveEventSubscriber`. It requires the `pubsub` extra, which adds a WebSocket client on top of the generated API client:
 
 ```bash
-pip install "fastcomments[pubsub] @ git+https://github.com/fastcomments/fastcomments-python.git@v3.0.0"
+pip install "fastcomments[pubsub] @ git+https://github.com/fastcomments/fastcomments-python.git@v3.1.0"
 ```
 
 ```python
@@ -239,7 +239,7 @@ which pulls in `urllib3 >= 1.25.3`, `python-dateutil >= 2.8.2`,
 `pydantic >= 2.0.0`, and `typing-extensions >= 4.0.0`:
 
 ```bash
-pip install "fastcomments[client] @ git+https://github.com/fastcomments/fastcomments-python.git@v3.0.0"
+pip install "fastcomments[client] @ git+https://github.com/fastcomments/fastcomments-python.git@v3.1.0"
 ```
 
 ## License
