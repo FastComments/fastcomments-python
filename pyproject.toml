@@ -34,8 +34,15 @@ client = [
     "pydantic>=2.0.0",
     "typing-extensions>=4.0.0",
 ]
+# Live subscriptions (pubsub.LiveEventSubscriber) need the generated client plus a
+# WebSocket client: pip install "fastcomments[pubsub] @ git+..."
+pubsub = [
+    "fastcomments[client]",
+    "websocket-client>=1.5.0",
+]
 dev = [
     "fastcomments[client]",
+    "fastcomments[pubsub]",
     "pytest>=7.0.0",
     "pytest-cov>=4.0.0",
     "pytest-asyncio>=0.21.0",
@@ -54,7 +61,7 @@ Issues = "https://github.com/fastcomments/fastcomments-python/issues"
 # packages = ["sso", "client"] omits them, which breaks non-editable installs
 # with "No module named 'client.api'".
 [tool.setuptools.packages.find]
-include = ["sso*", "client*"]
+include = ["sso*", "client*", "pubsub*"]
 
 [tool.setuptools.package-data]
 client = ["py.typed"]
@@ -98,7 +105,7 @@ exclude = '''
 '''
 
 [tool.coverage.run]
-source = ["sso"]
+source = ["sso", "pubsub"]
 omit = [
     "*/tests/*",
     "*/client/*",
